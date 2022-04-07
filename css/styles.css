@@ -1,0 +1,397 @@
+
+:root {
+    --white: rgba(255, 255, 255, 0.8);
+    --dark-tint: rgba(0, 0, 0, 0.83);
+}
+/* chrome scrollbar */
+/* main scrollbar & horizontal scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(60, 60, 60);
+    transition: 0.2s;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(40, 40, 40);
+    border-radius: 10px;
+}
+/* main scrollbar */
+body::-webkit-scrollbar-track {
+    background: black;
+}
+/* horizontal scrollbar */
+::-webkit-scrollbar-track {
+    background: var(--dark-tint);
+}
+/* 2nd vertical scrollbar */
+.guide-container::-webkit-scrollbar-thumb, .guide-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+html {
+    /* mozilla scrollbar */
+    scrollbar-color: rgba(30, 30, 30, 0.8) rgba(0, 0, 0, 1);
+    scrollbar-width: thin;
+}
+body {
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+header p {
+    margin: 20px auto 10px auto;
+    font-style: italic;
+}
+footer {
+    flex-grow: 2;
+}
+header, footer {
+    background-color: var(--dark-tint);
+}
+h1 {
+    font-size: 4em;
+    letter-spacing: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#coll-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-color: rgba(30, 30, 30, 0.8) var(--dark-tint);
+    scrollbar-width: thin;
+}
+.collapsible {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    transition: 0.2s;
+    box-shadow: 20px 0 30px rgba(0, 0, 0, 0.6) inset,
+                -20px 0 30px rgba(0, 0, 0, 0.6) inset;
+    min-width: 100px;
+    height: 800px;
+    font-family: 'Raleway';
+    color: rgba(255, 255, 255, 0.7);
+}
+.test {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+}
+.collapsible:hover {
+    background-color: rgba(30, 30, 30, 0.2);
+    transition: 0.2s;
+}
+.collapsible:hover {
+    color: white;
+}
+.highlight {
+    background-color: rgba(30, 30, 30, 0.2);
+}
+.vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+.guide-container {
+    scrollbar-color: transparent transparent;
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: 0.3s ease;
+    background-color: var(--dark-tint);
+    padding-top: 10px;
+    width: 0px;
+    min-width: 0px;
+    max-height: 790px;
+}
+h2 {
+    font-size: 40px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+h3 {
+    font-size: 30px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 40px;
+}
+h4 {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.build-anchor {
+    margin-bottom: 10px;
+}
+.build-anchor a {
+    text-decoration: none;
+    color: var(--white);
+    margin: auto 5px;
+}
+.show-hide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.rec-signets {
+    display: flex;
+    flex-direction: row;
+    max-width: 128px;
+    height: 32px;
+}
+.signet {
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.8;
+    width: 32px;
+    height: 32px;
+}
+.signet a {
+    font-size: 32px;
+    color: transparent;
+    opacity: 0;
+}
+.signet label {
+    font-size: 8px;
+}
+/* signets images */
+.eden   { background-image: url("../img/signets/Eden_Signet.png"); }
+.elysia { background-image: url("../img/signets/Elysia_Signet.png"); }
+.hua    { background-image: url("../img/signets/Hua_Signet.png"); }
+.kalpas { background-image: url("../img/signets/Kalpas_Signet.png"); }
+.kevin  { background-image: url("../img/signets/Kevin_Signet.png"); }
+.mobius { background-image: url("../img/signets/Mobius_Signet.png"); }
+.sakura { background-image: url("../img/signets/Sakura_Signet.png"); }
+.su     { background-image: url("../img/signets/Su_Signet.png"); }
+table {
+    width: 50%;
+    min-width: 90%;
+}
+.tbl {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+tr {
+    border-bottom: 1px solid var(--white);
+}
+tr:last-child:not(thead tr) {
+    border-bottom: unset;
+}
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    background-size: cover;
+    background-position: center;
+}
+th {
+    font-size: 20px;
+}
+tr {
+    height: 50px;
+}
+.comp table {
+    width: 90%;
+}
+.comp th:nth-child(1) {
+    width: 10%;
+}
+.comp th:nth-child(3) {
+    width: 100px;
+}
+.comp td:nth-child(3), .comp td:nth-child(4) {
+    width: 50px;
+    color: transparent;
+    transition: 0.3s ease;
+}
+.comp td:nth-child(3):hover, .comp td:nth-child(4):hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+    cursor: pointer;
+    color: var(--white);
+    transition: 0.2s ease-out;
+}
+/* valk support images */
+.comp .ae    { background-image: url("../img/avatars/Azure_Empyrea_Avatar.png"); }
+.comp .bke   { background-image: url("../img/avatars/Bright_Knight_Excelsis_Avatar.png"); }
+.comp .br    { background-image: url("../img/avatars/Blood_Rose_Avatar.png"); }
+.comp .dp    { background-image: url("../img/avatars/Divine_Prayer_Avatar.png"); }
+.comp .le    { background-image: url("../img/avatars/Lightning_Empress_Avatar.png"); }
+.comp .ss    { background-image: url("../img/avatars/Snowy_Sniper_Avatar.png"); }
+.comp .vc    { background-image: url("../img/avatars/Valkyrie_Chariot_Avatar.png"); }
+#goToTop {
+    visibility: hidden;
+    position: fixed;
+    cursor: pointer;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: rgb(60, 60, 60);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 50px;
+    height: 50px;
+    padding-top: 6px;
+}
+#goToTop:hover {
+    background-color: rgba(60, 60, 60, 0.8);
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip span {
+    visibility: hidden;
+    text-align: center;
+    background-color: rgb(34, 34, 34);
+    color: var(--white);
+    font-size: 12px;
+    width: 100px;
+    padding: 5px 0;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    /* tooltip position */
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left:  50%;
+    transform: translateX(-50%);
+}
+.tooltip input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    bottom: -120%;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+}
+.tooltip input:checked + span {
+    visibility: visible;
+    opacity: 1;
+}
+/* accordion images */
+#aka {
+    background-image: url("../img/valks/Argent_Knight_Artemis.png");
+    background-position: 57%;
+}
+#bke {
+    background-image: url("../img/valks/Bright_Knight_Excelsis.png");
+    background-position: 50%;
+}
+#carole {
+    background-image: url("../img/valks/Swwet_n_Spicy.png");
+    background-position: 51.4%;
+}
+#da {
+    background-image: url("../img/valks/Dea_Anchora.png");
+    background-position: 52.7%;
+}
+#elysia {
+    background-image: url("../img/valks/Miss_Pink_Elf.png");
+    background-position: 52%;
+}
+#fischl {
+    background-image: url("../img/valks/Prinzessin_der_Verurteilung.png");
+    background-position: 57%;
+}
+#hofs {
+    background-image: url("../img/valks/Herrscher_of_Flamescion.png");
+    background-position: 53.7%;
+}
+#hor {
+    background-image: url("../img/valks/Herrscher_of_Reason.png");
+    background-position: 54.1%;
+}
+#hos {
+    background-image: url("../img/valks/Herrscher_of_Sentience.png");
+    background-position: 51.2%;
+}
+#hot {
+    background-image: url("../img/valks/Herrscher_of_Thunder.png");
+    background-position: 57%;
+}
+#lk {
+    background-image: url("../img/valks/Luna_Kindred.png");
+    background-position: 44.8%;
+}
+#mobius {
+    background-image: url("../img/valks/Infinite_Ouroboros.png");
+    background-position: 52.8%;
+}
+#nyx {
+    background-image: url("../img/valks/Starchasm_Nyx.png");
+    background-position: 49.3%;
+}
+#pe {
+    background-image: url("../img/valks/Palatinus_Equinox.png");
+    background-position: 48.76%;
+}
+#raven {
+    background-image: url("../img/valks/Midnight_Absinthe.png");
+    background-position: 53.4%;
+}
+#ri {
+    background-image: url("../img/valks/Ritual_Imayoh.png");
+    background-position: 55%;
+}
+#sn {
+    background-image: url("../img/valks/Stygian_Nymph.png");
+    background-position: 44.6%;
+}
+#spa {
+    background-image: url("../img/valks/Spina_Astera.png");
+    background-position: 49.5%;
+}
+#stfu {
+    background-image: url("../img/valks/Striker_Fulminata.png");
+    background-position: 61.8%;
+}
+#sw {
+    background-image: url("../img/valks/Silverwing_N-EX.png");
+    background-position: 58.3%;
+}
+#tp {
+    background-image: url("../img/valks/Twilight_Paladin.png");
+    background-position: 47.18%;
+}
+#vg {
+    background-image: url("../img/valks/Valkyrie_Gloria.png");
+    background-position: 50%;
+}
+#fischl { font-size: 16px; }
+#aka, #bke, #hofs, #hos { font-size: 20px; }
+#hor, #hot { font-size: 22px; }
+#mobius, #raven { font-size: 25px; }
+#pe, #stfu { font-size: 28px; }
+#elysia, #sw, #tp, #vg { font-size: 30px; }
+#sn { font-size: 32px; }
+#da, #lk, #nyx, #ri, #spa, #carole { font-size: 35px; }
