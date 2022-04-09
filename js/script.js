@@ -199,7 +199,7 @@ mergedCellRows.forEach(cell => {
 // double click accordion items because it somehow can't set transition style directly
 for (let i = 0; i < accordionItems.length; i++) {
     accordionItems[i].click();
-    accordionItems[i].click();
+    if (i == accordionItems.length - 1) accordionItems[i].click();
 }
 // scroll to left most
 setTimeout(() => { accordion.scrollTo({ left: 0, behavior: 'smooth' }) }, 300);

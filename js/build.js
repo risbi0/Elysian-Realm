@@ -110,7 +110,9 @@ for (let i = 0; i < valks.length; i++) {
 
                         let supportLabel = document.createElement('label');
                         supportLabel.classList.add('tooltip');
-                        supportLabel.innerHTML = valks[i].builds[j][l][k].acr.toUpperCase();
+
+                        let supportAcr = document.createElement('p');
+                        supportAcr.innerHTML = valks[i].builds[j][l][k].acr.toUpperCase();
 
                         let supportInput = document.createElement('input');
                         supportInput.setAttribute('type', 'checkbox');
@@ -118,6 +120,7 @@ for (let i = 0; i < valks.length; i++) {
                         let supportSpan = document.createElement('span');
                         supportSpan.innerHTML = valks[i].builds[j][l][k].name;
 
+                        supportLabel.appendChild(supportAcr);
                         supportLabel.appendChild(supportInput);
                         supportLabel.appendChild(supportSpan);
 

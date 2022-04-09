@@ -105,12 +105,12 @@ h1 {
 .fade-in-up { animation: fadeinup 2s; }
 .fade-in-down { animation: fadeindown 2s; }
 @keyframes fadeinup {
-    from { top: 100px; opacity: 0; }
-    to {  top: 0px; opacity: 1; }
+    from { transform: translateY(100px); opacity: 0; }
+    to {  transform: translateY(0px); opacity: 1; }
 }
 @keyframes fadeindown {
-    from {  top: -100px;  opacity: 0; }
-    to {  top: 0px; opacity: 1; }
+    from {  transform: translateY(-100px);  opacity: 0; }
+    to {  transform: translateY(0px); opacity: 1; }
 }
 .collapsible div:nth-child(1) {
     box-shadow: 0 -800px 800px -500px rgba(0, 0, 0, 0.8) inset;
@@ -303,7 +303,11 @@ tr {
 }
 .tooltip {
     position: relative;
-    display: inline-block;
+    display: flex;
+    transform: translateX(13px);
+}
+.bke .tooltip p {
+    transform: translateX(-3px);
 }
 .tooltip span {
     visibility: hidden;
@@ -311,27 +315,22 @@ tr {
     background-color: rgb(34, 34, 34);
     color: var(--white);
     font-size: 12px;
-    width: 100px;
+    width: 80px;
     padding: 5px 0;
     border-radius: 6px;
     opacity: 0;
     transition: opacity 0.2s;
-    /* tooltip position */
     position: absolute;
     z-index: 1;
-    bottom: 150%;
-    left:  50%;
-    transform: translateX(-50%);
+    transform: translate(-30px, -35px);
 }
 .tooltip input {
     position: absolute;
     cursor: pointer;
     opacity: 0;
-    bottom: -120%;
-    left: 40%;
-    transform: translateX(-50%);
     width: 48px;
     height: 48px;
+    transform: translate(-15px,-18px);
 }
 .tooltip input:checked + span {
     visibility: visible;
