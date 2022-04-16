@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-    <head>
-        <title>Elysian Realm Recommended Builds</title>
+    <head lang="en">
+        <title>Elysian Realm Recommended Builds (v5.6)</title>
         <meta charset="UTF-8">
-        <meta name="keywords" content="Honkai Impact, Elysian Realm, Guide">
+        <meta name="keywords" content="Honkai Impact, Elysian Realm, Elysian Realm Guide">
         <meta name="description" content="Recommended builds and team for Elysian Realm in Honkai Impact">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="icon" type="image/png" href="img/favicon.ico"/>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#df76d8">
+        <link rel="shortcut icon" href="/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#df76d8">
+        <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#b4b4b4">
+
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,9 +23,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id="cover"><div id="progress-bar"><div id="meter"></div></div></div>
         <header>
             <h1>Elysian Realm</h1>
-            <p>Recommended Builds updated for v5.5</p>
+            <p>Recommended Builds updated for v5.6</p>
+            <div>
+                <a href="about.html">About This Guide</a>
+                <a href="https://rentry.co/ElysianRealm" target="_blank">Rentry Page</a>
+            </div>
         </header>
         <main id="coll-container">
             <!--
@@ -32,69 +46,101 @@
                     <div>
                         <h2>[valk name]</h2>
                     </div>
-                    <div class="rec-signets">
-                        // 3 - 4 times depending on build
-                        <div class="signet [signet owner]">
-                            <a href="#[valk acronym]-[signet owner]">O</a>
-                            <label>[nexus signet series]</label>
-                        </div>
+                    <div>
+                        <p>[rating]</p>
                     </div>
-                    <div class="comp tbl">
+                    <div class="rec-signets">
+                        // 4-5 times
+                        <div class="signet sig-tog [signet owner]"></div>
+                        // ...
+                    </div>
+                    <div class="anchor-container">
+                        // loop 2-4 times depending if there's a transitional signet table, notes, or both
+                        <div class="anchor">
+                            [M/S/T/N]
+                            <a href="#[main/secondary/transitional-signets/notes-[valks index]]">
+                                <span class="link-spanner"></span>
+                            </a>
+                        </div>
+                        // ...
+                    </div>
+                    <div class="emblem">
                         <table>
                             <thead>
-                                <tr><th>Time</th><th>Emblem</th><th colspan="2">Supports</th></tr>
+                                <tr><th>Time</th><th>Emblem</th></tr>
                             </thead>
                             <tbody>
-                                // 3 times (early, mid, late)
-                                <tr><td>[time column data]</td><td>[emblem name]</td>
-                                    <td class="[support valks acronym]">
-                                        // 2 times (support 1 and 2)
+                                // 3 rows
+                                <tr><td>[Early / Mid / Late]</td><td>[emblem name]</td></tr>
+                                // ...
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="supp">
+                        <table>
+                            <thead>
+                                <tr><th>Type</th><th colspan="2">Support</th></tr>
+                            </thead>
+                            <tbody>
+                                // 2 rows
+                                <tr>
+                                    <td>[Utilitc / Damage]</td>
+                                    // 2 times (support 1 and 2)
+                                    <td class="[support valk acronym]">
                                         <label class="tooltip">
-                                            <p>[support valks acronym uppercase]</p>
+                                            <p>[support valk acronym uppercase]</p>
                                             <input type="checkbox">
                                             <span>[support valk name]</span>
                                         </label>
                                     </td>
+                                    // ...
                                 </tr>
+                                // ...
                             </tbody>
                         </table>
                     </div>
-                    <h3>Signets of ⬛⬛⬛</h3>
-                    <div class="excl tbl">
-                        <table>
-                            <thead>
-                                <tr><th>Signet</th><th>Priority</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Blessing of [exclusive signet 1]</td><td>Start</td></tr>
-                                <tr><td>Blessing of [exclusive signet 2]</td><td>1st</td></tr>
-                                <tr><td>Blessing of [exclusive signet 3]</td><td>2nd</td></tr>
-                                <tr><td>Blessing of [exclusive signet 4]</td><td rowspan="2">Filler</td></tr> // sample cell merges
-                                <tr><td>Blessing of [exclusive signet 5]</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    // 3 - 4 times depending on build
-                    <h3 id="[valk acronym]-[signet owner]">Signets of [signet name]</h3>
-                    <table>
+                    <h3>Exclusive Signets</h3>
+                    <table class="exclusive-tbl">
                         <thead>
                             <tr><th>Signet</th><th>Priority</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>[regular signet 1]</td>     <td rowspan="2">1st</td></tr>
-                            <tr><td>[regular signet 2]></tr>
-                            <tr><td>[regular signet 3]</td>     <td>2nd</td></tr>
-                            <tr><td>[regular signet 4]</td>     <td>Filler</td></tr>
-                            <tr><td>[regular signet 5]</td>     <td rowspan="2">No</td></tr>
-                            <tr><td>[regular signet 6]</td></tr>
-                            <tr><td colspan="2" style="font-size: 20px;">[nexus signe name]</td></tr>
-                            <tr><td>[nexus signet 1]</td>       <td>2nd</td></tr>
-                            <tr><td>[nexus signet 2]</td>       <td rowspan="2">Filler</td></tr>
-                            <tr><td>[nexus signet 3]</td></tr>
+                            <tr><td>Blessing of [exclusive signet 1]</td><td>Start</td></tr>
+                            <tr><td>Blessing of [exclusive signet 2]</td><td>1st</td></tr>
+                            <tr><td>Blessing of [exclusive signet 3]</td><td>2nd</td></tr>
+                            <tr><td>Blessing of [exclusive signet 4]</td><td rowspan="2">Filler</td></tr> // sample cell merges
+                            <tr><td>Blessing of [exclusive signet 5]</td></tr>
                         </tbody>
                     </table>
+                    // 2-3 times depending whether there's a transitional table or no
+                    <h3 id="[main/secondary/transitional]-signets-[valks index]">[Main/Secondary/Transitional] Signets</h3>
+                    <div class="rec-signets">
+                        // 1-4 times
+                        <div class="signet sig-sep [signet owner]">
+                            <label>[nexus series(1, 2, or none)]</label>
+                        </div>
+                        // ...
+                    </div>
+                    <table class="[main/secondary/transitional]-tbl">
+                        <thead>
+                            <tr><th>Signet</th><th>Priority</th></tr>
+                        </thead>
+                        <tbody>
+                            // times depending
+                            <tr>
+                                <td rowspan="5">[Signet Owner]</td>
+                                <td>[Signet 1]</td>
+                            </tr>
+                            <tr>
+                                <td>[Signet 2]</td>
+                            </tr>
+                            // ...
+                        </tbody>
+                    </table>
+                    // ...
                 </div>
             </div>
+            // ...
             -->
         </main>
         <button id="goToTop">^</button>

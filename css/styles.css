@@ -34,7 +34,7 @@ body::-webkit-scrollbar-track {
 }
 html {
     /* mozilla scrollbar */
-    scrollbar-color: rgba(30, 30, 30, 0.8) transparent;
+    scrollbar-color: rgb(50, 50, 50) black;
     scrollbar-width: thin;
 }
 body {
@@ -47,6 +47,32 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--white);
 }
+#cover {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.fade { animation: fade 1s; }
+@keyframes fade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+#progress-bar {
+    width: 50%;
+    height: 5px;
+    background-color: #222;
+}
+#meter {
+    width: 0;
+    height: 5px;
+    background-color: gray;
+    border-radius: 5px;
+}
 header {
     display: flex;
     flex-direction: column;
@@ -54,11 +80,21 @@ header {
     align-items: center;
     flex-grow: 1;
 }
+@media only screen and (max-height: 1100px) {
+    header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
 header p {
     margin: 20px auto 10px auto;
     font-style: italic;
 }
-header h1, header p {
+header a {
+    color: var(--white);
+    font-size: 12px;
+}
+header h1, header p, header a {
     animation: headeranim 5s;
 }
 @keyframes headeranim {
@@ -67,8 +103,9 @@ header h1, header p {
 }
 footer {
     flex-grow: 2;
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgb(0, 0, 0) 100%);
 }
-header, main, footer {
+header, main {
     background-color: var(--dark-tint);
 }
 h1 {
@@ -87,7 +124,7 @@ h1 {
     animation: moz-scroll 20s;
 }
 @keyframes moz-scroll {
-    from { scrollbar-color: transparent transparent; }
+    from { scrollbar-color: transparent black; }
     to { scrollbar-color: rgba(20, 20, 20, 0.8) black; }
 }
 .collapsible {
@@ -113,15 +150,15 @@ h1 {
     to {  transform: translateY(0px); opacity: 1; }
 }
 .collapsible div:nth-child(1) {
-    box-shadow: 0 -800px 800px -500px rgba(0, 0, 0, 0.8) inset;
+    box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
     background-size: cover;
-    filter: brightness(40%);
+    filter: brightness(35%);
     transition: 0.2s;
     height: 800px;
     width: 100px;
 }
 .collapsible:hover div:nth-child(1) {
-    filter: brightness(60%);
+    filter: brightness(70%);
     transition: 0.2s;
     color: white;
 }
@@ -176,13 +213,9 @@ h4 {
     font-size: 12px;
     margin-bottom: 10px;
 }
-.build-anchor {
-    margin-bottom: 10px;
-}
-.build-anchor a {
-    text-decoration: none;
-    color: var(--white);
-    margin: auto 5px;
+.rating {
+    font-style: italic;
+    margin-bottom: 2px;
 }
 .show-hide {
     display: flex;
@@ -194,8 +227,8 @@ h4 {
 .rec-signets {
     display: flex;
     flex-direction: row;
-    max-width: 128px;
-    height: 32px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 .signet {
     background-size: contain;
@@ -204,42 +237,57 @@ h4 {
     flex-direction: column;
     align-items: center;
     opacity: 0.8;
+}
+.anchor-container {
+    display: flex;
+    flex-direction: row;
+}
+.anchor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(78, 78, 78, 0.2);
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--white);
+}
+.link-spanner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.sig-tog {
     width: 32px;
     height: 32px;
 }
-.signet a {
-    font-size: 32px;
-    color: transparent;
-    opacity: 0;
+.sig-sep {
+    width: 40px;
+    height: 40px;
 }
 .signet label {
-    font-size: 8px;
+    padding-top: 40px;
+    font-size: 10px;
 }
 /* signets images */
-.eden   { background-image: url("../img/signets/Eden_Signet.png"); }
-.elysia { background-image: url("../img/signets/Elysia_Signet.png"); }
-.hua    { background-image: url("../img/signets/Hua_Signet.png"); }
-.kalpas { background-image: url("../img/signets/Kalpas_Signet.png"); }
-.kevin  { background-image: url("../img/signets/Kevin_Signet.png"); }
-.mobius { background-image: url("../img/signets/Mobius_Signet.png"); }
-.sakura { background-image: url("../img/signets/Sakura_Signet.png"); }
-.su     { background-image: url("../img/signets/Su_Signet.png"); }
-table {
-    width: 50%;
-    min-width: 90%;
-}
-.tbl {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-}
-tr {
-    border-bottom: 1px solid var(--white);
-}
-tr:last-child:not(thead tr) {
-    border-bottom: unset;
-}
+.aponia     { background-image: url("../img/signets/Aponia_Signet.png"); }
+.eden       { background-image: url("../img/signets/Eden_Signet.png"); }
+.griseo     { background-image: url("../img/signets/Griseo_Signet.png"); }
+.hua        { background-image: url("../img/signets/Hua_Signet.png"); }
+.kalpas     { background-image: url("../img/signets/Kalpas_Signet.png"); }
+.kevin      { background-image: url("../img/signets/Kevin_Signet.png"); }
+.kosma      { background-image: url("../img/signets/Kosma_Signet.png"); }
+.mobius     { background-image: url("../img/signets/Mobius_Signet.png"); }
+.pardofelis { background-image: url("../img/signets/Pardofelis_Signet.png"); }
+.sakura     { background-image: url("../img/signets/Sakura_Signet.png"); }
+.su         { background-image: url("../img/signets/Su_Signet.png"); }
+.vill-v     { background-image: url("../img/signets/Vill-V_Signet.png"); }
 th, td {
     text-align: center;
     vertical-align: middle;
@@ -251,36 +299,128 @@ th {
 }
 tr {
     height: 50px;
+    border-bottom: 1px solid var(--white);
 }
-.comp table {
+tr:last-child:not(thead tr) {
+    border-bottom: unset;
+}
+.table-cell-hover {
+    background-color: var(--white);
+    color: black;
+}
+.noted {
+    background-color: rgba(70, 70, 70, 0.5);
+}
+.tbl {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+.emblem, .supp {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.emblem table, .supp table {
     width: 90%;
 }
-.comp th:nth-child(1) {
-    width: 10%;
+.exclusive-tbl, .main-tbl, .secondary-tbl, .transitional-tbl {
+    width: 50%;
+    min-width: 90%;
 }
-.comp th:nth-child(3) {
-    width: 100px;
+.main-tbl th:nth-child(1), .secondary-tbl th:nth-child(1), .transitional-tbl th:nth-child(1) {
+    width: 20%;
 }
-.comp td:nth-child(3), .comp td:nth-child(4) {
-    width: 50px;
+.supp {
+    margin-top: 10px;
+}
+.supp td:nth-child(1) {
+    width: 20%;
+}
+.supp td:nth-child(n+2):nth-child(-n+5) {
     color: transparent;
     transition: 0.3s ease;
 }
-.comp td:nth-child(3):hover, .comp td:nth-child(4):hover {
-    background-color: rgba(0, 0, 0, 0.3);
-    background-blend-mode: multiply;
-    cursor: pointer;
+.supp td:nth-child(n+2):nth-child(-n+5):hover {
     color: var(--white);
-    transition: 0.2s ease-out;
+    transition: 0.2s ease-in;
+}
+.supp .pic {
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+}
+.pos-relative {
+    position: relative;
 }
 /* valk support images */
-.comp .ae    { background-image: url("../img/avatars/Azure_Empyrea_Avatar.png"); }
-.comp .bke   { background-image: url("../img/avatars/Bright_Knight_Excelsis_Avatar.png"); }
-.comp .br    { background-image: url("../img/avatars/Blood_Rose_Avatar.png"); }
-.comp .dp    { background-image: url("../img/avatars/Divine_Prayer_Avatar.png"); }
-.comp .le    { background-image: url("../img/avatars/Lightning_Empress_Avatar.png"); }
-.comp .ss    { background-image: url("../img/avatars/Snowy_Sniper_Avatar.png"); }
-.comp .vc    { background-image: url("../img/avatars/Valkyrie_Chariot_Avatar.png"); }
+.supp .ae    { background-image: url("../img/avatars/Azure_Empyrea_Avatar.png"); }
+.supp .bke   { background-image: url("../img/avatars/Bright_Knight_Excelsis_Avatar.png"); }
+.supp .br    { background-image: url("../img/avatars/Blood_Rose_Avatar.png"); }
+.supp .dp    { background-image: url("../img/avatars/Divine_Prayer_Avatar.png"); }
+.supp .hb    { background-image: url("../img/avatars/Haxxor_Bunny_Avatar.png"); }
+.supp .le    { background-image: url("../img/avatars/Lightning_Empress_Avatar.png"); }
+.supp .ma    { background-image: url("../img/avatars/Midnight_Absinthe_Avatar.png"); }
+.supp .rc    { background-image: url("../img/avatars/Reverist_Calico_Avatar.png"); }
+.supp .ss    { background-image: url("../img/avatars/Snowy_Sniper_Avatar.png"); }
+.supp .vc    { background-image: url("../img/avatars/Valkyrie_Chariot_Avatar.png"); }
+.tooltip {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transform: translateY(-50px);
+}
+.tooltip p {
+    transform: translateY(18px);
+    height: 25px;
+}
+.tooltip span {
+    position: absolute;
+    visibility: hidden;
+    text-align: center;
+    background-color: rgb(34, 34, 34);
+    color: var(--white);
+    font-size: 12px;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1;
+    transform: translateY(-20px);
+}
+.tooltip input {
+    position: absolute;
+    appearance: none;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+}
+.tooltip input:checked + span {
+    visibility: visible;
+    opacity: 1;
+}
+.notes {
+    margin-top: 20px;
+    padding: 20px;
+    width: 85%;
+    font-size: 14px;
+    line-height: 20px;
+}
+.notes p {
+    font-weight: bold;
+}
+.notes span {
+    font-style: italic;
+}
+.notes:hover {
+    background-color: var(--white);
+    color: black;
+}
 #goToTop {
     visibility: hidden;
     position: fixed;
@@ -300,41 +440,6 @@ tr {
 }
 #goToTop:hover {
     background-color: rgba(60, 60, 60, 0.8);
-}
-.tooltip {
-    position: relative;
-    display: flex;
-    transform: translateX(13px);
-}
-.bke .tooltip p {
-    transform: translateX(-3px);
-}
-.tooltip span {
-    visibility: hidden;
-    text-align: center;
-    background-color: rgb(34, 34, 34);
-    color: var(--white);
-    font-size: 12px;
-    width: 80px;
-    padding: 5px 0;
-    border-radius: 6px;
-    opacity: 0;
-    transition: opacity 0.2s;
-    position: absolute;
-    z-index: 1;
-    transform: translate(-30px, -35px);
-}
-.tooltip input {
-    position: absolute;
-    cursor: pointer;
-    opacity: 0;
-    width: 48px;
-    height: 48px;
-    transform: translate(-15px,-18px);
-}
-.tooltip input:checked + span {
-    visibility: visible;
-    opacity: 1;
 }
 /* accordion images */
 #aka {
@@ -356,6 +461,10 @@ tr {
 #elysia {
     background-image: url("../img/valks/Miss_Pink_Elf.png");
     background-position: 52%;
+}
+#fr {
+    background-image: url("../img/valks/Fallen_Rosemary.png");
+    background-position: 56.2%;
 }
 #fischl {
     background-image: url("../img/valks/Prinzessin_der_Verurteilung.png");
@@ -397,6 +506,10 @@ tr {
     background-image: url("../img/valks/Midnight_Absinthe.png");
     background-position: 53.4%;
 }
+#rc {
+    background-image: url("../img/valks/Reverist_Calico.png");
+    background-position: 56.4%;
+}
 #ri {
     background-image: url("../img/valks/Ritual_Imayoh.png");
     background-position: 55%;
@@ -427,9 +540,60 @@ tr {
 }
 #fischl-name { font-size: 16px; }
 #aka-name, #bke-name, #hofs-name, #hos-name { font-size: 20px; }
-#hor-name, #hot-name { font-size: 22px; }
+#hor-name, #hot-name, #stfu-name { font-size: 22px; }
 #mobius-name, #raven-name { font-size: 25px; }
-#pe-name, #stfu-name { font-size: 28px; }
-#elysia-name, #sw-name, #tp-name, #vg-name { font-size: 30px; }
+#fr-name, #pe-name { font-size: 28px; }
+#rc-name, #elysia-name, #sw-name, #tp-name, #vg-name { font-size: 30px; }
 #sn-name { font-size: 32px; }
 #da-name, #lk-name, #nyx-name, #ri-name, #spa-name, #carole-name { font-size: 35px; }
+/* about page */
+#about #container {
+    background-color: var(--dark-tint);
+}
+#sub-container {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 600px;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+}
+@media only screen and (max-width: 640px) {
+    #sub-container { width: auto; }
+}
+h5 {
+    font-size: 30px;
+}
+h6 {
+    font-size: 24px;
+}
+hr {
+    color: var(--white);
+}
+#about p, li {
+    line-height: 1.2;
+}
+#about table {
+    margin: auto;
+}
+#about table td {
+    border: 1px solid var(--white);
+}
+#about tr:nth-child(1) td {
+    width: 20%;
+    vertical-align: middle;
+}
+.cell-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+}
+.sideways {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+li {
+    list-style: initial;
+    margin: 0 0 10px 15px;
+}

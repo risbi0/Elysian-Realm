@@ -2,67 +2,57 @@
 const aka = {
     name: 'Argent Knight: Artemis',
     acr: 'aka',
-    builds: {
+    rate: corruption,
+    signet: { // 1 - main, 2 - secondary, 3 - transitional
+        1: { 0: { 0: mobius, 1: '1' }, 1: { 0: kevin, 1: '2' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' } }
+    },
+    emblem: {
+        1: forbiddenSeed, // early
+        2: `${burden} / ${becauseOfYou}`, // mid
+        3: `${boundlessLogos} / ${homeLost}` // late
+    },
+    support: { // [support 1/2][row 1/2][support]
+        1: { 1: { 1: ae }, 2: { 1: ae } },
+        2: { 1: { 1: le }, 2: { 1: hb } }
+    },
+    signetTable: {
+        // 0 - elysian signets, 1 - core signets, 2 - reinforcement signets, 3 - transitional signets
+        // respective order from signet Object
         0: {
-            signet: { 1: eden, 2: kevin, 3: mobius },
-            signetPr: { 1: '2', 2: '2', 3: '1' },
-            emblem: {
-                1: forbiddenSeed, // early
-                2: `${burden} / ${forbiddenSeed}`, // mid
-                3: homeLost // late
-            },
-            // early | mid | late supports
-            // 3 for 3rd column, support 1
-            // 4 for 4th column, support 2
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: bke, 3: br },
-            signetTable: {
-                // 0 - elysian signets, 1-3 - regular signets
-                // respective order from signet Object
-                0: {
-                    1: { name: 'Winter Harvest', pr: start },
-                    2: { name: 'Stellar Trials', pr: first },
-                    3: { name: 'Cold Moon', pr: second },
-                    4: { name: 'Frost Scythe', pr: filler },
-                    5: { name: 'Uranian Mirror', pr: filler }
-                },
-                1: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: second },
-                    4: { name: eden.regular[6], pr: filler },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second },
-                    9: { name: eden.nexus2[1], pr: filler, rowspan: '2' },
-                    10: { name: eden.nexus2[3] }
-                },
-                2: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2'  },
-                    4: { name: kevin.regular[6] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus2.name },
-                    8: { name: kevin.nexus2[3], pr: first },
-                    9: { name: kevin.nexus2[1], pr: second, rowspan: '2' },
-                    10: { name: kevin.nexus2[2] }
-                },
-                3: {
-                    1: { name: mobius.regular[4] , pr: first },
-                    2: { name: mobius.regular[2], pr: second, rowspan: '2' },
-                    3: { name: mobius.regular[3] },
-                    4: { name: mobius.regular[1], pr: filler, rowspan: '3' },
-                    5: { name: mobius.regular[5]},
-                    6: { name: mobius.regular[6] },
-                    7: { name: mobius.nexus1.name },
-                    8: { name: mobius.nexus1[1], pr: first },
-                    9: { name: mobius.nexus1[3], pr: second },
-                    10: { name: mobius.nexus1[2], pr: no }
-                }
-            }
+            // 1, 2, 3... - rows
+            // 0, 1, 2 - columns
+            // whatever key that only has numbers - rowspan value for the preceding value
+            // succeeding rows covered by the rowspan value starts at 0 regardless
+            1: { 0: 'Frost Scythe', 1: start },
+            2: { 0: 'Stellar Trials', 1: first },
+            3: { 0: 'Cold Moon', 1: second, 2: '2' },
+            4: { 0: 'Winter Harvest' },
+            5: { 0: 'Uranian Mirror', 1: filler }
+        },
+        1: {
+            1: { 0: mobius.name, 1: '5', 2: mobius.regular[2] },
+            2: { 0: mobius.regular[3] },
+            3: { 0: mobius.regular[5] },
+            4: { 0: mobius.nexus1.name },
+            5: { 0: mobius.nexus1[1] },
+            6: { 0: kevin.name, 1: '3', 2: kevin.regular[1] },
+            7: { 0: kevin.regular[6] },
+            8: { 0: kevin.nexus2.name }
+        },
+        2: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name },
+            4: { 0: griseo.name, 1: '5', 2: griseo.regular[1] },
+            5: { 0: griseo.regular[4] }, 
+            6: { 0: griseo.regular[6] }, 
+            7: { 0: griseo.nexus1.name }, //situational
+            8: { 0: griseo.nexus1[2] }, //situational
+            9: { 0: su.name, 1: '4', 2: su.regular[1] },
+            10: { 0: su.regular[3] },
+            11: { 0: su.regular[5] },
+            12: { 0: su.nexus2.name }
         }
     }
 }
@@ -70,503 +60,490 @@ const aka = {
 const bkek = {
     name: 'Bright Knight: Excelsis',
     acr: 'bke',
-    builds: {
+    rate: abstinence,
+    signet: {
+        1: { 0: { 0: sakura, 1: '1' }, 1: { 0: kalpas, 1: '2' } },
+        2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '2' }, 2: { 0: hua, 1: '2' } }
+    },
+    emblem: {
+        1: `${forgetMeNot} / ${madKingsMask}`,
+        2: `${forgetMeNot} / ${greyScaleRainbow}`,
+        3: `${stainedSakura} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: vc, 2: dp }, 2: { 1: le } },
+        2: { 1: { 1: ss }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: sakura , 2: su , 3: eden },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: forgetMeNot,
-                2: `${forgetMeNot} / ${lightAsABodhiLeaf}`,
-                3: stainedSakura
-            },
-            3: { 1: le, 2: le, 3: br },
-            4: { 1: vc, 2: vc, 3: ss },
-            signetTable: {
-                0: {
-                    1: { name: 'Gambit', pr: start },
-                    2: { name: 'Glory', pr: first },
-                    3: { name: 'Paragon', pr: second },
-                    4: { name: 'Formation', pr: no, rowspan: '2' },
-                    5: { name: 'Holy Lance' }
-                },
-                1: {
-                    1: { name: sakura.regular[1], pr: first, rowspan: '2' },
-                    2: { name: sakura.regular[3] },
-                    3: { name: sakura.regular[2], pr: second, rowspan: '2'  },
-                    4: { name: sakura.regular[5] },
-                    5: { name: sakura.regular[4], pr: no, rowspan: '2' },
-                    6: { name: sakura.regular[6] },
-                    7: { name: sakura.nexus1.name },
-                    8: { name: sakura.nexus1[1], pr: filler },
-                    9: { name: sakura.nexus1[3], pr: no, rowspan: '2' },
-                    10: { name: sakura.nexus1[2] }
-                },
-                2: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler },
-                    6: { name: su.regular[4], pr: no },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: su.nexus1[2] }
-                },
-                3: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: second },
-                    4: { name: eden.regular[6], pr: filler },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name, pr: second, rowspan: '2' },
-                    8: { name: eden.nexus2[2] },
-                    9: { name: eden.nexus2[1], pr: filler },
-                    10: { name: eden.nexus2[3], pr: no }
-                }
-            }
+            1: { 0: 'Gambit', 1: start },
+            2: { 0: 'Glory', 1: first },
+            3: { 0: 'Paragon', 1: second },
+            4: { 0: 'Formation', 1: no, 2: '2' },
+            5: { 0: 'Holy Lance' }
+        },
+        1: {
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            2: { 0: sakura.regular[6] },
+            3: { 0: sakura.nexus1.name },
+            4: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
+            5: { 0: kalpas.regular[2] },
+            6: { 0: kalpas.nexus2.name },
+            7: { 0: kalpas.nexus2[3], 1: '' },     
+        },
+        2: {
+            1: { 0: griseo.name, 1: '6', 2: griseo.regular[2] },
+            2: { 0: griseo.regular[4] },
+            3: { 0: griseo.regular[6] },
+            4: { 0: griseo.regular[3] },
+            5: { 0: griseo.nexus1.name },
+            6: { 0: griseo.nexus1[2] },
+            7: { 0: su.name, 1: '4', 2: su.regular[1] },
+            8: { 0: su.regular[3] },
+            9: { 0: su.regular[5] },
+            10: { 0: su.nexus2.name },
+            11: { 0: hua.name, 1: '2', 2: hua.regular[5] },
+            12: { 0: hua.nexus2.name },
         }
-    }
+    },
+    notes: `<p>${kalpas.nexus2[3]}</p>If lacking impair/breach.`
 }
 // Dea Anchora
 const da = {
     name: 'Dea Anchora',
     acr: 'da',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: kalpas, 1: '2' }, 3: { 0: griseo, 1: '' } }
+    },
+    emblem: {
+        1: burden,
+        2: `${goldGoblet} / ${lightAsABodhiLeaf}`,
+        3: `${itWillBeWritten} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: br, 2: ma } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: kevin, 2: eden, 3: su },
-            signetPr: { 1: '1', 2: '2', 3: '2' },
-            emblem: {
-                1: burden,
-                2: `${burden} / ${goldGoblet}`,
-                3: homeLost
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: bke, 3: br  },
-            signetTable: {
-                0: {
-                    1: { name: 'Star', pr: start },
-                    2: { name: 'Sheen', pr: first },
-                    3: { name: 'Halo', pr: second },
-                    4: { name: 'Brilliance', pr: filler, rowspan: '2' },
-                    5: { name: 'Gale' }
-                },
-                1: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[6] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2'  },
-                    4: { name: kevin.regular[3] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus2.name },
-                    8: { name: kevin.nexus2[1], pr: first },
-                    9: { name: kevin.nexus2[2], pr: no, rowspan: '2' },
-                    10: { name: kevin.nexus2[3] }
-				},
-                2: {
-                    1: { name: eden.regular[2], pr: first },
-                    2: { name: eden.regular[3], pr: second, rowspan: '2' },
-                    3: { name: eden.regular[6] },
-                    4: { name: eden.regular[4], pr: filler, rowspan: '2' },
-                    5: { name: eden.regular[5] },
-                    6: { name: eden.regular[1], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second, rowspan: '2' },
-                    9: { name: eden.nexus2[3] },
-                    10: { name: eden.nexus2[1], pr: filler }
-                },
-                3: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: no, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus2.name },
-                    8: { name: su.nexus2[1], pr: first, rowspan: '2' },
-                    9: { name: su.nexus2[3] },
-                    10: { name: su.nexus2[2], pr: filler }
-                }
-            }
+            1: { 0: 'Star', 1: start },
+            2: { 0: 'Sheen', 1: first },
+            3: { 0: 'Halo', 1: second, 2: '2' },
+            4: { 0: 'Gale' },
+            5: { 0: 'Brilliance', 1: no }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '4', 2: kevin.regular[1] },
+            2: { 0: kevin.regular[6] },
+            3: { 0: kevin.nexus1.name },
+            4: { 0: kevin.nexus1[1] },
+        },
+        2: {
+            1: { 0: eden.name, 1: '5', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.regular[1], 1: '' },
+            4: { 0: eden.nexus2.name },
+            5: { 0: eden.nexus2[3] },
+            6: { 0: su.name, 1: '4', 2: su.regular[1] },
+            7: { 0: su.regular[3] },
+            8: { 0: su.regular[5] },
+            9: { 0: su.nexus2.name },
+            10: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
+            11: { 0: kalpas.regular[2] },
+            12: { 0: kalpas.regular[5], 1: '' },
+            13: { 0: kalpas.nexus2.name },
+            14: { 0: griseo.name, 1: '2', 2: griseo.regular[1] },
+            15: { 0: griseo.regular[6] }, // aponia sig
         }
-    }
+    },
+    notes: `<p>${kalpas.regular[5]} / ${eden.regular[1]}</p>
+            When core is unlocked, choose either for damage reduction.<br><br>
+            <p>Griseo</p>
+            Can also pick Aponia's enhanced signet <span>${aponia.nexus1[3]}</span>. 
+            The priority of Aponia signets is the same as Griseo`
+}
+// Fallen Rosemary
+const fr = {
+    name: 'Fallen Rosemary',
+    acr: 'fr',
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' }, 1: { 0: su, 1: '2' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: burden,
+        2: `${lightAsABodhiLeaf} / ${goldGoblet}`,
+        3: `${dreamfulGold} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: br, 2: hb } }
+    },
+    signetTable: {
+        0: {
+            1: { 0: 'Nocturne', 1: start },
+            2: { 0: 'Battle Valfreyja', 1: first, 2: '2' },
+            3: { 0: 'Soul Siphon' },
+            4: { 0: 'God Eater', 1: second },
+            5: { 0: 'Spirit Servants', 1: filler }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '4', 2: kevin.regular[1] },
+            2: { 0: kevin.regular[6] },
+            3: { 0: kevin.nexus1.name },
+            4: { 0: kevin.nexus1[2] },
+            5: { 0: su.name, 1: '4', 2: su.regular[1] },
+            6: { 0: su.regular[3] },
+            7: { 0: su.regular[5] },
+            8: { 0: su.nexus2.name }
+        },
+        2: {
+            1: { 0: eden.name, 1: '5', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name },
+            4: { 0: eden.nexus2[2] },
+            5: { 0: eden.nexus2[3] },
+            6: { 0: sakura.name, 1: '2', 2: sakura.regular[5] },
+            7: { 0: sakura.nexus2.name },
+            8: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            9: { 0: kalpas.regular[2] },
+            10: { 0: kalpas.nexus2.name }
+        }
+    },
+    notes: `<p>Kalpas</p>
+            Griseo signets can also work with 
+            <span>${griseo.regular[3]}</span>, <span>${griseo.regular[4]}</span>, and <span>${griseo.regular[6]}</span>.`
 }
 // Herrscher of Flamescion
 const hofs = {
     name: 'Herrscher of Flamescion',
     acr: 'hofs',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: kalpas, 1: '1' }, 1: { 0: hua, 1: '2' } },
+        2: { 0: { 0: sakura, 1: '1' }, 1: { 0: su, 1: '2' }, 2: { 0: eden, 1: '1' } }
+    },
+    emblem: {
+        1: madKingsMask,
+        2: `${memory} / ${becauseOfYou}`,
+        3: `${stainedSakura} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: br } },
+        2: { 1: { 1: ae }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: kalpas, 2: hua, 3: sakura },
-            signetPr: { 1: '1', 2: '1', 3: '1' },
-            emblem: {
-                1: madKingsMask,
-                2: `${forgetMeNot} / ${madKingsMask}`,
-                3: resolve
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: br, 2: bke, 3: br },
-            signetTable: {
-                0: {
-                    1: { name: 'Heatflow', pr: start },
-                    2: { name: 'Abyssal Reburn', pr: first },
-                    3: { name: 'Tempered Warrior', pr: second },
-                    4: { name: 'Flamescion', pr: filler, rowspan: '2' },
-                    5: { name: 'Starfire' }
-                },
-                1: {
-                    1: { name: kalpas.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kalpas.regular[2] },
-                    3: { name: kalpas.regular[3], pr: second, rowspan: '2' },
-                    4: { name: kalpas.regular[6] },
-                    5: { name: kalpas.regular[4], pr: filler },
-                    6: { name: kalpas.regular[5], pr: no },
-                    7: { name: kalpas.nexus1.name },
-                    8: { name: kalpas.nexus1[2], pr: first },
-                    9: { name: kalpas.nexus1[3], pr: second },
-                    10: { name: kalpas.nexus1[1], pr: filler }
-				},
-                2: {
-                    1: { name: hua.regular[6], pr: first },
-                    2: { name: hua.regular[1], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[4], pr: filler },
-                    5: { name: hua.regular[2], pr: no, rowspan: '2' },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus1.name },
-                    8: { name: hua.nexus1[3], pr: first },
-                    9: { name: hua.nexus1[1], pr: filler },
-                    10: { name: hua.nexus1[2], pr: no }
-                },
-                3: {
-                    1: { name: sakura.regular[5], pr: first, rowspan: '2' },
-                    2: { name: sakura.regular[4] },
-                    3: { name: sakura.regular[2], pr: second },
-                    4: { name: sakura.regular[3], pr: filler },
-                    5: { name: sakura.regular[1], pr: no, rowspan: '2' },
-                    6: { name: sakura.regular[6] },
-                    7: { name: sakura.nexus1.name },
-                    8: { name: sakura.nexus1[2], pr: second },
-                    9: { name: sakura.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: sakura.nexus1[3] }
-                }
-            }
+            1: { 0: 'Heatflow', 1: start },
+            2: { 0: 'Abyssal Reburn', 1: first },
+            3: { 0: 'Tempered Warrior', 1: second },
+            4: { 0: 'Flamescion', 1: filler, 2: '2' },
+            5: { 0: 'Starfire' }
+        },
+        1: {
+            1: { 0: kalpas.name, 1: '5', 2: kalpas.regular[1] },
+            2: { 0: kalpas.regular[2] },
+            3: { 0: kalpas.nexus1.name },
+            4: { 0: kalpas.nexus1[2] },
+            5: { 0: kalpas.nexus2.name, 1: '' },
+            6: { 0: hua.name, 1: '3', 2: hua.regular[6], 3: '' },
+            7: { 0: hua.nexus2.name },
+            8: { 0: hua.nexus2[1], 1: '' }
+        },
+        2: {
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            2: { 0: sakura.regular[6] },
+            3: { 0: sakura.nexus1.name },
+            4: { 0: su.name, 1: '4', 2: su.regular[1] },
+            5: { 0: su.regular[3] },
+            6: { 0: su.regular[5] },
+            7: { 0: su.nexus2.name },
+            8: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            9: { 0: eden.regular[3] },
+            10: { 0: eden.nexus2.name, 1: '' }
         }
-    }
+    },
+    notes: `<p>Blessing of Starfire</p>
+            1st priority if lower gear level.<br><br>
+            <p>${kalpas.nexus2.name}</p>
+            Can be picked by advanced players.<br><br>
+            <p>${hua.regular[6]}, ${hua.nexus2[2]}</p>
+            Either pick <span>${hua.nexus2[2]}</span> or enhance <span>${hua.regular[6]}</span><br><br>
+            <p>Eden</p>
+            If nexus is unlocked, don't use ultimate.<br><br>
+            <p>${eden.nexus2.name}</p>
+            For Lee Thales Lee users.`
 }
 // Herrscher of Reason
 const hor = {
     name: 'Herrscher of Reason',
     acr: 'hor',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: sakura, 1: '1' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '' } },
+        3: { 0: { 0: hua, 1: '2'} }
+    },
+    emblem: {
+        1: memory,
+        2: `${becauseOfYou} / ${forgetMeNot}`,
+        3: `${homeLost} / ${stainedSakura}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: hb, 2: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: sakura, 2: kevin, 3: hua },
-            signetPr: { 1: '1', 2: '2', 3: '2' },
-            emblem: {
-                1: burden,
-                2: `${forgetMeNot} / ${memory}`,
-                3: homeLost
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: le, 3: le },
-            signetTable: {
-                0: {
-                    1: { name: 'Wisdom', pr: start },
-                    2: { name: 'Truth', pr: first },
-                    3: { name: 'Inspiration', pr: second, rowspan: '2' },
-                    4: { name: 'Reason' },
-                    5: { name: 'Creation', pr: filler }
-                },
-                1: {
-                    1: { name: sakura.regular[3], pr: first, rowspan: '2' },
-                    2: { name: sakura.regular[5] },
-                    3: { name: sakura.regular[2], pr: second, rowspan: '2' },
-                    4: { name: sakura.regular[4] },
-                    5: { name: sakura.regular[1], pr: filler },
-                    6: { name: sakura.regular[6], pr: no },
-                    7: { name: sakura.nexus1.name },
-                    8: { name: sakura.nexus1[2], pr: second },
-                    9: { name: sakura.nexus1[1], pr: filler },
-                    10: { name: sakura.nexus1[3], pr: no }
-				},
-                2: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2'  },
-                    4: { name: kevin.regular[6] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus2.name },
-                    8: { name: kevin.nexus2[3], pr: first },
-                    9: { name: kevin.nexus2[1], pr: second, rowspan: '2' },
-                    10: { name: kevin.nexus2[2] }
-                },
-                3: {
-                    1: { name: hua.regular[3], pr: first, rowspan: '2' },
-                    2: { name: hua.regular[6] },
-                    3: { name: hua.regular[1], pr: second },
-                    4: { name: hua.regular[2], pr: no, rowspan: '3' },
-                    5: { name: hua.regular[4] },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus2.name },
-                    8: { name: hua.nexus2[1], pr: first },
-                    9: { name: hua.nexus2[2], pr: no, rowspan: '2' },
-                    10: { name: hua.nexus2[3] }
-                }
-            }
+            1: { 0: 'Wisdom', 1: start },
+            2: { 0: 'Truth', 1: first },
+            3: { 0: 'Inspiration', 1: second, 2: '2' },
+            4: { 0: 'Reason' },
+            5: { 0: 'Creation', 1: filler }
+        },
+        1: {
+            1: { 0: sakura.name, 1: '4', 2: sakura.regular[5] },   
+            2: { 0: sakura.regular[6] },
+            3: { 0: sakura.nexus1.name },
+            4: { 0: sakura.nexus2.name, 1: '' }
+        },
+        2: {
+            1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.regular[5] },
+            4: { 0: eden.nexus2.name },
+            5: { 0: su.name, 1: '4', 2: su.regular[1] },
+            6: { 0: su.regular[3] },
+            7: { 0: su.regular[5] },
+            8: { 0: su.nexus2.name },
+            9: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            10: { 0: griseo.regular[4] },
+            11: { 0: griseo.regular[6] },
+            12: { 0: griseo.nexus1.name, 1: '' },
+            13: { 0: griseo.nexus1[2], 1: '' }
+        },
+        3: {
+            1: { 0: hua.name, 1: '4', 2: hua.regular[1] },
+            2: { 0: hua.regular[3] },
+            3: { 0: hua.regular[6] },
+            4: { 0: hua.nexus2.name }
         }
-    }
+    },
+    notes: `If unable to get double signets on 4F, can consider double elysia and <span>${sakura.nexus1.name}</span>.<br><br>
+            <p>${sakura.nexus2.name}</p>
+            For SS and above rank users.<br><br>
+            <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Herrscher of Sentience
 const hos = {
     name: 'Herrscher of Sentience',
     acr: 'hos',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: su, 1: '2' } },
+        2: { 0: { 0: griseo, 1: '' }, 1: { 0: kevin, 1: '2' }, 2: { 0: kalpas, 1: '2' } },
+        3: { 0: { 0: eden, 1: '2' } }
+    },
+    emblem: {
+        1: goldGoblet,
+        2: lightAsABodhiLeaf,
+        3: `${dreamfulGold} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: br }, 2: { 1: le } },
+        2: { 1: { 1: br }, 2: { 1: ss } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: kevin, 3: eden },
-            signetPr: { 1: '1', 2: '2', 3: '2' },
-            emblem: {
-                1: lightAsABodhiLeaf,
-                2: burden,
-                3: homeLost
-            },
-            3: { 1: br, 2: bke, 3: br },
-            4: { 1: le, 2: br, 3: ss },
-            signetTable: {
-                0: {
-                    1: { name: 'Victory', pr: start },
-                    2: { name: 'Supremacy', pr: first },
-                    3: { name: 'Dark Plumes', pr: second },
-                    4: { name: 'Ego', pr: filler, rowspan: '2' },
-                    5: { name: 'Legion' }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler },
-                    6: { name: su.regular[4], pr: no },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: su.nexus1[2] }
-				},
-                2: {
-                    1: { name: kevin.regular[5], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[4], pr: second },
-                    4: { name: kevin.regular[6], pr: filler},
-                    5: { name: kevin.regular[1], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[2] },
-                    7: { name: kevin.nexus2.name },
-                    8: { name: kevin.nexus2[3], pr: first },
-                    9: { name: kevin.nexus2[1], pr: second, rowspan: '2' },
-                    10: { name: kevin.nexus2[2] }
-                },
-                3: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: second },
-                    4: { name: eden.regular[6], pr: filler },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: filler, rowspan: '2'  },
-                    9: { name: eden.nexus2[3] },
-                    10: { name: eden.nexus2[1], pr: no }
-                }
-            }
+            1: { 0: 'Victory', 1: start },
+            2: { 0: 'Dark Plumes', 1: first },
+            3: { 0: 'Supremacy', 1: second },
+            4: { 0: 'Legion', 1: filler },
+            5: { 0: 'Ego', 1: no }
+        },
+        1: {
+            1: { 0: su.name, 1: '5', 2: su.regular[1] }, // recommended to upgrade
+            2: { 0: su.regular[2] },
+            3: { 0: su.regular[3] },
+            4: { 0: su.regular[5] },
+            5: { 0: su.regular[6] },
+        },
+        2: {
+            1: { 0: griseo.name, 1: '4', 2: griseo.regular[3] },
+            2: { 0: griseo.regular[4] },
+            3: { 0: griseo.regular[6] },
+            4: { 0: griseo.nexus1.name, 1: '' },
+            5: { 0: kevin.name, 1: '3', 2: kevin.regular[3] },
+            6: { 0: kevin.regular[5] },
+            7: { 0: kevin.nexus2.name },
+            8: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
+            9: { 0: kalpas.regular[2] },
+            10: { 0: kalpas.nexus2.name },
+        },
+        3: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name }
         }
-    }
+    },
+    notes: `If there's no Normal Signet of Gold +2 stage effect,
+            can pick Blessing of Victory, Blessing of Ego, and Infinity signet at start.<br><br>
+            <p>${griseo.nexus1.name}</p>
+            If fighting agains 12F boss.`
 }
 // Herrscher of Thunder
 const hot = {
     name: 'Herrscher of Thunder',
     acr: 'hot',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: hua, 1: '2' } },
+        2: { 0: { 0: su, 1: '2' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '' } },
+        3: { 0: { 0: eden, 1: '1' } }
+    },
+    emblem: {
+        1: goldGoblet,
+        2: `${lightAsABodhiLeaf} / ${memory}`,
+        3: `${dreamfulGold} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: vc } },
+        2: { 1: { 1: ae }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: hua, 2: eden, 3: su },
-            signetPr: { 1: '1', 2: '1', 3: '1' },
-            emblem: {
-                1: `${goldGoblet} / ${memory}`,
-                2: `${lightAsABodhiLeaf} / ${memory}`,
-                3: resolve
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: br, 2: bke, 3: br },
-            signetTable: {
-                0: {
-                    1: { name: 'Tsukuyomi', pr: start },
-                    2: { name: 'Hazy Moon', pr: first },
-                    3: { name: 'Divine Penalty', pr: filler, rowspan: '3' },
-                    4: { name: 'Mitama' },
-                    5: { name: 'Narukami' }
-                },
-                1: {
-                    1: { name: hua.regular[3], pr: first, rowspan: '2' },
-                    2: { name: hua.regular[6] },
-                    3: { name: hua.regular[1], pr: second },
-                    4: { name: hua.regular[4], pr: no, rowspan: '3' },
-                    5: { name: hua.regular[2] },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus1.name },
-                    8: { name: hua.nexus1[1], pr: first, pr: '2' },
-                    9: { name: hua.nexus1[3] },
-                    10: { name: hua.nexus1[2], pr: second }
-				},
-                2: {
-                    1: { name: eden.regular[3], pr: first },
-                    2: { name: eden.regular[2], pr: second },
-                    3: { name: eden.regular[5], pr: filler, rowspan: '2' },
-                    4: { name: eden.regular[6] },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[4] },
-                    7: { name: eden.nexus1.name },
-                    8: { name: eden.nexus1[1], pr: filler, rowspan: '3' },
-                    9: { name: eden.nexus1[2] },
-                    10: { name: eden.nexus1[3] }
-                },
-                3: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler },
-                    6: { name: su.regular[4], pr: no },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: filler, rowspan: '2' },
-                    10: { name: su.nexus1[2] }
-                }
-            }
+            1: { 0: 'Hazy Moon', 1: start },
+            2: { 0: 'Tsukuyomi', 1: first },
+            3: { 0: 'Divine Penalty', 1: no, 2: '3' },
+            4: { 0: 'Mitama' },
+            5: { 0: 'Narukami' }
+        },
+        1: {
+            1: { 0: hua.name, 1: '2', 2: hua.regular[6] },
+            2: { 0: hua.nexus2.name }
+        },
+        2: {
+            1: { 0: su.name, 1: '4', 2: su.regular[1] },
+            2: { 0: su.regular[3] },
+            3: { 0: su.regular[5] },
+            4: { 0: su.nexus2.name },
+            5: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            6: { 0: kalpas.regular[2] },
+            7: { 0: kalpas.nexus2.name },
+            8: { 0: pardofelis.name, 1: '3', 2: pardofelis.regular[1] },
+            9: { 0: pardofelis.regular[4] },
+            10: { 0: pardofelis.regular[5] }
+        },
+        3: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus1.name }
         }
-    }
+    },
+    notes: `<p>Pardofelis</p>
+            After getting Kalpas and Eden signets, in late shop 
+            buy her signets listed above, and try to maintain 1k silver.`
 }
 // Infinite Ouroboros
 const mobi = {
     name: 'Infinite Ouroboros',
     acr: 'mobius',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: mobius, 1: '1' }, 1: { 0: hua, 1: '2' } },
+        2: { 0: { 0: sakura, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: forbiddenSeed,
+        2: `${memory} / ${forgetMeNot}`,
+        3: `${thornyCrown} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: mobius, 2: kevin, 3: eden },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: forbiddenSeed,
-                2: burden,
-                3: homeLost
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: bke, 3: le },
-            signetTable: {
-                0: {
-                    1: { name: 'Ascension', pr: start, rowspan: '2' },
-                    2: { name: 'Ill Fortune' },
-                    3: { name: 'Dark Assault', pr: first },
-                    4: { name: 'Ravenousness', pr: filler },
-                    5: { name: 'Mirage', pr: no }
-                },
-                1: {
-                    1: { name: mobius.regular[4], pr: first },
-                    2: { name: mobius.regular[1], pr: second, rowspan: '2' },
-                    3: { name: mobius.regular[3] },
-                    4: { name: mobius.regular[5], pr: filler, rowspan: '2' },
-                    5: { name: mobius.regular[2] },
-                    6: { name: mobius.regular[6], pr: no },
-                    7: { name: mobius.nexus1.name },
-                    8: { name: mobius.nexus1[1], pr: first, rowspan: '2' },
-                    9: { name: mobius.nexus1[3] },
-                    10: { name: mobius.nexus1[2], pr: no }
-				},
-                2: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '3' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[6]  },
-                    4: { name: kevin.regular[2], pr: second },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[2], pr: first },
-                    9: { name: kevin.nexus1[1], pr: second },
-                    10: { name: kevin.nexus1[3], pr: no }
-                },
-                3: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: filler, rowspan: '2' },
-                    4: { name: eden.regular[6] },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: first },
-                    9: { name: eden.nexus2[1], pr: filler, rowspan: '2' },
-                    10: { name: eden.nexus2[3] }
-                }
-            }
+            1: { 0: 'Ascension', 1: start, 2: '2' },
+            2: { 0: 'Ill Fortune' },
+            3: { 0: 'Dark Assault', 1: first },
+            4: { 0: 'Ravenousness', 1: second },
+            5: { 0: 'Mirage', 1: no }
+        },
+        1: {
+            1: { 0: mobius.name, 1: '2', 2: mobius.nexus1.name },
+            2: { 0: mobius.nexus1[1] },
+            3: { 0: hua.name, 1: '3', 2: hua.regular[6] }, // recommended to upgrade
+            4: { 0: hua.nexus2.name },
+            5: { 0: hua.nexus2[1] }
+        },
+        2: {
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[1] },   
+            2: { 0: sakura.regular[5] },
+            3: { 0: sakura.nexus1.name },
+            4: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            5: { 0: griseo.regular[4] },
+            6: { 0: griseo.regular[6] },
+            7: { 0: griseo.nexus1.name, 1: '' },
+            8: { 0: griseo.nexus1[2], 1: '' },
+            9: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            10: { 0: kalpas.regular[2] },
+            11: { 0: kalpas.nexus2.name }
         }
-    }
+    },
+    notes: `<p>Mobius</p>
+            Don't pick <span>${mobius.nexus1[2]}</span>.<br><br>
+            <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Luna Kindred
 const lk = {
     name: 'Luna Kindred',
     acr: 'lk',
-    builds: {
+    rate: inferno,
+    signet: {
+        1: { 0: { 0: kalpas, 1: '2' } },
+        2: { 0: { 0: mobius, 1: '1' }, 1: { 0: su, 1: '2' }, 2: { 0: aponia, 1: '' } }
+    },
+    emblem: {
+        1: madKingsMask,
+        2: `${forbiddenSeed} / ${lightAsABodhiLeaf}`,
+        3: `${boundlessLogos} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: le } },
+        2: { 1: { 1: ss }, 2: { 1: dp } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: kalpas, 3: mobius },
-            signetPr: { 1: '2', 2: '1', 3: '1' },
-            emblem: {
-                1: madKingsMask,
-                2: `${madKingsMask} / ${lightAsABodhiLeaf}`,
-                3: heavyAsAMillionLives
-            },
-            3: { 1: br, 2: br, 3: br },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Penumbra', pr: start },
-                    2: { name: 'Imprint', pr: first },
-                    3: { name: 'Blood Feast', pr: second },
-                    4: { name: 'Immortality', pr: filler, rowspan: '2' },
-                    5: { name: 'Thirst' }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler },
-                    6: { name: su.regular[4], pr: no },
-                    7: { name: su.nexus2.name },
-                    8: { name: su.nexus2[1], pr: first, rowspan: '2' },
-                    9: { name: su.nexus2[3] },
-                    10: { name: su.nexus2[2], pr: second }
-				},
-                2: {
-                    1: { name: kalpas.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kalpas.regular[3] },
-                    3: { name: kalpas.regular[3], pr: second, rowspan: '2' },
-                    4: { name: kalpas.regular[6] },
-                    5: { name: kalpas.regular[5], pr: filler },
-                    6: { name: kalpas.regular[4], pr: no },
-                    7: { name: kalpas.nexus1.name },
-                    8: { name: kalpas.nexus1[2], pr: first },
-                    9: { name: kalpas.nexus1[3], pr: second },
-                    10: { name: kalpas.nexus1[1], pr: no }
-                },
-                3: {
-                    1: { name: mobius.regular[4], pr: first, rowspan: '2' },
-                    2: { name: mobius.regular[5] },
-                    3: { name: mobius.regular[2], pr: second },
-                    4: { name: mobius.regular[1], pr: filler, rowspan: '3' },
-                    5: { name: mobius.regular[3] },
-                    6: { name: mobius.regular[6] },
-                    7: { name: mobius.nexus1.name },
-                    8: { name: mobius.nexus1[1], pr: first },
-                    9: { name: mobius.nexus1[3], pr: second },
-                    10: { name: mobius.nexus1[2], pr: filler }
-                }
-            }
+            1: { 0: 'Penumbra', 1: start },
+            2: { 0: 'Blood Feast', 1: first },
+            3: { 0: 'Imprint', 1: second },
+            4: { 0: 'Immortality', 1: no, 2: '2' },
+            5: { 0: 'Thirst' }
+        },
+        1: {
+            1: { 0: kalpas.name, 1: '6', 2: kalpas.regular[1] },
+            2: { 0: kalpas.regular[2] },
+            3: { 0: kalpas.regular[3] },
+            4: { 0: kalpas.regular[6] }, // recommended to upgrade
+            5: { 0: kalpas.nexus2.name },
+            6: { 0: kalpas.nexus2[3] },
+        },
+        2: {
+            1: { 0: mobius.name, 1: '2', 2: mobius.regular[2] },
+            2: { 0: mobius.regular[5] },
+            3: { 0: su.name, 1: '4', 2: su.regular[1] },
+            4: { 0: su.regular[3] },
+            5: { 0: su.regular[5] },
+            6: { 0: su.nexus2.name },
+            7: { 0: aponia.name, 1: '3', 2:aponia.regular[1] },
+            8: { 0: aponia.regular[4] },
+            9: { 0: aponia.nexus1.name }
         }
     }
 }
@@ -574,188 +551,160 @@ const lk = {
 const raven = {
     name: 'Midnight Absinthe',
     acr: 'raven',
-    builds: {
+    rate: abstinence,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' }, 3: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: `${burden} / ${goldGoblet}`,
+        2: `${goldGoblet} / ${greyScaleRainbow}`,
+        3: `${itWillBeWritten} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: kevin, 2: hua, 3: eden },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: burden,
-                2: `${burden} / ${memory}`,
-                3: resolve
-            },
-            3: { 1: le, 2: bke, 3: ae },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Ominous Mist', pr: start },
-                    2: { name: 'Arrowhead', pr: first },
-                    3: { name: 'Wild Hunt', pr: second },
-                    4: { name: 'Raven Plume', pr: filler, rowspan: '2' },
-                    5: { name: 'Suppression' }
-                },
-                1: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2'  },
-                    4: { name: kevin.regular[6] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[3], pr: first },
-                    9: { name: kevin.nexus1[1], pr: second, rowspan: '2' },
-                    10: { name: kevin.nexus1[2] }
-				},
-                2: {
-                    1: { name: hua.regular[6], pr: first },
-                    2: { name: hua.regular[1], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[4], pr: filler },
-                    5: { name: hua.regular[2], pr: no, rowspan: '2' },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus1.name },
-                    8: { name: hua.nexus1[3], pr: first },
-                    9: { name: hua.nexus1[1], pr: second },
-                    10: { name: hua.nexus1[2], pr: filler }
-                },
-                3: {
-                    1: { name: eden.regular[3], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[6] },
-                    3: { name: eden.regular[2], pr: second, rowspan: '2' },
-                    4: { name: eden.regular[4] },
-                    5: { name: eden.regular[1], pr: filler, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second, rowspan: '2' },
-                    9: { name: eden.nexus2[3] },
-                    10: { name: eden.nexus2[1], pr: filler }
-                }
-            }
+            1: { 0: 'Ominous Mist', 1: start },
+            2: { 0: 'Arrowhead', 1: first },
+            3: { 0: 'Wild Hunt', 1: second },
+            4: { 0: 'Suppression', 1: filler },
+            5: { 0: 'Raven Plume', 1: no }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '3', 2: kevin.regular[1] },
+            2: { 0: kevin.nexus1.name },
+            3: { 0: kevin.nexus1[1] },
+        },
+        2: {
+            1: { 0: eden.name, 1: '2', 2: eden.regular[1] },
+            2: { 0: eden.nexus2.name },
+            3: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            4: { 0: griseo.regular[4] },
+            5: { 0: griseo.regular[6] },
+            6: { 0: griseo.nexus1.name, 1: '' },
+            7: { 0: griseo.nexus1[2], 1: '' },
+            8: { 0: su.name, 1: '4', 2: su.regular[1] },
+            9: { 0: su.regular[3] },
+            10: { 0: su.regular[5] },
+            11: { 0: su.nexus2.name },
+            12: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            13: { 0: kalpas.regular[2] },
+            14: { 0: kalpas.nexus2.name }
         }
-    }
+    },
+    notes: `If there's a Normal Signet of Gold +2 stage effect, start with Eden signets.<br><br>
+            <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Miss Pink Elf
 const elysia = {
     name: 'Miss Pink Elf',
     acr: 'elysia',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: su, 1: '2' }, 1: { 0: kevin, 1: '2' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: lightAsABodhiLeaf,
+        2: `${burden} / ${goldGoblet}`,
+        3: `${emptyLikeShala} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: dp } },
+        2: { 1: { 1: vc }, 2: { 1: ss } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: eden, 3: kevin },
-            signetPr: { 1: '2', 2: '2', 3: '2' },
-            emblem: {
-                1: lightAsABodhiLeaf,
-                2: `${burden} / ${lightAsABodhiLeaf}`,
-                3: homeLost
-            },
-            3: { 1: le, 2: bke, 3: ss },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Purity', pr: start, rowspan: '2' },
-                    2: { name: 'Zenith' },
-                    3: { name: 'Beauty', pr: second },
-                    4: { name: 'Benevolence', pr: filler, rowspan: '2' },
-                    5: { name: 'Love' }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[1], pr: first, rowspan: '2' },
-                    9: { name: su.nexus1[3] },
-                    10: { name: su.nexus1[2], pr: second }
-				},
-                2: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[1], pr: filler, rowspan: '2' },
-                    4: { name: eden.regular[4] },
-                    5: { name: eden.regular[5], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[6] },
-                    7: { name: eden.nexus2.name, pr: no },
-                    8: { name: eden.nexus2[3], pr: filler },
-                    9: { name: eden.nexus2[2], pr: no, rowspan: '2' },
-                    10: { name: eden.nexus2[1] }
-                },
-                3: {
-                    1: { name: kevin.regular[4], pr: first },
-                    2: { name: kevin.regular[3], pr: second, rowspan: '2' },
-                    3: { name: kevin.regular[5] },
-                    4: { name: kevin.regular[6], pr: filler },
-                    5: { name: kevin.regular[1], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[2] },
-                    7: { name: kevin.nexus2.name },
-                    8: { name: kevin.nexus2[3], pr: first },
-                    9: { name: kevin.nexus2[1], pr: second, rowspan: '2' },
-                    10: { name: kevin.nexus2[2] }
-                }
-            }
+            1: { 0: 'Purity', 1: start, 2: '2' },
+            2: { 0: 'Zenith' },
+            3: { 0: 'Love', 1: first },
+            4: { 0: 'Beauty', 1: filler, 2: '2' },
+            5: { 0: 'Benevolence' }
+        },
+        1: {
+            1: { 0: su.name, 1: '5', 2: su.regular[1] },
+            2: { 0: su.regular[2] },
+            3: { 0: su.regular[3] },
+            4: { 0: su.regular[5] },
+            5: { 0: su.regular[6] },
+            6: { 0: kevin.name, 1: '3', 2: kevin.regular[4] },
+            7: { 0: kevin.nexus2.name },
+            8: { 0: kevin.nexus2[3] }
+        },
+        2: {
+            1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.regular[4] },
+            4: { 0: eden.nexus2.name },
+            5: { 0: griseo.name, 1: '4', 2: griseo.regular[4] },
+            6: { 0: griseo.nexus1.name },
+            7: { 0: griseo.nexus1[1] },
+            8: { 0: griseo.nexus1[2], 1: '' },
+            9: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
+            10: { 0: kalpas.regular[2] },
+            11: { 0: kalpas.nexus2.name },
+            12: { 0: kalpas.nexus2[3], 1: '' }
         }
-    }
+    },
+    notes: `<p>${griseo.nexus1[2]}</p>
+            If lacking breach.<br><br>
+            <p>${kalpas.nexus2.name}</p>
+            Resurrect once at the start of each floor to activate the bonus.<br><br>
+            <p>${kalpas.nexus2[3]}</p>
+            If not enough breach.`
 }
 // Palatinus Equinox
 const pe = {
     name: 'Palatinus Equinox',
     acr: 'pe',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: sakura, 1: '1' } },
+        2: { 0: { 0: hua, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: eden, 1: '2' } },
+        3: { 0: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: madKingsMask,
+        2: forgetMeNot,
+        3: `${homeLost} / ${stainedSakura}`,
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: dp } },
+        2: { 1: { 1: ss }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: sakura, 3: kalpas },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: madKingsMask,
-                2: `${forgetMeNot} / ${lightAsABodhiLeaf}`,
-                3: `${homeLost} / ${stainedSakura}`,
-            },
-            3: { 1: br, 2: bke, 3: br },
-            4: { 1: vc, 2: vc, 3: ss },
-            signetTable: {
-                0: {
-                    1: { name: 'Gallop', pr: start },
-                    2: { name: 'Abyssal Chant', pr: first },
-                    3: { name: 'Equinox', pr: second },
-                    4: { name: 'Commitment', pr: filler, rowspan: '2' },
-                    5: { name: 'Exodus' }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: no, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: su.nexus1[2] }
-				},
-                2: {
-                    1: { name: sakura.regular[3], pr: first, rowspan: '2' },
-                    2: { name: sakura.regular[5] },
-                    3: { name: sakura.regular[1], pr: second, rowspan: '2' },
-                    4: { name: sakura.regular[2] },
-                    5: { name: sakura.regular[4], pr: no, rowspan: '2' },
-                    6: { name: sakura.regular[6] },
-                    7: { name: sakura.nexus1.name },
-                    8: { name: sakura.nexus1[1], pr: second },
-                    9: { name: sakura.nexus1[2], pr: no, rowspan: '2' },
-                    10: { name: sakura.nexus1[3] }
-                },
-                3: {
-                    1: { name: kalpas.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kalpas.regular[2] },
-                    3: { name: kalpas.regular[3], pr: second, rowspan: '2' },
-                    4: { name: kalpas.regular[6] },
-                    5: { name: kalpas.regular[4], pr: filler },
-                    6: { name: kalpas.regular[5], pr: no },
-                    7: { name: kalpas.nexus2.name },
-                    8: { name: kalpas.nexus2[3], pr: first },
-                    9: { name: kalpas.nexus2[1], pr: filler },
-                    10: { name: kalpas.nexus2[2], pr: no }
-                }
-            }
+            1: { 0: 'Gallop', 1: start },
+            2: { 0: 'Abyssal Chant', 1: first },
+            3: { 0: 'Equinox', 1: second },
+            4: { 0: 'Commitment', 1: no, 2: '2' },
+            5: { 0: 'Exodus' }
+        },
+        1: {
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            2: { 0: sakura.regular[6] },
+            3: { 0: sakura.nexus1.name }
+        },
+        2: {
+            1: { 0: hua.name, 1: '2', 2: hua.regular[4] },
+            2: { 0: hua.nexus2.name },
+            3: { 0: su.name, 1: '4', 2: su.regular[1] },
+            4: { 0: su.regular[3] },
+            5: { 0: su.regular[5] },
+            6: { 0: su.nexus2.name },
+            7: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            8: { 0: eden.regular[3] },
+            9: { 0: eden.nexus2.name }
+        },
+        3: {
+            1: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
+            2: { 0: kalpas.regular[2] },
+            3: { 0: kalpas.nexus2.name },
+            4: { 0: kalpas.nexus2[3] }
         }
     }
 }
@@ -763,125 +712,166 @@ const pe = {
 const fischl = {
     name: 'Prinzessin der Verurteilung',
     acr: 'fischl',
-    builds: {
+    rate: abstinence,
+    signet: {
+        1: { 0: { 0: hua, 1: '2' }, 1: { 0: mobius, 1: '1' } },
+        2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: memory,
+        2: `${forbiddenSeed} / ${greyScaleRainbow}`,
+        3: `${homeLost} / ${theFirstScale}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: br } },
+        2: { 1: { 1: ae }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: eden, 3: kevin },
-            signetPr: { 1: '2', 2: '2', 3: '2' },
-            emblem: {
-                1: burden,
-                2: lightAsABodhiLeaf,
-                3: homeLost
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: bke, 3: le },
-            signetTable: {
-                0: {
-                    1: { name: 'Retrtibution', pr: start },
-                    2: { name: 'Midnight', pr: first },
-                    3: { name: 'Fate', pr: second },
-                    4: { name: 'Dark Wings', pr: filler, rowspan: '2' },
-                    5: { name: 'Nightfall' }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus2.name },
-                    8: { name: su.nexus2[1], pr: first, rowspan: '2' },
-                    9: { name: su.nexus2[3] },
-                    10: { name: su.nexus2[2], pr: second }
-				},
-                2: {
-                    1: { name: eden.regular[2], pr: first },
-                    2: { name: eden.regular[3], pr: second, rowspan: '2' },
-                    3: { name: eden.regular[6] },
-                    4: { name: eden.regular[4], pr: filler, rowspan: '2' },
-                    5: { name: eden.regular[5] },
-                    6: { name: eden.regular[1], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second },
-                    9: { name: eden.nexus2[3], pr: filler },
-                    10: { name: eden.nexus2[1], pr: no }
-                },
-                3: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2' },
-                    4: { name: kevin.regular[6] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus2.name },
-                    8: { name: kevin.nexus2[1], pr: first },
-                    9: { name: kevin.nexus2[3], pr: second, rowspan: '2' },
-                    10: { name: kevin.nexus2[2] }
-                }
-            }
+            1: { 0: 'Retrtibution', 1: start },
+            2: { 0: 'Midnight', 1: first },
+            3: { 0: 'Fate', 1: second },
+            4: { 0: 'Dark Wings', 1: no, 2: '2' },
+            5: { 0: 'Nightfall' }
+        },
+        1: {
+            1: { 0: hua.name, 1: '3', 2: hua.regular[6] },
+            2: { 0: hua.nexus2.name },
+            3: { 0: hua.nexus2[1] },
+            4: { 0: mobius.name, 1: '2', 2: mobius.regular[2] },
+            5: { 0: mobius.regular[5] },
+        },
+        2: {
+            1: { 0: griseo.name, 1: '5', 2: griseo.regular[1] },
+            2: { 0: griseo.regular[4] },
+            3: { 0: griseo.regular[6] },
+            4: { 0: griseo.nexus1.name, 1: '' },
+            5: { 0: griseo.nexus1[2], 1: '' },
+            6: { 0: su.name, 1: '4', 2: su.regular[1] },
+            7: { 0: su.regular[3] },
+            8: { 0: su.regular[5] },
+            9: { 0: su.nexus2.name },
+            10: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1], 3: '' },
+            11: { 0: kalpas.regular[2], 1: '' },
+            12: { 0: kalpas.nexus2.name, 1: '' }
         }
-    }
+    },
+    notes: `<p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.<br><br>
+            <p>Kalpas</p>Only pick his signets after 12F.`
+}
+// Reveris Calico
+const rvc = {
+    name: 'Reverist Calico',
+    acr: 'rc',
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: eden, 1: '2' }, 1: { 0: hua, 1: '2' } },
+        2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '1' }, 2: { 0: pardofelis, 1: '' } }
+    },
+    emblem: {
+        1: goldGoblet,
+        2: `${greyScaleRainbow} / ${memory}`,
+        3: `${fallingInPastLight} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: hb } }
+    },
+    signetTable: {
+        0: {
+            1: { 0: 'Cat\'s Eyes', 1: start, 2: '2' },
+            2: { 0: 'Battle Tailpiece' },
+            3: { 0: 'Hidden Claws', 1: first },
+            4: { 0: 'Phantasma', 1: second },
+            5: { 0: 'Nighteye', 1: filler }
+        },
+        1: {
+            1: { 0: eden.name, 1: '8', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.regular[4] },
+            4: { 0: eden.regular[5] },
+            5: { 0: eden.regular[6] },
+            6: { 0: eden.nexus2.name },
+            7: { 0: eden.nexus2[2] },
+            8: { 0: eden.nexus2[3] },
+            9: { 0: hua.name, 1: '2', 2: hua.regular[6] },
+            10: { 0: hua.nexus2.name }
+        },
+        2: {
+            1: { 0: griseo.name, 1: '7', 2: griseo.regular[1] },
+            2: { 0: griseo.regular[3] },
+            3: { 0: griseo.regular[4] },
+            4: { 0: griseo.regular[5] },
+            5: { 0: griseo.regular[6] },
+            6: { 0: griseo.nexus1.name },
+            7: { 0: griseo.nexus1[2] },
+            8: { 0: su.name, 1: '4', 2: su.regular[1] },
+            9: { 0: su.regular[3] },
+            10: { 0: su.regular[5] },
+            11: { 0: su.nexus2.name },
+            12: { 0: pardofelis.name, 1: '4', 2: pardofelis.regular[1] },
+            13: { 0: pardofelis.regular[4] },
+            14: { 0: pardofelis.regular[6] },
+            15: { 0: pardofelis.nexus1.name }
+        }
+    },
+    notes: `Can pick kevin's signet ${kevin.regular[1]} to supplement breach.<br><br>
+            <p>Griseo</p>
+            If the starting eden signets don't do enough damage,
+            pick <span>${griseo.regular[1]}</span> and <span>${griseo.regular[4]}</span> at start.`
 }
 // Ritual Imayoh
 const ri = {
     name: 'Ritual Imayoh',
     acr: 'ri',
-    builds: {
+    rate: inferno,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' } },
+        2: { 0: { 0: mobius, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' } },
+        3: { 0: { 0: eden, 1: '2' } }
+    },
+    emblem: {
+        1: goldGoblet,
+        2: `${burden} / ${forbiddenSeed}`,
+        3: `${dreamfulGold} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: le } },
+        2: { 1: { 1: vc }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: eden, 2: kevin, 3: hua },
-            signetPr: { 1: '2', 2: '1', 3: '2' },
-            emblem: {
-                1: `${memory} / ${burden}`,
-                2: resolve,
-                3: resolve
-            },
-            3: { 1: le, 2: bke, 3: le },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Prosperity', pr: start },
-                    2: { name: 'Dawn', pr: first },
-                    3: { name: 'Torch', pr: second },
-                    4: { name: 'Blossom', pr: filler, rowspan: '2' },
-                    5: { name: 'Fertility' }
-                },
-                1: {
-                    1: { name: eden.regular[5], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[6] },
-                    3: { name: eden.regular[2], pr: second, rowspan: '2' },
-                    4: { name: eden.regular[3] },
-                    5: { name: eden.regular[4], pr: filler },
-                    6: { name: eden.regular[1], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second },
-                    9: { name: eden.nexus2[3], pr: filler },
-                    10: { name: eden.nexus2[1], pr: no }
-				},
-                2: {
-                    1: { name: kevin.regular[4], pr: first },
-                    2: { name: kevin.regular[3], pr: second, rowspan: '2' },
-                    3: { name: kevin.regular[5] },
-                    4: { name: kevin.regular[6], pr: filler },
-                    5: { name: kevin.regular[1], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[2] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[3], pr: first },
-                    9: { name: kevin.nexus1[1], pr: second },
-                    10: { name: kevin.nexus1[2], pr: no }
-                },
-                3: {
-                    1: { name: hua.regular[5], pr: first },
-                    2: { name: hua.regular[2], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[4], pr: filler },
-                    5: { name: hua.regular[1], pr: no, rowspan: '2' },
-                    6: { name: hua.regular[6] },
-                    7: { name: hua.nexus1.name },
-                    8: { name: hua.nexus1[3], pr: first },
-                    9: { name: hua.nexus1[1], pr: second },
-                    10: { name: hua.nexus1[2], pr: filler }
-                }
-            }
+            1: { 0: 'Prosperity', 1: start },
+            2: { 0: 'Dawn', 1: first },
+            3: { 0: 'Blossom', 1: second },
+            4: { 0: 'Fertility', 1: no, 2: '2' },
+            5: { 0: 'Torch' }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '5', 2: kevin.regular[4] },
+            2: { 0: kevin.regular[6] },
+            3: { 0: kevin.nexus1.name },
+            4: { 0: kevin.nexus1[1] },
+            5: { 0: kevin.nexus1[2] }
+        },
+        2: {
+            1: { 0: mobius.name, 1: '2', 2: mobius.regular[2] },
+            2: { 0: mobius.regular[5] },
+            3: { 0: griseo.name, 1: '4', 2: griseo.regular[1] },
+            4: { 0: griseo.regular[4] },
+            5: { 0: griseo.regular[6] },
+            6: { 0: griseo.nexus1.name },
+            7: { 0: su.name, 1: '4', 2: su.regular[1] },
+            8: { 0: su.regular[3] },
+            9: { 0: su.regular[5] },
+            10: { 0: su.nexus2.name },
+        },
+        3: {
+            1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.regular[5] },
+            4: { 0: eden.nexus2.name }
         }
     }
 }
@@ -889,445 +879,266 @@ const ri = {
 const sw = {
     name: 'Silverwing N-EX',
     acr: 'sw',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: su, 1: '2' }, 1: { 0: hua, 1: '2' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: lightAsABodhiLeaf,
+        2: `${memory} / ${goldGoblet}`,
+        3: `${emptyLikeShala} / ${homeLost}`,
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: vc } },
+        2: { 1: { 1: ae }, 2: { 1: hb } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: hua, 3: eden },
-            signetPr: { 1: '2', 2: '2', 3: '2' },
-            emblem: {
-                1: lightAsABodhiLeaf,
-                2: `${memory} / ${goldGoblet}`,
-                3: `${heavyAsAMillionLives} / ${homeLost}`,
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: vc, 2: bke, 3: br },
-            signetTable: {
-                0: {
-                    1: { name: 'Pale Feathers', pr: start },
-                    2: { name: 'Grey Falcon', pr: first },
-                    3: { name: 'Phantom Plumes', pr: second },
-                    4: { name: 'Sharp Eyes', pr: filler },
-                    5: { name: 'Silver Eagle', pr: no }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '3' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5] },
-                    4: { name: su.regular[6], pr: second, rowspan: '2' },
-                    5: { name: su.regular[2] },
-                    6: { name: su.regular[4], pr: no },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: su.nexus1[2] }
-				},
-                2: {
-                    1: { name: hua.regular[6], pr: first },
-                    2: { name: hua.regular[1], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[4], pr: filler },
-                    5: { name: hua.regular[2], pr: no, rowspan: '2' },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus2.name },
-                    8: { name: hua.nexus2[1], pr: first },
-                    9: { name: hua.nexus2[3], pr: filler },
-                    10: { name: hua.nexus2[2], pr: no }
-                },
-                3: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: second, rowspan: '2' },
-                    4: { name: eden.regular[6] },
-                    5: { name: eden.regular[1], pr: filler },
-                    6: { name: eden.regular[5], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[3], pr: first},
-                    9: { name: eden.nexus2[2], pr: filler },
-                    10: { name: eden.nexus2[1], pr: no }
-                }
-            }
+            1: { 0: 'Phantom Plumes', 1: start },
+            2: { 0: 'Grey Falcon', 1: first },
+            3: { 0: 'Pale Feathers', 1: second, 2: '2' },
+            4: { 0: 'Silver Eagle' },
+            5: { 0: 'Sharp Eyes', 1: no }
+        },
+        1: {
+            1: { 0: su.name, 1: '4', 2: su.regular[1] },
+            2: { 0: su.regular[3] },
+            3: { 0: su.regular[5] },
+            4: { 0: su.nexus2.name },
+            5: { 0: hua.name, 1: '3', 2: hua.regular[6] },
+            6: { 0: hua.nexus2.name },
+            7: { 0: hua.nexus2[1] }
+        },
+        2: {
+            1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name },
+            4: { 0: eden.nexus2[3] },
+            5: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            6: { 0: griseo.regular[4] },
+            7: { 0: griseo.regular[6] },
+            8: { 0: griseo.nexus1.name, 1: '' },
+            9: { 0: griseo.nexus1[2], 1: '' },
+            10: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            11: { 0: kalpas.regular[2] },
+            12: { 0: kalpas.nexus2.name }
         }
-    }
+    },
+    notes: `<p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Spina Astera
 const spa = {
     name: 'Spina Astera',
     acr: 'spa',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: hua, 1: '2' } },
+        2: { 0: { 0: su, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } },
+        3: { 0: { 0: eden, 1: '2' } }
+    },
+    emblem: {
+        1: goldGoblet,
+        2: `${becauseOfYou} / ${memory}`,
+        3: `${dreamfulGold} / ${homeLost}`,
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: vc } },
+        2: { 1: { 1: ae }, 2: { 1: br, 2: ma } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: su, 2: hua, 3: eden },
-            signetPr: { 1: '2', 2: '2', 3: '2' },
-            emblem: {
-                1: memory,
-                2: lightAsABodhiLeaf,
-                3: `${goldGoblet} / ${homeLost}`,
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: vc, 2: bke, 3: br },
-            signetTable: {
-                0: {
-                    1: { name: 'Wild Flare', pr: start },
-                    2: { name: 'Radiant Formation', pr: first },
-                    3: { name: 'Alrescha', pr: second, rowspan: '2' },
-                    4: { name: 'Star Quillon' },
-                    5: { name: 'Holy Flame', pr: filler }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[2], pr: second, rowspan: '3' },
-                    4: { name: su.regular[5] },
-                    5: { name: su.regular[6] },
-                    6: { name: su.regular[4], pr: filler },
-                    7: { name: su.nexus2.name },
-                    8: { name: su.nexus2[3], pr: second, rowspan: '2' },
-                    9: { name: su.nexus2[1] },
-                    10: { name: su.nexus2[2], pr: filler }
-				},
-                2: {
-                    1: { name: hua.regular[6], pr: first },
-                    2: { name: hua.regular[1], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[4], pr: filler },
-                    5: { name: hua.regular[2], pr: no, rowspan: '2' },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus2.name },
-                    8: { name: hua.nexus2[1], pr: first },
-                    9: { name: hua.nexus2[2], pr: filler, rowspan: '2' },
-                    10: { name: hua.nexus2[3] }
-                },
-                3: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: second },
-                    4: { name: eden.regular[6], pr: filler, rowspan: '2' },
-                    5: { name: eden.regular[5] },
-                    6: { name: eden.regular[1], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second, rowspan: '2' },
-                    9: { name: eden.nexus2[3] },
-                    10: { name: eden.nexus2[1], pr: filler }
-                }
-            }
+            1: { 0: 'Wild Flare', 1: start },
+            2: { 0: 'Star Quillon', 1: first },
+            3: { 0: 'Alrescha', 1: second, 2: '2' },
+            4: { 0: 'Radiant Formation' },
+            5: { 0: 'Holy Flame', 1: filler }
         },
         1: {
-            signet: { 1: kevin, 2: su, 3: eden, 4: kalpas },
-            signetPr: { 1: '1', 2: '2', 3: '2', 4: '2' },
-            emblem: {
-                1: madKingsMask,
-                2: burden,
-                3: shatteredShackles
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: br, 2: bke, 3: br },
-            signetTable: {
-                0: {
-                    1: { name: 'Wild Flare', pr: start },
-                    2: { name: 'Radiant Formation', pr: first },
-                    3: { name: 'Alrescha', pr: second, rowspan: '2' },
-                    4: { name: 'Star Quillon' },
-                    5: { name: 'Holy Flame', pr: filler }
-                },
-                1: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[6] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2' },
-                    4: { name: kevin.regular[3] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[1], pr: first, rowspan:'2' },
-                    9: { name: kevin.nexus1[2] },
-                    10: { name: kevin.nexus1[3], pr: filler }
-				},
-                2: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[1], pr: first, rowspan: '2' },
-                    9: { name: su.nexus1[3] },
-                    10: { name: su.nexus1[2], pr: filler }
-                },
-                3: {
-                    1: { name: eden.regular[3], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[2] },
-                    3: { name: eden.regular[4], pr: filler, rowspan: '2' },
-                    4: { name: eden.regular[6] },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[3], pr: first },
-                    9: { name: eden.nexus2[1], pr: filler, rowspan: '2' },
-                    10: { name: eden.nexus2[2] }
-                },
-                4: {
-                    1: { name: kalpas.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kalpas.regular[2] },
-                    3: { name: kalpas.regular[6], pr: second },
-                    4: { name: kalpas.regular[3], pr: filler },
-                    5: { name: kalpas.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kalpas.regular[5]},
-                    7: { name: kalpas.nexus2.name, pr: no, rows: '4' },
-                    8: { name: kalpas.nexus2[1] },
-                    9: { name: kalpas.nexus2[2] },
-                    10: { name: kalpas.nexus2[3] }
-                }
-            }
+            1: { 0: hua.name, 1: '3', 2: hua.regular[6] },
+            2: { 0: hua.nexus2.name },
+            3: { 0: hua.nexus2[1] },
+        },
+        2: {
+            1: { 0: su.name, 1: '4', 2: su.regular[1] },
+            2: { 0: su.regular[3] },
+            3: { 0: su.regular[5] },
+            4: { 0: su.nexus2.name },
+            5: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            6: { 0: griseo.regular[4] },
+            7: { 0: griseo.regular[6] },
+            8: { 0: griseo.nexus1.name, 1: '' },
+            9: { 0: griseo.nexus1[2], 1: '' },
+            10: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            11: { 0: kalpas.regular[2] },
+            12: { 0: kalpas.nexus2.name }
+        },
+        3: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name }
         }
-    }
+    },
+    notes: `<p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Starchasm Nyx
 const nyx = {
     name: 'Starchasm Nyx',
     acr: 'nyx',
-    builds: {
+    rate: corruption,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' }, 1: { 0: sakura, 1: '1' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' } }
+    },
+    emblem: {
+        1: burden,
+        2: forgetMeNot,
+        3: `${homeLost} / ${itWillBeWritten}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: hb } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: kevin, 2: sakura, 3: eden },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: burden,
-                2: `${burden} / ${forgetMeNot}`,
-                3: homeLost
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: bke, 3: br },
-            signetTable: {
-                0: {
-                    1: { name: 'Frigidity', pr: start },
-                    2: { name: 'Abyssal Gaze', pr: first },
-                    3: { name: 'Toxic Bath', pr: second },
-                    4: { name: 'Cocoon Break', pr: filler, rowspan: '2' },
-                    5: { name: 'Nightmare' }
-                },
-                1: {
-                    1: { name: kevin.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3] },
-                    3: { name: kevin.regular[2], pr: second, rowspan: '2' },
-                    4: { name: kevin.regular[6] },
-                    5: { name: kevin.regular[4], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[5] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[1], pr: first },
-                    9: { name: kevin.nexus1[2], pr: second },
-                    10: { name: kevin.nexus1[3], pr: no }
-				},
-                2: {
-                    1: { name: sakura.regular[6], pr: first, rowspan: '2' },
-                    2: { name: sakura.regular[5] },
-                    3: { name: sakura.regular[2], pr: filler },
-                    4: { name: sakura.regular[1], pr: no, rowspan: '3' },
-                    5: { name: sakura.regular[3] },
-                    6: { name: sakura.regular[4] },
-                    7: { name: sakura.nexus1.name, pr: filler },
-                    8: { name: sakura.nexus1[2], pr: second },
-                    9: { name: sakura.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: sakura.nexus1[3] }
-                },
-                3: {
-                    1: { name: eden.regular[3], pr: first },
-                    2: { name: eden.regular[2], pr: second, rowspan: '2' },
-                    3: { name: eden.regular[6] },
-                    4: { name: eden.regular[4], pr: filler, rowspan: '2' },
-                    5: { name: eden.regular[5] },
-                    6: { name: eden.regular[1], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second, rowspan: '2' },
-                    9: { name: eden.nexus2[3] },
-                    10: { name: eden.nexus2[1], pr: filler }
-                }
-            }
+            1: { 0: 'Frigidity', 1: start },
+            2: { 0: 'Abyssal Gaze', 1: first },
+            3: { 0: 'Nightmare', 1: second, 2: '2' },
+            4: { 0: 'Toxic Bath' },
+            5: { 0: 'Cocoon Break', 1: no }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '5', 2: kevin.regular[1] },
+            2: { 0: kevin.regular[6] },
+            3: { 0: kevin.nexus1.name },
+            4: { 0: kevin.nexus1[1] },
+            5: { 0: kevin.nexus1[2] },
+            6: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            7: { 0: sakura.regular[6] },
+            8: { 0: sakura.nexus1.name }
+        },
+        2: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name },
+            4: { 0: griseo.name, 1: '6', 2: griseo.regular[1] },
+            5: { 0: griseo.regular[2], 1: '' },
+            6: { 0: griseo.regular[4] },
+            7: { 0: griseo.regular[6] },
+            8: { 0: griseo.nexus1.name, 1: '' },
+            9: { 0: griseo.nexus1[2], 1: '' },
+            10: { 0: su.name, 1: '4', 2: su.regular[1] },
+            11: { 0: su.regular[3] },
+            12: { 0: su.regular[5] },
+            13: { 0: su.nexus2.name }
         }
-    }
-}
-// Striker Fulminata
-const stfu = {
-    name: 'Striker Fulminata',
-    acr: 'stfu',
-    builds: {
-        0: {
-            signet: { 1: su, 2: kevin, 3: eden },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: burden,
-                2: lightAsABodhiLeaf,
-                3: homeLost
-            },
-            3: { 1: le, 2: bke, 3: ss },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Current', pr: start },
-                    2: { name: 'Karma', pr: first },
-                    3: { name: 'Idea', pr: second },
-                    4: { name: 'Thunder', pr: filler, rowspan: '2' },
-                    5: { name: 'Zanshin' }
-                },
-                1: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: no, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: no, rowspan: '2' },
-                    10: { name: su.nexus1[2] }
-				},
-                2: {
-                    1: { name: kevin.regular[4], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[3], pr: second, rowspan: '3' },
-                    3: { name: kevin.regular[5] },
-                    4: { name: kevin.regular[6] },
-                    5: { name: kevin.regular[1], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[2] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[2], pr: first },
-                    9: { name: kevin.nexus1[1], pr: second },
-                    10: { name: kevin.nexus1[3], pr: filler }
-                },
-                3: {
-                    1: { name: eden.regular[3], pr: first },
-                    2: { name: eden.regular[2], pr: second, rowspan: '2' },
-                    3: { name: eden.regular[6] },
-                    4: { name: eden.regular[4], pr: filler, rowspan: '2'  },
-                    5: { name: eden.regular[5] },
-                    6: { name: eden.regular[1], pr: no },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second },
-                    9: { name: eden.nexus2[3], pr: filler },
-                    10: { name: eden.nexus2[1], pr: no }
-                }
-            }
-        }
-    }
+    },
+    notes: `<p>${griseo.regular[2]}</p>
+            If picking HoD minion.<br><br>
+            <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Stygian Nymph
 const sn = {
     name: 'Stygian Nymph',
     acr: 'sn',
-    builds: {
+    rate: inferno,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' }, 1: { 0: sakura, 1: '1' } },
+        2: { 0: { 0: su, 1: '2' }, 1: { 0: hua, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
+    },
+    emblem: {
+        1: burden,
+        2: `${forgetMeNot} / ${lightAsABodhiLeaf}`,
+        3: `${homeLost} / ${stainedSakura}`
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: dp } },
+        2: { 1: { 1: ss }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: kevin, 2: sakura, 3: hua },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: burden,
-                2: `${forgetMeNot} / ${stainedSakura}`,
-                3: stainedSakura
-            },
-            3: { 1: dp, 2: dp, 3: dp },
-            4: { 1: vc, 2: vc, 3: ss },
-            signetTable: {
-                0: {
-                    1: { name: 'Vurnerable Duality', pr: start },
-                    2: { name: 'Intergrowth', pr: first },
-                    3: { name: 'Kindred', pr: second, rowspan: '2' },
-                    4: { name: 'Union' },
-                    5: { name: 'Might of Duality', pr: filler }
-                },
-                1: {
-                    1: { name: kevin.regular[4], pr: first },
-                    2: { name: kevin.regular[3], pr: second, rowspan: '2' },
-                    3: { name: kevin.regular[5] },
-                    4: { name: kevin.regular[6], pr: filler },
-                    5: { name: kevin.regular[1], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[2] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[1], pr: first },
-                    9: { name: kevin.nexus1[2], pr: second },
-                    10: { name: kevin.nexus1[3], pr: no }
-				},
-                2: {
-                    1: { name: sakura.regular[3], pr: first },
-                    2: { name: sakura.regular[2], pr: second, rowspan: '2' },
-                    3: { name: sakura.regular[5] },
-                    4: { name: sakura.regular[1], pr: no, rowspan: '3' },
-                    5: { name: sakura.regular[4] },
-                    6: { name: sakura.regular[6] },
-                    7: { name: sakura.nexus1.name },
-                    8: { name: sakura.nexus1[1], pr: no, rowspan: '3' },
-                    9: { name: sakura.nexus1[2] },
-                    10: { name: sakura.nexus1[3] }
-                },
-                3: {
-                    1: { name: hua.regular[5], pr: first },
-                    2: { name: hua.regular[2], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[1], pr: no, rowspan: '3' },
-                    5: { name: hua.regular[4] },
-                    6: { name: hua.regular[6] },
-                    7: { name: hua.nexus2.name, pr: second },
-                    8: { name: hua.nexus2[1], pr: first },
-                    9: { name: hua.nexus2[3], pr: no, rowspan: '2' },
-                    10: { name: hua.nexus2[2] }
-                }
-            }
+            1: { 0: 'Vurnerable Duality', 1: start },
+            2: { 0: 'Union', 1: first },
+            3: { 0: 'Intergrowth', 1: second, 2: '3' },
+            4: { 0: 'Kindred' },
+            5: { 0: 'Might of Duality' }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '6', 2: kevin.regular[3] },
+            2: { 0: kevin.regular[4] },
+            3: { 0: kevin.regular[5] },
+            4: { 0: kevin.nexus1.name },
+            5: { 0: kevin.nexus1[1] },
+            6: { 0: kevin.nexus1[2] },
+            7: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            8: { 0: sakura.regular[6] },
+            9: { 0: sakura.nexus1.name },
+        },
+        2: {
+            1: { 0: su.name, 1: '4', 2: su.regular[1] },
+            2: { 0: su.regular[3] },
+            3: { 0: su.regular[5] },
+            4: { 0: su.nexus2.name },
+            5: { 0: hua.name, 1: '2', 2: hua.regular[4], 3: '' }, //?
+            6: { 0: hua.nexus2.name, 1: '' },
+            7: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            8: { 0: kalpas.regular[2] },
+            9: { 0: kalpas.nexus2.name }
         }
-    }
+    },
+    notes: `Can pick Griseo's signet <span>${griseo.regular[6]}</span> for more damage.<br><br>
+            <p>Hua</p>Pick when there's not enough breach from Kevin signets.`
 }
 // Sweet 'n' Spicy
 const carole = {
     name: 'Sweet \'n\' Spicy',
     acr: 'carole',
-    builds: {
+    rate: inferno,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' } },
+        2: { 0: { 0: kalpas, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: sakura, 1: '2' } },
+        3: { 0: { 0: eden, 1: '2' } }
+    },
+    emblem: {
+        1: goldGoblet,
+        2: `${burden} / ${greyScaleRainbow}`,
+        3: `${dreamfulGold} / ${homeLost}`,
+    },
+    support: {
+        1: { 1: { 1: ss }, 2: { 1: vc } },
+        2: { 1: { 1: ss }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: eden, 2: su, 3: kalpas },
-            signetPr: { 1: '1', 2: '1', 3: '2' },
-            emblem: {
-                1: madKingsMask,
-                2: `${forgetMeNot} / ${lightAsABodhiLeaf}`,
-                3: `${homeLost} / ${stainedSakura}`,
-            },
-            3: { 1: br, 2: bke, 3: ss },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Revolution', pr: start },
-                    2: { name: 'Skyfall', pr: first },
-                    3: { name: 'Brake', pr: second, rowspan: '2' },
-                    4: { name: 'Impulse' },
-                    5: { name: 'Rupture', pr: filler }
-                },
-                1: {
-                    1: { name: eden.regular[3], pr: first },
-                    2: { name: eden.regular[2], pr: second, rowspan: '2' },
-                    3: { name: eden.regular[6] },
-                    4: { name: eden.regular[1], pr: filler },
-                    5: { name: eden.regular[4], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus1.name, pr: filler, rowspan: '4' },
-                    8: { name: eden.nexus1[1] },
-                    9: { name: eden.nexus1[2] },
-                    10: { name: eden.nexus1[3] }
-				},
-                2: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler },
-                    6: { name: su.regular[4], pr: no },
-                    7: { name: su.nexus1.name },
-                    8: { name: su.nexus1[3], pr: first },
-                    9: { name: su.nexus1[1], pr: second },
-                    10: { name: su.nexus1[2], pr: no }
-                },
-                3: {
-                    1: { name: kalpas.regular[1], pr: first, rowspan: '2' },
-                    2: { name: kalpas.regular[2] },
-                    3: { name: kalpas.regular[3], pr: second, rowspan: '2' },
-                    4: { name: kalpas.regular[6] },
-                    5: { name: kalpas.regular[4], pr: filler, rowspan: '2' },
-                    6: { name: kalpas.regular[5]},
-                    7: { name: kalpas.nexus2.name },
-                    8: { name: kalpas.nexus2[3], pr: first },
-                    9: { name: kalpas.nexus2[1], pr: second },
-                    10: { name: kalpas.nexus2[2], pr: filler }
-                }
-            }
+            1: { 0: 'Revolution', 1: start },
+            2: { 0: 'Skyfall', 1: first },
+            3: { 0: 'Brake', 1: no, 2: '3' },
+            4: { 0: 'Impulse' },
+            5: { 0: 'Rupture' }
+        },
+        1: {
+            1: { 0: kevin.name, 1: kevin.regular[4] }
+        },
+        2: {
+            1: { 0: kalpas.name, 1: '5', 2: kalpas.regular[1] },
+            2: { 0: kalpas.regular[2] },
+            3: { 0: kalpas.regular[5] },
+            4: { 0: kalpas.nexus2.name },
+            5: { 0: kalpas.nexus2[3] },
+            6: { 0: griseo.name, 1: '4', 2: griseo.regular[2] },
+            7: { 0: griseo.regular[3] },
+            8: { 0: griseo.regular[4] },
+            9: { 0: griseo.regular[6] },
+            10: { 0: sakura.name, 1: '2', 2: sakura.regular[5] },
+            11: { 0: sakura.nexus2.name }
+        },
+        3: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name }
         }
     }
 }
@@ -1335,128 +1146,165 @@ const carole = {
 const tp = {
     name: 'Twilight Paladin',
     acr: 'tp',
-    builds: {
+    rate: abstinence,
+    signet: {
+        1: { 0: { 0: su, 1: '2' }, 1: { 0: hua, 1: '1' } },
+        2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: mobius, 1: '1' } }
+    },
+    emblem: {
+        1: lightAsABodhiLeaf,
+        2: `${burden} / ${memory}`,
+        3: `${emptyLikeShala} / ${resolve}`
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: dp } },
+        2: { 1: { 1: ss }, 2: { 1: br } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: kevin, 2: su, 3: eden },
-            signetPr: { 1: '1', 2: '2', 3: '2' },
-            emblem: {
-                1: burden,
-                2: `${burden} / ${lightAsABodhiLeaf}`,
-                3: heavyAsAMillionLives
-            },
-            3: { 1: le, 2: bkek, 3: le },
-            4: { 1: vc, 2: vc, 3: vc },
-            signetTable: {
-                0: {
-                    1: { name: 'Banishmen', pr: start },
-                    2: { name: 'Penalty', pr: first },
-                    3: { name: 'Dusk<', pr: second },
-                    4: { name: 'Radiance', pr: filler, rowspan: '2' },
-                    5: { name: 'Sanction' }
-                },
-                1: {
-                    1: { name: kevin.regular[4], pr: first, rowspan: '2' },
-                    2: { name: kevin.regular[6] },
-                    3: { name: kevin.regular[3], pr: second, rowspan: '2' },
-                    4: { name: kevin.regular[5] },
-                    5: { name: kevin.regular[1], pr: no, rowspan: '2' },
-                    6: { name: kevin.regular[2] },
-                    7: { name: kevin.nexus1.name },
-                    8: { name: kevin.nexus1[1], pr: first },
-                    9: { name: kevin.nexus1[2], pr: second },
-                    10: { name: kevin.nexus1[3], pr: no }
-				},
-                2: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[2], pr: second, rowspan: '3' },
-                    4: { name: su.regular[5] },
-                    5: { name: su.regular[6] },
-                    6: { name: su.regular[4], pr: filler },
-                    7: { name: su.nexus2.name },
-                    8: { name: su.nexus2[3], pr: first },
-                    9: { name: su.nexus2[1] },
-                    10: { name: su.nexus2[2], pr: filler }
-                },
-                3: {
-                    1: { name: eden.regular[2], pr: first, rowspan: '2' },
-                    2: { name: eden.regular[3] },
-                    3: { name: eden.regular[4], pr: second },
-                    4: { name: eden.regular[6], pr: filler },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name, pr: second, rowspan: '2' },
-                    8: { name: eden.nexus2[2] },
-                    9: { name: eden.nexus2[3], pr: filler },
-                    10: { name: eden.nexus2[1], pr: no }
-                }
-            }
+            1: { 0: 'Penalty', 1: start },
+            2: { 0: 'Dusk', 1: first },
+            3: { 0: 'Banishment', 1: second, },
+            4: { 0: 'Radiance', 1: no, 2: '2' },
+            5: { 0: 'Sanction' }
+        },
+        1: {
+            1: { 0: su.name, 1: '5', 2: su.regular[1] },
+            2: { 0: su.regular[2] },
+            3: { 0: su.regular[3] },
+            4: { 0: su.regular[5] },
+            5: { 0: su.regular[6] },
+            6: { 0: hua.name, 1: '2', 2: hua.regular[2] },
+            7: { 0: hua.regular[4] }
+        },
+        2: {
+            1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+            2: { 0: eden.regular[3] },
+            3: { 0: eden.nexus2.name },
+            4: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            5: { 0: griseo.regular[4] },
+            6: { 0: griseo.regular[6] },
+            7: { 0: griseo.nexus1.name, 1: '' },
+            8: { 0: griseo.nexus1[2], 1: '' },
+            9: { 0: mobius.name, 1: '3', 2: mobius.regular[3] },
+            10: { 0: mobius.regular[5] },
+            11: { 0: mobius.nexus1.name }
         }
-    }
+    },
+    notes: `If Blessing of Banishment is picked, 
+            pick Kevin's signet <span>${kevin.regular[4]}</span> to supplement breach.<br><br>
+            <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.<br><br>
+            <p>Mobius</p>
+            Can equip Siegfried M to reduce cross cooldown.`
+}
+// Valkyrie Bladestrike
+const stfu = {
+    name: 'Valkyrie Bladestrike',
+    acr: 'stfu',
+    rate: abstinence,
+    signet: {
+        1: { 0: { 0: kevin, 1: '1' } },
+        2: { 0: { 0: su, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: griseo, 1: '' } },
+        3: { 0: { 0: eden, 1: '2' } }
+    },
+    emblem: {
+        1: `${burden} / ${goldGoblet}`,
+        2: `${goldGoblet} / ${lightAsABodhiLeaf}`,
+        3: `${dreamfulGold} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: vc }, 2: { 1: le } },
+        2: { 1: { 1: vc }, 2: { 1: ss } }
+    },
+    signetTable: {
+        0: {
+            1: { 0: 'Current', 1: start },
+            2: { 0: 'Karma', 1: first },
+            3: { 0: 'Idea', 1: second, 2: '2' },
+            4: { 0: 'Thunder' },
+            5: { 0: 'Zanshin', 1: no }
+        },
+        1: {
+            1: { 0: kevin.name, 1: '4', 2: kevin.regular[4] },
+            2: { 0: kevin.regular[6] },
+            3: { 0: kevin.nexus1.name },
+            4: { 0: kevin.nexus1[1] }
+        },
+        2: {
+            1: { 0: su.name, 1: '4', 2: su.regular[1] },
+            2: { 0: su.regular[3] },
+            3: { 0: su.regular[5] },
+            4: { 0: su.nexus2.name },
+            5: { 0: sakura.name, 1: '2', 2: sakura.regular[5] },
+            6: { 0: sakura.nexus2.name },
+            7: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
+            8: { 0: griseo.regular[4] },
+            9: { 0: griseo.regular[6] },
+            10: { 0: griseo.nexus1.name, 1: '' },
+            11: { 0: griseo.nexus1[2], 1: '' }
+        },
+        3: {
+            1: { 0: eden.name, 1: '5', 2: eden.regular[1] },
+            2: { 0: eden.regular[2] },
+            3: { 0: eden.regular[3] },
+            4: { 0: eden.regular[6] },
+            5: { 0: eden.nexus2.name }
+        }
+    },
+    notes: `If there's a Normal Signet of Deliverance +2 stage effect, start with Kevin sigents.<br><br>
+            <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
+            If lacking breach.`
 }
 // Valkyrie Gloria
 const vg = {
     name: 'Valkyrie Gloria',
     acr: 'vg',
-    builds: {
+    rate: inferno,
+    signet: {
+        1: { 0: { 0: hua, 1: '2' }, 1: { 0: kalpas, 1: '1' } },
+        2: { 0: { 0: su, 1: '2' }, 1: { 0: eden, 1: '2' }, 2: { 0: griseo, 1: '' } }
+    },
+    emblem: {
+        1: memory,
+        2: `${lightAsABodhiLeaf} / ${madKingsMask}`,
+        3: `${fallingInPastLight} / ${homeLost}`
+    },
+    support: {
+        1: { 1: { 1: ae }, 2: { 1: le } },
+        2: { 1: { 1: ae }, 2: { 1: br, 2: ma } }
+    },
+    signetTable: {
         0: {
-            signet: { 1: eden, 2: hua, 3: su },
-            signetPr: { 1: '2', 2: '2', 3: '2' },
-            emblem: {
-                1: memory,
-                2: burden,
-                3: homeLost
-            },
-            3: { 1: ae, 2: ae, 3: ae },
-            4: { 1: le, 2: le, 3: le },
-            signetTable: {
-                0: {
-                    1: { name: 'Battle Song', pr: start },
-                    2: { name: 'Gloria', pr: first },
-                    3: { name: 'Triumph', pr: second },
-                    4: { name: 'Impetus', pr: filler, rowspan: '2' },
-                    5: { name: 'Sol' }
-                },
-                1: {
-                    1: { name: eden.regular[3], pr: first },
-                    2: { name: eden.regular[2], pr: second, rowspan: '2' },
-                    3: { name: eden.regular[6] },
-                    4: { name: eden.regular[4], pr: filler },
-                    5: { name: eden.regular[1], pr: no, rowspan: '2' },
-                    6: { name: eden.regular[5] },
-                    7: { name: eden.nexus2.name },
-                    8: { name: eden.nexus2[2], pr: second },
-                    9: { name: eden.nexus2[3], pr: filler },
-                    10: { name: eden.nexus2[1], pr: no }
-				},
-                2: {
-                    1: { name: hua.regular[6], pr: first },
-                    2: { name: hua.regular[1], pr: second, rowspan: '2' },
-                    3: { name: hua.regular[3] },
-                    4: { name: hua.regular[4], pr: filler },
-                    5: { name: hua.regular[2], pr: no, rowspan: '2' },
-                    6: { name: hua.regular[5] },
-                    7: { name: hua.nexus2.name, pr: second },
-                    8: { name: hua.nexus2[1], pr: first },
-                    9: { name: hua.nexus2[3], pr: filler },
-                    10: { name: hua.nexus2[2], pr: no }
-                },
-                3: {
-                    1: { name: su.regular[1], pr: first, rowspan: '2' },
-                    2: { name: su.regular[3] },
-                    3: { name: su.regular[5], pr: second, rowspan: '2' },
-                    4: { name: su.regular[6] },
-                    5: { name: su.regular[2], pr: filler, rowspan: '2' },
-                    6: { name: su.regular[4] },
-                    7: { name: su.nexus2.name },
-                    8: { name: su.nexus2[1], pr: first, rowspan: '2' },
-                    9: { name: su.nexus2[3] },
-                    10: { name: su.nexus2[2], pr: filler }
-                }
-            }
+            1: { 0: 'Gloria', 1: start },
+            2: { 0: 'Battle Song', 1: first },
+            3: { 0: 'Triumph', 1: second },
+            4: { 0: 'Impetus', 1: no, 2: '2' },
+            5: { 0: 'Sol' }
+        },
+        1: {
+            1: { 0: hua.name, 1: '2', 2: hua.regular[6] },
+            2: { 0: hua.nexus2.name },
+            3: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+            4: { 0: kalpas.regular[2] },
+            5: { 0: kalpas.nexus1.name }
+        },
+        2: {
+            1: { 0: su.name, 1: '4', 2: su.regular[1] },
+            2: { 0: su.regular[3] },
+            3: { 0: su.regular[5] },
+            4: { 0: su.nexus2.name },
+            5: { 0: eden.name, 1: '4', 2: eden.regular[2] },
+            6: { 0: eden.regular[3] },
+            7: { 0: eden.regular[5] },
+            8: { 0: eden.nexus2.name },
+            9: { 0: griseo.name, 1: '4', 2: griseo.regular[1] },
+            10: { 0: griseo.regular[4] },
+            11: { 0: griseo.regular[6] },
+            12: { 0: griseo.nexus1.name }
         }
     }
 }
-const valks = [aka, bkek, da, hofs, hor, hos, hot, mobi, lk, raven,
-               elysia, pe, fischl, ri, sw, spa, nyx, stfu, sn, carole,
-               tp, vg];
+const valks = [aka, bkek, da, fr, hofs, hor, hos, hot, mobi, lk, raven,
+               elysia, pe, fischl, rvc, ri, sw, spa, nyx, sn, carole,
+               tp, stfu, vg];

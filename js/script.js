@@ -1,11 +1,18 @@
+const cover = document.getElementById('cover');
+const progressBar = document.getElementById('progress-bar');
+const meter = document.getElementById('meter');
 const accordion = document.getElementById('coll-container');
 const accordionItems = document.querySelectorAll('.collapsible');
 const tooltipable = document.querySelectorAll('input');
-const topButton = document.querySelector('#goToTop');
 const rows = document.querySelectorAll('tr:not(thead tr)');
 const mergedCellRows = document.querySelectorAll('td[rowspan]');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const topButton = document.querySelector('#goToTop');
+const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const images = [], url = [];
-let done = 0;
+let done = 0, timeout = 0;
+let progressInPixels = 0;
+let starto = false;
 // execute animation after all images are loaded
 function load(src) {
     return new Promise((resolve, reject) => {
@@ -15,7 +22,6 @@ function load(src) {
         image.src = src;
     });
 }
-let timeout = 0;
 function fadeAnim(item, fade) {
     setTimeout(() => {
         item.classList.remove('hidden');
@@ -24,12 +30,23 @@ function fadeAnim(item, fade) {
     }, timeout);
     timeout += 100;
 }
-accordionItems.forEach(item => { images.push(item.children[0]); });
-images.forEach(img => { url.push(window.getComputedStyle(img).getPropertyValue('background-image').substring(5).slice(0,-2)); });
+document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+accordionItems.forEach(item => { images.push(item.children[0]) });
+images.forEach(img => { url.push(window.getComputedStyle(img).getPropertyValue('background-image').substring(5).slice(0,-2)) });
 url.forEach(link => {
     load(link).then(() => {
         done += 1;
+        // progress bar
+        let percentDone = Math.round(done / valks.length * 100) / 100;
+        let fillPixels = Math.round(percentDone * progressBarWidthInPixels);
+        while (meter.style.width != `${fillPixels}px`) {
+            progressInPixels += 1;
+            meter.style.width = `${progressInPixels}px`;
+        }
         if (done == valks.length) { // start animation
+            document.getElementsByTagName('html')[0].style.overflow = 'auto';
+            cover.classList.add('fade');
+            setTimeout(() => { cover.remove() }, 1000);
             accordionItems.forEach(item => {
                 // fade-in-up/down animation, alternate on each successive button
                 if (Array.prototype.indexOf.call(accordion.children, item) % 4 == 0) {
@@ -57,26 +74,31 @@ function collapse(content) {
             // set guide width to device width
             nextDiv.style.minWidth = window.innerWidth + 'px';
             nextDivChild.style.minWidth = window.innerWidth + 'px';
-            window.scroll({
-                top: content.offsetTop,
-                behavior: 'smooth'
-            })
-            setTimeout(() => {
-                accordion.scroll({
-                    left: content.offsetLeft + 100,
+            if (starto) {
+                window.scroll({
+                    top: content.offsetTop,
                     behavior: 'smooth'
                 });
-            }, 300);
+                setTimeout(() => {
+                    accordion.scroll({
+                        left: content.offsetLeft + 100,
+                        behavior: 'smooth'
+                    });
+                }, 500);
+            }
+            
         } else {
             nextDiv.style.minWidth = '600px';
             nextDivChild.style.minWidth = '600px';
-            setTimeout(() => {
-                let scrollOffset = content.offsetLeft;
-                accordion.scroll({
-                    left: scrollOffset,
-                    behavior: 'smooth'
-                });
-            }, 300);
+            if (starto) {
+                setTimeout(() => {
+                    let scrollOffset = content.offsetLeft;
+                    accordion.scroll({
+                        left: scrollOffset,
+                        behavior: 'smooth'
+                    });
+                }, 300);
+            }
         }
     }
 }
@@ -107,99 +129,117 @@ accordionItems.forEach(item => {
         }
     });
 });
-// go to top of guide
-topButton.addEventListener('click', function () {
-    for (item of accordionItems) {
-        if (item.classList.contains('active')) {
-            item.nextElementSibling.scroll({
-                top: 0,
-                behavior: 'smooth'
-            })
-        }
-    }
+// support valk avatar transition on hover
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('mouseover', function(){
+        this.parentNode.parentNode.children[0].style.filter = 'brightness(50%)';
+        this.parentNode.parentNode.children[0].style.transition = '0.3s';
+    });
+    checkbox.addEventListener('mouseout', function(){
+        this.parentNode.parentNode.children[0].style.filter = 'unset';
+        this.parentNode.parentNode.children[0].style.transition = '0.2s';
+    });
 });
 // hide previously clicked tooltip
 tooltipable.forEach(item => {
     item.addEventListener('click', function() {
-        for (otherItem of tooltipable) {
-            if (otherItem != item) {
-                otherItem.checked = false;
-            }
-        }
+        for (otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
     });
 });
 // anchor smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
-function highlightAdjacentMergedCell(row, background, color) {
+function highlightAdjacentMergedCell2(row, bool, parentChildren, i, j) {
+    // get rowspan value
+    let range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+    // get index of selected row and merged cell
+    let thisIndex = row.rowIndex;
+    let mergedCellIndex = parentChildren[i].rowIndex;
+    // check if index is covered within the range of merged cell
+    if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
+        // apply styles
+        if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
+        else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
+    }
+}
+function highlightAdjacentMergedCell(row, bool) {
     // check if inner HTML only has 1 pair of td tags
     // in a 2 column table it has 2 td tags per row
     // meaning if a row has one less td tag it either has
     // a missing cell in the row, or a merged cell (this case)
-    if (row.innerHTML.match(/<\/td>/g).length == 1) {
+    if (row.innerHTML.match(/<\/td>/g).length == 1 ||
+        // for cells with .noted class
+       (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
         // get all rows of its parent table
         let parentChildren = row.parentNode.children;
         // iterate and check if row has a rowspan attribute in the cell of the 2nd column
-        for (let i = 0; i < row.parentNode.children.length; i++) {
-            if (parentChildren[i].children.length == 2 && parentChildren[i].children[1].hasAttribute('rowspan')) {
-                // get rowspan value
-                let range = parseInt(parentChildren[i].children[1].getAttribute('rowspan')) - 1;
-                // get index of selected row and merged cell
-                let thisIndex = row.rowIndex;
-                let mergedCellIndex = parentChildren[i].rowIndex;
-                // check if index is covered within the range of merged cell
-                if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
-                    // apply styles
-                    parentChildren[i].children[1].style.background = background;
-                    parentChildren[i].children[1].style.color = color;
-                    break;
+        for (let i = 0; i < parentChildren.length; i++) {
+            if (parentChildren[i].innerHTML.includes('rowspan')) {
+                if (parentChildren[i].children[0].hasAttribute('rowspan')) {
+                    highlightAdjacentMergedCell2(row, bool, parentChildren, i, 0);
+                } else {
+                    highlightAdjacentMergedCell2(row, bool, parentChildren, i, 1);
                 }
             }
         }
     }
 }
-// higlight table rows on hover
+function notedCell(row, removee, addee) {
+    // .temp class to know which had the .noted class
+    for (let i = 0; i < row.children.length; i++) {
+        if (row.children[i].classList.contains(removee)) {
+            row.children[i].classList.remove(removee);
+            row.children[i].classList.add(addee);
+        }
+    }
+}
+// higlight table rows, including merged cells, on hover
+// since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
 rows.forEach(row => {
     row.addEventListener('mouseover', function() {
-        this.style.background = 'var(--white)';
-        this.style.color = 'black';
-        // highlight adjacent cell since rows that has an adjacent merged
-        // cell and don't have the rowspan attribute won't highlight it
-        highlightAdjacentMergedCell(this, 'var(--white)', 'black');
+        this.classList.add('table-cell-hover');
+        notedCell(this, 'noted', 'temp');
+        highlightAdjacentMergedCell(this, true);
     });
     row.addEventListener('mouseout', function() {
-        this.style.background = 'unset';
-        this.style.color = 'unset';
-        highlightAdjacentMergedCell(this, 'unset', 'unset');
+        this.classList.remove('table-cell-hover');
+        notedCell(this, 'temp', 'noted');
+        highlightAdjacentMergedCell(this, false);
     });
 });
-function highlightInvolvedRows(row, background, color) {
+function highlightInvolvedRows(row, bool) {
     let mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
     let cellIndex = row.parentNode.rowIndex;
     for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
-        row.parentNode.parentNode.children[i].style.background = background;
-        row.parentNode.parentNode.children[i].style.color = color;
+        if (bool) {
+            row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
+            notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
+        } else {
+            row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
+            notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
+        }
     }
 }
 // highlight adjacent rows on hovering from merged cells
 mergedCellRows.forEach(cell => {
-    cell.addEventListener('mouseover', function() {
-        highlightInvolvedRows(this, 'var(--white)', 'black');
-    });
-    cell.addEventListener('mouseout', function() {
-        highlightInvolvedRows(this, 'unset', 'unset');
-    });
+    cell.addEventListener('mouseover', function() { highlightInvolvedRows(this, true) });
+    cell.addEventListener('mouseout', function() { highlightInvolvedRows(this, false) });
+});
+// go to top of guide
+topButton.addEventListener('click', function () {
+    for (item of accordionItems) {
+        if (item.classList.contains('active')) {
+            item.nextElementSibling.scroll({ top: 0, behavior: 'smooth' });
+        }
+    }
 });
 // double click accordion items because it somehow can't set transition style directly
 for (let i = 0; i < accordionItems.length; i++) {
     accordionItems[i].click();
     if (i == accordionItems.length - 1) accordionItems[i].click();
 }
-// scroll to left most
-setTimeout(() => { accordion.scrollTo({ left: 0, behavior: 'smooth' }) }, 300);
+starto = true;
