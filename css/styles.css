@@ -180,13 +180,6 @@ h1 {
     letter-spacing: 8px;
     color: rgba(255, 255, 255, 0.7);
 }
-.vertical-text-anim {
-    animation: verticaltextanim 3s;
-}
-@keyframes verticaltextanim {
-    from { color: transparent; }
-    to { color: rgba(255, 255, 255, 0.7); }
-}
 .guide-container {
     scrollbar-color: transparent transparent;
     overflow-x: hidden;

@@ -28,7 +28,6 @@ function fadeAnim(item, fade) {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
-        item.children[1].children[0].classList.add('vertical-text-anim');
     }, timeout);
     timeout += 100;
 }
