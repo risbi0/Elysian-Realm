@@ -567,7 +567,7 @@ h5 {
 h6 {
     font-size: 24px;
 }
-hr {
+hr, #about a {
     color: var(--white);
 }
 #about p, li {

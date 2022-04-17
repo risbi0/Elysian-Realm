@@ -1,5 +1,6 @@
 const cover = document.getElementById('cover');
 const progressBar = document.getElementById('progress-bar');
+const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.getElementById('meter');
 const accordion = document.getElementById('coll-container');
 const accordionItems = document.querySelectorAll('.collapsible');
@@ -7,11 +8,12 @@ const tooltipable = document.querySelectorAll('input');
 const rows = document.querySelectorAll('tr:not(thead tr)');
 const mergedCellRows = document.querySelectorAll('td[rowspan]');
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const signets = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 const topButton = document.querySelector('#goToTop');
-const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const images = [], url = [];
 let done = 0, timeout = 0;
 let progressInPixels = 0;
+let originalText = null, previousText;
 let starto = false;
 // execute animation after all images are loaded
 function load(src) {
@@ -46,7 +48,7 @@ url.forEach(link => {
         if (done == valks.length) { // start animation
             document.getElementsByTagName('html')[0].style.overflow = 'auto';
             cover.classList.add('fade');
-            setTimeout(() => { cover.remove() }, 1000);
+            setTimeout(() => { cover.remove() }, 800);
             accordionItems.forEach(item => {
                 // fade-in-up/down animation, alternate on each successive button
                 if (Array.prototype.indexOf.call(accordion.children, item) % 4 == 0) {
@@ -229,6 +231,32 @@ mergedCellRows.forEach(cell => {
     cell.addEventListener('mouseover', function() { highlightInvolvedRows(this, true) });
     cell.addEventListener('mouseout', function() { highlightInvolvedRows(this, false) });
 });
+// change signet name to summary on hover/click
+function changeText(deez) {
+    for(let i = 0; i < Object.keys(signetSummary).length; i++) {
+        if (signetSummary[i].signets.includes(deez.textContent) ||
+            signetSummary[i].signets == deez.textContent) {
+            previousText = deez;
+            originalText = deez.textContent;
+            deez.textContent = signetSummary[i].summary;
+        } 
+    }
+}
+function revertText(deez) {
+    deez.textContent = originalText;
+    originalText = null;
+}
+signets.forEach(signet => {
+    signet.addEventListener('mouseover', function() { changeText(this); });
+    signet.addEventListener('mouseout', function() { if (originalText != null) revertText(this); });
+    signet.addEventListener('touchstart', function() {
+        if (originalText != null && previousText != this) {
+            revertText(previousText);
+            changeText(this);
+        } else if (originalText == null) { changeText(this);
+        } else if (previousText == this) { revertText(previousText); }
+    });
+});
 // go to top of guide
 topButton.addEventListener('click', function () {
     for (item of accordionItems) {
@@ -242,4 +270,5 @@ for (let i = 0; i < accordionItems.length; i++) {
     accordionItems[i].click();
     if (i == accordionItems.length - 1) accordionItems[i].click();
 }
+window.scrollTo({ top: 0 });
 starto = true;

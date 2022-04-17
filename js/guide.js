@@ -28,10 +28,10 @@ const aka = {
             2: { 0: 'Stellar Trials', 1: first },
             3: { 0: 'Cold Moon', 1: second, 2: '2' },
             4: { 0: 'Winter Harvest' },
-            5: { 0: 'Uranian Mirror', 1: filler }
+            5: { 0: 'Uranian Mirror', 1: reinforcement }
         },
         1: {
-            1: { 0: mobius.name, 1: '5', 2: mobius.regular[2] },
+            1: { 0: mobius.name, 1: '5', 2: mobius.regular[2], detail: 'test aaa' },
             2: { 0: mobius.regular[3] },
             3: { 0: mobius.regular[5] },
             4: { 0: mobius.nexus1.name },
@@ -188,7 +188,7 @@ const fr = {
             2: { 0: 'Battle Valfreyja', 1: first, 2: '2' },
             3: { 0: 'Soul Siphon' },
             4: { 0: 'God Eater', 1: second },
-            5: { 0: 'Spirit Servants', 1: filler }
+            5: { 0: 'Spirit Servants', 1: reinforcement }
         },
         1: {
             1: { 0: kevin.name, 1: '4', 2: kevin.regular[1] },
@@ -313,7 +313,7 @@ const hor = {
         2: {
             1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
             2: { 0: eden.regular[3] },
-            3: { 0: eden.regular[5] },
+            3: { 0: eden.regular[6] },
             4: { 0: eden.nexus2.name },
             5: { 0: su.name, 1: '4', 2: su.regular[1] },
             6: { 0: su.regular[3] },
@@ -362,11 +362,11 @@ const hos = {
             1: { 0: 'Victory', 1: start },
             2: { 0: 'Dark Plumes', 1: first },
             3: { 0: 'Supremacy', 1: second },
-            4: { 0: 'Legion', 1: filler },
+            4: { 0: 'Legion', 1: reinforcement },
             5: { 0: 'Ego', 1: no }
         },
         1: {
-            1: { 0: su.name, 1: '5', 2: su.regular[1] }, // recommended to upgrade
+            1: { 0: su.name, 1: '5', 2: su.regular[1], 3: '' },
             2: { 0: su.regular[2] },
             3: { 0: su.regular[3] },
             4: { 0: su.regular[5] },
@@ -392,6 +392,8 @@ const hos = {
     },
     notes: `If there's no Normal Signet of Gold +2 stage effect,
             can pick Blessing of Victory, Blessing of Ego, and Infinity signet at start.<br><br>
+            <p>${su.regular[1]}</p>
+            Recommended to upgrade.<br><br>
             <p>${griseo.nexus1.name}</p>
             If fighting agains 12F boss.`
 }
@@ -477,7 +479,7 @@ const mobi = {
         1: {
             1: { 0: mobius.name, 1: '2', 2: mobius.nexus1.name },
             2: { 0: mobius.nexus1[1] },
-            3: { 0: hua.name, 1: '3', 2: hua.regular[6] }, // recommended to upgrade
+            3: { 0: hua.name, 1: '3', 2: hua.regular[6], 3: '' },
             4: { 0: hua.nexus2.name },
             5: { 0: hua.nexus2[1] }
         },
@@ -497,6 +499,8 @@ const mobi = {
     },
     notes: `<p>Mobius</p>
             Don't pick <span>${mobius.nexus1[2]}</span>.<br><br>
+            <p>${hua.regular[6]}</p>
+            Recommended to upgrade.<br><br>
             <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>
             If lacking breach.`
 }
@@ -530,7 +534,7 @@ const lk = {
             1: { 0: kalpas.name, 1: '6', 2: kalpas.regular[1] },
             2: { 0: kalpas.regular[2] },
             3: { 0: kalpas.regular[3] },
-            4: { 0: kalpas.regular[6] }, // recommended to upgrade
+            4: { 0: kalpas.regular[6], 1: '' },
             5: { 0: kalpas.nexus2.name },
             6: { 0: kalpas.nexus2[3] },
         },
@@ -545,7 +549,9 @@ const lk = {
             8: { 0: aponia.regular[4] },
             9: { 0: aponia.nexus1.name }
         }
-    }
+    },
+    notes: `<p>${kalpas.regular[6]}</p>
+            Recommended to upgrade.`
 }
 // Midnight Absinthe
 const raven = {
@@ -570,7 +576,7 @@ const raven = {
             1: { 0: 'Ominous Mist', 1: start },
             2: { 0: 'Arrowhead', 1: first },
             3: { 0: 'Wild Hunt', 1: second },
-            4: { 0: 'Suppression', 1: filler },
+            4: { 0: 'Suppression', 1: reinforcement },
             5: { 0: 'Raven Plume', 1: no }
         },
         1: {
@@ -622,7 +628,7 @@ const elysia = {
             1: { 0: 'Purity', 1: start, 2: '2' },
             2: { 0: 'Zenith' },
             3: { 0: 'Love', 1: first },
-            4: { 0: 'Beauty', 1: filler, 2: '2' },
+            4: { 0: 'Beauty', 1: reinforcement, 2: '2' },
             5: { 0: 'Benevolence' }
         },
         1: {
@@ -784,7 +790,7 @@ const rvc = {
             2: { 0: 'Battle Tailpiece' },
             3: { 0: 'Hidden Claws', 1: first },
             4: { 0: 'Phantasma', 1: second },
-            5: { 0: 'Nighteye', 1: filler }
+            5: { 0: 'Nighteye', 1: reinforcement }
         },
         1: {
             1: { 0: eden.name, 1: '8', 2: eden.regular[2] },
@@ -870,7 +876,7 @@ const ri = {
         3: {
             1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
             2: { 0: eden.regular[3] },
-            3: { 0: eden.regular[5] },
+            3: { 0: eden.regular[6] },
             4: { 0: eden.nexus2.name }
         }
     }
@@ -953,7 +959,7 @@ const spa = {
             2: { 0: 'Star Quillon', 1: first },
             3: { 0: 'Alrescha', 1: second, 2: '2' },
             4: { 0: 'Radiant Formation' },
-            5: { 0: 'Holy Flame', 1: filler }
+            5: { 0: 'Holy Flame', 1: reinforcement }
         },
         1: {
             1: { 0: hua.name, 1: '3', 2: hua.regular[6] },
@@ -1082,7 +1088,7 @@ const sn = {
             2: { 0: su.regular[3] },
             3: { 0: su.regular[5] },
             4: { 0: su.nexus2.name },
-            5: { 0: hua.name, 1: '2', 2: hua.regular[4], 3: '' }, //?
+            5: { 0: hua.name, 1: '2', 2: hua.regular[4], 3: '' },
             6: { 0: hua.nexus2.name, 1: '' },
             7: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
             8: { 0: kalpas.regular[2] },
@@ -1296,7 +1302,7 @@ const vg = {
             4: { 0: su.nexus2.name },
             5: { 0: eden.name, 1: '4', 2: eden.regular[2] },
             6: { 0: eden.regular[3] },
-            7: { 0: eden.regular[5] },
+            7: { 0: eden.regular[6] },
             8: { 0: eden.nexus2.name },
             9: { 0: griseo.name, 1: '4', 2: griseo.regular[1] },
             10: { 0: griseo.regular[4] },

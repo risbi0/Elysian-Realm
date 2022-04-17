@@ -29,13 +29,15 @@ const start = 'Start';
 const first = '1st';
 const second = '2nd';
 const filler = 'Filler';
+const reinforcement = 'Reinforcement';
 const no = 'No';
 // table headers
 const supportTableHeaders = ['Type', 'Support 1', 'Support 2'];
 const supportTableTypeColumn = ['Utility', 'Damage'];
 const emblemTableHeaders = ['Time', 'Emblem'];
 const emblemTableTimeColumn = ['Early', 'Mid', 'Late'];
-const signetTableColumns = ['Signet', 'Priority'];
+const exclusiveTableColumns = ['Signet', 'Priority'];
+const signetTableColumns = ['Owner', 'Signet'];
 // support valks
 const ae = { name: 'Azure Empyrea', acr: 'ae' }
 const bke = { name: 'Bright Knight: Excelsis', acr: 'bke' }
@@ -306,4 +308,71 @@ const vv = {
         2: 'Act VIII: Adorned Chamber',
         3: 'Finale: Broken Truth'
     }
+}
+const damageDealt = [eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
+                     kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
+                     su.regular[6]];
+const damageTaken = [eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
+const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1]];
+const physDamage = [hua.regular[2], kevin.regular[5]];
+const eleDamage = [hua.regular[1], kevin.regular[2]];
+const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3]];
+const physBreach = [hua.regular[5], kevin.regular[4]];
+const eleBreach = [hua.regular[6], kevin.regular[1]];
+const vurnerability = [eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
+                       kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1]];
+const spRecovery = [eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
+                    griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2]];
+const signetSummary = {
+    0: { summary: 'Damage Dealt', signets: damageDealt },
+    1: { summary: 'Damage Taken', signets: damageTaken },
+    2: { summary: 'Physical & Elemental Damage', signets: physEleDamage },
+    3: { summary: 'Physical Damage', signets: physDamage },
+    4: { summary: 'Elemental Damage', signets: eleDamage },
+    5: { summary: 'Physical & Elemental Breach', signets: physEleBreach },
+    6: { summary: 'Physical Breach', signets: physBreach },
+    7: { summary: 'Elemental Breach', signets: eleBreach },
+    8: { summary: 'Damage Taken By Enemies', signets: vurnerability },
+    9: { summary: 'SP Recovery', signets: spRecovery },
+    10: { summary: 'Lightning Damage', signets: [eden.nexus1[1], eden.nexus2[2]] },
+    11: { summary: 'Reduce Enemy Damage and Movement', signets: griseo.regular[2] },
+    12: { summary: 'Longer Taint', signets: griseo.regular[3] },
+    13: { summary: 'Bonnus Damage', signets: [griseo.nexus1[3], kalpas.nexus2[1], su.nexus2[2]] },
+    14: { summary: 'Fire Damage', signets: kalpas.nexus1[1] },
+    15: { summary: 'Additional Initial Stack of Soldier\'s Resolve', signets: hua.nexus1[2] },
+    16: { summary: 'Bonus Resolve Stack per Second to Normal Signets', signets: hua.nexus1[1] },
+    17: { summary: 'Increase Normal Signet Cap Increased', signets: [hua.nexus1[3], hua.nexus2[1]] },
+    18: { summary: 'Extends Incincibility From Soldier\'s Remembrance', signets: hua.nexus2[2] },
+    19: { summary: 'Max HP Increase', signets: kalpas.regular[6] },
+    20: { summary: 'Recharges Blood Boil ', signets: kalpas.nexus1[2] },
+    21: { summary: 'More Blood Boil Damage', signets: kalpas.nexus1[3] },
+    22: { summary: 'Bloodboil Armor Absorb Damage', signets: kalpas.nexus2[2] },
+    23: { summary: 'Total Damage Increase in Burst Mode', signets: kevin.nexus1[3] },
+    24: { summary: 'Normal Signets Increased Buff', signets: [kevin.nexus1[1], kevin.nexus2[1]] },
+    25: { summary: 'Final Battle and Normal Signet Duration Extended', signets: kevin.nexus1[2] },
+    26: { summary: 'Total Damage Increase in Ultimate or Burst Mode Hit', signets: kevin.nexus2[2] },
+    27: { summary: 'Entity Damage Dealt', signets: mobius.regular[3] },
+    28: { summary: 'Elf Ultimate and Support Valk Support Skill Reduced CD', signets: [mobius.regular[4], mobius.nexus1[3]] },
+    29: { summary: 'Elf SP Recovery', signets: mobius.regular[1] },
+    30: { summary: 'Mind Sync Duration Extended', signets: mobius.nexus1[2] },
+    31: { summary: 'HP and SP Cap', signets: pardofelis.regular[5] },
+    32: { summary: 'HP and SP Recovery', signets: pardofelis.regular[2] },
+    33: { summary: 'Shiny Silver Increase Each Floor', signets: pardofelis.regular[3] },
+    34: { summary: 'Shiny Silver Each Kill ', signets: pardofelis.regular[6] },
+    35: { summary: 'Ultimate Evasion Trigger Bonus Damage', signets: pardofelis.nexus1[1] },
+    36: { summary: 'Ultimate Trigger Bonus Damage', signets: pardofelis.nexus1[2] },
+    37: { summary: 'Attack Speed & Move Speed', signets: sakura.regular[6] },
+    38: { summary: 'Ultimate Evasion Reset CD', signets: sakura.regular[4] },
+    39: { summary: 'Ultimate Evasion 1 More Charge and Reduced CD', signets: sakura.regular[3] },
+    40: { summary: 'Sakura Screen Resets Ultimate and Weapon CD', signets: sakura.nexus1[1] },
+    41: { summary: 'Ice Damage', signets: [sakura.nexus1[3], sakura.nexus2[3], sakura.nexus2[2]] },
+    42: { summary: 'Sakura Screen Pause Duration', signets: sakura.nexus1[2] },
+    43: { summary: 'Reduce Ultimate Evasion Remaining CD', signets: sakura.nexus2[1] },
+    44: { summary: 'Combo Increased to 60 When Below 60', signets: su.regular[5] },
+    45: { summary: '25 Bonus Combo', signets: su.regular[1] },
+    46: { summary: 'Enemy Disable Shield Recovery', signets: su.nexus1[2] },
+    47: { summary: 'Reduce Enemy Damage', signets: su.nexus1[1] },
+    48: { summary: 'Bonus Damage to Shields', signets: su.nexus1[3] },
+    49: { summary: '3 Random Debuffs on Hit', signets: su.nexus2[3] },
+    50: { summary: 'Initial and SP Cap Increased', signets: eden.regular[4] }
 }

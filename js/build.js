@@ -235,16 +235,18 @@ for (let i = 0; i < valks.length; i++) {
         if (j == 3) signetTitleAndSignets('Transitional Signets', showHide, i, j, link='transitional-signets');
 
         let signetTable = document.createElement('table');
-        if (j == 0) signetTable.classList.add('exclusive-tbl');
+        let headers;
+        if (j == 0) signetTable.classList.add('exclusive-tbl'); headers = exclusiveTableColumns;
         if (j == 1) signetTable.classList.add('main-tbl');
         if (j == 2) signetTable.classList.add('secondary-tbl');
         if (j == 3) signetTable.classList.add('transitional-tbl');
+        if (j == 1 || j == 2 || j == 3) headers = signetTableColumns;
 
         let signetTableHead = signetTable.createTHead();
         let signetTableHeadRow = signetTableHead.insertRow(); 
-        for (let k = 0; k < signetTableColumns.length; k++) {
+        for (let k = 0; k < 2; k++) {
             let signetTableHeader = document.createElement('th');
-            signetTableHeader.textContent = signetTableColumns[k];
+            signetTableHeader.textContent = headers[k];
             signetTableHeadRow.appendChild(signetTableHeader);
         }
         signetTableHead.appendChild(signetTableHeadRow);
@@ -254,9 +256,8 @@ for (let i = 0; i < valks.length; i++) {
             let signetTableBodyRow = signetTableBody.insertRow();
             for (let l = 0; l < Object.keys(valks[i].signetTable[j][k]).length; l++) { // cells
                 let signetTableBodyCell;
-                //for (key in valks[i].signetTable[j][k]) { if (key == 'mark') { marked = true; }}  
                 // check if value isn't only a number, which is a value for rowspan 
-                if (!(/^[0-9]+$/.test(valks[i].signetTable[j][k][l]))) {
+                if (!(/^[0-9]+$/.test(valks[i].signetTable[j][k][l])) && Object.keys(valks[i].signetTable[j][k])[l] != 'detail') {
                     let prepend = '';
                     if (j == 0 && l == 0) prepend = 'Blessing of ';
                     signetTableBodyCell = signetTableBodyRow.insertCell();
