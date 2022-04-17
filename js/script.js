@@ -232,29 +232,22 @@ mergedCellRows.forEach(cell => {
     cell.addEventListener('mouseout', function() { highlightInvolvedRows(this, false) });
 });
 // change signet name to summary on hover/click
-function changeText(deez) {
-    for(let i = 0; i < Object.keys(signetSummary).length; i++) {
-        if (signetSummary[i].signets.includes(deez.textContent) ||
-            signetSummary[i].signets == deez.textContent) {
-            previousText = deez;
-            originalText = deez.textContent;
-            deez.textContent = signetSummary[i].summary;
-        } 
-    }
-}
-function revertText(deez) {
-    deez.textContent = originalText;
-    originalText = null;
-}
 signets.forEach(signet => {
-    signet.addEventListener('mouseover', function() { changeText(this); });
-    signet.addEventListener('mouseout', function() { if (originalText != null) revertText(this); });
-    signet.addEventListener('touchstart', function() {
-        if (originalText != null && previousText != this) {
-            revertText(previousText);
-            changeText(this);
-        } else if (originalText == null) { changeText(this);
-        } else if (previousText == this) { revertText(previousText); }
+    signet.addEventListener('mouseover', function() {
+        for(let i = 0; i < Object.keys(signetSummary).length; i++) {
+            if (signetSummary[i].signets.includes(this.textContent) ||
+                signetSummary[i].signets == this.textContent) {
+                previousText = this;
+                originalText = this.textContent;
+                this.textContent = signetSummary[i].summary;
+            } 
+        }
+    });
+    signet.addEventListener('mouseout', function() {
+        if (originalText != null) {
+            this.textContent = originalText;
+            originalText = null;
+        }
     });
 });
 // go to top of guide
