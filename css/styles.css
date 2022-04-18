@@ -590,3 +590,6 @@ li {
     list-style: initial;
     margin: 0 0 10px 15px;
 }
+strong {
+    font-weight: bold;
+}

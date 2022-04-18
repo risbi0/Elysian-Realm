@@ -238,7 +238,7 @@ const hofs = {
     signetTable: {
         0: {
             1: { 0: 'Heatflow', 1: start },
-            2: { 0: 'Abyssal Reburn', 1: first },
+            2: { 0: 'Reburn', 1: first },
             3: { 0: 'Tempered Warrior', 1: second },
             4: { 0: 'Flamescion', 1: filler, 2: '2' },
             5: { 0: 'Starfire' }
@@ -1311,6 +1311,6 @@ const vg = {
         }
     }
 }
-const valks = [aka, bkek, da, fr, hofs, hor, hos, hot, mobi, lk, raven,
-               elysia, pe, fischl, rvc, ri, sw, spa, nyx, sn, carole,
-               tp, stfu, vg];
+const valks = [aka, bkek, da, fr, hofs, hor, hos, hot, mobi, lk,
+               raven, elysia, pe, fischl, rvc, ri, sw, spa, nyx, sn,
+               carole, tp, stfu, vg];
