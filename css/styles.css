@@ -542,18 +542,29 @@ tr:last-child:not(thead tr) {
 #da-name, #lk-name, #nyx-name, #ri-name, #spa-name, #carole-name { font-size: 35px; }
 /* about page */
 #about #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--dark-tint);
+    height: 100vh;
 }
 #sub-container {
     background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
     width: 600px;
     max-width: 90%;
-    margin: auto;
-    margin-top: 10px;
+    height: 95vh;
     padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 @media only screen and (max-width: 640px) {
-    #sub-container { width: auto; }
+    #sub-container {
+        width: auto;
+        height: unset;
+        overflow-y: unset;
+    }
+    #about #container { height: initial; }
 }
 h5 {
     font-size: 30px;
