@@ -14,6 +14,7 @@ const images = [], url = [];
 let done = 0, timeout = 0;
 let progressInPixels = 0;
 let originalText = null, previousText;
+let previousOffset;
 let starto = false;
 // execute animation after all images are loaded
 function load(src) {
@@ -76,24 +77,24 @@ function collapse(content) {
             nextDiv.style.minWidth = window.innerWidth + 'px';
             nextDivChild.style.minWidth = window.innerWidth + 'px';
             if (starto) {
+                let scrollOffset = content.offsetLeft;
+                if (previousOffset < content.offsetLeft) scrollOffset -= window.innerWidth;
                 window.scroll({
                     top: content.offsetTop,
                     behavior: 'smooth'
                 });
-                setTimeout(() => {
-                    accordion.scroll({
-                        left: content.offsetLeft + 100,
-                        behavior: 'smooth'
-                    });
-                }, 500);
+                accordion.scroll({
+                    left: scrollOffset + 100,
+                    behavior: 'smooth'
+                });
             }
-            
         } else {
             nextDiv.style.minWidth = '600px';
             nextDivChild.style.minWidth = '600px';
             if (starto) {
+                let scrollOffset = content.offsetLeft;
+                if (previousOffset < content.offsetLeft) scrollOffset -= 600;
                 setTimeout(() => {
-                    let scrollOffset = content.offsetLeft;
                     accordion.scroll({
                         left: scrollOffset,
                         behavior: 'smooth'
@@ -101,6 +102,7 @@ function collapse(content) {
                 }, 300);
             }
         }
+        previousOffset = content.offsetLeft;
     }
 }
 // accordion animation
