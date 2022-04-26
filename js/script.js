@@ -250,7 +250,7 @@ function revertText(deez) {
     deez.textContent = originalText;
     originalText = null;
 }
-if (mobileAndTabletCheck()) {
+if (mobileAndTabletCheck()) { // mobile browsers
     signets.forEach(signet => {
         signet.addEventListener('mouseover', function() {
             if (originalText != null && previousText != this) {
@@ -260,7 +260,7 @@ if (mobileAndTabletCheck()) {
             } else if (previousText == this) { revertText(previousText); }
         });
     });
-} else {
+} else { // desktop browsers
     signets.forEach(signet => {
         signet.addEventListener('mouseover', function() { changeText(this) });
         signet.addEventListener('mouseout', function() { if (originalText != null) revertText(this) });
