@@ -61,46 +61,40 @@ url.forEach(link => {
     });
 });
 function collapse(content) {
-    let nextDiv = content.nextElementSibling;
-    let nextDivChild = nextDiv.lastElementChild;
-    nextDiv.scrollTop = 0;
-    if (nextDiv.style.minWidth) { // collapse
-        nextDiv.style.minWidth = null;
-        nextDivChild.style.minWidth = null;
-        nextDivChild.style.opacity = 0;
-        nextDivChild.style.transition = '0.1s';
+    let guideContainer = content.nextElementSibling;
+    let showHide = guideContainer.children[0];
+    
+    if (guideContainer.style.minWidth) { // collapse
+        guideContainer.style.minWidth = null;
+        guideContainer.scrollTop = 0;
+        showHide.style.minWidth = null;
+        showHide.style.opacity = 0;
+        showHide.style.transition = '0.1s';
     } else { // expand
-        nextDivChild.style.opacity = 1;
-        nextDivChild.style.transition = '0.7s ease-in';
-        if (window.innerWidth <= 600) {
-            // set guide width to device width
-            nextDiv.style.minWidth = window.innerWidth + 'px';
-            nextDivChild.style.minWidth = window.innerWidth + 'px';
-            if (starto) {
-                let scrollOffset = content.offsetLeft;
-                if (previousOffset < content.offsetLeft) scrollOffset -= window.innerWidth;
-                window.scroll({
-                    top: content.offsetTop,
-                    behavior: 'smooth'
-                });
+        showHide.style.opacity = 1;
+        showHide.style.transition = '0.7s ease-in';
+
+        if (window.innerWidth <= 600) width = window.innerWidth, timeout = 0, phoneOffset = 100;
+        else width = 600, timeout = 300, phoneOffset = 0;
+
+        guideContainer.style.minWidth = width + 'px';
+        showHide.style.minWidth = width + 'px';
+
+        if (starto) {
+            let scrollOffset = content.offsetLeft;
+            if (previousOffset < content.offsetLeft) scrollOffset -= width;
+            setTimeout(() => {
                 accordion.scroll({
-                    left: scrollOffset + 100,
+                    left: scrollOffset + phoneOffset,
                     behavior: 'smooth'
                 });
-            }
-        } else {
-            nextDiv.style.minWidth = '600px';
-            nextDivChild.style.minWidth = '600px';
-            if (starto) {
-                let scrollOffset = content.offsetLeft;
-                if (previousOffset < content.offsetLeft) scrollOffset -= 600;
-                setTimeout(() => {
-                    accordion.scroll({
-                        left: scrollOffset,
+                if (window.innerWidth <= 600) {
+                    window.scroll({
+                        top: content.offsetTop,
                         behavior: 'smooth'
                     });
-                }, 300);
-            }
+                }
+            }, timeout);
         }
         previousOffset = content.offsetLeft;
     }
@@ -124,9 +118,7 @@ accordionItems.forEach(item => {
     item.nextElementSibling.addEventListener('scroll', function() {
         if (item.nextElementSibling.scrollTop > 700) {
             topButton.style.visibility = 'visible';
-            if (window.innerWidth <= 600) {
-                topButton.style.top = window.innerHeight - 60 + "px"
-            }
+            if (window.innerWidth <= 600) topButton.style.top = window.innerHeight - 60 + "px";
         } else {
             topButton.style.visibility = 'hidden';
         }
@@ -156,19 +148,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
-function highlightAdjacentMergedCell2(row, bool, parentChildren, i, j) {
-    // get rowspan value
-    let range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
-    // get index of selected row and merged cell
-    let thisIndex = row.rowIndex;
-    let mergedCellIndex = parentChildren[i].rowIndex;
-    // check if index is covered within the range of merged cell
-    if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
-        // apply styles
-        if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
-        else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
-    }
-}
 function highlightAdjacentMergedCell(row, bool) {
     // check if inner HTML only has 1 pair of td tags
     // in a 2 column table it has 2 td tags per row
@@ -182,10 +161,17 @@ function highlightAdjacentMergedCell(row, bool) {
         // iterate and check if row has a rowspan attribute in the cell of the 2nd column
         for (let i = 0; i < parentChildren.length; i++) {
             if (parentChildren[i].innerHTML.includes('rowspan')) {
-                if (parentChildren[i].children[0].hasAttribute('rowspan')) {
-                    highlightAdjacentMergedCell2(row, bool, parentChildren, i, 0);
-                } else {
-                    highlightAdjacentMergedCell2(row, bool, parentChildren, i, 1);
+                parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
+                // get rowspan value
+                let range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+                // get index of selected row and merged cell
+                let thisIndex = row.rowIndex;
+                let mergedCellIndex = parentChildren[i].rowIndex;
+                // check if index is covered within the range of merged cell
+                if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
+                    // apply styles
+                    if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
+                    else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
                 }
             }
         }
