@@ -1,41 +1,28 @@
 :root {
     --white: rgba(255, 255, 255, 0.8);
     --dark-tint: rgba(0, 0, 0, 0.83);
+    --scrollbar-thumb: rgb(30, 30, 30);
 }
-/* chrome scrollbar */
-/* main scrollbar & horizontal scrollbar */
+/* webkit scrollbar */
 ::-webkit-scrollbar {
+    height: 8px;
     width: 8px;
 }
-::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(60, 60, 60);
-    transition: 0.2s;
-}
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(40, 40, 40);
+    background-color: var(--scrollbar-thumb);
     border-radius: 10px;
-    animation: chrome-scroll 5s;
 }
-/* main scrollbar */
-body::-webkit-scrollbar-track {
-    background-color: black;
-}
-/* horizontal scrollbar */
-::-webkit-scrollbar-track {
-    background-color: var(--dark-tint);
-}
-@keyframes chrome-scroll {
-    from { background-color: transparent; }
-    to { background-color: rgb(40, 40, 40); }
-}
-/* 2nd vertical scrollbar */
+::-webkit-scrollbar-thumb:hover { background-color: rgb(60, 60, 60); }
+::-webkit-scrollbar-track { background-color: transparent; }
+body::-webkit-scrollbar-track { background-color: black; }
+/* guide scrollbar */
 .guide-container::-webkit-scrollbar-thumb, .guide-container::-webkit-scrollbar-track {
     background-color: transparent;
 }
-html {
+* {
     /* mozilla scrollbar */
-    scrollbar-color: rgb(50, 50, 50) black;
-    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) black !important;
+    scrollbar-width: thin !important;
 }
 body {
     background-image: url("../img/bg.png");
@@ -117,15 +104,7 @@ h1 {
 #coll-container {
     display: flex;
     flex-direction: row;
-    overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-color: rgba(20, 20, 20, 0.8) black;
-    scrollbar-width: thin;
-    animation: moz-scroll 20s;
-}
-@keyframes moz-scroll {
-    from { scrollbar-color: transparent black; }
-    to { scrollbar-color: rgba(20, 20, 20, 0.8) black; }
 }
 .collapsible {
     display: inline-block;
@@ -181,7 +160,7 @@ h1 {
     color: rgba(255, 255, 255, 0.7);
 }
 .guide-container {
-    scrollbar-color: transparent transparent;
+    scrollbar-color: transparent transparent !important;
     overflow-x: hidden;
     overflow-y: scroll;
     transition: 0.3s ease;
@@ -556,8 +535,7 @@ tr:last-child:not(thead tr) {
     height: 95vh;
     padding: 20px;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(50, 50, 50) transparent;
+    scrollbar-color: rgb(40, 40, 40) transparent !important;
 }
 @media only screen and (max-width: 640px) {
     #sub-container {

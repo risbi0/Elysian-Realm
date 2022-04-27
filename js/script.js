@@ -32,7 +32,7 @@ function fadeAnim(item, fade) {
     }, timeout);
     timeout += 100;
 }
-document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+document.getElementsByTagName('body')[0].style.overflow = 'hidden';
 accordionItems.forEach(item => { images.push(item.children[0]) });
 images.forEach(img => { url.push(window.getComputedStyle(img).getPropertyValue('background-image').substring(5).slice(0,-2)) });
 url.forEach(link => {
@@ -46,7 +46,7 @@ url.forEach(link => {
             meter.style.width = `${progressInPixels}px`;
         }
         if (done == valks.length) { // start animation
-            document.getElementsByTagName('html')[0].style.overflow = 'auto';
+            document.getElementsByTagName('body')[0].style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove() }, 800);
             accordionItems.forEach(item => {
