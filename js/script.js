@@ -7,7 +7,7 @@ const accordionItems = document.querySelectorAll('.collapsible');
 const tooltipable = document.querySelectorAll('input');
 const rows = document.querySelectorAll('tr:not(thead tr)');
 const mergedCellRows = document.querySelectorAll('td[rowspan]');
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])');
 const signets = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 const topButton = document.querySelector('#goToTop');
 const images = [], url = [];

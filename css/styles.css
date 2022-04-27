@@ -290,36 +290,74 @@ tr:last-child:not(thead tr) {
     width: 100%;
     margin-top: 20px;
 }
+.emblem-support {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+}
 .emblem, .supp {
     display: flex;
     justify-content: center;
-    width: 100%;
 }
-.emblem table, .supp table {
-    width: 90%;
+@media only screen and (max-width: 400px) {
+    .emblem-support { flex-direction: column; }
+    .emblem, .supp { width: 100% !important; }
 }
-.exclusive-tbl, .main-tbl, .secondary-tbl, .transitional-tbl {
-    width: 50%;
-    min-width: 90%;
-}
-.main-tbl th:nth-child(1), .secondary-tbl th:nth-child(1), .transitional-tbl th:nth-child(1) {
-    width: 20%;
+.emblem table, .supp table { width: 100%; }
+.emblem { width: 40%; }
+.emblem table td:nth-child(2),
+.emblem table td:nth-child(3) {
+    width: 50px;
+    font-size: 10px;
 }
 .supp {
-    margin-top: 10px;
+    width: 55%;
+    height: 150px;
 }
-.supp td:nth-child(1) {
-    width: 20%;
-}
-.supp td:nth-child(n+2):nth-child(-n+5) {
+.supp td:nth-child(n+2):nth-child(-n+5),
+.emblem td:nth-child(n+2):nth-child(-n+3) {
     color: transparent;
     transition: 0.3s ease;
 }
-.supp td:nth-child(n+2):nth-child(-n+5):hover {
+.supp td:nth-child(n+2):nth-child(-n+5):hover,
+.emblem td:nth-child(n+2):nth-child(-n+3):hover {
     color: var(--white);
     transition: 0.2s ease-in;
 }
-.supp .pic {
+/* emblem images */
+.boy    { background-image: url("../img/emblems/Because_of_You.png"); }
+.bl     { background-image: url("../img/emblems/Boundless_Logos.png"); }
+.b      { background-image: url("../img/emblems/Burden.png"); }
+.dg     { background-image: url("../img/emblems/Dreamful_Gold.png"); }
+.els    { background-image: url("../img/emblems/Empty_Like_Shala.png"); }
+.fipl   { background-image: url("../img/emblems/Falling_in_Past_Light.png"); }
+.fs     { background-image: url("../img/emblems/Forbidden_Seed.png"); }
+.fmt    { background-image: url("../img/emblems/Forget_Me_Not.png"); }
+.gg     { background-image: url("../img/emblems/Gold_Goblet.png"); }
+.gsr    { background-image: url("../img/emblems/Grey_Scale_Rainbow.png"); }
+.hl     { background-image: url("../img/emblems/Home_Lost.png"); }
+.iwbw   { background-image: url("../img/emblems/It_Will_Be_Written.png"); }
+.laabl  { background-image: url("../img/emblems/Light_as_a_Bodhi_Leaf.png"); }
+.mkm    { background-image: url("../img/emblems/Mad_Kings_Mask.png"); }
+.m      { background-image: url("../img/emblems/Memory.png"); }
+.r      { background-image: url("../img/emblems/Resolve.png"); }
+.sts    { background-image: url("../img/emblems/Stained_Sakura.png"); }
+.tfs    { background-image: url("../img/emblems/The_First_Scale.png"); }
+.tc     { background-image: url("../img/emblems/Thorny_Crown.png"); }
+.exclusive-tbl,
+.main-tbl,
+.secondary-tbl,
+.transitional-tbl {
+    width: 50%;
+    min-width: 90%;
+}
+.main-tbl th:nth-child(1),
+.secondary-tbl th:nth-child(1),
+.transitional-tbl th:nth-child(1) {
+    width: 20%;
+}
+.pic {
     cursor: pointer;
     background-size: cover;
     background-position: center;

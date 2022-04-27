@@ -8,10 +8,11 @@ const aka = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' } }
     },
     emblem: {
-        1: forbiddenSeed, // early
-        2: `${burden} / ${becauseOfYou}`, // mid
-        3: `${boundlessLogos} / ${homeLost}` // late
+        1: { 1: forbiddenSeed }, // early
+        2: { 1: burden, 2: becauseOfYou }, // mid
+        3: { 1: boundlessLogos, 2: homeLost } // late
     },
+    
     support: { // [support 1/2][row 1/2][support]
         1: { 1: { 1: ae }, 2: { 1: ae } },
         2: { 1: { 1: le }, 2: { 1: hb } }
@@ -66,9 +67,9 @@ const bkek = {
         2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '2' }, 2: { 0: hua, 1: '2' } }
     },
     emblem: {
-        1: `${forgetMeNot} / ${madKingsMask}`,
-        2: `${forgetMeNot} / ${greyScaleRainbow}`,
-        3: `${stainedSakura} / ${homeLost}`
+        1: { 1: forgetMeNot, 2: madKingsMask },
+        2: { 1: forgetMeNot, 2: greyScaleRainbow },
+        3: { 1: homeLost, 2: stainedSakura }
     },
     support: {
         1: { 1: { 1: vc, 2: dp }, 2: { 1: le } },
@@ -118,9 +119,9 @@ const da = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: kalpas, 1: '2' }, 3: { 0: griseo, 1: '' } }
     },
     emblem: {
-        1: burden,
-        2: `${goldGoblet} / ${lightAsABodhiLeaf}`,
-        3: `${itWillBeWritten} / ${homeLost}`
+        1: { 1: burden },
+        2: { 1: goldGoblet, 2: lightAsABodhiLeaf },
+        3: { 1: homeLost, 2: itWillBeWritten }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -174,9 +175,9 @@ const fr = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: burden,
-        2: `${lightAsABodhiLeaf} / ${goldGoblet}`,
-        3: `${dreamfulGold} / ${homeLost}`
+        1: { 1: burden },
+        2: { 1: goldGoblet, 2: lightAsABodhiLeaf },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -227,9 +228,9 @@ const hofs = {
         2: { 0: { 0: sakura, 1: '1' }, 1: { 0: su, 1: '2' }, 2: { 0: eden, 1: '1' } }
     },
     emblem: {
-        1: madKingsMask,
-        2: `${memory} / ${becauseOfYou}`,
-        3: `${stainedSakura} / ${homeLost}`
+        1: { 1: madKingsMask },
+        2: { 1: becauseOfYou, 2: memory },
+        3: { 1: homeLost, 2: stainedSakura }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: br } },
@@ -288,9 +289,9 @@ const hor = {
         3: { 0: { 0: hua, 1: '2'} }
     },
     emblem: {
-        1: memory,
-        2: `${becauseOfYou} / ${forgetMeNot}`,
-        3: `${homeLost} / ${stainedSakura}`
+        1: { 1: memory },
+        2: { 1: becauseOfYou, 2: forgetMeNot },
+        3: { 1: homeLost, 2: stainedSakura }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -349,9 +350,9 @@ const hos = {
         3: { 0: { 0: eden, 1: '2' } }
     },
     emblem: {
-        1: goldGoblet,
-        2: lightAsABodhiLeaf,
-        3: `${dreamfulGold} / ${homeLost}`
+        1: { 1: goldGoblet },
+        2: { 1: lightAsABodhiLeaf },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: br }, 2: { 1: le } },
@@ -408,9 +409,9 @@ const hot = {
         3: { 0: { 0: eden, 1: '1' } }
     },
     emblem: {
-        1: goldGoblet,
-        2: `${lightAsABodhiLeaf} / ${memory}`,
-        3: `${dreamfulGold} / ${homeLost}`
+        1: { 1: goldGoblet },
+        2: { 1: lightAsABodhiLeaf, 2: memory },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: vc } },
@@ -460,9 +461,9 @@ const mobi = {
         2: { 0: { 0: sakura, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: forbiddenSeed,
-        2: `${memory} / ${forgetMeNot}`,
-        3: `${thornyCrown} / ${homeLost}`
+        1: { 1: forbiddenSeed },
+        2: { 1: forgetMeNot, 2: memory },
+        3: { 1: homeLost, 2: thornyCrown }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -514,9 +515,9 @@ const lk = {
         2: { 0: { 0: mobius, 1: '1' }, 1: { 0: su, 1: '2' }, 2: { 0: aponia, 1: '' } }
     },
     emblem: {
-        1: madKingsMask,
-        2: `${forbiddenSeed} / ${lightAsABodhiLeaf}`,
-        3: `${boundlessLogos} / ${homeLost}`
+        1: { 1: madKingsMask },
+        2: { 1: forbiddenSeed, 2: lightAsABodhiLeaf },
+        3: { 1: boundlessLogos, 2: homeLost }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: le } },
@@ -563,9 +564,9 @@ const raven = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' }, 3: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: `${burden} / ${goldGoblet}`,
-        2: `${goldGoblet} / ${greyScaleRainbow}`,
-        3: `${itWillBeWritten} / ${homeLost}`
+        1: { 1: burden, 2: goldGoblet },
+        2: { 1: goldGoblet, 2: greyScaleRainbow },
+        3: { 1: homeLost, 2: itWillBeWritten } 
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -615,9 +616,9 @@ const elysia = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: lightAsABodhiLeaf,
-        2: `${burden} / ${goldGoblet}`,
-        3: `${emptyLikeShala} / ${homeLost}`
+        1: { 1: lightAsABodhiLeaf },
+        2: { 1: burden, 2: goldGoblet },
+        3: { 1: emptyLikeShala, 2: homeLost }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: dp } },
@@ -674,9 +675,9 @@ const pe = {
         3: { 0: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: madKingsMask,
-        2: forgetMeNot,
-        3: `${homeLost} / ${stainedSakura}`,
+        1: { 1: madKingsMask },
+        2: { 1: forgetMeNot },
+        3: { 1: homeLost, 2: stainedSakura }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: dp } },
@@ -724,9 +725,9 @@ const fischl = {
         2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: memory,
-        2: `${forbiddenSeed} / ${greyScaleRainbow}`,
-        3: `${homeLost} / ${theFirstScale}`
+        1: { 1: memory },
+        2: { 1: forbiddenSeed, 2: greyScaleRainbow },
+        3: { 1: homeLost, 2: theFirstScale }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: br } },
@@ -776,9 +777,9 @@ const rvc = {
         2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '1' }, 2: { 0: pardofelis, 1: '' } }
     },
     emblem: {
-        1: goldGoblet,
-        2: `${greyScaleRainbow} / ${memory}`,
-        3: `${fallingInPastLight} / ${homeLost}`
+        1: { 1: goldGoblet },
+        2: { 1: greyScaleRainbow, 2: memory },
+        3: { 1: fallingInPastLight, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -838,9 +839,9 @@ const ri = {
         3: { 0: { 0: eden, 1: '2' } }
     },
     emblem: {
-        1: goldGoblet,
-        2: `${burden} / ${forbiddenSeed}`,
-        3: `${dreamfulGold} / ${homeLost}`
+        1: { 1: goldGoblet },
+        2: { 1: burden, 2: forbiddenSeed },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: le } },
@@ -891,9 +892,9 @@ const sw = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: lightAsABodhiLeaf,
-        2: `${memory} / ${goldGoblet}`,
-        3: `${emptyLikeShala} / ${homeLost}`,
+        1: { 1: lightAsABodhiLeaf },
+        2: { 1: memory, 2: goldGoblet },
+        3: { 1: emptyLikeShala, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: vc } },
@@ -945,9 +946,9 @@ const spa = {
         3: { 0: { 0: eden, 1: '2' } }
     },
     emblem: {
-        1: goldGoblet,
-        2: `${becauseOfYou} / ${memory}`,
-        3: `${dreamfulGold} / ${homeLost}`,
+        1: { 1: goldGoblet },
+        2: { 1: becauseOfYou, 2: memory },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: vc } },
@@ -999,9 +1000,9 @@ const nyx = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' } }
     },
     emblem: {
-        1: burden,
-        2: forgetMeNot,
-        3: `${homeLost} / ${itWillBeWritten}`
+        1: { 1: burden },
+        2: { 1: forgetMeNot },
+        3: { 1: homeLost, 2: itWillBeWritten }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },
@@ -1056,9 +1057,9 @@ const sn = {
         2: { 0: { 0: su, 1: '2' }, 1: { 0: hua, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
     },
     emblem: {
-        1: burden,
-        2: `${forgetMeNot} / ${lightAsABodhiLeaf}`,
-        3: `${homeLost} / ${stainedSakura}`
+        1: { 1: burden },
+        2: { 1: forgetMeNot, 2: lightAsABodhiLeaf },
+        3: { 1: homeLost, 2: stainedSakura }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: dp } },
@@ -1109,9 +1110,9 @@ const carole = {
         3: { 0: { 0: eden, 1: '2' } }
     },
     emblem: {
-        1: goldGoblet,
-        2: `${burden} / ${greyScaleRainbow}`,
-        3: `${dreamfulGold} / ${homeLost}`,
+        1: { 1: goldGoblet },
+        2: { 1: burden, 2: greyScaleRainbow },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ss }, 2: { 1: vc } },
@@ -1158,9 +1159,9 @@ const tp = {
         2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: mobius, 1: '1' } }
     },
     emblem: {
-        1: lightAsABodhiLeaf,
-        2: `${burden} / ${memory}`,
-        3: `${emptyLikeShala} / ${resolve}`
+        1: { 1: lightAsABodhiLeaf },
+        2: { 1: burden, 2: memory },
+        3: { 1: emptyLikeShala, 2: resolve }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: dp } },
@@ -1215,9 +1216,9 @@ const stfu = {
         3: { 0: { 0: eden, 1: '2' } }
     },
     emblem: {
-        1: `${burden} / ${goldGoblet}`,
-        2: `${goldGoblet} / ${lightAsABodhiLeaf}`,
-        3: `${dreamfulGold} / ${homeLost}`
+        1: { 1: burden, 2: goldGoblet },
+        2: { 1: goldGoblet, 2: lightAsABodhiLeaf },
+        3: { 1: dreamfulGold, 2: homeLost }
     },
     support: {
         1: { 1: { 1: vc }, 2: { 1: le } },
@@ -1272,9 +1273,9 @@ const vg = {
         2: { 0: { 0: su, 1: '2' }, 1: { 0: eden, 1: '2' }, 2: { 0: griseo, 1: '' } }
     },
     emblem: {
-        1: memory,
-        2: `${lightAsABodhiLeaf} / ${madKingsMask}`,
-        3: `${fallingInPastLight} / ${homeLost}`
+        1: { 1: memory },
+        2: { 1: lightAsABodhiLeaf, 2: madKingsMask },
+        3: { 1: fallingInPastLight, 2: homeLost }
     },
     support: {
         1: { 1: { 1: ae }, 2: { 1: le } },

@@ -1,31 +1,5 @@
 const collContainer = document.querySelector('#coll-container');
 
-function makeSupportValk(supportTableBodyCell, i, j, l, m) {
-    supportTableBodyCell.classList.add('pos-relative');
-
-    let avatarDiv = document.createElement('div');
-    avatarDiv.classList.add('pic')
-    avatarDiv.classList.add(valks[i].support[j][l][m].acr);
-
-    let supportLabel = document.createElement('label');
-    supportLabel.classList.add('tooltip');
-
-    let supportAcr = document.createElement('p');
-    supportAcr.textContent = valks[i].support[j][l][m].acr.toUpperCase();
-
-    let supportInput = document.createElement('input');
-    supportInput.setAttribute('type', 'checkbox');
-
-    let supportSpan = document.createElement('span');
-    supportSpan.textContent = valks[i].support[j][l][m].name;
-
-    supportLabel.appendChild(supportAcr);
-    supportLabel.appendChild(supportInput);
-    supportLabel.appendChild(supportSpan);
-
-    supportTableBodyCell.appendChild(avatarDiv)
-    supportTableBodyCell.appendChild(supportLabel);
-}
 function signetTitleAndSignets(title, showHide, i, j, link) {
     let signetTitle = document.createElement('h3');
     signetTitle.setAttribute('id', `${link}-${valks.indexOf(valks[i])}`)
@@ -147,6 +121,9 @@ for (let i = 0; i < valks.length; i++) {
         anchorContainer.appendChild(anchorDiv);
     }
     showHide.appendChild(anchorContainer);
+    //
+    let emblemSupportDiv = document.createElement('div');
+    emblemSupportDiv.classList.add('emblem-support');
     // emblem table
     let emblemTableDiv = document.createElement('div');
     emblemTableDiv.classList.add('emblem');
@@ -157,6 +134,8 @@ for (let i = 0; i < valks.length; i++) {
     for (let j = 0; j < emblemTableHeaders.length; j++) {
         let emblemTableHeader = document.createElement('th');
         emblemTableHeader.textContent = emblemTableHeaders[j];
+        if (j == 1) emblemTableHeader.setAttribute('colspan', '2');
+
         emblemTableHeadRow.appendChild(emblemTableHeader);
     }
     emblemTableHead.appendChild(emblemTableHeadRow);
@@ -165,10 +144,37 @@ for (let i = 0; i < valks.length; i++) {
     for (let j = 1; j <= 3; j++) { // rows
         let emblemTableBodyRow = emblemTableBody.insertRow();
         for (let k = 1; k <= 2; k++) { // cells
-            let emblemTableBodyCell = emblemTableBodyRow.insertCell();
-            switch (k) {
-                case 1: emblemTableBodyCell.textContent = emblemTableTimeColumn[j - 1]; break;
-                case 2: emblemTableBodyCell.textContent = valks[i].emblem[j]; break;
+            let emblemTableBodyCell;
+            if (k == 1) {
+                emblemTableBodyCell = emblemTableBodyRow.insertCell();
+                emblemTableBodyCell.textContent = emblemTableTimeColumn[j - 1];
+            } else {
+                for (let l = 1; l <= Object.keys(valks[i].emblem[j]).length; l++) {
+                    emblemTableBodyCell = emblemTableBodyRow.insertCell();
+                    emblemTableBodyCell.classList.add('pos-relative');
+
+                    let emblemDiv = document.createElement('div');
+                    emblemDiv.classList.add('pic')
+                    emblemDiv.classList.add(valks[i].emblem[j][l].acr);
+
+                    let emblemLabel = document.createElement('label');
+                    emblemLabel.classList.add('tooltip');
+
+                    let emblemInput = document.createElement('input');
+                    emblemInput.setAttribute('type', 'checkbox');
+
+                    let emblemSpan = document.createElement('span');
+                    emblemSpan.textContent = valks[i].emblem[j][l].name;
+
+                    emblemLabel.appendChild(emblemInput);
+                    emblemLabel.appendChild(emblemSpan);
+
+                    emblemTableBodyCell.appendChild(emblemDiv)
+                    emblemTableBodyCell.appendChild(emblemLabel);
+                }
+                if (Object.keys(valks[i].emblem[j]).length == 1) {
+                    emblemTableBodyCell = emblemTableBodyRow.insertCell();
+                }
             }
         }
         emblemTableBody.appendChild(emblemTableBodyRow);
@@ -178,7 +184,7 @@ for (let i = 0; i < valks.length; i++) {
 
     emblemTableDiv.appendChild(emblemTable);
 
-    showHide.appendChild(emblemTableDiv);
+    emblemSupportDiv.appendChild(emblemTableDiv);
     // supports table
     let supportTableDiv = document.createElement('div');
     supportTableDiv.classList.add('supp');
@@ -189,8 +195,9 @@ for (let i = 0; i < valks.length; i++) {
     for (let j = 0; j < supportTableHeaders.length; j++) {
         let supportTableHeader = document.createElement('th');
         supportTableHeader.textContent = supportTableHeaders[j];
+        if (j == 1) supportTableHeader.setAttribute('colspan', '4');
+
         supportTableHeadRow.appendChild(supportTableHeader);
-        if (j == 1 || j == 2) { supportTableHeader.setAttribute('colspan', '2'); }
     }
     supportTableHead.appendChild(supportTableHeadRow);
 
@@ -203,15 +210,35 @@ for (let i = 0; i < valks.length; i++) {
                 supportTableBodyCell = supportTableBodyRow.insertCell();
                 supportTableBodyCell.textContent = supportTableTypeColumn[j - 1];
             } else {
-                if (Object.keys(valks[i].support[j][k - 1]).length == 2) {
-                    for (let l = 1; l <= 2; l++) {
-                        supportTableBodyCell = supportTableBodyRow.insertCell();
-                        makeSupportValk(supportTableBodyCell, i, j, k - 1, l);
-                    }
-                } else {
+                for (let l = 1; l <= Object.keys(valks[i].support[j][k - 1]).length; l++) {
                     supportTableBodyCell = supportTableBodyRow.insertCell();
-                    supportTableBodyCell.setAttribute('colspan', '2');
-                    makeSupportValk(supportTableBodyCell, i, j, k - 1, 1);
+                    if (Object.keys(valks[i].support[j][k - 1]).length == 1) {
+                        supportTableBodyCell.setAttribute('colspan', '2');
+                    }
+                    supportTableBodyCell.classList.add('pos-relative');
+
+                    let avatarDiv = document.createElement('div');
+                    avatarDiv.classList.add('pic')
+                    avatarDiv.classList.add(valks[i].support[j][k - 1][l].acr);
+
+                    let supportLabel = document.createElement('label');
+                    supportLabel.classList.add('tooltip');
+
+                    let supportAcr = document.createElement('p');
+                    supportAcr.textContent = valks[i].support[j][k - 1][l].acr.toUpperCase();
+
+                    let supportInput = document.createElement('input');
+                    supportInput.setAttribute('type', 'checkbox');
+
+                    let supportSpan = document.createElement('span');
+                    supportSpan.textContent = valks[i].support[j][k - 1][l].name;
+
+                    supportLabel.appendChild(supportAcr);
+                    supportLabel.appendChild(supportInput);
+                    supportLabel.appendChild(supportSpan);
+
+                    supportTableBodyCell.appendChild(avatarDiv)
+                    supportTableBodyCell.appendChild(supportLabel);
                 }
             }
         }
@@ -222,7 +249,9 @@ for (let i = 0; i < valks.length; i++) {
 
     supportTableDiv.appendChild(supportTable);
     
-    showHide.appendChild(supportTableDiv);
+    emblemSupportDiv.appendChild(supportTableDiv);
+
+    showHide.appendChild(emblemSupportDiv);
     // signets
     for (let j = 0; j < Object.keys(valks[i].signetTable).length; j++) { // tables
         if (j == 0) {

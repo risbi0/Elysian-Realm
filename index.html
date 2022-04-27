@@ -65,40 +65,54 @@
                         </div>
                         // ...
                     </div>
-                    <div class="emblem">
-                        <table>
-                            <thead>
-                                <tr><th>Time</th><th>Emblem</th></tr>
-                            </thead>
-                            <tbody>
-                                // 3 rows
-                                <tr><td>[Early / Mid / Late]</td><td>[emblem name]</td></tr>
-                                // ...
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="supp">
-                        <table>
-                            <thead>
-                                <tr><th>Type</th><th colspan="2">Support</th></tr>
-                            </thead>
-                            <tbody>
-                                // 2 rows
-                                <tr>
-                                    <td>[Utilitc / Damage]</td>
-                                    // 2 times (support 1 and 2)
-                                    <td class="[support valk acronym]">
-                                        <label class="tooltip">
-                                            <p>[support valk acronym uppercase]</p>
-                                            <input type="checkbox">
-                                            <span>[support valk name]</span>
-                                        </label>
-                                    </td>
+                    <div class="emblem-support">
+                        <div class="emblem">
+                            <table>
+                                <thead>
+                                    <tr><th>Time</th><th colspan="2">Emblem</th></tr>
+                                </thead>
+                                <tbody>
+                                    // 3 rows
+                                    <tr>
+                                        <td>[Early / Mid / Late]</td>
+                                        // 1-2 times
+                                        <td class="pos-relative">
+                                            <div class="pic [emblem acronym]">
+                                            <label class="tooltip">
+                                                <input type="checkbox">
+                                                <span>[emblem name]</span>
+                                            </label>
+                                        </td>
+                                        // ...
+                                    </tr>
                                     // ...
-                                </tr>
-                                // ...
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="supp">
+                            <table>
+                                <thead>
+                                    <tr><th>Type</th><th colspan="4">Supports</th></tr>
+                                </thead>
+                                <tbody>
+                                    // 2 rows
+                                    <tr>
+                                        <td>[Utility / Damage]</td>
+                                        // 2 times (support 1 and 2)
+                                        <td class="pos-relative" colspan="2">
+                                            <div class="pic [support valk acronym]">
+                                            <label class="tooltip">
+                                                <p>[support valk acronym uppercase]</p>
+                                                <input type="checkbox">
+                                                <span>[support valk name]</span>
+                                            </label>
+                                        </td>
+                                        // ...
+                                    </tr>
+                                    // ...
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <h3>Exclusive Signets</h3>
                     <table class="exclusive-tbl">
