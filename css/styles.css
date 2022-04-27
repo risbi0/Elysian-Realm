@@ -557,6 +557,7 @@ tr:last-child:not(thead tr) {
     padding: 20px;
     overflow-y: auto;
     scrollbar-width: thin;
+    scrollbar-color: rgb(50, 50, 50) transparent;
 }
 @media only screen and (max-width: 640px) {
     #sub-container {
