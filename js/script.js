@@ -29,6 +29,7 @@ function fadeAnim(item, fade) {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
+        setTimeout(() => { item.classList.remove(fade) }, 1990);
     }, timeout);
     timeout += 100;
 }
