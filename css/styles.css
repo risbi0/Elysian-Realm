@@ -102,12 +102,12 @@ h1 {
     text-align: center;
     text-transform: uppercase;
 }
-#coll-container {
+#main-container {
     display: flex;
     flex-direction: row;
     overflow-y: hidden;
 }
-.collapsible {
+.banner {
     display: inline-block;
     position: relative;
     border: none;
@@ -129,7 +129,7 @@ h1 {
     from {  transform: translateY(-100px);  opacity: 0; }
     to {  transform: translateY(0px); opacity: 1; }
 }
-.collapsible div:nth-child(1) {
+.banner div:nth-child(1) {
     box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
     background-size: cover;
     filter: brightness(35%);
@@ -137,7 +137,7 @@ h1 {
     height: 800px;
     width: 100px;
 }
-.collapsible:hover div:nth-child(1) {
+.banner:hover div:nth-child(1) {
     filter: brightness(70%);
     transition: 0.2s;
     color: white;
@@ -453,7 +453,7 @@ tr:last-child:not(thead tr) {
 #goToTop:hover {
     background-color: rgba(60, 60, 60, 0.8);
 }
-/* accordion images */
+/* banner images */
 #aka {
     background-image: url("../img/valks/Argent_Knight_Artemis.png");
     background-position: 57%;

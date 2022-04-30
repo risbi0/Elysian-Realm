@@ -2,8 +2,8 @@ const cover = document.getElementById('cover');
 const progressBar = document.getElementById('progress-bar');
 const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.getElementById('meter');
-const accordion = document.getElementById('coll-container');
-const accordionItems = document.querySelectorAll('.collapsible');
+const mainContainer = document.getElementById('main-container');
+const banners = document.querySelectorAll('.banner');
 const tooltipable = document.querySelectorAll('input');
 const rows = document.querySelectorAll('tr:not(thead tr)');
 const mergedCellRows = document.querySelectorAll('td[rowspan]');
@@ -34,7 +34,7 @@ function fadeAnim(item, fade) {
     timeout += 100;
 }
 document.getElementsByTagName('body')[0].style.overflow = 'hidden';
-accordionItems.forEach(item => { images.push(item.children[0]) });
+banners.forEach(item => { images.push(item.children[0]) });
 images.forEach(img => { url.push(window.getComputedStyle(img).getPropertyValue('background-image').substring(5).slice(0,-2)) });
 url.forEach(link => {
     load(link).then(() => {
@@ -50,9 +50,9 @@ url.forEach(link => {
             document.getElementsByTagName('body')[0].style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove() }, 800);
-            accordionItems.forEach(item => {
+            banners.forEach(item => {
                 // fade-in-up/down animation, alternate on each successive button
-                if (Array.prototype.indexOf.call(accordion.children, item) % 4 == 0) {
+                if (Array.prototype.indexOf.call(mainContainer.children, item) % 4 == 0) {
                     fadeAnim(item, 'fade-in-up');
                 } else {
                     fadeAnim(item, 'fade-in-down');
@@ -85,7 +85,7 @@ function collapse(content) {
             let scrollOffset = content.offsetLeft;
             if (previousOffset < content.offsetLeft) scrollOffset -= width;
             setTimeout(() => {
-                accordion.scroll({
+                mainContainer.scroll({
                     left: scrollOffset + phoneOffset,
                     behavior: 'smooth'
                 });
@@ -100,12 +100,12 @@ function collapse(content) {
         previousOffset = content.offsetLeft;
     }
 }
-// accordion animation
-accordionItems.forEach(item => {
+// banner animation
+banners.forEach(item => {
     item.addEventListener('click', function() {
         // collapse previously clicked item
         if (!this.classList.contains('active')) {
-            for (coll of accordionItems) {
+            for (coll of banners) {
                 if (coll.classList.contains('active')) {
                     coll.classList.remove('active');
                     collapse(coll);
@@ -258,7 +258,7 @@ if (mobileAndTabletCheck()) { // mobile browsers
 
 // go to top of guide
 topButton.addEventListener('click', function () {
-    for (item of accordionItems) {
+    for (item of banners) {
         if (item.classList.contains('active')) {
             item.nextElementSibling.scroll({ top: 0, behavior: 'smooth' });
             // scroll into view
@@ -268,14 +268,14 @@ topButton.addEventListener('click', function () {
             } else {
                 offsetLeft = item.nextElementSibling.offsetLeft - 100;
             }
-            accordion.scroll({ left: offsetLeft, behavior: 'smooth' });
+            mainContainer.scroll({ left: offsetLeft, behavior: 'smooth' });
         }
     }
 });
-// double click accordion items because it somehow can't set transition style directly
-for (let i = 0; i < accordionItems.length; i++) {
-    accordionItems[i].click();
-    if (i == accordionItems.length - 1) accordionItems[i].click();
+// double click all banners because it somehow can't set transition style directly
+for (let i = 0; i < banners.length; i++) {
+    banners[i].click();
+    if (i == banners.length - 1) banners[i].click();
 }
 window.scrollTo({ top: 0 });
 starto = true;

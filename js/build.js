@@ -1,4 +1,4 @@
-const collContainer = document.querySelector('#coll-container');
+const collContainer = document.querySelector('#main-container');
 
 function imageAndLabel(cell, row, item, l, hoverLabel) {
     cell = row.insertCell();
@@ -33,7 +33,7 @@ for (let i = 0; i < valks.length; i++) {
     // acordion item
     let button = document.createElement('button');
     button.setAttribute('type', 'button');
-    button.classList.add('collapsible');
+    button.classList.add('banner');
     button.classList.add('hidden');
 
     let banner = document.createElement('div');
@@ -49,7 +49,7 @@ for (let i = 0; i < valks.length; i++) {
     mainNameDiv.appendChild(mainName);
     button.appendChild(banner);
     button.appendChild(mainNameDiv);
-    // accordion content
+    // guide content
     let guideContainer = document.createElement('div');
     guideContainer.classList.add('guide-container');
 
