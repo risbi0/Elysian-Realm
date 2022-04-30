@@ -1,27 +1,33 @@
 const collContainer = document.querySelector('#coll-container');
 
-function signetTitleAndSignets(title, showHide, i, j, link) {
-    let signetTitle = document.createElement('h3');
-    signetTitle.setAttribute('id', `${link}-${valks.indexOf(valks[i])}`)
-    signetTitle.textContent = title;
-    
-    let signets = document.createElement('div');
-    signets.classList.add('rec-signets');
-    for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
-        let recSignetDiv = document.createElement('div');
-        recSignetDiv.classList.add('signet');
-        recSignetDiv.classList.add('sig-sep');
-        recSignetDiv.classList.add(valks[i].signet[j][k][0].name.toLowerCase());
-        
-        let recSignetsLabel = document.createElement('label');
-        recSignetsLabel.textContent = valks[i].signet[j][k][1];
+function imageAndLabel(cell, row, item, l, hoverLabel) {
+    cell = row.insertCell();
+    cell.classList.add('pos-relative');
 
-        recSignetDiv.appendChild(recSignetsLabel);
+    let pic = document.createElement('div');
+    pic.classList.add('pic')
+    pic.classList.add(item[l].acr);
 
-        signets.appendChild(recSignetDiv);
+    let label = document.createElement('label');
+    label.classList.add('tooltip');
+
+    let input = document.createElement('input');
+    input.setAttribute('type', 'checkbox');
+
+    let span = document.createElement('span');
+    span.textContent = item[l].name;
+    // for support valk images
+    if (hoverLabel) {
+        let acr = document.createElement('p');
+        acr.textContent = item[l].acr.toUpperCase();
+        label.appendChild(acr);
     }
-    showHide.appendChild(signetTitle);
-    showHide.appendChild(signets);
+    label.appendChild(input);
+    label.appendChild(span);
+    cell.appendChild(pic)
+    cell.appendChild(label);
+
+    return cell;
 }
 for (let i = 0; i < valks.length; i++) {
     // acordion item
@@ -41,7 +47,6 @@ for (let i = 0; i < valks.length; i++) {
     mainName.textContent = valks[i].name.replace(/[:']/g, '');
 
     mainNameDiv.appendChild(mainName);
-
     button.appendChild(banner);
     button.appendChild(mainNameDiv);
     // accordion content
@@ -115,13 +120,11 @@ for (let i = 0; i < valks.length; i++) {
         linkSpanner.classList.add('link-spanner');
 
         anchor.appendChild(linkSpanner);
-
         anchorDiv.appendChild(anchor);
-
         anchorContainer.appendChild(anchorDiv);
     }
     showHide.appendChild(anchorContainer);
-    //
+    
     let emblemSupportDiv = document.createElement('div');
     emblemSupportDiv.classList.add('emblem-support');
     // emblem table
@@ -150,27 +153,7 @@ for (let i = 0; i < valks.length; i++) {
                 emblemTableBodyCell.textContent = emblemTableTimeColumn[j - 1];
             } else {
                 for (let l = 1; l <= Object.keys(valks[i].emblem[j]).length; l++) {
-                    emblemTableBodyCell = emblemTableBodyRow.insertCell();
-                    emblemTableBodyCell.classList.add('pos-relative');
-
-                    let emblemDiv = document.createElement('div');
-                    emblemDiv.classList.add('pic')
-                    emblemDiv.classList.add(valks[i].emblem[j][l].acr);
-
-                    let emblemLabel = document.createElement('label');
-                    emblemLabel.classList.add('tooltip');
-
-                    let emblemInput = document.createElement('input');
-                    emblemInput.setAttribute('type', 'checkbox');
-
-                    let emblemSpan = document.createElement('span');
-                    emblemSpan.textContent = valks[i].emblem[j][l].name;
-
-                    emblemLabel.appendChild(emblemInput);
-                    emblemLabel.appendChild(emblemSpan);
-
-                    emblemTableBodyCell.appendChild(emblemDiv)
-                    emblemTableBodyCell.appendChild(emblemLabel);
+                    supportTableBodyCell = imageAndLabel(emblemTableBodyCell, emblemTableBodyRow, valks[i].emblem[j], l, false);
                 }
                 if (Object.keys(valks[i].emblem[j]).length == 1) {
                     emblemTableBodyCell = emblemTableBodyRow.insertCell();
@@ -181,9 +164,7 @@ for (let i = 0; i < valks.length; i++) {
     }
     emblemTable.appendChild(emblemTableHead);
     emblemTable.appendChild(emblemTableBody);
-
     emblemTableDiv.appendChild(emblemTable);
-
     emblemSupportDiv.appendChild(emblemTableDiv);
     // supports table
     let supportTableDiv = document.createElement('div');
@@ -211,34 +192,10 @@ for (let i = 0; i < valks.length; i++) {
                 supportTableBodyCell.textContent = supportTableTypeColumn[j - 1];
             } else {
                 for (let l = 1; l <= Object.keys(valks[i].support[j][k - 1]).length; l++) {
-                    supportTableBodyCell = supportTableBodyRow.insertCell();
-                    if (Object.keys(valks[i].support[j][k - 1]).length == 1) {
-                        supportTableBodyCell.setAttribute('colspan', '2');
-                    }
-                    supportTableBodyCell.classList.add('pos-relative');
-
-                    let avatarDiv = document.createElement('div');
-                    avatarDiv.classList.add('pic')
-                    avatarDiv.classList.add(valks[i].support[j][k - 1][l].acr);
-
-                    let supportLabel = document.createElement('label');
-                    supportLabel.classList.add('tooltip');
-
-                    let supportAcr = document.createElement('p');
-                    supportAcr.textContent = valks[i].support[j][k - 1][l].acr.toUpperCase();
-
-                    let supportInput = document.createElement('input');
-                    supportInput.setAttribute('type', 'checkbox');
-
-                    let supportSpan = document.createElement('span');
-                    supportSpan.textContent = valks[i].support[j][k - 1][l].name;
-
-                    supportLabel.appendChild(supportAcr);
-                    supportLabel.appendChild(supportInput);
-                    supportLabel.appendChild(supportSpan);
-
-                    supportTableBodyCell.appendChild(avatarDiv)
-                    supportTableBodyCell.appendChild(supportLabel);
+                    supportTableBodyCell = imageAndLabel(supportTableBodyCell, supportTableBodyRow, valks[i].support[j][k - 1], l, true);
+                }
+                if (Object.keys(valks[i].support[j][k - 1]).length == 1) {
+                    supportTableBodyCell.setAttribute('colspan', '2');
                 }
             }
         }
@@ -246,31 +203,61 @@ for (let i = 0; i < valks.length; i++) {
     }
     supportTable.appendChild(supportTableHead);
     supportTable.appendChild(supportTableBody);
-
     supportTableDiv.appendChild(supportTable);
-    
     emblemSupportDiv.appendChild(supportTableDiv);
-
     showHide.appendChild(emblemSupportDiv);
     // signets
     for (let j = 0; j < Object.keys(valks[i].signetTable).length; j++) { // tables
-        if (j == 0) {
-            let signetTitle = document.createElement('h3');
-            signetTitle.textContent = 'Exclusive Signets';
-            showHide.appendChild(signetTitle);
+        let signetTitle = document.createElement('h3'), title, link;
+        let signetTable = document.createElement('table'), headers;
+        switch (j) {
+            case 0:
+                signetTitle.textContent = 'Exclusive Signets';
+                showHide.appendChild(signetTitle);
+                signetTable.classList.add('exclusive-tbl');
+                headers = exclusiveTableColumns;
+                break;
+            default:
+                switch (j) {
+                    case 1:
+                        title = 'Main Signets';
+                        link = 'main-signets';
+                        signetTable.classList.add('main-tbl');
+                        break;
+                    case 2:
+                        title = 'Secondary Signets';
+                        link = 'secondary-signets';
+                        signetTable.classList.add('secondary-tbl');
+                        break;
+                    case 3:
+                        title = 'Transitional Signets'
+                        link ='transitional-signets';
+                        signetTable.classList.add('transitional-tbl');
+                        break;
+                }
+                signetTitle.setAttribute('id', `${link}-${valks.indexOf(valks[i])}`)
+                signetTitle.textContent = title;
+
+                headers = signetTableColumns;
+                
+                let signets = document.createElement('div');
+                signets.classList.add('rec-signets');
+                for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
+                    let recSignetDiv = document.createElement('div');
+                    recSignetDiv.classList.add('signet');
+                    recSignetDiv.classList.add('sig-sep');
+                    recSignetDiv.classList.add(valks[i].signet[j][k][0].name.toLowerCase());
+                    
+                    let recSignetsLabel = document.createElement('label');
+                    recSignetsLabel.textContent = valks[i].signet[j][k][1];
+
+                    recSignetDiv.appendChild(recSignetsLabel);
+                    signets.appendChild(recSignetDiv);
+                }
+                showHide.appendChild(signetTitle);
+                showHide.appendChild(signets);
+                break;
         }
-        if (j == 1) signetTitleAndSignets('Main Signets', showHide, i, j, link='main-signets');
-        if (j == 2) signetTitleAndSignets('Secondary Signets', showHide, i, j, link='secondary-signets');
-        if (j == 3) signetTitleAndSignets('Transitional Signets', showHide, i, j, link='transitional-signets');
-
-        let signetTable = document.createElement('table');
-        let headers;
-        if (j == 0) signetTable.classList.add('exclusive-tbl'); headers = exclusiveTableColumns;
-        if (j == 1) signetTable.classList.add('main-tbl');
-        if (j == 2) signetTable.classList.add('secondary-tbl');
-        if (j == 3) signetTable.classList.add('transitional-tbl');
-        if (j == 1 || j == 2 || j == 3) headers = signetTableColumns;
-
         let signetTableHead = signetTable.createTHead();
         let signetTableHeadRow = signetTableHead.insertRow(); 
         for (let k = 0; k < 2; k++) {
@@ -303,7 +290,6 @@ for (let i = 0; i < valks.length; i++) {
         }
         signetTable.appendChild(signetTableHead);
         signetTable.appendChild(signetTableBody);
-        
         showHide.appendChild(signetTable);
     }
     if ('notes' in valks[i]) {
@@ -315,7 +301,6 @@ for (let i = 0; i < valks.length; i++) {
         showHide.appendChild(notes);
     }
     guideContainer.appendChild(showHide);
-
     collContainer.appendChild(button);
     collContainer.appendChild(guideContainer);
 }

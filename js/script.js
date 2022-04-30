@@ -261,6 +261,14 @@ topButton.addEventListener('click', function () {
     for (item of accordionItems) {
         if (item.classList.contains('active')) {
             item.nextElementSibling.scroll({ top: 0, behavior: 'smooth' });
+            // scroll into view
+            let offsetLeft;
+            if (mobileAndTabletCheck()) {
+                offsetLeft = item.nextElementSibling.offsetLeft;
+            } else {
+                offsetLeft = item.nextElementSibling.offsetLeft - 100;
+            }
+            accordion.scroll({ left: offsetLeft, behavior: 'smooth' });
         }
     }
 });
