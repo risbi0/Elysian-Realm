@@ -2,19 +2,20 @@ const collContainer = document.querySelector('#main-container');
 
 function imageAndLabel(cell, row, item, l, hoverLabel) {
     cell = row.insertCell();
-    cell.classList.add('pos-relative');
+    cell.classList.add('pos-rel');
 
     let pic = document.createElement('div');
-    pic.classList.add('pic')
-    pic.classList.add(item[l].acr);
+    pic.classList.add('pic', item[l].acr)
 
     let label = document.createElement('label');
-    label.classList.add('tooltip');
+    label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
 
     let input = document.createElement('input');
+    input.classList.add('pos-abs');
     input.setAttribute('type', 'checkbox');
 
     let span = document.createElement('span');
+    span.classList.add('pos-abs')
     span.textContent = item[l].name;
     // for support valk images
     if (hoverLabel) {
@@ -33,14 +34,13 @@ for (let i = 0; i < valks.length; i++) {
     // acordion item
     let button = document.createElement('button');
     button.setAttribute('type', 'button');
-    button.classList.add('banner');
-    button.classList.add('hidden');
+    button.classList.add('banner', 'hidden', 'pos-rel');
 
     let banner = document.createElement('div');
     banner.setAttribute('id', valks[i].acr);
 
     let mainNameDiv = document.createElement('div');
-    mainNameDiv.classList.add('main-name');
+    mainNameDiv.classList.add('main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs');
     let mainName = document.createElement('span');
     mainName.classList.add('vertical-text');
     mainName.setAttribute('id', `${valks[i].acr}-name`);
@@ -51,49 +51,40 @@ for (let i = 0; i < valks.length; i++) {
     button.appendChild(mainNameDiv);
     // guide content
     let guideContainer = document.createElement('div');
-    guideContainer.classList.add('guide-container');
-
-    let showHide = document.createElement('div');
-    showHide.classList.add('show-hide');
+    guideContainer.classList.add('guide-container', 'flex', 'fv-center', 'f-col');
     // inner name
-    let innerNameDiv = document.createElement('div');
     let innerName = document.createElement('h2');
     innerName.textContent = valks[i].name;
 
-    innerNameDiv.appendChild(innerName);
-    showHide.appendChild(innerNameDiv);
+    guideContainer.appendChild(innerName);
     // rated difficulty
-    let ratingDiv = document.createElement('div');
     let rating = document.createElement('p');
     rating.classList.add('rating')
     rating.textContent = valks[i].rate;
 
-    ratingDiv.appendChild(rating);
-    showHide.appendChild(ratingDiv);
+    guideContainer.appendChild(rating);
     // signets images
     let recSignets = document.createElement('div');
-    recSignets.classList.add('rec-signets');
+    recSignets.classList.add('rec-signets', 'flex', 'f-row');
     for (let j = 1; j <= Object.keys(valks[i].signet).length; j++) {
         for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
             let recSignetDiv = document.createElement('div');
-            recSignetDiv.classList.add('signet');
-            recSignetDiv.classList.add('sig-tog');
-            recSignetDiv.classList.add(valks[i].signet[j][k][0].name.toLowerCase());
+            recSignetDiv.classList.add('signet', 'sig-tog', valks[i].signet[j][k][0].name.toLowerCase(), 'flex', 'fh-center', 'fv-center');
 
             recSignets.appendChild(recSignetDiv);
         }
     }
-    showHide.appendChild(recSignets);
+    guideContainer.appendChild(recSignets);
     // anchors
     let anchorContainer = document.createElement('div');
-    anchorContainer.classList.add('anchor-container');
+    anchorContainer.classList.add('flex', 'f-row');
     let anchors = 2;
     if (3 in valks[i].signetTable) anchors += 1; // check for transitional table
     if ('notes' in valks[i]) anchors += 1;
     for (let j = 0; j < anchors; j++) {
         let letter, link;
         let anchorDiv = document.createElement('div');
-        anchorDiv.classList.add('anchor');
+        anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
 
         if (j == 0) {
             letter = 'M';
@@ -117,19 +108,19 @@ for (let i = 0; i < valks.length; i++) {
         anchor.setAttribute('href', `#${link}`);
 
         let linkSpanner = document.createElement('span');
-        linkSpanner.classList.add('link-spanner');
+        linkSpanner.classList.add('link-spanner', 'pos-abs');
 
         anchor.appendChild(linkSpanner);
         anchorDiv.appendChild(anchor);
         anchorContainer.appendChild(anchorDiv);
     }
-    showHide.appendChild(anchorContainer);
+    guideContainer.appendChild(anchorContainer);
     
     let emblemSupportDiv = document.createElement('div');
-    emblemSupportDiv.classList.add('emblem-support');
+    emblemSupportDiv.classList.add('emblem-support', 'flex', 'f-row');
     // emblem table
     let emblemTableDiv = document.createElement('div');
-    emblemTableDiv.classList.add('emblem');
+    emblemTableDiv.classList.add('emblem', 'flex', 'fh-center');
 
     let emblemTable = document.createElement('table');
     let emblemTableHead = emblemTable.createTHead();
@@ -168,7 +159,7 @@ for (let i = 0; i < valks.length; i++) {
     emblemSupportDiv.appendChild(emblemTableDiv);
     // supports table
     let supportTableDiv = document.createElement('div');
-    supportTableDiv.classList.add('supp');
+    supportTableDiv.classList.add('supp', 'flex', 'fh-center');
 
     let supportTable = document.createElement('table');
     let supportTableHead = supportTable.createTHead();
@@ -205,7 +196,7 @@ for (let i = 0; i < valks.length; i++) {
     supportTable.appendChild(supportTableBody);
     supportTableDiv.appendChild(supportTable);
     emblemSupportDiv.appendChild(supportTableDiv);
-    showHide.appendChild(emblemSupportDiv);
+    guideContainer.appendChild(emblemSupportDiv);
     // signets
     for (let j = 0; j < Object.keys(valks[i].signetTable).length; j++) { // tables
         let signetTitle = document.createElement('h3'), title, link;
@@ -213,7 +204,7 @@ for (let i = 0; i < valks.length; i++) {
         switch (j) {
             case 0:
                 signetTitle.textContent = 'Exclusive Signets';
-                showHide.appendChild(signetTitle);
+                guideContainer.appendChild(signetTitle);
                 signetTable.classList.add('exclusive-tbl');
                 headers = exclusiveTableColumns;
                 break;
@@ -241,12 +232,10 @@ for (let i = 0; i < valks.length; i++) {
                 headers = signetTableColumns;
                 
                 let signets = document.createElement('div');
-                signets.classList.add('rec-signets');
+                signets.classList.add('rec-signets', 'flex', 'f-row');
                 for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
                     let recSignetDiv = document.createElement('div');
-                    recSignetDiv.classList.add('signet');
-                    recSignetDiv.classList.add('sig-sep');
-                    recSignetDiv.classList.add(valks[i].signet[j][k][0].name.toLowerCase());
+                    recSignetDiv.classList.add('signet', 'sig-sep', valks[i].signet[j][k][0].name.toLowerCase(), 'flex', 'fv-center', 'f-col');
                     
                     let recSignetsLabel = document.createElement('label');
                     recSignetsLabel.textContent = valks[i].signet[j][k][1];
@@ -254,8 +243,8 @@ for (let i = 0; i < valks.length; i++) {
                     recSignetDiv.appendChild(recSignetsLabel);
                     signets.appendChild(recSignetDiv);
                 }
-                showHide.appendChild(signetTitle);
-                showHide.appendChild(signets);
+                guideContainer.appendChild(signetTitle);
+                guideContainer.appendChild(signets);
                 break;
         }
         let signetTableHead = signetTable.createTHead();
@@ -290,7 +279,7 @@ for (let i = 0; i < valks.length; i++) {
         }
         signetTable.appendChild(signetTableHead);
         signetTable.appendChild(signetTableBody);
-        showHide.appendChild(signetTable);
+        guideContainer.appendChild(signetTable);
     }
     if ('notes' in valks[i]) {
         let notes = document.createElement('div');
@@ -298,9 +287,8 @@ for (let i = 0; i < valks.length; i++) {
         notes.classList.add('notes');
         notes.innerHTML = `Notes:<br><br>${valks[i].notes}`;
 
-        showHide.appendChild(notes);
+        guideContainer.appendChild(notes);
     }
-    guideContainer.appendChild(showHide);
     collContainer.appendChild(button);
     collContainer.appendChild(guideContainer);
 }
