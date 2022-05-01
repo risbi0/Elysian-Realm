@@ -67,27 +67,45 @@ function collapse(content) {
     if (guideContainer.style.minWidth) { // collapse
         guideContainer.style.minWidth = null;
         guideContainer.style.opacity = 0;
-        guideContainer.style.transition = 'min-width 0.3s, opacity 0.1s';
+        guideContainer.style.transition = 'min-width 0.2s linear, opacity 0.1s';
         setTimeout(() => { guideContainer.scrollTop = 0 }, 100);
     } else { // expand
-        if (window.innerWidth <= 600) width = window.innerWidth, timeout = 0, phoneOffset = 100;
-        else width = 600, timeout = 300, phoneOffset = 0;
+        if (window.innerWidth <= 600) {
+            width = window.innerWidth, phoneOffset = 100;
+            timeout = 0
+        } else {
+            width = 600, timeout = 300, phoneOffset = 0;
+        }
 
         guideContainer.style.minWidth = width + 'px';
         guideContainer.style.opacity = 1;
-        guideContainer.style.transition = 'min-width 0.3s, opacity 0.7s 0.2s';
+        guideContainer.style.transition = 'min-width 0.2s linear, opacity 0.7s 0.2s';
 
         if (starto) { // prevent scroll during pre-clicking
             let scrollOffset = content.offsetLeft;
-            if (previousOffset < content.offsetLeft &&
+            if (previousOffset < content.offsetLeft && 
                 mainContainer.scrollWidth != valks.length * 100) {
                 scrollOffset -= width;
             }
             setTimeout(() => {
-                mainContainer.scroll({
-                    left: scrollOffset + phoneOffset,
-                    behavior: 'smooth'
-                });
+                // pixel by pixel scrolling for the rightmost banners covered by the viewport
+                // since scrolling to a coordinate on the edge of the document with the accordion expanding
+                // would not scroll at all, since the scroll method instantly goes to the assigned coordinates
+                // before the accordion has finished expanding
+                if (content.offsetLeft + 100 > mainContainer.scrollWidth - window.innerWidth &&
+                    window.innerWidth <= 600 && mainContainer.scrollWidth == valks.length * 100) {
+                    let travelPixels = content.getBoundingClientRect().right;
+                    for (let i = 1; i <= travelPixels; i++) {
+                        setTimeout(() => {
+                            mainContainer.scroll({ left: scrollOffset + phoneOffset - travelPixels + i });
+                        }, i * 200 / travelPixels);
+                    }
+                } else { // regular scroll
+                    mainContainer.scroll({
+                        left: scrollOffset + phoneOffset,
+                        behavior: 'smooth'
+                    });
+                }
                 if (window.innerWidth <= 600) {
                     window.scroll({
                         top: content.offsetTop,
