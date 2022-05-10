@@ -69,7 +69,7 @@ for (let i = 0; i < valks.length; i++) {
     for (let j = 1; j <= Object.keys(valks[i].signet).length; j++) {
         for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
             let recSignetDiv = document.createElement('div');
-            recSignetDiv.classList.add('signet', 'sig-tog', valks[i].signet[j][k][0].name.toLowerCase(), 'flex', 'fh-center', 'fv-center');
+            recSignetDiv.classList.add('signet', 'sig-tog', 'flex', 'fh-center', 'fv-center', valks[i].signet[j][k][0].name.toLowerCase());
 
             recSignets.appendChild(recSignetDiv);
         }
@@ -235,7 +235,7 @@ for (let i = 0; i < valks.length; i++) {
                 signets.classList.add('rec-signets', 'flex', 'f-row');
                 for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
                     let recSignetDiv = document.createElement('div');
-                    recSignetDiv.classList.add('signet', 'sig-sep', valks[i].signet[j][k][0].name.toLowerCase(), 'flex', 'fv-center', 'f-col');
+                    recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].signet[j][k][0].name.toLowerCase());
                     
                     let recSignetsLabel = document.createElement('label');
                     recSignetsLabel.textContent = valks[i].signet[j][k][1];

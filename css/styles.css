@@ -156,6 +156,7 @@ h1 {
     min-width: 0px;
     max-height: 790px;
     padding-top: 10px;
+    opacity: 0;
 }
 h2 {
     font-size: 40px;
