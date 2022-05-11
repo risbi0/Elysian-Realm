@@ -84,13 +84,13 @@ const bkek = {
             5: { 0: 'Holy Lance' }
         },
         1: {
-            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },
             2: { 0: sakura.regular[6] },
             3: { 0: sakura.nexus1.name },
             4: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
             5: { 0: kalpas.regular[2] },
             6: { 0: kalpas.nexus2.name },
-            7: { 0: kalpas.nexus2[3], 1: '' },     
+            7: { 0: kalpas.nexus2[3], 1: '' }
         },
         2: {
             1: { 0: griseo.name, 1: '6', 2: griseo.regular[2] },
@@ -139,7 +139,7 @@ const da = {
             1: { 0: kevin.name, 1: '4', 2: kevin.regular[1] },
             2: { 0: kevin.regular[6] },
             3: { 0: kevin.nexus1.name },
-            4: { 0: kevin.nexus1[1] },
+            4: { 0: kevin.nexus1[1] }
         },
         2: {
             1: { 0: eden.name, 1: '5', 2: eden.regular[2] },
@@ -156,7 +156,7 @@ const da = {
             12: { 0: kalpas.regular[5], 1: '' },
             13: { 0: kalpas.nexus2.name },
             14: { 0: griseo.name, 1: '2', 2: griseo.regular[1] },
-            15: { 0: griseo.regular[6] }, // aponia sig
+            15: { 0: griseo.regular[6] }
         }
     },
     notes: `<p>${kalpas.regular[5]} / ${eden.regular[1]}</p>
@@ -255,7 +255,7 @@ const hofs = {
             8: { 0: hua.nexus2[1], 1: '' }
         },
         2: {
-            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },
             2: { 0: sakura.regular[6] },
             3: { 0: sakura.nexus1.name },
             4: { 0: su.name, 1: '4', 2: su.regular[1] },
@@ -306,7 +306,7 @@ const hor = {
             5: { 0: 'Creation', 1: filler }
         },
         1: {
-            1: { 0: sakura.name, 1: '4', 2: sakura.regular[5] },   
+            1: { 0: sakura.name, 1: '4', 2: sakura.regular[5] },
             2: { 0: sakura.regular[6] },
             3: { 0: sakura.nexus1.name },
             4: { 0: sakura.nexus2.name, 1: '' }
@@ -485,7 +485,7 @@ const mobi = {
             5: { 0: hua.nexus2[1] }
         },
         2: {
-            1: { 0: sakura.name, 1: '3', 2: sakura.regular[1] },   
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[1] },
             2: { 0: sakura.regular[5] },
             3: { 0: sakura.nexus1.name },
             4: { 0: griseo.name, 1: '5', 2: griseo.regular[3] },
@@ -692,7 +692,7 @@ const pe = {
             5: { 0: 'Exodus' }
         },
         1: {
-            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            1: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },
             2: { 0: sakura.regular[6] },
             3: { 0: sakura.nexus1.name }
         },
@@ -746,7 +746,7 @@ const fischl = {
             2: { 0: hua.nexus2.name },
             3: { 0: hua.nexus2[1] },
             4: { 0: mobius.name, 1: '2', 2: mobius.regular[2] },
-            5: { 0: mobius.regular[5] },
+            5: { 0: mobius.regular[5] }
         },
         2: {
             1: { 0: griseo.name, 1: '5', 2: griseo.regular[1] },
@@ -872,7 +872,7 @@ const ri = {
             7: { 0: su.name, 1: '4', 2: su.regular[1] },
             8: { 0: su.regular[3] },
             9: { 0: su.regular[5] },
-            10: { 0: su.nexus2.name },
+            10: { 0: su.nexus2.name }
         },
         3: {
             1: { 0: eden.name, 1: '4', 2: eden.regular[2] },
@@ -965,7 +965,7 @@ const spa = {
         1: {
             1: { 0: hua.name, 1: '3', 2: hua.regular[6] },
             2: { 0: hua.nexus2.name },
-            3: { 0: hua.nexus2[1] },
+            3: { 0: hua.nexus2[1] }
         },
         2: {
             1: { 0: su.name, 1: '4', 2: su.regular[1] },
@@ -1022,7 +1022,7 @@ const nyx = {
             3: { 0: kevin.nexus1.name },
             4: { 0: kevin.nexus1[1] },
             5: { 0: kevin.nexus1[2] },
-            6: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            6: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },
             7: { 0: sakura.regular[6] },
             8: { 0: sakura.nexus1.name }
         },
@@ -1080,9 +1080,9 @@ const sn = {
             4: { 0: kevin.nexus1.name },
             5: { 0: kevin.nexus1[1] },
             6: { 0: kevin.nexus1[2] },
-            7: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },   
+            7: { 0: sakura.name, 1: '3', 2: sakura.regular[5] },
             8: { 0: sakura.regular[6] },
-            9: { 0: sakura.nexus1.name },
+            9: { 0: sakura.nexus1.name }
         },
         2: {
             1: { 0: su.name, 1: '4', 2: su.regular[1] },
