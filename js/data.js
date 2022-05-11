@@ -307,23 +307,23 @@ const vv = {
         3: 'Finale: Broken Truth'
     }
 }
-const damageDealt = [eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
+const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
                      kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
                      su.regular[6]];
-const damageTaken = [eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
+const damageTaken = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
 const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1]];
 const physDamage = [hua.regular[2], kevin.regular[5]];
 const eleDamage = [hua.regular[1], kevin.regular[2]];
 const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3]];
 const physBreach = [hua.regular[5], kevin.regular[4]];
 const eleBreach = [hua.regular[6], kevin.regular[1]];
-const vurnerability = [eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
+const vurnerability = [aponia.regular[6], eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
                        kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1]];
-const spRecovery = [eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
+const spRecovery = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
                     griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2]];
 const signetSummary = {
-    0: { summary: 'Damage Dealt', signets: damageDealt },
-    1: { summary: 'Damage Taken', signets: damageTaken },
+    0: { summary: 'Total Damage Dealt', signets: damageDealt },
+    1: { summary: 'Total Damage Taken', signets: damageTaken },
     2: { summary: 'Physical & Elemental Damage', signets: physEleDamage },
     3: { summary: 'Physical Damage', signets: physDamage },
     4: { summary: 'Elemental Damage', signets: eleDamage },
@@ -372,5 +372,7 @@ const signetSummary = {
     47: { summary: 'Reduce Enemy Damage', signets: su.nexus1[1] },
     48: { summary: 'Bonus Damage to Shields', signets: su.nexus1[3] },
     49: { summary: '3 Random Debuffs on Hit', signets: su.nexus2[3] },
-    50: { summary: 'Initial and SP Cap Increased', signets: eden.regular[4] }
+    50: { summary: 'Initial and SP Cap Increased', signets: eden.regular[4] },
+    51: { summary: 'Increase Ultimate Physical & Elemental Damage', signets: aponia.regular[4] },
+    52: { summary: 'Start With More Exhortation', signets: aponia.regular[5] }
 }
