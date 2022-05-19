@@ -14,13 +14,16 @@ const forgetMeNot = { name: 'Forget-Me-Not', acr: 'fmt' };
 const goldGoblet = { name: 'Gold Goblet', acr: 'gg' };
 const greyScaleRainbow = { name: 'Grey-scale Rainbow', acr: 'gsr' };
 const homeLost = { name: 'Home Lost', acr: 'hl' };
+const homeTown = { name: 'Hometown', acr: 'h' };
 const itWillBeWritten = { name: 'It Will Be Written', acr: 'iwbw' };
 const lightAsABodhiLeaf = { name: 'Light as a Bodhi Leaf', acr: 'laabl' };
 const madKingsMask = { name: 'Mad King\'s Mask', acr: 'mkm' };
 const memory = { name: 'Memory', acr: 'm' };
+const rainbowOfAbsence = { name: 'Rainbow of Absence', acr: 'roa' };
 const resolve = { name: 'Resolve', acr: 'r' };
 const stainedSakura = { name: 'Stained Sakura', acr: 'sts' };
 const theFirstScale = { name: 'The First Scale', acr: 'tfs' };
+const theLonelyMoon = { name: 'The Lonely Moon', acr: 'tlm' };
 const thornyCrown = { name: 'Thorny Crown', acr: 'tc' };
 // priority terms
 const start = 'Start';

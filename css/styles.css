@@ -296,13 +296,16 @@ tr:last-child:not(thead tr) {
 .gg     { background-image: url("../img/emblems/Gold_Goblet.png"); }
 .gsr    { background-image: url("../img/emblems/Grey_Scale_Rainbow.png"); }
 .hl     { background-image: url("../img/emblems/Home_Lost.png"); }
+.h      { background-image: url("../img/emblems/Hometown.png"); }
 .iwbw   { background-image: url("../img/emblems/It_Will_Be_Written.png"); }
 .laabl  { background-image: url("../img/emblems/Light_as_a_Bodhi_Leaf.png"); }
 .mkm    { background-image: url("../img/emblems/Mad_Kings_Mask.png"); }
 .m      { background-image: url("../img/emblems/Memory.png"); }
 .r      { background-image: url("../img/emblems/Resolve.png"); }
+.roa    { background-image: url("../img/emblems/Rainbow_of_Absence.png"); }
 .sts    { background-image: url("../img/emblems/Stained_Sakura.png"); }
 .tfs    { background-image: url("../img/emblems/The_First_Scale.png"); }
+.tlm    { background-image: url("../img/emblems/The_Lonely_Moon.png"); }
 .tc     { background-image: url("../img/emblems/Thorny_Crown.png"); }
 .exclusive-tbl,
 .main-tbl,
@@ -421,6 +424,14 @@ tr:last-child:not(thead tr) {
     background-image: url("../img/valks/Dea_Anchora.png");
     background-position: 52.7%;
 }
+#dip {
+    background-image: url("../img/valks/Disciplinary_Perdition.png");
+    background-position: 55.3%;
+}
+#ede {
+    background-image: url("../img/valks/Golden_Diva.png");
+    background-position: 52.5%;
+}
 #elysia {
     background-image: url("../img/valks/Miss_Pink_Elf.png");
     background-position: 52%;
@@ -502,13 +513,13 @@ tr:last-child:not(thead tr) {
     background-position: 50%;
 }
 #fischl-name { font-size: 16px; }
-#aka-name, #bke-name, #hofs-name, #hos-name { font-size: 20px; }
+#aka-name, #dip-name, #bke-name, #hofs-name, #hos-name { font-size: 20px; }
 #hor-name, #hot-name, #stfu-name { font-size: 22px; }
 #mobius-name, #raven-name { font-size: 25px; }
 #fr-name, #pe-name { font-size: 28px; }
 #rc-name, #elysia-name, #sw-name, #tp-name, #vg-name { font-size: 30px; }
 #sn-name { font-size: 32px; }
-#da-name, #lk-name, #nyx-name, #ri-name, #spa-name, #carole-name { font-size: 35px; }
+#da-name, #ede-name, #lk-name, #nyx-name, #ri-name, #spa-name, #carole-name { font-size: 35px; }
 /* about page */
 #about #container {
     background-color: var(--dark-tint);

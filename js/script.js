@@ -72,7 +72,9 @@ function collapse(content) {
         guideContainer.style.opacity = 0;
         guideContainer.style.transition = 'min-width 0.2s linear, opacity 0.1s';
         setTimeout(() => { guideContainer.scrollTop = 0 }, 100);
+        content.children[0].style.filter = null;
     } else { // expand
+        content.children[0].style.filter = 'brightness(70%)';
         if (window.innerWidth <= 600) {
             width = window.innerWidth, timeout = 0, phoneOffset = 100;
         } else {
