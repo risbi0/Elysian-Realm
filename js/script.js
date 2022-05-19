@@ -10,7 +10,7 @@ const mergedCellRows = document.querySelectorAll('td[rowspan]');
 const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])');
 const signets = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 const topButton = document.querySelector('#goToTop');
-const images = [], url = [];
+const url = [];
 let done = 0, timeout = 0;
 let progressInPixels = 0;
 let originalText = null, previousText;
@@ -33,14 +33,18 @@ function fadeAnim(item, fade) {
     timeout += 100;
 }
 document.getElementsByTagName('body')[0].style.overflow = 'hidden';
-banners.forEach(item => { images.push(item.children[0]) });
-images.forEach(img => { url.push(window.getComputedStyle(img).getPropertyValue('background-image').substring(5).slice(0,-2)) });
+// insert main background image link and banner image links
+url.push(window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-image').substring(5).slice(0,-2));
+banners.forEach(banner => {
+  url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0,-2));
+});
+// wait for images to load
 url.forEach(link => {
     load(link).then(() => {
         done += 1;
         // progress bar
-        let percentDone = Math.round(done / valks.length * 100) / 100;
-        let fillPixels = Math.round(percentDone * progressBarWidthInPixels);
+        const percentDone = Math.round(done / valks.length * 100) / 100;
+        const fillPixels = Math.round(percentDone * progressBarWidthInPixels);
         while (meter.style.width != `${fillPixels}px`) {
             progressInPixels += 1;
             meter.style.width = `${progressInPixels}px`;
@@ -61,7 +65,7 @@ url.forEach(link => {
     });
 });
 function collapse(content) {
-    let guideContainer = content.nextElementSibling;
+    const guideContainer = content.nextElementSibling;
     
     if (guideContainer.style.minWidth) { // collapse
         guideContainer.style.minWidth = null;
@@ -91,7 +95,7 @@ function collapse(content) {
             // before the accordion has finished expanding
             if (content.offsetLeft + 100 > mainContainer.scrollWidth - window.innerWidth &&
                 window.innerWidth <= 600 && mainContainer.scrollWidth == valks.length * 100) {
-                let travelPixels = content.getBoundingClientRect().right;
+                const travelPixels = content.getBoundingClientRect().right;
                 for (let i = 1; i <= travelPixels; i++) {
                     setTimeout(() => {
                         mainContainer.scroll({ left: scrollOffset + phoneOffset - travelPixels + i });
@@ -171,16 +175,16 @@ function highlightAdjacentMergedCell(row, bool) {
         // for cells with .noted class
        (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
         // get all rows of its parent table
-        let parentChildren = row.parentNode.children;
+        const parentChildren = row.parentNode.children;
         // iterate and check if row has a rowspan attribute in the cell of the 2nd column
         for (let i = 0; i < parentChildren.length; i++) {
             if (parentChildren[i].innerHTML.includes('rowspan')) {
                 parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
                 // get rowspan value
-                let range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+                const range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
                 // get index of selected row and merged cell
-                let thisIndex = row.rowIndex;
-                let mergedCellIndex = parentChildren[i].rowIndex;
+                const thisIndex = row.rowIndex;
+                const mergedCellIndex = parentChildren[i].rowIndex;
                 // check if index is covered within the range of merged cell
                 if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
                     // apply styles
@@ -215,8 +219,8 @@ rows.forEach(row => {
     });
 });
 function highlightInvolvedRows(row, bool) {
-    let mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
-    let cellIndex = row.parentNode.rowIndex;
+    const mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
+    const cellIndex = row.parentNode.rowIndex;
     for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
         if (bool) {
             row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
