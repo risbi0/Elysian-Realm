@@ -9,7 +9,7 @@
     width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
+    background-color: transparent;
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover { background-color: rgb(60, 60, 60); }
@@ -22,7 +22,7 @@ body::-webkit-scrollbar-track { background-color: black; }
 }
 * {
     /* mozilla scrollbar */
-    scrollbar-color: var(--scrollbar-thumb) black !important;
+    scrollbar-color: transparent black !important;
     scrollbar-width: thin !important;
 }
 .flex { display: flex; }
@@ -88,7 +88,7 @@ header h1, header p, header a {
 }
 footer {
     flex-grow: 2;
-    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgb(0, 0, 0) 100%);
 }
 header, main {
     background-color: var(--dark-tint);
@@ -101,6 +101,12 @@ h1 {
 }
 #main-container {
     overflow-y: hidden;
+}
+#main-container:hover {
+    scrollbar-color: var(--scrollbar-thumb) black !important;
+}
+#main-container:hover::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
 }
 .banner {
     display: inline-block;
@@ -152,6 +158,7 @@ h1 {
     overflow-x: hidden;
     overflow-y: scroll;
     transition: 0.3s ease;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%);
     width: 0px;
     min-width: 0px;
     max-height: 790px;
@@ -579,4 +586,15 @@ li {
 }
 strong {
     font-weight: bold;
+}
+
+#scroll-left, #scroll-right {
+    width: 50px;
+    height: 50px;
+}
+#scroll-left {
+    background-color: red;
+}
+#scroll-right {
+    background-color: green;
 }
