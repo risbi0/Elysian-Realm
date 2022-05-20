@@ -4,22 +4,22 @@ function imageAndLabel(cell, row, item, l, hoverLabel) {
     cell = row.insertCell();
     cell.classList.add('pos-rel');
 
-    let pic = document.createElement('div');
+    const pic = document.createElement('div');
     pic.classList.add('pic', item[l].acr)
 
-    let label = document.createElement('label');
+    const label = document.createElement('label');
     label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
 
-    let input = document.createElement('input');
+    const input = document.createElement('input');
     input.classList.add('pos-abs');
     input.setAttribute('type', 'checkbox');
 
-    let span = document.createElement('span');
+    const span = document.createElement('span');
     span.classList.add('pos-abs')
     span.textContent = item[l].name;
     // for support valk images
     if (hoverLabel) {
-        let acr = document.createElement('p');
+        const acr = document.createElement('p');
         acr.textContent = item[l].acr.toUpperCase();
         label.appendChild(acr);
     }
@@ -32,16 +32,16 @@ function imageAndLabel(cell, row, item, l, hoverLabel) {
 }
 for (let i = 0; i < valks.length; i++) {
     // acordion item
-    let button = document.createElement('button');
+    const button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.classList.add('banner', 'hidden', 'pos-rel');
 
-    let banner = document.createElement('div');
+    const banner = document.createElement('div');
     banner.setAttribute('id', valks[i].acr);
 
-    let mainNameDiv = document.createElement('div');
+    const mainNameDiv = document.createElement('div');
     mainNameDiv.classList.add('main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs');
-    let mainName = document.createElement('span');
+    const mainName = document.createElement('span');
     mainName.classList.add('vertical-text');
     mainName.setAttribute('id', `${valks[i].acr}-name`);
     mainName.textContent = valks[i].name.replace(/[:']/g, '');
@@ -50,25 +50,25 @@ for (let i = 0; i < valks.length; i++) {
     button.appendChild(banner);
     button.appendChild(mainNameDiv);
     // guide content
-    let guideContainer = document.createElement('div');
+    const guideContainer = document.createElement('div');
     guideContainer.classList.add('guide-container', 'flex', 'fv-center', 'f-col');
     // inner name
-    let innerName = document.createElement('h2');
+    const innerName = document.createElement('h2');
     innerName.textContent = valks[i].name;
 
     guideContainer.appendChild(innerName);
     // rated difficulty
-    let rating = document.createElement('p');
+    const rating = document.createElement('p');
     rating.classList.add('rating')
     rating.textContent = valks[i].rate;
 
     guideContainer.appendChild(rating);
     // signets images
-    let recSignets = document.createElement('div');
+    const recSignets = document.createElement('div');
     recSignets.classList.add('rec-signets', 'flex', 'f-row');
     for (let j = 1; j <= Object.keys(valks[i].signet).length; j++) {
         for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
-            let recSignetDiv = document.createElement('div');
+            const recSignetDiv = document.createElement('div');
             recSignetDiv.classList.add('signet', 'sig-tog', 'flex', 'fh-center', 'fv-center', valks[i].signet[j][k][0].name.toLowerCase());
 
             recSignets.appendChild(recSignetDiv);
@@ -76,14 +76,14 @@ for (let i = 0; i < valks.length; i++) {
     }
     guideContainer.appendChild(recSignets);
     // anchors
-    let anchorContainer = document.createElement('div');
+    const anchorContainer = document.createElement('div');
     anchorContainer.classList.add('flex', 'f-row');
     let anchors = 2;
     if (3 in valks[i].signetTable) anchors += 1; // check for transitional table
     if ('notes' in valks[i]) anchors += 1;
     for (let j = 0; j < anchors; j++) {
         let letter, link;
-        let anchorDiv = document.createElement('div');
+        const anchorDiv = document.createElement('div');
         anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
 
         if (j == 0) {
@@ -104,10 +104,10 @@ for (let i = 0; i < valks.length; i++) {
         }
         anchorDiv.innerText = letter;
 
-        let anchor = document.createElement('a');
+        const anchor = document.createElement('a');
         anchor.setAttribute('href', `#${link}`);
 
-        let linkSpanner = document.createElement('span');
+        const linkSpanner = document.createElement('span');
         linkSpanner.classList.add('link-spanner', 'pos-abs');
 
         anchor.appendChild(linkSpanner);
@@ -116,17 +116,17 @@ for (let i = 0; i < valks.length; i++) {
     }
     guideContainer.appendChild(anchorContainer);
     
-    let emblemSupportDiv = document.createElement('div');
+    const emblemSupportDiv = document.createElement('div');
     emblemSupportDiv.classList.add('emblem-support', 'flex', 'f-row');
     // emblem table
-    let emblemTableDiv = document.createElement('div');
+    const emblemTableDiv = document.createElement('div');
     emblemTableDiv.classList.add('emblem', 'flex', 'fh-center');
 
-    let emblemTable = document.createElement('table');
-    let emblemTableHead = emblemTable.createTHead();
-    let emblemTableHeadRow = emblemTableHead.insertRow();
+    const emblemTable = document.createElement('table');
+    const emblemTableHead = emblemTable.createTHead();
+    const emblemTableHeadRow = emblemTableHead.insertRow();
     for (let j = 0; j < emblemTableHeaders.length; j++) {
-        let emblemTableHeader = document.createElement('th');
+        const emblemTableHeader = document.createElement('th');
         emblemTableHeader.textContent = emblemTableHeaders[j];
         if (j == 1) emblemTableHeader.setAttribute('colspan', '2');
 
@@ -134,9 +134,9 @@ for (let i = 0; i < valks.length; i++) {
     }
     emblemTableHead.appendChild(emblemTableHeadRow);
 
-    let emblemTableBody = emblemTable.createTBody();
+    const emblemTableBody = emblemTable.createTBody();
     for (let j = 1; j <= 3; j++) { // rows
-        let emblemTableBodyRow = emblemTableBody.insertRow();
+        const emblemTableBodyRow = emblemTableBody.insertRow();
         for (let k = 1; k <= 2; k++) { // cells
             let emblemTableBodyCell;
             if (k == 1) {
@@ -158,14 +158,14 @@ for (let i = 0; i < valks.length; i++) {
     emblemTableDiv.appendChild(emblemTable);
     emblemSupportDiv.appendChild(emblemTableDiv);
     // supports table
-    let supportTableDiv = document.createElement('div');
+    const supportTableDiv = document.createElement('div');
     supportTableDiv.classList.add('supp', 'flex', 'fh-center');
 
-    let supportTable = document.createElement('table');
-    let supportTableHead = supportTable.createTHead();
-    let supportTableHeadRow = supportTableHead.insertRow();
+    const supportTable = document.createElement('table');
+    const supportTableHead = supportTable.createTHead();
+    const supportTableHeadRow = supportTableHead.insertRow();
     for (let j = 0; j < supportTableHeaders.length; j++) {
-        let supportTableHeader = document.createElement('th');
+        const supportTableHeader = document.createElement('th');
         supportTableHeader.textContent = supportTableHeaders[j];
         if (j == 1) supportTableHeader.setAttribute('colspan', '4');
 
@@ -173,9 +173,9 @@ for (let i = 0; i < valks.length; i++) {
     }
     supportTableHead.appendChild(supportTableHeadRow);
 
-    let supportTableBody = supportTable.createTBody();
+    const supportTableBody = supportTable.createTBody();
     for (let j = 1; j <= 2; j++) { // rows
-        let supportTableBodyRow = supportTableBody.insertRow();
+        const supportTableBodyRow = supportTableBody.insertRow();
         for (let k = 1; k <= 3; k++) { // cells
             let supportTableBodyCell;
             if (k == 1) {
@@ -199,8 +199,9 @@ for (let i = 0; i < valks.length; i++) {
     guideContainer.appendChild(emblemSupportDiv);
     // signets
     for (let j = 0; j < Object.keys(valks[i].signetTable).length; j++) { // tables
-        let signetTitle = document.createElement('h3'), title, link;
-        let signetTable = document.createElement('table'), headers;
+        const signetTitle = document.createElement('h3');
+        const signetTable = document.createElement('table');
+        let title, link, headers;
         switch (j) {
             case 0:
                 signetTitle.textContent = 'Exclusive Signets';
@@ -231,13 +232,13 @@ for (let i = 0; i < valks.length; i++) {
 
                 headers = signetTableColumns;
                 
-                let signets = document.createElement('div');
+                const signets = document.createElement('div');
                 signets.classList.add('rec-signets', 'flex', 'f-row');
                 for (let k = 0; k < Object.keys(valks[i].signet[j]).length; k++) {
-                    let recSignetDiv = document.createElement('div');
+                    const recSignetDiv = document.createElement('div');
                     recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].signet[j][k][0].name.toLowerCase());
                     
-                    let recSignetsLabel = document.createElement('label');
+                    const recSignetsLabel = document.createElement('label');
                     recSignetsLabel.textContent = valks[i].signet[j][k][1];
 
                     recSignetDiv.appendChild(recSignetsLabel);
@@ -247,18 +248,18 @@ for (let i = 0; i < valks.length; i++) {
                 guideContainer.appendChild(signets);
                 break;
         }
-        let signetTableHead = signetTable.createTHead();
-        let signetTableHeadRow = signetTableHead.insertRow(); 
+        const signetTableHead = signetTable.createTHead();
+        const signetTableHeadRow = signetTableHead.insertRow(); 
         for (let k = 0; k < 2; k++) {
-            let signetTableHeader = document.createElement('th');
+            const signetTableHeader = document.createElement('th');
             signetTableHeader.textContent = headers[k];
             signetTableHeadRow.appendChild(signetTableHeader);
         }
         signetTableHead.appendChild(signetTableHeadRow);
 
-        let signetTableBody = signetTable.createTBody();
+        const signetTableBody = signetTable.createTBody();
         for (let k = 1; k <= Object.keys(valks[i].signetTable[j]).length; k++) { // rows
-            let signetTableBodyRow = signetTableBody.insertRow();
+            const signetTableBodyRow = signetTableBody.insertRow();
             for (let l = 0; l < Object.keys(valks[i].signetTable[j][k]).length; l++) { // cells
                 let signetTableBodyCell;
                 // check if value isn't only a number, which is a value for rowspan 
@@ -282,7 +283,7 @@ for (let i = 0; i < valks.length; i++) {
         guideContainer.appendChild(signetTable);
     }
     if ('notes' in valks[i]) {
-        let notes = document.createElement('div');
+        const notes = document.createElement('div');
         notes.setAttribute('id', `notes-${valks.indexOf(valks[i])}`)
         notes.classList.add('notes');
         notes.innerHTML = `Notes:<br><br>${valks[i].notes}`;
