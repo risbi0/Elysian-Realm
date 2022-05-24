@@ -12,6 +12,7 @@ const fallingInPastLight = { name: 'Falling in Past Light', acr: 'fipl' };
 const forbiddenSeed = { name: 'Forbidden Seed', acr: 'fs' };
 const forgetMeNot = { name: 'Forget-Me-Not', acr: 'fmt' };
 const goldGoblet = { name: 'Gold Goblet', acr: 'gg' };
+const goodOldDays = { name: 'Good Old Days', acr: 'god' };
 const greyScaleRainbow = { name: 'Grey-scale Rainbow', acr: 'gsr' };
 const homeLost = { name: 'Home Lost', acr: 'hl' };
 const homeTown = { name: 'Hometown', acr: 'h' };
@@ -19,12 +20,15 @@ const itWillBeWritten = { name: 'It Will Be Written', acr: 'iwbw' };
 const lightAsABodhiLeaf = { name: 'Light as a Bodhi Leaf', acr: 'laabl' };
 const madKingsMask = { name: 'Mad King\'s Mask', acr: 'mkm' };
 const memory = { name: 'Memory', acr: 'm' };
+const outOfReach = { name: 'Out of Reach', acr: 'oor' };
+const psuedoMiracle = { name: 'Psuedo Miracle', acr: 'pm' };
 const rainbowOfAbsence = { name: 'Rainbow of Absence', acr: 'roa' };
 const resolve = { name: 'Resolve', acr: 'r' };
 const stainedSakura = { name: 'Stained Sakura', acr: 'sts' };
 const theFirstScale = { name: 'The First Scale', acr: 'tfs' };
 const theLonelyMoon = { name: 'The Lonely Moon', acr: 'tlm' };
 const thornyCrown = { name: 'Thorny Crown', acr: 'tc' };
+const tsukimiHimiko = { name: 'Tsukimi Himiko', acr: 'th' };
 // priority terms
 const start = 'Start';
 const first = '1st';
@@ -310,6 +314,7 @@ const vv = {
         3: 'Finale: Broken Truth'
     }
 }
+// rough signet effect summaries
 const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
                      kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
                      su.regular[6]];
