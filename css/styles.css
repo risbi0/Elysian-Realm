@@ -185,6 +185,10 @@ h4 {
     font-style: italic;
     margin-bottom: 2px;
 }
+.build-no {
+    font-size: 12px;
+    margin-top: 5px;
+}
 .rec-signets {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -301,6 +305,7 @@ tr:last-child:not(thead tr) {
 .fs     { background-image: url("../img/emblems/Forbidden_Seed.png"); }
 .fmt    { background-image: url("../img/emblems/Forget_Me_Not.png"); }
 .gg     { background-image: url("../img/emblems/Gold_Goblet.png"); }
+.god    { background-image: url("../img/emblems/Good_Old_Days.png"); }
 .gsr    { background-image: url("../img/emblems/Grey_Scale_Rainbow.png"); }
 .hl     { background-image: url("../img/emblems/Home_Lost.png"); }
 .h      { background-image: url("../img/emblems/Hometown.png"); }
@@ -308,12 +313,15 @@ tr:last-child:not(thead tr) {
 .laabl  { background-image: url("../img/emblems/Light_as_a_Bodhi_Leaf.png"); }
 .mkm    { background-image: url("../img/emblems/Mad_Kings_Mask.png"); }
 .m      { background-image: url("../img/emblems/Memory.png"); }
+.oor    { background-image: url("../img/emblems/Out_of_Reach.png"); }
+.pm     { background-image: url("../img//emblems/Pseudo_Miracle.png"); }
 .r      { background-image: url("../img/emblems/Resolve.png"); }
 .roa    { background-image: url("../img/emblems/Rainbow_of_Absence.png"); }
 .sts    { background-image: url("../img/emblems/Stained_Sakura.png"); }
-.tfs    { background-image: url("../img/emblems/The_First_Scale.png"); }
-.tlm    { background-image: url("../img/emblems/The_Lonely_Moon.png"); }
 .tc     { background-image: url("../img/emblems/Thorny_Crown.png"); }
+.tfs    { background-image: url("../img/emblems/The_First_Scale.png"); }
+.th     { background-image: url("../img/emblems/Tsukimi_Himiko.png"); }
+.tlm    { background-image: url("../img/emblems/The_Lonely_Moon.png"); }
 .exclusive-tbl,
 .main-tbl,
 .secondary-tbl,
@@ -355,15 +363,14 @@ tr:last-child:not(thead tr) {
 .tooltip span {
     visibility: hidden;
     text-align: center;
+    white-space: nowrap;
     background-color: rgb(34, 34, 34);
     color: var(--white);
     font-size: 12px;
-    width: 80px;
-    padding: 5px 0;
+    padding: 5px;
     border-radius: 6px;
     opacity: 0;
     transition: opacity 0.2s;
-    z-index: 1;
     transform: translateY(-20px);
 }
 .tooltip input {
