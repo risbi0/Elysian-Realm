@@ -41,7 +41,7 @@ const no = 'No';
 // table headers
 const supportTableHeaders = ['Type', 'Supports'];
 const supportTableTypeColumn = ['Utility', 'Damage'];
-const emblemTableHeaders = ['Time', 'Emblem'];
+const emblemTableHeaders = ['Time', 'Emblems'];
 const emblemTableTimeColumn = ['Early', 'Mid', 'Late'];
 const exclusiveTableColumns = ['Signet', 'Priority'];
 const signetTableColumns = ['Owner', 'Signet'];
@@ -320,18 +320,19 @@ const vv = {
 // rough signet effect summaries
 const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
                      kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
-                     su.regular[6]];
+                     su.regular[6], vv.regular[3]];
 const damageTaken = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
-const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1]];
+const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1], vv.regular[4]];
 const physDamage = [hua.regular[2], kevin.regular[5]];
 const eleDamage = [hua.regular[1], kevin.regular[2]];
-const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3]];
-const physBreach = [hua.regular[5], kevin.regular[4]];
+const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3], aponia.nexus1[1]];
+const physBreach = [hua.regular[5], kevin.regular[4], vv.nexus1[2]];
 const eleBreach = [hua.regular[6], kevin.regular[1]];
 const vurnerability = [aponia.regular[6], eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
-                       kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1]];
+                       kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2]];
 const spRecovery = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
-                    griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2]];
+                    griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
+                    kosma.regular[1]];
 const signetSummary = {
     0: { summary: 'Total Damage Dealt', signets: damageDealt },
     1: { summary: 'Total Damage Taken', signets: damageTaken },
@@ -368,8 +369,8 @@ const signetSummary = {
     32: { summary: 'HP and SP Recovery', signets: pardofelis.regular[2] },
     33: { summary: 'Shiny Silver Increase Each Floor', signets: pardofelis.regular[3] },
     34: { summary: 'Shiny Silver Each Kill ', signets: pardofelis.regular[6] },
-    35: { summary: 'Ultimate Evasion Trigger Bonus Damage', signets: pardofelis.nexus1[1] },
-    36: { summary: 'Ultimate Trigger Bonus Damage', signets: pardofelis.nexus1[2] },
+    35: { summary: 'Ultimate Evasion Trigger Bonus Damage', signets: [kosma.regular[6], pardofelis.nexus1[1]] },
+    36: { summary: 'Ultimate Trigger Bonus Damage', signets: [kosma.regular[4], pardofelis.nexus1[2]] },
     37: { summary: 'Attack Speed & Move Speed', signets: sakura.regular[6] },
     38: { summary: 'Ultimate Evasion Reset CD', signets: sakura.regular[4] },
     39: { summary: 'Ultimate Evasion 1 More Charge and Reduced CD', signets: sakura.regular[3] },
@@ -381,9 +382,17 @@ const signetSummary = {
     45: { summary: '25 Bonus Combo', signets: su.regular[1] },
     46: { summary: 'Enemy Disable Shield Recovery', signets: su.nexus1[2] },
     47: { summary: 'Reduce Enemy Damage', signets: su.nexus1[1] },
-    48: { summary: 'Bonus Damage to Shields', signets: su.nexus1[3] },
+    48: { summary: 'Bonus Damage to Shields', signets: [su.nexus1[3], kosma.regular[2], vv.nexus1[3]] },
     49: { summary: '3 Random Debuffs on Hit', signets: su.nexus2[3] },
     50: { summary: 'Initial and SP Cap Increased', signets: eden.regular[4] },
     51: { summary: 'Increase Ultimate Physical & Elemental Damage', signets: aponia.regular[4] },
-    52: { summary: 'Start With More Exhortation', signets: aponia.regular[5] }
+    52: { summary: 'Start With More Exhortation', signets: aponia.regular[5] },
+    53: { summary: 'Basic/Combo/Charged Attacks Trigger Bonus Damage', signets: kosma.regular[5] },
+    54: { summary: 'Longer Rend', signets: kosma.regular[3] },
+    55: { summary: 'Weapon Bonus Damage', signets: vv.regular[1] },
+    56: { summary: 'Ranged Total Damage', signets: vv.regular[5] },
+    57: { summary: 'SP Recovery and Reduce Weapon CD', signets: vv.regular[6] },
+    58: { summary: 'Marvelous Magic Deals Bonus ATK', signets: vv.nexus1[1] },
+    59: { summary: 'Fixed Exhortation Value', signets: aponia.nexus1[2] },
+    60: { summary: 'Increase Ultimate Total Damage', signets: aponia.nexus1[3] }
 }
