@@ -1,21 +1,48 @@
 const body = document.querySelector('body');
-const cover = document.getElementById('cover');
-const progressBar = document.getElementById('progress-bar');
-const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
-const meter = document.getElementById('meter');
 const mainContainer = document.getElementById('main-container');
 const banners = document.querySelectorAll('.banner');
-const tooltipable = document.querySelectorAll('input');
-const rows = document.querySelectorAll('tr:not(thead tr)');
-const mergedCellRows = document.querySelectorAll('td[rowspan]');
-const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])');
-const signets = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 const topButton = document.querySelector('#goToTop');
-const url = [];
-let done = 0, timeout = 0;
-let progressInPixels = 0;
-let originalText = null, previousText;
-let previousOffset;
+
+window.scrollTo({ top: 0 });
+body.style.overflow = 'hidden';
+
+const subEquation = (window.innerWidth + Math.floor(window.innerWidth / 100)) / 100;
+let noOfBannersInViewport;
+let scrollVal;
+if (isMobile) {
+    noOfBannersInViewport = Math.ceil(subEquation) + 0;
+    scrollVal = 0; // leftmost
+} else {
+    noOfBannersInViewport = Math.ceil(subEquation) + 1;
+    scrollVal = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2; // middle
+    mainContainer.scroll({ left: scrollVal }); // scroll to middle
+}
+// locks scroll in mainContainer during banner animation
+const preventScroll = () => { mainContainer.scroll({ left: scrollVal }) };
+mainContainer.addEventListener('scroll', preventScroll);
+// setup no. of banners
+
+const noOfBannersNotInViewport = valks.length - noOfBannersInViewport;
+let finalArr;
+// setup of banner indices for animation order
+// mobile - banners on the leftmost side of mainContainer (starting view) in left to right order
+// desktop - banners on the middile of mainContainer (starting view) in random order
+if (isMobile) {
+    finalArr = [...Array(noOfBannersInViewport).keys()];
+} else {
+    finalArr = [];
+    const noOfBannersLeftOfViewport = Math.round(noOfBannersNotInViewport / 2);
+    const bannerIndicesInDektopViewport = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport });
+
+    // randomize array elements
+    const bannerLength = bannerIndicesInDektopViewport.length;
+    for (let i = 0; i < bannerLength; i++) {
+        const randomIndex = Math.floor(Math.random() * bannerIndicesInDektopViewport.length);
+        finalArr.push(bannerIndicesInDektopViewport[randomIndex]);
+        bannerIndicesInDektopViewport.splice(bannerIndicesInDektopViewport.indexOf(bannerIndicesInDektopViewport[randomIndex]), 1);
+    }
+}
+
 // execute animation after all images are loaded
 function load(src) {
     return new Promise((resolve, reject) => {
@@ -25,20 +52,26 @@ function load(src) {
         image.src = src;
     });
 }
+// interval gets faster the more banners in viewport
+const interval = 300 - noOfBannersInViewport * 5;
+let time = 0;
 function fadeAnim(item, fade) {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
         setTimeout(() => { item.classList.remove(fade) }, 1990);
-    }, timeout);
-    timeout += 100;
+    }, time);
+    time += interval;
 }
-window.scrollTo({ top: 0 });
-body.style.overflow = 'hidden';
 // insert main background image link and banner image links
-url.push(window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-image').substring(5).slice(0,-2));
-banners.forEach(banner => { url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0,-2)) });
+const url = [];
+url.push(window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-image').substring(5).slice(0, -2));
+banners.forEach(banner => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
 // wait for images to load
+const cover = document.getElementById('cover');
+const progressBarWidthInPixels = parseInt(window.getComputedStyle(document.getElementById('progress-bar')).width) + 1;
+const meter = document.getElementById('meter');
+let done = 0, progressInPixels = 0;
 url.forEach(link => {
     load(link).then(() => {
         done += 1;
@@ -53,17 +86,26 @@ url.forEach(link => {
             body.style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove() }, 800);
-            banners.forEach(item => {
-                // fade-in-up/down animation, alternate on each successive button
-                if (Array.prototype.indexOf.call(mainContainer.children, item) % 4 == 0) {
-                    fadeAnim(item, 'fade-in-up');
+            // fade-in-up/down animation
+            // only applied to the banners in the viewport
+            finalArr.forEach((item, index) => {
+                if (index % 2 == 0) {
+                    fadeAnim(banners[finalArr[index]], 'fade-in-up');
                 } else {
-                    fadeAnim(item, 'fade-in-down');
+                    fadeAnim(banners[finalArr[index]], 'fade-in-down');
                 }
             });
+            // instantly display banners outside viewport
+            // not covering the one in a million chance that the user
+            // expands the window width while the animation is still ongoing
+            banners.forEach((item, index) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
+            // allow scroll
+            setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
         }
     });
 });
+
+let previousOffset;
 function collapse(content) {
     const guideContainer = content.nextElementSibling;
     
@@ -144,8 +186,9 @@ banners.forEach(item => {
         }
     });
 });
+
 // support valk avatar transition on hover
-checkboxes.forEach(checkbox => {
+document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])').forEach(checkbox => {
     checkbox.addEventListener('mouseover', function(){
         this.parentNode.previousElementSibling.style.filter = 'brightness(50%)';
         this.parentNode.previousElementSibling.style.transition = '0.3s';
@@ -155,12 +198,15 @@ checkboxes.forEach(checkbox => {
         this.parentNode.previousElementSibling.style.transition = '0.2s';
     });
 });
+
 // hide previously clicked tooltip
+const tooltipable = document.querySelectorAll('input');
 tooltipable.forEach(item => {
     item.addEventListener('click', function() {
         for (otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
     });
 });
+
 // anchor smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -168,6 +214,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
+
 function highlightAdjacentMergedCell(row, bool) {
     // check if inner HTML only has 1 pair of td tags
     // in a 2 column table it has 2 td tags per row
@@ -208,7 +255,7 @@ function notedCell(row, removee, addee) {
 }
 // higlight table rows, including merged cells, on hover
 // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
-rows.forEach(row => {
+document.querySelectorAll('tr:not(thead tr)').forEach(row => {
     row.addEventListener('mouseover', function() {
         this.classList.add('table-cell-hover');
         notedCell(this, 'noted', 'temp');
@@ -234,11 +281,12 @@ function highlightInvolvedRows(row, bool) {
     }
 }
 // highlight adjacent rows on hovering from merged cells
-mergedCellRows.forEach(cell => {
+document.querySelectorAll('td[rowspan]').forEach(cell => {
     cell.addEventListener('mouseover', function() { highlightInvolvedRows(this, true) });
     cell.addEventListener('mouseout', function() { highlightInvolvedRows(this, false) });
 });
-// change signet name to summary on hover/click
+
+let originalText = null, previousText;
 function changeText(deez) {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
@@ -253,6 +301,8 @@ function revertText(deez) {
     deez.textContent = originalText;
     originalText = null;
 }
+// change signet name to summary on hover/click
+const signets = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 if (isMobile) { // mobile browsers
     signets.forEach(signet => {
         signet.addEventListener('mouseover', function() {
@@ -264,12 +314,12 @@ if (isMobile) { // mobile browsers
         });
     });
 } else { // desktop browsers
-    mainContainer.scroll({ left: (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2 }); // scroll to middle
     signets.forEach(signet => {
         signet.addEventListener('mouseover', function() { changeText(this) });
         signet.addEventListener('mouseout', function() { if (originalText != null) revertText(this) });
     });
 }
+
 // go to top of guide
 topButton.addEventListener('click', function () {
     for (item of banners) {
