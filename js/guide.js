@@ -54,7 +54,7 @@ const aka = {
                     6: { 0: griseo.regular[6] }, 
                     7: { 0: griseo.nexus1.name },
                     8: { 0: griseo.nexus1[2], 1: '' },
-                    9: { 0: vv.name, 1: '4', 2: vv.regular[2] },
+                    9: { 0: vv.name, 1: '2', 2: vv.regular[2] },
                     10: { 0: vv.regular[6] }
                 }
             },
@@ -222,7 +222,7 @@ const dpe = {
                     9: { 0: su.name, 1: '4', 2: su.regular[1] },
                     10: { 0: su.regular[3] },
                     11: { 0: su.regular[5] },
-                    12: { 0: su.nexus2.name },
+                    12: { 0: su.nexus2.name }
                 }
             },
             notes: `<p>${hua.regular[6]}</p>Recommended to upgrade.<br><br>
@@ -322,7 +322,7 @@ const gd = {
                     3: { 0: su.name, 1: '4', 2: su.regular[1] },
                     4: { 0: su.regular[3] },
                     5: { 0: su.regular[5] },
-                    6: { 0: su.nexus2.name },
+                    6: { 0: su.nexus2.name }
                 },
                 2: {
                     1: { 0: eden.name, 1: '5', 2: eden.regular[2] },
@@ -512,9 +512,9 @@ const hos = {
                     4: { 0: griseo.nexus1.name, 1: '' },
                     5: { 0: aponia.name, 1: '2', 2: aponia.regular[4] },
                     6: { 0: aponia.nexus1.name },
-                    7: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
+                    7: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
                     8: { 0: kalpas.regular[2] },
-                    9: { 0: kalpas.nexus2.name },
+                    9: { 0: kalpas.nexus2.name }
                 }
             },
             notes: `If there's no Normal Signet of Gold +2 stage effect,
@@ -672,7 +672,7 @@ const mobi = {
                     6: { 0: griseo.regular[6] },
                     7: { 0: griseo.nexus1.name, 1: '' },
                     8: { 0: griseo.nexus1[2], 1: '' },
-                    9: { 0: kalpas.name, 1: '3', 2: kalpas.regular[1] },
+                    9: { 0: kalpas.name, 1: '2', 2: kalpas.regular[1] },
                     10: { 0: kalpas.regular[2] }
                 }
             },
@@ -723,7 +723,7 @@ const lk = {
                     9: { 0: mobius.nexus1.name },
                     10: { 0: mobius.nexus1[1] },
                     11: { 0: mobius.nexus1[2], 1: '' },
-                    12: { 0: mobius.nexus1[3], 1: '' },
+                    12: { 0: mobius.nexus1[3], 1: '' }
                 },
                 2: {
                     1: { 0: su.name, 1: '4', 2: su.regular[1] },
@@ -776,7 +776,7 @@ const raven = {
                 1: {
                     1: { 0: kevin.name, 1: '3', 2: kevin.regular[1] },
                     2: { 0: kevin.nexus1.name },
-                    3: { 0: kevin.nexus1[1] },
+                    3: { 0: kevin.nexus1[1] }
                 },
                 2: {
                     1: { 0: eden.name, 1: '4', 2: eden.regular[1] },
@@ -848,8 +848,8 @@ const elysia = {
                     4: { 0: eden.nexus2.name },
                     5: { 0: griseo.name, 1: '4', 2: griseo.regular[1] },
                     6: { 0: griseo.regular[4] },
-                    6: { 0: griseo.nexus1.name, 1: '' },
-                    7: { 0: griseo.nexus1[2], 1: '' },
+                    7: { 0: griseo.nexus1.name, 1: '' },
+                    8: { 0: griseo.nexus1[2], 1: '' }
                 }
             },
             notes: `<p>${vv.nexus1[2]}</p>If Su's signet <span>${su.regular[2]}</span> is chosen.<br><br>
