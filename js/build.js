@@ -5,7 +5,7 @@ function imageAndLabel(cell, row, item, m, hoverLabel) {
     cell.classList.add('pos-rel');
 
     const pic = document.createElement('div');
-    pic.classList.add('pic', item[m].acr)
+    pic.classList.add('pic', item[m].acr);
 
     const label = document.createElement('label');
     label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
@@ -15,7 +15,7 @@ function imageAndLabel(cell, row, item, m, hoverLabel) {
     input.setAttribute('type', 'checkbox');
 
     const span = document.createElement('span');
-    span.classList.add('pos-abs')
+    span.classList.add('pos-abs');
     span.textContent = item[m].name;
     // for support valk images
     if (hoverLabel) {
@@ -25,7 +25,7 @@ function imageAndLabel(cell, row, item, m, hoverLabel) {
     }
     label.appendChild(input);
     label.appendChild(span);
-    cell.appendChild(pic)
+    cell.appendChild(pic);
     cell.appendChild(label);
 
     return cell;
@@ -59,7 +59,7 @@ for (let i = 0; i < valks.length; i++) {
     guideContainer.appendChild(innerName);
     // rated difficulty
     const rating = document.createElement('p');
-    rating.classList.add('rating')
+    rating.classList.add('rating');
     rating.textContent = valks[i].rate;
 
     guideContainer.appendChild(rating);
@@ -219,7 +219,7 @@ for (let i = 0; i < valks.length; i++) {
                     break;
                 default:
                     if ((k == 1 && hasTransitionTable)) {
-                        title = 'Transitional Signets'
+                        title = 'Transitional Signets';
                         link ='transitional-signets';
                         signetTable.classList.add('transitional-tbl');
                     } else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
@@ -231,7 +231,7 @@ for (let i = 0; i < valks.length; i++) {
                         link = 'secondary-signets';
                         signetTable.classList.add('secondary-tbl');
                     }
-                    signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`)
+                    signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`);
                     signetTitle.textContent = title;
 
                     headers = signetTableColumns;
@@ -288,7 +288,7 @@ for (let i = 0; i < valks.length; i++) {
         }
         if ('notes' in valks[i].builds[j]) {
             const notes = document.createElement('div');
-            notes.setAttribute('id', `notes-${i + 1}-${j + 1}`)
+            notes.setAttribute('id', `notes-${i + 1}-${j + 1}`);
             notes.classList.add('notes');
             notes.innerHTML = `Notes:<br><br>${valks[i].builds[j].notes}`;
 
