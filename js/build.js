@@ -205,7 +205,9 @@ for (let i = 0; i < valks.length; i++) {
         emblemSupportDiv.appendChild(supportTableDiv);
         guideContainer.appendChild(emblemSupportDiv);
         // signets
-        for (let k = 0; k < Object.keys(valks[i].builds[j].signetTable).length; k++) { // tables
+        const signetTableLength = Object.keys(valks[i].builds[j].signetTable).length;
+        const hasTransitionTable = signetTableLength == 4;
+        for (let k = 0; k < signetTableLength; k++) { // tables
             const signetTitle = document.createElement('h3');
             const signetTable = document.createElement('table');
             let title, link, headers;
@@ -217,22 +219,18 @@ for (let i = 0; i < valks.length; i++) {
                     headers = exclusiveTableColumns;
                     break;
                 default:
-                    switch (k) {
-                        case 1:
-                            title = 'Main Signets';
-                            link = 'main-signets';
-                            signetTable.classList.add('main-tbl');
-                            break;
-                        case 2:
-                            title = 'Secondary Signets';
-                            link = 'secondary-signets';
-                            signetTable.classList.add('secondary-tbl');
-                            break;
-                        case 3:
-                            title = 'Transitional Signets'
-                            link ='transitional-signets';
-                            signetTable.classList.add('transitional-tbl');
-                            break;
+                    if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+                        title = 'Main Signets';
+                        link = 'main-signets';
+                        signetTable.classList.add('main-tbl');
+                    } else if ((k == 2 && !hasTransitionTable) || (k == 3 && hasTransitionTable)) {
+                        title = 'Secondary Signets';
+                        link = 'secondary-signets';
+                        signetTable.classList.add('secondary-tbl');
+                    } else if ((k == 1 && hasTransitionTable)) {
+                        title = 'Transitional Signets'
+                        link ='transitional-signets';
+                        signetTable.classList.add('transitional-tbl');
                     }
                     signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`)
                     signetTitle.textContent = title;

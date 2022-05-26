@@ -472,9 +472,9 @@ const hos = {
     builds: {
         0: {
             signet: {
-                1: { 0: { 0: su, 1: '2' } },
-                2: { 0: { 0: griseo, 1: '' }, 1: { 0: aponia, 1: '' }, 2: { 0: kalpas, 1: '2' } },
-                3: { 0: { 0: eden, 1: '2' } }
+                1: { 0: { 0: eden, 1: '2' } },
+                2: { 0: { 0: su, 1: '2' } },
+                3: { 0: { 0: griseo, 1: '' }, 1: { 0: aponia, 1: '' }, 2: { 0: kalpas, 1: '2' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: theLonelyMoon },
@@ -494,13 +494,18 @@ const hos = {
                     5: { 0: 'Ego', 1: no }
                 },
                 1: {
+                    1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+                    2: { 0: eden.regular[3] },
+                    3: { 0: eden.nexus2.name }
+                },
+                2: {
                     1: { 0: su.name, 1: '5', 2: su.regular[1] },
                     2: { 0: su.regular[2] },
                     3: { 0: su.regular[3] },
                     4: { 0: su.regular[5] },
                     5: { 0: su.nexus2.name }
                 },
-                2: {
+                3: {
                     1: { 0: griseo.name, 1: '4', 2: griseo.regular[3] },
                     2: { 0: griseo.regular[4] },
                     3: { 0: griseo.regular[6] },
@@ -510,11 +515,6 @@ const hos = {
                     7: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
                     8: { 0: kalpas.regular[2] },
                     9: { 0: kalpas.nexus2.name },
-                },
-                3: {
-                    1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
-                    2: { 0: eden.regular[3] },
-                    3: { 0: eden.nexus2.name }
                 }
             },
             notes: `If there's no Normal Signet of Gold +2 stage effect,
@@ -534,9 +534,9 @@ const hot = {
     builds: {
         0: {
             signet: {
-                1: { 0: { 0: hua, 1: '2' } },
-                2: { 0: { 0: su, 1: '2' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '' } },
-                3: { 0: { 0: eden, 1: '1' } }
+                1: { 0: { 0: eden, 1: '1' } },
+                2: { 0: { 0: hua, 1: '2' } },
+                3: { 0: { 0: su, 1: '2' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -556,11 +556,16 @@ const hot = {
                     5: { 0: 'Narukami' }
                 },
                 1: {
+                    1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+                    2: { 0: eden.regular[3] },
+                    3: { 0: eden.nexus1.name }
+                },
+                2: {
                     1: { 0: hua.name, 1: '3', 2: hua.regular[6] },
                     2: { 0: hua.nexus2.name },
                     3: { 0: hua.nexus2[1], 1: '' }
                 },
-                2: {
+                3: {
                     1: { 0: su.name, 1: '4', 2: su.regular[1] },
                     2: { 0: su.regular[3] },
                     3: { 0: su.regular[5] },
@@ -572,11 +577,7 @@ const hot = {
                     9: { 0: pardofelis.regular[4] },
                     10: { 0: pardofelis.regular[5] }
                 },
-                3: {
-                    1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
-                    2: { 0: eden.regular[3] },
-                    3: { 0: eden.nexus1.name }
-                }
+                
             },
             notes: `<p>${hua.nexus2[1]}</p>Either pick this or upgrade <span>${hua.regular[6]}</span><br><br>
                     <p>Pardofelis</p>After getting Kalpas and Eden signets, in late shop buy her signets listed above, and try to maintain 1k silver.`
@@ -1309,9 +1310,9 @@ const carole = {
     builds: {
         0: {
             signet: {
-                1: { 0: { 0: kalpas, 1: '2' } },
-                2: { 0: { 0: kevin, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: aponia, 1: '' } },
-                3: { 0: { 0: eden, 1: '2' } }
+                1: { 0: { 0: eden, 1: '2' } },
+                2: { 0: { 0: kalpas, 1: '2' } },
+                3: { 0: { 0: kevin, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: aponia, 1: '' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -1331,12 +1332,17 @@ const carole = {
                     5: { 0: 'Rupture' }
                 },
                 1: {
+                    1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
+                    2: { 0: eden.regular[3] },
+                    3: { 0: eden.nexus2.name }
+                },
+                2: {
                     1: { 0: kalpas.name, 1: '4', 2: kalpas.regular[1] },
                     2: { 0: kalpas.regular[2] },
                     3: { 0: kalpas.regular[5] },
                     4: { 0: kalpas.nexus2.name }
                 },
-                2: {
+                3: {
                     1: { 0: kevin.name, 1: '4', 2: kevin.regular[3] },
                     2: { 0: kevin.regular[4] },
                     3: { 0: kevin.regular[5] },
@@ -1349,11 +1355,7 @@ const carole = {
                     10: { 0: aponia.regular[4] },
                     11: { 0: aponia.nexus1.name }
                 },
-                3: {
-                    1: { 0: eden.name, 1: '3', 2: eden.regular[2] },
-                    2: { 0: eden.regular[3] },
-                    3: { 0: eden.nexus2.name }
-                }
+                
             }
         }
     }
@@ -1422,9 +1424,9 @@ const stfu = {
     builds: {
         0: {
             signet: {
-                1: { 0: { 0: kevin, 1: '1' } },
-                2: { 0: { 0: su, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: griseo, 1: '' } },
-                3: { 0: { 0: eden, 1: '2' } }
+                1: { 0: { 0: eden, 1: '2' } },
+                2: { 0: { 0: kevin, 1: '1' } },
+                3: { 0: { 0: su, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: griseo, 1: '' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -1444,12 +1446,19 @@ const stfu = {
                     5: { 0: 'Zanshin', 1: no }
                 },
                 1: {
+                    1: { 0: eden.name, 1: '5', 2: eden.regular[1] },
+                    2: { 0: eden.regular[2] },
+                    3: { 0: eden.regular[3] },
+                    4: { 0: eden.regular[6] },
+                    5: { 0: eden.nexus2.name }
+                },
+                2: {
                     1: { 0: kevin.name, 1: '4', 2: kevin.regular[4] },
                     2: { 0: kevin.regular[6] },
                     3: { 0: kevin.nexus1.name },
                     4: { 0: kevin.nexus1[1] }
                 },
-                2: {
+                3: {
                     1: { 0: su.name, 1: '3', 2: su.regular[1] },
                     2: { 0: su.regular[3] },
                     3: { 0: su.regular[5] },
@@ -1461,13 +1470,7 @@ const stfu = {
                     9: { 0: griseo.nexus1.name, 1: '' },
                     10: { 0: griseo.nexus1[2], 1: '' }
                 },
-                3: {
-                    1: { 0: eden.name, 1: '5', 2: eden.regular[1] },
-                    2: { 0: eden.regular[2] },
-                    3: { 0: eden.regular[3] },
-                    4: { 0: eden.regular[6] },
-                    5: { 0: eden.nexus2.name }
-                }
+                
             },
             notes: `If there's a Normal Signet of Deliverance +2 stage effect, start with Kevin sigents.<br><br>
                     <p>${griseo.nexus1.name}, ${griseo.nexus1[2]}</p>If lacking breach.`
