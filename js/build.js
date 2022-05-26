@@ -83,29 +83,30 @@ for (let i = 0; i < valks.length; i++) {
         }
         guideContainer.appendChild(recSignets);
         // anchors
+        const signetTableLength = Object.keys(valks[i].builds[j].signetTable).length;
+        const hasTransitionTable = signetTableLength == 4;
+
         const anchorContainer = document.createElement('div');
         anchorContainer.classList.add('flex', 'f-row');
+
         let anchors = 2;
-        if (3 in valks[i].builds[j].signetTable) anchors += 1; // check for transitional table
+        if (hasTransitionTable) anchors += 1; // check for transitional table
         if ('notes' in valks[i].builds[j]) anchors += 1;
         for (let k = 0; k < anchors; k++) {
             let letter, link;
             const anchorDiv = document.createElement('div');
             anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
 
-            if (k == 0) {
-                letter = 'M';
-                link = `main-signets-${i + 1}-${j + 1}`;
-            }
-            if (k == 1) {
-                letter = 'S';
-                link = `secondary-signets-${i + 1}-${j + 1}`;
-            }
-            if (k == 2 && 3 in valks[i].builds[j].signetTable) {
+            if (k == 0 && hasTransitionTable) {
                 letter = 'T';
                 link = `transitional-signets-${i + 1}-${j + 1}`;
-            }
-            if ((k == 3 && 'notes' in valks[i].builds[j]) || (k == 2 && !(3 in valks[i].builds[j].signetTable))) {
+            } else if ((k == 0 && !hasTransitionTable) || (k == 1 && hasTransitionTable)) {
+                letter = 'M';
+                link = `main-signets-${i + 1}-${j + 1}`;
+            } else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+                letter = 'S';
+                link = `secondary-signets-${i + 1}-${j + 1}`;
+            } else if ((k == 3 && 'notes' in valks[i].builds[j]) || (k == 2 && !(3 in valks[i].builds[j].signetTable))) {
                 letter = 'N';
                 link = `notes-${i + 1}-${j + 1}`;
             }
@@ -205,8 +206,6 @@ for (let i = 0; i < valks.length; i++) {
         emblemSupportDiv.appendChild(supportTableDiv);
         guideContainer.appendChild(emblemSupportDiv);
         // signets
-        const signetTableLength = Object.keys(valks[i].builds[j].signetTable).length;
-        const hasTransitionTable = signetTableLength == 4;
         for (let k = 0; k < signetTableLength; k++) { // tables
             const signetTitle = document.createElement('h3');
             const signetTable = document.createElement('table');
@@ -219,7 +218,11 @@ for (let i = 0; i < valks.length; i++) {
                     headers = exclusiveTableColumns;
                     break;
                 default:
-                    if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+                    if ((k == 1 && hasTransitionTable)) {
+                        title = 'Transitional Signets'
+                        link ='transitional-signets';
+                        signetTable.classList.add('transitional-tbl');
+                    } else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
                         title = 'Main Signets';
                         link = 'main-signets';
                         signetTable.classList.add('main-tbl');
@@ -227,10 +230,6 @@ for (let i = 0; i < valks.length; i++) {
                         title = 'Secondary Signets';
                         link = 'secondary-signets';
                         signetTable.classList.add('secondary-tbl');
-                    } else if ((k == 1 && hasTransitionTable)) {
-                        title = 'Transitional Signets'
-                        link ='transitional-signets';
-                        signetTable.classList.add('transitional-tbl');
                     }
                     signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`)
                     signetTitle.textContent = title;
