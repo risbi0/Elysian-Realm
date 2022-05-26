@@ -63,64 +63,6 @@ const aka = {
         }
     }
 }
-// Disciplinary Perdition
-const dpe = {
-    name: 'Disciplinary Perdition',
-    acr: 'dip',
-    rate: corruption,
-    builds: {
-        0: {
-            signet: {
-                1: { 0: { 0: hua, 1: '2' }, 1: { 0: griseo, 1: '' } },
-                2: { 0: { 0: aponia, 1: '' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: su, 1: '2' } }
-            },
-            emblem: {
-                1: { 1: memory, 2: homeTown },
-                2: { 1: rainbowOfAbsence, 2: theLonelyMoon },
-                3: { 1: resolve, 2: homeTown }
-            },
-            support: {
-                1: { 1: { 1: ae }, 2: { 1: le } },
-                2: { 1: { 1: ae }, 2: { 1: br } }
-            },
-            signetTable: {
-                0: {
-                    1: { 0: 'Admonition', 1: start, 2: '2' },
-                    2: { 0: 'Shelter'},
-                    3: { 0: 'Inclusiveness', 1: first },
-                    4: { 0: 'Atonement', 1: reinforcement, 2: '2' },
-                    5: { 0: 'Rescue' }
-                },
-                1: {
-                    1: { 0: hua.name, 1: '2', 2: hua.regular[6], 3: '' },
-                    2: { 0: hua.nexus2.name },
-                    3: { 0: griseo.name, 1: '6', 2: griseo.regular[2] },
-                    4: { 0: griseo.regular[3] },
-                    5: { 0: griseo.regular[4] },
-                    6: { 0: griseo.regular[6] },
-                    7: { 0: griseo.nexus1.name },
-                    8: { 0: griseo.nexus1[2], 1: '' }
-                },
-                2: {
-                    1: { 0: aponia.name, 1: '4', 2: aponia.regular[1] },
-                    2: { 0: aponia.regular[3] },
-                    3: { 0: aponia.regular[4] },
-                    4: { 0: aponia.nexus1.name },
-                    5: { 0: kalpas.name, 1: '4', 2: kalpas.regular[2] },
-                    6: { 0: kalpas.regular[5] },
-                    7: { 0: kalpas.nexus2.name },
-                    8: { 0: kalpas.nexus2[3], 1: '' },
-                    9: { 0: su.name, 1: '4', 2: su.regular[1] },
-                    10: { 0: su.regular[3] },
-                    11: { 0: su.regular[5] },
-                    12: { 0: su.nexus2.name },
-                }
-            },
-            notes: `<p>${hua.regular[6]}</p>Recommended to upgrade.<br><br>
-                    <p>${griseo.nexus1[2]}, ${kalpas.nexus2[3]}</p>If breach is not yet 60%`
-        }
-    }
-}
 // Bright Knight: Excelsis
 const bkek = {
     name: 'Bright Knight: Excelsis',
@@ -227,6 +169,64 @@ const da = {
                     16: { 0: aponia.nexus1.name }
                 }
             }
+        }
+    }
+}
+// Disciplinary Perdition
+const dpe = {
+    name: 'Disciplinary Perdition',
+    acr: 'dip',
+    rate: corruption,
+    builds: {
+        0: {
+            signet: {
+                1: { 0: { 0: hua, 1: '2' }, 1: { 0: griseo, 1: '' } },
+                2: { 0: { 0: aponia, 1: '' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: su, 1: '2' } }
+            },
+            emblem: {
+                1: { 1: memory, 2: homeTown },
+                2: { 1: rainbowOfAbsence, 2: theLonelyMoon },
+                3: { 1: resolve, 2: homeTown }
+            },
+            support: {
+                1: { 1: { 1: ae }, 2: { 1: le } },
+                2: { 1: { 1: ae }, 2: { 1: br } }
+            },
+            signetTable: {
+                0: {
+                    1: { 0: 'Admonition', 1: start, 2: '2' },
+                    2: { 0: 'Shelter'},
+                    3: { 0: 'Inclusiveness', 1: first },
+                    4: { 0: 'Atonement', 1: reinforcement, 2: '2' },
+                    5: { 0: 'Rescue' }
+                },
+                1: {
+                    1: { 0: hua.name, 1: '2', 2: hua.regular[6], 3: '' },
+                    2: { 0: hua.nexus2.name },
+                    3: { 0: griseo.name, 1: '6', 2: griseo.regular[2] },
+                    4: { 0: griseo.regular[3] },
+                    5: { 0: griseo.regular[4] },
+                    6: { 0: griseo.regular[6] },
+                    7: { 0: griseo.nexus1.name },
+                    8: { 0: griseo.nexus1[2], 1: '' }
+                },
+                2: {
+                    1: { 0: aponia.name, 1: '4', 2: aponia.regular[1] },
+                    2: { 0: aponia.regular[3] },
+                    3: { 0: aponia.regular[4] },
+                    4: { 0: aponia.nexus1.name },
+                    5: { 0: kalpas.name, 1: '4', 2: kalpas.regular[2] },
+                    6: { 0: kalpas.regular[5] },
+                    7: { 0: kalpas.nexus2.name },
+                    8: { 0: kalpas.nexus2[3], 1: '' },
+                    9: { 0: su.name, 1: '4', 2: su.regular[1] },
+                    10: { 0: su.regular[3] },
+                    11: { 0: su.regular[5] },
+                    12: { 0: su.nexus2.name },
+                }
+            },
+            notes: `<p>${hua.regular[6]}</p>Recommended to upgrade.<br><br>
+                    <p>${griseo.nexus1[2]}, ${kalpas.nexus2[3]}</p>If breach is not yet 60%`
         }
     }
 }
