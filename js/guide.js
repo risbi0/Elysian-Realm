@@ -1529,6 +1529,6 @@ const vg = {
         }
     }
 }
-const valks = [aka, bkek, da, dpe, fr, gd, hofs, hor, hos, hot, mobi, lk,
-               raven, elysia, pe, fischl, rvc, ri, sw, spa, nyx, sn,
-               carole, tp, stfu, vg];
+const valks = [aka, bkek, da, dpe, fr, gd, hofs, hor, hos, hot,
+               mobi, lk, raven, elysia, pe, fischl, rvc, ri, sw, spa,
+               nyx, sn, carole, tp, stfu, vg];
