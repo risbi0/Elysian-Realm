@@ -238,8 +238,9 @@ h4 {
     height: 40px;
 }
 .signet label {
-    padding-top: 40px;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 10px;
+    padding-top: 40px;
 }
 /* signets images */
 .aponia     { background-image: url("../img/signets/Aponia_Signet.png"); }

@@ -244,7 +244,7 @@ for (let i = 0; i < valks.length; i++) {
                         recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].builds[j].signet[k][l][0].name.toLowerCase());
                         
                         const recSignetsLabel = document.createElement('label');
-                        recSignetsLabel.textContent = valks[i].builds[j].signet[k][l][1];
+                        recSignetsLabel.textContent = valks[i].builds[j].signet[k][l][1] == '1' ? 'I' : 'II';
 
                         recSignetDiv.appendChild(recSignetsLabel);
                         signets.appendChild(recSignetDiv);
