@@ -205,11 +205,12 @@ for (let i = 0; i < valks.length; i++) {
         supportTableDiv.appendChild(supportTable);
         emblemSupportDiv.appendChild(supportTableDiv);
         guideContainer.appendChild(emblemSupportDiv);
-        // signets
-        for (let k = 0; k < signetTableLength; k++) { // tables
+        // tables
+        for (let k = 0; k < signetTableLength; k++) {
             const signetTitle = document.createElement('h3');
             const signetTable = document.createElement('table');
             let title, link, headers;
+            // title and signets
             switch (k) {
                 case 0:
                     signetTitle.textContent = 'Exclusive Signets';
@@ -235,7 +236,7 @@ for (let i = 0; i < valks.length; i++) {
                     signetTitle.textContent = title;
 
                     headers = signetTableColumns;
-                    
+                    // signets
                     const signets = document.createElement('div');
                     signets.classList.add('rec-signets', 'flex', 'f-row');
                     for (let l = 0; l < Object.keys(valks[i].builds[j].signet[k]).length; l++) {
