@@ -588,10 +588,11 @@ hr, #about a {
 #about table {
     margin: auto;
 }
-#about table td {
+#about table td, #about table th {
     border: 1px solid var(--white);
 }
-#about tr:nth-child(1) td {
+#about tr th {
+    font-size: unset;
     width: 20%;
     vertical-align: middle;
 }
@@ -601,6 +602,12 @@ hr, #about a {
 .sideways {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
+}
+#timeline {
+    max-width: 400px;
+}
+#timeline th:nth-child(1) {
+    width: 10%;
 }
 li {
     list-style: initial;
