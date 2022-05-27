@@ -7,7 +7,7 @@ const aka = {
         0: {
             signet: { // 1 - main, 2 - secondary, 3 - transitional
                 1: { 0: { 0: mobius, 1: '1' }, 1: { 0: kevin, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: vv, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: vv, 1: '1' } }
             },
             emblem: {
                 1: { 1: forbiddenSeed, 2: becauseOfYou }, // early
@@ -72,7 +72,7 @@ const bkek = {
         0: {
             signet: {
                 1: { 0: { 0: sakura, 1: '1' }, 1: { 0: eden, 1: '2' } },
-                2: { 0: { 0: kosma, 1: '' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: griseo, 1: '' } }
+                2: { 0: { 0: kosma, 1: '1' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: griseo, 1: '1' } }
             },
             emblem: {
                 1: { 1: forgetMeNot, 2: tsukimiHimiko },
@@ -125,7 +125,7 @@ const da = {
         0: {
             signet: {
                 1: { 0: { 0: kevin, 1: '1' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '' }, 3: { 0: aponia, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '1' }, 3: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: burden, 2: theLonelyMoon },
@@ -180,8 +180,8 @@ const dpe = {
     builds: {
         0: {
             signet: {
-                1: { 0: { 0: hua, 1: '2' }, 1: { 0: griseo, 1: '' } },
-                2: { 0: { 0: aponia, 1: '' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: su, 1: '2' } }
+                1: { 0: { 0: hua, 1: '2' }, 1: { 0: griseo, 1: '1' } },
+                2: { 0: { 0: aponia, 1: '1' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: su, 1: '2' } }
             },
             emblem: {
                 1: { 1: memory, 2: homeTown },
@@ -239,7 +239,7 @@ const fr = {
         0: {
             signet: {
                 1: { 0: { 0: hua, 1: '2' }, 1: { 0: su, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: kalpas, 1: '1' }, 2: { 0: aponia, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: kalpas, 1: '1' }, 2: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: memory, 2: becauseOfYou },
@@ -297,7 +297,7 @@ const gd = {
         0: {
             signet: {
                 1: { 0: { 0: hua, 1: '2' }, 1: { 0: su, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '2' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: kalpas, 1: '2' } }
             },
             emblem: {
                 1: { 1: memory, 2: homeTown },
@@ -355,7 +355,7 @@ const hofs = {
         0: {
             signet: {
                 1: { 0: { 0: kalpas, 1: '2' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: sakura, 1: '1' }, 1: { 0: kosma, 1: '' }, 2: { 0: griseo, 1: '' } }
+                2: { 0: { 0: sakura, 1: '1' }, 1: { 0: kosma, 1: '1' }, 2: { 0: griseo, 1: '1' } }
             },
             emblem: {
                 1: { 1: madKingsMask, 2: becauseOfYou },
@@ -413,7 +413,7 @@ const hor = {
         0: {
             signet: {
                 1: { 0: { 0: hua, 1: '2' } , 1: { 0: sakura, 1: '1' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '' } },
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '1' } },
             },
             emblem: {
                 1: { 1: memory, 2: theLonelyMoon },
@@ -474,7 +474,7 @@ const hos = {
             signet: {
                 1: { 0: { 0: eden, 1: '2' } },
                 2: { 0: { 0: su, 1: '2' } },
-                3: { 0: { 0: griseo, 1: '' }, 1: { 0: aponia, 1: '' }, 2: { 0: kalpas, 1: '2' } }
+                3: { 0: { 0: griseo, 1: '1' }, 1: { 0: aponia, 1: '1' }, 2: { 0: kalpas, 1: '2' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: theLonelyMoon },
@@ -536,7 +536,7 @@ const hot = {
             signet: {
                 1: { 0: { 0: eden, 1: '1' } },
                 2: { 0: { 0: hua, 1: '2' } },
-                3: { 0: { 0: su, 1: '2' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '' } }
+                3: { 0: { 0: su, 1: '2' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '1' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -585,7 +585,7 @@ const hot = {
         1: {
             signet: {
                 1: { 0: { 0: kevin, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: sakura, 1: '1' }, 2: { 0: su, 1: '2' }, 3: { 0: aponia, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: sakura, 1: '1' }, 2: { 0: su, 1: '2' }, 3: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: burden, 2: tsukimiHimiko },
@@ -637,7 +637,7 @@ const mobi = {
         0: {
             signet: {
                 1: { 0: { 0: mobius, 1: '1' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: sakura, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '1' } }
+                2: { 0: { 0: sakura, 1: '1' }, 1: { 0: griseo, 1: '1' }, 2: { 0: kalpas, 1: '1' } }
             },
             emblem: {
                 1: { 1: forbiddenSeed, 2: boundlessLogos },
@@ -692,7 +692,7 @@ const lk = {
         0: {
             signet: {
                 1: { 0: { 0: kalpas, 1: '2' }, 1: { 0: mobius, 1: '1' } },
-                2: { 0: { 0: su, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: aponia, 1: '' } }
+                2: { 0: { 0: su, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: madKingsMask, 2: theLonelyMoon },
@@ -754,7 +754,7 @@ const raven = {
         0: {
             signet: {
                 1: { 0: { 0: kevin, 1: '1' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' }, 3: { 0: vv, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: su, 1: '2' }, 3: { 0: vv, 1: '1' } }
             },
             emblem: {
                 1: { 1: burden, 2: theLonelyMoon },
@@ -806,8 +806,8 @@ const elysia = {
     builds: {
         0: {
             signet: {
-                1: { 0: { 0: vv, 1: '' }, 1: { 0: su, 1: '2' }, 2: { 0: hua, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' } }
+                1: { 0: { 0: vv, 1: '1' }, 1: { 0: su, 1: '2' }, 2: { 0: hua, 1: '2' } },
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '1' } }
             },
             emblem: {
                 1: { 1: psuedoMiracle, 2: fallingInPastLight },
@@ -868,7 +868,7 @@ const pe = {
         0: {
             signet: {
                 1: { 0: { 0: kalpas, 1: '2' }, 1: { 0: sakura, 1: '1' } },
-                2: { 0: { 0: hua, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: kevin, 1: '1' } }
+                2: { 0: { 0: hua, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: kevin, 1: '1' } }
             },
             emblem: {
                 1: { 1: madKingsMask, 2: tsukimiHimiko },
@@ -918,7 +918,7 @@ const fischl = {
         0: {
             signet: {
                 1: { 0: { 0: hua, 1: '2' }, 1: { 0: mobius, 1: '1' } },
-                2: { 0: { 0: griseo, 1: '' }, 1: { 0: su, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
+                2: { 0: { 0: griseo, 1: '1' }, 1: { 0: su, 1: '2' }, 2: { 0: kalpas, 1: '2' } }
             },
             emblem: {
                 1: { 1: memory, 2: theLonelyMoon },
@@ -975,7 +975,7 @@ const rvc = {
         0: {
             signet: {
                 1: { 0: { 0: eden, 1: '2' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: griseo, 1: '' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '' } }
+                2: { 0: { 0: griseo, 1: '1' }, 1: { 0: kalpas, 1: '2' }, 2: { 0: pardofelis, 1: '1' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -1033,7 +1033,7 @@ const ri = {
         0: {
             signet: {
                 1: { 0: { 0: mobius, 1: '1' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '1' } }
             },
             emblem: {
                 1: { 1: forbiddenSeed, 2: theLonelyMoon },
@@ -1086,7 +1086,7 @@ const sw = {
         0: {
             signet: {
                 1: { 0: { 0: su, 1: '2' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: aponia, 1: '' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: lightAsABodhiLeaf, 2: outOfReach },
@@ -1141,7 +1141,7 @@ const spa = {
         0: {
             signet: {
                 1: { 0: { 0: hua, 1: '2' } },
-                2: {  0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '' }, 3: { 0: aponia, 1: '' } }
+                2: {  0: { 0: eden, 1: '2' }, 1: { 0: su, 1: '2' }, 2: { 0: griseo, 1: '1' }, 3: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: memory, 2: becauseOfYou },
@@ -1199,7 +1199,7 @@ const nyx = {
         0: {
             signet: {
                 1: { 0: { 0: kevin, 1: '1' }, 1: { 0: sakura, 1: '1' } },
-                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: su, 1: '2' } }
+                2: { 0: { 0: eden, 1: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: su, 1: '2' } }
             },
             emblem: {
                 1: { 1: forgetMeNot, 2: tsukimiHimiko },
@@ -1258,7 +1258,7 @@ const sn = {
         0: {
             signet: {
                 1: { 0: { 0: sakura, 1: '1' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: kosma, 1: '' }, 1: { 0: griseo, 1: '' }, 2: { 0: kalpas, 1: '1' } }
+                2: { 0: { 0: kosma, 1: '1' }, 1: { 0: griseo, 1: '1' }, 2: { 0: kalpas, 1: '1' } }
             },
             emblem: {
                 1: { 1: forgetMeNot, 2: becauseOfYou },
@@ -1312,7 +1312,7 @@ const carole = {
             signet: {
                 1: { 0: { 0: eden, 1: '2' } },
                 2: { 0: { 0: kalpas, 1: '2' } },
-                3: { 0: { 0: kevin, 1: '1' }, 1: { 0: griseo, 1: '' }, 2: { 0: aponia, 1: '' } }
+                3: { 0: { 0: kevin, 1: '1' }, 1: { 0: griseo, 1: '1' }, 2: { 0: aponia, 1: '1' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -1369,7 +1369,7 @@ const tp = {
         0: {
             signet: {
                 1: { 0: { 0: su, 1: '2' }, 1: { 0: hua, 1: '2' } },
-                2: { 0: { 0: eden, 2: '2' }, 1: { 0: griseo, 1: '' }, 2: { 0: mobius, 1: '1' } }
+                2: { 0: { 0: eden, 2: '2' }, 1: { 0: griseo, 1: '1' }, 2: { 0: mobius, 1: '1' } }
             },
             emblem: {
                 1: { 1: lightAsABodhiLeaf, 2: theLonelyMoon },
@@ -1426,7 +1426,7 @@ const stfu = {
             signet: {
                 1: { 0: { 0: eden, 1: '2' } },
                 2: { 0: { 0: kevin, 1: '1' } },
-                3: { 0: { 0: su, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: griseo, 1: '' } }
+                3: { 0: { 0: su, 1: '2' }, 1: { 0: sakura, 1: '2' }, 2: { 0: griseo, 1: '1' } }
             },
             emblem: {
                 1: { 1: goldGoblet, 2: dreamfulGold },
@@ -1486,7 +1486,7 @@ const vg = {
         0: {
             signet: {
                 1: { 0: { 0: hua, 1: '2' }, 1: { 0: kalpas, 1: '1' } },
-                2: { 0: { 0: vv, 1: '' }, 1: { 0: griseo, 1: '' }, 2: { 0: eden, 1: '2' } }
+                2: { 0: { 0: vv, 1: '1' }, 1: { 0: griseo, 1: '1' }, 2: { 0: eden, 1: '2' } }
             },
             emblem: {
                 1: { 1: memory, 2: theLonelyMoon },
