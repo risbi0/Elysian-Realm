@@ -1,0 +1,37 @@
+@mixin wh($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin margin($t: 0, $r: 0, $b: 0, $l: 0) {
+    margin: $t $r $b $l;
+}
+
+@mixin padding($t: 0, $r: 0, $b: 0, $l: 0) {
+    padding: $t $r $b $l;
+}
+
+@mixin header($size) {
+    font-size: $size;
+    text-align: center;
+}
+
+@mixin imagePos($src, $offset) {
+    background-image: $src;
+    background-position: $offset;
+}
+
+@mixin colorTransition($c, $t) {
+    color: $c;
+    transition: $t;
+}
+
+@mixin cellTransition($end) {
+    &:not(th):nth-child(n+2):nth-child(-n+#{$end}) {
+        @include colorTransition($c: transparent, $t: 0.3s ease);
+
+        &:hover {
+            @include colorTransition($c: $white, $t: 0.2s ease-in);
+        }
+    }
+}

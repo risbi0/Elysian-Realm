@@ -1,0 +1,80 @@
+@import 'modules/mixins';
+
+#aka {
+    @include imagePos($src: url("../img/valks/Argent_Knight_Artemis.png"), $offset: 57%);
+}
+#bke {
+    @include imagePos($src: url("../img/valks/Bright_Knight_Excelsis.png"), $offset: 50%);
+}
+#carole {
+    @include imagePos($src: url("../img/valks/Swwet_n_Spicy.png"), $offset: 51.4%);
+}
+#da {
+    @include imagePos($src: url("../img/valks/Dea_Anchora.png"), $offset: 52.7%);
+}
+#dip {
+    @include imagePos($src: url("../img/valks/Disciplinary_Perdition.png"), $offset: 55.3%);
+}
+#ede {
+    @include imagePos($src: url("../img/valks/Golden_Diva.png"), $offset: 52.5%);
+}
+#elysia {
+    @include imagePos($src: url("../img/valks/Miss_Pink_Elf.png"), $offset: 52%);
+}
+#fr {
+    @include imagePos($src: url("../img/valks/Fallen_Rosemary.png"), $offset: 56.2%);
+}
+#fischl {
+    @include imagePos($src: url("../img/valks/Prinzessin_der_Verurteilung.png"), $offset: 57%);
+}
+#hofs {
+    @include imagePos($src: url("../img/valks/Herrscher_of_Flamescion.png"), $offset: 53.7%);
+}
+#hor {
+    @include imagePos($src: url("../img/valks/Herrscher_of_Reason.png"), $offset: 54.1%);
+}
+#hos {
+    @include imagePos($src: url("../img/valks/Herrscher_of_Sentience.png"), $offset: 51.2%);
+}
+#hot {
+    @include imagePos($src: url("../img/valks/Herrscher_of_Thunder.png"), $offset: 57%);
+}
+#lk {
+    @include imagePos($src: url("../img/valks/Luna_Kindred.png"), $offset: 44.8%);
+}
+#mobius {
+    @include imagePos($src: url("../img/valks/Infinite_Ouroboros.png"), $offset: 52.8%);
+}
+#nyx {
+    @include imagePos($src: url("../img/valks/Starchasm_Nyx.png"), $offset: 49.3%);
+}
+#pe {
+    @include imagePos($src: url("../img/valks/Palatinus_Equinox.png"), $offset: 48.76%);
+}
+#raven {
+    @include imagePos($src: url("../img/valks/Midnight_Absinthe.png"), $offset: 53.4%);
+}
+#rc {
+    @include imagePos($src: url("../img/valks/Reverist_Calico.png"), $offset: 56.4%);
+}
+#ri {
+    @include imagePos($src: url("../img/valks/Ritual_Imayoh.png"), $offset: 55%);
+}
+#sn {
+    @include imagePos($src: url("../img/valks/Stygian_Nymph.png"), $offset: 44.6%);
+}
+#spa {
+    @include imagePos($src: url("../img/valks/Spina_Astera.png"), $offset: 49.5%);
+}
+#stfu {
+    @include imagePos($src: url("../img/valks/Striker_Fulminata.png"), $offset: 61.8%);
+}
+#sw {
+    @include imagePos($src: url("../img/valks/Silverwing_N-EX.png"), $offset: 58.3%);
+}
+#tp {
+    @include imagePos($src: url("../img/valks/Twilight_Paladin.png"), $offset: 47.18%);
+}
+#vg {
+    @include imagePos($src: url("../img/valks/Valkyrie_Gloria.png"), $offset: 50%);
+}

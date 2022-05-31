@@ -1,0 +1,16 @@
+@import 'modules/mixins';
+
+#cover {
+    @include wh($w: 100vw, $h: 100vh);
+    background-color: black;
+    z-index: 1;
+}
+#progress-bar {
+    @include wh($w: 50%, $h: 5px);
+    background-color: #222
+}
+#meter {
+    @include wh($w: 0, $h: 5px);
+    background-color: gray;
+    border-radius: 5px;
+}

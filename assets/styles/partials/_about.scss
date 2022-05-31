@@ -1,0 +1,71 @@
+@import 'modules/variables';
+@import 'modules/mixins';
+
+#about {
+    #container {
+        background-color: $dark-tint;
+        height: 100vh;
+    }
+    #sub-container {
+        @include wh($w: 600px, $h:95vh);
+        scrollbar-color: rgb(40, 40, 40) transparent !important;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        max-width: 90%;
+        padding: 20px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+    }
+    .cell-center {
+        width: 25px;
+    }
+    .sideways {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+    }
+    #timeline {
+        max-width: 400px;
+
+        th:nth-child(1) {
+            width: 10%;
+        }
+    }
+    h5 {
+        font-size: 30px;
+    }
+    h6 {
+        font-size: 24px;
+    }
+    p, li {
+        line-height: 1.2;
+    }
+    table {
+        margin: auto;
+
+        td {
+            border: 1px solid $white;
+        }
+        th {
+            @extend td;
+            vertical-align: middle;
+            font-size: unset;
+            width: 20%;
+        }
+    }
+    hr, a {
+        color: $white;
+    }
+}
+@media only screen and (max-width: 640px) {
+    #sub-container {
+        width: auto;
+        height: unset;
+        overflow-y: unset;
+    }
+    #about #container {
+        height: initial;
+    }
+}

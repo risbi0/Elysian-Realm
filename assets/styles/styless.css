@@ -93,12 +93,6 @@ footer {
 header, main {
     background-color: var(--dark-tint);
 }
-h1 {
-    font-size: 4em;
-    letter-spacing: 10px;
-    text-align: center;
-    text-transform: uppercase;
-}
 #main-container {
     overflow-y: hidden;
     background: linear-gradient(0deg,black 0%, var(--dark-tint) 100%);
@@ -176,6 +170,12 @@ h1 {
     width: 100%;
     height: 4em;
 }*/
+h1 {
+    font-size: 4em;
+    letter-spacing: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
 h2 {
     font-size: 40px;
     letter-spacing: 3px;
@@ -184,13 +184,9 @@ h2 {
 }
 h3 {
     font-size: 30px;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 20px;
     line-height: 40px;
-}
-h4 {
-    font-size: 12px;
-    margin-bottom: 10px;
 }
 .rating {
     font-style: italic;
@@ -615,14 +611,4 @@ li {
 }
 strong {
     font-weight: bold;
-}
-#scroll-left, #scroll-right {
-    width: 50px;
-    height: 50px;
-}
-#scroll-left {
-    background-color: red;
-}
-#scroll-right {
-    background-color: green;
 }

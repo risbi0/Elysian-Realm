@@ -1,0 +1,33 @@
+@import 'modules/variables';
+@import 'modules/mixins';
+
+/* webkit scrollbar */
+::-webkit-scrollbar {
+    @include wh($w: 8px, $h: 8px);
+}
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(60, 60, 60);
+}
+::-webkit-scrollbar-track {
+    background-color: $dark-tint;
+}
+body::-webkit-scrollbar-track {
+    background-color: black;
+}
+/* guide scrollbar */
+.guide-container {
+    ::-webkit-scrollbar-thumb,
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}
+
+* {
+    /* mozilla scrollbar */
+    scrollbar-color: transparent black !important;
+    scrollbar-width: thin !important;
+}

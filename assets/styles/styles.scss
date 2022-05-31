@@ -1,0 +1,182 @@
+@import 'partials/modules/variables';
+@import 'partials/modules/mixins';
+
+@import 'partials/scrollbar';
+@import 'partials/cover';
+@import 'partials/mainContainer';
+@import 'partials/bannerImages';
+@import 'partials/bannerNameSizes';
+@import 'partials/signetImages';
+@import 'partials/emblemImages';
+@import 'partials/suppImages';
+@import 'partials/about';
+
+.flex {
+    display: flex;
+}
+.fh-center {
+    justify-content: center;
+}
+.fv-center {
+    align-items: center;
+}
+.f-col {
+    flex-direction: column;
+}
+.f-row {
+    flex-direction: row;
+}
+.pos-abs {
+    position: absolute;
+}
+.pos-rel {
+    position: relative;
+}
+.fade {
+    animation: fade 1s;
+}
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.hidden {
+    opacity: 0 !important;
+}
+.fade-in-up {
+    animation: fadeinup 2s;
+}
+.fade-in-down {
+    animation: fadeindown 2s;
+}
+@keyframes fadeinup {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes fadeindown {
+    from {
+        transform: translateY(-100px); 
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.table-cell-hover {
+    background-color: $white;
+    color: black;
+}
+.noted {
+    background-color: rgba(70, 70, 70, 0.5);
+}
+body {
+    background: url('../img/bg.png') no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $white;
+}
+header {
+    background-color: $dark-tint;
+    flex-grow: 1;
+    * {
+        animation: headeranim 5s;
+    }
+    p {
+        @include margin($t: 20px, $b: 10px);
+        font-style: italic;
+    }
+    a {
+        color: $white;
+        font-size: 12px;
+    }
+}
+@media only screen and (max-height: 1100px) {
+    header {
+        @include padding($t: 20px, $b: 20px);
+    }
+}
+@keyframes headeranim {
+    from {
+        color: transparent;
+    }
+    to {
+        color: $white;
+    }
+}
+main {
+    background-color: $dark-tint;
+}
+footer {
+    background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.75));
+    flex-grow: 2;
+}
+h1 {
+    @include header(4em);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+h2 {
+    @include header(40px);
+    @include margin($b: 10px);
+    letter-spacing: 3px;
+}
+h3 {
+    @include header(30px);
+    @include margin($t: 20px);
+    line-height: 40px;
+}
+td {
+    background: center/cover;
+    text-align: center;
+    vertical-align: middle;
+}
+th {
+    @extend td;
+    font-size: 20px;
+}
+tr {
+    height: 50px;
+    border-bottom: 1px solid $white;
+}
+tr:last-child:not(thead tr) {
+    border-bottom: unset;
+}
+#goToTop {
+    @include wh($w: 50px, $h: 50px);
+    @include padding($t: 5px);
+    visibility: hidden;
+    position: fixed;
+    cursor: pointer;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: rgb(60, 60, 60);
+    color: rgba(255, 255, 255, 0.8);
+
+    &:hover {
+        background-color: rgba(60, 60, 60, 0.8);
+    }
+    .material-icons {
+        font-size: 35px;
+    }
+}
+li {
+    @include margin($b: 10px, $l: 15px);
+    list-style: initial;
+}
+strong {
+    font-weight: bold;
+}

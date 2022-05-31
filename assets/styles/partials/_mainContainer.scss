@@ -1,0 +1,209 @@
+@import 'modules/variables';
+@import 'modules/mixins';
+
+#main-container {
+    overflow-y: hidden;
+    background-image: linear-gradient(to top, black, transparent);
+    
+    &:hover {
+        scrollbar-color: $scrollbar-thumb black !important;
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: $scrollbar-thumb;
+        }
+    }
+}
+.banner {
+    @include padding;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    div:nth-child(1) {
+        @include wh($w: 100px, $h: 800px);
+        background-size: cover;
+        box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
+        filter: brightness(35%);
+        transition: 0.2s;
+    }
+
+    &:hover div:nth-child(1) {
+        filter: brightness(70%);
+        transition: 0.2s;
+        color: white;
+    }
+}
+.main-name {
+    @include wh($w: 100%, $h: 100%);
+    transform: translateY(-100%);
+}
+.vertical-text {
+    font-family: 'Raleway';
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.guide-container {
+    @include padding($t: 10px);
+    scrollbar-color: transparent transparent !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: 0.3s ease;
+    width: 0px;
+    min-width: 0px;
+    max-height: 790px;
+    opacity: 0;
+}
+.rating {
+    @include margin($b: 2px);
+    font-style: italic;
+}
+.build-no {
+    @include margin($t: 5px);
+    font-size: 12px;
+}
+.rec-signets {
+    @include margin($t: 5px, $b: 10px);
+}
+.signet {
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+.anchor {
+    @include wh($w: 30px, $h: 30px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(78, 78, 78, 0.2);
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: 20px;
+    color: $white;
+}
+.anchor:hover {
+    cursor: pointer;
+    background-color: $white;
+    color: black;
+}
+.link-spanner {
+    @include wh($w: 100%, $h: 100%);
+    transform: translate(-23px, -15px);
+}
+.sig-tog {
+    @include wh($w: 32px, $h: 32px);
+}
+.sig-sep {
+    @include wh($w: 40px, $h: 40px);
+}
+.signet {
+    label {
+        @include padding($t: 40px);
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 10px;
+    }
+}
+.emblem-support {
+    justify-content: space-between;
+    width: 90%;
+}
+@media only screen and (max-width: 400px) {
+    .emblem-support {
+        flex-direction: column;
+    }
+    .emblem, .supp {
+        width: 100% !important;
+    }
+}
+.emblem {
+    width: 40%;
+
+    table {
+        @include cellTransition(5);
+        width: 100%;
+
+        td:nth-child(2), td:nth-child(3) {
+            width: 50px;
+        }
+    }
+}
+.supp {
+    @include wh($w: 55%, $h: 150px);
+
+    table {
+        width: 100%;
+        td {
+            @include cellTransition(3);
+        }
+    }
+}
+.exclusive-tbl,
+.transitional-tbl,
+.main-tbl,
+.secondary-tbl {
+    width: 50%;
+    min-width: 90%;
+
+    &:not(.exclusive-tbl) th:nth-child(1) {
+        width: 20%;
+    }
+}
+.pic {
+    background: center/cover;
+    height: 50px;
+    cursor: pointer;
+}
+.tooltip {
+    @include wh($w: 100%, $h: 100%);
+    transform: translateY(-50px);
+
+    p {
+        transform: translateY(18px);
+        height: 25px;
+    }
+    
+    span {
+        visibility: hidden;
+        text-align: center;
+        white-space: nowrap;
+        transform: translateY(-20px);
+        background-color: rgb(34, 34, 34);
+        padding: 5px;
+        color: $white;
+        font-size: 12px;
+        border-radius: 6px;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    input {
+        @include wh($w: 100%, $h: 50px);
+        appearance: none;
+        cursor: pointer;
+
+        &:checked + span {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+.notes {
+    @include margin($t: 20px);
+    padding: 20px;
+    width: 85%;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:hover {
+        background-color: $white;
+        color: black;
+    }
+    p {
+        font-weight: bold;
+    }
+    span {
+        font-style: italic;
+    }
+}
