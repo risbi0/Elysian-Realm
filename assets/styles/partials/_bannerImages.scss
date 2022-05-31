@@ -1,5 +1,5 @@
 @import 'modules/mixins';
-
+/* banner images */
 #aka {
     @include imagePos($src: url("../img/valks/Argent_Knight_Artemis.png"), $offset: 57%);
 }

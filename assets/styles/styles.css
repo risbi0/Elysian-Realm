@@ -33,6 +33,7 @@ body::-webkit-scrollbar-track {
   scrollbar-width: thin !important;
 }
 
+/* cover */
 #cover {
   width: 100vw;
   height: 100vh;
@@ -336,6 +337,7 @@ body::-webkit-scrollbar-track {
   font-style: italic;
 }
 
+/* banner images */
 #aka {
   background-image: url("../img/valks/Argent_Knight_Artemis.png");
   background-position: 57%;
@@ -466,6 +468,7 @@ body::-webkit-scrollbar-track {
   background-position: 50%;
 }
 
+/* banner name sizes */
 #fischl-name {
   font-size: 16px;
 }
@@ -516,6 +519,7 @@ body::-webkit-scrollbar-track {
   font-size: 35px;
 }
 
+/* signet imaages */
 .aponia {
   background-image: url("../img/signets/Aponia_Signet.png");
 }
@@ -564,6 +568,7 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/signets/Vill-V_Signet.png");
 }
 
+/* emblem images */
 .boy {
   background-image: url("../img/emblems/Because_of_You.png");
 }
@@ -676,6 +681,7 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/emblems/The_Lonely_Moon.png");
 }
 
+/* support valk images */
 .ae {
   background-image: url("../img/avatars/Azure_Empyrea_Avatar.png");
 }
@@ -720,6 +726,7 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/avatars/Valkyrie_Chariot_Avatar.png");
 }
 
+/* about page */
 #about #container {
   background-color: rgba(0, 0, 0, 0.83);
   height: 100vh;

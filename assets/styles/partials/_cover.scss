@@ -1,5 +1,5 @@
 @import 'modules/mixins';
-
+/* cover */
 #cover {
     @include wh($w: 100vw, $h: 100vh);
     background-color: black;
