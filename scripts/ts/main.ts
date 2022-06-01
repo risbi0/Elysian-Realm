@@ -1,14 +1,16 @@
-const body = document.querySelector('body');
-const mainContainer = document.getElementById('main-container');
-const banners = document.querySelectorAll('.banner');
-const topButton = document.querySelector('#goToTop');
+import { valks } from './guide.js';
+import { signetSummary } from './data.js';
+
+const body = document.querySelector('body') as HTMLBodyElement;
+const mainContainer = document.querySelector('#main-container') as HTMLElement;
+const banners: any = document.querySelectorAll('.banner');
+const topButton = document.querySelector('#goToTop') as HTMLElement;
 
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 
-const subEquation = (window.innerWidth + Math.floor(window.innerWidth / 100)) / 100;
-let noOfBannersInViewport;
-let scrollVal;
+const subEquation: number = (window.innerWidth + Math.floor(window.innerWidth / 100)) / 100;
+let noOfBannersInViewport: number, scrollVal: number;
 if (isMobile) {
     noOfBannersInViewport = Math.ceil(subEquation) + 0;
     scrollVal = 0; // leftmost
@@ -18,12 +20,12 @@ if (isMobile) {
     mainContainer.scroll({ left: scrollVal }); // scroll to middle
 }
 // locks scroll in mainContainer during banner animation
-const preventScroll = () => { mainContainer.scroll({ left: scrollVal }) };
+const preventScroll = (): void => { mainContainer.scroll({ left: scrollVal }) };
 mainContainer.addEventListener('scroll', preventScroll);
 // setup no. of banners
 
-const noOfBannersNotInViewport = valks.length - noOfBannersInViewport;
-let finalArr;
+const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
+let finalArr: number[];
 // setup of banner indices for animation order
 // mobile - banners on the leftmost side of mainContainer (starting view) in left to right order
 // desktop - banners on the middile of mainContainer (starting view) in random order
@@ -31,31 +33,31 @@ if (isMobile) {
     finalArr = [...Array(noOfBannersInViewport).keys()];
 } else {
     finalArr = [];
-    const noOfBannersLeftOfViewport = Math.round(noOfBannersNotInViewport / 2);
-    const bannerIndicesInDektopViewport = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport });
+    const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
+    const bannerIndicesInDektopViewport: number[] = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport });
 
     // randomize array elements
-    const bannerLength = bannerIndicesInDektopViewport.length;
+    const bannerLength: number = bannerIndicesInDektopViewport.length;
     for (let i = 0; i < bannerLength; i++) {
-        const randomIndex = Math.floor(Math.random() * bannerIndicesInDektopViewport.length);
+        const randomIndex: number = Math.floor(Math.random() * bannerIndicesInDektopViewport.length);
         finalArr.push(bannerIndicesInDektopViewport[randomIndex]);
         bannerIndicesInDektopViewport.splice(bannerIndicesInDektopViewport.indexOf(bannerIndicesInDektopViewport[randomIndex]), 1);
     }
 }
 
 // execute animation after all images are loaded
-function load(src) {
+function load(src: string): Promise<unknown> {
     return new Promise((resolve, reject) => {
-        const image = new Image();
+        const image: HTMLImageElement = new Image();
         image.addEventListener('load', resolve);
         image.addEventListener('error', reject);
         image.src = src;
     });
 }
 // interval gets faster the more banners in viewport
-const interval = 300 - noOfBannersInViewport * 5;
-let time = 0;
-function fadeAnim(item, fade) {
+const interval: number = 300 - noOfBannersInViewport * 5;
+let time: number = 0;
+function fadeAnim(item: any, fade: string): void {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
@@ -64,20 +66,21 @@ function fadeAnim(item, fade) {
     time += interval;
 }
 // insert main background image link and banner image links
-const url = [];
-url.push(window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-image').substring(5).slice(0, -2));
-banners.forEach(banner => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
+const url: string[] = [];
+url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
+banners.forEach((banner: HTMLElement) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
 // wait for images to load
-const cover = document.getElementById('cover');
-const progressBarWidthInPixels = parseInt(window.getComputedStyle(document.getElementById('progress-bar')).width) + 1;
-const meter = document.getElementById('meter');
-let done = 0, progressInPixels = 0;
-url.forEach(link => {
+const cover = document.querySelector('#cover') as HTMLElement;
+const progressBar = document.querySelector('#progress-bar') as HTMLElement;
+const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
+const meter = document.querySelector('#meter') as HTMLElement;
+let done: number = 0, progressInPixels: number = 0;
+url.forEach((link: string) => {
     load(link).then(() => {
         done += 1;
         // progress bar
-        const percentDone = Math.round(done / valks.length * 100) / 100;
-        const fillPixels = Math.round(percentDone * progressBarWidthInPixels);
+        const percentDone: number = Math.round(done / valks.length * 100) / 100;
+        const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
         while (meter.style.width != `${fillPixels}px`) {
             progressInPixels += 1;
             meter.style.width = `${progressInPixels}px`;
@@ -88,7 +91,7 @@ url.forEach(link => {
             setTimeout(() => { cover.remove() }, 800);
             // fade-in-up/down animation
             // only applied to the banners in the viewport
-            finalArr.forEach((item, index) => {
+            finalArr.forEach((_, index) => {
                 if (index % 2 == 0) {
                     fadeAnim(banners[finalArr[index]], 'fade-in-up');
                 } else {
@@ -98,16 +101,16 @@ url.forEach(link => {
             // instantly display banners outside viewport
             // not covering the one in a million chance that the user
             // expands the window width while the animation is still ongoing
-            banners.forEach((item, index) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
+            banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
             // allow scroll
             setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
         }
     });
 });
 
-let previousOffset;
-function collapse(content) {
-    const guideContainer = content.nextElementSibling;
+let previousOffset: number;
+function collapse(content: any): void {
+    const guideContainer: any = content.nextElementSibling;
     
     if (guideContainer.style.minWidth) { // collapse
         guideContainer.style.minWidth = null;
@@ -117,6 +120,7 @@ function collapse(content) {
         content.children[0].style.filter = null;
     } else { // expand
         content.children[0].style.filter = 'brightness(70%)';
+        let width: number, timeout: number, phoneOffset: number;
         if (window.innerWidth <= 600) {
             width = window.innerWidth, timeout = 0, phoneOffset = 100;
         } else {
@@ -127,7 +131,7 @@ function collapse(content) {
         guideContainer.style.opacity = 1;
         guideContainer.style.transition = 'min-width 0.2s linear, opacity 0.7s 0.2s';
         
-        let scrollOffset = content.offsetLeft;
+        let scrollOffset: number = content.offsetLeft;
         if (previousOffset < content.offsetLeft && 
             mainContainer.scrollWidth != valks.length * 100) {
             scrollOffset -= width;
@@ -139,7 +143,7 @@ function collapse(content) {
             // before the accordion has finished expanding
             if (content.offsetLeft + 100 > mainContainer.scrollWidth - window.innerWidth &&
                 window.innerWidth <= 600 && mainContainer.scrollWidth == valks.length * 100) {
-                const travelPixels = content.getBoundingClientRect().right;
+                const travelPixels: number = content.getBoundingClientRect().right;
                 for (let i = 1; i <= travelPixels; i++) {
                     setTimeout(() => {
                         mainContainer.scroll({ left: scrollOffset + phoneOffset - travelPixels + i });
@@ -162,11 +166,11 @@ function collapse(content) {
     }
 }
 // banner animation
-banners.forEach(item => {
-    item.addEventListener('click', function() {
+banners.forEach((item: any) => {
+    item.addEventListener('click', function(this: any) {
         // collapse previously clicked item
         if (!this.classList.contains('active')) {
-            for (coll of banners) {
+            for (const coll of banners) {
                 if (coll.classList.contains('active')) {
                     coll.classList.remove('active');
                     collapse(coll);
@@ -177,7 +181,7 @@ banners.forEach(item => {
         collapse(this);
     });
     // goToTop button visibility
-    item.nextElementSibling.addEventListener('scroll', function() {
+    item.nextElementSibling.addEventListener('scroll', function(this: any) {
         if (item.nextElementSibling.scrollTop > 700) {
             topButton.style.visibility = 'visible';
             if (window.innerWidth <= 600) topButton.style.top = window.innerHeight - 60 + "px";
@@ -188,34 +192,34 @@ banners.forEach(item => {
 });
 
 // support valk avatar transition on hover
-document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])').forEach(checkbox => {
-    checkbox.addEventListener('mouseover', function(){
+const checkboxes: any = document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])').forEach(checkbox => {
+    checkbox.addEventListener('mouseover', function(this: any) {
         this.parentNode.previousElementSibling.style.filter = 'brightness(50%)';
         this.parentNode.previousElementSibling.style.transition = '0.3s';
     });
-    checkbox.addEventListener('mouseout', function(){
+    checkbox.addEventListener('mouseout', function(this: any) {
         this.parentNode.previousElementSibling.style.filter = 'unset';
         this.parentNode.previousElementSibling.style.transition = '0.2s';
     });
 });
 
 // hide previously clicked tooltip
-const tooltipable = document.querySelectorAll('input');
-tooltipable.forEach(item => {
+const tooltipable: any = document.querySelectorAll('input');
+tooltipable.forEach((item: any) => {
     item.addEventListener('click', function() {
-        for (otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
+        for (const otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
     });
 });
 
 // anchor smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+    anchor.addEventListener('click', function(e) { e.preventDefault() });
+    anchor.addEventListener('click', function(this: any) {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-function highlightAdjacentMergedCell(row, bool) {
+function highlightAdjacentMergedCell(row: any, bool: boolean): void {
     // check if inner HTML only has 1 pair of td tags
     // in a 2 column table it has 2 td tags per row
     // meaning if a row has one less td tag it either has
@@ -224,16 +228,17 @@ function highlightAdjacentMergedCell(row, bool) {
         // for cells with .noted class
        (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
         // get all rows of its parent table
-        const parentChildren = row.parentNode.children;
+        const parentChildren: any = row.parentNode.children;
         // iterate and check if row has a rowspan attribute in the cell of the 2nd column
         for (let i = 0; i < parentChildren.length; i++) {
             if (parentChildren[i].innerHTML.includes('rowspan')) {
+                let j: number;
                 parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
                 // get rowspan value
-                const range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+                const range: number = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
                 // get index of selected row and merged cell
-                const thisIndex = row.rowIndex;
-                const mergedCellIndex = parentChildren[i].rowIndex;
+                const thisIndex: number = row.rowIndex;
+                const mergedCellIndex: number = parentChildren[i].rowIndex;
                 // check if index is covered within the range of merged cell
                 if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
                     // apply styles
@@ -244,7 +249,7 @@ function highlightAdjacentMergedCell(row, bool) {
         }
     }
 }
-function notedCell(row, removee, addee) {
+function notedCell(row: HTMLElement, removee: string, addee: string): void {
     // .temp class to know which had the .noted class
     for (let i = 0; i < row.children.length; i++) {
         if (row.children[i].classList.contains(removee)) {
@@ -256,20 +261,20 @@ function notedCell(row, removee, addee) {
 // higlight table rows, including merged cells, on hover
 // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
 document.querySelectorAll('tr:not(thead tr)').forEach(row => {
-    row.addEventListener('mouseover', function() {
+    row.addEventListener('mouseover', function(this: any) {
         this.classList.add('table-cell-hover');
         notedCell(this, 'noted', 'temp');
         highlightAdjacentMergedCell(this, true);
     });
-    row.addEventListener('mouseout', function() {
+    row.addEventListener('mouseout', function(this: any) {
         this.classList.remove('table-cell-hover');
         notedCell(this, 'temp', 'noted');
         highlightAdjacentMergedCell(this, false);
     });
 });
-function highlightInvolvedRows(row, bool) {
-    const mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
-    const cellIndex = row.parentNode.rowIndex;
+function highlightInvolvedRows(row: any, bool: boolean): void {
+    const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
+    const cellIndex: number = row.parentNode.rowIndex;
     for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
         if (bool) {
             row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
@@ -282,12 +287,12 @@ function highlightInvolvedRows(row, bool) {
 }
 // highlight adjacent rows on hovering from merged cells
 document.querySelectorAll('td[rowspan]').forEach(cell => {
-    cell.addEventListener('mouseover', function() { highlightInvolvedRows(this, true) });
-    cell.addEventListener('mouseout', function() { highlightInvolvedRows(this, false) });
+    cell.addEventListener('mouseover', function(this: any) { highlightInvolvedRows(this, true) });
+    cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) });
 });
 
-let originalText = null, previousText;
-function changeText(deez) {
+let originalText: string | null, previousText: any;
+function changeText(deez: HTMLElement): void {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
             signetSummary[i].signets == deez.textContent) {
@@ -297,15 +302,15 @@ function changeText(deez) {
         } 
     }
 }
-function revertText(deez) {
+function revertText(deez: HTMLElement): void {
     deez.textContent = originalText;
     originalText = null;
 }
 // change signet name to summary on hover/click
-const signets = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
+const signets: any = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 if (isMobile) { // mobile browsers
-    signets.forEach(signet => {
-        signet.addEventListener('mouseover', function() {
+    signets.forEach((signet: any) => {
+        signet.addEventListener('mouseover', function(this: any) {
             if (originalText != null && previousText != this) {
                 revertText(previousText);
                 changeText(this);
@@ -314,19 +319,19 @@ if (isMobile) { // mobile browsers
         });
     });
 } else { // desktop browsers
-    signets.forEach(signet => {
-        signet.addEventListener('mouseover', function() { changeText(this) });
-        signet.addEventListener('mouseout', function() { if (originalText != null) revertText(this) });
+    signets.forEach((signet: any) => {
+        signet.addEventListener('mouseover', function(this: any) { changeText(this) });
+        signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
     });
 }
 
 // go to top of guide
-topButton.addEventListener('click', function () {
-    for (item of banners) {
+topButton.addEventListener('click', function (): void {
+    for (const item of banners) {
         if (item.classList.contains('active')) {
-            item.nextElementSibling.scroll({ top: 0, behavior: 'smooth' });
+            item.nextElementSibling!.scroll({ top: 0, behavior: 'smooth' });
             // scroll into view
-            let offsetLeft;
+            let offsetLeft: number;
             if (isMobile) {
                 offsetLeft = item.nextElementSibling.offsetLeft;
             } else {

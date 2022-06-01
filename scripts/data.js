@@ -1,65 +1,59 @@
-// difficulties
-const abstinence = 'Abstinence';
-const corruption = 'Corruption';
-const inferno = 'Inferno';
-// emblems
-const becauseOfYou = { name: 'Because of You', acr: 'boy' };
-const boundlessLogos = {name: 'Boundless Logos', acr: 'bl' };
-const burden = { name: 'Burden', acr: 'b' };
-const dreamfulGold = { name: 'Dreamful Gold', acr: 'dg' };
-const emptyLikeShala = { name: 'Empty Like Shala', acr: 'els' };
-const fallingInPastLight = { name: 'Falling in Past Light', acr: 'fipl' };
-const forbiddenSeed = { name: 'Forbidden Seed', acr: 'fs' };
-const forgetMeNot = { name: 'Forget-Me-Not', acr: 'fmt' };
-const goldGoblet = { name: 'Gold Goblet', acr: 'gg' };
-const goodOldDays = { name: 'Good Old Days', acr: 'god' };
-const greyScaleRainbow = { name: 'Grey-scale Rainbow', acr: 'gsr' };
-const heavyAsAMillionLives = { name: 'Heavy as a Million Lives', acr: 'haaml' };
-const homeLost = { name: 'Home Lost', acr: 'hl' };
-const homeTown = { name: 'Hometown', acr: 'h' };
-const itWillBeWritten = { name: 'It Will Be Written', acr: 'iwbw' };
-const keyToTheDeep = { name: 'Key to the Deep', acr: 'kttd' };
-const lightAsABodhiLeaf = { name: 'Light as a Bodhi Leaf', acr: 'laabl' };
-const madKingsMask = { name: 'Mad King\'s Mask', acr: 'mkm' };
-const memory = { name: 'Memory', acr: 'm' };
-const outOfReach = { name: 'Out of Reach', acr: 'oor' };
-const psuedoMiracle = { name: 'Psuedo Miracle', acr: 'pm' };
-const rainbowOfAbsence = { name: 'Rainbow of Absence', acr: 'roa' };
-const resolve = { name: 'Resolve', acr: 'r' };
-const stainedSakura = { name: 'Stained Sakura', acr: 'sts' };
-const theFirstScale = { name: 'The First Scale', acr: 'tfs' };
-const theLonelyMoon = { name: 'The Lonely Moon', acr: 'tlm' };
-const thornyCrown = { name: 'Thorny Crown', acr: 'tc' };
-const tsukimiHimiko = { name: 'Tsukimi Himiko', acr: 'th' };
-// priority terms
-const start = 'Start';
-const first = '1st';
-const second = '2nd';
-const filler = 'Filler';
-const reinforcement = 'Reinforcement';
-const no = 'No';
-// table headers
-const supportTableHeaders = ['Type', 'Supports'];
-const supportTableTypeColumn = ['Utility', 'Damage'];
-const emblemTableHeaders = ['Time', 'Emblems'];
-const emblemTableTimeColumn = ['Early', 'Mid', 'Late'];
-const exclusiveTableColumns = ['Signet', 'Priority'];
-const signetTableColumns = ['Owner', 'Signet'];
-// support valks
-const ae = { name: 'Azure Empyrea', acr: 'ae' };
-const bke = { name: 'Bright Knight: Excelsis', acr: 'bke' };
-const br = { name: 'Blood Rose', acr: 'br' };
-const dp = { name: 'Divine Prayer', acr: 'dp' };
-const hb = { name: 'Haxxor Bunny', acr: 'hb' };
-const le = { name: 'Lightning Empress', acr: 'le' };
-const ma = { name: 'Midnight Absinthe', acr: 'ma' };
-const rc = { name: 'Reverist Calico', acr: 'rc' };
-const sa = { name: 'Starlit Astrologos', acr: 'sa' };
-const ss = { name: 'Snowy Sniper', acr: 'ss' };
-const vc = { name: 'Valkyrie Chariot', acr: 'vc'};
-const vke = { name: 'Vermillion Knight: Eclipse', acr: 'vke' };
-// signets
-const aponia = {
+export const abstinence = 'Abstinence';
+export const corruption = 'Corruption';
+export const inferno = 'Inferno';
+export const start = 'Start';
+export const first = '1st';
+export const second = '2nd';
+export const filler = 'Filler';
+export const reinforcement = 'Reinforcement';
+export const no = 'No';
+export const supportTableHeaders = ['Type', 'Supports'];
+export const supportTableTypeColumn = ['Utility', 'Damage'];
+export const emblemTableHeaders = ['Time', 'Emblems'];
+export const emblemTableTimeColumn = ['Early', 'Mid', 'Late'];
+export const exclusiveTableColumns = ['Signet', 'Priority'];
+export const signetTableColumns = ['Owner', 'Signet'];
+export const becauseOfYou = { name: 'Because of You', acr: 'boy' };
+export const boundlessLogos = { name: 'Boundless Logos', acr: 'bl' };
+export const burden = { name: 'Burden', acr: 'b' };
+export const dreamfulGold = { name: 'Dreamful Gold', acr: 'dg' };
+export const emptyLikeShala = { name: 'Empty Like Shala', acr: 'els' };
+export const fallingInPastLight = { name: 'Falling in Past Light', acr: 'fipl' };
+export const forbiddenSeed = { name: 'Forbidden Seed', acr: 'fs' };
+export const forgetMeNot = { name: 'Forget-Me-Not', acr: 'fmt' };
+export const goldGoblet = { name: 'Gold Goblet', acr: 'gg' };
+export const goodOldDays = { name: 'Good Old Days', acr: 'god' };
+export const greyScaleRainbow = { name: 'Grey-scale Rainbow', acr: 'gsr' };
+export const heavyAsAMillionLives = { name: 'Heavy as a Million Lives', acr: 'haaml' };
+export const homeLost = { name: 'Home Lost', acr: 'hl' };
+export const homeTown = { name: 'Hometown', acr: 'h' };
+export const itWillBeWritten = { name: 'It Will Be Written', acr: 'iwbw' };
+export const keyToTheDeep = { name: 'Key to the Deep', acr: 'kttd' };
+export const lightAsABodhiLeaf = { name: 'Light as a Bodhi Leaf', acr: 'laabl' };
+export const madKingsMask = { name: 'Mad King\'s Mask', acr: 'mkm' };
+export const memory = { name: 'Memory', acr: 'm' };
+export const outOfReach = { name: 'Out of Reach', acr: 'oor' };
+export const psuedoMiracle = { name: 'Psuedo Miracle', acr: 'pm' };
+export const rainbowOfAbsence = { name: 'Rainbow of Absence', acr: 'roa' };
+export const resolve = { name: 'Resolve', acr: 'r' };
+export const stainedSakura = { name: 'Stained Sakura', acr: 'sts' };
+export const theFirstScale = { name: 'The First Scale', acr: 'tfs' };
+export const theLonelyMoon = { name: 'The Lonely Moon', acr: 'tlm' };
+export const thornyCrown = { name: 'Thorny Crown', acr: 'tc' };
+export const tsukimiHimiko = { name: 'Tsukimi Himiko', acr: 'th' };
+export const ae = { name: 'Azure Empyrea', acr: 'ae' };
+export const bke = { name: 'Bright Knight: Excelsis', acr: 'bke' };
+export const br = { name: 'Blood Rose', acr: 'br' };
+export const dp = { name: 'Divine Prayer', acr: 'dp' };
+export const hb = { name: 'Haxxor Bunny', acr: 'hb' };
+export const le = { name: 'Lightning Empress', acr: 'le' };
+export const ma = { name: 'Midnight Absinthe', acr: 'ma' };
+export const rc = { name: 'Reverist Calico', acr: 'rc' };
+export const sa = { name: 'Starlit Astrologos', acr: 'sa' };
+export const ss = { name: 'Snowy Sniper', acr: 'ss' };
+export const vc = { name: 'Valkyrie Chariot', acr: 'vc' };
+export const vke = { name: 'Vermillion Knight: Eclipse', acr: 'vke' };
+export const aponia = {
     name: 'Aponia',
     signet: 'Discipline',
     regular: {
@@ -76,8 +70,8 @@ const aponia = {
         2: 'You Shall Be Committed to Thy Life',
         3: 'You Shall Be Witnessed by Thy Heart'
     }
-}
-const eden = {
+};
+export const eden = {
     name: 'Eden',
     signet: 'Gold',
     regular: {
@@ -100,8 +94,8 @@ const eden = {
         2: 'Echo of Silent Night',
         3: 'Echo of Withered Soil'
     }
-}
-const griseo = {
+};
+export const griseo = {
     name: 'Griseo',
     signet: 'Stars',
     regular: {
@@ -118,8 +112,8 @@ const griseo = {
         2: 'Burning Like Flames',
         3: 'Stretching Like Leaves'
     }
-}
-const hua = {
+};
+export const hua = {
     name: 'Hua',
     signet: 'Vicissitude',
     regular: {
@@ -142,8 +136,8 @@ const hua = {
         2: 'Go with the Flow',
         3: 'Worldy Troubles'
     }
-}
-const kalpas = {
+};
+export const kalpas = {
     name: 'Kalpas',
     signet: 'Decimation',
     regular: {
@@ -166,8 +160,8 @@ const kalpas = {
         2: 'Death, Life, Oblivion, and Existence',
         3: 'Homeland and Friends'
     }
-}
-const kevin = {
+};
+export const kevin = {
     name: 'Kevin',
     signet: 'Deliverance',
     regular: {
@@ -190,8 +184,8 @@ const kevin = {
         2: 'Resolve of the Deliverer',
         3: 'Triumph of the Deliverer'
     }
-}
-const kosma = {
+};
+export const kosma = {
     name: 'Kosma',
     signet: 'Daybreak',
     regular: {
@@ -208,8 +202,8 @@ const kosma = {
         2: 'Undetermined Judgement',
         3: 'Unwavering Promies'
     }
-}
-const mobius = {
+};
+export const mobius = {
     name: 'Mobius',
     signet: 'Infinity',
     regular: {
@@ -232,8 +226,8 @@ const mobius = {
         2: 'Immortal [M]',
         3: 'Sacrificial [M]'
     }
-}
-const pardofelis = {
+};
+export const pardofelis = {
     name: 'Pardofelis',
     signet: 'Reverie',
     regular: {
@@ -250,8 +244,8 @@ const pardofelis = {
         2: 'Setsuna Paw',
         3: 'This Is Now Where We Die'
     }
-}
-const sakura = {
+};
+export const sakura = {
     name: 'Sakura',
     signet: 'Setsuna',
     regular: {
@@ -274,8 +268,8 @@ const sakura = {
         2: 'Setsuna Blade: Mumyo',
         3: 'Setsuna Blade: Shinra Bansho'
     }
-}
-const su = {
+};
+export const su = {
     name: 'Su',
     signet: 'Bodhi',
     regular: {
@@ -298,8 +292,8 @@ const su = {
         2: 'Dictum of Anitya',
         3: 'Dictum of Santam'
     }
-}
-const vv = {
+};
+export const vv = {
     name: 'Vill-V',
     signet: 'Helix',
     regular: {
@@ -316,24 +310,23 @@ const vv = {
         2: 'Act VIII: Adorned Chamber',
         3: 'Finale: Broken Truth'
     }
-}
-// rough signet effect summaries
-const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
-                     kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
-                     su.regular[6], vv.regular[3]];
-const damageTaken = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
-const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1], vv.regular[4]];
-const physDamage = [hua.regular[2], kevin.regular[5]];
-const eleDamage = [hua.regular[1], kevin.regular[2]];
-const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3], aponia.nexus1[1]];
-const physBreach = [hua.regular[5], kevin.regular[4], vv.nexus1[2]];
-const eleBreach = [hua.regular[6], kevin.regular[1]];
-const vurnerability = [aponia.regular[6], eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
-                       kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2]];
-const spRecovery = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
-                    griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
-                    kosma.regular[1]];
-const signetSummary = {
+};
+export const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
+    kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
+    su.regular[6], vv.regular[3]];
+export const damageTaken = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
+export const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1], vv.regular[4]];
+export const physDamage = [hua.regular[2], kevin.regular[5]];
+export const eleDamage = [hua.regular[1], kevin.regular[2]];
+export const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3], aponia.nexus1[1]];
+export const physBreach = [hua.regular[5], kevin.regular[4], vv.nexus1[2]];
+export const eleBreach = [hua.regular[6], kevin.regular[1]];
+export const vurnerability = [aponia.regular[6], eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
+    kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2]];
+export const spRecovery = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
+    griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
+    kosma.regular[1]];
+export const signetSummary = {
     0: { summary: 'Total Damage Dealt', signets: damageDealt },
     1: { summary: 'Total Damage Taken', signets: damageTaken },
     2: { summary: 'Physical & Elemental Damage', signets: physEleDamage },
@@ -395,4 +388,4 @@ const signetSummary = {
     58: { summary: 'Marvelous Magic Deals Bonus ATK', signets: vv.nexus1[1] },
     59: { summary: 'Fixed Exhortation Value', signets: aponia.nexus1[2] },
     60: { summary: 'Increase Ultimate Total Damage', signets: aponia.nexus1[3] }
-}
+};
