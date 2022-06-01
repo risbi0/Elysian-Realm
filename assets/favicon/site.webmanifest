@@ -3,6 +3,7 @@
     "short_name": "HI3 ER Guide",
     "description": "Recommended builds and team for Elysian Realm in Honkai Impact",
     "start_url": "/",
+    "id": "/",
     "theme_color": "#000000",
     "background_color": "#b4b4b4",
     "display": "standalone",
