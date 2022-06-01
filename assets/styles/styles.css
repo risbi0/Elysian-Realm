@@ -244,13 +244,13 @@ body::-webkit-scrollbar-track {
   width: 100%;
 }
 
-.supp table td:not(th):nth-child(n+2):nth-child(-n+3), .supp #about table th:not(th):nth-child(n+2):nth-child(-n+3), #about .supp table th:not(th):nth-child(n+2):nth-child(-n+3), .supp table th:not(th):nth-child(n+2):nth-child(-n+3) {
+.supp table td:not(th):nth-child(n+2):nth-child(-n+5), .supp #about table th:not(th):nth-child(n+2):nth-child(-n+5), #about .supp table th:not(th):nth-child(n+2):nth-child(-n+5), .supp table th:not(th):nth-child(n+2):nth-child(-n+5) {
   color: transparent;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
 
-.supp table td:not(th):nth-child(n+2):nth-child(-n+3):hover, .supp #about table th:not(th):nth-child(n+2):nth-child(-n+3):hover, #about .supp table th:not(th):nth-child(n+2):nth-child(-n+3):hover, .supp table th:not(th):nth-child(n+2):nth-child(-n+3):hover {
+.supp table td:not(th):nth-child(n+2):nth-child(-n+5):hover, .supp #about table th:not(th):nth-child(n+2):nth-child(-n+5):hover, #about .supp table th:not(th):nth-child(n+2):nth-child(-n+5):hover, .supp table th:not(th):nth-child(n+2):nth-child(-n+5):hover {
   color: rgba(255, 255, 255, 0.8);
   -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;

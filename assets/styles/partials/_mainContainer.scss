@@ -140,7 +140,7 @@
     table {
         width: 100%;
         td {
-            @include cellTransition(3);
+            @include cellTransition(5);
         }
     }
 }
