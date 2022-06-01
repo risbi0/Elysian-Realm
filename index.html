@@ -154,6 +154,13 @@
         <button id="goToTop">
             <span class="material-icons">keyboard_arrow_up</span>
         </button>
+        <script>
+        // register service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/serviceWorker.js')
+                .then(() => console.log("Service Worker Registered"));
+        }
+        </script>            
         <script type="text/javascript" src="scripts/isMobile.js"></script>
         <script type="module" src="scripts/data.js"></script>
         <script type="module" src="scripts/guide.js"></script>
