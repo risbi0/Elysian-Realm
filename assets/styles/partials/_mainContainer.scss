@@ -82,11 +82,16 @@
     font-weight: bold;
     font-size: 20px;
     color: $white;
-}
-.anchor:hover {
-    cursor: pointer;
-    background-color: $white;
-    color: black;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $white;
+        color: black;
+    }
+
+    a {
+        font-size: 0px;
+    }
 }
 .link-spanner {
     @include wh($w: 100%, $h: 100%);

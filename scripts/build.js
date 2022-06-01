@@ -76,28 +76,33 @@ for (let i = 0; i < valks.length; i++) {
         if ('notes' in valks[i].builds[j])
             anchors += 1;
         for (let k = 0; k < anchors; k++) {
-            let letter = '', link = '';
+            let letter = '', link = '', accessibleName = '';
             const anchorDiv = document.createElement('div');
             anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
             if (k == 0 && hasTransitionTable) {
                 letter = 'T';
                 link = `transitional-signets-${i + 1}-${j + 1}`;
+                accessibleName = 'Transitional Signets';
             }
             else if ((k == 0 && !hasTransitionTable) || (k == 1 && hasTransitionTable)) {
                 letter = 'M';
                 link = `main-signets-${i + 1}-${j + 1}`;
+                accessibleName = 'Main Signets';
             }
             else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
                 letter = 'S';
                 link = `secondary-signets-${i + 1}-${j + 1}`;
+                accessibleName = 'Secondary Signets';
             }
             else if ((k == 3 && 'notes' in valks[i].builds[j]) || (k == 2 && !(3 in valks[i].builds[j].signetTable))) {
                 letter = 'N';
                 link = `notes-${i + 1}-${j + 1}`;
+                accessibleName = 'Notes';
             }
             anchorDiv.innerText = letter;
             const anchor = document.createElement('a');
             anchor.setAttribute('href', `#${link}`);
+            anchor.innerText = accessibleName;
             const linkSpanner = document.createElement('span');
             linkSpanner.classList.add('link-spanner', 'pos-abs');
             anchor.appendChild(linkSpanner);
