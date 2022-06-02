@@ -72,6 +72,7 @@ const cacheAssets = [
     '/assets/img/emblems/Forget_Me_Not.webp',
     '/assets/img/emblems/Gold_Goblet.webp',
     '/assets/img/emblems/Good_Old_Days.webp',
+    '/assets/img/emblems/Grey_Scale_Rainbow.webp',
     '/assets/img/emblems/Heavy_as_a_Million_Lives.webp',
     '/assets/img/emblems/Hometown.webp',
     '/assets/img/emblems/It_Will_Be_Written.webp',
