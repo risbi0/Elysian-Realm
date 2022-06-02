@@ -37,7 +37,7 @@ const cacheAssets = [
     '/assets/img/valks/Spina_Astera.webp',
     '/assets/img/valks/Starchasm_Nyx.webp',
     '/assets/img/valks/Stygian_Nymph.webp',
-    '/assets/img/valks/Swwet_n_Spicy.webp',
+    '/assets/img/valks/Sweet_n_Spicy.webp',
     '/assets/img/valks/Twilight_Paladin.webp',
     '/assets/img/valks/Striker_Fulminata.webp',
     '/assets/img/valks/Valkyrie_Gloria.webp',
