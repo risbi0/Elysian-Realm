@@ -6,7 +6,7 @@
     "scope": "https://risbi0.github.io/Elysian-Realm/",
     "id": "/",
     "theme_color": "#000000",
-    "background_color": "#b4b4b4",
+    "background_color": "#000000",
     "display": "standalone",
     "orientation": "portrait",
     "icons": [
