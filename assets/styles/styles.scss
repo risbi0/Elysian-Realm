@@ -9,6 +9,7 @@
 @import 'partials/signetImages';
 @import 'partials/emblemImages';
 @import 'partials/suppImages';
+@import 'partials/guide';
 @import 'partials/about';
 
 .flex {
@@ -128,7 +129,7 @@ h1 {
 }
 h2 {
     @include header(40px);
-    @include margin($b: 10px);
+    @include margin($t: 10px, $b: 10px);
     letter-spacing: 3px;
 }
 h3 {
@@ -152,15 +153,20 @@ tr {
 tr:last-child:not(thead tr) {
     border-bottom: unset;
 }
+#close {
+    @include button;
+    z-index: 1;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+
+    &:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
 #goToTop {
+    @include button;
     @include wh($w: 50px, $h: 50px);
     @include padding($t: 5px);
-    visibility: hidden;
-    position: fixed;
-    cursor: pointer;
-    bottom: 10px;
-    right: 10px;
-    border: none;
     border-radius: 50%;
     outline: none;
     background-color: rgb(60, 60, 60);
@@ -168,9 +174,6 @@ tr:last-child:not(thead tr) {
 
     &:hover {
         background-color: rgba(60, 60, 60, 0.8);
-    }
-    .material-icons {
-        font-size: 35px;
     }
 }
 li {

@@ -35,3 +35,14 @@
         }
     }
 }
+
+@mixin button {
+    visibility: hidden;
+    position: fixed;
+    cursor: pointer;
+    border: none;
+
+    .material-icons {
+        font-size: 35px;
+    }
+}

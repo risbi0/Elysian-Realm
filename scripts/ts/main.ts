@@ -1,10 +1,10 @@
 import { valks } from './guide.js';
 import { signetSummary } from './data.js';
+import { guideContainer, guideContent, buildGuideContent } from './build.js';
 
 const body = document.querySelector('body') as HTMLBodyElement;
-const mainContainer = document.querySelector('#main-container') as HTMLElement;
+const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
 const banners: any = document.querySelectorAll('.banner');
-const topButton = document.querySelector('#goToTop') as HTMLElement;
 
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
@@ -68,12 +68,12 @@ function fadeAnim(item: any, fade: string): void {
 // insert main background image link and banner image links
 const url: string[] = [];
 url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
-banners.forEach((banner: HTMLElement) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
+banners.forEach((banner: HTMLDivElement) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
 // wait for images to load
-const cover = document.querySelector('#cover') as HTMLElement;
-const progressBar = document.querySelector('#progress-bar') as HTMLElement;
+const cover = document.querySelector('#cover') as HTMLDivElement;
+const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
 const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
-const meter = document.querySelector('#meter') as HTMLElement;
+const meter = document.querySelector('#meter') as HTMLDivElement;
 let done: number = 0, progressInPixels: number = 0;
 url.forEach((link: string) => {
     load(link).then(() => {
@@ -108,191 +108,8 @@ url.forEach((link: string) => {
     });
 });
 
-let previousOffset: number;
-function collapse(content: any): void {
-    const guideContainer: any = content.nextElementSibling;
-    
-    if (guideContainer.style.minWidth) { // collapse
-        guideContainer.style.minWidth = null;
-        guideContainer.style.opacity = 0;
-        guideContainer.style.transition = 'min-width 0.2s linear, opacity 0.1s';
-        setTimeout(() => { guideContainer.scrollTop = 0 }, 100);
-        content.children[0].style.filter = null;
-    } else { // expand
-        content.children[0].style.filter = 'brightness(70%)';
-        let width: number, timeout: number, phoneOffset: number;
-        if (window.innerWidth <= 600) {
-            width = window.innerWidth, timeout = 0, phoneOffset = 100;
-        } else {
-            width = 600, timeout = 300, phoneOffset = 0;
-        }
-
-        guideContainer.style.minWidth = width + 'px';
-        guideContainer.style.opacity = 1;
-        guideContainer.style.transition = 'min-width 0.2s linear, opacity 0.7s 0.2s';
-        
-        let scrollOffset: number = content.offsetLeft;
-        if (previousOffset < content.offsetLeft && 
-            mainContainer.scrollWidth != valks.length * 100) {
-            scrollOffset -= width;
-        }
-        setTimeout(() => {
-            // pixel by pixel scrolling for the rightmost banners covered by the viewport
-            // since scrolling to a coordinate on the edge of the document with the accordion expanding
-            // would not scroll at all, since the scroll method instantly goes to the assigned coordinates
-            // before the accordion has finished expanding
-            if (content.offsetLeft + 100 > mainContainer.scrollWidth - window.innerWidth &&
-                window.innerWidth <= 600 && mainContainer.scrollWidth == valks.length * 100) {
-                const travelPixels: number = content.getBoundingClientRect().right;
-                for (let i = 1; i <= travelPixels; i++) {
-                    setTimeout(() => {
-                        mainContainer.scroll({ left: scrollOffset + phoneOffset - travelPixels + i });
-                    }, i * 200 / travelPixels);
-                }
-            } else { // regular scroll
-                mainContainer.scroll({
-                    left: scrollOffset + phoneOffset,
-                    behavior: 'smooth'
-                });
-            }
-            if (window.innerWidth <= 600) {
-                window.scroll({
-                    top: content.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }, timeout);
-        previousOffset = content.offsetLeft;
-    }
-}
-// banner animation
-banners.forEach((item: any) => {
-    item.addEventListener('click', function(this: any) {
-        // collapse previously clicked item
-        if (!this.classList.contains('active')) {
-            for (const coll of banners) {
-                if (coll.classList.contains('active')) {
-                    coll.classList.remove('active');
-                    collapse(coll);
-                }
-            }
-        }
-        this.classList.toggle('active');
-        collapse(this);
-    });
-    // goToTop button visibility
-    item.nextElementSibling.addEventListener('scroll', function(this: any) {
-        if (item.nextElementSibling.scrollTop > 700) {
-            topButton.style.visibility = 'visible';
-            if (window.innerWidth <= 600) topButton.style.top = window.innerHeight - 60 + "px";
-        } else {
-            topButton.style.visibility = 'hidden';
-        }
-    });
-});
-
-// support valk avatar transition on hover
-const checkboxes: any = document.querySelectorAll('input[type="checkbox"]:not(.emblem input[type="checkbox"])').forEach(checkbox => {
-    checkbox.addEventListener('mouseover', function(this: any) {
-        this.parentNode.previousElementSibling.style.filter = 'brightness(50%)';
-        this.parentNode.previousElementSibling.style.transition = '0.3s';
-    });
-    checkbox.addEventListener('mouseout', function(this: any) {
-        this.parentNode.previousElementSibling.style.filter = 'unset';
-        this.parentNode.previousElementSibling.style.transition = '0.2s';
-    });
-});
-
-// hide previously clicked tooltip
-const tooltipable: any = document.querySelectorAll('input');
-tooltipable.forEach((item: any) => {
-    item.addEventListener('click', function() {
-        for (const otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
-    });
-});
-
-// anchor smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) { e.preventDefault() });
-    anchor.addEventListener('click', function(this: any) {
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-function highlightAdjacentMergedCell(row: any, bool: boolean): void {
-    // check if inner HTML only has 1 pair of td tags
-    // in a 2 column table it has 2 td tags per row
-    // meaning if a row has one less td tag it either has
-    // a missing cell in the row, or a merged cell (this case)
-    if (row.innerHTML.match(/<\/td>/g).length == 1 ||
-        // for cells with .noted class
-       (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
-        // get all rows of its parent table
-        const parentChildren: any = row.parentNode.children;
-        // iterate and check if row has a rowspan attribute in the cell of the 2nd column
-        for (let i = 0; i < parentChildren.length; i++) {
-            if (parentChildren[i].innerHTML.includes('rowspan')) {
-                let j: number;
-                parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
-                // get rowspan value
-                const range: number = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
-                // get index of selected row and merged cell
-                const thisIndex: number = row.rowIndex;
-                const mergedCellIndex: number = parentChildren[i].rowIndex;
-                // check if index is covered within the range of merged cell
-                if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
-                    // apply styles
-                    if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
-                    else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
-                }
-            }
-        }
-    }
-}
-function notedCell(row: HTMLElement, removee: string, addee: string): void {
-    // .temp class to know which had the .noted class
-    for (let i = 0; i < row.children.length; i++) {
-        if (row.children[i].classList.contains(removee)) {
-            row.children[i].classList.remove(removee);
-            row.children[i].classList.add(addee);
-        }
-    }
-}
-// higlight table rows, including merged cells, on hover
-// since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
-document.querySelectorAll('tr:not(thead tr)').forEach(row => {
-    row.addEventListener('mouseover', function(this: any) {
-        this.classList.add('table-cell-hover');
-        notedCell(this, 'noted', 'temp');
-        highlightAdjacentMergedCell(this, true);
-    });
-    row.addEventListener('mouseout', function(this: any) {
-        this.classList.remove('table-cell-hover');
-        notedCell(this, 'temp', 'noted');
-        highlightAdjacentMergedCell(this, false);
-    });
-});
-function highlightInvolvedRows(row: any, bool: boolean): void {
-    const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
-    const cellIndex: number = row.parentNode.rowIndex;
-    for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
-        if (bool) {
-            row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
-            notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
-        } else {
-            row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
-            notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
-        }
-    }
-}
-// highlight adjacent rows on hovering from merged cells
-document.querySelectorAll('td[rowspan]').forEach(cell => {
-    cell.addEventListener('mouseover', function(this: any) { highlightInvolvedRows(this, true) });
-    cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) });
-});
-
 let originalText: string | null, previousText: any;
-function changeText(deez: HTMLElement): void {
+function changeText(deez: HTMLDivElement): void {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
             signetSummary[i].signets == deez.textContent) {
@@ -302,42 +119,200 @@ function changeText(deez: HTMLElement): void {
         } 
     }
 }
-function revertText(deez: HTMLElement): void {
+function revertText(deez: HTMLDivElement): void {
     deez.textContent = originalText;
     originalText = null;
 }
-// change signet name to summary on hover/click
-const signets: any = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
+let summOnHover: any;
 if (isMobile) { // mobile browsers
-    signets.forEach((signet: any) => {
-        signet.addEventListener('mouseover', function(this: any) {
-            if (originalText != null && previousText != this) {
-                revertText(previousText);
-                changeText(this);
-            } else if (originalText == null) { changeText(this);
-            } else if (previousText == this) { revertText(previousText); }
+    // change signet name to summary on hover/click
+    summOnHover = (signets: any) => {
+        signets.forEach((signet: any) => {
+            signet.addEventListener('mouseover', function(this: any) {
+                if (originalText != null && previousText != this) {
+                    revertText(previousText);
+                    changeText(this);
+                } else if (originalText == null) { changeText(this);
+                } else if (previousText == this) { revertText(previousText); }
+            });
         });
-    });
+    }
+    // set guideContent dimensions
+    guideContent.style.width = `${window.innerWidth}px`;
+    guideContent.style.height = `${window.innerHeight}px`;
+    guideContent.style.transform = 'translateX(-50%)';
 } else { // desktop browsers
-    signets.forEach((signet: any) => {
-        signet.addEventListener('mouseover', function(this: any) { changeText(this) });
-        signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
-    });
+    summOnHover = (signets: any) => {
+        signets.forEach((signet: any) => {
+            signet.addEventListener('mouseover', function(this: any) { changeText(this) });
+            signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
+        });
+    }
+    guideContent.style.width = '600px';
+    guideContent.style.height = '800px';
+    guideContent.style.border = '3px solid rgba(255, 255, 255, 0.5)';
+    guideContent.style.transform = 'translate(-50%, 15%)';
 }
 
-// go to top of guide
-topButton.addEventListener('click', function (): void {
-    for (const item of banners) {
-        if (item.classList.contains('active')) {
-            item.nextElementSibling!.scroll({ top: 0, behavior: 'smooth' });
-            // scroll into view
-            let offsetLeft: number;
-            if (isMobile) {
-                offsetLeft = item.nextElementSibling.offsetLeft;
-            } else {
-                offsetLeft = item.nextElementSibling.offsetLeft - 100;
-            }
-            mainContainer.scroll({ left: offsetLeft, behavior: 'smooth' });
-        }
+const topButton = document.querySelector('#goToTop') as HTMLDivElement;
+const closeButton = document.querySelector('#close') as HTMLDivElement;
+function hide() {
+    guideContainer.classList.remove('bg-fade-in');
+    guideContainer.classList.add('bg-fade-out');
+    if (isMobile) {
+        guideContent.classList.remove('guide-entry-mobile');
+        guideContent.classList.add('guide-exit-mobile');
+    } else {
+        guideContent.classList.remove('guide-entry-desktop');
+        guideContent.classList.add('guide-exit-desktop');
     }
+    closeButton.style.visibility = 'hidden';
+    topButton.style.visibility = 'hidden';
+    setTimeout(() => {
+        guideContent.innerHTML = '';
+        guideContainer.style.display = 'none';
+    }, 450);
+}
+closeButton.addEventListener('click', () => { hide(); }); // close on close button click
+guideContainer.addEventListener('click', () => { hide(); }); // close when clicking outside modal
+guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
+// render guide content and listeners on click
+banners.forEach((banner: any) => {
+    banner.addEventListener('click', function(this: any) {
+        buildGuideContent(this);
+        guideContent.scrollTo({ top: 0 });
+        // animation
+        guideContainer.classList.remove('bg-fade-out');
+        guideContainer.classList.add('bg-fade-in');
+        if (isMobile) {
+            guideContent.classList.remove('guide-exit-mobile');
+            guideContent.classList.add('guide-entry-mobile');
+        } else {
+            guideContent.classList.remove('guide-exit-desktop');
+            guideContent.classList.add('guide-entry-desktop');
+        }
+
+        // hide previously clicked tooltip
+        const tooltipable: any = document.querySelectorAll('input');
+        tooltipable.forEach((item: any) => {
+            item.addEventListener('click', () => {
+                for (const otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
+            });
+        });
+
+        // anchor smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => { e.preventDefault() });
+            anchor.addEventListener('click', function(this: any) {
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        function highlightAdjacentMergedCell(row: any, bool: boolean): void {
+            // check if inner HTML only has 1 pair of td tags
+            // in a 2 column table it has 2 td tags per row
+            // meaning if a row has one less td tag it either has
+            // a missing cell in the row, or a merged cell (this case)
+            if (row.innerHTML.match(/<\/td>/g).length == 1 ||
+                // for cells with .noted class
+            (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
+                // get all rows of its parent table
+                const parentChildren: any = row.parentNode.children;
+                // iterate and check if row has a rowspan attribute in the cell of the 2nd column
+                for (let i = 0; i < parentChildren.length; i++) {
+                    if (parentChildren[i].innerHTML.includes('rowspan')) {
+                        let j: number;
+                        parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
+                        // get rowspan value
+                        const range: number = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+                        // get index of selected row and merged cell
+                        const thisIndex: number = row.rowIndex;
+                        const mergedCellIndex: number = parentChildren[i].rowIndex;
+                        // check if index is covered within the range of merged cell
+                        if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
+                            // apply styles
+                            if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
+                            else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
+                        }
+                    }
+                }
+            }
+        }
+        function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
+            // .temp class to know which had the .noted class
+            for (let i = 0; i < row.children.length; i++) {
+                if (row.children[i].classList.contains(removee)) {
+                    row.children[i].classList.remove(removee);
+                    row.children[i].classList.add(addee);
+                }
+            }
+        }
+        function highlightInvolvedRows(row: any, bool: boolean): void {
+            const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
+            const cellIndex: number = row.parentNode.rowIndex;
+            for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
+                if (bool) {
+                    row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
+                    notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
+                } else {
+                    row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
+                    notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
+                }
+            }
+        }
+        setTimeout(() => { // timeout to prevent highlighting when guide is still in animation
+            // support valk avatar transition on hover
+            document.querySelectorAll('input[type="checkbox"]:not(#emblem input[type="checkbox"])').forEach(checkbox => {
+                checkbox.addEventListener('mouseover', function(this: any) {
+                    this.parentNode.previousElementSibling.style.filter = 'brightness(50%)';
+                    this.parentNode.previousElementSibling.style.transition = '0.3s';
+                });
+                checkbox.addEventListener('mouseout', function(this: any) {
+                    this.parentNode.previousElementSibling.style.filter = 'unset';
+                    this.parentNode.previousElementSibling.style.transition = '0.2s';
+                });
+            });
+            // higlight table rows, including merged cells, on hover
+            // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
+            document.querySelectorAll('tr:not(thead tr)').forEach(row => {
+                row.addEventListener('mouseover', function(this: any) {
+                    this.classList.add('table-cell-hover');
+                    notedCell(this, 'noted', 'temp');
+                    highlightAdjacentMergedCell(this, true);
+                });
+                row.addEventListener('mouseout', function(this: any) {
+                    this.classList.remove('table-cell-hover');
+                    notedCell(this, 'temp', 'noted');
+                    highlightAdjacentMergedCell(this, false);
+                });
+            });
+            // highlight adjacent rows on hovering from merged cells
+            document.querySelectorAll('td[rowspan]').forEach(cell => {
+                cell.addEventListener('mouseover', function(this: any) { highlightInvolvedRows(this, true) });
+                cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) });
+            });
+
+            closeButton.style.visibility = 'visible';
+            closeButton.style.top = `${guideContent.getBoundingClientRect().top + 15}px`;
+            closeButton.style.left = `${guideContent.getBoundingClientRect().right - 60}px`;
+
+            topButton.style.top = `${guideContent.getBoundingClientRect().bottom - 60}px`;
+            topButton.style.left = `${guideContent.getBoundingClientRect().right - 60}px`;
+        }, 500);
+
+        const signets: any = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
+        summOnHover(signets);
+        
+        // goToTop button visibility
+        guideContent.addEventListener('scroll', function(this: any) {
+            if (guideContent.scrollTop > 700) {
+                topButton.style.visibility = 'visible';
+                if (window.innerWidth <= 600) topButton.style.top = window.innerHeight - 60 + "px";
+            } else {
+                topButton.style.visibility = 'hidden';
+            }
+        });
+        // go to top of guide
+        topButton.addEventListener('click', () => { guideContent.scroll({ top: 0, behavior: 'smooth' }); });
+    });
 });

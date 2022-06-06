@@ -1,0 +1,95 @@
+@import 'modules/mixins';
+
+#guide-container {
+    @include wh($w: 100%, $h: 100%);
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.bg-fade-in {
+    animation: bgfadein 0.5s;
+}
+.bg-fade-out {
+    animation: bgfadeout 0.5s;
+}
+@keyframes bgfadein {
+    from {
+        background-color: transparent;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+@keyframes bgfadeout {
+    from {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    to {
+        background-color: transparent;
+    }
+}
+#guide-content {
+    scrollbar-width: none !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: 0.3s ease;
+    position: fixed;
+    left: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+
+    ::-webkit-scrollbar { 
+        display: none;
+    }
+}
+.guide-entry-desktop {
+    animation: guideentrydesktop 0.5s;
+}
+.guide-exit-desktop {
+    animation: guideexitdesktop 0.5s;
+}
+@keyframes guideentrydesktop {
+    from {
+        transform: translate(-50%, -100px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 15%);
+        opacity: 1;
+    }
+}
+@keyframes guideexitdesktop {
+    from {
+        transform: translate(-50%, 15%);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -100px);
+        opacity: 0;
+    }
+}
+.guide-entry-mobile {
+    animation: guideentrymobile 0.5s;
+}
+.guide-exit-mobile {
+    animation: guideexitmobile 0.5s;
+}
+@keyframes guideentrymobile {
+    from {
+        transform: translate(-50%, -100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+}
+@keyframes guideexitmobile {
+    from {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -100px);
+        opacity: 0;
+    }
+}

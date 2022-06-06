@@ -43,9 +43,16 @@
                     <span id="[valk acronym]-name" class="vertical-text">[valk name]</span>
                 </div>
             </button>
-            <div class="guide-container flex fv-center f-col">
+            -->
+        </main>
+        <div id="guide-container" style="display: none;">
+            <button id="close">
+                <span class="material-icons">close</span>
+            </button>
+            <div id="guide-content" class="flex fv-center f-col">
+                <!-- 
                 <h2>[valk name]</h2>
-                <p class="rating">[Inferno / Abstinence / Corruption]</p>
+                <p id="rating">[Inferno / Abstinence / Corruption]</p>
                 <div class="rec-signets flex f-row">
                     // 4-5 times
                     <div class="signet sig-tog flex fh-center fv-center [signet owner]"></div>
@@ -55,14 +62,14 @@
                     // 2-4 times depending if there's a transitional signet table, notes, or both
                     <div class="anchor flex fh-center fv-center pos-rel">
                         [M/S/T/N]
-                        <a href="#[main/secondary/transitional-signets / notes]-[valks index]">
+                        <a href="#[main/secondary/transitional-signets / notes]-[build no.]">
                             <span class="link-spanner pos-abs"></span>
                         </a>
                     </div>
                     // ...
                 </div>
-                <div class="emblem-support flex f-row">
-                    <div class="emblem flex fh-center">
+                <div id="emblem-support" class="flex f-row">
+                    <div id="emblem" class="flex fh-center">
                         <table>
                             <thead>
                                 <tr><th>Time</th><th colspan="2">Emblem</th></tr>
@@ -85,7 +92,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="supp flex fh-center">
+                    <div id="supp" class="flex fh-center">
                         <table>
                             <thead>
                                 <tr><th>Type</th><th colspan="4">Supports</th></tr>
@@ -111,7 +118,7 @@
                     </div>
                 </div>
                 <h3>Exclusive Signets</h3>
-                <table class="exclusive-tbl">
+                <table id="exclusive-tbl">
                     <thead>
                         <tr><th>Signet</th><th>Priority</th></tr>
                     </thead>
@@ -124,7 +131,7 @@
                     </tbody>
                 </table>
                 // 2-3 times depending whether there's a transitional table or no
-                <h3 id="[main/secondary/transitional]-signets-[valks index]">[Main/Secondary/Transitional] Signets</h3>
+                <h3 id="[main/secondary/transitional]-signets-[build no.]">[Main/Secondary/Transitional] Signets</h3>
                 <div class="rec-signets flex f-row">
                     // 1-4 times
                     <div class="signet sig-sep flex fv-center f-col [signet owner]">
@@ -132,7 +139,7 @@
                     </div>
                     // ...
                 </div>
-                <table class="[main/secondary/transitional]-tbl">
+                <table id="[main/secondary/transitional]-tbl">
                     <thead>
                         <tr><th>Owner</th><th>Signet</th></tr>
                     </thead>
@@ -146,10 +153,9 @@
                     </tbody>
                 </table>
                 // ...
+                -->
             </div>
-            // ...
-            -->
-        </main>
+        </div>
         <footer></footer>
         <button id="goToTop">
             <span class="material-icons">keyboard_arrow_up</span>
