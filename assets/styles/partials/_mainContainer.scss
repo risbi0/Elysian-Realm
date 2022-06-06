@@ -3,7 +3,6 @@
 
 #main-container {
     overflow-y: hidden;
-    background-image: linear-gradient(to top, black, transparent);
     
     &:hover {
         scrollbar-color: $scrollbar-thumb black !important;
@@ -15,10 +14,8 @@
 }
 .banner {
     @include padding;
-    display: inline-block;
     background-color: transparent;
     border: none;
-    outline: none;
     cursor: pointer;
 
     div:nth-child(1) {

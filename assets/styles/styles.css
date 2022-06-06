@@ -56,8 +56,6 @@ body::-webkit-scrollbar-track {
 
 #main-container {
   overflow-y: hidden;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(transparent));
-  background-image: linear-gradient(to top, black, transparent);
 }
 
 #main-container:hover {
@@ -70,10 +68,8 @@ body::-webkit-scrollbar-track {
 
 .banner {
   padding: 0 0 0 0;
-  display: inline-block;
   background-color: transparent;
   border: none;
-  outline: none;
   cursor: pointer;
 }
 
@@ -1263,7 +1259,6 @@ tr:last-child:not(thead tr) {
   height: 50px;
   padding: 5px 0 0 0;
   border-radius: 50%;
-  outline: none;
   background-color: #3c3c3c;
   color: rgba(255, 255, 255, 0.8);
 }

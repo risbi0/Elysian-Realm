@@ -168,7 +168,6 @@ tr:last-child:not(thead tr) {
     @include wh($w: 50px, $h: 50px);
     @include padding($t: 5px);
     border-radius: 50%;
-    outline: none;
     background-color: rgb(60, 60, 60);
     color: rgba(255, 255, 255, 0.8);
 
