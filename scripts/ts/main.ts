@@ -65,10 +65,14 @@ function fadeAnim(item: any, fade: string): void {
     }, time);
     time += interval;
 }
-// insert main background image link and banner image links
+// insert all webp paths
 const url: string[] = [];
-url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
-banners.forEach((banner: HTMLDivElement) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
+const mainStylesheet: any = document.styleSheets[1].cssRules
+for (const cssRule of mainStylesheet) {
+    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
+       url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
+    }
+}
 // wait for images to load
 const cover = document.querySelector('#cover') as HTMLDivElement;
 const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;

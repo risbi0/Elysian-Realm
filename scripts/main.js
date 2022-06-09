@@ -54,8 +54,12 @@ function fadeAnim(item, fade) {
     time += interval;
 }
 const url = [];
-url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
-banners.forEach((banner) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
+const mainStylesheet = document.styleSheets[1].cssRules;
+for (const cssRule of mainStylesheet) {
+    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
+        url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
+    }
+}
 const cover = document.querySelector('#cover');
 const progressBar = document.querySelector('#progress-bar');
 const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
