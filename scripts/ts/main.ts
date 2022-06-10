@@ -83,7 +83,7 @@ url.forEach((link: string) => {
     load(link).then(() => {
         done += 1;
         // progress bar
-        const percentDone: number = Math.round(done / valks.length * 100) / 100;
+        const percentDone: number = Math.round(done / url.length * 100) / 100;
         const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
         while (meter.style.width != `${fillPixels}px`) {
             progressInPixels += 1;
