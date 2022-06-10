@@ -3,6 +3,7 @@
 
 #main-container {
     overflow-y: hidden;
+    background-image: linear-gradient(to top, black, transparent);
     
     &:hover {
         scrollbar-color: $scrollbar-thumb black !important;
