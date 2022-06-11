@@ -62,7 +62,7 @@ function fadeAnim(item: any, fade: string): void {
 }
 // insert all webp paths
 const url: string[] = [];
-const mainStylesheet: any = document.styleSheets[1].cssRules
+const mainStylesheet: any = document.styleSheets[1].cssRules;
 for (const cssRule of mainStylesheet) {
     if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
        url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
