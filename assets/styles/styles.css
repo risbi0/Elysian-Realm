@@ -76,11 +76,6 @@ body::-webkit-scrollbar-track {
 }
 
 .banner div:nth-child(1) {
-  width: 100px;
-  height: 800px;
-  background-size: cover;
-  -webkit-box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
-          box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
   -webkit-filter: brightness(35%);
           filter: brightness(35%);
   -webkit-transition: 0.2s;
@@ -95,6 +90,26 @@ body::-webkit-scrollbar-track {
   color: white;
 }
 
+.banner > .desktop {
+  width: 100px;
+  height: 800px;
+  -webkit-box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
+          box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
+  background-size: cover;
+}
+
+.banner > .mobile {
+  width: 100vw;
+  height: calc(100vw / 4);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.banner > .mobile-shadow {
+  -webkit-box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8), inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
+          box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8), inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
+}
+
 .main-name {
   width: 100%;
   height: 100%;
@@ -104,13 +119,16 @@ body::-webkit-scrollbar-track {
 
 .vertical-text {
   font-family: 'Raleway';
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vertical-text.desktop {
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;
           writing-mode: vertical-lr;
   text-orientation: upright;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  color: rgba(255, 255, 255, 0.7);
 }
 
 #rating {
@@ -326,186 +344,603 @@ body::-webkit-scrollbar-track {
   font-style: italic;
 }
 
-/* banner images */
+/* banner images, offsets, and name sizes */
 #aka {
   background-image: url("../img/valks/Argent_Knight_Artemis.webp");
+}
+
+#aka.desktop-pos {
   background-position: 57%;
+}
+
+#aka.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(30.4%, -18%);
+          transform: scale(14) translate(30.4%, -18%);
+}
+
+#aka ~ .main-name > .desktop {
+  font-size: 20px;
+}
+
+#aka ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #bke {
   background-image: url("../img/valks/Bright_Knight_Excelsis.webp");
+}
+
+#bke.desktop-pos {
   background-position: 50%;
+}
+
+#bke.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(16) translate(33.5%, -16%);
+          transform: scale(16) translate(33.5%, -16%);
+}
+
+#bke ~ .main-name > .desktop {
+  font-size: 20px;
+}
+
+#bke ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #carole {
   background-image: url("../img/valks/Sweet_n_Spicy.webp");
+}
+
+#carole.desktop-pos {
   background-position: 51.4%;
+}
+
+#carole.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(13) translate(40.1%, -16%);
+          transform: scale(13) translate(40.1%, -16%);
+}
+
+#carole ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#carole ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #da {
   background-image: url("../img/valks/Dea_Anchora.webp");
+}
+
+#da.desktop-pos {
   background-position: 52.7%;
+}
+
+#da.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(15) translate(31.5%, -16%);
+          transform: scale(15) translate(31.5%, -16%);
+}
+
+#da ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#da ~ .main-name > .mobile {
+  font-size: 9vw;
 }
 
 #dip {
   background-image: url("../img/valks/Disciplinary_Perdition.webp");
+}
+
+#dip.desktop-pos {
   background-position: 55.3%;
+}
+
+#dip.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(15) translate(30.2%, -18%);
+          transform: scale(15) translate(30.2%, -18%);
+}
+
+#dip ~ .main-name > .desktop {
+  font-size: 20px;
+}
+
+#dip ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #ede {
   background-image: url("../img/valks/Golden_Diva.webp");
+}
+
+#ede.desktop-pos {
   background-position: 52.5%;
+}
+
+#ede.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(15) translate(36%, -17%);
+          transform: scale(15) translate(36%, -17%);
+}
+
+#ede ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#ede ~ .main-name > .mobile {
+  font-size: 9vw;
 }
 
 #elysia {
   background-image: url("../img/valks/Miss_Pink_Elf.webp");
+}
+
+#elysia.desktop-pos {
   background-position: 52%;
+}
+
+#elysia.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(30.2%, -15%);
+          transform: scale(14) translate(30.2%, -15%);
+}
+
+#elysia ~ .main-name > .desktop {
+  font-size: 30px;
+}
+
+#elysia ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #fr {
   background-image: url("../img/valks/Fallen_Rosemary.webp");
+}
+
+#fr.desktop-pos {
   background-position: 56.2%;
+}
+
+#fr.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(28%, -19%);
+          transform: scale(14) translate(28%, -19%);
+}
+
+#fr ~ .main-name > .desktop {
+  font-size: 28px;
+}
+
+#fr ~ .main-name > .mobile {
+  font-size: 6vw;
 }
 
 #fischl {
   background-image: url("../img/valks/Prinzessin_der_Verurteilung.webp");
+}
+
+#fischl.desktop-pos {
   background-position: 57%;
+}
+
+#fischl.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(13) translate(34%, -15%);
+          transform: scale(13) translate(34%, -15%);
+}
+
+#fischl ~ .main-name > .desktop {
+  font-size: 16px;
+}
+
+#fischl ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #hofs {
   background-image: url("../img/valks/Herrscher_of_Flamescion.webp");
+}
+
+#hofs.desktop-pos {
   background-position: 53.7%;
+}
+
+#hofs.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(15) translate(28.9%, -16.7%);
+          transform: scale(15) translate(28.9%, -16.7%);
+}
+
+#hofs ~ .main-name > .desktop {
+  font-size: 20px;
+}
+
+#hofs ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #hor {
   background-image: url("../img/valks/Herrscher_of_Reason.webp");
+}
+
+#hor.desktop-pos {
   background-position: 54.1%;
+}
+
+#hor.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(36.9%, -17%);
+          transform: scale(14) translate(36.9%, -17%);
+}
+
+#hor ~ .main-name > .desktop {
+  font-size: 22px;
+}
+
+#hor ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #hos {
   background-image: url("../img/valks/Herrscher_of_Sentience.webp");
+}
+
+#hos.desktop-pos {
   background-position: 51.2%;
+}
+
+#hos.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(29.6%, -14%);
+          transform: scale(14) translate(29.6%, -14%);
+}
+
+#hos ~ .main-name > .desktop {
+  font-size: 20px;
+}
+
+#hos ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #hot {
   background-image: url("../img/valks/Herrscher_of_Thunder.webp");
+}
+
+#hot.desktop-pos {
   background-position: 57%;
+}
+
+#hot.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(26.7%, -15.1%);
+          transform: scale(14) translate(26.7%, -15.1%);
+}
+
+#hot ~ .main-name > .desktop {
+  font-size: 22px;
+}
+
+#hot ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #lk {
   background-image: url("../img/valks/Luna_Kindred.webp");
+}
+
+#lk.desktop-pos {
   background-position: 44.8%;
+}
+
+#lk.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(10) translate(35.4%, -14%);
+          transform: scale(10) translate(35.4%, -14%);
+}
+
+#lk ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#lk ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #mobius {
   background-image: url("../img/valks/Infinite_Ouroboros.webp");
+}
+
+#mobius.desktop-pos {
   background-position: 52.8%;
+}
+
+#mobius.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(29%, -15.6%);
+          transform: scale(14) translate(29%, -15.6%);
+}
+
+#mobius ~ .main-name > .desktop {
+  font-size: 25px;
+}
+
+#mobius ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #nyx {
   background-image: url("../img/valks/Starchasm_Nyx.webp");
+}
+
+#nyx.desktop-pos {
   background-position: 49.3%;
+}
+
+#nyx.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(13) translate(30.8%, -15.4%);
+          transform: scale(13) translate(30.8%, -15.4%);
+}
+
+#nyx ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#nyx ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #pe {
   background-image: url("../img/valks/Palatinus_Equinox.webp");
+}
+
+#pe.desktop-pos {
   background-position: 48.76%;
+}
+
+#pe.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(30.5%, -11.6%);
+          transform: scale(14) translate(30.5%, -11.6%);
+}
+
+#pe ~ .main-name > .desktop {
+  font-size: 28px;
+}
+
+#pe ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #raven {
   background-image: url("../img/valks/Midnight_Absinthe.webp");
+}
+
+#raven.desktop-pos {
   background-position: 53.4%;
+}
+
+#raven.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(29.3%, -15.2%);
+          transform: scale(14) translate(29.3%, -15.2%);
+}
+
+#raven ~ .main-name > .desktop {
+  font-size: 25px;
+}
+
+#raven ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #rc {
   background-image: url("../img/valks/Reverist_Calico.webp");
+}
+
+#rc.desktop-pos {
   background-position: 56.4%;
+}
+
+#rc.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(13) translate(28%, -17%);
+          transform: scale(13) translate(28%, -17%);
+}
+
+#rc ~ .main-name > .desktop {
+  font-size: 30px;
+}
+
+#rc ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #ri {
   background-image: url("../img/valks/Ritual_Imayoh.webp");
+}
+
+#ri.desktop-pos {
   background-position: 55%;
+}
+
+#ri.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(10) translate(34%, -11.2%);
+          transform: scale(10) translate(34%, -11.2%);
+}
+
+#ri ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#ri ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #sn {
   background-image: url("../img/valks/Stygian_Nymph.webp");
+}
+
+#sn.desktop-pos {
   background-position: 44.6%;
+}
+
+#sn.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(12) translate(31.2%, -16.8%);
+          transform: scale(12) translate(31.2%, -16.8%);
+}
+
+#sn ~ .main-name > .desktop {
+  font-size: 32px;
+}
+
+#sn ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #spa {
   background-image: url("../img/valks/Spina_Astera.webp");
+}
+
+#spa.desktop-pos {
   background-position: 49.5%;
+}
+
+#spa.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(13) translate(30.4%, -15%);
+          transform: scale(13) translate(30.4%, -15%);
+}
+
+#spa ~ .main-name > .desktop {
+  font-size: 35px;
+}
+
+#spa ~ .main-name > .mobile {
+  font-size: 9vw;
 }
 
 #stfu {
   background-image: url("../img/valks/Striker_Fulminata.webp");
+}
+
+#stfu.desktop-pos {
   background-position: 61.8%;
+}
+
+#stfu.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(16) translate(39.2%, -16.8%);
+          transform: scale(16) translate(39.2%, -16.8%);
+}
+
+#stfu ~ .main-name > .desktop {
+  font-size: 22px;
+}
+
+#stfu ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #sw {
   background-image: url("../img/valks/Silverwing_N-EX.webp");
+}
+
+#sw.desktop-pos {
   background-position: 58.3%;
+}
+
+#sw.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(33.9%, -16.7%);
+          transform: scale(14) translate(33.9%, -16.7%);
+}
+
+#sw ~ .main-name > .desktop {
+  font-size: 30px;
+}
+
+#sw ~ .main-name > .mobile {
+  font-size: 8vw;
 }
 
 #tp {
   background-image: url("../img/valks/Twilight_Paladin.webp");
+}
+
+#tp.desktop-pos {
   background-position: 47.18%;
+}
+
+#tp.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(11) translate(35.2%, -15.3%);
+          transform: scale(11) translate(35.2%, -15.3%);
+}
+
+#tp ~ .main-name > .desktop {
+  font-size: 30px;
+}
+
+#tp ~ .main-name > .mobile {
+  font-size: 6vw;
 }
 
 #vg {
   background-image: url("../img/valks/Valkyrie_Gloria.webp");
+}
+
+#vg.desktop-pos {
   background-position: 50%;
 }
 
-/* banner name sizes */
-#fischl-name {
-  font-size: 16px;
+#vg.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(15) translate(34.2%, -16%);
+          transform: scale(15) translate(34.2%, -16%);
 }
 
-#aka-name,
-#dip-name,
-#bke-name,
-#hofs-name,
-#hos-name {
-  font-size: 20px;
-}
-
-#hor-name,
-#hot-name,
-#stfu-name {
-  font-size: 22px;
-}
-
-#mobius-name,
-#raven-name {
-  font-size: 25px;
-}
-
-#fr-name,
-#pe-name {
-  font-size: 28px;
-}
-
-#elysia-name,
-#rc-name,
-#sw-name,
-#tp-name,
-#vg-name {
+#vg ~ .main-name > .desktop {
   font-size: 30px;
 }
 
-#sn-name {
-  font-size: 32px;
-}
-
-#carole-name,
-#da-name,
-#ede-name,
-#lk-name,
-#nyx-name,
-#ri-name,
-#spa-name {
-  font-size: 35px;
+#vg ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 /* signet imaages */
@@ -1030,6 +1465,10 @@ body::-webkit-scrollbar-track {
   position: relative;
 }
 
+.overflow-hide {
+  overflow: hidden;
+}
+
 .fade {
   -webkit-animation: fade 1s;
           animation: fade 1s;
@@ -1115,6 +1554,68 @@ body::-webkit-scrollbar-track {
   to {
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.fade-in-left {
+  -webkit-animation: fadeinleft 2s;
+          animation: fadeinleft 2s;
+}
+
+.fade-in-right {
+  -webkit-animation: fadeinright 2s;
+          animation: fadeinright 2s;
+}
+
+@-webkit-keyframes fadeinleft {
+  from {
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinleft {
+  from {
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeinright {
+  from {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinright {
+  from {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
     opacity: 1;
   }
 }
