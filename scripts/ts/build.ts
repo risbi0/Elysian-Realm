@@ -3,7 +3,7 @@ import { emblemTableHeaders, emblemTableTimeColumn,
          supportTableHeaders, supportTableTypeColumn,
          exclusiveTableColumns, signetTableColumns } from './data.js';
 
-const collContainer: HTMLElement = document.querySelector('#main-container')!;
+const collContainer = document.querySelector('#main-container') as HTMLDivElement;
 
 function imageAndLabel(cell: HTMLTableCellElement, row: HTMLTableRowElement, item: any, m: number, hoverLabel: boolean): HTMLTableCellElement {
     cell = row.insertCell();
