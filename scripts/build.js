@@ -25,17 +25,32 @@ function imageAndLabel(cell, row, item, m, hoverLabel) {
     cell.appendChild(label);
     return cell;
 }
+const buttonClasses = ['banner', 'pos-rel', 'hidden'];
+const bannerClasses = [];
+const mainNameDivClasses = ['main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs'];
+const mainNameClasses = ['vertical-text'];
+if (isMobile) {
+    collContainer.classList.add('f-col');
+    buttonClasses.push('overflow-hide');
+    bannerClasses.push('mobile', 'mobile-pos');
+    mainNameDivClasses.push('mobile-shadow');
+    mainNameClasses.push('mobile');
+}
+else {
+    bannerClasses.push('desktop', 'desktop-pos');
+    mainNameClasses.push('desktop');
+}
 for (let i = 0; i < valks.length; i++) {
     const button = document.createElement('button');
     button.setAttribute('type', 'button');
-    button.classList.add('banner', 'hidden', 'pos-rel');
+    button.classList.add(...buttonClasses);
     const banner = document.createElement('div');
     banner.setAttribute('id', valks[i].acr);
+    banner.classList.add(...bannerClasses);
     const mainNameDiv = document.createElement('div');
-    mainNameDiv.classList.add('main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs');
+    mainNameDiv.classList.add(...mainNameDivClasses);
     const mainName = document.createElement('span');
-    mainName.setAttribute('id', `${valks[i].acr}-name`);
-    mainName.classList.add('vertical-text');
+    mainName.classList.add(...mainNameClasses);
     mainName.textContent = valks[i].name.replace(/[:']/g, '');
     mainNameDiv.appendChild(mainName);
     button.appendChild(banner);

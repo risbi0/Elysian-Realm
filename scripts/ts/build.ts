@@ -35,20 +35,36 @@ function imageAndLabel(cell: HTMLTableCellElement, row: HTMLTableRowElement, ite
 
     return cell;
 }
+
 // banners
+const buttonClasses: string[] = ['banner', 'pos-rel', 'hidden']
+const bannerClasses: string[] = [];
+const mainNameDivClasses: string[] = ['main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs'];
+const mainNameClasses: string[] = ['vertical-text'];
+if (isMobile) {
+    collContainer.classList.add('f-col');
+
+    buttonClasses.push('overflow-hide');
+    bannerClasses.push('mobile', 'mobile-pos');
+    mainNameDivClasses.push('mobile-shadow');
+    mainNameClasses.push('mobile');
+} else {
+    bannerClasses.push('desktop', 'desktop-pos');
+    mainNameClasses.push('desktop');
+}
 for (let i = 0; i < valks.length; i++) {
     const button: HTMLButtonElement = document.createElement('button');
     button.setAttribute('type', 'button');
-    button.classList.add('banner', 'hidden', 'pos-rel');
+    button.classList.add(...buttonClasses);
 
     const banner: HTMLDivElement = document.createElement('div');
     banner.setAttribute('id', valks[i].acr);
+    banner.classList.add(...bannerClasses);
 
     const mainNameDiv: HTMLDivElement = document.createElement('div');
-    mainNameDiv.classList.add('main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs');
+    mainNameDiv.classList.add(...mainNameDivClasses);
     const mainName: HTMLSpanElement = document.createElement('span');
-    mainName.setAttribute('id', `${valks[i].acr}-name`);
-    mainName.classList.add('vertical-text');
+    mainName.classList.add(...mainNameClasses);
     mainName.textContent = valks[i].name.replace(/[:']/g, '');
 
     mainNameDiv.appendChild(mainName);
@@ -56,6 +72,7 @@ for (let i = 0; i < valks.length; i++) {
     button.appendChild(mainNameDiv);
     collContainer.appendChild(button);
 }
+
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 export const guideContent = document.querySelector('#guide-content') as HTMLDivElement;
 export function buildGuideContent(dis: any) {
