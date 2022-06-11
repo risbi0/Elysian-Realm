@@ -20,9 +20,6 @@
     cursor: pointer;
 
     div:nth-child(1) {
-        @include wh($w: 100px, $h: 800px);
-        background-size: cover;
-        box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
         filter: brightness(35%);
         transition: 0.2s;
     }
@@ -32,6 +29,22 @@
         transition: 0.2s;
         color: white;
     }
+
+    > .desktop {
+        @include wh($w: 100px, $h: 800px);
+        box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
+        background-size: cover;
+    }
+
+    > .mobile {
+        @include wh($w: 100vw, $h: calc(100vw / 4));
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    > .mobile-shadow {
+        box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8),
+                    inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
+    }
 }
 .main-name {
     @include wh($w: 100%, $h: 100%);
@@ -39,11 +52,14 @@
 }
 .vertical-text {
     font-family: 'Raleway';
-    writing-mode: vertical-lr;
-    text-orientation: upright;
     text-transform: uppercase;
     letter-spacing: 8px;
     color: rgba(255, 255, 255, 0.7);
+
+    &.desktop {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+    }
 }
 #rating {
     @include margin($b: 2px);
