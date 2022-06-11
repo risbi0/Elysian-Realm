@@ -5,7 +5,6 @@
 @import 'partials/cover';
 @import 'partials/mainContainer';
 @import 'partials/bannerImages';
-@import 'partials/bannerNameSizes';
 @import 'partials/signetImages';
 @import 'partials/emblemImages';
 @import 'partials/suppImages';
@@ -32,6 +31,9 @@
 }
 .pos-rel {
     position: relative;
+}
+.overflow-hide {
+    overflow: hidden;
 }
 .fade {
     animation: fade 1s;
@@ -70,6 +72,32 @@
     }
     to {
         transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.fade-in-left {
+    animation: fadeinleft 2s;
+}
+.fade-in-right {
+    animation: fadeinright 2s;
+}
+@keyframes fadeinleft {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes fadeinright {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
         opacity: 1;
     }
 }
