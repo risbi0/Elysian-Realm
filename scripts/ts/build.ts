@@ -78,8 +78,8 @@ export const guideContent = document.querySelector('#guide-content') as HTMLDivE
 export function buildGuideContent(dis: any) {
     guideContainer.style.display = 'block';
 
-    const i = Array.from(dis.parentNode.children).indexOf(dis);
-    const valk = valks[i];
+    const i: number = Array.from(dis.parentNode.children).indexOf(dis);
+    const valk: any = valks[i];
     // inner name
     const innerName: HTMLHeadingElement = document.createElement('h2');
     innerName.textContent = valk.name;
