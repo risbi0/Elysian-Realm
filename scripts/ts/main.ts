@@ -4,38 +4,32 @@ import { guideContainer, guideContent, buildGuideContent } from './build.js';
 
 const body = document.querySelector('body') as HTMLBodyElement;
 const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
-const banners: any = document.querySelectorAll('.banner');
 
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 
-const subEquation: number = (window.innerWidth + Math.floor(window.innerWidth / 100)) / 100;
-let noOfBannersInViewport: number, scrollVal: number;
-if (isMobile) {
-    noOfBannersInViewport = Math.ceil(subEquation) + 0;
-    scrollVal = 0; // leftmost
-} else {
-    noOfBannersInViewport = Math.ceil(subEquation) + 1;
-    scrollVal = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2; // middle
-    mainContainer.scroll({ left: scrollVal }); // scroll to middle
-}
-// locks scroll in mainContainer during banner animation
-const preventScroll = (): void => { mainContainer.scroll({ left: scrollVal }) };
-mainContainer.addEventListener('scroll', preventScroll);
-// setup no. of banners
-
-const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
-let finalArr: number[];
 // setup of banner indices for animation order
-// mobile - banners on the leftmost side of mainContainer (starting view) in left to right order
-// desktop - banners on the middile of mainContainer (starting view) in random order
+// mobile - all banners in linear order, horizontal animation
+// desktop - banners in the middile of mainContainer (starting view) in random order, vertical animation
+let animation1: string, animation2: string;
+let preventScroll: any;
+let noOfBannersInViewport: number = 0;
+let finalArr: number[] = [];
 if (isMobile) {
-    finalArr = [...Array(noOfBannersInViewport).keys()];
+    [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
+    finalArr = [...Array(valks.length).keys()]; // all
 } else {
-    finalArr = [];
+    [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
+    const scrollVal: number = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2; // middle
+    mainContainer.scroll({ left: scrollVal }); // scroll to middle
+    // lock mainContainer scroll during banner animation
+    preventScroll = () => { mainContainer.scroll({ left: scrollVal }) };
+    mainContainer.addEventListener('scroll', preventScroll);
+    // setup no. of banners
+    noOfBannersInViewport = Math.ceil((window.innerWidth + Math.floor(window.innerWidth / 100)) / 100) + 1;
+    const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
     const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
     const bannerIndicesInDektopViewport: number[] = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport });
-
     // randomize array elements
     const bannerLength: number = bannerIndicesInDektopViewport.length;
     for (let i = 0; i < bannerLength; i++) {
@@ -55,6 +49,7 @@ function load(src: string): Promise<unknown> {
     });
 }
 // interval gets faster the more banners in viewport
+// in mobile, interval is constant
 const interval: number = 300 - noOfBannersInViewport * 5;
 let time: number = 0;
 function fadeAnim(item: any, fade: string): void {
@@ -78,6 +73,7 @@ const cover = document.querySelector('#cover') as HTMLDivElement;
 const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
 const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.querySelector('#meter') as HTMLDivElement;
+const banners: any = document.querySelectorAll('.banner');
 let done: number = 0, progressInPixels: number = 0;
 url.forEach((link: string) => {
     load(link).then(() => {
@@ -97,17 +93,19 @@ url.forEach((link: string) => {
             // only applied to the banners in the viewport
             finalArr.forEach((_, index) => {
                 if (index % 2 == 0) {
-                    fadeAnim(banners[finalArr[index]], 'fade-in-up');
+                    fadeAnim(banners[finalArr[index]], animation1);
                 } else {
-                    fadeAnim(banners[finalArr[index]], 'fade-in-down');
+                    fadeAnim(banners[finalArr[index]], animation2);
                 }
             });
-            // instantly display banners outside viewport
-            // not covering the one in a million chance that the user
-            // expands the window width while the animation is still ongoing
-            banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
-            // allow scroll
-            setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
+            if (!isMobile) {
+                // instantly display banners outside viewport
+                // not covering the one in a million chance that the user
+                // expands the window width while the animation is still ongoing
+                banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
+                // allow scroll
+                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
+            }
         }
     });
 });

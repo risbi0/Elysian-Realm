@@ -3,29 +3,24 @@ import { signetSummary } from './data.js';
 import { guideContainer, guideContent, buildGuideContent } from './build.js';
 const body = document.querySelector('body');
 const mainContainer = document.querySelector('#main-container');
-const banners = document.querySelectorAll('.banner');
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
-const subEquation = (window.innerWidth + Math.floor(window.innerWidth / 100)) / 100;
-let noOfBannersInViewport, scrollVal;
+let animation1, animation2;
+let preventScroll;
+let noOfBannersInViewport = 0;
+let finalArr = [];
 if (isMobile) {
-    noOfBannersInViewport = Math.ceil(subEquation) + 0;
-    scrollVal = 0;
+    [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
+    finalArr = [...Array(valks.length).keys()];
 }
 else {
-    noOfBannersInViewport = Math.ceil(subEquation) + 1;
-    scrollVal = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2;
+    [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
+    const scrollVal = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2;
     mainContainer.scroll({ left: scrollVal });
-}
-const preventScroll = () => { mainContainer.scroll({ left: scrollVal }); };
-mainContainer.addEventListener('scroll', preventScroll);
-const noOfBannersNotInViewport = valks.length - noOfBannersInViewport;
-let finalArr;
-if (isMobile) {
-    finalArr = [...Array(noOfBannersInViewport).keys()];
-}
-else {
-    finalArr = [];
+    preventScroll = () => { mainContainer.scroll({ left: scrollVal }); };
+    mainContainer.addEventListener('scroll', preventScroll);
+    noOfBannersInViewport = Math.ceil((window.innerWidth + Math.floor(window.innerWidth / 100)) / 100) + 1;
+    const noOfBannersNotInViewport = valks.length - noOfBannersInViewport;
     const noOfBannersLeftOfViewport = Math.round(noOfBannersNotInViewport / 2);
     const bannerIndicesInDektopViewport = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport; });
     const bannerLength = bannerIndicesInDektopViewport.length;
@@ -64,6 +59,7 @@ const cover = document.querySelector('#cover');
 const progressBar = document.querySelector('#progress-bar');
 const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.querySelector('#meter');
+const banners = document.querySelectorAll('.banner');
 let done = 0, progressInPixels = 0;
 url.forEach((link) => {
     load(link).then(() => {
@@ -80,15 +76,17 @@ url.forEach((link) => {
             setTimeout(() => { cover.remove(); }, 800);
             finalArr.forEach((_, index) => {
                 if (index % 2 == 0) {
-                    fadeAnim(banners[finalArr[index]], 'fade-in-up');
+                    fadeAnim(banners[finalArr[index]], animation1);
                 }
                 else {
-                    fadeAnim(banners[finalArr[index]], 'fade-in-down');
+                    fadeAnim(banners[finalArr[index]], animation2);
                 }
             });
-            banners.forEach((_, index) => { if (!finalArr.includes(index))
-                banners[index].classList.remove('hidden'); });
-            setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll); }, noOfBannersInViewport * interval);
+            if (!isMobile) {
+                banners.forEach((_, index) => { if (!finalArr.includes(index))
+                    banners[index].classList.remove('hidden'); });
+                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll); }, noOfBannersInViewport * interval);
+            }
         }
     });
 });
