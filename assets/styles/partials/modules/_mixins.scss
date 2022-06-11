@@ -16,9 +16,23 @@
     text-align: center;
 }
 
-@mixin imagePos($src, $offset) {
-    background-image: $src;
-    background-position: $offset;
+@mixin bannerImages($name, $src, $desktop-offset, $mobile-offset, $desktop-font-size: none, $mobile-font-size: none) {
+    ##{$name} {
+        background-image: $src;
+        &.desktop-pos {
+            background-position: $desktop-offset;
+        }
+        &.mobile-pos {
+            transform-origin: top center;
+            transform: $mobile-offset;
+        }
+        ~ .main-name > .desktop {
+            font-size: $desktop-font-size;
+        }
+        ~ .main-name > .mobile {
+            font-size: $mobile-font-size;
+        }
+    }
 }
 
 @mixin colorTransition($c, $t) {
