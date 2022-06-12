@@ -40,6 +40,17 @@
     ::-webkit-scrollbar { 
         display: none;
     }
+
+    &.mobile {
+        @include wh($w: 100%, $h: calc(100vh - 25vw));
+        transform: translateX(-50%);
+    }
+
+    &.desktop {
+        @include wh($w: 600px, $h: 800px);
+        border: 3px solid rgba($color: white, $alpha: 0.5);
+        transform: translate(-50%, 15%);
+    }
 }
 /* desktop */
 @include animationPreset(guide-entry-desktop, guideentrydesktop, 0.6s, $top, $desktop-og, 0, 1);

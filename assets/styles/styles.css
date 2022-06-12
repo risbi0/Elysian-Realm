@@ -100,7 +100,7 @@ body::-webkit-scrollbar-track {
 
 .banner > .mobile {
   width: 100vw;
-  height: calc(100vw / 4);
+  height: 25vw;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -1216,6 +1216,21 @@ body::-webkit-scrollbar-track {
 
 #guide-content ::-webkit-scrollbar {
   display: none;
+}
+
+#guide-content.mobile {
+  width: 100%;
+  height: calc(100vh - 25vw);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#guide-content.desktop {
+  width: 600px;
+  height: 800px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  -webkit-transform: translate(-50%, 15%);
+          transform: translate(-50%, 15%);
 }
 
 /* desktop */

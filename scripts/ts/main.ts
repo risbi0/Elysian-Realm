@@ -4,9 +4,27 @@ import { guideContainer, guideContent, buildGuideContent } from './build.js';
 
 const body = document.querySelector('body') as HTMLBodyElement;
 const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
+const deviceWidth: number = window.innerWidth;
+const deviceHeight: number = window.innerHeight;
 
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
+
+let originalText: string | null, previousText: any;
+function changeText(deez: HTMLDivElement): void {
+    for(let i = 0; i < Object.keys(signetSummary).length; i++) {
+        if (signetSummary[i].signets.includes(deez.textContent) ||
+            signetSummary[i].signets == deez.textContent) {
+            previousText = deez;
+            originalText = deez.textContent;
+            deez.textContent = signetSummary[i].summary;
+        } 
+    }
+}
+function revertText(deez: HTMLDivElement): void {
+    deez.textContent = originalText;
+    originalText = null;
+}
 
 // setup of banner indices for animation order
 // mobile - all banners in linear order, horizontal animation
@@ -15,9 +33,25 @@ let animation1: string, animation2: string;
 let preventScroll: any;
 let noOfBannersInViewport: number = 0;
 let finalArr: number[] = [];
+// change signet name to summary on hover/click
+let summOnHover: any;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
     finalArr = [...Array(valks.length).keys()]; // all
+
+    summOnHover = (signets: any) => {
+        signets.forEach((signet: any) => {
+            signet.addEventListener('mouseover', function(this: any) {
+                if (originalText != null && previousText != this) {
+                    revertText(previousText);
+                    changeText(this);
+                } else if (originalText == null) { changeText(this);
+                } else if (previousText == this) { revertText(previousText); }
+            });
+        });
+    }
+
+    guideContent.classList.add('mobile');
 } else {
     [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
     const scrollVal: number = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2; // middle
@@ -26,7 +60,7 @@ if (isMobile) {
     preventScroll = () => { mainContainer.scroll({ left: scrollVal }) };
     mainContainer.addEventListener('scroll', preventScroll);
     // setup no. of banners
-    noOfBannersInViewport = Math.ceil((window.innerWidth + Math.floor(window.innerWidth / 100)) / 100) + 1;
+    noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
     const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
     const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
     const bannerIndicesInDektopViewport: number[] = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport });
@@ -37,10 +71,20 @@ if (isMobile) {
         finalArr.push(bannerIndicesInDektopViewport[randomIndex]);
         bannerIndicesInDektopViewport.splice(bannerIndicesInDektopViewport.indexOf(bannerIndicesInDektopViewport[randomIndex]), 1);
     }
+
+    summOnHover = (signets: any) => {
+        signets.forEach((signet: any) => {
+            signet.addEventListener('mouseover', function(this: any) { changeText(this) });
+            signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
+        });
+    }
+    
+    guideContent.classList.add('desktop');
 }
 
 // execute animation after all images are loaded
 function load(src: string): Promise<unknown> {
+    console.log('aaaaaa');
     return new Promise((resolve, reject) => {
         const image: HTMLImageElement = new Image();
         image.addEventListener('load', resolve);
@@ -110,52 +154,6 @@ url.forEach((link: string) => {
     });
 });
 
-let originalText: string | null, previousText: any;
-function changeText(deez: HTMLDivElement): void {
-    for(let i = 0; i < Object.keys(signetSummary).length; i++) {
-        if (signetSummary[i].signets.includes(deez.textContent) ||
-            signetSummary[i].signets == deez.textContent) {
-            previousText = deez;
-            originalText = deez.textContent;
-            deez.textContent = signetSummary[i].summary;
-        } 
-    }
-}
-function revertText(deez: HTMLDivElement): void {
-    deez.textContent = originalText;
-    originalText = null;
-}
-let summOnHover: any;
-if (isMobile) { // mobile browsers
-    // change signet name to summary on hover/click
-    summOnHover = (signets: any) => {
-        signets.forEach((signet: any) => {
-            signet.addEventListener('mouseover', function(this: any) {
-                if (originalText != null && previousText != this) {
-                    revertText(previousText);
-                    changeText(this);
-                } else if (originalText == null) { changeText(this);
-                } else if (previousText == this) { revertText(previousText); }
-            });
-        });
-    }
-    guideContent.style.width = `${window.innerWidth}px`;
-    guideContent.style.height = `${window.innerHeight}px`;
-    guideContent.style.transform = 'translateX(-50%)';
-} else { // desktop browsers
-    summOnHover = (signets: any) => {
-        signets.forEach((signet: any) => {
-            signet.addEventListener('mouseover', function(this: any) { changeText(this) });
-            signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
-        });
-    }
-    guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-    guideContent.style.width = '600px';
-    guideContent.style.height = '800px';
-    guideContent.style.border = '3px solid rgba(255, 255, 255, 0.5)';
-    guideContent.style.transform = 'translate(-50%, 15%)';
-}
-
 const topButton = document.querySelector('#goToTop') as HTMLDivElement;
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 let currentBanner: any; // for unsetting styles in mobile
@@ -169,7 +167,7 @@ function hide() {
 
         guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > 
-            valks.length - 1 - Math.floor(window.innerHeight / (window.innerWidth / 4))) {
+            valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
             guideContent.classList.add('guide-bot-exit-mobile');
         } else {
             guideContent.classList.add('guide-top-exit-mobile');
@@ -201,23 +199,26 @@ banners.forEach((banner: any) => {
         // animation
         guideContainer.classList.remove('bg-fade-out');
         guideContainer.classList.add('bg-fade-in');
+        // button offsets
+        let closeButtonOffsetTop: number, topButtonOffsetTop: number;
         if (isMobile) {
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             // set scroll location and margin
             let offset: number = 0;
-            if (index > valks.length - 1 - Math.floor(window.innerHeight / (window.innerWidth / 4))) {
-                
+            if (index > valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
                 guideContent.classList.add('guide-bot-entry-mobile');
                 // scroll to banner on bottom
-                guideContent.style.height = `${window.innerHeight - window.innerWidth / 4}px`;
+                guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
                 guideContent.style.marginTop = '';
-                offset = this.offsetTop + this.offsetHeight - window.innerHeight;
+                offset = this.offsetTop + this.offsetHeight - deviceHeight;
+                closeButtonOffsetTop = 0;
+                topButtonOffsetTop = deviceHeight - deviceWidth / 4;
             } else { // scroll to banner on top
                 guideContent.classList.add('guide-top-entry-mobile');
-                guideContent.style.height = '100%';
-                guideContent.style.marginTop = 'calc(100vw / 4)';
-                guideContent.style.marginBottom = '';
+                guideContent.style.marginTop = '25vw';
                 offset = this.offsetTop;
+                closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
+                topButtonOffsetTop = deviceHeight;
             }
             window.scroll({ top: offset, behavior: 'smooth' });
             
@@ -327,12 +328,10 @@ banners.forEach((banner: any) => {
             });
 
             // close and to top button position
-            let guidePos: any = guideContent.getBoundingClientRect();
-            const setCloseButtonPos = (): void => {
-                guidePos = guideContent.getBoundingClientRect();
+            const setCloseButtonPos = (topOffset: number, leftOffset: number): void => {
                 closeButton.style.visibility = 'visible';
-                closeButton.style.top = `${guidePos.top + 15}px`;
-                closeButton.style.left = `${guidePos.right - 60}px`;
+                closeButton.style.top = `${topOffset + 15}px`;
+                closeButton.style.left = `${leftOffset - 60}px`;
             }
             if (isMobile) {
                 guideContainer.classList.remove('hidden');
@@ -344,25 +343,23 @@ banners.forEach((banner: any) => {
                 document.querySelectorAll('.vertical-text').forEach((text: any) => {
                     if (text.innerText != this.innerText) text.style.opacity = '0';
                 });
-                // another delay to account for animation delay
-                setTimeout(setCloseButtonPos, 100);
-                topButton.style.top = `${guidePos.height - 60}px`;
+                setCloseButtonPos(closeButtonOffsetTop, deviceWidth);
+                topButton.style.top = `${topButtonOffsetTop - 60}px`;
+                topButton.style.left = `${deviceWidth - 60}px`;
             } else {
-                setCloseButtonPos();
+                const guidePos = guideContent.getBoundingClientRect();
+                setCloseButtonPos(guidePos.top, guidePos.right);
                 topButton.style.top = `${guidePos.bottom - 60}px`;
+                topButton.style.left = `${guidePos.right - 60}px`;
             }
-            topButton.style.left = `${guidePos.right - 60}px`;
+            
         }, 600);
         const signets: any = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
         summOnHover(signets);
         
         // goToTop button visibility
         guideContent.addEventListener('scroll', function(this: any) {
-            if (guideContent.scrollTop > 700) {
-                topButton.style.visibility = 'visible';
-            } else {
-                topButton.style.visibility = 'hidden';
-            }
+            topButton.style.visibility = guideContent.scrollTop > 700 ? 'visible' : 'hidden';
         });
         // go to top of guide
         topButton.addEventListener('click', () => { guideContent.scroll({ top: 0, behavior: 'smooth' }); });

@@ -37,7 +37,7 @@
     }
 
     > .mobile {
-        @include wh($w: 100vw, $h: calc(100vw / 4));
+        @include wh($w: 100vw, $h: 25vw);
         background-size: contain;
         background-repeat: no-repeat;
     }

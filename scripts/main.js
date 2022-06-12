@@ -3,15 +3,50 @@ import { signetSummary } from './data.js';
 import { guideContainer, guideContent, buildGuideContent } from './build.js';
 const body = document.querySelector('body');
 const mainContainer = document.querySelector('#main-container');
+const deviceWidth = window.innerWidth;
+const deviceHeight = window.innerHeight;
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
+let originalText, previousText;
+function changeText(deez) {
+    for (let i = 0; i < Object.keys(signetSummary).length; i++) {
+        if (signetSummary[i].signets.includes(deez.textContent) ||
+            signetSummary[i].signets == deez.textContent) {
+            previousText = deez;
+            originalText = deez.textContent;
+            deez.textContent = signetSummary[i].summary;
+        }
+    }
+}
+function revertText(deez) {
+    deez.textContent = originalText;
+    originalText = null;
+}
 let animation1, animation2;
 let preventScroll;
 let noOfBannersInViewport = 0;
 let finalArr = [];
+let summOnHover;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
     finalArr = [...Array(valks.length).keys()];
+    summOnHover = (signets) => {
+        signets.forEach((signet) => {
+            signet.addEventListener('mouseover', function () {
+                if (originalText != null && previousText != this) {
+                    revertText(previousText);
+                    changeText(this);
+                }
+                else if (originalText == null) {
+                    changeText(this);
+                }
+                else if (previousText == this) {
+                    revertText(previousText);
+                }
+            });
+        });
+    };
+    guideContent.classList.add('mobile');
 }
 else {
     [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
@@ -19,7 +54,7 @@ else {
     mainContainer.scroll({ left: scrollVal });
     preventScroll = () => { mainContainer.scroll({ left: scrollVal }); };
     mainContainer.addEventListener('scroll', preventScroll);
-    noOfBannersInViewport = Math.ceil((window.innerWidth + Math.floor(window.innerWidth / 100)) / 100) + 1;
+    noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
     const noOfBannersNotInViewport = valks.length - noOfBannersInViewport;
     const noOfBannersLeftOfViewport = Math.round(noOfBannersNotInViewport / 2);
     const bannerIndicesInDektopViewport = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport; });
@@ -29,8 +64,17 @@ else {
         finalArr.push(bannerIndicesInDektopViewport[randomIndex]);
         bannerIndicesInDektopViewport.splice(bannerIndicesInDektopViewport.indexOf(bannerIndicesInDektopViewport[randomIndex]), 1);
     }
+    summOnHover = (signets) => {
+        signets.forEach((signet) => {
+            signet.addEventListener('mouseover', function () { changeText(this); });
+            signet.addEventListener('mouseout', function () { if (originalText != null)
+                revertText(this); });
+        });
+    };
+    guideContent.classList.add('desktop');
 }
 function load(src) {
+    console.log('aaaaaa');
     return new Promise((resolve, reject) => {
         const image = new Image();
         image.addEventListener('load', resolve);
@@ -90,57 +134,6 @@ url.forEach((link) => {
         }
     });
 });
-let originalText, previousText;
-function changeText(deez) {
-    for (let i = 0; i < Object.keys(signetSummary).length; i++) {
-        if (signetSummary[i].signets.includes(deez.textContent) ||
-            signetSummary[i].signets == deez.textContent) {
-            previousText = deez;
-            originalText = deez.textContent;
-            deez.textContent = signetSummary[i].summary;
-        }
-    }
-}
-function revertText(deez) {
-    deez.textContent = originalText;
-    originalText = null;
-}
-let summOnHover;
-if (isMobile) {
-    summOnHover = (signets) => {
-        signets.forEach((signet) => {
-            signet.addEventListener('mouseover', function () {
-                if (originalText != null && previousText != this) {
-                    revertText(previousText);
-                    changeText(this);
-                }
-                else if (originalText == null) {
-                    changeText(this);
-                }
-                else if (previousText == this) {
-                    revertText(previousText);
-                }
-            });
-        });
-    };
-    guideContent.style.width = `${window.innerWidth}px`;
-    guideContent.style.height = `${window.innerHeight}px`;
-    guideContent.style.transform = 'translateX(-50%)';
-}
-else {
-    summOnHover = (signets) => {
-        signets.forEach((signet) => {
-            signet.addEventListener('mouseover', function () { changeText(this); });
-            signet.addEventListener('mouseout', function () { if (originalText != null)
-                revertText(this); });
-        });
-    };
-    guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-    guideContent.style.width = '600px';
-    guideContent.style.height = '800px';
-    guideContent.style.border = '3px solid rgba(255, 255, 255, 0.5)';
-    guideContent.style.transform = 'translate(-50%, 15%)';
-}
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
 let currentBanner;
@@ -153,7 +146,7 @@ function hide() {
         currentBanner.children[1].children[0].style.color = null;
         guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) >
-            valks.length - 1 - Math.floor(window.innerHeight / (window.innerWidth / 4))) {
+            valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
             guideContent.classList.add('guide-bot-exit-mobile');
         }
         else {
@@ -183,21 +176,24 @@ banners.forEach((banner) => {
         guideContent.scrollTo({ top: 0 });
         guideContainer.classList.remove('bg-fade-out');
         guideContainer.classList.add('bg-fade-in');
+        let closeButtonOffsetTop, topButtonOffsetTop;
         if (isMobile) {
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             let offset = 0;
-            if (index > valks.length - 1 - Math.floor(window.innerHeight / (window.innerWidth / 4))) {
+            if (index > valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
                 guideContent.classList.add('guide-bot-entry-mobile');
-                guideContent.style.height = `${window.innerHeight - window.innerWidth / 4}px`;
+                guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
                 guideContent.style.marginTop = '';
-                offset = this.offsetTop + this.offsetHeight - window.innerHeight;
+                offset = this.offsetTop + this.offsetHeight - deviceHeight;
+                closeButtonOffsetTop = 0;
+                topButtonOffsetTop = deviceHeight - deviceWidth / 4;
             }
             else {
                 guideContent.classList.add('guide-top-entry-mobile');
-                guideContent.style.height = '100%';
-                guideContent.style.marginTop = 'calc(100vw / 4)';
-                guideContent.style.marginBottom = '';
+                guideContent.style.marginTop = '25vw';
                 offset = this.offsetTop;
+                closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
+                topButtonOffsetTop = deviceHeight;
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         }
@@ -292,12 +288,10 @@ banners.forEach((banner) => {
                 cell.addEventListener('mouseover', function () { highlightInvolvedRows(this, true); });
                 cell.addEventListener('mouseout', function () { highlightInvolvedRows(this, false); });
             });
-            let guidePos = guideContent.getBoundingClientRect();
-            const setCloseButtonPos = () => {
-                guidePos = guideContent.getBoundingClientRect();
+            const setCloseButtonPos = (topOffset, leftOffset) => {
                 closeButton.style.visibility = 'visible';
-                closeButton.style.top = `${guidePos.top + 15}px`;
-                closeButton.style.left = `${guidePos.right - 60}px`;
+                closeButton.style.top = `${topOffset + 15}px`;
+                closeButton.style.left = `${leftOffset - 60}px`;
             };
             if (isMobile) {
                 guideContainer.classList.remove('hidden');
@@ -308,24 +302,21 @@ banners.forEach((banner) => {
                     if (text.innerText != this.innerText)
                         text.style.opacity = '0';
                 });
-                setTimeout(setCloseButtonPos, 100);
-                topButton.style.top = `${guidePos.height - 60}px`;
+                setCloseButtonPos(closeButtonOffsetTop, deviceWidth);
+                topButton.style.top = `${topButtonOffsetTop - 60}px`;
+                topButton.style.left = `${deviceWidth - 60}px`;
             }
             else {
-                setCloseButtonPos();
+                const guidePos = guideContent.getBoundingClientRect();
+                setCloseButtonPos(guidePos.top, guidePos.right);
                 topButton.style.top = `${guidePos.bottom - 60}px`;
+                topButton.style.left = `${guidePos.right - 60}px`;
             }
-            topButton.style.left = `${guidePos.right - 60}px`;
         }, 600);
         const signets = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
         summOnHover(signets);
         guideContent.addEventListener('scroll', function () {
-            if (guideContent.scrollTop > 700) {
-                topButton.style.visibility = 'visible';
-            }
-            else {
-                topButton.style.visibility = 'hidden';
-            }
+            topButton.style.visibility = guideContent.scrollTop > 700 ? 'visible' : 'hidden';
         });
         topButton.addEventListener('click', () => { guideContent.scroll({ top: 0, behavior: 'smooth' }); });
     });
