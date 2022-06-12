@@ -337,6 +337,7 @@ export function buildGuideContent(i: number) {
         } else {
             // apply bottom margin on the secondary signets table
             // so the bottom row wouldn't be partly covered by the fade effect
+            // also useful on padding in desktop
             const secondaryTable = document.querySelector('#secondary-tbl') as HTMLDivElement;
             secondaryTable.style.marginBottom = '35px';
         }
