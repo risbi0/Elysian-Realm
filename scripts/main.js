@@ -7,6 +7,111 @@ const deviceWidth = window.innerWidth;
 const deviceHeight = window.innerHeight;
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
+function load(src) {
+    console.log('aaaaaa');
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.addEventListener('load', resolve);
+        image.addEventListener('error', reject);
+        image.src = src;
+    });
+}
+let time = 0;
+function fadeAnim(item, fade) {
+    setTimeout(() => {
+        item.classList.remove('hidden');
+        item.classList.add(fade);
+        setTimeout(() => { item.classList.remove(fade); }, 1990);
+    }, time);
+    time += interval;
+}
+const url = [];
+const mainStylesheet = document.styleSheets[1].cssRules;
+for (const cssRule of mainStylesheet) {
+    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
+        url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
+    }
+}
+const cover = document.querySelector('#cover');
+const progressBar = document.querySelector('#progress-bar');
+const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
+const meter = document.querySelector('#meter');
+const banners = document.querySelectorAll('.banner');
+let done = 0, progressInPixels = 0;
+url.forEach((link) => {
+    load(link).then(() => {
+        done += 1;
+        const percentDone = Math.round(done / url.length * 100) / 100;
+        const fillPixels = Math.round(percentDone * progressBarWidthInPixels);
+        while (meter.style.width != `${fillPixels}px`) {
+            progressInPixels += 1;
+            meter.style.width = `${progressInPixels}px`;
+        }
+        if (done == valks.length) {
+            body.style.overflow = 'auto';
+            cover.classList.add('fade');
+            setTimeout(() => { cover.remove(); }, 800);
+            finalArr.forEach((_, index) => {
+                if (index % 2 == 0) {
+                    fadeAnim(banners[finalArr[index]], animation1);
+                }
+                else {
+                    fadeAnim(banners[finalArr[index]], animation2);
+                }
+            });
+            if (!isMobile) {
+                banners.forEach((_, index) => { if (!finalArr.includes(index))
+                    banners[index].classList.remove('hidden'); });
+                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll); }, noOfBannersInViewport * interval);
+            }
+        }
+    });
+});
+function highlightAdjacentMergedCell(row, bool) {
+    if (row.innerHTML.match(/<\/td>/g).length == 1 ||
+        (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
+        const parentChildren = row.parentNode.children;
+        for (let i = 0; i < parentChildren.length; i++) {
+            if (parentChildren[i].innerHTML.includes('rowspan')) {
+                let j;
+                parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
+                const range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+                const thisIndex = row.rowIndex;
+                const mergedCellIndex = parentChildren[i].rowIndex;
+                if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
+                    if (bool) {
+                        parentChildren[i].children[j].classList.add('table-cell-hover');
+                    }
+                    else {
+                        parentChildren[i].children[j].classList.remove('table-cell-hover');
+                    }
+                }
+            }
+        }
+    }
+}
+function notedCell(row, removee, addee) {
+    for (let i = 0; i < row.children.length; i++) {
+        if (row.children[i].classList.contains(removee)) {
+            row.children[i].classList.remove(removee);
+            row.children[i].classList.add(addee);
+        }
+    }
+}
+function highlightInvolvedRows(row, bool) {
+    const mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
+    const cellIndex = row.parentNode.rowIndex;
+    for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
+        if (bool) {
+            row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
+            notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
+        }
+        else {
+            row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
+            notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
+        }
+    }
+}
 let originalText, previousText;
 function changeText(deez) {
     for (let i = 0; i < Object.keys(signetSummary).length; i++) {
@@ -73,67 +178,7 @@ else {
     };
     guideContent.classList.add('desktop');
 }
-function load(src) {
-    console.log('aaaaaa');
-    return new Promise((resolve, reject) => {
-        const image = new Image();
-        image.addEventListener('load', resolve);
-        image.addEventListener('error', reject);
-        image.src = src;
-    });
-}
 const interval = 300 - noOfBannersInViewport * 5;
-let time = 0;
-function fadeAnim(item, fade) {
-    setTimeout(() => {
-        item.classList.remove('hidden');
-        item.classList.add(fade);
-        setTimeout(() => { item.classList.remove(fade); }, 1990);
-    }, time);
-    time += interval;
-}
-const url = [];
-const mainStylesheet = document.styleSheets[1].cssRules;
-for (const cssRule of mainStylesheet) {
-    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
-        url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
-    }
-}
-const cover = document.querySelector('#cover');
-const progressBar = document.querySelector('#progress-bar');
-const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
-const meter = document.querySelector('#meter');
-const banners = document.querySelectorAll('.banner');
-let done = 0, progressInPixels = 0;
-url.forEach((link) => {
-    load(link).then(() => {
-        done += 1;
-        const percentDone = Math.round(done / url.length * 100) / 100;
-        const fillPixels = Math.round(percentDone * progressBarWidthInPixels);
-        while (meter.style.width != `${fillPixels}px`) {
-            progressInPixels += 1;
-            meter.style.width = `${progressInPixels}px`;
-        }
-        if (done == valks.length) {
-            body.style.overflow = 'auto';
-            cover.classList.add('fade');
-            setTimeout(() => { cover.remove(); }, 800);
-            finalArr.forEach((_, index) => {
-                if (index % 2 == 0) {
-                    fadeAnim(banners[finalArr[index]], animation1);
-                }
-                else {
-                    fadeAnim(banners[finalArr[index]], animation2);
-                }
-            });
-            if (!isMobile) {
-                banners.forEach((_, index) => { if (!finalArr.includes(index))
-                    banners[index].classList.remove('hidden'); });
-                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll); }, noOfBannersInViewport * interval);
-            }
-        }
-    });
-});
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
 let currentBanner;
@@ -216,51 +261,6 @@ banners.forEach((banner) => {
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
-        function highlightAdjacentMergedCell(row, bool) {
-            if (row.innerHTML.match(/<\/td>/g).length == 1 ||
-                (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
-                const parentChildren = row.parentNode.children;
-                for (let i = 0; i < parentChildren.length; i++) {
-                    if (parentChildren[i].innerHTML.includes('rowspan')) {
-                        let j;
-                        parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
-                        const range = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
-                        const thisIndex = row.rowIndex;
-                        const mergedCellIndex = parentChildren[i].rowIndex;
-                        if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
-                            if (bool) {
-                                parentChildren[i].children[j].classList.add('table-cell-hover');
-                            }
-                            else {
-                                parentChildren[i].children[j].classList.remove('table-cell-hover');
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        function notedCell(row, removee, addee) {
-            for (let i = 0; i < row.children.length; i++) {
-                if (row.children[i].classList.contains(removee)) {
-                    row.children[i].classList.remove(removee);
-                    row.children[i].classList.add(addee);
-                }
-            }
-        }
-        function highlightInvolvedRows(row, bool) {
-            const mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
-            const cellIndex = row.parentNode.rowIndex;
-            for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
-                if (bool) {
-                    row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
-                    notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
-                }
-                else {
-                    row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
-                    notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
-                }
-            }
-        }
         setTimeout(() => {
             document.querySelectorAll('input[type="checkbox"]:not(#emblem input[type="checkbox"])').forEach(checkbox => {
                 checkbox.addEventListener('mouseover', function () {

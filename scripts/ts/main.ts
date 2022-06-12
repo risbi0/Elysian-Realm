@@ -10,6 +10,128 @@ const deviceHeight: number = window.innerHeight;
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 
+// execute animation after all images are loaded
+function load(src: string): Promise<unknown> {
+    console.log('aaaaaa');
+    return new Promise((resolve, reject) => {
+        const image: HTMLImageElement = new Image();
+        image.addEventListener('load', resolve);
+        image.addEventListener('error', reject);
+        image.src = src;
+    });
+}
+let time: number = 0;
+function fadeAnim(item: any, fade: string): void {
+    setTimeout(() => {
+        item.classList.remove('hidden');
+        item.classList.add(fade);
+        setTimeout(() => { item.classList.remove(fade) }, 1990);
+    }, time);
+    time += interval;
+}
+// insert all webp paths
+const url: string[] = [];
+const mainStylesheet: any = document.styleSheets[1].cssRules;
+for (const cssRule of mainStylesheet) {
+    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
+       url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
+    }
+}
+// wait for images to load
+const cover = document.querySelector('#cover') as HTMLDivElement;
+const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
+const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
+const meter = document.querySelector('#meter') as HTMLDivElement;
+const banners: any = document.querySelectorAll('.banner');
+let done: number = 0, progressInPixels: number = 0;
+url.forEach((link: string) => {
+    load(link).then(() => {
+        done += 1;
+        // progress bar
+        const percentDone: number = Math.round(done / url.length * 100) / 100;
+        const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
+        while (meter.style.width != `${fillPixels}px`) {
+            progressInPixels += 1;
+            meter.style.width = `${progressInPixels}px`;
+        }
+        if (done == valks.length) { // start animation
+            body.style.overflow = 'auto';
+            cover.classList.add('fade');
+            setTimeout(() => { cover.remove() }, 800);
+            // fade-in-up/down animation
+            // only applied to the banners in the viewport
+            finalArr.forEach((_, index) => {
+                if (index % 2 == 0) {
+                    fadeAnim(banners[finalArr[index]], animation1);
+                } else {
+                    fadeAnim(banners[finalArr[index]], animation2);
+                }
+            });
+            if (!isMobile) {
+                // instantly display banners outside viewport
+                // not covering the one in a million chance that the user
+                // expands the window width while the animation is still ongoing
+                banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
+                // allow scroll
+                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
+            }
+        }
+    });
+});
+
+function highlightAdjacentMergedCell(row: any, bool: boolean): void {
+    // check if inner HTML only has 1 pair of td tags
+    // in a 2 column table it has 2 td tags per row
+    // meaning if a row has one less td tag it either has
+    // a missing cell in the row, or a merged cell (this case)
+    if (row.innerHTML.match(/<\/td>/g).length == 1 ||
+        // for cells with .noted class
+    (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
+        // get all rows of its parent table
+        const parentChildren: any = row.parentNode.children;
+        // iterate and check if row has a rowspan attribute in the cell of the 2nd column
+        for (let i = 0; i < parentChildren.length; i++) {
+            if (parentChildren[i].innerHTML.includes('rowspan')) {
+                let j: number;
+                parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
+                // get rowspan value
+                const range: number = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
+                // get index of selected row and merged cell
+                const thisIndex: number = row.rowIndex;
+                const mergedCellIndex: number = parentChildren[i].rowIndex;
+                // check if index is covered within the range of merged cell
+                if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
+                    // apply styles
+                    if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
+                    else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
+                }
+            }
+        }
+    }
+}
+function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
+    // .temp class to know which had the .noted class
+    for (let i = 0; i < row.children.length; i++) {
+        if (row.children[i].classList.contains(removee)) {
+            row.children[i].classList.remove(removee);
+            row.children[i].classList.add(addee);
+        }
+    }
+}
+function highlightInvolvedRows(row: any, bool: boolean): void {
+    const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
+    const cellIndex: number = row.parentNode.rowIndex;
+    for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
+        if (bool) {
+            row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
+            notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
+        } else {
+            row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
+            notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
+        }
+    }
+}
+
 let originalText: string | null, previousText: any;
 function changeText(deez: HTMLDivElement): void {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
@@ -82,77 +204,9 @@ if (isMobile) {
     guideContent.classList.add('desktop');
 }
 
-// execute animation after all images are loaded
-function load(src: string): Promise<unknown> {
-    console.log('aaaaaa');
-    return new Promise((resolve, reject) => {
-        const image: HTMLImageElement = new Image();
-        image.addEventListener('load', resolve);
-        image.addEventListener('error', reject);
-        image.src = src;
-    });
-}
 // interval gets faster the more banners in viewport
 // in mobile, interval is constant
 const interval: number = 300 - noOfBannersInViewport * 5;
-let time: number = 0;
-function fadeAnim(item: any, fade: string): void {
-    setTimeout(() => {
-        item.classList.remove('hidden');
-        item.classList.add(fade);
-        setTimeout(() => { item.classList.remove(fade) }, 1990);
-    }, time);
-    time += interval;
-}
-// insert all webp paths
-const url: string[] = [];
-const mainStylesheet: any = document.styleSheets[1].cssRules;
-for (const cssRule of mainStylesheet) {
-    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
-       url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
-    }
-}
-// wait for images to load
-const cover = document.querySelector('#cover') as HTMLDivElement;
-const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
-const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
-const meter = document.querySelector('#meter') as HTMLDivElement;
-const banners: any = document.querySelectorAll('.banner');
-let done: number = 0, progressInPixels: number = 0;
-url.forEach((link: string) => {
-    load(link).then(() => {
-        done += 1;
-        // progress bar
-        const percentDone: number = Math.round(done / url.length * 100) / 100;
-        const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
-        while (meter.style.width != `${fillPixels}px`) {
-            progressInPixels += 1;
-            meter.style.width = `${progressInPixels}px`;
-        }
-        if (done == valks.length) { // start animation
-            body.style.overflow = 'auto';
-            cover.classList.add('fade');
-            setTimeout(() => { cover.remove() }, 800);
-            // fade-in-up/down animation
-            // only applied to the banners in the viewport
-            finalArr.forEach((_, index) => {
-                if (index % 2 == 0) {
-                    fadeAnim(banners[finalArr[index]], animation1);
-                } else {
-                    fadeAnim(banners[finalArr[index]], animation2);
-                }
-            });
-            if (!isMobile) {
-                // instantly display banners outside viewport
-                // not covering the one in a million chance that the user
-                // expands the window width while the animation is still ongoing
-                banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
-                // allow scroll
-                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
-            }
-        }
-    });
-});
 
 const topButton = document.querySelector('#goToTop') as HTMLDivElement;
 const closeButton = document.querySelector('#close') as HTMLDivElement;
@@ -242,59 +296,7 @@ banners.forEach((banner: any) => {
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        function highlightAdjacentMergedCell(row: any, bool: boolean): void {
-            // check if inner HTML only has 1 pair of td tags
-            // in a 2 column table it has 2 td tags per row
-            // meaning if a row has one less td tag it either has
-            // a missing cell in the row, or a merged cell (this case)
-            if (row.innerHTML.match(/<\/td>/g).length == 1 ||
-                // for cells with .noted class
-            (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
-                // get all rows of its parent table
-                const parentChildren: any = row.parentNode.children;
-                // iterate and check if row has a rowspan attribute in the cell of the 2nd column
-                for (let i = 0; i < parentChildren.length; i++) {
-                    if (parentChildren[i].innerHTML.includes('rowspan')) {
-                        let j: number;
-                        parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
-                        // get rowspan value
-                        const range: number = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
-                        // get index of selected row and merged cell
-                        const thisIndex: number = row.rowIndex;
-                        const mergedCellIndex: number = parentChildren[i].rowIndex;
-                        // check if index is covered within the range of merged cell
-                        if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
-                            // apply styles
-                            if (bool) { parentChildren[i].children[j].classList.add('table-cell-hover') }
-                            else { parentChildren[i].children[j].classList.remove('table-cell-hover') }
-                        }
-                    }
-                }
-            }
-        }
-        function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
-            // .temp class to know which had the .noted class
-            for (let i = 0; i < row.children.length; i++) {
-                if (row.children[i].classList.contains(removee)) {
-                    row.children[i].classList.remove(removee);
-                    row.children[i].classList.add(addee);
-                }
-            }
-        }
-        function highlightInvolvedRows(row: any, bool: boolean): void {
-            const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
-            const cellIndex: number = row.parentNode.rowIndex;
-            for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
-                if (bool) {
-                    row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
-                    notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
-                } else {
-                    row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
-                    notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
-                }
-            }
-        }
+        
         setTimeout(() => { // timeout to prevent highlighting when guide is still in animation
             // support valk avatar transition on hover
             document.querySelectorAll('input[type="checkbox"]:not(#emblem input[type="checkbox"])').forEach(checkbox => {
