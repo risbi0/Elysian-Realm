@@ -85,7 +85,7 @@ function highlightAdjacentMergedCell(row: any, bool: boolean): void {
     // a missing cell in the row, or a merged cell (this case)
     if (row.innerHTML.match(/<\/td>/g).length === 1 ||
         // for cells with .noted class
-    (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
+        (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
         // get all rows of its parent table
         const parentChildren: any = row.parentNode.children;
         // iterate and check if row has a rowspan attribute in the cell of the 2nd column
