@@ -201,11 +201,11 @@ if (isMobile) {
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
     guideContent.classList.add('desktop');
 }
-
-// interval gets faster the more banners in viewport
+// interval gets faster the more banners are in viewport
 // in mobile, interval is constant
 const interval: number = 300 - noOfBannersInViewport * 5;
 
+// modal closing setup
 const topButton = document.querySelector('#goToTop') as HTMLDivElement;
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
@@ -227,10 +227,9 @@ function hide() {
         }
         // unhide banner names
         document.querySelectorAll('.vertical-text').forEach((text: any) => { text.style.opacity = '1'; });
-
+        // hide fade effect
         for (const cssRule of mainStylesheet) {
-            if (cssRule.selectorText == '#guide-container::after' ||
-                cssRule.selectorText == '#guide-container::before') {
+            if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
                 cssRule.style.opacity = '0';
             }
         }
@@ -251,8 +250,7 @@ guideContainer.addEventListener('click', () => { hide(); }); // close when click
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
 function contentFade(topOffset: string, bottomOffset: string, direction: string): void {
     for (const cssRule of mainStylesheet) {
-        if (cssRule.selectorText == '#guide-container::before' ||
-            cssRule.selectorText == '#guide-container::after') {
+        if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
             cssRule.style.opacity = '1';
             if (cssRule.selectorText == '#guide-container::before') {
                 cssRule.style.top = topOffset;
@@ -365,7 +363,6 @@ banners.forEach((banner: any) => {
                 topButton.style.top = `${guidePos.bottom - 60}px`;
                 topButton.style.left = `${guidePos.right - 60}px`;
             }
-            
         }, 600);
 
         const signets: any = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');

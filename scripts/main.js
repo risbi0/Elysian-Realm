@@ -199,8 +199,7 @@ function hide() {
         }
         document.querySelectorAll('.vertical-text').forEach((text) => { text.style.opacity = '1'; });
         for (const cssRule of mainStylesheet) {
-            if (cssRule.selectorText == '#guide-container::after' ||
-                cssRule.selectorText == '#guide-container::before') {
+            if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
                 cssRule.style.opacity = '0';
             }
         }
@@ -221,8 +220,7 @@ guideContainer.addEventListener('click', () => { hide(); });
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
 function contentFade(topOffset, bottomOffset, direction) {
     for (const cssRule of mainStylesheet) {
-        if (cssRule.selectorText == '#guide-container::before' ||
-            cssRule.selectorText == '#guide-container::after') {
+        if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
             cssRule.style.opacity = '1';
             if (cssRule.selectorText == '#guide-container::before') {
                 cssRule.style.top = topOffset;
