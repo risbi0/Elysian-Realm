@@ -3,7 +3,6 @@
 #guide-container {
     @include wh($w: 100%, $h: 100%);
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.3);
 }
 .bg-fade-in {
     animation: bgfadein 0.5s;
@@ -42,10 +41,10 @@
     }
 }
 .guide-entry-desktop {
-    animation: guideentrydesktop 0.5s;
+    animation: guideentrydesktop 0.6s;
 }
 .guide-exit-desktop {
-    animation: guideexitdesktop 0.5s;
+    animation: guideexitdesktop 0.6s;
 }
 @keyframes guideentrydesktop {
     from {
@@ -67,13 +66,13 @@
         opacity: 0;
     }
 }
-.guide-entry-mobile {
-    animation: guideentrymobile 0.5s;
+.guide-top-entry-mobile {
+    animation: guidetopentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
-.guide-exit-mobile {
-    animation: guideexitmobile 0.5s;
+.guide-top-exit-mobile {
+    animation: guidetopexitmobile 0.5s;
 }
-@keyframes guideentrymobile {
+@keyframes guidetopentrymobile {
     from {
         transform: translate(-50%, -100px);
         opacity: 0;
@@ -83,13 +82,39 @@
         opacity: 1;
     }
 }
-@keyframes guideexitmobile {
+@keyframes guidetopexitmobile {
     from {
         transform: translateX(-50%);
         opacity: 1;
     }
     to {
         transform: translate(-50%, -100px);
+        opacity: 0;
+    }
+}
+.guide-bot-entry-mobile {
+    animation: guidebotentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+.guide-bot-exit-mobile {
+    animation: guidebotexitmobile 0.5s;
+}
+@keyframes guidebotentrymobile {
+    from {
+        transform: translate(-50%, 100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+}
+@keyframes guidebotexitmobile {
+    from {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, 100px);
         opacity: 0;
     }
 }
