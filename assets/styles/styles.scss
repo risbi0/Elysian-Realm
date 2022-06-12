@@ -157,7 +157,7 @@ h1 {
 }
 h2 {
     @include header(40px);
-    @include margin($t: 10px, $b: 10px);
+    @include margin($t: 10px);
     letter-spacing: 3px;
 }
 h3 {

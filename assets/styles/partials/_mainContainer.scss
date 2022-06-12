@@ -62,7 +62,7 @@
     }
 }
 #rating {
-    @include margin($b: 2px);
+    @include margin($t: 10px, $b: 2px);
     font-style: italic;
 }
 .build-no {
