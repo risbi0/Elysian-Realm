@@ -118,7 +118,7 @@ export function buildGuideContent(i: number) {
         guideContent.appendChild(recSignets);
         // anchors
         const signetTableLength: number = Object.keys(valk.builds[j].signetTable).length;
-        const hasTransitionTable: boolean = signetTableLength == 4;
+        const hasTransitionTable: boolean = signetTableLength === 4;
 
         const anchorContainer: HTMLDivElement = document.createElement('div');
         anchorContainer.classList.add('flex', 'f-row');
@@ -132,19 +132,19 @@ export function buildGuideContent(i: number) {
             const anchorDiv: HTMLDivElement = document.createElement('div');
             anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
 
-            if (k == 0 && hasTransitionTable) {
+            if (k === 0 && hasTransitionTable) {
                 letter = 'T';
                 link = `transitional-signets`;
                 accessibleName = 'Transitional Signets';
-            } else if ((k == 0 && !hasTransitionTable) || (k == 1 && hasTransitionTable)) {
+            } else if ((k === 0 && !hasTransitionTable) || (k === 1 && hasTransitionTable)) {
                 letter = 'M';
                 link = `main-signets`;
                 accessibleName = 'Main Signets';
-            } else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+            } else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
                 letter = 'S';
                 link = `secondary-signets`;
                 accessibleName = 'Secondary Signets';
-            } else if ((k == 3 && hasNotes) || (k == 2 && !(3 in valk.builds[j].signetTable))) {
+            } else if ((k === 3 && hasNotes) || (k === 2 && !(3 in valk.builds[j].signetTable))) {
                 letter = 'N';
                 link = `notes`;
                 accessibleName = 'Notes';
@@ -178,7 +178,7 @@ export function buildGuideContent(i: number) {
         for (let k = 0; k < emblemTableHeaders.length; k++) {
             const emblemTableHeader: HTMLTableCellElement = document.createElement('th');
             emblemTableHeader.textContent = emblemTableHeaders[k];
-            if (k == 1) emblemTableHeader.setAttribute('colspan', '2');
+            if (k === 1) emblemTableHeader.setAttribute('colspan', '2');
 
             emblemTableHeadRow.appendChild(emblemTableHeader);
         }
@@ -189,7 +189,7 @@ export function buildGuideContent(i: number) {
             const emblemTableBodyRow: HTMLTableRowElement = emblemTableBody.insertRow();
             for (let l = 1; l <= 2; l++) { // cells
                 let emblemTableBodyCell: HTMLTableCellElement;
-                if (l == 1) {
+                if (l === 1) {
                     emblemTableBodyCell = emblemTableBodyRow.insertCell();
                     emblemTableBodyCell.textContent = emblemTableTimeColumn[k - 1];
                 } else {
@@ -215,7 +215,7 @@ export function buildGuideContent(i: number) {
         for (let k = 0; k < supportTableHeaders.length; k++) {
             const supportTableHeader: HTMLTableCellElement = document.createElement('th');
             supportTableHeader.textContent = supportTableHeaders[k];
-            if (k == 1) supportTableHeader.setAttribute('colspan', '4');
+            if (k === 1) supportTableHeader.setAttribute('colspan', '4');
 
             supportTableHeadRow.appendChild(supportTableHeader);
         }
@@ -226,14 +226,14 @@ export function buildGuideContent(i: number) {
             const supportTableBodyRow: HTMLTableRowElement = supportTableBody.insertRow();
             for (let l = 1; l <= 3; l++) { // cells
                 let supportTableBodyCell: HTMLTableCellElement;
-                if (l == 1) {
+                if (l === 1) {
                     supportTableBodyCell = supportTableBodyRow.insertCell();
                     supportTableBodyCell.textContent = supportTableTypeColumn[k - 1];
                 } else {
                     for (let m = 1; m <= Object.keys(valk.builds[j].support[k][l - 1]).length; m++) {
                         supportTableBodyCell = imageAndLabel(supportTableBodyCell!, supportTableBodyRow, valk.builds[j].support[k][l - 1], m, true);
                     }
-                    if (Object.keys(valk.builds[j].support[k][l - 1]).length == 1) {
+                    if (Object.keys(valk.builds[j].support[k][l - 1]).length === 1) {
                         supportTableBodyCell!.setAttribute('colspan', '2');
                     }
                 }
@@ -259,15 +259,15 @@ export function buildGuideContent(i: number) {
                     headers = exclusiveTableColumns;
                     break;
                 default:
-                    if ((k == 1 && hasTransitionTable)) {
+                    if ((k === 1 && hasTransitionTable)) {
                         title = 'Transitional Signets';
                         link ='transitional-signets';
                         signetTable.setAttribute('id', 'transitional-tbl');
-                    } else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+                    } else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
                         title = 'Main Signets';
                         link = 'main-signets';
                         signetTable.setAttribute('id', 'main-tbl');
-                    } else if ((k == 2 && !hasTransitionTable) || (k == 3 && hasTransitionTable)) {
+                    } else if ((k === 2 && !hasTransitionTable) || (k === 3 && hasTransitionTable)) {
                         title = 'Secondary Signets';
                         link = 'secondary-signets';
                         signetTable.setAttribute('id', 'secondary-tbl');
@@ -284,7 +284,7 @@ export function buildGuideContent(i: number) {
                         recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valk.builds[j].signet[k][l][0].name.toLowerCase());
                         
                         const recSignetsLabel: HTMLLabelElement = document.createElement('label');
-                        recSignetsLabel.textContent = valk.builds[j].signet[k][l][1] == '1' ? 'I' : 'II';
+                        recSignetsLabel.textContent = valk.builds[j].signet[k][l][1] === '1' ? 'I' : 'II';
 
                         recSignetDiv.appendChild(recSignetsLabel);
                         signets.appendChild(recSignetDiv);
@@ -308,12 +308,12 @@ export function buildGuideContent(i: number) {
                 for (let m = 0; m < Object.keys(valk.builds[j].signetTable[k][l]).length; m++) { // cells
                     let signetTableBodyCell: HTMLTableCellElement;
                     // check if value isn't only a number, which is a value for rowspan 
-                    if (!(/^[0-9]+$/.test(valk.builds[j].signetTable[k][l][m])) && Object.keys(valk.builds[j].signetTable[k][l])[m] != 'detail') {
+                    if (!(/^[0-9]+$/.test(valk.builds[j].signetTable[k][l][m])) && Object.keys(valk.builds[j].signetTable[k][l])[m] !== 'detail') {
                         let prepend: string = '';
-                        if (k == 0 && m == 0) prepend = 'Blessing of ';
+                        if (k === 0 && m === 0) prepend = 'Blessing of ';
                         signetTableBodyCell = signetTableBodyRow.insertCell();
                         signetTableBodyCell.textContent = `${prepend}${valk.builds[j].signetTable[k][l][m]}`;
-                        if (valk.builds[j].signetTable[k][l][m] == '') signetTableBodyCell.previousElementSibling!.classList.add('noted');
+                        if (valk.builds[j].signetTable[k][l][m] === '') signetTableBodyCell.previousElementSibling!.classList.add('noted');
                     }
                     try { // check if next value is only a number, if so, apply as rowspan value
                         if (/^[0-9]+$/.test(valk.builds[j].signetTable[k][l][m + 1])) {

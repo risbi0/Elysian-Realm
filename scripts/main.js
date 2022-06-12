@@ -42,16 +42,16 @@ url.forEach((link) => {
         done += 1;
         const percentDone = Math.round(done / url.length * 100) / 100;
         const fillPixels = Math.round(percentDone * progressBarWidthInPixels);
-        while (meter.style.width != `${fillPixels}px`) {
+        while (meter.style.width !== `${fillPixels}px`) {
             progressInPixels += 1;
             meter.style.width = `${progressInPixels}px`;
         }
-        if (done == valks.length) {
+        if (done === valks.length) {
             body.style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove(); }, 800);
             finalArr.forEach((_, index) => {
-                if (index % 2 == 0) {
+                if (index % 2 === 0) {
                     fadeAnim(banners[finalArr[index]], animation1);
                 }
                 else {
@@ -67,7 +67,7 @@ url.forEach((link) => {
     });
 });
 function highlightAdjacentMergedCell(row, bool) {
-    if (row.innerHTML.match(/<\/td>/g).length == 1 ||
+    if (row.innerHTML.match(/<\/td>/g).length === 1 ||
         (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
         const parentChildren = row.parentNode.children;
         for (let i = 0; i < parentChildren.length; i++) {
@@ -115,7 +115,7 @@ let originalText, previousText;
 function changeText(deez) {
     for (let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
-            signetSummary[i].signets == deez.textContent) {
+            signetSummary[i].signets === deez.textContent) {
             previousText = deez;
             originalText = deez.textContent;
             deez.textContent = signetSummary[i].summary;
@@ -137,14 +137,14 @@ if (isMobile) {
     summOnHover = (signets) => {
         signets.forEach((signet) => {
             signet.addEventListener('mouseover', function () {
-                if (originalText != null && previousText != this) {
+                if (originalText !== null && previousText !== this) {
                     revertText(previousText);
                     changeText(this);
                 }
-                else if (originalText == null) {
+                else if (originalText === null) {
                     changeText(this);
                 }
-                else if (previousText == this) {
+                else if (previousText === this) {
                     revertText(previousText);
                 }
             });
@@ -171,7 +171,7 @@ else {
     summOnHover = (signets) => {
         signets.forEach((signet) => {
             signet.addEventListener('mouseover', function () { changeText(this); });
-            signet.addEventListener('mouseout', function () { if (originalText != null)
+            signet.addEventListener('mouseout', function () { if (originalText !== null)
                 revertText(this); });
         });
     };
@@ -199,7 +199,7 @@ function hide() {
         }
         document.querySelectorAll('.vertical-text').forEach((text) => { text.style.opacity = '1'; });
         for (const cssRule of mainStylesheet) {
-            if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
+            if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
                 cssRule.style.opacity = '0';
             }
         }
@@ -220,13 +220,13 @@ guideContainer.addEventListener('click', () => { hide(); });
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
 function contentFade(topOffset, bottomOffset, direction) {
     for (const cssRule of mainStylesheet) {
-        if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
+        if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
-            if (cssRule.selectorText == '#guide-container::before') {
+            if (cssRule.selectorText === '#guide-container::before') {
                 cssRule.style.top = topOffset;
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
             }
-            if (cssRule.selectorText == '#guide-container::after')
+            if (cssRule.selectorText === '#guide-container::after')
                 cssRule.style.bottom = bottomOffset;
         }
     }
@@ -270,7 +270,7 @@ banners.forEach((banner) => {
         tooltipable.forEach((item) => {
             item.addEventListener('click', () => {
                 for (const otherItem of tooltipable) {
-                    if (otherItem != item)
+                    if (otherItem !== item)
                         otherItem.checked = false;
                 }
             });
@@ -309,7 +309,7 @@ banners.forEach((banner) => {
                 this.children[0].style.filter = 'brightness(70%) blur(0.3px)';
                 this.children[1].children[0].style.color = 'white';
                 document.querySelectorAll('.vertical-text').forEach((text) => {
-                    if (text.innerText != this.innerText)
+                    if (text.innerText !== this.innerText)
                         text.style.opacity = '0';
                 });
                 setCloseButtonPos(closeButtonOffsetTop, deviceWidth);

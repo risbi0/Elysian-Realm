@@ -93,7 +93,7 @@ export function buildGuideContent(i) {
         }
         guideContent.appendChild(recSignets);
         const signetTableLength = Object.keys(valk.builds[j].signetTable).length;
-        const hasTransitionTable = signetTableLength == 4;
+        const hasTransitionTable = signetTableLength === 4;
         const anchorContainer = document.createElement('div');
         anchorContainer.classList.add('flex', 'f-row');
         const hasNotes = 'notes' in valk.builds[j];
@@ -106,22 +106,22 @@ export function buildGuideContent(i) {
             let letter = '', link = '', accessibleName = '';
             const anchorDiv = document.createElement('div');
             anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
-            if (k == 0 && hasTransitionTable) {
+            if (k === 0 && hasTransitionTable) {
                 letter = 'T';
                 link = `transitional-signets`;
                 accessibleName = 'Transitional Signets';
             }
-            else if ((k == 0 && !hasTransitionTable) || (k == 1 && hasTransitionTable)) {
+            else if ((k === 0 && !hasTransitionTable) || (k === 1 && hasTransitionTable)) {
                 letter = 'M';
                 link = `main-signets`;
                 accessibleName = 'Main Signets';
             }
-            else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+            else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
                 letter = 'S';
                 link = `secondary-signets`;
                 accessibleName = 'Secondary Signets';
             }
-            else if ((k == 3 && hasNotes) || (k == 2 && !(3 in valk.builds[j].signetTable))) {
+            else if ((k === 3 && hasNotes) || (k === 2 && !(3 in valk.builds[j].signetTable))) {
                 letter = 'N';
                 link = `notes`;
                 accessibleName = 'Notes';
@@ -149,7 +149,7 @@ export function buildGuideContent(i) {
         for (let k = 0; k < emblemTableHeaders.length; k++) {
             const emblemTableHeader = document.createElement('th');
             emblemTableHeader.textContent = emblemTableHeaders[k];
-            if (k == 1)
+            if (k === 1)
                 emblemTableHeader.setAttribute('colspan', '2');
             emblemTableHeadRow.appendChild(emblemTableHeader);
         }
@@ -159,7 +159,7 @@ export function buildGuideContent(i) {
             const emblemTableBodyRow = emblemTableBody.insertRow();
             for (let l = 1; l <= 2; l++) {
                 let emblemTableBodyCell;
-                if (l == 1) {
+                if (l === 1) {
                     emblemTableBodyCell = emblemTableBodyRow.insertCell();
                     emblemTableBodyCell.textContent = emblemTableTimeColumn[k - 1];
                 }
@@ -184,7 +184,7 @@ export function buildGuideContent(i) {
         for (let k = 0; k < supportTableHeaders.length; k++) {
             const supportTableHeader = document.createElement('th');
             supportTableHeader.textContent = supportTableHeaders[k];
-            if (k == 1)
+            if (k === 1)
                 supportTableHeader.setAttribute('colspan', '4');
             supportTableHeadRow.appendChild(supportTableHeader);
         }
@@ -194,7 +194,7 @@ export function buildGuideContent(i) {
             const supportTableBodyRow = supportTableBody.insertRow();
             for (let l = 1; l <= 3; l++) {
                 let supportTableBodyCell;
-                if (l == 1) {
+                if (l === 1) {
                     supportTableBodyCell = supportTableBodyRow.insertCell();
                     supportTableBodyCell.textContent = supportTableTypeColumn[k - 1];
                 }
@@ -202,7 +202,7 @@ export function buildGuideContent(i) {
                     for (let m = 1; m <= Object.keys(valk.builds[j].support[k][l - 1]).length; m++) {
                         supportTableBodyCell = imageAndLabel(supportTableBodyCell, supportTableBodyRow, valk.builds[j].support[k][l - 1], m, true);
                     }
-                    if (Object.keys(valk.builds[j].support[k][l - 1]).length == 1) {
+                    if (Object.keys(valk.builds[j].support[k][l - 1]).length === 1) {
                         supportTableBodyCell.setAttribute('colspan', '2');
                     }
                 }
@@ -226,17 +226,17 @@ export function buildGuideContent(i) {
                     headers = exclusiveTableColumns;
                     break;
                 default:
-                    if ((k == 1 && hasTransitionTable)) {
+                    if ((k === 1 && hasTransitionTable)) {
                         title = 'Transitional Signets';
                         link = 'transitional-signets';
                         signetTable.setAttribute('id', 'transitional-tbl');
                     }
-                    else if ((k == 1 && !hasTransitionTable) || (k == 2 && hasTransitionTable)) {
+                    else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
                         title = 'Main Signets';
                         link = 'main-signets';
                         signetTable.setAttribute('id', 'main-tbl');
                     }
-                    else if ((k == 2 && !hasTransitionTable) || (k == 3 && hasTransitionTable)) {
+                    else if ((k === 2 && !hasTransitionTable) || (k === 3 && hasTransitionTable)) {
                         title = 'Secondary Signets';
                         link = 'secondary-signets';
                         signetTable.setAttribute('id', 'secondary-tbl');
@@ -250,7 +250,7 @@ export function buildGuideContent(i) {
                         const recSignetDiv = document.createElement('div');
                         recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valk.builds[j].signet[k][l][0].name.toLowerCase());
                         const recSignetsLabel = document.createElement('label');
-                        recSignetsLabel.textContent = valk.builds[j].signet[k][l][1] == '1' ? 'I' : 'II';
+                        recSignetsLabel.textContent = valk.builds[j].signet[k][l][1] === '1' ? 'I' : 'II';
                         recSignetDiv.appendChild(recSignetsLabel);
                         signets.appendChild(recSignetDiv);
                     }
@@ -271,13 +271,13 @@ export function buildGuideContent(i) {
                 const signetTableBodyRow = signetTableBody.insertRow();
                 for (let m = 0; m < Object.keys(valk.builds[j].signetTable[k][l]).length; m++) {
                     let signetTableBodyCell;
-                    if (!(/^[0-9]+$/.test(valk.builds[j].signetTable[k][l][m])) && Object.keys(valk.builds[j].signetTable[k][l])[m] != 'detail') {
+                    if (!(/^[0-9]+$/.test(valk.builds[j].signetTable[k][l][m])) && Object.keys(valk.builds[j].signetTable[k][l])[m] !== 'detail') {
                         let prepend = '';
-                        if (k == 0 && m == 0)
+                        if (k === 0 && m === 0)
                             prepend = 'Blessing of ';
                         signetTableBodyCell = signetTableBodyRow.insertCell();
                         signetTableBodyCell.textContent = `${prepend}${valk.builds[j].signetTable[k][l][m]}`;
-                        if (valk.builds[j].signetTable[k][l][m] == '')
+                        if (valk.builds[j].signetTable[k][l][m] === '')
                             signetTableBodyCell.previousElementSibling.classList.add('noted');
                     }
                     try {

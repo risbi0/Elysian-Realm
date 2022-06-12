@@ -49,18 +49,18 @@ url.forEach((link: string) => {
         // progress bar
         const percentDone: number = Math.round(done / url.length * 100) / 100;
         const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
-        while (meter.style.width != `${fillPixels}px`) {
+        while (meter.style.width !== `${fillPixels}px`) {
             progressInPixels += 1;
             meter.style.width = `${progressInPixels}px`;
         }
-        if (done == valks.length) { // start animation
+        if (done === valks.length) { // start animation
             body.style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove() }, 800);
             // fade-in-up/down animation
             // only applied to the banners in the viewport
             finalArr.forEach((_, index) => {
-                if (index % 2 == 0) {
+                if (index % 2 === 0) {
                     fadeAnim(banners[finalArr[index]], animation1);
                 } else {
                     fadeAnim(banners[finalArr[index]], animation2);
@@ -83,7 +83,7 @@ function highlightAdjacentMergedCell(row: any, bool: boolean): void {
     // in a 2 column table it has 2 td tags per row
     // meaning if a row has one less td tag it either has
     // a missing cell in the row, or a merged cell (this case)
-    if (row.innerHTML.match(/<\/td>/g).length == 1 ||
+    if (row.innerHTML.match(/<\/td>/g).length === 1 ||
         // for cells with .noted class
     (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
         // get all rows of its parent table
@@ -135,7 +135,7 @@ let originalText: string | null, previousText: any;
 function changeText(deez: HTMLDivElement): void {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
-            signetSummary[i].signets == deez.textContent) {
+            signetSummary[i].signets === deez.textContent) {
             previousText = deez;
             originalText = deez.textContent;
             deez.textContent = signetSummary[i].summary;
@@ -163,11 +163,11 @@ if (isMobile) {
     summOnHover = (signets: any) => {
         signets.forEach((signet: any) => {
             signet.addEventListener('mouseover', function(this: any) {
-                if (originalText != null && previousText != this) {
+                if (originalText !== null && previousText !== this) {
                     revertText(previousText);
                     changeText(this);
-                } else if (originalText == null) { changeText(this);
-                } else if (previousText == this) { revertText(previousText); }
+                } else if (originalText === null) { changeText(this);
+                } else if (previousText === this) { revertText(previousText); }
             });
         });
     }
@@ -195,7 +195,7 @@ if (isMobile) {
     summOnHover = (signets: any) => {
         signets.forEach((signet: any) => {
             signet.addEventListener('mouseover', function(this: any) { changeText(this) });
-            signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
+            signet.addEventListener('mouseout', function(this: any) { if (originalText !== null) revertText(this) });
         });
     }
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
@@ -229,7 +229,7 @@ function hide() {
         document.querySelectorAll('.vertical-text').forEach((text: any) => { text.style.opacity = '1'; });
         // hide fade effect
         for (const cssRule of mainStylesheet) {
-            if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
+            if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
                 cssRule.style.opacity = '0';
             }
         }
@@ -250,13 +250,13 @@ guideContainer.addEventListener('click', () => { hide(); }); // close when click
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
 function contentFade(topOffset: string, bottomOffset: string, direction: string): void {
     for (const cssRule of mainStylesheet) {
-        if (cssRule.selectorText == '#guide-container::before' || cssRule.selectorText == '#guide-container::after') {
+        if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
-            if (cssRule.selectorText == '#guide-container::before') {
+            if (cssRule.selectorText === '#guide-container::before') {
                 cssRule.style.top = topOffset;
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
             }
-            if (cssRule.selectorText == '#guide-container::after') cssRule.style.bottom = bottomOffset;
+            if (cssRule.selectorText === '#guide-container::after') cssRule.style.bottom = bottomOffset;
         }
     }
 }
@@ -305,7 +305,7 @@ banners.forEach((banner: any) => {
         const tooltipable: any = document.querySelectorAll('input');
         tooltipable.forEach((item: any) => {
             item.addEventListener('click', () => {
-                for (const otherItem of tooltipable) { if (otherItem != item) otherItem.checked = false }
+                for (const otherItem of tooltipable) { if (otherItem !== item) otherItem.checked = false }
             });
         });
 
@@ -352,7 +352,7 @@ banners.forEach((banner: any) => {
                 this.children[1].children[0].style.color = 'white';
                 // hide all banner names except from the selected banner
                 document.querySelectorAll('.vertical-text').forEach((text: any) => {
-                    if (text.innerText != this.innerText) text.style.opacity = '0';
+                    if (text.innerText !== this.innerText) text.style.opacity = '0';
                 });
                 setCloseButtonPos(closeButtonOffsetTop, deviceWidth);
                 topButton.style.top = `${topButtonOffsetTop - 60}px`;
