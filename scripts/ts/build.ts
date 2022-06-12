@@ -333,6 +333,11 @@ export function buildGuideContent(i: number) {
             notes.innerHTML = `Notes:<br><br>${valk.builds[j].notes}`;
 
             guideContent.appendChild(notes);
+        } else {
+            // apply bottom margin on the secondary signets table
+            // so the bottom row wouldn't be partly covered by the fade effect
+            const secondaryTable = document.querySelector('#secondary-tbl') as HTMLDivElement;
+            secondaryTable.style.marginBottom = '35px';
         }
     }
 }

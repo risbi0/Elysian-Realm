@@ -301,5 +301,9 @@ export function buildGuideContent(i) {
             notes.innerHTML = `Notes:<br><br>${valk.builds[j].notes}`;
             guideContent.appendChild(notes);
         }
+        else {
+            const secondaryTable = document.querySelector('#secondary-tbl');
+            secondaryTable.style.marginBottom = '35px';
+        }
     }
 }
