@@ -135,6 +135,7 @@ else {
                 revertText(this); });
         });
     };
+    guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
     guideContent.style.width = '600px';
     guideContent.style.height = '800px';
     guideContent.style.border = '3px solid rgba(255, 255, 255, 0.5)';
@@ -142,12 +143,23 @@ else {
 }
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
+let currentBanner;
 function hide() {
+    body.style.overflow = 'auto';
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
     if (isMobile) {
-        guideContent.classList.remove('guide-entry-mobile');
-        guideContent.classList.add('guide-exit-mobile');
+        currentBanner.children[0].style.filter = null;
+        currentBanner.children[1].children[0].style.color = null;
+        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
+        if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) >
+            valks.length - 1 - Math.floor(window.innerHeight / (window.innerWidth / 4))) {
+            guideContent.classList.add('guide-bot-exit-mobile');
+        }
+        else {
+            guideContent.classList.add('guide-top-exit-mobile');
+        }
+        document.querySelectorAll('.vertical-text').forEach((text) => { text.style.opacity = '1'; });
     }
     else {
         guideContent.classList.remove('guide-entry-desktop');
@@ -165,13 +177,29 @@ guideContainer.addEventListener('click', () => { hide(); });
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
 banners.forEach((banner) => {
     banner.addEventListener('click', function () {
-        buildGuideContent(this);
+        const index = Array.from(this.parentNode.children).indexOf(this);
+        buildGuideContent(index);
+        body.style.overflow = 'hidden';
         guideContent.scrollTo({ top: 0 });
         guideContainer.classList.remove('bg-fade-out');
         guideContainer.classList.add('bg-fade-in');
         if (isMobile) {
-            guideContent.classList.remove('guide-exit-mobile');
-            guideContent.classList.add('guide-entry-mobile');
+            guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
+            let offset = 0;
+            if (index > valks.length - 1 - Math.floor(window.innerHeight / (window.innerWidth / 4))) {
+                guideContent.classList.add('guide-bot-entry-mobile');
+                guideContent.style.height = `${window.innerHeight - window.innerWidth / 4}px`;
+                guideContent.style.marginTop = '';
+                offset = this.offsetTop + this.offsetHeight - window.innerHeight;
+            }
+            else {
+                guideContent.classList.add('guide-top-entry-mobile');
+                guideContent.style.height = '100%';
+                guideContent.style.marginTop = 'calc(100vw / 4)';
+                guideContent.style.marginBottom = '';
+                offset = this.offsetTop;
+            }
+            window.scroll({ top: offset, behavior: 'smooth' });
         }
         else {
             guideContent.classList.remove('guide-exit-desktop');
@@ -264,19 +292,36 @@ banners.forEach((banner) => {
                 cell.addEventListener('mouseover', function () { highlightInvolvedRows(this, true); });
                 cell.addEventListener('mouseout', function () { highlightInvolvedRows(this, false); });
             });
-            closeButton.style.visibility = 'visible';
-            closeButton.style.top = `${guideContent.getBoundingClientRect().top + 15}px`;
-            closeButton.style.left = `${guideContent.getBoundingClientRect().right - 60}px`;
-            topButton.style.top = `${guideContent.getBoundingClientRect().bottom - 60}px`;
-            topButton.style.left = `${guideContent.getBoundingClientRect().right - 60}px`;
-        }, 500);
+            let guidePos = guideContent.getBoundingClientRect();
+            const setCloseButtonPos = () => {
+                guidePos = guideContent.getBoundingClientRect();
+                closeButton.style.visibility = 'visible';
+                closeButton.style.top = `${guidePos.top + 15}px`;
+                closeButton.style.left = `${guidePos.right - 60}px`;
+            };
+            if (isMobile) {
+                guideContainer.classList.remove('hidden');
+                currentBanner = this;
+                this.children[0].style.filter = 'brightness(70%) blur(0.3px)';
+                this.children[1].children[0].style.color = 'white';
+                document.querySelectorAll('.vertical-text').forEach((text) => {
+                    if (text.innerText != this.innerText)
+                        text.style.opacity = '0';
+                });
+                setTimeout(setCloseButtonPos, 100);
+                topButton.style.top = `${guidePos.height - 60}px`;
+            }
+            else {
+                setCloseButtonPos();
+                topButton.style.top = `${guidePos.bottom - 60}px`;
+            }
+            topButton.style.left = `${guidePos.right - 60}px`;
+        }, 600);
         const signets = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
         summOnHover(signets);
         guideContent.addEventListener('scroll', function () {
             if (guideContent.scrollTop > 700) {
                 topButton.style.visibility = 'visible';
-                if (window.innerWidth <= 600)
-                    topButton.style.top = window.innerHeight - 60 + "px";
             }
             else {
                 topButton.style.visibility = 'hidden';
