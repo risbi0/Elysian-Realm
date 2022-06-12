@@ -4,6 +4,19 @@
 #guide-container {
     @include wh($w: 100%, $h: 100%);
     position: fixed;
+
+    &::before {
+        @include psuedo;
+        @include wh($w: 100%, $h: 5px);
+    
+    }
+
+    &::after {
+        @include psuedo;
+        @include wh($w: 100%, $h: 3em);
+        background-image: linear-gradient(0deg, black 0% 20%, transparent 100%);
+        
+    }
 }
 .bg-fade-in {
     animation: bgfadein 0.5s;

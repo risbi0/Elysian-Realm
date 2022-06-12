@@ -61,6 +61,13 @@
     }
 }
 
+@mixin psuedo {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
 @mixin animationPreset($class-name, $animation-name, $animation-others, $transform-from, $transform-to, $opacity-from, $opacity-to) {
     .#{$class-name} {
         animation: $animation-name $animation-others;
