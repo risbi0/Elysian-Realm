@@ -7,10 +7,10 @@
         height: 100vh;
     }
     #sub-container {
-        @include wh($w: 600px, $h:95vh);
         scrollbar-color: rgb(40, 40, 40) transparent !important;
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 5px;
+        width: 600px;
         max-width: 90%;
         padding: 20px;
         overflow-y: auto;

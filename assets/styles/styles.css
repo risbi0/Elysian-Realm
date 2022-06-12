@@ -1455,11 +1455,10 @@ body::-webkit-scrollbar-track {
 }
 
 #about #sub-container {
-  width: 600px;
-  height: 95vh;
   scrollbar-color: #282828 transparent !important;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
+  width: 600px;
   max-width: 90%;
   padding: 20px;
   overflow-y: auto;
