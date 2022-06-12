@@ -8,7 +8,6 @@ const deviceHeight = window.innerHeight;
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 function load(src) {
-    console.log('aaaaaa');
     return new Promise((resolve, reject) => {
         const image = new Image();
         image.addEventListener('load', resolve);
@@ -176,6 +175,7 @@ else {
                 revertText(this); });
         });
     };
+    guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
     guideContent.classList.add('desktop');
 }
 const interval = 300 - noOfBannersInViewport * 5;

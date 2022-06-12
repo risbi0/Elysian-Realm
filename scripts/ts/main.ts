@@ -12,7 +12,6 @@ body.style.overflow = 'hidden';
 
 // execute animation after all images are loaded
 function load(src: string): Promise<unknown> {
-    console.log('aaaaaa');
     return new Promise((resolve, reject) => {
         const image: HTMLImageElement = new Image();
         image.addEventListener('load', resolve);
@@ -172,7 +171,6 @@ if (isMobile) {
             });
         });
     }
-
     guideContent.classList.add('mobile');
 } else {
     [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
@@ -200,7 +198,7 @@ if (isMobile) {
             signet.addEventListener('mouseout', function(this: any) { if (originalText != null) revertText(this) });
         });
     }
-    
+    guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
     guideContent.classList.add('desktop');
 }
 
