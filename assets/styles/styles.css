@@ -432,8 +432,8 @@ body::-webkit-scrollbar-track {
 #da.mobile-pos {
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-transform: scale(15) translate(31.5%, -16%);
-          transform: scale(15) translate(31.5%, -16%);
+  -webkit-transform: scale(15) translate(31.63%, -16%);
+          transform: scale(15) translate(31.63%, -16%);
 }
 
 #da ~ .main-name > .desktop {

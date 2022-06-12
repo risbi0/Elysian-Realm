@@ -14,7 +14,7 @@
 
 @include bannerImages($name: da, $src: url("../img/valks/Dea_Anchora.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 9vw,
-                      $desktop-offset: 52.7%, $mobile-offset: scale(15) translate(31.5%, -16%));
+                      $desktop-offset: 52.7%, $mobile-offset: scale(15) translate(31.63%, -16%));
 
 @include bannerImages($name: dip, $src: url("../img/valks/Disciplinary_Perdition.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
