@@ -75,16 +75,21 @@ for (let i = 0; i < valks.length; i++) {
 
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 export const guideContent = document.querySelector('#guide-content') as HTMLDivElement;
-export function buildGuideContent(dis: any) {
+export function buildGuideContent(i: number) {
     guideContainer.style.display = 'block';
 
-    const i: number = Array.from(dis.parentNode.children).indexOf(dis);
     const valk: any = valks[i];
-    // inner name
-    const innerName: HTMLHeadingElement = document.createElement('h2');
-    innerName.textContent = valk.name;
+    if (isMobile) {
+        // hide for animation delay
+        guideContainer.classList.add('hidden');
+    } else {
+        // inner name
+        const innerName: HTMLHeadingElement = document.createElement('h2');
+        innerName.textContent = valk.name;
 
-    guideContent.appendChild(innerName);
+        guideContent.appendChild(innerName);
+    }
+    
     // rated difficulty
     const rating: HTMLParagraphElement = document.createElement('p');
     rating.setAttribute('id', 'rating');

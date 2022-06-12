@@ -59,13 +59,17 @@ for (let i = 0; i < valks.length; i++) {
 }
 export const guideContainer = document.querySelector('#guide-container');
 export const guideContent = document.querySelector('#guide-content');
-export function buildGuideContent(dis) {
+export function buildGuideContent(i) {
     guideContainer.style.display = 'block';
-    const i = Array.from(dis.parentNode.children).indexOf(dis);
     const valk = valks[i];
-    const innerName = document.createElement('h2');
-    innerName.textContent = valk.name;
-    guideContent.appendChild(innerName);
+    if (isMobile) {
+        guideContainer.classList.add('hidden');
+    }
+    else {
+        const innerName = document.createElement('h2');
+        innerName.textContent = valk.name;
+        guideContent.appendChild(innerName);
+    }
     const rating = document.createElement('p');
     rating.setAttribute('id', 'rating');
     rating.textContent = valk.rate;
