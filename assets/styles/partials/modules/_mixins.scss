@@ -60,3 +60,19 @@
         font-size: 35px;
     }
 }
+
+@mixin animationPreset($class-name, $animation-name, $animation-others, $transform-from, $transform-to, $opacity-from, $opacity-to) {
+    .#{$class-name} {
+        animation: $animation-name $animation-others;
+    }
+    @keyframes #{$animation-name} {
+        from {
+            transform: $transform-from;
+            opacity: $opacity-from;
+        }
+        to {
+            transform: $transform-to;
+            opacity: $opacity-to;
+        }
+    }
+}

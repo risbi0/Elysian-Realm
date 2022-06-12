@@ -1,3 +1,8 @@
 $white: rgba(255, 255, 255, 0.8);
 $dark-tint: rgba(0, 0, 0, 0.83);
 $scrollbar-thumb: rgb(30, 30, 30);
+$desktop-og: translate(-50%, 15%);
+$mobile-og: translateX(-50%);
+$top: translate(-50%, -100px);
+$bot: translate(-50%, 100px);
+$ease-in-bezier: cubic-bezier(0.55, 0.06, 0.68, 0.19);

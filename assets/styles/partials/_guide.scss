@@ -1,3 +1,4 @@
+@import 'modules/variables';
 @import 'modules/mixins';
 
 #guide-container {
@@ -40,81 +41,11 @@
         display: none;
     }
 }
-.guide-entry-desktop {
-    animation: guideentrydesktop 0.6s;
-}
-.guide-exit-desktop {
-    animation: guideexitdesktop 0.6s;
-}
-@keyframes guideentrydesktop {
-    from {
-        transform: translate(-50%, -100px);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, 15%);
-        opacity: 1;
-    }
-}
-@keyframes guideexitdesktop {
-    from {
-        transform: translate(-50%, 15%);
-        opacity: 1;
-    }
-    to {
-        transform: translate(-50%, -100px);
-        opacity: 0;
-    }
-}
-.guide-top-entry-mobile {
-    animation: guidetopentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-}
-.guide-top-exit-mobile {
-    animation: guidetopexitmobile 0.5s;
-}
-@keyframes guidetopentrymobile {
-    from {
-        transform: translate(-50%, -100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-50%);
-        opacity: 1;
-    }
-}
-@keyframes guidetopexitmobile {
-    from {
-        transform: translateX(-50%);
-        opacity: 1;
-    }
-    to {
-        transform: translate(-50%, -100px);
-        opacity: 0;
-    }
-}
-.guide-bot-entry-mobile {
-    animation: guidebotentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-}
-.guide-bot-exit-mobile {
-    animation: guidebotexitmobile 0.5s;
-}
-@keyframes guidebotentrymobile {
-    from {
-        transform: translate(-50%, 100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-50%);
-        opacity: 1;
-    }
-}
-@keyframes guidebotexitmobile {
-    from {
-        transform: translateX(-50%);
-        opacity: 1;
-    }
-    to {
-        transform: translate(-50%, 100px);
-        opacity: 0;
-    }
-}
+/* desktop */
+@include animationPreset(guide-entry-desktop, guideentrydesktop, 0.6s, $top, $desktop-og, 0, 1);
+@include animationPreset(guide-exit-desktop, guideexitdesktop, 0.6s, $desktop-og, $top, 1, 0);
+/* mobile */
+@include animationPreset(guide-top-entry-mobile, guideopenentrymobile, 0.6s 0.1s $ease-in-bezier, $top, $mobile-og, 0, 1);
+@include animationPreset(guide-top-exit-mobile, guideopenexitmobile, 0.5s, $mobile-og, $top, 1, 0);
+@include animationPreset(guide-bot-entry-mobile, guidebotentrymobile, 0.6s 0.1s $ease-in-bezier, $bot, $mobile-og, 0, 1);
+@include animationPreset(guide-bot-exit-mobile, guidebotexitmobile, 0.5s, $mobile-og, $bot, 1, 0);
