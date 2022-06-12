@@ -198,6 +198,12 @@ function hide() {
             guideContent.classList.add('guide-top-exit-mobile');
         }
         document.querySelectorAll('.vertical-text').forEach((text) => { text.style.opacity = '1'; });
+        for (const cssRule of mainStylesheet) {
+            if (cssRule.selectorText == '#guide-container::after' ||
+                cssRule.selectorText == '#guide-container::before') {
+                cssRule.style.opacity = '0';
+            }
+        }
     }
     else {
         guideContent.classList.remove('guide-entry-desktop');
@@ -213,6 +219,20 @@ function hide() {
 closeButton.addEventListener('click', () => { hide(); });
 guideContainer.addEventListener('click', () => { hide(); });
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
+function contentFade(topOffset, bottomOffset, direction) {
+    for (const cssRule of mainStylesheet) {
+        if (cssRule.selectorText == '#guide-container::before' ||
+            cssRule.selectorText == '#guide-container::after') {
+            cssRule.style.opacity = '1';
+            if (cssRule.selectorText == '#guide-container::before') {
+                cssRule.style.top = topOffset;
+                cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
+            }
+            if (cssRule.selectorText == '#guide-container::after')
+                cssRule.style.bottom = bottomOffset;
+        }
+    }
+}
 banners.forEach((banner) => {
     banner.addEventListener('click', function () {
         const index = Array.from(this.parentNode.children).indexOf(this);
@@ -232,6 +252,7 @@ banners.forEach((banner) => {
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
+                contentFade('calc(100vh - 25vw)', '25vw', 'bottom');
             }
             else {
                 guideContent.classList.add('guide-top-entry-mobile');
@@ -239,6 +260,7 @@ banners.forEach((banner) => {
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
+                contentFade('calc(25vw - 5px)', '0', 'top');
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         }
