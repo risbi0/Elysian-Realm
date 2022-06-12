@@ -181,6 +181,7 @@ else {
 const interval = 300 - noOfBannersInViewport * 5;
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
+const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner;
 function hide() {
     body.style.overflow = 'auto';
@@ -190,8 +191,7 @@ function hide() {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
         guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
-        if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) >
-            valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
+        if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
             guideContent.classList.add('guide-bot-exit-mobile');
         }
         else {
@@ -217,15 +217,15 @@ banners.forEach((banner) => {
     banner.addEventListener('click', function () {
         const index = Array.from(this.parentNode.children).indexOf(this);
         buildGuideContent(index);
-        body.style.overflow = 'hidden';
         guideContent.scrollTo({ top: 0 });
         guideContainer.classList.remove('bg-fade-out');
         guideContainer.classList.add('bg-fade-in');
         let closeButtonOffsetTop, topButtonOffsetTop;
         if (isMobile) {
+            body.style.overflow = 'hidden';
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             let offset = 0;
-            if (index > valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
+            if (index > mobileUpperBanners) {
                 guideContent.classList.add('guide-bot-entry-mobile');
                 guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
                 guideContent.style.marginTop = '';
@@ -262,16 +262,6 @@ banners.forEach((banner) => {
             });
         });
         setTimeout(() => {
-            document.querySelectorAll('input[type="checkbox"]:not(#emblem input[type="checkbox"])').forEach(checkbox => {
-                checkbox.addEventListener('mouseover', function () {
-                    this.parentNode.previousElementSibling.style.filter = 'brightness(50%)';
-                    this.parentNode.previousElementSibling.style.transition = '0.3s';
-                });
-                checkbox.addEventListener('mouseout', function () {
-                    this.parentNode.previousElementSibling.style.filter = 'unset';
-                    this.parentNode.previousElementSibling.style.transition = '0.2s';
-                });
-            });
             document.querySelectorAll('tr:not(thead tr)').forEach(row => {
                 row.addEventListener('mouseover', function () {
                     this.classList.add('table-cell-hover');

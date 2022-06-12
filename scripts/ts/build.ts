@@ -24,6 +24,7 @@ function imageAndLabel(cell: HTMLTableCellElement, row: HTMLTableRowElement, ite
     span.textContent = item[m].name;
     // for support valk images
     if (hoverLabel) {
+        cell.classList.add('supp-pic');
         const acr: HTMLParagraphElement = document.createElement('p');
         acr.textContent = item[m].acr.toUpperCase();
         label.appendChild(acr);

@@ -15,6 +15,7 @@ function imageAndLabel(cell, row, item, m, hoverLabel) {
     span.classList.add('pos-abs');
     span.textContent = item[m].name;
     if (hoverLabel) {
+        cell.classList.add('supp-pic');
         const acr = document.createElement('p');
         acr.textContent = item[m].acr.toUpperCase();
         label.appendChild(acr);

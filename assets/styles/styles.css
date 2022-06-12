@@ -259,6 +259,13 @@ body::-webkit-scrollbar-track {
   transition: 0.2s ease-in;
 }
 
+#supp .supp-pic:hover .pic {
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 #exclusive-tbl,
 #transitional-tbl,
 #main-tbl,

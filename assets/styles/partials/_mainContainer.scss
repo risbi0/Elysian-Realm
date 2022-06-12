@@ -146,6 +146,11 @@
             @include cellTransition(5);
         }
     }
+
+    .supp-pic:hover .pic {
+        filter: brightness(50%);
+        transition: 0.3s;
+    }
 }
 #exclusive-tbl,
 #transitional-tbl,

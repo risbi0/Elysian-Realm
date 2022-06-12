@@ -208,9 +208,10 @@ const interval: number = 300 - noOfBannersInViewport * 5;
 
 const topButton = document.querySelector('#goToTop') as HTMLDivElement;
 const closeButton = document.querySelector('#close') as HTMLDivElement;
+const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting styles in mobile
 function hide() {
-    body.style.overflow = 'auto';
+    body.style.overflow = 'auto'; // resume scroll
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
     if (isMobile) {
@@ -218,8 +219,8 @@ function hide() {
         currentBanner.children[1].children[0].style.color = null;
 
         guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
-        if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > 
-            valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
+        // exit animation
+        if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
             guideContent.classList.add('guide-bot-exit-mobile');
         } else {
             guideContent.classList.add('guide-top-exit-mobile');
@@ -232,6 +233,7 @@ function hide() {
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
+    // delete HTML contents right before animation ends
     setTimeout(() => {
         guideContent.innerHTML = '';
         guideContainer.style.display = 'none';
@@ -243,10 +245,10 @@ guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
 // render guide content and listeners on click
 banners.forEach((banner: any) => {
     banner.addEventListener('click', function(this: any) {
+        // generate guide
         const index = Array.from(this.parentNode.children).indexOf(this);
         buildGuideContent(index);
-
-        body.style.overflow = 'hidden';
+        
         guideContent.scrollTo({ top: 0 });
         // animation
         guideContainer.classList.remove('bg-fade-out');
@@ -254,12 +256,12 @@ banners.forEach((banner: any) => {
         // button offsets
         let closeButtonOffsetTop: number, topButtonOffsetTop: number;
         if (isMobile) {
+            body.style.overflow = 'hidden'; // prevent outside scroll while guide is open
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
-            // set scroll location and margin
+            // set margin, scroll and buttons location
             let offset: number = 0;
-            if (index > valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4))) {
-                guideContent.classList.add('guide-bot-entry-mobile');
-                // scroll to banner on bottom
+            if (index > mobileUpperBanners) { // scroll to banner on bottom
+                guideContent.classList.add('guide-bot-entry-mobile'); // animation
                 guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
                 guideContent.style.marginTop = '';
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
@@ -296,17 +298,6 @@ banners.forEach((banner: any) => {
         });
         
         setTimeout(() => { // timeout to prevent highlighting when guide is still in animation
-            // support valk avatar transition on hover
-            document.querySelectorAll('input[type="checkbox"]:not(#emblem input[type="checkbox"])').forEach(checkbox => {
-                checkbox.addEventListener('mouseover', function(this: any) {
-                    this.parentNode.previousElementSibling.style.filter = 'brightness(50%)';
-                    this.parentNode.previousElementSibling.style.transition = '0.3s';
-                });
-                checkbox.addEventListener('mouseout', function(this: any) {
-                    this.parentNode.previousElementSibling.style.filter = 'unset';
-                    this.parentNode.previousElementSibling.style.transition = '0.2s';
-                });
-            });
             // higlight table rows, including merged cells, on hover
             // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
             document.querySelectorAll('tr:not(thead tr)').forEach(row => {
@@ -354,6 +345,7 @@ banners.forEach((banner: any) => {
             }
             
         }, 600);
+
         const signets: any = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
         summOnHover(signets);
         
