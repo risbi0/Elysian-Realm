@@ -123,9 +123,10 @@ export function buildGuideContent(i: number) {
         const anchorContainer: HTMLDivElement = document.createElement('div');
         anchorContainer.classList.add('flex', 'f-row');
 
+        const hasNotes: boolean = 'notes' in valk.builds[j];
         let anchors: number = 2;
         if (hasTransitionTable) anchors += 1; // check for transitional table
-        if ('notes' in valk.builds[j]) anchors += 1;
+        if (hasNotes) anchors += 1;
         for (let k = 0; k < anchors; k++) {
             let letter: string = '', link: string = '', accessibleName: string = '';
             const anchorDiv: HTMLDivElement = document.createElement('div');
@@ -143,7 +144,7 @@ export function buildGuideContent(i: number) {
                 letter = 'S';
                 link = `secondary-signets`;
                 accessibleName = 'Secondary Signets';
-            } else if ((k == 3 && 'notes' in valk.builds[j]) || (k == 2 && !(3 in valk.builds[j].signetTable))) {
+            } else if ((k == 3 && hasNotes) || (k == 2 && !(3 in valk.builds[j].signetTable))) {
                 letter = 'N';
                 link = `notes`;
                 accessibleName = 'Notes';
@@ -326,7 +327,7 @@ export function buildGuideContent(i: number) {
             signetTable.appendChild(signetTableBody);
             guideContent.appendChild(signetTable);
         }
-        if ('notes' in valk.builds[j]) {
+        if (hasNotes) {
             const notes: HTMLDivElement = document.createElement('div');
             notes.setAttribute('id', `notes-${j + 1}`);
             notes.classList.add('notes');
