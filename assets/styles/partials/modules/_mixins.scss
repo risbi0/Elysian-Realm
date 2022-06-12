@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-@mixin bannerImages($name, $src, $desktop-offset, $mobile-offset, $desktop-font-size: none, $mobile-font-size: none) {
+@mixin bannerImages($name, $src, $desktop-offset, $mobile-offset, $desktop-font-size, $mobile-font-size) {
     ##{$name} {
         background-image: $src;
         &.desktop-pos {
