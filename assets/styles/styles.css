@@ -1252,6 +1252,14 @@ body::-webkit-scrollbar-track {
           transform: translateX(-50%);
 }
 
+#guide-content.mobile.upper {
+  margin-top: 25vw;
+}
+
+#guide-content.mobile.lower {
+  height: calc(100vh - 100vw / 4);
+}
+
 #guide-content.desktop {
   width: 600px;
   height: 800px;
