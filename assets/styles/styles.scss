@@ -49,58 +49,12 @@
 .hidden {
     opacity: 0 !important;
 }
-.fade-in-up {
-    animation: fadeinup 2s;
-}
-.fade-in-down {
-    animation: fadeindown 2s;
-}
-@keyframes fadeinup {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
-@keyframes fadeindown {
-    from {
-        transform: translateY(-100px); 
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
-.fade-in-left {
-    animation: fadeinleft 2s;
-}
-.fade-in-right {
-    animation: fadeinright 2s;
-}
-@keyframes fadeinleft {
-    from {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-@keyframes fadeinright {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
+/* desktop banner animaitons */
+@include animationPreset(fade-in-up, fadeinup, 2s, $bot, $banner-og, 0, 1);
+@include animationPreset(fade-in-down, fadeindown, 2s, $top, $banner-og, 0, 1);
+/* mobile banner animations */
+@include animationPreset(fade-in-left, fadeinleft, 2s, $right, $banner-og, 0, 1);
+@include animationPreset(fade-in-right, fadeinright, 2s, $left, $banner-og, 0, 1);
 .table-cell-hover {
     background-color: $white;
     color: black;
