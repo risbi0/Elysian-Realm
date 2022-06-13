@@ -231,6 +231,7 @@ function hide() {
         for (const cssRule of mainStylesheet) {
             if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
                 cssRule.style.opacity = '0';
+                cssRule.style.animation = '';
             }
         }
     } else {
@@ -245,10 +246,11 @@ function hide() {
 closeButton.addEventListener('click', () => { hide(); }); // close on close button click
 guideContainer.addEventListener('click', () => { hide(); }); // close when clicking outside modal
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
-function contentFade(topOffset: string, bottomOffset: string, direction: string): void {
+function contentFade(topOffset: string, bottomOffset: string, direction: string, psuedoDirection: string): void {
     for (const cssRule of mainStylesheet) {
         if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
+            cssRule.style.animation = `fadein${psuedoDirection} 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19) 0.1s forwards`;
             if (cssRule.selectorText === '#guide-container::before') {
                 cssRule.style.top = topOffset;
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
@@ -286,14 +288,14 @@ banners.forEach((banner: any) => {
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
                 // style ::before and ::after psuedo selectors for content fade effect
-                contentFade('calc(100vh - 25vw)', '25vw', 'bottom');
+                contentFade('calc(100vh - 25vw)', '25vw', 'bottom', 'up');
             } else { // scroll to banner on top
               //  guideContent.classList.remove('lower');
                 guideContent.classList.add('guide-top-entry-mobile', 'upper');
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
-                contentFade('calc(25vw - 5px)', '0', 'top');
+                contentFade('calc(25vw - 5px)', '0', 'top', 'down');
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         } else {

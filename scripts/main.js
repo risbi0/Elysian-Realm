@@ -201,6 +201,7 @@ function hide() {
         for (const cssRule of mainStylesheet) {
             if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
                 cssRule.style.opacity = '0';
+                cssRule.style.animation = '';
             }
         }
     }
@@ -215,10 +216,11 @@ function hide() {
 closeButton.addEventListener('click', () => { hide(); });
 guideContainer.addEventListener('click', () => { hide(); });
 guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
-function contentFade(topOffset, bottomOffset, direction) {
+function contentFade(topOffset, bottomOffset, direction, psuedoDirection) {
     for (const cssRule of mainStylesheet) {
         if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
+            cssRule.style.animation = `fadein${psuedoDirection} 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19) 0.1s forwards`;
             if (cssRule.selectorText === '#guide-container::before') {
                 cssRule.style.top = topOffset;
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
@@ -245,14 +247,14 @@ banners.forEach((banner) => {
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
-                contentFade('calc(100vh - 25vw)', '25vw', 'bottom');
+                contentFade('calc(100vh - 25vw)', '25vw', 'bottom', 'up');
             }
             else {
                 guideContent.classList.add('guide-top-entry-mobile', 'upper');
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
-                contentFade('calc(25vw - 5px)', '0', 'top');
+                contentFade('calc(25vw - 5px)', '0', 'top', 'down');
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         }
