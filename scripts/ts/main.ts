@@ -53,7 +53,7 @@ url.forEach((link: string) => {
             progressInPixels += 1;
             meter.style.width = `${progressInPixels}px`;
         }
-        if (done === valks.length) { // start animation
+        if (done === url.length) { // start animation
             body.style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove() }, 800);
