@@ -209,7 +209,7 @@ const interval: number = 300 - noOfBannersInViewport * 5;
 const topButton = document.querySelector('#goToTop') as HTMLDivElement;
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
-let currentBanner: any; // for unsetting styles in mobile
+let currentBanner: any; // for unsetting banner style in mobile
 function hide() {
     body.style.overflow = 'auto'; // resume scroll
     guideContainer.classList.remove('bg-fade-in');
@@ -276,13 +276,17 @@ banners.forEach((banner: any) => {
         if (isMobile) {
             body.style.overflow = 'hidden'; // prevent outside scroll while guide is open
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
-            // set margin, scroll and buttons location
+            // check if banner is high enough to be scrolled at the top of the viewport
+            // since the banner will be used as the name instead of a plain text one
+            // if not, it will be scrolled at the bottom, either applying respective styles below
             let offset: number = 0;
             if (index > mobileUpperBanners) { // scroll to banner on bottom
                 guideContent.classList.add('guide-bot-entry-mobile'); // animation
                 guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
                 guideContent.style.marginTop = '';
+                // window scroll offset
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
+                // button offset
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
                 // style ::before and ::after psuedo selectors for content fade effect
