@@ -24,7 +24,6 @@ function fadeAnim(item: any, fade: string): void {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
-        setTimeout(() => { item.classList.remove(fade) }, 1990);
     }, time);
     time += interval;
 }
@@ -56,7 +55,7 @@ url.forEach((link: string) => {
         if (done === url.length) { // start animation
             body.style.overflow = 'auto';
             cover.classList.add('fade');
-            setTimeout(() => { cover.remove() }, 800);
+            setTimeout(() => { cover.remove() }, 1000);
             // fade-in-up/down animation
             // only applied to the banners in the viewport
             finalArr.forEach((_, index) => {

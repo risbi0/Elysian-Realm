@@ -1582,8 +1582,8 @@ body::-webkit-scrollbar-track {
 }
 
 .fade {
-  -webkit-animation: fade 1s;
-          animation: fade 1s;
+  -webkit-animation: fade 1s forwards;
+          animation: fade 1s forwards;
 }
 
 @-webkit-keyframes fade {
