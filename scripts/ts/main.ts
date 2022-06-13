@@ -214,11 +214,12 @@ function hide() {
     body.style.overflow = 'auto'; // resume scroll
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
+    guideContent.innerHTML = ''; // delete HTML content
     if (isMobile) {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
 
-        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
+        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper', 'lower');
         // exit animation
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
             guideContent.classList.add('guide-bot-exit-mobile');
@@ -239,11 +240,8 @@ function hide() {
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
-    // delete HTML contents right before animation ends
-    setTimeout(() => {
-        guideContent.innerHTML = '';
-        guideContainer.style.display = 'none';
-    }, 450);
+    // hide element right before animation ends
+    setTimeout(() => { guideContainer.style.display = 'none'; }, 450);
 }
 closeButton.addEventListener('click', () => { hide(); }); // close on close button click
 guideContainer.addEventListener('click', () => { hide(); }); // close when clicking outside modal
@@ -281,9 +279,8 @@ banners.forEach((banner: any) => {
             // if not, it will be scrolled at the bottom, either applying respective styles below
             let offset: number = 0;
             if (index > mobileUpperBanners) { // scroll to banner on bottom
-                guideContent.classList.add('guide-bot-entry-mobile'); // animation
-                guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
-                guideContent.style.marginTop = '';
+               // guideContent.classList.remove('upper');
+                guideContent.classList.add('guide-bot-entry-mobile', 'lower'); // (animation, spacing)
                 // window scroll offset
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 // button offset
@@ -292,8 +289,8 @@ banners.forEach((banner: any) => {
                 // style ::before and ::after psuedo selectors for content fade effect
                 contentFade('calc(100vh - 25vw)', '25vw', 'bottom');
             } else { // scroll to banner on top
-                guideContent.classList.add('guide-top-entry-mobile');
-                guideContent.style.marginTop = '25vw';
+              //  guideContent.classList.remove('lower');
+                guideContent.classList.add('guide-top-entry-mobile', 'upper');
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
@@ -321,7 +318,9 @@ banners.forEach((banner: any) => {
             });
         });
         
-        setTimeout(() => { // timeout to prevent highlighting when guide is still in animation
+        // timeout to prevent highlighting when guide is still in animation (desktop)
+        // and to wait for animation to end to apply styles (mobile)
+        setTimeout(() => {
             // higlight table rows, including merged cells, on hover
             // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
             document.querySelectorAll('tr:not(thead tr)').forEach(row => {

@@ -187,10 +187,11 @@ function hide() {
     body.style.overflow = 'auto';
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
+    guideContent.innerHTML = '';
     if (isMobile) {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
-        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile');
+        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper', 'lower');
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
             guideContent.classList.add('guide-bot-exit-mobile');
         }
@@ -210,10 +211,7 @@ function hide() {
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
-    setTimeout(() => {
-        guideContent.innerHTML = '';
-        guideContainer.style.display = 'none';
-    }, 450);
+    setTimeout(() => { guideContainer.style.display = 'none'; }, 450);
 }
 closeButton.addEventListener('click', () => { hide(); });
 guideContainer.addEventListener('click', () => { hide(); });
@@ -244,17 +242,14 @@ banners.forEach((banner) => {
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             let offset = 0;
             if (index > mobileUpperBanners) {
-                guideContent.classList.add('guide-bot-entry-mobile');
-                guideContent.style.height = `${deviceHeight - deviceWidth / 4}px`;
-                guideContent.style.marginTop = '';
+                guideContent.classList.add('guide-bot-entry-mobile', 'lower');
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
                 contentFade('calc(100vh - 25vw)', '25vw', 'bottom');
             }
             else {
-                guideContent.classList.add('guide-top-entry-mobile');
-                guideContent.style.marginTop = '25vw';
+                guideContent.classList.add('guide-top-entry-mobile', 'upper');
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;

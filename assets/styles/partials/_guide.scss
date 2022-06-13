@@ -57,6 +57,9 @@
     &.mobile {
         @include wh($w: 100%, $h: calc(100vh - 25vw));
         transform: translateX(-50%);
+
+        &.upper { margin-top: 25vw; }
+        &.lower { height: calc(100vh - 100vw / 4); }
     }
 
     &.desktop {
