@@ -8,14 +8,12 @@
     &::before {
         @include psuedo;
         @include wh($w: 100%, $h: 5px);
-    
     }
 
     &::after {
         @include psuedo;
         @include wh($w: 100%, $h: 3em);
         background-image: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.9) 30%, transparent 100%);
-        
     }
 }
 .bg-fade-in {
