@@ -1179,8 +1179,8 @@ body::-webkit-scrollbar-track {
   opacity: 0;
   width: 100%;
   height: 3em;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(30%, rgba(0, 0, 0, 0.9)), to(transparent));
-  background-image: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.9) 30%, transparent 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(40%, rgba(0, 0, 0, 0.8)), to(transparent));
+  background-image: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
 }
 
 .bg-fade-in {
