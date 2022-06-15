@@ -1,5 +1,5 @@
 import { valks } from './guide.js';
-import { signetSummary } from './data.js';
+import { isMobile, signetSummary } from './data.js';
 import { guideContainer, guideContent, buildGuideContent } from './build.js';
 const body = document.querySelector('body');
 const mainContainer = document.querySelector('#main-container');

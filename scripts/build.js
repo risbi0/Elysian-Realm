@@ -1,5 +1,5 @@
 import { valks } from './guide.js';
-import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, exclusiveTableColumns, signetTableColumns } from './data.js';
+import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 const collContainer = document.querySelector('#main-container');
 function imageAndLabel(cell, row, item, m, hoverLabel) {
     cell = row.insertCell();

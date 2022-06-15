@@ -7,7 +7,6 @@ const cacheAssets = [
     'https://fonts.gstatic.com/s/materialicons/v129/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
     'index.html',
     'about.html',
-    '/scripts/isMobile.js',
     '/scripts/data.js',
     '/scripts/guide.js',
     '/scripts/build.js',

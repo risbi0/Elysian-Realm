@@ -1,7 +1,7 @@
 import { valks } from './guide.js';
 import { emblemTableHeaders, emblemTableTimeColumn,
          supportTableHeaders, supportTableTypeColumn,
-         exclusiveTableColumns, signetTableColumns } from './data.js';
+         exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 
 const collContainer = document.querySelector('#main-container') as HTMLDivElement;
 
