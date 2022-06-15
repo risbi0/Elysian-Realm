@@ -40,16 +40,6 @@
     transition: $t;
 }
 
-@mixin cellTransition($end) {
-    &:not(th):nth-child(n+2):nth-child(-n+#{$end}) {
-        @include colorTransition($c: transparent, $t: 0.3s ease);
-
-        &:hover {
-            @include colorTransition($c: $white, $t: 0.2s ease-in);
-        }
-    }
-}
-
 @mixin button {
     visibility: hidden;
     position: fixed;

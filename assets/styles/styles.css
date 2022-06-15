@@ -222,18 +222,6 @@ body::-webkit-scrollbar-track {
   width: 100%;
 }
 
-#emblem table:not(th):nth-child(n+2):nth-child(-n+5) {
-  color: transparent;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-}
-
-#emblem table:not(th):nth-child(n+2):nth-child(-n+5):hover {
-  color: rgba(255, 255, 255, 0.8);
-  -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
-}
-
 #emblem table td:nth-child(2), #emblem table th:nth-child(2), #emblem table td:nth-child(3), #emblem table th:nth-child(3) {
   width: 50px;
 }
@@ -247,21 +235,19 @@ body::-webkit-scrollbar-track {
   width: 100%;
 }
 
-#supp table td:not(th):nth-child(n+2):nth-child(-n+5), #supp table th:not(th):nth-child(n+2):nth-child(-n+5) {
+#supp p {
   color: transparent;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-}
-
-#supp table td:not(th):nth-child(n+2):nth-child(-n+5):hover, #supp table th:not(th):nth-child(n+2):nth-child(-n+5):hover {
-  color: rgba(255, 255, 255, 0.8);
-  -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
 }
 
 #supp .supp-pic:hover .pic {
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#supp .supp-pic:hover p {
+  color: rgba(255, 255, 255, 0.8);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }

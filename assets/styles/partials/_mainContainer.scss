@@ -129,7 +129,6 @@
     width: 40%;
 
     table {
-        @include cellTransition(5);
         width: 100%;
 
         td:nth-child(2), td:nth-child(3) {
@@ -140,16 +139,18 @@
 #supp {
     @include wh($w: 55%, $h: 150px);
 
-    table {
-        width: 100%;
-        td {
-            @include cellTransition(5);
-        }
-    }
+    table { width: 100%; }
+    p { color: transparent; }
 
-    .supp-pic:hover .pic {
-        filter: brightness(50%);
-        transition: 0.3s;
+    .supp-pic:hover {
+        .pic {
+            filter: brightness(50%);
+            transition: 0.3s;
+        }
+        p {
+            color: $white;
+            transition: 0.3s;
+        }
     }
 }
 #exclusive-tbl,
