@@ -190,7 +190,7 @@ function hide() {
     if (isMobile) {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
-        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper', 'lower');
+        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper');
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
             guideContent.classList.add('guide-bot-exit-mobile');
         }
@@ -243,7 +243,7 @@ banners.forEach((banner) => {
             guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             let offset = 0;
             if (index > mobileUpperBanners) {
-                guideContent.classList.add('guide-bot-entry-mobile', 'lower');
+                guideContent.classList.add('guide-bot-entry-mobile');
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;

@@ -218,7 +218,7 @@ function hide() {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
 
-        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper', 'lower');
+        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper');
         // exit animation
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
             guideContent.classList.add('guide-bot-exit-mobile');
@@ -280,8 +280,7 @@ banners.forEach((banner: any) => {
             // if not, it will be scrolled at the bottom, either applying respective styles below
             let offset: number = 0;
             if (index > mobileUpperBanners) { // scroll to banner on bottom
-               // guideContent.classList.remove('upper');
-                guideContent.classList.add('guide-bot-entry-mobile', 'lower'); // (animation, spacing)
+                guideContent.classList.add('guide-bot-entry-mobile');
                 // window scroll offset
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 // button offset
@@ -290,8 +289,7 @@ banners.forEach((banner: any) => {
                 // style ::before and ::after psuedo selectors for content fade effect
                 contentFade('calc(100vh - 25vw)', '25vw', 'bottom', 'up');
             } else { // scroll to banner on top
-              //  guideContent.classList.remove('lower');
-                guideContent.classList.add('guide-top-entry-mobile', 'upper');
+                guideContent.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;

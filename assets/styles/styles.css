@@ -1247,17 +1247,13 @@ body::-webkit-scrollbar-track {
 
 #guide-content.mobile {
   width: 100%;
-  height: calc(100vh - 25vw);
+  height: calc(100% - 25vw);
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
 #guide-content.mobile.upper {
   margin-top: 25vw;
-}
-
-#guide-content.mobile.lower {
-  height: calc(100vh - 100vw / 4);
 }
 
 #guide-content.desktop {
