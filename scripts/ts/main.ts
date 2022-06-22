@@ -247,7 +247,10 @@ const interval: number = 300 - noOfBannersInViewport * 5;
 const topButton: any = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
-const goToTop = (e: any) => e.currentTarget.scroll({ top: 0, behavior: 'smooth' });
+const goToTop = (e: any) => {
+    const dis = e.currentTarget.currentGuide;
+    guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
+}
 const buttonVisibility = (e: any) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
@@ -387,6 +390,7 @@ banners.forEach((banner: any) => {
         currentGuide.addEventListener('scroll', buttonVisibility);
         // go to top of guide
         topButton.addEventListener('click', goToTop);
+        topButton.currentGuide = currentGuide;
         // scroll to the top
         currentGuide.scrollTo({ top: 0 });
     });
