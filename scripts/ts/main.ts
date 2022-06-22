@@ -244,9 +244,11 @@ summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transit
 const interval: number = 300 - noOfBannersInViewport * 5;
 
 // setup modal closing
-const topButton = document.querySelector('#goToTop') as HTMLDivElement;
+const topButton: any = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
+const goToTop = (e: any) => { e.currentTarget.scroll({ top: 0, behavior: 'smooth' }); };
+const buttonVisibility = (e: any) => { topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden'; };
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
 function hide() {
@@ -382,9 +384,9 @@ banners.forEach((banner: any) => {
         }, 600);
         
         // goToTop button visibility
-        currentGuide.addEventListener('scroll', function(this: any) { topButton.style.visibility = currentGuide.scrollTop > 700 ? 'visible' : 'hidden'; });
+        currentGuide.addEventListener('scroll', buttonVisibility);
         // go to top of guide
-        topButton.addEventListener('click', () => { currentGuide.scroll({ top: 0, behavior: 'smooth' }); });
+        topButton.addEventListener('click', goToTop);
         // scroll to the top
         currentGuide.scrollTo({ top: 0 });
     });

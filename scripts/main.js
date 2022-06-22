@@ -213,6 +213,8 @@ const interval = 300 - noOfBannersInViewport * 5;
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
 const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
+const goToTop = (e) => { e.currentTarget.scroll({ top: 0, behavior: 'smooth' }); };
+const buttonVisibility = (e) => { topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden'; };
 let currentBanner;
 let currentGuide;
 function hide() {
@@ -330,8 +332,8 @@ banners.forEach((banner) => {
                 topButton.style.left = `${guidePos.right - 60}px`;
             }
         }, 600);
-        currentGuide.addEventListener('scroll', function () { topButton.style.visibility = currentGuide.scrollTop > 700 ? 'visible' : 'hidden'; });
-        topButton.addEventListener('click', () => { currentGuide.scroll({ top: 0, behavior: 'smooth' }); });
+        currentGuide.addEventListener('scroll', buttonVisibility);
+        topButton.addEventListener('click', goToTop);
         currentGuide.scrollTo({ top: 0 });
     });
 });
