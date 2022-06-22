@@ -35,6 +35,9 @@
 .overflow-hide {
     overflow: hidden;
 }
+.no-display {
+    display: none !important;
+}
 .fade {
     animation: fade 1s forwards;
 }

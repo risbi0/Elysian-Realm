@@ -36,26 +36,26 @@
             </div>
         </header>
         <main id="main-container" class="flex">
-            <!--
-            // generated html per loop
-            <button type="button" class="banner pos-rel hidden(replaced with->) [fade-in-up/fade-in-down](removed after 1.99s)">
-                <div id="[valk acronym]"></div>
+            <!-- generated html per loop
+            // loop amount = valk amount
+            <button type="button" class="banner pos-rel overflow-hide(mobile only) hidden(replaced with->)[animation name](removed after 1.99s)">
+                <div id="[valk acronym]" class="[desktop/mobile] [desktop-mobile]-pos"></div>
                 <div class="main-name flex fh-center fv-center pos-abs">
-                    <span id="[valk acronym]-name" class="vertical-text">[valk name]</span>
+                    <span class="vertical-text [desktop/mobile]">[valk name]</span>
                 </div>
             </button>
             -->
         </main>
-        <div id="guide-container" style="display: none;">
-            <button id="close">
-                <span class="material-icons">close</span>
-            </button>
-            <div id="guide-content" class="flex fv-center f-col">
-                <!-- 
-                <h2>[valk name]</h2>
-                <p id="rating">[Inferno / Abstinence / Corruption]</p>
+        <button id="close">
+            <span class="material-icons">close</span>
+        </button>
+        <div id="guide-container">
+            <!-- loop  amount = same as above
+            <div class="guide-content flex fv-center f-col [desktop/mobile] no-display [animation name on click]">
+                <h2>[valk name]</h2> (desktop only)
+                <p class="rating">[Inferno/Abstinence/Corruption]</p>
                 <div class="rec-signets flex f-row">
-                    // 4-5 times
+                    // 5 times
                     <div class="signet sig-tog flex fh-center fv-center [signet owner]"></div>
                     // ...
                 </div>
@@ -63,7 +63,8 @@
                     // 2-4 times depending if there's a transitional signet table, notes, or both
                     <div class="anchor flex fh-center fv-center pos-rel">
                         [M/S/T/N]
-                        <a href="#[main/secondary/transitional-signets / notes]-[build no.]">
+                        <a href="#[main/secondary/transitional-signets / notes]-[valk index]-[build no.]">
+                            [Main/Secondary/Transitional Signets / Notes]
                             <span class="link-spanner pos-abs"></span>
                         </a>
                     </div>
@@ -131,8 +132,8 @@
                         <tr><td>Blessing of [exclusive signet 5]</td></tr>
                     </tbody>
                 </table>
-                // 2-3 times depending whether there's a transitional table or no
-                <h3 id="[main/secondary/transitional]-signets-[build no.]">[Main/Secondary/Transitional] Signets</h3>
+                // 2-3 times depending whether there's a transitional table or not
+                <h3 id="[main/secondary/transitional]-signets-[valk index-[build no.]">[Main/Secondary/Transitional] Signets</h3>
                 <div class="rec-signets flex f-row">
                     // 1-4 times
                     <div class="signet sig-sep flex fv-center f-col [signet owner]">
@@ -153,9 +154,14 @@
                         // ...
                     </tbody>
                 </table>
-                // ...
-                -->
+                // 0 - 1
+                <div id="notes-[valk index]-[build no.]">
+                    Notes:<br><br>
+                    [note content]
+                </div>
             </div>
+            // ...
+            -->
         </div>
         <footer></footer>
         <button id="goToTop">

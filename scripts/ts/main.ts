@@ -1,9 +1,8 @@
 import { valks } from './guide.js';
 import { isMobile, signetSummary } from './data.js';
-import { guideContainer, guideContent, buildGuideContent } from './build.js';
+import { mainContainer, guideContainer } from './build.js';
 
 const body = document.querySelector('body') as HTMLBodyElement;
-const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
 const deviceWidth: number = window.innerWidth;
 const deviceHeight: number = window.innerHeight;
 
@@ -24,12 +23,13 @@ function fadeAnim(item: any, fade: string): void {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
+        setTimeout(() => { item.classList.remove(fade) }, 1990);
     }, time);
     time += interval;
 }
 // insert all webp paths
 const url: string[] = [];
-const mainStylesheet: any = document.styleSheets[1].cssRules;
+const mainStylesheet: any = document.styleSheets[1].cssRules; // styles.css
 for (const cssRule of mainStylesheet) {
     if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
        url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
@@ -56,8 +56,9 @@ url.forEach((link: string) => {
             body.style.overflow = 'auto';
             cover.classList.add('fade');
             setTimeout(() => { cover.remove() }, 1000);
-            // fade-in-up/down animation
-            // only applied to the banners in the viewport
+            // animations:
+            // fade-in-up/down, only applied to the banners in the viewport (desktop)
+            // fade-in-left/right, applied to all banners (mobile)
             finalArr.forEach((_, index) => {
                 if (index % 2 === 0) {
                     fadeAnim(banners[finalArr[index]], animation1);
@@ -68,7 +69,7 @@ url.forEach((link: string) => {
             if (!isMobile) {
                 // instantly display banners outside viewport
                 // not covering the one in a million chance that the user
-                // expands the window width while the animation is still ongoing
+                // expands the window width while the animation is still ongoing 😡
                 banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
                 // allow scroll
                 setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
@@ -116,6 +117,21 @@ function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
         }
     }
 }
+// higlight table rows, including merged cells, on hover
+// since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
+function highlightRow(this: any): void {
+    this.classList.add('table-cell-hover');
+    notedCell(this, 'noted', 'temp');
+    highlightAdjacentMergedCell(this, true);
+}
+const rowsExceptHeader: any = document.querySelectorAll('tr:not(thead tr)');
+rowsExceptHeader.forEach((row: any) => {
+    row.addEventListener('mouseout', function(this: any) {
+        this.classList.remove('table-cell-hover');
+        notedCell(this, 'temp', 'noted');
+        highlightAdjacentMergedCell(this, false);
+    });
+});
 function highlightInvolvedRows(row: any, bool: boolean): void {
     const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
     const cellIndex: number = row.parentNode.rowIndex;
@@ -129,6 +145,26 @@ function highlightInvolvedRows(row: any, bool: boolean): void {
         }
     }
 }
+// highlight adjacent rows on hovering from merged cells
+const highlightRows = function(this: any): void { highlightInvolvedRows(this, true); }
+const cellsWithRowspan: any = document.querySelectorAll('td[rowspan]');
+cellsWithRowspan.forEach((cell: any) => { cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) }); });
+
+// hide previously clicked tooltip
+const tooltipable: any = document.querySelectorAll('input');
+tooltipable.forEach((item: any) => {
+    item.addEventListener('click', () => {
+        for (const otherItem of tooltipable) { if (otherItem !== item) otherItem.checked = false }
+    });
+});
+
+// anchor smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => { e.preventDefault() });
+    anchor.addEventListener('click', function(this: any) {
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
 
 let originalText: string | null, previousText: any;
 function changeText(deez: HTMLDivElement): void {
@@ -146,14 +182,15 @@ function revertText(deez: HTMLDivElement): void {
     originalText = null;
 }
 
+const guideContents = document.querySelectorAll('.guide-content');
 // setup of banner indices for animation order
-// mobile - all banners in linear order, horizontal animation
 // desktop - banners in the middile of mainContainer (starting view) in random order, vertical animation
+// mobile - all banners in linear order, horizontal animation
 let animation1: string, animation2: string;
 let preventScroll: any;
 let noOfBannersInViewport: number = 0;
 let finalArr: number[] = [];
-// change signet name to summary on hover/click
+// function to change signet name to summary on hover/mobile click
 let summOnHover: any;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
@@ -170,7 +207,7 @@ if (isMobile) {
             });
         });
     }
-    guideContent.classList.add('mobile');
+    guideContainer.classList.add('hidden');
 } else {
     [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
     const scrollVal: number = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2; // middle
@@ -178,6 +215,7 @@ if (isMobile) {
     // lock mainContainer scroll during banner animation
     preventScroll = () => { mainContainer.scroll({ left: scrollVal }) };
     mainContainer.addEventListener('scroll', preventScroll);
+
     // setup no. of banners
     noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
     const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
@@ -198,32 +236,33 @@ if (isMobile) {
         });
     }
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-    guideContent.classList.add('desktop');
 }
+summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
+
 // interval gets faster the more banners are in viewport
 // in mobile, interval is constant
 const interval: number = 300 - noOfBannersInViewport * 5;
 
-// modal closing setup
+// setup modal closing
 const topButton = document.querySelector('#goToTop') as HTMLDivElement;
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting banner style in mobile
+let currentGuide: any;
 function hide() {
     body.style.overflow = 'auto'; // resume scroll
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
-    guideContent.innerHTML = ''; // delete HTML content
     if (isMobile) {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
 
-        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper');
+        currentGuide.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper');
         // exit animation
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
-            guideContent.classList.add('guide-bot-exit-mobile');
+            currentGuide.classList.add('guide-bot-exit-mobile');
         } else {
-            guideContent.classList.add('guide-top-exit-mobile');
+            currentGuide.classList.add('guide-top-exit-mobile');
         }
         // unhide banner names
         document.querySelectorAll('.vertical-text').forEach((text: any) => { text.style.opacity = '1'; });
@@ -235,22 +274,31 @@ function hide() {
             }
         }
     } else {
-        guideContent.classList.remove('guide-entry-desktop');
-        guideContent.classList.add('guide-exit-desktop');
+        currentGuide.classList.remove('guide-entry-desktop');
+        currentGuide.classList.add('guide-exit-desktop');
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
     // hide element right before animation ends
-    setTimeout(() => { guideContainer.style.display = 'none'; }, 450);
+    setTimeout(() => {
+        guideContainer.classList.add('no-display');
+        currentGuide.classList.add('no-display');
+        currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', 'guide-entry-desktop', 'guide-exit-desktop');
+    }, 450);
+
+    rowsExceptHeader.forEach((row: any) => { row.removeEventListener('mouseover', highlightRow); });
+    cellsWithRowspan.forEach((cell: any) => { cell.removeEventListener('mouseover', highlightRows); });
 }
 closeButton.addEventListener('click', () => { hide(); }); // close on close button click
 guideContainer.addEventListener('click', () => { hide(); }); // close when clicking outside modal
-guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
+guideContents.forEach(guideContent => { guideContent.addEventListener('click', (e) => { e.stopPropagation(); }); });
+
+// style ::after and ::before psuedo selectors (mobile only)
 function contentFade(topOffset: string, bottomOffset: string, direction: string, psuedoDirection: string): void {
     for (const cssRule of mainStylesheet) {
         if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
-            cssRule.style.animation = `fadein${psuedoDirection} 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19) 0.1s forwards`;
+            cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;
             if (cssRule.selectorText === '#guide-container::before') {
                 cssRule.style.top = topOffset;
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
@@ -259,87 +307,51 @@ function contentFade(topOffset: string, bottomOffset: string, direction: string,
         }
     }
 }
-// render guide content and listeners on click
+let psuedoStyles: [string, string, string, string];
+// show respective guide content on banner click
 banners.forEach((banner: any) => {
     banner.addEventListener('click', function(this: any) {
-        // generate guide
         const index = Array.from(this.parentNode.children).indexOf(this);
-        buildGuideContent(index);
-        
-        guideContent.scrollTo({ top: 0 });
+        currentGuide = guideContents[index];
         // animation
-        guideContainer.classList.remove('bg-fade-out');
+        guideContainer.classList.remove('bg-fade-out', 'no-display');
         guideContainer.classList.add('bg-fade-in');
         // button offsets
         let closeButtonOffsetTop: number, topButtonOffsetTop: number;
         if (isMobile) {
             body.style.overflow = 'hidden'; // prevent outside scroll while guide is open
-            guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
+            currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             // check if banner is high enough to be scrolled at the top of the viewport
             // since the banner will be used as the name instead of a plain text one
             // if not, it will be scrolled at the bottom, either applying respective styles below
             let offset: number = 0;
             if (index > mobileUpperBanners) { // scroll to banner on bottom
-                guideContent.classList.add('guide-bot-entry-mobile');
+                currentGuide.classList.add('guide-bot-entry-mobile');
+                // style ::before and ::after psuedo selectors for content fade effect
+                psuedoStyles = ['calc(100vh - 25vw)', '25vw', 'bottom', 'up'];
                 // window scroll offset
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 // button offset
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
-                // style ::before and ::after psuedo selectors for content fade effect
-                contentFade('calc(100vh - 25vw)', '25vw', 'bottom', 'up');
             } else { // scroll to banner on top
-                guideContent.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
+                currentGuide.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
+                psuedoStyles = ['calc(25vw - 5px)', '0', 'top', 'down'];
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
-                contentFade('calc(25vw - 5px)', '0', 'top', 'down');
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         } else {
-            guideContent.classList.remove('guide-exit-desktop');
-            guideContent.classList.add('guide-entry-desktop');
+            currentGuide.classList.remove('guide-exit-desktop', 'no-display');
+            currentGuide.classList.add('guide-entry-desktop');
         }
-
-        // hide previously clicked tooltip
-        const tooltipable: any = document.querySelectorAll('input');
-        tooltipable.forEach((item: any) => {
-            item.addEventListener('click', () => {
-                for (const otherItem of tooltipable) { if (otherItem !== item) otherItem.checked = false }
-            });
-        });
-
-        // anchor smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => { e.preventDefault() });
-            anchor.addEventListener('click', function(this: any) {
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
         
         // timeout to prevent highlighting when guide is still in animation (desktop)
         // and to wait for animation to end to apply styles (mobile)
         setTimeout(() => {
-            // higlight table rows, including merged cells, on hover
-            // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
-            document.querySelectorAll('tr:not(thead tr)').forEach(row => {
-                row.addEventListener('mouseover', function(this: any) {
-                    this.classList.add('table-cell-hover');
-                    notedCell(this, 'noted', 'temp');
-                    highlightAdjacentMergedCell(this, true);
-                });
-                row.addEventListener('mouseout', function(this: any) {
-                    this.classList.remove('table-cell-hover');
-                    notedCell(this, 'temp', 'noted');
-                    highlightAdjacentMergedCell(this, false);
-                });
-            });
-            // highlight adjacent rows on hovering from merged cells
-            document.querySelectorAll('td[rowspan]').forEach(cell => {
-                cell.addEventListener('mouseover', function(this: any) { highlightInvolvedRows(this, true) });
-                cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) });
-            });
-
+            rowsExceptHeader.forEach((row: any) => { row.addEventListener('mouseover', highlightRow); });
+            cellsWithRowspan.forEach((cell: any) => { cell.addEventListener('mouseover', highlightRows); });
             // close and to top button position
             const setCloseButtonPos = (topOffset: number, leftOffset: number): void => {
                 closeButton.style.visibility = 'visible';
@@ -347,7 +359,9 @@ banners.forEach((banner: any) => {
                 closeButton.style.left = `${leftOffset - 60}px`;
             }
             if (isMobile) {
-                guideContainer.classList.remove('hidden');
+                contentFade(...psuedoStyles);
+                guideContainer.classList.remove('hidden', 'no-display');
+                currentGuide.classList.remove('no-display');
                 currentBanner = this;
                 // style banner
                 this.children[0].style.filter = 'brightness(70%) blur(0.3px)';
@@ -360,21 +374,18 @@ banners.forEach((banner: any) => {
                 topButton.style.top = `${topButtonOffsetTop - 60}px`;
                 topButton.style.left = `${deviceWidth - 60}px`;
             } else {
-                const guidePos = guideContent.getBoundingClientRect();
+                const guidePos = currentGuide.getBoundingClientRect();
                 setCloseButtonPos(guidePos.top, guidePos.right);
                 topButton.style.top = `${guidePos.bottom - 60}px`;
                 topButton.style.left = `${guidePos.right - 60}px`;
             }
         }, 600);
-
-        const signets: any = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
-        summOnHover(signets);
         
         // goToTop button visibility
-        guideContent.addEventListener('scroll', function(this: any) {
-            topButton.style.visibility = guideContent.scrollTop > 700 ? 'visible' : 'hidden';
-        });
+        currentGuide.addEventListener('scroll', function(this: any) { topButton.style.visibility = currentGuide.scrollTop > 700 ? 'visible' : 'hidden'; });
         // go to top of guide
-        topButton.addEventListener('click', () => { guideContent.scroll({ top: 0, behavior: 'smooth' }); });
+        topButton.addEventListener('click', () => { currentGuide.scroll({ top: 0, behavior: 'smooth' }); });
+        // scroll to the top
+        currentGuide.scrollTo({ top: 0 });
     });
 });

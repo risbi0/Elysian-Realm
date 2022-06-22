@@ -17,10 +17,10 @@
     }
 }
 .bg-fade-in {
-    animation: bgfadein 0.5s;
+    animation: bgfadein 0.5s forwards;
 }
 .bg-fade-out {
-    animation: bgfadeout 0.5s;
+    animation: bgfadeout 0.5s forwards;
 }
 @keyframes bgfadein {
     from {
@@ -38,7 +38,7 @@
         background-color: transparent;
     }
 }
-#guide-content {
+.guide-content {
     scrollbar-width: none !important;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -66,10 +66,10 @@
     }
 }
 /* desktop */
-@include animationPreset(guide-entry-desktop, guideentrydesktop, 0.6s, $guide-top, $desktop-og, 0, 1);
-@include animationPreset(guide-exit-desktop, guideexitdesktop, 0.6s, $desktop-og, $guide-top, 1, 0);
+@include animationPreset(guide-entry-desktop, guideentrydesktop, 0.6s forwards, $guide-top, $desktop-og, 0, 1);
+@include animationPreset(guide-exit-desktop, guideexitdesktop, 0.6s forwards, $desktop-og, $guide-top, 1, 0);
 /* mobile */
-@include animationPreset(guide-top-entry-mobile, guideopenentrymobile, 0.6s 0.1s $ease-in-bezier, $guide-top, $mobile-og, 0, 1);
-@include animationPreset(guide-top-exit-mobile, guideopenexitmobile, 0.5s, $mobile-og, $guide-top, 1, 0);
-@include animationPreset(guide-bot-entry-mobile, guidebotentrymobile, 0.6s 0.1s $ease-in-bezier, $guide-bot, $mobile-og, 0, 1);
-@include animationPreset(guide-bot-exit-mobile, guidebotexitmobile, 0.5s, $mobile-og, $guide-bot, 1, 0);
+@include animationPreset(guide-top-entry-mobile, guideopenentrymobile, 0.6s ease-out forwards, $guide-top, $mobile-og, 0, 1);
+@include animationPreset(guide-top-exit-mobile, guideopenexitmobile, 0.5s ease-in forwards, $mobile-og, $guide-top, 1, 0);
+@include animationPreset(guide-bot-entry-mobile, guidebotentrymobile, 0.6s ease-out forwards, $guide-bot, $mobile-og, 0, 1);
+@include animationPreset(guide-bot-exit-mobile, guidebotexitmobile, 0.5s ease-in forwards, $mobile-og, $guide-bot, 1, 0);

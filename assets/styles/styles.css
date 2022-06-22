@@ -131,7 +131,7 @@ body::-webkit-scrollbar-track {
   text-orientation: upright;
 }
 
-#rating {
+.rating {
   margin: 10px 0 2px 0;
   font-style: italic;
 }
@@ -195,7 +195,7 @@ body::-webkit-scrollbar-track {
   font-size: 10px;
 }
 
-#emblem-support {
+.emblem-support {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -214,56 +214,56 @@ body::-webkit-scrollbar-track {
   }
 }
 
-#emblem {
+.emblem {
   width: 40%;
 }
 
-#emblem table {
+.emblem table {
   width: 100%;
 }
 
-#emblem table td:nth-child(2), #emblem table th:nth-child(2), #emblem table td:nth-child(3), #emblem table th:nth-child(3) {
+.emblem table td:nth-child(2), .emblem #about table th:nth-child(2), #about .emblem table th:nth-child(2), .emblem table th:nth-child(2), .emblem table td:nth-child(3), .emblem #about table th:nth-child(3), #about .emblem table th:nth-child(3), .emblem table th:nth-child(3) {
   width: 50px;
 }
 
-#supp {
+.supp {
   width: 55%;
   height: 150px;
 }
 
-#supp table {
+.supp table {
   width: 100%;
 }
 
-#supp p {
+.supp p {
   color: transparent;
 }
 
-#supp .supp-pic:hover .pic {
+.supp .supp-pic:hover .pic {
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-#supp .supp-pic:hover p {
+.supp .supp-pic:hover p {
   color: rgba(255, 255, 255, 0.8);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-#exclusive-tbl,
-#transitional-tbl,
-#main-tbl,
-#secondary-tbl {
+.exclusive-tbl,
+.transitional-tbl,
+.main-tbl,
+.secondary-tbl {
   width: 50%;
   min-width: 90%;
 }
 
-#exclusive-tbl:not(#exclusive-tbl) th:nth-child(1),
-#transitional-tbl:not(#exclusive-tbl) th:nth-child(1),
-#main-tbl:not(#exclusive-tbl) th:nth-child(1),
-#secondary-tbl:not(#exclusive-tbl) th:nth-child(1) {
+.exclusive-tbl:not(.exclusive-tbl) th:nth-child(1),
+.transitional-tbl:not(.exclusive-tbl) th:nth-child(1),
+.main-tbl:not(.exclusive-tbl) th:nth-child(1),
+.secondary-tbl:not(.exclusive-tbl) th:nth-child(1) {
   width: 20%;
 }
 
@@ -1170,13 +1170,13 @@ body::-webkit-scrollbar-track {
 }
 
 .bg-fade-in {
-  -webkit-animation: bgfadein 0.5s;
-          animation: bgfadein 0.5s;
+  -webkit-animation: bgfadein 0.5s forwards;
+          animation: bgfadein 0.5s forwards;
 }
 
 .bg-fade-out {
-  -webkit-animation: bgfadeout 0.5s;
-          animation: bgfadeout 0.5s;
+  -webkit-animation: bgfadeout 0.5s forwards;
+          animation: bgfadeout 0.5s forwards;
 }
 
 @-webkit-keyframes bgfadein {
@@ -1215,7 +1215,7 @@ body::-webkit-scrollbar-track {
   }
 }
 
-#guide-content {
+.guide-content {
   scrollbar-width: none !important;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -1227,22 +1227,22 @@ body::-webkit-scrollbar-track {
   border-radius: 5px;
 }
 
-#guide-content ::-webkit-scrollbar {
+.guide-content ::-webkit-scrollbar {
   display: none;
 }
 
-#guide-content.mobile {
+.guide-content.mobile {
   width: 100%;
   height: calc(100% - 25vw);
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
-#guide-content.mobile.upper {
+.guide-content.mobile.upper {
   margin-top: 25vw;
 }
 
-#guide-content.desktop {
+.guide-content.desktop {
   width: 600px;
   height: 800px;
   border: 3px solid rgba(255, 255, 255, 0.5);
@@ -1252,8 +1252,8 @@ body::-webkit-scrollbar-track {
 
 /* desktop */
 .guide-entry-desktop {
-  -webkit-animation: guideentrydesktop 0.6s;
-          animation: guideentrydesktop 0.6s;
+  -webkit-animation: guideentrydesktop 0.6s forwards;
+          animation: guideentrydesktop 0.6s forwards;
 }
 
 @-webkit-keyframes guideentrydesktop {
@@ -1283,8 +1283,8 @@ body::-webkit-scrollbar-track {
 }
 
 .guide-exit-desktop {
-  -webkit-animation: guideexitdesktop 0.6s;
-          animation: guideexitdesktop 0.6s;
+  -webkit-animation: guideexitdesktop 0.6s forwards;
+          animation: guideexitdesktop 0.6s forwards;
 }
 
 @-webkit-keyframes guideexitdesktop {
@@ -1315,8 +1315,8 @@ body::-webkit-scrollbar-track {
 
 /* mobile */
 .guide-top-entry-mobile {
-  -webkit-animation: guideopenentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-          animation: guideopenentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  -webkit-animation: guideopenentrymobile 0.6s ease-out forwards;
+          animation: guideopenentrymobile 0.6s ease-out forwards;
 }
 
 @-webkit-keyframes guideopenentrymobile {
@@ -1346,8 +1346,8 @@ body::-webkit-scrollbar-track {
 }
 
 .guide-top-exit-mobile {
-  -webkit-animation: guideopenexitmobile 0.5s;
-          animation: guideopenexitmobile 0.5s;
+  -webkit-animation: guideopenexitmobile 0.5s ease-in forwards;
+          animation: guideopenexitmobile 0.5s ease-in forwards;
 }
 
 @-webkit-keyframes guideopenexitmobile {
@@ -1377,8 +1377,8 @@ body::-webkit-scrollbar-track {
 }
 
 .guide-bot-entry-mobile {
-  -webkit-animation: guidebotentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-          animation: guidebotentrymobile 0.6s 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  -webkit-animation: guidebotentrymobile 0.6s ease-out forwards;
+          animation: guidebotentrymobile 0.6s ease-out forwards;
 }
 
 @-webkit-keyframes guidebotentrymobile {
@@ -1408,8 +1408,8 @@ body::-webkit-scrollbar-track {
 }
 
 .guide-bot-exit-mobile {
-  -webkit-animation: guidebotexitmobile 0.5s;
-          animation: guidebotexitmobile 0.5s;
+  -webkit-animation: guidebotexitmobile 0.5s ease-in forwards;
+          animation: guidebotexitmobile 0.5s ease-in forwards;
 }
 
 @-webkit-keyframes guidebotexitmobile {
@@ -1561,6 +1561,10 @@ body::-webkit-scrollbar-track {
 
 .overflow-hide {
   overflow: hidden;
+}
+
+.no-display {
+  display: none !important;
 }
 
 .fade {

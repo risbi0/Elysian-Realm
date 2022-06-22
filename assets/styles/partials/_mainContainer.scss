@@ -61,7 +61,7 @@
         text-orientation: upright;
     }
 }
-#rating {
+.rating {
     @include margin($t: 10px, $b: 2px);
     font-style: italic;
 }
@@ -113,7 +113,7 @@
         font-size: 10px;
     }
 }
-#emblem-support {
+.emblem-support {
     justify-content: space-between;
     width: 90%;
 }
@@ -125,7 +125,7 @@
         width: 100% !important;
     }
 }
-#emblem {
+.emblem {
     width: 40%;
 
     table {
@@ -136,7 +136,7 @@
         }
     }
 }
-#supp {
+.supp {
     @include wh($w: 55%, $h: 150px);
 
     table { width: 100%; }
@@ -153,14 +153,14 @@
         }
     }
 }
-#exclusive-tbl,
-#transitional-tbl,
-#main-tbl,
-#secondary-tbl {
+.exclusive-tbl,
+.transitional-tbl,
+.main-tbl,
+.secondary-tbl {
     width: 50%;
     min-width: 90%;
 
-    &:not(#exclusive-tbl) th:nth-child(1) {
+    &:not(.exclusive-tbl) th:nth-child(1) {
         width: 20%;
     }
 }

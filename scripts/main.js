@@ -1,8 +1,7 @@
 import { valks } from './guide.js';
 import { isMobile, signetSummary } from './data.js';
-import { guideContainer, guideContent, buildGuideContent } from './build.js';
+import { mainContainer, guideContainer } from './build.js';
 const body = document.querySelector('body');
-const mainContainer = document.querySelector('#main-container');
 const deviceWidth = window.innerWidth;
 const deviceHeight = window.innerHeight;
 window.scrollTo({ top: 0 });
@@ -20,6 +19,7 @@ function fadeAnim(item, fade) {
     setTimeout(() => {
         item.classList.remove('hidden');
         item.classList.add(fade);
+        setTimeout(() => { item.classList.remove(fade); }, 1990);
     }, time);
     time += interval;
 }
@@ -96,6 +96,19 @@ function notedCell(row, removee, addee) {
         }
     }
 }
+function highlightRow() {
+    this.classList.add('table-cell-hover');
+    notedCell(this, 'noted', 'temp');
+    highlightAdjacentMergedCell(this, true);
+}
+const rowsExceptHeader = document.querySelectorAll('tr:not(thead tr)');
+rowsExceptHeader.forEach((row) => {
+    row.addEventListener('mouseout', function () {
+        this.classList.remove('table-cell-hover');
+        notedCell(this, 'temp', 'noted');
+        highlightAdjacentMergedCell(this, false);
+    });
+});
 function highlightInvolvedRows(row, bool) {
     const mergeSize = parseInt(row.getAttribute('rowspan')) - 1;
     const cellIndex = row.parentNode.rowIndex;
@@ -110,6 +123,24 @@ function highlightInvolvedRows(row, bool) {
         }
     }
 }
+const highlightRows = function () { highlightInvolvedRows(this, true); };
+const cellsWithRowspan = document.querySelectorAll('td[rowspan]');
+cellsWithRowspan.forEach((cell) => { cell.addEventListener('mouseout', function () { highlightInvolvedRows(this, false); }); });
+const tooltipable = document.querySelectorAll('input');
+tooltipable.forEach((item) => {
+    item.addEventListener('click', () => {
+        for (const otherItem of tooltipable) {
+            if (otherItem !== item)
+                otherItem.checked = false;
+        }
+    });
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => { e.preventDefault(); });
+    anchor.addEventListener('click', function () {
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
 let originalText, previousText;
 function changeText(deez) {
     for (let i = 0; i < Object.keys(signetSummary).length; i++) {
@@ -125,6 +156,7 @@ function revertText(deez) {
     deez.textContent = originalText;
     originalText = null;
 }
+const guideContents = document.querySelectorAll('.guide-content');
 let animation1, animation2;
 let preventScroll;
 let noOfBannersInViewport = 0;
@@ -149,7 +181,7 @@ if (isMobile) {
             });
         });
     };
-    guideContent.classList.add('mobile');
+    guideContainer.classList.add('hidden');
 }
 else {
     [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
@@ -175,27 +207,27 @@ else {
         });
     };
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-    guideContent.classList.add('desktop');
 }
+summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 const interval = 300 - noOfBannersInViewport * 5;
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
 const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner;
+let currentGuide;
 function hide() {
     body.style.overflow = 'auto';
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
-    guideContent.innerHTML = '';
     if (isMobile) {
         currentBanner.children[0].style.filter = null;
         currentBanner.children[1].children[0].style.color = null;
-        guideContent.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper');
+        currentGuide.classList.remove('guide-bot-entry-mobile', 'guide-top-entry-mobile', 'upper');
         if (Array.from(currentBanner.parentNode.children).indexOf(currentBanner) > mobileUpperBanners) {
-            guideContent.classList.add('guide-bot-exit-mobile');
+            currentGuide.classList.add('guide-bot-exit-mobile');
         }
         else {
-            guideContent.classList.add('guide-top-exit-mobile');
+            currentGuide.classList.add('guide-top-exit-mobile');
         }
         document.querySelectorAll('.vertical-text').forEach((text) => { text.style.opacity = '1'; });
         for (const cssRule of mainStylesheet) {
@@ -206,21 +238,27 @@ function hide() {
         }
     }
     else {
-        guideContent.classList.remove('guide-entry-desktop');
-        guideContent.classList.add('guide-exit-desktop');
+        currentGuide.classList.remove('guide-entry-desktop');
+        currentGuide.classList.add('guide-exit-desktop');
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
-    setTimeout(() => { guideContainer.style.display = 'none'; }, 450);
+    setTimeout(() => {
+        guideContainer.classList.add('no-display');
+        currentGuide.classList.add('no-display');
+        currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', 'guide-entry-desktop', 'guide-exit-desktop');
+    }, 450);
+    rowsExceptHeader.forEach((row) => { row.removeEventListener('mouseover', highlightRow); });
+    cellsWithRowspan.forEach((cell) => { cell.removeEventListener('mouseover', highlightRows); });
 }
 closeButton.addEventListener('click', () => { hide(); });
 guideContainer.addEventListener('click', () => { hide(); });
-guideContent.addEventListener('click', (e) => { e.stopPropagation(); });
+guideContents.forEach(guideContent => { guideContent.addEventListener('click', (e) => { e.stopPropagation(); }); });
 function contentFade(topOffset, bottomOffset, direction, psuedoDirection) {
     for (const cssRule of mainStylesheet) {
         if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
-            cssRule.style.animation = `fadein${psuedoDirection} 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19) 0.1s forwards`;
+            cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;
             if (cssRule.selectorText === '#guide-container::before') {
                 cssRule.style.top = topOffset;
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
@@ -230,77 +268,50 @@ function contentFade(topOffset, bottomOffset, direction, psuedoDirection) {
         }
     }
 }
+let psuedoStyles;
 banners.forEach((banner) => {
     banner.addEventListener('click', function () {
         const index = Array.from(this.parentNode.children).indexOf(this);
-        buildGuideContent(index);
-        guideContent.scrollTo({ top: 0 });
-        guideContainer.classList.remove('bg-fade-out');
+        currentGuide = guideContents[index];
+        guideContainer.classList.remove('bg-fade-out', 'no-display');
         guideContainer.classList.add('bg-fade-in');
         let closeButtonOffsetTop, topButtonOffsetTop;
         if (isMobile) {
             body.style.overflow = 'hidden';
-            guideContent.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
+            currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
             let offset = 0;
             if (index > mobileUpperBanners) {
-                guideContent.classList.add('guide-bot-entry-mobile');
+                currentGuide.classList.add('guide-bot-entry-mobile');
+                psuedoStyles = ['calc(100vh - 25vw)', '25vw', 'bottom', 'up'];
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
-                contentFade('calc(100vh - 25vw)', '25vw', 'bottom', 'up');
             }
             else {
-                guideContent.classList.add('guide-top-entry-mobile', 'upper');
+                currentGuide.classList.add('guide-top-entry-mobile', 'upper');
+                psuedoStyles = ['calc(25vw - 5px)', '0', 'top', 'down'];
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
-                contentFade('calc(25vw - 5px)', '0', 'top', 'down');
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         }
         else {
-            guideContent.classList.remove('guide-exit-desktop');
-            guideContent.classList.add('guide-entry-desktop');
+            currentGuide.classList.remove('guide-exit-desktop', 'no-display');
+            currentGuide.classList.add('guide-entry-desktop');
         }
-        const tooltipable = document.querySelectorAll('input');
-        tooltipable.forEach((item) => {
-            item.addEventListener('click', () => {
-                for (const otherItem of tooltipable) {
-                    if (otherItem !== item)
-                        otherItem.checked = false;
-                }
-            });
-        });
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => { e.preventDefault(); });
-            anchor.addEventListener('click', function () {
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
         setTimeout(() => {
-            document.querySelectorAll('tr:not(thead tr)').forEach(row => {
-                row.addEventListener('mouseover', function () {
-                    this.classList.add('table-cell-hover');
-                    notedCell(this, 'noted', 'temp');
-                    highlightAdjacentMergedCell(this, true);
-                });
-                row.addEventListener('mouseout', function () {
-                    this.classList.remove('table-cell-hover');
-                    notedCell(this, 'temp', 'noted');
-                    highlightAdjacentMergedCell(this, false);
-                });
-            });
-            document.querySelectorAll('td[rowspan]').forEach(cell => {
-                cell.addEventListener('mouseover', function () { highlightInvolvedRows(this, true); });
-                cell.addEventListener('mouseout', function () { highlightInvolvedRows(this, false); });
-            });
+            rowsExceptHeader.forEach((row) => { row.addEventListener('mouseover', highlightRow); });
+            cellsWithRowspan.forEach((cell) => { cell.addEventListener('mouseover', highlightRows); });
             const setCloseButtonPos = (topOffset, leftOffset) => {
                 closeButton.style.visibility = 'visible';
                 closeButton.style.top = `${topOffset + 15}px`;
                 closeButton.style.left = `${leftOffset - 60}px`;
             };
             if (isMobile) {
-                guideContainer.classList.remove('hidden');
+                contentFade(...psuedoStyles);
+                guideContainer.classList.remove('hidden', 'no-display');
+                currentGuide.classList.remove('no-display');
                 currentBanner = this;
                 this.children[0].style.filter = 'brightness(70%) blur(0.3px)';
                 this.children[1].children[0].style.color = 'white';
@@ -313,17 +324,14 @@ banners.forEach((banner) => {
                 topButton.style.left = `${deviceWidth - 60}px`;
             }
             else {
-                const guidePos = guideContent.getBoundingClientRect();
+                const guidePos = currentGuide.getBoundingClientRect();
                 setCloseButtonPos(guidePos.top, guidePos.right);
                 topButton.style.top = `${guidePos.bottom - 60}px`;
                 topButton.style.left = `${guidePos.right - 60}px`;
             }
         }, 600);
-        const signets = document.querySelectorAll('#main-tbl td, #secondary-tbl td, #transitional-tbl td');
-        summOnHover(signets);
-        guideContent.addEventListener('scroll', function () {
-            topButton.style.visibility = guideContent.scrollTop > 700 ? 'visible' : 'hidden';
-        });
-        topButton.addEventListener('click', () => { guideContent.scroll({ top: 0, behavior: 'smooth' }); });
+        currentGuide.addEventListener('scroll', function () { topButton.style.visibility = currentGuide.scrollTop > 700 ? 'visible' : 'hidden'; });
+        topButton.addEventListener('click', () => { currentGuide.scroll({ top: 0, behavior: 'smooth' }); });
+        currentGuide.scrollTo({ top: 0 });
     });
 });
