@@ -210,14 +210,14 @@ else {
 }
 summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 const interval = 300 - noOfBannersInViewport * 5;
-const topButton = document.querySelector('#goToTop');
-const closeButton = document.querySelector('#close');
-const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 const goToTop = (e) => {
     const dis = e.currentTarget.currentGuide;
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 };
 const buttonVisibility = (e) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const topButton = document.querySelector('#goToTop');
+const closeButton = document.querySelector('#close');
+const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner;
 let currentGuide;
 function hide() {

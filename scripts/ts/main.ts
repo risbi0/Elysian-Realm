@@ -244,14 +244,14 @@ summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transit
 const interval: number = 300 - noOfBannersInViewport * 5;
 
 // setup modal closing
-const topButton: any = document.querySelector('#goToTop');
-const closeButton = document.querySelector('#close') as HTMLDivElement;
-const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 const goToTop = (e: any) => {
     const dis = e.currentTarget.currentGuide;
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 }
 const buttonVisibility = (e: any) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const topButton: any = document.querySelector('#goToTop');
+const closeButton = document.querySelector('#close') as HTMLDivElement;
+const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
 function hide() {
