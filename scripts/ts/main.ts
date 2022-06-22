@@ -352,7 +352,7 @@ banners.forEach((banner: any) => {
         // timeout to prevent highlighting when guide is still in animation (desktop)
         // and to wait for animation to end to apply styles (mobile)
         setTimeout(() => {
-            rowsExceptHeader.forEach((row: any) =>  row.addEventListener('mouseover', highlightRow));
+            rowsExceptHeader.forEach((row: any) => row.addEventListener('mouseover', highlightRow));
             cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseover', highlightRows));
             // close and to top button position
             const setCloseButtonPos = (topOffset: number, leftOffset: number): void => {
