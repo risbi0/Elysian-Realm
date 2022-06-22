@@ -119,7 +119,7 @@ function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
 }
 // higlight table rows, including merged cells, on hover
 // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
-function highlightRow(this: any): void {
+function highlightRow(this: any) {
     this.classList.add('table-cell-hover');
     notedCell(this, 'noted', 'temp');
     highlightAdjacentMergedCell(this, true);
@@ -146,7 +146,7 @@ function highlightInvolvedRows(row: any, bool: boolean): void {
     }
 }
 // highlight adjacent rows on hovering from merged cells
-const highlightRows = function(this: any): void { highlightInvolvedRows(this, true); }
+const highlightRows = function(this: any) { highlightInvolvedRows(this, true); }
 const cellsWithRowspan: any = document.querySelectorAll('td[rowspan]');
 cellsWithRowspan.forEach((cell: any) => { cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) }); });
 
