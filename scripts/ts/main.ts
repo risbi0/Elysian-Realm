@@ -148,7 +148,7 @@ function highlightInvolvedRows(row: any, bool: boolean): void {
 // highlight adjacent rows on hovering from merged cells
 const highlightRows = function(this: any) { highlightInvolvedRows(this, true); }
 const cellsWithRowspan: any = document.querySelectorAll('td[rowspan]');
-cellsWithRowspan.forEach((cell: any) => { cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) }); });
+cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) }));
 
 // hide previously clicked tooltip
 const tooltipable: any = document.querySelectorAll('input');
@@ -160,7 +160,7 @@ tooltipable.forEach((item: any) => {
 
 // anchor smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => { e.preventDefault() });
+    anchor.addEventListener('click', (e) => e.preventDefault());
     anchor.addEventListener('click', function(this: any) {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
@@ -213,7 +213,7 @@ if (isMobile) {
     const scrollVal: number = (mainContainer.scrollWidth - mainContainer.offsetWidth) / 2; // middle
     mainContainer.scroll({ left: scrollVal }); // scroll to middle
     // lock mainContainer scroll during banner animation
-    preventScroll = () => { mainContainer.scroll({ left: scrollVal }) };
+    preventScroll = () => mainContainer.scroll({ left: scrollVal });
     mainContainer.addEventListener('scroll', preventScroll);
 
     // setup no. of banners
@@ -247,8 +247,8 @@ const interval: number = 300 - noOfBannersInViewport * 5;
 const topButton: any = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
-const goToTop = (e: any) => { e.currentTarget.scroll({ top: 0, behavior: 'smooth' }); };
-const buttonVisibility = (e: any) => { topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden'; };
+const goToTop = (e: any) => e.currentTarget.scroll({ top: 0, behavior: 'smooth' });
+const buttonVisibility = (e: any) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
 function hide() {
@@ -267,7 +267,7 @@ function hide() {
             currentGuide.classList.add('guide-top-exit-mobile');
         }
         // unhide banner names
-        document.querySelectorAll('.vertical-text').forEach((text: any) => { text.style.opacity = '1'; });
+        document.querySelectorAll('.vertical-text').forEach((text: any) => text.style.opacity = '1');
         // hide fade effect
         for (const cssRule of mainStylesheet) {
             if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
@@ -288,12 +288,12 @@ function hide() {
         currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', 'guide-entry-desktop', 'guide-exit-desktop');
     }, 450);
 
-    rowsExceptHeader.forEach((row: any) => { row.removeEventListener('mouseover', highlightRow); });
-    cellsWithRowspan.forEach((cell: any) => { cell.removeEventListener('mouseover', highlightRows); });
+    rowsExceptHeader.forEach((row: any) => row.removeEventListener('mouseover', highlightRow));
+    cellsWithRowspan.forEach((cell: any) => cell.removeEventListener('mouseover', highlightRows));
 }
-closeButton.addEventListener('click', () => { hide(); }); // close on close button click
-guideContainer.addEventListener('click', () => { hide(); }); // close when clicking outside modal
-guideContents.forEach(guideContent => { guideContent.addEventListener('click', (e) => { e.stopPropagation(); }); });
+closeButton.addEventListener('click', () => hide()); // close on close button click
+guideContainer.addEventListener('click', () => hide()); // close when clicking outside modal
+guideContents.forEach(guideContent => guideContent.addEventListener('click', (e) => e.stopPropagation()));
 
 // style ::after and ::before psuedo selectors (mobile only)
 function contentFade(topOffset: string, bottomOffset: string, direction: string, psuedoDirection: string): void {
@@ -352,8 +352,8 @@ banners.forEach((banner: any) => {
         // timeout to prevent highlighting when guide is still in animation (desktop)
         // and to wait for animation to end to apply styles (mobile)
         setTimeout(() => {
-            rowsExceptHeader.forEach((row: any) => { row.addEventListener('mouseover', highlightRow); });
-            cellsWithRowspan.forEach((cell: any) => { cell.addEventListener('mouseover', highlightRows); });
+            rowsExceptHeader.forEach((row: any) =>  row.addEventListener('mouseover', highlightRow));
+            cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseover', highlightRows));
             // close and to top button position
             const setCloseButtonPos = (topOffset: number, leftOffset: number): void => {
                 closeButton.style.visibility = 'visible';
