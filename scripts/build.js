@@ -1,5 +1,5 @@
 import { valks } from './guide.js';
-import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
+import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, stigTableHeaders, exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 export const mainContainer = document.querySelector('#main-container');
 mainContainer.innerHTML = '';
 function imageAndLabel(cell, row, item, m, hoverLabel) {
@@ -211,6 +211,39 @@ for (let i = 0; i < valks.length; i++) {
         supportTableDiv.appendChild(supportTable);
         emblemSupportDiv.appendChild(supportTableDiv);
         guideContent.appendChild(emblemSupportDiv);
+        if ('gears' in valks[i].builds[j]) {
+            const stigTitle = document.createElement('h3');
+            stigTitle.innerText = 'Recommended Gear';
+            guideContent.appendChild(stigTitle);
+            const stigTable = document.createElement('table');
+            stigTable.classList.add('gear-tbl');
+            const stigTableHead = stigTable.createTHead();
+            const stigTableHeadRow = stigTableHead.insertRow();
+            for (let k = 0; k < 2; k++) {
+                const stigTableHeader = document.createElement('th');
+                stigTableHeader.textContent = stigTableHeaders[k];
+                stigTableHeadRow.appendChild(stigTableHeader);
+            }
+            stigTableHead.appendChild(stigTableHeadRow);
+            const stigTableBody = stigTable.createTBody();
+            for (let k = 0; k < Object.keys(valks[i].builds[j].gears).length; k++) {
+                const stigTableBodyRow = stigTableBody.insertRow();
+                for (let l = 0; l < 2; l++) {
+                    let stigTableBodyCell = stigTableBodyRow.insertCell();
+                    if (l === 0) {
+                        stigTableBodyCell.textContent = `${k + 1}`;
+                    }
+                    else {
+                        stigTableBodyCell.textContent = valks[i].builds[j].gears[k];
+                    }
+                    stigTableBodyRow.appendChild(stigTableBodyCell);
+                }
+                stigTableBody.appendChild(stigTableBodyRow);
+            }
+            stigTable.appendChild(stigTableHead);
+            stigTable.appendChild(stigTableBody);
+            guideContent.appendChild(stigTable);
+        }
         for (let k = 0; k < signetTableLength; k++) {
             const signetTitle = document.createElement('h3');
             const signetTable = document.createElement('table');

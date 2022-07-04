@@ -66,8 +66,8 @@ url.forEach((link) => {
     });
 });
 function highlightAdjacentMergedCell(row, bool) {
-    if (row.innerHTML.match(/<\/td>/g).length === 1 ||
-        (row.innerHTML.match(/"temp"|"noted"/) && !(row.innerHTML.includes('rowspan')))) {
+    if (row.innerHTML.match(/<\/td>/g).length === 1 && !(row.innerHTML.includes('rowspan')) ||
+        (row.innerHTML.match(/"temp"|"noted"/))) {
         const parentChildren = row.parentNode.children;
         for (let i = 0; i < parentChildren.length; i++) {
             if (parentChildren[i].innerHTML.includes('rowspan')) {
@@ -77,12 +77,10 @@ function highlightAdjacentMergedCell(row, bool) {
                 const thisIndex = row.rowIndex;
                 const mergedCellIndex = parentChildren[i].rowIndex;
                 if (thisIndex >= mergedCellIndex && thisIndex <= mergedCellIndex + range) {
-                    if (bool) {
+                    if (bool)
                         parentChildren[i].children[j].classList.add('table-cell-hover');
-                    }
-                    else {
+                    else
                         parentChildren[i].children[j].classList.remove('table-cell-hover');
-                    }
                 }
             }
         }

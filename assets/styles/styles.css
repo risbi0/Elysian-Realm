@@ -252,6 +252,7 @@ body::-webkit-scrollbar-track {
   transition: 0.3s;
 }
 
+.gear-tbl,
 .exclusive-tbl,
 .transitional-tbl,
 .main-tbl,
@@ -260,6 +261,7 @@ body::-webkit-scrollbar-track {
   min-width: 90%;
 }
 
+.gear-tbl:not(.exclusive-tbl) th:nth-child(1),
 .exclusive-tbl:not(.exclusive-tbl) th:nth-child(1),
 .transitional-tbl:not(.exclusive-tbl) th:nth-child(1),
 .main-tbl:not(.exclusive-tbl) th:nth-child(1),
@@ -520,6 +522,29 @@ body::-webkit-scrollbar-track {
 
 #fr ~ .main-name > .mobile {
   font-size: 6vw;
+}
+
+#ft {
+  background-image: url("../img/valks/Fervent_Tempo.webp");
+}
+
+#ft.desktop-pos {
+  background-position: 39.6%;
+}
+
+#ft.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(10) translate(37%, -14.5%);
+          transform: scale(10) translate(37%, -14.5%);
+}
+
+#ft ~ .main-name > .desktop {
+  font-size: 32px;
+}
+
+#ft ~ .main-name > .mobile {
+  font-size: 7vw;
 }
 
 #fischl {
@@ -798,6 +823,29 @@ body::-webkit-scrollbar-track {
   font-size: 8vw;
 }
 
+#si {
+  background-image: url("../img/valks/Starry_Impression.webp");
+}
+
+#si.desktop-pos {
+  background-position: 46.2%;
+}
+
+#si.mobile-pos {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: scale(14) translate(33%, -15.9%);
+          transform: scale(14) translate(33%, -15.9%);
+}
+
+#si ~ .main-name > .desktop {
+  font-size: 28px;
+}
+
+#si ~ .main-name > .mobile {
+  font-size: 6vw;
+}
+
 #sn {
   background-image: url("../img/valks/Stygian_Nymph.webp");
 }
@@ -1006,11 +1054,19 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/emblems/Empty_Like_Shala.webp");
 }
 
+.fas {
+  background-image: url("../img/emblems/Faraway_Ship.webp");
+}
+
 .fipl {
   background-image: url("../img/emblems/Falling_in_Past_Light.webp");
 }
 
-.fs {
+.foe {
+  background-image: url("../img/emblems/Feast_of_Emptiness.webp");
+}
+
+.fos {
   background-image: url("../img/emblems/Forbidden_Seed.webp");
 }
 
@@ -1086,6 +1142,10 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/emblems/Thorny_Crown.webp");
 }
 
+.tf {
+  background-image: url("../img/emblems/Tin_Flask.webp");
+}
+
 .tfs {
   background-image: url("../img/emblems/The_First_Scale.webp");
 }
@@ -1096,6 +1156,10 @@ body::-webkit-scrollbar-track {
 
 .tlm {
   background-image: url("../img/emblems/The_Lonely_Moon.webp");
+}
+
+.vot {
+  background-image: url("../img/emblems/Veil_of_Tears.webp");
 }
 
 /* support valk images */

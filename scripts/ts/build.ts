@@ -1,6 +1,6 @@
 import { valks } from './guide.js';
 import { emblemTableHeaders, emblemTableTimeColumn,
-         supportTableHeaders, supportTableTypeColumn,
+         supportTableHeaders, supportTableTypeColumn, stigTableHeaders,
          exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
@@ -256,6 +256,44 @@ for (let i = 0; i < valks.length; i++) {
         emblemSupportDiv.appendChild(supportTableDiv);
         // supports table end
         guideContent.appendChild(emblemSupportDiv);
+        // stigmatas start
+        if ('gears' in valks[i].builds[j]) {
+            const stigTitle: HTMLHeadingElement = document.createElement('h3');
+            stigTitle.innerText = 'Recommended Gear';
+
+            guideContent.appendChild(stigTitle);
+
+            const stigTable: HTMLTableElement = document.createElement('table');
+            stigTable.classList.add('gear-tbl');
+            const stigTableHead: HTMLTableSectionElement = stigTable.createTHead();
+            const stigTableHeadRow: HTMLTableRowElement = stigTableHead.insertRow();
+            for (let k = 0; k < 2; k++) {
+                const stigTableHeader: HTMLTableCellElement = document.createElement('th');
+                stigTableHeader.textContent = stigTableHeaders[k];
+                stigTableHeadRow.appendChild(stigTableHeader);
+            }
+            stigTableHead.appendChild(stigTableHeadRow);
+
+            const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
+            for (let k = 0; k < Object.keys(valks[i].builds[j].gears).length; k++) {
+                const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
+                for (let l = 0; l < 2; l++) {
+                    let stigTableBodyCell: HTMLTableCellElement = stigTableBodyRow.insertCell();
+                    if (l === 0) {
+                        stigTableBodyCell.textContent = `${k + 1}`;
+                    } else {
+                        stigTableBodyCell.textContent = valks[i].builds[j].gears[k];
+                    }
+                    stigTableBodyRow.appendChild(stigTableBodyCell);
+                }
+                stigTableBody.appendChild(stigTableBodyRow);
+            }
+            stigTable.appendChild(stigTableHead);
+            stigTable.appendChild(stigTableBody);
+
+            guideContent.appendChild(stigTable);
+        }
+        //  stigmatas end
         // signet tables start
         for (let k = 0; k < signetTableLength; k++) {
             const signetTitle: HTMLHeadingElement = document.createElement('h3');

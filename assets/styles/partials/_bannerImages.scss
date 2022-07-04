@@ -32,6 +32,10 @@
                       $desktop-font-size: 28px, $mobile-font-size: 6vw,
                       $desktop-offset: 56.2%, $mobile-offset: scale(14) translate(28%, -19%));
 
+@include bannerImages($name: ft, $src: url("../img/valks/Fervent_Tempo.webp"),
+                      $desktop-font-size: 32px, $mobile-font-size: 7vw,
+                      $desktop-offset: 39.6%, $mobile-offset: scale(10) translate(37%, -14.5%));        
+
 @include bannerImages($name: fischl, $src: url("../img/valks/Prinzessin_der_Verurteilung.webp"),
                       $desktop-font-size: 16px, $mobile-font-size: 7vw,
                       $desktop-offset: 57%, $mobile-offset: scale(13) translate(34%, -15%));
@@ -79,6 +83,10 @@
 @include bannerImages($name: ri, $src: url("../img/valks/Ritual_Imayoh.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 8vw,
                       $desktop-offset: 55%, $mobile-offset: scale(10) translate(34%, -11.2%));
+
+@include bannerImages($name: si, $src: url("../img/valks/Starry_Impression.webp"),
+                      $desktop-font-size: 28px, $mobile-font-size: 6vw,
+                      $desktop-offset: 46.2%, $mobile-offset: scale(14) translate(33%, -15.9%));  
 
 @include bannerImages($name: sn, $src: url("../img/valks/Stygian_Nymph.webp"),
                       $desktop-font-size: 32px, $mobile-font-size: 7vw,

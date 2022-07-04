@@ -12,6 +12,7 @@ export const supportTableHeaders = ['Type', 'Supports'];
 export const supportTableTypeColumn = ['Utility', 'Damage'];
 export const emblemTableHeaders = ['Time', 'Emblems'];
 export const emblemTableTimeColumn = ['Early', 'Mid', 'Late'];
+export const stigTableHeaders = ['Rank', 'Stigmata Build'];
 export const exclusiveTableColumns = ['Signet', 'Priority'];
 export const signetTableColumns = ['Owner', 'Signet'];
 export const becauseOfYou = { name: 'Because of You', acr: 'boy' };
@@ -20,7 +21,9 @@ export const burden = { name: 'Burden', acr: 'b' };
 export const dreamfulGold = { name: 'Dreamful Gold', acr: 'dg' };
 export const emptyLikeShala = { name: 'Empty Like Shala', acr: 'els' };
 export const fallingInPastLight = { name: 'Falling in Past Light', acr: 'fipl' };
-export const forbiddenSeed = { name: 'Forbidden Seed', acr: 'fs' };
+export const farawayShip = { name: 'Faraway Ship', acr: 'fas' };
+export const feastOfEmptiness = { name: 'Feast of Emptiness', acr: 'foe' };
+export const forbiddenSeed = { name: 'Forbidden Seed', acr: 'fos' };
 export const forgetMeNot = { name: 'Forget-Me-Not', acr: 'fmt' };
 export const goldGoblet = { name: 'Gold Goblet', acr: 'gg' };
 export const goodOldDays = { name: 'Good Old Days', acr: 'god' };
@@ -40,8 +43,10 @@ export const resolve = { name: 'Resolve', acr: 'r' };
 export const stainedSakura = { name: 'Stained Sakura', acr: 'sts' };
 export const theFirstScale = { name: 'The First Scale', acr: 'tfs' };
 export const theLonelyMoon = { name: 'The Lonely Moon', acr: 'tlm' };
+export const tinFlask = { name: 'Tin Flask', acr: 'tf' };
 export const thornyCrown = { name: 'Thorny Crown', acr: 'tc' };
 export const tsukimiHimiko = { name: 'Tsukimi Himiko', acr: 'th' };
+export const veilOfTears = { name: 'Veil of Tears', acr: 'vot' };
 export const ae = { name: 'Azure Empyrea', acr: 'ae' };
 export const bke = { name: 'Bright Knight: Excelsis', acr: 'bke' };
 export const br = { name: 'Blood Rose', acr: 'br' };
@@ -70,6 +75,12 @@ export const aponia = {
         1: 'You Shall Be Bound by Thy Body',
         2: 'You Shall Be Committed to Thy Life',
         3: 'You Shall Be Witnessed by Thy Heart'
+    },
+    nexus2: {
+        name: 'You Shall Receive Disciplines\' Blessing (Nexus)',
+        1: 'You Shall Answer Prayers',
+        2: 'You Shall Follow Good',
+        3: 'You Shall Punish Evil'
     }
 };
 export const eden = {
@@ -112,6 +123,12 @@ export const griseo = {
         1: 'Blooming Like Flowers',
         2: 'Burning Like Flames',
         3: 'Stretching Like Leaves'
+    },
+    nexus2: {
+        name: 'Faded Stars (Nexus)',
+        1: 'A Flame Extinguished',
+        2: 'Fallen Leaves',
+        3: 'Petals in the Wind'
     }
 };
 export const hua = {
@@ -312,18 +329,20 @@ export const vv = {
         3: 'Finale: Broken Truth'
     }
 };
-export const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], hua.regular[3], hua.nexus2[3], kalpas.regular[1],
-    kevin.regular[3], mobius.regular[5], mobius.nexus1[1], pardofelis.regular[4], sakura.regular[2],
-    su.regular[6], vv.regular[3]];
+export const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], griseo.nexus2[2], hua.regular[3],
+    hua.nexus2[3], kalpas.regular[1], kevin.regular[3], mobius.regular[5], mobius.nexus1[1],
+    pardofelis.regular[4], sakura.regular[2], su.regular[6], vv.regular[3]];
 export const damageTaken = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
-export const physEleDamage = [eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1], vv.regular[4]];
+export const physEleDamage = [aponia.nexus2[1], eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1],
+    vv.regular[4]];
 export const physDamage = [hua.regular[2], kevin.regular[5]];
 export const eleDamage = [hua.regular[1], kevin.regular[2]];
-export const physEleBreach = [griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3], aponia.nexus1[1]];
+export const physEleBreach = [aponia.nexus1[1], aponia.nexus2[2], griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3]];
 export const physBreach = [hua.regular[5], kevin.regular[4], vv.nexus1[2]];
 export const eleBreach = [hua.regular[6], kevin.regular[1]];
-export const vurnerability = [aponia.regular[6], eden.nexus1[3], eden.nexus1[2], griseo.regular[4], griseo.regular[6], kalpas.regular[3],
-    kevin.nexus2[3], mobius.regular[2], sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2]];
+export const vurnerability = [aponia.regular[6], aponia.nexus2[3], eden.nexus1[3], eden.nexus1[2], griseo.regular[4],
+    griseo.regular[6], kalpas.regular[3], kevin.nexus2[3], mobius.regular[2], sakura.regular[5],
+    su.regular[3], su.nexus2[1], vv.regular[2]];
 export const spRecovery = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
     griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
     kosma.regular[1]];
@@ -341,22 +360,22 @@ export const signetSummary = {
     10: { summary: 'Lightning Damage', signets: [eden.nexus1[1], eden.nexus2[2]] },
     11: { summary: 'Reduce Enemy Damage and Movement', signets: griseo.regular[2] },
     12: { summary: 'Longer Taint', signets: griseo.regular[3] },
-    13: { summary: 'Bonnus Damage', signets: [griseo.nexus1[3], kalpas.nexus2[1], su.nexus2[2]] },
-    14: { summary: 'Fire Damage', signets: kalpas.nexus1[1] },
+    13: { summary: 'Bonus Damage', signets: [griseo.nexus1[3], kalpas.nexus2[1], su.nexus2[2]] },
+    14: { summary: 'Bonus Fire Damage', signets: kalpas.nexus1[1] },
     15: { summary: 'Additional Initial Stack of Soldier\'s Resolve', signets: hua.nexus1[2] },
     16: { summary: 'Bonus Resolve Stack per Second to Normal Signets', signets: hua.nexus1[1] },
     17: { summary: 'Increase Normal Signet Cap Increased', signets: [hua.nexus1[3], hua.nexus2[1]] },
     18: { summary: 'Extends Incincibility From Soldier\'s Remembrance', signets: hua.nexus2[2] },
     19: { summary: 'Max HP Increase', signets: kalpas.regular[6] },
-    20: { summary: 'Recharges Blood Boil ', signets: kalpas.nexus1[2] },
-    21: { summary: 'More Blood Boil Damage', signets: kalpas.nexus1[3] },
-    22: { summary: 'Bloodboil Armor Absorb Damage', signets: kalpas.nexus2[2] },
+    20: { summary: 'Losing HP Recharges Blood Boil ', signets: kalpas.nexus1[2] },
+    21: { summary: 'More BB Damage to Higher HP% Enemies', signets: kalpas.nexus1[3] },
+    22: { summary: 'BA Absorb Damage Equal to % of Charges', signets: kalpas.nexus2[2] },
     23: { summary: 'Total Damage Increase in Burst Mode', signets: kevin.nexus1[3] },
     24: { summary: 'Normal Signets Increased Buff', signets: [kevin.nexus1[1], kevin.nexus2[1]] },
     25: { summary: 'Final Battle and Normal Signet Duration Extended', signets: kevin.nexus1[2] },
     26: { summary: 'Total Damage Increase in Ultimate or Burst Mode Hit', signets: kevin.nexus2[2] },
     27: { summary: 'Entity Damage Dealt', signets: mobius.regular[3] },
-    28: { summary: 'Elf Ultimate and Support Valk Support Skill Reduced CD', signets: [mobius.regular[4], mobius.nexus1[3]] },
+    28: { summary: 'Elf Ultimate and Support Valk Skill Reduced CD', signets: [mobius.regular[4], mobius.nexus1[3]] },
     29: { summary: 'Elf SP Recovery', signets: mobius.regular[1] },
     30: { summary: 'Mind Sync Duration Extended', signets: mobius.nexus1[2] },
     31: { summary: 'HP and SP Cap', signets: pardofelis.regular[5] },
@@ -388,5 +407,7 @@ export const signetSummary = {
     57: { summary: 'SP Recovery and Reduce Weapon CD', signets: vv.regular[6] },
     58: { summary: 'Marvelous Magic Deals Bonus ATK', signets: vv.nexus1[1] },
     59: { summary: 'Fixed Exhortation Value', signets: aponia.nexus1[2] },
-    60: { summary: 'Increase Ultimate Total Damage', signets: aponia.nexus1[3] }
+    60: { summary: 'Increase Ultimate Total Damage', signets: aponia.nexus1[3] },
+    61: { summary: 'Reduce Enemy Resist', signets: griseo.nexus2[1] },
+    62: { summary: 'Increase Color Effect', signets: griseo.nexus2[3] }
 };
