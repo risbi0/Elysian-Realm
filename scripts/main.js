@@ -139,7 +139,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
-let originalText, previousText;
+let originalText = null, previousText = null;
 function changeText(deez) {
     for (let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
@@ -166,14 +166,14 @@ if (isMobile) {
     summOnHover = (signets) => {
         signets.forEach((signet) => {
             signet.addEventListener('mouseover', function () {
-                if (originalText !== null && previousText !== this) {
+                if (originalText !== null && previousText !== null && !this.textContent.includes('(Nexus)')) {
                     revertText(previousText);
                     changeText(this);
                 }
                 else if (originalText === null) {
                     changeText(this);
                 }
-                else if (previousText === this) {
+                else {
                     revertText(previousText);
                 }
             });
@@ -239,6 +239,8 @@ function hide() {
                 cssRule.style.animation = '';
             }
         }
+        if (previousText !== null && previousText.textContent !== '')
+            revertText(previousText);
     }
     else {
         currentGuide.classList.remove('guide-entry-desktop');

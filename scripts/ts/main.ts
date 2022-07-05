@@ -166,7 +166,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-let originalText: string | null, previousText: any;
+let originalText: string | null = null, previousText: any = null;
 function changeText(deez: HTMLDivElement): void {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
@@ -199,11 +199,11 @@ if (isMobile) {
     summOnHover = (signets: any) => {
         signets.forEach((signet: any) => {
             signet.addEventListener('mouseover', function(this: any) {
-                if (originalText !== null && previousText !== this) {
+                if (originalText !== null && previousText !== null && !this.textContent.includes('(Nexus)')) {               
                     revertText(previousText);
                     changeText(this);
                 } else if (originalText === null) { changeText(this);
-                } else if (previousText === this) { revertText(previousText); }
+                } else { revertText(previousText); }
             });
         });
     }
@@ -278,6 +278,8 @@ function hide() {
                 cssRule.style.animation = '';
             }
         }
+        // revert signet summary if present
+        if (previousText !== null && previousText.textContent !== '') revertText(previousText);
     } else {
         currentGuide.classList.remove('guide-entry-desktop');
         currentGuide.classList.add('guide-exit-desktop');
