@@ -62,7 +62,6 @@ if (isMobile) {
 
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 guideContainer.innerHTML = ''; // remove comments
-guideContainer.classList.add('no-display');
 // DOM generation start
 for (let i = 0; i < valks.length; i++) {
     // banners start

@@ -155,6 +155,10 @@ function revertText(deez) {
     originalText = null;
 }
 const guideContents = document.querySelectorAll('.guide-content');
+guideContents[0].classList.remove('no-display');
+const guidePos = guideContents[0].getBoundingClientRect();
+guideContents[0].classList.add('no-display');
+guideContainer.classList.add('no-display');
 let animation1, animation2;
 let preventScroll;
 let noOfBannersInViewport = 0;
@@ -329,7 +333,6 @@ banners.forEach((banner) => {
                 topButton.style.left = `${deviceWidth - 60}px`;
             }
             else {
-                const guidePos = currentGuide.getBoundingClientRect();
                 setCloseButtonPos(guidePos.top, guidePos.right);
                 topButton.style.top = `${guidePos.bottom - 60}px`;
                 topButton.style.left = `${guidePos.right - 60}px`;

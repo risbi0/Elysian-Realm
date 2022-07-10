@@ -183,6 +183,11 @@ function revertText(deez: HTMLDivElement): void {
 }
 
 const guideContents = document.querySelectorAll('.guide-content');
+// scuffed way of getting exact position for use in close and top buttons (desktop only) w/o being affected by lag
+guideContents[0].classList.remove('no-display');
+const guidePos = guideContents[0].getBoundingClientRect();
+guideContents[0].classList.add('no-display');
+guideContainer.classList.add('no-display');
 // setup of banner indices for animation order
 // desktop - banners in the middile of mainContainer (starting view) in random order, vertical animation
 // mobile - all banners in linear order, horizontal animation
@@ -381,7 +386,6 @@ banners.forEach((banner: any) => {
                 topButton.style.top = `${topButtonOffsetTop - 60}px`;
                 topButton.style.left = `${deviceWidth - 60}px`;
             } else {
-                const guidePos = currentGuide.getBoundingClientRect();
                 setCloseButtonPos(guidePos.top, guidePos.right);
                 topButton.style.top = `${guidePos.bottom - 60}px`;
                 topButton.style.left = `${guidePos.right - 60}px`;

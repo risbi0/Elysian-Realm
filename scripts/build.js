@@ -47,7 +47,6 @@ else {
 }
 export const guideContainer = document.querySelector('#guide-container');
 guideContainer.innerHTML = '';
-guideContainer.classList.add('no-display');
 for (let i = 0; i < valks.length; i++) {
     const button = document.createElement('button');
     button.setAttribute('type', 'button');
