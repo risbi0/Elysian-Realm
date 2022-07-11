@@ -254,7 +254,7 @@ for (let i = 0; i < valks.length; i++) {
         // supports table end
         guideContent.appendChild(emblemSupportDiv);
         // stigmatas start
-        if ('gears' in valks[i].builds[j]) {
+        if ('gear' in valks[i].builds[j]) {
             const stigTitle: HTMLHeadingElement = document.createElement('h3');
             stigTitle.innerText = 'Recommended Gear';
 
@@ -272,11 +272,11 @@ for (let i = 0; i < valks.length; i++) {
             stigTableHead.appendChild(stigTableHeadRow);*/
             // body
             const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
-            for (let k = 0; k < Object.keys(valks[i].builds[j].gears).length; k++) { // rows
+            for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) { // rows
                 const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
                 for (let l = 0; l < 3; l++) { // cells
                     let stigTableBodyCell: HTMLTableCellElement;
-                    stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gears[k], l, false);
+                    stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
                 }
                 stigTableBody.appendChild(stigTableBodyRow);
             }

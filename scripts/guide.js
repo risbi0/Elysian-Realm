@@ -20,7 +20,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.hb]]
                 ],
-                gears: [
+                gear: [
                     [data.bast, data.basm, data.basb],
                     [data.anat, data.anam, data.anab],
                     [data.robt, data.robm, data.robb],
@@ -86,7 +86,7 @@ export const valks = (function () {
                     [[data.sa], [data.le]],
                     [[data.sa], [data.ss]]
                 ],
-                gears: [
+                gear: [
                     [data.dant, data.danm, data.danb],
                     [data.dirt, data.dirm, data.dirb]
                 ],
@@ -152,7 +152,7 @@ export const valks = (function () {
                     [[data.ae], [data.vc]],
                     [[data.ae], [data.br, data.ma]]
                 ],
-                gears: [
+                gear: [
                     [data.shat, data.sham, data.shab],
                     [data.aslt, data.tham, data.aslb],
                     [data.leet, data.tham, data.leeb]
@@ -216,7 +216,7 @@ export const valks = (function () {
                     [[data.ae], [data.br]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.zent, data.zenm, data.zenb],
                     [data.lint, data.linm, data.linb],
                     [data.hant, data.hanm, data.hanb]
@@ -275,7 +275,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.hant, data.hanm, data.hanb],
                     [data.iret, data.irem, data.ireb]
                 ],
@@ -333,7 +333,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.hant, data.hanm, data.hanb],
                     [data.zent, data.linm, data.zenb]
                 ],
@@ -395,7 +395,7 @@ export const valks = (function () {
                     [[data.ae], [data.br]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.murt, data.murm, data.murb],
                     [data.leet, data.tham, data.leeb]
                 ],
@@ -457,7 +457,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.hb, data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.welt, data.basm, data.basb],
                     [data.welt, data.welm, data.welb],
                     [data.anat, data.anam, data.anab]
@@ -522,7 +522,7 @@ export const valks = (function () {
                     [[data.le], [data.sa]],
                     [[data.br], [data.ss]]
                 ],
-                gears: [
+                gear: [
                     [data.dirt, data.dirm, data.rebb],
                     [data.shst, data.shsm, data.shsb]
                 ],
@@ -587,7 +587,7 @@ export const valks = (function () {
                     [[data.ae], [data.br]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.want, data.linm, data.wanb],
                     [data.bent, data.benm, data.benb]
                 ],
@@ -645,7 +645,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.hant, data.hanm, data.hanb],
                     [data.bent, data.benm, data.benb],
                     [data.lint, data.linm, data.linb]
@@ -695,7 +695,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.hant, data.hanm, data.hanb],
                     [data.bent, data.benm, data.benb],
                     [data.lint, data.linm, data.linb]
@@ -759,7 +759,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.lint, data.linm, data.linb],
                     [data.zent, data.zenm, data.zenb],
                     [data.hant, data.hanm, data.hanb]
@@ -821,7 +821,7 @@ export const valks = (function () {
                     [[data.sa], [data.le]],
                     [[data.dp], [data.le]]
                 ],
-                gears: [
+                gear: [
                     [data.drat, data.dram, data.drab],
                     [data.elyt, data.murm, data.elyb]
                 ],
@@ -885,7 +885,7 @@ export const valks = (function () {
                     [[data.ae], [data.vc]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.aslt, data.aslm, data.aslb],
                     [data.leet, data.tham, data.leeb]
                 ],
@@ -947,7 +947,7 @@ export const valks = (function () {
                     [[data.vc], [data.le]],
                     [[data.vc], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.elyt, data.elym, data.elyb],
                     [data.kaft, data.kafm, data.elyb],
                     [data.mict, data.danm, data.micb],
@@ -1013,7 +1013,7 @@ export const valks = (function () {
                     [[data.le], [data.sa]],
                     [[data.br], [data.sa, data.ss]]
                 ],
-                gears: [
+                gear: [
                     [data.mict, data.danm, data.micb],
                     [data.elyt, data.danm, data.elyb],
                     [data.biat, data.biam, data.biab],
@@ -1077,7 +1077,7 @@ export const valks = (function () {
                     [[data.vc, data.sa], [data.br]],
                     [[data.ss], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.biat, data.biam, data.biab],
                     [data.mict, data.danm, data.micb],
                     [data.elyt, data.danm, data.elyb],
@@ -1145,7 +1145,7 @@ export const valks = (function () {
                     [[data.ae], [data.vc]],
                     [[data.ae], [data.vc]]
                 ],
-                gears: [
+                gear: [
                     [data.want, data.wanm, data.wanb],
                     [data.hant, data.hanm, data.hanb],
                     [data.lint, data.linm, data.linb]
@@ -1206,7 +1206,7 @@ export const valks = (function () {
                     [[data.ae], [data.hb]],
                     [[data.ae], [data.hb]]
                 ],
-                gears: [
+                gear: [
                     [data.brot, data.welm, data.brob],
                     [data.bast, data.basm, data.basb],
                     [data.anat, data.anam, data.anab]
@@ -1270,7 +1270,7 @@ export const valks = (function () {
                     [[data.vc], [data.le]],
                     [[data.vc], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.elyt, data.elym, data.elyb],
                     [data.mict, data.danm, data.micb],
                     [data.rebt, data.marm, data.rebb]
@@ -1331,7 +1331,7 @@ export const valks = (function () {
                     [[data.ae], [data.vc]],
                     [[data.ae], [data.hb]]
                 ],
-                gears: [
+                gear: [
                     [data.brot, data.brom, data.brob],
                     [data.anat, data.anam, data.anab]
                 ],
@@ -1389,7 +1389,7 @@ export const valks = (function () {
                     [[data.ae], [data.vc]],
                     [[data.ae], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.ragt, data.ragm, data.ragb],
                     [data.ragt, data.tham, data.ragb],
                     [data.leet, data.tham, data.leeb]
@@ -1451,7 +1451,7 @@ export const valks = (function () {
                     [[data.sa], [data.br]],
                     [[data.ss], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.cezt, data.cezm, data.cezb],
                     [data.elyt, data.danm, data.elyb],
                     [data.rebt, data.marm, data.rebb]
@@ -1513,7 +1513,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.hb]]
                 ],
-                gears: [
+                gear: [
                     [data.vert, data.verm, data.verb],
                     [data.anat, data.anam, data.anab]
                 ],
@@ -1576,7 +1576,7 @@ export const valks = (function () {
                     [[data.sa], [data.ss]],
                     [[data.ss], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.allt, data.allm, data.allb],
                     [data.biat, data.biam, data.biab]
                 ],
@@ -1634,7 +1634,7 @@ export const valks = (function () {
                     [[data.ss], [data.br]],
                     [[data.ss], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.pagt, data.pagm, data.pagb],
                     [data.biat, data.biam, data.biab],
                     [data.rebt, data.marm, data.rebb]
@@ -1695,7 +1695,7 @@ export const valks = (function () {
                     [[data.sa], [data.ss]],
                     [[data.ss], [data.br]]
                 ],
-                gears: [
+                gear: [
                     [data.kaft, data.kafm, data.kafb],
                     [data.elyt, data.siem, data.elyb]
                 ],
@@ -1757,7 +1757,7 @@ export const valks = (function () {
                     [[data.vc], [data.le]],
                     [[data.vc], [data.ss]]
                 ],
-                gears: [
+                gear: [
                     [data.dirt, data.dirm, data.dirb],
                     [data.elyt, data.dirm, data.elyb],
                     [data.rebt, data.marm, data.rebb]
@@ -1825,7 +1825,7 @@ export const valks = (function () {
                     [[data.ae], [data.le]],
                     [[data.ae], [data.br, data.ma]]
                 ],
-                gears: [
+                gear: [
                     [data.leet, data.tham, data.leeb],
                     [data.ragt, data.tham, data.ireb]
                 ],
