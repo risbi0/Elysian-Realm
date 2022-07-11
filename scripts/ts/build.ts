@@ -385,9 +385,8 @@ for (let i = 0; i < valks.length; i++) {
 
             guideContent.appendChild(notes);
         }
-
-        guideContainer.appendChild(guideContent);
     }
+    guideContainer.appendChild(guideContent);
     // guides end
 }
 // DOM generation end

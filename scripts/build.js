@@ -318,6 +318,6 @@ for (let i = 0; i < valks.length; i++) {
             notes.innerHTML = `Notes:<br><br>${valks[i].builds[j].notes}`;
             guideContent.appendChild(notes);
         }
-        guideContainer.appendChild(guideContent);
     }
+    guideContainer.appendChild(guideContent);
 }
