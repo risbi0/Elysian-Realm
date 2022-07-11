@@ -401,7 +401,7 @@ export const valks: any = (function(): any {
                         [data.kalpas.nexus2!.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Domain of Incandescence > Echo of Paradise<br><br>
+                notes: `<p>Recommended Gear</p>Domain of Incandescence > Echo of Paradise<br><br>
                         <p>${data.griseo.nexus1[2]}, ${data.pardofelis.nexus1[3]}</p>If lacking breach.`
             }
         }
@@ -659,7 +659,7 @@ export const valks: any = (function(): any {
                         [data.su.nexus2!.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Build Benares: Awakening M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Build Benares: Awakening M as alternative.<br><br>
                         <p>Eden</p>If unable to get double signets, start with double Ego.<br><br>
                         <p>${data.hua.regular[6]}</p>Must upgrade.<br><br>
                         <p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
@@ -896,7 +896,7 @@ export const valks: any = (function(): any {
                     ]
                 ],
                 notes: `If equipped with Hekate's Sombre, can buy Su signets.<br><br>
-                        <p>Recommended Builds</p>Hekate's Sombre > Elysian Astra: Heart's Color > Others<br>Build Start with Kalpas signets.<br><br>
+                        <p>Recommended Gear</p>Hekate's Sombre > Elysian Astra: Heart's Color > Others<br>Build Start with Kalpas signets.<br><br>
                         <p>${data.kalpas.regular[6]}, ${data.aponia.nexus2![2]}</p>Recommended to upgrade.<br><br>
                         <p>${data.mobius.regular[2]}, ${data.mobius.regular[5]}</p>If using dracula set.`
             }
@@ -1026,7 +1026,7 @@ export const valks: any = (function(): any {
                     ]
                 ],
                 notes: `If there's no Normal Signet of Stars +2 stage effect, start with Aponia signets instead of Griseo signets.<br><br>
-                        <p>Recommended Builds</p>Build Marco Polo M as alternative.<br><br>
+                        <p>Recommended Gear</p>Build Marco Polo M as alternative.<br><br>
                         <p>Aponia</p>Aponia's signet <span>${data.aponia.regular[4]}</span> is not recommended.<br><br>
                         <p>Eden</p>Start choosing her signets early only after obtaining Su's signet <span>${data.su.regular[2]}</span>`
             }
@@ -1091,7 +1091,7 @@ export const valks: any = (function(): any {
                     ]
                 ],
                 notes: `If there's no Normal Signet of Deliverance +2 stage effect, start with Aponia signets.<br><br>
-                        <p>Recommended Builds</p>Don't craft Michelangelo just for ER.<br><br>
+                        <p>Recommended Gear</p>Don't craft Michelangelo just for ER.<br><br>
                         <p>${data.aponia.nexus2![2]}</p>If starting with Aponia.<br><br>
                         <p>Griseo</p>If starting with Aponia, select enhanced signets and use Griseo's nexus <span>${data.griseo.nexus2!.name}</span> as the 2nd nexus signet instead of Kevin's nexus.`
             }
@@ -1160,7 +1160,7 @@ export const valks: any = (function(): any {
                         [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Build 2 & Marco Polo M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Build 2 & Marco Polo M as alternative.<br><br>
                         <p>Kalpas</p>If unable to get double signets, start with double Ego.`
             }
         }
@@ -1222,7 +1222,7 @@ export const valks: any = (function(): any {
                         [data.kalpas.nexus2!.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Whisper of the Past: Sonnet > Mitternachts Waltz > Others<br><br>
+                notes: `<p>Recommended Gear</p>Whisper of the Past: Sonnet > Mitternachts Waltz > Others<br><br>
                         <p>${data.griseo.nexus1[2]}, ${data.hua.nexus2![1]}</p>If lacking breach.<br><br>
                         <p>Kalpas</p>Buy signets from shop. Can also buy Su signets.`
             }
@@ -1350,7 +1350,7 @@ export const valks: any = (function(): any {
                         [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Positron Blasters > Domain of the Void > Others<br>Build Marco Polo M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Positron Blasters > Domain of the Void > Others<br>Build Marco Polo M as alternative.<br><br>
                         <p>${data.aponia.regular[2]}, ${data.pardofelis.regular[2]}</p>If needed.`
             }
         }
@@ -1534,7 +1534,7 @@ export const valks: any = (function(): any {
                         [data.kalpas.regular[2]]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Build Marco Polo M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Build Marco Polo M as alternative.<br><br>
                         <p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
                         <p>Kalpas</p>Don't need nexus if using BR.`
             }
@@ -1719,7 +1719,7 @@ export const valks: any = (function(): any {
                         [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Oblivion Down > Miracle Kissy Pillow > Others<br><br>
+                notes: `<p>Recommended Gear</p>Oblivion Down > Miracle Kissy Pillow > Others<br><br>
                         <p>Kevin</p>If unable to get double signets, start with double Ego.<br><br>
                         <p>${data.aponia.nexus2![2]}</p>Priority.`
             }
@@ -1851,7 +1851,7 @@ export const valks: any = (function(): any {
                         [data.eden.nexus2!.name]
                     ],
                 ],
-                notes: `<p>Recommended Builds</p>Dawn Breaker: Talwar ≥ Domain of Sanction > 3rd Sacred Relic > Others<br>Build If not enough breach or impair, pick breach from signets.<br><br>
+                notes: `<p>Recommended Gear</p>Dawn Breaker: Talwar ≥ Domain of Sanction > 3rd Sacred Relic > Others<br>Build If not enough breach or impair, pick breach from signets.<br><br>
                         <p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
                         <p>${data.griseo.regular[3]}, ${data.eden.regular[1]}</p>If needed.`
             }
@@ -1913,7 +1913,7 @@ export const valks: any = (function(): any {
                         [data.vv.nexus1.name]
                     ]
                 ],
-                notes: `<p>Recommended Builds</p>Eos Gloria > Sagittarius Astra<br><br>
+                notes: `<p>Recommended Gear</p>Eos Gloria > Sagittarius Astra<br><br>
                         <p>${data.griseo.nexus1[2]}</p>If lacking breach.`
             }
         }
