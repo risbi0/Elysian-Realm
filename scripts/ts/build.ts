@@ -316,7 +316,7 @@ for (let i = 0; i < valks.length; i++) {
                         signetTable.classList.add('secondary-tbl');
                         // apply bottom margin on the secondary signets table
                         // so the bottom row wouldn't be partly covered by the fade effect on mobile
-                        // also useful on padding in desktop
+                        // also useful as spacing in desktop
                         if (!hasNotes) signetTable.style.marginBottom = '35px';
                     }
                     signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`);

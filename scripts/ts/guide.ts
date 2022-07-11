@@ -40,7 +40,7 @@ export const valks: any = (function(): any {
                     [ [data.ae], [data.le] ], // utility
                     [ [data.ae], [data.hb] ] // damage
                 ],
-                gears: [
+                gears: [ // T, M, B
                     [data.bast, data.basm, data.basb],
                     [data.anat, data.anam, data.anab],
                     [data.robt, data.robm, data.robb],
