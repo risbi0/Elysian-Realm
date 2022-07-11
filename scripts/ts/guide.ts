@@ -22,7 +22,7 @@ type Guide = {
                     }
                 }
             }
-            gears: string[]
+            gears: Array<Array<data.NameAcr>>
             emblem: {
                 [key in 1 | 2 | 3]: {
                     1: data.NameAcr;
@@ -71,17 +71,16 @@ export const valks: any = (function(): any {
                     2: { 1: data.veilOfTears, 2: data.boundlessLogos }, // mid
                     3: { 1: data.keyToTheDeep, 2: data.boundlessLogos } // late
                 },
-                
                 support: {
                     1: { 1: { 1: data.ae }, 2: { 1: data.le } }, // utility
                     2: { 1: { 1: data.ae }, 2: { 1: data.hb } } // damage
                 },
                 gears: [
-                    'Bastet set',
-                    'Ana Schariac set',
-                    'Robert Peary set',
-                    'Welt Yang set',
-                    'Allan Poe TB + Dirac M'
+                    [data.bast, data.basm, data.basb],
+                    [data.anat, data.anam, data.anab],
+                    [data.robt, data.robm, data.robb],
+                    [data.welt, data.welm, data.welb],
+                    [data.allt, data.dirm, data.allb]
                 ],
                 signetTable: {
                     // 0 - elysian signets, 1 - core signets, 2 - reinforcement signets, 3 - transitional signets
@@ -150,8 +149,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.sa }, 2: { 1: data.ss } }
                 },
                 gears: [
-                    'Dante set',
-                    'Dirac set'
+                    [data.dant, data.danm, data.danb],
+                    [data.dirt, data.dirm, data.dirb]
                 ],
                 signetTable: {
                     0: {
@@ -217,9 +216,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br, 2: data.ma } }
                 },
                 gears: [
-                    'Shakespeare: Adrift set',
-                    'Aslaug TB + Thales M',
-                    'Leeuwenhoek TB + Thales M'
+                    [data.shat, data.sham, data.shab],
+                    [data.aslt, data.tham, data.aslb],
+                    [data.leet, data.tham, data.leeb]
                 ],
                 signetTable: {
                     0: {
@@ -282,9 +281,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Zeno set',
-                    'Linnaeus set',
-                    'Handel set'
+                    [data.zent, data.zenm, data.zenb],
+                    [data.lint, data.linm, data.linb],
+                    [data.hant, data.hanm, data.hanb]
                 ],
                 signetTable: {
                     0: {
@@ -342,8 +341,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Handel set',
-                    'Irene Adler set'
+                    [data.hant, data.hanm, data.hanb],
+                    [data.iret, data.irem, data.ireb]
                 ],
                 signetTable: {
                     0: {
@@ -401,8 +400,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Handel set',
-                    'Zeno TB + Linnaeus M'
+                    [data.hant, data.hanm, data.hanb],
+                    [data.zent, data.linm, data.zenb]
                 ],
                 signetTable: {
                     0: {
@@ -438,7 +437,8 @@ export const valks: any = (function(): any {
                         17: { 0: data.kalpas.nexus2!.name }
                     }
                 },
-                notes: `<p>${data.griseo.nexus1[2]}, ${data.pardofelis.nexus1[3]}</p>If lacking breach.`
+                notes: `<p>Recommended Builds</p>Domain of Incandescence > Echo of Paradise<br><br>
+                        <p>${data.griseo.nexus1[2]}, ${data.pardofelis.nexus1[3]}</p>If lacking breach.`
             }
         }
     }
@@ -463,8 +463,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Blazing Legacy set',
-                    'Leeuwenhoek TB + Thales M'
+                    [data.murt, data.murm, data.murb],
+                    [data.leet, data.tham, data.leeb]
                 ],
                 signetTable: {
                     0: {
@@ -526,9 +526,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.hb, 2: data.br } }
                 },
                 gears: [
-                    'Welt Yang T + Bastet MB',
-                    'Welt Yang set',
-                    'Ana Schariac set'
+                    [data.welt, data.basm, data.basb],
+                    [data.welt, data.welm, data.welb],
+                    [data.anat, data.anam, data.anab]
                 ],
                 signetTable: {
                     0: {
@@ -592,8 +592,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.br }, 2: { 1: data.ss } }
                 },
                 gears: [
-                    'Dirac TM + Fu Hua: Onyx Simurgh B',
-                    'Shattered Swords set'
+                    [data.dirt, data.dirm, data.rebb],
+                    [data.shst, data.shsm, data.shsb]
                 ],
                 signetTable: {
                     0: {
@@ -658,8 +658,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Zhenyi TB + Linnaeus/Benares: Awakening M',
-                    'Benares: Awakening set'
+                    [data.want, data.linm, data.wanb],
+                    [data.bent, data.benm, data.benb]
                 ],
                 signetTable: {
                     0: {
@@ -695,7 +695,8 @@ export const valks: any = (function(): any {
                         7: { 0: data.su.nexus2!.name }
                     }
                 },
-                notes: `<p>Eden</p>If unable to get double signets, start with double Ego.<br><br>
+                notes: `<p>Recommended Builds</p>Build 1: Benares: Awakening M as alternative.<br><br>
+                        <p>Eden</p>If unable to get double signets, start with double Ego.<br><br>
                         <p>${data.hua.regular[6]}</p>Must upgrade.<br><br>
                         <p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
                         <p>Kalpas</p>When picked they must be paired with Hua's nexus.`
@@ -715,9 +716,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Handel set',
-                    'Benares: Awakening set',
-                    'Linnaeus set'
+                    [data.hant, data.hanm, data.hanb],
+                    [data.bent, data.benm, data.benb],
+                    [data.lint, data.linm, data.linb]
                 ],
                 signetTable: {
                     0: {
@@ -765,9 +766,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Handel set',
-                    'Benares: Awakening set',
-                    'Linnaeus set'
+                    [data.hant, data.hanm, data.hanb],
+                    [data.bent, data.benm, data.benb],
+                    [data.lint, data.linm, data.linb]
                 ],
                 signetTable: {
                     0: {
@@ -830,9 +831,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Linnaeus set',
-                    'Zeno set',
-                    'Handel set'
+                    [data.lint, data.linm, data.linb],
+                    [data.zent, data.zenm, data.zenb],
+                    [data.hant, data.hanm, data.hanb]
                 ],
                 signetTable: {
                     0: {
@@ -893,8 +894,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.dp }, 2: { 1: data.le } }
                 },
                 gears: [
-                    'Dracula set (Kalpas start)',
-                    'Elysia TB + Murata Himeko M'
+                    [data.drat, data.dram, data.drab],
+                    [data.elyt, data.murm, data.elyb]
                 ],
                 signetTable: {
                     0: {
@@ -931,6 +932,7 @@ export const valks: any = (function(): any {
                     }
                 },
                 notes: `If equipped with Hekate's Sombre, can buy Su signets.<br><br>
+                        <p>Recommended Builds</p>Hekate's Sombre > Elysian Astra: Heart's Color > Others<br>Build 1: Start with Kalpas signets.<br><br>
                         <p>${data.kalpas.regular[6]}, ${data.aponia.nexus2![2]}</p>Recommended to upgrade.<br><br>
                         <p>${data.mobius.regular[2]}, ${data.mobius.regular[5]}</p>If using dracula set.`
             }
@@ -957,8 +959,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Aslaug set',
-                    'Leeuwenhoek TB + Thales M'
+                    [data.aslt, data.aslm, data.aslb],
+                    [data.leet, data.tham, data.leeb]
                 ],
                 signetTable: {
                     0: {
@@ -1020,10 +1022,10 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.vc }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Elysia set',
-                    'Kafka TM + Elysia B',
-                    'Michelangelo TB + Dante/Marco Polo M',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.elyt, data.elym, data.elyb],
+                    [data.kaft, data.kafm, data.elyb],
+                    [data.mict, data.danm, data.micb],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1060,6 +1062,7 @@ export const valks: any = (function(): any {
                     }
                 },
                 notes: `If there's no Normal Signet of Stars +2 stage effect, start with Aponia signets instead of Griseo signets.<br><br>
+                        <p>Recommended Builds</p>Build 3: Marco Polo M as alternative.<br><br>
                         <p>Aponia</p>Aponia's signet <span>${data.aponia.regular[4]} is not recommended.</span><br><br>
                         <p>Eden</p>Start choosing her signets early only after obtaining Su's signet <span>${data.su.regular[2]}</span>`
             }
@@ -1086,10 +1089,10 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.br }, 2: { 1: data.sa, 2: data.ss } }
                 },
                 gears: [
-                    'Michelangelo TB + Dante M (Don\'t craft Michelangelo just for ER)',
-                    'Elysia TB + Dante/Marco Polo M',
-                    'Bianka: Theatre set',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.mict, data.danm, data.micb],
+                    [data.elyt, data.danm, data.elyb],
+                    [data.biat, data.biam, data.biab],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1124,6 +1127,7 @@ export const valks: any = (function(): any {
                     }
                 },
                 notes: `If there's no Normal Signet of Deliverance +2 stage effect, start with Aponia signets.<br><br>
+                        <p>Recommended Builds</p>Don't craft Michelangelo just for ER.<br><br>
                         <p>${data.aponia.nexus2![2]}</p>If starting with Aponia.<br><br>
                         <p>Griseo</p>If starting with Aponia, select enhanced signets and use Griseo's nexus <span>${data.griseo.nexus2!.name}</span> as the 2nd nexus signet instead of Kevin's nexus.`
             }
@@ -1150,10 +1154,10 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ss }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Bianka: Theatre set',
-                    'Michelangelo TB + Dante/Marco Polo M',
-                    'Elysia TB + Dante/Marco Polo M',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.biat, data.biam, data.biab],
+                    [data.mict, data.danm, data.micb],
+                    [data.elyt, data.danm, data.elyb],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1192,7 +1196,8 @@ export const valks: any = (function(): any {
                         15: { 0: data.pardofelis.nexus1.name }
                     }
                 },
-                notes: `<p>Kalpas</p>If unable to get double signets, start with double Ego.`
+                notes: `<p>Recommended Builds</p>Build 2 & 3: Marco Polo M as alternative.<br><br>
+                        <p>Kalpas</p>If unable to get double signets, start with double Ego.`
             }
         }
     }
@@ -1218,9 +1223,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.vc } }
                 },
                 gears: [
-                    'Zhenyi set',
-                    'Handel set',
-                    'Linnaeus set'
+                    [data.want, data.wanm, data.wanb],
+                    [data.hant, data.hanm, data.hanb],
+                    [data.lint, data.linm, data.linb]
                 ],
                 signetTable: {
                     0: {
@@ -1253,7 +1258,8 @@ export const valks: any = (function(): any {
                         8: { 0: data.kalpas.nexus2!.name }
                     }
                 },
-                notes: `<p>${data.griseo.nexus1[2]}, ${data.hua.nexus2![1]}</p>If lacking breach.<br><br>
+                notes: `<p>Recommended Builds</p>Whisper of the Past: Sonnet > Mitternachts Waltz > Others<br><br>
+                        <p>${data.griseo.nexus1[2]}, ${data.hua.nexus2![1]}</p>If lacking breach.<br><br>
                         <p>Kalpas</p>Buy signets from shop. Can also buy Su signets.`
             }
         }
@@ -1279,9 +1285,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.hb } }
                 },
                 gears: [
-                    'Bronya: N-EX TB + Welt Yang M',
-                    'Bastet set',
-                    'Ana Schariac set'
+                    [data.brot, data.welm, data.brob],
+                    [data.bast, data.basm, data.basb],
+                    [data.anat, data.anam, data.anab]
                 ],
                 signetTable: {
                     0: {
@@ -1344,9 +1350,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.vc }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Elysia set',
-                    'Michelangelo TB + Dante/Marco Polo M',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.elyt, data.elym, data.elyb],
+                    [data.mict, data.danm, data.micb],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1380,7 +1386,8 @@ export const valks: any = (function(): any {
                         7: { 0: data.pardofelis.nexus1.name }
                     }
                 },
-                notes: `<p>${data.aponia.regular[2]}, ${data.pardofelis.regular[2]}</p>If needed.`
+                notes: `<p>Recommended Builds</p>Positron Blasters > Domain of the Void > Others<br>Build 2: Marco Polo M as alternative.<br><br>
+                        <p>${data.aponia.regular[2]}, ${data.pardofelis.regular[2]}</p>If needed.`
             }
         }
     }
@@ -1405,8 +1412,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.hb } }
                 },
                 gears: [
-                    'Bronya: N-EX set',
-                    'Ana Schariac set'
+                    [data.brot, data.brom, data.brob],
+                    [data.anat, data.anam, data.anab]
                 ],
                 signetTable: {
                     0: {
@@ -1464,9 +1471,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Ragna set',
-                    'Ragna TB + Thales M',
-                    'Leeuwenhoek TB + Thales M'
+                    [data.ragt, data.ragm, data.ragb],
+                    [data.ragt, data.tham, data.ragb],
+                    [data.leet, data.tham, data.leeb]
                 ],
                 signetTable: {
                     0: {
@@ -1527,9 +1534,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ss }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Cezanne set',
-                    'Elysia TB + Dante/Marco Polo M',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.cezt, data.cezm, data.cezb],
+                    [data.elyt, data.danm, data.elyb],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1563,7 +1570,8 @@ export const valks: any = (function(): any {
                         9: { 0: data.kalpas.regular[2] }
                     }
                 },
-                notes: `<p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
+                notes: `<p>Recommended Builds</p>Build 2: Marco Polo M as alternative.<br><br>
+                        <p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
                         <p>Kalpas</p>Don't need nexus if using BR.`
             }
         }
@@ -1589,8 +1597,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.hb } }
                 },
                 gears: [
-                    'Verne set',
-                    'Ana Schariac set'
+                    [data.vert, data.verm, data.verb],
+                    [data.anat, data.anam, data.anab]
                 ],
                 signetTable: {
                     0: {
@@ -1653,8 +1661,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ss }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Allan Poe set',
-                    'Bianka: Theatre set'
+                    [data.allt, data.allm, data.allb],
+                    [data.biat, data.biam, data.biab]
                 ],
                 signetTable: {
                     0: {
@@ -1712,9 +1720,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ss }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Paganini set',
-                    'Bianka: Theatre set',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.pagt, data.pagm, data.pagb],
+                    [data.biat, data.biam, data.biab],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1747,7 +1755,8 @@ export const valks: any = (function(): any {
                         10: { 0: data.pardofelis.nexus1.name }
                     }
                 },
-                notes: `<p>Kevin</p>If unable to get double signets, start with double Ego.<br><br>
+                notes: `<p>Recommended Builds</p>Oblivion Down > Miracle Kissy Pillow > Others<br><br>
+                        <p>Kevin</p>If unable to get double signets, start with double Ego.<br><br>
                         <p>${data.aponia.nexus2![2]}</p>Priority.`
             }
         }
@@ -1773,8 +1782,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ss }, 2: { 1: data.br } }
                 },
                 gears: [
-                    'Kafka set',
-                    'Elysia TB + Siegfried Kaslana M'
+                    [data.kaft, data.kafm, data.kafb],
+                    [data.elyt, data.siem, data.elyb]
                 ],
                 signetTable: {
                     0: {
@@ -1836,9 +1845,9 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.vc }, 2: { 1: data.ss } }
                 },
                 gears: [
-                    'Dirac set',
-                    'Elysia TB + Dirac M (If not enough breach or impair, pick breach from signets)',
-                    'Mei Spectramancer T + Marco Polo M + Fu Hua: Onyx Simurgh B'
+                    [data.dirt, data.dirm, data.dirb],
+                    [data.elyt, data.dirm, data.elyb],
+                    [data.rebt, data.marm, data.rebb]
                 ],
                 signetTable: {
                     0: {
@@ -1878,7 +1887,8 @@ export const valks: any = (function(): any {
                         13: { 0: data.eden.nexus2!.name }
                     },
                 },
-                notes: `<p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
+                notes: `<p>Recommended Builds</p>Dawn Breaker: Talwar ≥ Domain of Sanction > 3rd Sacred Relic > Others<br>Build 2: If not enough breach or impair, pick breach from signets.<br><br>
+                        <p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
                         <p>${data.griseo.regular[3]}, ${data.eden.regular[1]}</p>If needed.`
             }
         }
@@ -1904,8 +1914,8 @@ export const valks: any = (function(): any {
                     2: { 1: { 1: data.ae }, 2: { 1: data.br, 2: data.ma } }
                 },
                 gears: [
-                    'Leeuwenhoek TB + Thales M',
-                    'Ragna T + Thales M + Irene Adler B'
+                    [data.leet, data.tham, data.leeb],
+                    [data.ragt, data.tham, data.ireb]
                 ],
                 signetTable: {
                     0: {
@@ -1939,7 +1949,8 @@ export const valks: any = (function(): any {
                         14: { 0: data.vv.nexus1.name }
                     }
                 },
-                notes: `<p>${data.griseo.nexus1[2]}</p>If lacking breach.`
+                notes: `<p>Recommended Builds</p>Eos Gloria > Sagittarius Astra<br><br>
+                        <p>${data.griseo.nexus1[2]}</p>If lacking breach.`
             }
         }
     }

@@ -99,7 +99,7 @@ function highlightRow() {
     notedCell(this, 'noted', 'temp');
     highlightAdjacentMergedCell(this, true);
 }
-const rowsExceptHeader = document.querySelectorAll('tr:not(thead tr)');
+const rowsExceptHeader = document.querySelectorAll('tr:not(thead tr):not(.gear-tbl tr)');
 rowsExceptHeader.forEach((row) => {
     row.addEventListener('mouseout', function () {
         this.classList.remove('table-cell-hover');

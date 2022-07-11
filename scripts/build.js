@@ -1,12 +1,12 @@
 import { valks } from './guide.js';
-import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, stigTableHeaders, exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
+import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 export const mainContainer = document.querySelector('#main-container');
 mainContainer.innerHTML = '';
-function imageAndLabel(cell, row, item, m, hoverLabel) {
+function imageAndLabel(cell, row, item, index, hoverLabel) {
     cell = row.insertCell();
     cell.classList.add('pos-rel');
     const pic = document.createElement('div');
-    pic.classList.add('pic', item[m].acr);
+    pic.classList.add('pic', item[index].acr);
     const label = document.createElement('label');
     label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
     const input = document.createElement('input');
@@ -14,11 +14,11 @@ function imageAndLabel(cell, row, item, m, hoverLabel) {
     input.setAttribute('type', 'checkbox');
     const span = document.createElement('span');
     span.classList.add('pos-abs');
-    span.textContent = item[m].name;
+    span.textContent = item[index].name;
     if (hoverLabel) {
         cell.classList.add('supp-pic');
         const acr = document.createElement('p');
-        acr.textContent = item[m].acr.toUpperCase();
+        acr.textContent = item[index].acr.toUpperCase();
         label.appendChild(acr);
     }
     label.appendChild(input);
@@ -96,39 +96,38 @@ for (let i = 0; i < valks.length; i++) {
         const anchorContainer = document.createElement('div');
         anchorContainer.classList.add('flex', 'f-row');
         const hasNotes = 'notes' in valks[i].builds[j];
-        let anchors = 2;
+        let anchors = 3;
         if (hasTransitionTable)
             anchors += 1;
         if (hasNotes)
             anchors += 1;
         for (let k = 0; k < anchors; k++) {
-            let letter = '', link = '', accessibleName = '';
+            let letter = '', link = '';
             const anchorDiv = document.createElement('div');
             anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
-            if (k === 0 && hasTransitionTable) {
+            if (k === 0) {
+                letter = 'E';
+                link = `exclusive-signets-${i + 1}-${j + 1}`;
+            }
+            else if (k === 1 && hasTransitionTable) {
                 letter = 'T';
                 link = `transitional-signets-${i + 1}-${j + 1}`;
-                accessibleName = 'Transitional Signets';
-            }
-            else if ((k === 0 && !hasTransitionTable) || (k === 1 && hasTransitionTable)) {
-                letter = 'M';
-                link = `main-signets-${i + 1}-${j + 1}`;
-                accessibleName = 'Main Signets';
             }
             else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
+                letter = 'M';
+                link = `main-signets-${i + 1}-${j + 1}`;
+            }
+            else if ((k === 2 && !hasTransitionTable) || (k === 3 && hasTransitionTable)) {
                 letter = 'S';
                 link = `secondary-signets-${i + 1}-${j + 1}`;
-                accessibleName = 'Secondary Signets';
             }
-            else if ((k === 3 && hasNotes) || (k === 2 && !(3 in valks[i].builds[j].signetTable))) {
+            else if ((k === 4 && hasNotes) || (k === 3 && !(3 in valks[i].builds[j].signetTable))) {
                 letter = 'N';
                 link = `notes-${i + 1}-${j + 1}`;
-                accessibleName = 'Notes';
             }
             anchorDiv.innerText = letter;
             const anchor = document.createElement('a');
             anchor.setAttribute('href', `#${link}`);
-            anchor.innerText = accessibleName;
             const linkSpanner = document.createElement('span');
             linkSpanner.classList.add('link-spanner', 'pos-abs');
             anchor.appendChild(linkSpanner);
@@ -216,30 +215,15 @@ for (let i = 0; i < valks.length; i++) {
             guideContent.appendChild(stigTitle);
             const stigTable = document.createElement('table');
             stigTable.classList.add('gear-tbl');
-            const stigTableHead = stigTable.createTHead();
-            const stigTableHeadRow = stigTableHead.insertRow();
-            for (let k = 0; k < 2; k++) {
-                const stigTableHeader = document.createElement('th');
-                stigTableHeader.textContent = stigTableHeaders[k];
-                stigTableHeadRow.appendChild(stigTableHeader);
-            }
-            stigTableHead.appendChild(stigTableHeadRow);
             const stigTableBody = stigTable.createTBody();
             for (let k = 0; k < Object.keys(valks[i].builds[j].gears).length; k++) {
                 const stigTableBodyRow = stigTableBody.insertRow();
-                for (let l = 0; l < 2; l++) {
-                    let stigTableBodyCell = stigTableBodyRow.insertCell();
-                    if (l === 0) {
-                        stigTableBodyCell.textContent = `${k + 1}`;
-                    }
-                    else {
-                        stigTableBodyCell.textContent = valks[i].builds[j].gears[k];
-                    }
-                    stigTableBodyRow.appendChild(stigTableBodyCell);
+                for (let l = 0; l < 3; l++) {
+                    let stigTableBodyCell;
+                    stigTableBodyCell = imageAndLabel(stigTableBodyCell, stigTableBodyRow, valks[i].builds[j].gears[k], l, false);
                 }
                 stigTableBody.appendChild(stigTableBodyRow);
             }
-            stigTable.appendChild(stigTableHead);
             stigTable.appendChild(stigTableBody);
             guideContent.appendChild(stigTable);
         }
@@ -249,6 +233,7 @@ for (let i = 0; i < valks.length; i++) {
             let title = '', link = '', headers = [];
             switch (k) {
                 case 0:
+                    signetTitle.setAttribute('id', `exclusive-signets-${i + 1}-${j + 1}`);
                     signetTitle.textContent = 'Exclusive Signets';
                     guideContent.appendChild(signetTitle);
                     signetTable.classList.add('exclusive-tbl');

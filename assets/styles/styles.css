@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #3c3c3c;
+  background-color: rgb(60, 60, 60);
 }
 
 ::-webkit-scrollbar-track {
@@ -56,16 +56,13 @@ body::-webkit-scrollbar-track {
 
 #main-container {
   overflow-y: hidden;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(black), to(transparent));
   background-image: linear-gradient(to top, black, transparent);
 }
-
 #main-container:hover {
-  scrollbar-color: #1e1e1e black !important;
+  scrollbar-color: rgb(30, 30, 30) black !important;
 }
-
 #main-container:hover::-webkit-scrollbar-thumb {
-  background-color: #1e1e1e;
+  background-color: rgb(30, 30, 30);
 }
 
 .banner {
@@ -74,60 +71,46 @@ body::-webkit-scrollbar-track {
   border: none;
   cursor: pointer;
 }
-
 .banner div:nth-child(1) {
-  -webkit-filter: brightness(35%);
-          filter: brightness(35%);
-  -webkit-transition: 0.2s;
+  filter: brightness(35%);
   transition: 0.2s;
 }
-
 .banner:hover div:nth-child(1) {
-  -webkit-filter: brightness(70%);
-          filter: brightness(70%);
-  -webkit-transition: 0.2s;
+  filter: brightness(70%);
   transition: 0.2s;
   color: white;
 }
-
 .banner > .desktop {
   width: 100px;
   height: 800px;
-  -webkit-box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
-          box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
   background-size: cover;
 }
-
 .banner > .mobile {
   width: 100vw;
   height: 25vw;
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 .banner > .mobile-shadow {
-  -webkit-box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8), inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
-          box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8), inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8), inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
 }
 
 .main-name {
   width: 100%;
   height: 100%;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 .vertical-text {
-  font-family: 'Raleway';
+  font-family: "Raleway";
   text-transform: uppercase;
   letter-spacing: 8px;
   color: rgba(255, 255, 255, 0.7);
 }
-
 .vertical-text.desktop {
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
   text-orientation: upright;
 }
 
@@ -156,18 +139,16 @@ body::-webkit-scrollbar-track {
   height: 30px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(78, 78, 78, 0.2);
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-weight: bold;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
-
 .anchor:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
 }
-
 .anchor a {
   font-size: 0px;
 }
@@ -175,8 +156,7 @@ body::-webkit-scrollbar-track {
 .link-spanner {
   width: 100%;
   height: 100%;
-  -webkit-transform: translate(-23px, -15px);
-          transform: translate(-23px, -15px);
+  transform: translate(-23px, -15px);
 }
 
 .sig-tog {
@@ -191,68 +171,71 @@ body::-webkit-scrollbar-track {
 
 .signet label {
   padding: 40px 0 0 0;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 10px;
 }
 
 .emblem-support {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   width: 90%;
 }
 
 @media only screen and (max-width: 400px) {
   .emblem-support {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .emblem, .supp {
     width: 100% !important;
   }
 }
-
 .emblem {
   width: 40%;
 }
-
+.emblem .tooltip {
+  transform: translateY(-50px);
+}
+.emblem .tooltip input {
+  height: 50px;
+}
 .emblem table {
   width: 100%;
 }
-
-.emblem table td:nth-child(2), .emblem #about table th:nth-child(2), #about .emblem table th:nth-child(2), .emblem table th:nth-child(2), .emblem table td:nth-child(3), .emblem #about table th:nth-child(3), #about .emblem table th:nth-child(3), .emblem table th:nth-child(3) {
+.emblem table td:nth-child(2), .emblem table th:nth-child(2), .emblem #about table th:nth-child(2), #about .emblem table th:nth-child(2), .emblem table td:nth-child(3), .emblem table th:nth-child(3), .emblem #about table th:nth-child(3), #about .emblem table th:nth-child(3) {
   width: 50px;
+}
+.emblem .pic {
+  width: 50px;
+  height: 50px;
 }
 
 .supp {
   width: 55%;
   height: 150px;
 }
-
+.supp .tooltip {
+  transform: translateY(-50px);
+}
+.supp .tooltip input {
+  height: 50px;
+}
 .supp table {
   width: 100%;
 }
-
 .supp p {
   color: transparent;
 }
-
+.supp .pic {
+  height: 50px;
+}
 .supp .supp-pic:hover .pic {
-  -webkit-filter: brightness(50%);
-          filter: brightness(50%);
-  -webkit-transition: 0.3s;
+  filter: brightness(50%);
   transition: 0.3s;
 }
-
 .supp .supp-pic:hover p {
   color: rgba(255, 255, 255, 0.8);
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.gear-tbl,
 .exclusive-tbl,
 .transitional-tbl,
 .main-tbl,
@@ -260,8 +243,6 @@ body::-webkit-scrollbar-track {
   width: 50%;
   min-width: 90%;
 }
-
-.gear-tbl:not(.exclusive-tbl) th:nth-child(1),
 .exclusive-tbl:not(.exclusive-tbl) th:nth-child(1),
 .transitional-tbl:not(.exclusive-tbl) th:nth-child(1),
 .main-tbl:not(.exclusive-tbl) th:nth-child(1),
@@ -269,50 +250,60 @@ body::-webkit-scrollbar-track {
   width: 20%;
 }
 
+.gear-tbl {
+  width: 300px;
+  margin-top: 10px;
+}
+.gear-tbl .tooltip {
+  transform: translateY(-100px);
+}
+.gear-tbl .tooltip input {
+  height: 100px;
+}
+.gear-tbl tr:not(thead tr) {
+  height: 100px;
+}
+.gear-tbl td, .gear-tbl th, .gear-tbl #about table th, #about table .gear-tbl th {
+  width: 100px;
+}
+.gear-tbl .pic {
+  width: 100px;
+  height: 100px;
+}
+
 .pic {
   background: center/cover;
-  height: 50px;
   cursor: pointer;
 }
 
 .tooltip {
   width: 100%;
   height: 100%;
-  -webkit-transform: translateY(-50px);
-          transform: translateY(-50px);
 }
-
 .tooltip p {
-  -webkit-transform: translateY(18px);
-          transform: translateY(18px);
+  transform: translateY(18px);
   height: 25px;
 }
-
 .tooltip span {
   visibility: hidden;
   text-align: center;
   white-space: nowrap;
-  -webkit-transform: translateY(-20px);
-          transform: translateY(-20px);
-  background-color: #222222;
+  transform: translateY(-20px);
+  background-color: rgb(34, 34, 34);
   padding: 5px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 12px;
   border-radius: 6px;
   opacity: 0;
-  -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-
 .tooltip input {
   width: 100%;
-  height: 50px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   cursor: pointer;
 }
-
 .tooltip input:checked + span {
   visibility: visible;
   opacity: 1;
@@ -325,16 +316,13 @@ body::-webkit-scrollbar-track {
   font-size: 14px;
   line-height: 20px;
 }
-
 .notes:hover {
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
 }
-
 .notes p {
   font-weight: bold;
 }
-
 .notes span {
   font-style: italic;
 }
@@ -343,22 +331,16 @@ body::-webkit-scrollbar-track {
 #aka {
   background-image: url("../img/valks/Argent_Knight_Artemis.webp");
 }
-
 #aka.desktop-pos {
   background-position: 57%;
 }
-
 #aka.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(30.4%, -18%);
-          transform: scale(14) translate(30.4%, -18%);
+  transform-origin: top center;
+  transform: scale(14) translate(30.4%, -18%);
 }
-
 #aka ~ .main-name > .desktop {
   font-size: 20px;
 }
-
 #aka ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -366,22 +348,16 @@ body::-webkit-scrollbar-track {
 #bke {
   background-image: url("../img/valks/Bright_Knight_Excelsis.webp");
 }
-
 #bke.desktop-pos {
   background-position: 50%;
 }
-
 #bke.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(16) translate(33.5%, -16%);
-          transform: scale(16) translate(33.5%, -16%);
+  transform-origin: top center;
+  transform: scale(16) translate(33.5%, -16%);
 }
-
 #bke ~ .main-name > .desktop {
   font-size: 20px;
 }
-
 #bke ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -389,22 +365,16 @@ body::-webkit-scrollbar-track {
 #carole {
   background-image: url("../img/valks/Sweet_n_Spicy.webp");
 }
-
 #carole.desktop-pos {
   background-position: 51.4%;
 }
-
 #carole.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(13) translate(40.1%, -16%);
-          transform: scale(13) translate(40.1%, -16%);
+  transform-origin: top center;
+  transform: scale(13) translate(40.1%, -16%);
 }
-
 #carole ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #carole ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -412,22 +382,16 @@ body::-webkit-scrollbar-track {
 #da {
   background-image: url("../img/valks/Dea_Anchora.webp");
 }
-
 #da.desktop-pos {
   background-position: 52.7%;
 }
-
 #da.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(15) translate(31.63%, -16%);
-          transform: scale(15) translate(31.63%, -16%);
+  transform-origin: top center;
+  transform: scale(15) translate(31.63%, -16%);
 }
-
 #da ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #da ~ .main-name > .mobile {
   font-size: 9vw;
 }
@@ -435,22 +399,16 @@ body::-webkit-scrollbar-track {
 #dip {
   background-image: url("../img/valks/Disciplinary_Perdition.webp");
 }
-
 #dip.desktop-pos {
   background-position: 55.3%;
 }
-
 #dip.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(15) translate(30.2%, -18%);
-          transform: scale(15) translate(30.2%, -18%);
+  transform-origin: top center;
+  transform: scale(15) translate(30.2%, -18%);
 }
-
 #dip ~ .main-name > .desktop {
   font-size: 20px;
 }
-
 #dip ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -458,22 +416,16 @@ body::-webkit-scrollbar-track {
 #ede {
   background-image: url("../img/valks/Golden_Diva.webp");
 }
-
 #ede.desktop-pos {
   background-position: 52.5%;
 }
-
 #ede.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(15) translate(36%, -17%);
-          transform: scale(15) translate(36%, -17%);
+  transform-origin: top center;
+  transform: scale(15) translate(36%, -17%);
 }
-
 #ede ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #ede ~ .main-name > .mobile {
   font-size: 9vw;
 }
@@ -481,22 +433,16 @@ body::-webkit-scrollbar-track {
 #elysia {
   background-image: url("../img/valks/Miss_Pink_Elf.webp");
 }
-
 #elysia.desktop-pos {
   background-position: 52%;
 }
-
 #elysia.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(30.2%, -15%);
-          transform: scale(14) translate(30.2%, -15%);
+  transform-origin: top center;
+  transform: scale(14) translate(30.2%, -15%);
 }
-
 #elysia ~ .main-name > .desktop {
   font-size: 30px;
 }
-
 #elysia ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -504,22 +450,16 @@ body::-webkit-scrollbar-track {
 #fr {
   background-image: url("../img/valks/Fallen_Rosemary.webp");
 }
-
 #fr.desktop-pos {
   background-position: 56.2%;
 }
-
 #fr.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(28%, -19%);
-          transform: scale(14) translate(28%, -19%);
+  transform-origin: top center;
+  transform: scale(14) translate(28%, -19%);
 }
-
 #fr ~ .main-name > .desktop {
   font-size: 28px;
 }
-
 #fr ~ .main-name > .mobile {
   font-size: 6vw;
 }
@@ -527,22 +467,16 @@ body::-webkit-scrollbar-track {
 #ft {
   background-image: url("../img/valks/Fervent_Tempo.webp");
 }
-
 #ft.desktop-pos {
   background-position: 39.6%;
 }
-
 #ft.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(10) translate(37%, -14.5%);
-          transform: scale(10) translate(37%, -14.5%);
+  transform-origin: top center;
+  transform: scale(10) translate(37%, -14.5%);
 }
-
 #ft ~ .main-name > .desktop {
   font-size: 32px;
 }
-
 #ft ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -550,22 +484,16 @@ body::-webkit-scrollbar-track {
 #fischl {
   background-image: url("../img/valks/Prinzessin_der_Verurteilung.webp");
 }
-
 #fischl.desktop-pos {
   background-position: 57%;
 }
-
 #fischl.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(13) translate(34%, -15%);
-          transform: scale(13) translate(34%, -15%);
+  transform-origin: top center;
+  transform: scale(13) translate(34%, -15%);
 }
-
 #fischl ~ .main-name > .desktop {
   font-size: 16px;
 }
-
 #fischl ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -573,22 +501,16 @@ body::-webkit-scrollbar-track {
 #hofs {
   background-image: url("../img/valks/Herrscher_of_Flamescion.webp");
 }
-
 #hofs.desktop-pos {
   background-position: 53.7%;
 }
-
 #hofs.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(15) translate(28.9%, -16.7%);
-          transform: scale(15) translate(28.9%, -16.7%);
+  transform-origin: top center;
+  transform: scale(15) translate(28.9%, -16.7%);
 }
-
 #hofs ~ .main-name > .desktop {
   font-size: 20px;
 }
-
 #hofs ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -596,22 +518,16 @@ body::-webkit-scrollbar-track {
 #hor {
   background-image: url("../img/valks/Herrscher_of_Reason.webp");
 }
-
 #hor.desktop-pos {
   background-position: 54.1%;
 }
-
 #hor.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(36.9%, -17%);
-          transform: scale(14) translate(36.9%, -17%);
+  transform-origin: top center;
+  transform: scale(14) translate(36.9%, -17%);
 }
-
 #hor ~ .main-name > .desktop {
   font-size: 22px;
 }
-
 #hor ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -619,22 +535,16 @@ body::-webkit-scrollbar-track {
 #hos {
   background-image: url("../img/valks/Herrscher_of_Sentience.webp");
 }
-
 #hos.desktop-pos {
   background-position: 51.2%;
 }
-
 #hos.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(29.6%, -14%);
-          transform: scale(14) translate(29.6%, -14%);
+  transform-origin: top center;
+  transform: scale(14) translate(29.6%, -14%);
 }
-
 #hos ~ .main-name > .desktop {
   font-size: 20px;
 }
-
 #hos ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -642,22 +552,16 @@ body::-webkit-scrollbar-track {
 #hot {
   background-image: url("../img/valks/Herrscher_of_Thunder.webp");
 }
-
 #hot.desktop-pos {
   background-position: 57%;
 }
-
 #hot.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(26.7%, -15.1%);
-          transform: scale(14) translate(26.7%, -15.1%);
+  transform-origin: top center;
+  transform: scale(14) translate(26.7%, -15.1%);
 }
-
 #hot ~ .main-name > .desktop {
   font-size: 22px;
 }
-
 #hot ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -665,22 +569,16 @@ body::-webkit-scrollbar-track {
 #lk {
   background-image: url("../img/valks/Luna_Kindred.webp");
 }
-
 #lk.desktop-pos {
   background-position: 44.8%;
 }
-
 #lk.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(10) translate(35.4%, -14%);
-          transform: scale(10) translate(35.4%, -14%);
+  transform-origin: top center;
+  transform: scale(10) translate(35.4%, -14%);
 }
-
 #lk ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #lk ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -688,22 +586,16 @@ body::-webkit-scrollbar-track {
 #mobius {
   background-image: url("../img/valks/Infinite_Ouroboros.webp");
 }
-
 #mobius.desktop-pos {
   background-position: 52.8%;
 }
-
 #mobius.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(29%, -15.6%);
-          transform: scale(14) translate(29%, -15.6%);
+  transform-origin: top center;
+  transform: scale(14) translate(29%, -15.6%);
 }
-
 #mobius ~ .main-name > .desktop {
   font-size: 25px;
 }
-
 #mobius ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -711,22 +603,16 @@ body::-webkit-scrollbar-track {
 #nyx {
   background-image: url("../img/valks/Starchasm_Nyx.webp");
 }
-
 #nyx.desktop-pos {
   background-position: 49.3%;
 }
-
 #nyx.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(13) translate(30.8%, -15.4%);
-          transform: scale(13) translate(30.8%, -15.4%);
+  transform-origin: top center;
+  transform: scale(13) translate(30.8%, -15.4%);
 }
-
 #nyx ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #nyx ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -734,22 +620,16 @@ body::-webkit-scrollbar-track {
 #pe {
   background-image: url("../img/valks/Palatinus_Equinox.webp");
 }
-
 #pe.desktop-pos {
   background-position: 48.76%;
 }
-
 #pe.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(30.5%, -11.6%);
-          transform: scale(14) translate(30.5%, -11.6%);
+  transform-origin: top center;
+  transform: scale(14) translate(30.5%, -11.6%);
 }
-
 #pe ~ .main-name > .desktop {
   font-size: 28px;
 }
-
 #pe ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -757,22 +637,16 @@ body::-webkit-scrollbar-track {
 #raven {
   background-image: url("../img/valks/Midnight_Absinthe.webp");
 }
-
 #raven.desktop-pos {
   background-position: 53.4%;
 }
-
 #raven.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(29.3%, -15.2%);
-          transform: scale(14) translate(29.3%, -15.2%);
+  transform-origin: top center;
+  transform: scale(14) translate(29.3%, -15.2%);
 }
-
 #raven ~ .main-name > .desktop {
   font-size: 25px;
 }
-
 #raven ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -780,22 +654,16 @@ body::-webkit-scrollbar-track {
 #rc {
   background-image: url("../img/valks/Reverist_Calico.webp");
 }
-
 #rc.desktop-pos {
   background-position: 56.4%;
 }
-
 #rc.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(13) translate(28%, -17%);
-          transform: scale(13) translate(28%, -17%);
+  transform-origin: top center;
+  transform: scale(13) translate(28%, -17%);
 }
-
 #rc ~ .main-name > .desktop {
   font-size: 30px;
 }
-
 #rc ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -803,22 +671,16 @@ body::-webkit-scrollbar-track {
 #ri {
   background-image: url("../img/valks/Ritual_Imayoh.webp");
 }
-
 #ri.desktop-pos {
   background-position: 55%;
 }
-
 #ri.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(10) translate(34%, -11.2%);
-          transform: scale(10) translate(34%, -11.2%);
+  transform-origin: top center;
+  transform: scale(10) translate(34%, -11.2%);
 }
-
 #ri ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #ri ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -826,22 +688,16 @@ body::-webkit-scrollbar-track {
 #si {
   background-image: url("../img/valks/Starry_Impression.webp");
 }
-
 #si.desktop-pos {
   background-position: 46.2%;
 }
-
 #si.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(33%, -15.9%);
-          transform: scale(14) translate(33%, -15.9%);
+  transform-origin: top center;
+  transform: scale(14) translate(33%, -15.9%);
 }
-
 #si ~ .main-name > .desktop {
   font-size: 28px;
 }
-
 #si ~ .main-name > .mobile {
   font-size: 6vw;
 }
@@ -849,22 +705,16 @@ body::-webkit-scrollbar-track {
 #sn {
   background-image: url("../img/valks/Stygian_Nymph.webp");
 }
-
 #sn.desktop-pos {
   background-position: 44.6%;
 }
-
 #sn.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(12) translate(31.2%, -16.8%);
-          transform: scale(12) translate(31.2%, -16.8%);
+  transform-origin: top center;
+  transform: scale(12) translate(31.2%, -16.8%);
 }
-
 #sn ~ .main-name > .desktop {
   font-size: 32px;
 }
-
 #sn ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -872,22 +722,16 @@ body::-webkit-scrollbar-track {
 #spa {
   background-image: url("../img/valks/Spina_Astera.webp");
 }
-
 #spa.desktop-pos {
   background-position: 49.5%;
 }
-
 #spa.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(13) translate(30.4%, -15%);
-          transform: scale(13) translate(30.4%, -15%);
+  transform-origin: top center;
+  transform: scale(13) translate(30.4%, -15%);
 }
-
 #spa ~ .main-name > .desktop {
   font-size: 35px;
 }
-
 #spa ~ .main-name > .mobile {
   font-size: 9vw;
 }
@@ -895,22 +739,16 @@ body::-webkit-scrollbar-track {
 #stfu {
   background-image: url("../img/valks/Striker_Fulminata.webp");
 }
-
 #stfu.desktop-pos {
   background-position: 61.8%;
 }
-
 #stfu.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(16) translate(39.2%, -16.8%);
-          transform: scale(16) translate(39.2%, -16.8%);
+  transform-origin: top center;
+  transform: scale(16) translate(39.2%, -16.8%);
 }
-
 #stfu ~ .main-name > .desktop {
   font-size: 22px;
 }
-
 #stfu ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -918,22 +756,16 @@ body::-webkit-scrollbar-track {
 #sw {
   background-image: url("../img/valks/Silverwing_N-EX.webp");
 }
-
 #sw.desktop-pos {
   background-position: 58.3%;
 }
-
 #sw.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(14) translate(33.9%, -16.7%);
-          transform: scale(14) translate(33.9%, -16.7%);
+  transform-origin: top center;
+  transform: scale(14) translate(33.9%, -16.7%);
 }
-
 #sw ~ .main-name > .desktop {
   font-size: 30px;
 }
-
 #sw ~ .main-name > .mobile {
   font-size: 8vw;
 }
@@ -941,22 +773,16 @@ body::-webkit-scrollbar-track {
 #tp {
   background-image: url("../img/valks/Twilight_Paladin.webp");
 }
-
 #tp.desktop-pos {
   background-position: 47.18%;
 }
-
 #tp.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(11) translate(35.2%, -15.3%);
-          transform: scale(11) translate(35.2%, -15.3%);
+  transform-origin: top center;
+  transform: scale(11) translate(35.2%, -15.3%);
 }
-
 #tp ~ .main-name > .desktop {
   font-size: 30px;
 }
-
 #tp ~ .main-name > .mobile {
   font-size: 6vw;
 }
@@ -964,22 +790,16 @@ body::-webkit-scrollbar-track {
 #vg {
   background-image: url("../img/valks/Valkyrie_Gloria.webp");
 }
-
 #vg.desktop-pos {
   background-position: 50%;
 }
-
 #vg.mobile-pos {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-transform: scale(15) translate(34.2%, -16%);
-          transform: scale(15) translate(34.2%, -16%);
+  transform-origin: top center;
+  transform: scale(15) translate(34.2%, -16%);
 }
-
 #vg ~ .main-name > .desktop {
   font-size: 30px;
 }
-
 #vg ~ .main-name > .mobile {
   font-size: 7vw;
 }
@@ -1207,12 +1027,360 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/avatars/Valkyrie_Chariot_Avatar.webp");
 }
 
+/* stigmata images */
+.allt {
+  background-image: url("../img/stigmatas/Allan_Poe_T.webp");
+}
+
+.allm {
+  background-image: url("../img/stigmatas/Allan_Poe_M.webp");
+}
+
+.allb {
+  background-image: url("../img/stigmatas/Allan_Poe_B.webp");
+}
+
+.anat {
+  background-image: url("../img/stigmatas/Ana_Schariac_T.webp");
+}
+
+.anam {
+  background-image: url("../img/stigmatas/Ana_Schariac_M.webp");
+}
+
+.anab {
+  background-image: url("../img/stigmatas/Ana_Schariac_B.webp");
+}
+
+.aslt {
+  background-image: url("../img/stigmatas/Aslaug_T.webp");
+}
+
+.aslm {
+  background-image: url("../img/stigmatas/Aslaug_M.webp");
+}
+
+.aslb {
+  background-image: url("../img/stigmatas/Aslaug_B.webp");
+}
+
+.bast {
+  background-image: url("../img/stigmatas/Bastet_T.webp");
+}
+
+.basm {
+  background-image: url("../img/stigmatas/Bastet_M.webp");
+}
+
+.basb {
+  background-image: url("../img/stigmatas/Bastet_B.webp");
+}
+
+.bent {
+  background-image: url("../img/stigmatas/Benares_Awakening_T.webp");
+}
+
+.benm {
+  background-image: url("../img/stigmatas/Benares_Awakening_M.webp");
+}
+
+.benb {
+  background-image: url("../img/stigmatas/Benares_Awakening_B.webp");
+}
+
+.biat {
+  background-image: url("../img/stigmatas/Bianka_Theatre_T.webp");
+}
+
+.biam {
+  background-image: url("../img/stigmatas/Bianka_Theatre_M.webp");
+}
+
+.biab {
+  background-image: url("../img/stigmatas/Bianka_Theatre_B.webp");
+}
+
+.brot {
+  background-image: url("../img/stigmatas/Bronya_N-EX_T.webp");
+}
+
+.brom {
+  background-image: url("../img/stigmatas/Bronya_N-EX_M.webp");
+}
+
+.brob {
+  background-image: url("../img/stigmatas/Bronya_N-EX_B.webp");
+}
+
+.cezt {
+  background-image: url("../img/stigmatas/Cezanne_T.webp");
+}
+
+.cezm {
+  background-image: url("../img/stigmatas/Cezanne_M.webp");
+}
+
+.cezb {
+  background-image: url("../img/stigmatas/Cezanne_B.webp");
+}
+
+.dant {
+  background-image: url("../img/stigmatas/Dante_T.webp");
+}
+
+.danm {
+  background-image: url("../img/stigmatas/Dante_M.webp");
+}
+
+.danb {
+  background-image: url("../img/stigmatas/Dante_B.webp");
+}
+
+.dirt {
+  background-image: url("../img/stigmatas/Dirac_T.webp");
+}
+
+.dirm {
+  background-image: url("../img/stigmatas/Dirac_M.webp");
+}
+
+.dirb {
+  background-image: url("../img/stigmatas/Dirac_B.webp");
+}
+
+.drat {
+  background-image: url("../img/stigmatas/Dracula_T.webp");
+}
+
+.dram {
+  background-image: url("../img/stigmatas/Dracula_M.webp");
+}
+
+.drab {
+  background-image: url("../img/stigmatas/Dracula_B.webp");
+}
+
+.elyt {
+  background-image: url("../img/stigmatas/Elysia_T.webp");
+}
+
+.elym {
+  background-image: url("../img/stigmatas/Elysia_M.webp");
+}
+
+.elyb {
+  background-image: url("../img/stigmatas/Elysia_B.webp");
+}
+
+.hant {
+  background-image: url("../img/stigmatas/Handel_T.webp");
+}
+
+.hanm {
+  background-image: url("../img/stigmatas/Handel_M.webp");
+}
+
+.hanb {
+  background-image: url("../img/stigmatas/Handel_B.webp");
+}
+
+.iret {
+  background-image: url("../img/stigmatas/Irene_Adler_T.webp");
+}
+
+.irem {
+  background-image: url("../img/stigmatas/Irene_Adler_M.webp");
+}
+
+.ireb {
+  background-image: url("../img/stigmatas/Irene_Adler_B.webp");
+}
+
+.kaft {
+  background-image: url("../img/stigmatas/Kafka_T.webp");
+}
+
+.kafm {
+  background-image: url("../img/stigmatas/Kafka_M.webp");
+}
+
+.kafb {
+  background-image: url("../img/stigmatas/Kafka_B.webp");
+}
+
+.leet {
+  background-image: url("../img/stigmatas/Leeuwenhoek_T.webp");
+}
+
+.leeb {
+  background-image: url("../img/stigmatas/Leeuwenhoek_B.webp");
+}
+
+.lint {
+  background-image: url("../img/stigmatas/Linnaeus_T.webp");
+}
+
+.linm {
+  background-image: url("../img/stigmatas/Linnaeus_M.webp");
+}
+
+.linb {
+  background-image: url("../img/stigmatas/Linnaeus_B.webp");
+}
+
+.marm {
+  background-image: url("../img/stigmatas/Marco_Polo_M.webp");
+}
+
+.mict {
+  background-image: url("../img/stigmatas/Michelangelo_T.webp");
+}
+
+.micb {
+  background-image: url("../img/stigmatas/Michelangelo_B.webp");
+}
+
+.murt {
+  background-image: url("../img/stigmatas/Murata_Himeko_T.webp");
+}
+
+.murm {
+  background-image: url("../img/stigmatas/Murata_Himeko_M.webp");
+}
+
+.murb {
+  background-image: url("../img/stigmatas/Murata_Himeko_B.webp");
+}
+
+.pagt {
+  background-image: url("../img/stigmatas/Paganini_T.webp");
+}
+
+.pagm {
+  background-image: url("../img/stigmatas/Paganini_M.webp");
+}
+
+.pagb {
+  background-image: url("../img/stigmatas/Paganini_B.webp");
+}
+
+.ragt {
+  background-image: url("../img/stigmatas/Ragna_T.webp");
+}
+
+.ragm {
+  background-image: url("../img/stigmatas/Ragna_M.webp");
+}
+
+.ragb {
+  background-image: url("../img/stigmatas/Ragna_B.webp");
+}
+
+.rebt {
+  background-image: url("../img/stigmatas/Mei_Spectramancer_T.webp");
+}
+
+.rebb {
+  background-image: url("../img/stigmatas/Fu_Hua_Onyx_Simurgh_B.webp");
+}
+
+.robt {
+  background-image: url("../img/stigmatas/Robert_Peary_T.webp");
+}
+
+.robm {
+  background-image: url("../img/stigmatas/Robert_Peary_M.webp");
+}
+
+.robb {
+  background-image: url("../img/stigmatas/Robert_Peary_B.webp");
+}
+
+.shat {
+  background-image: url("../img/stigmatas/Shakespeare_Adrift_T.webp");
+}
+
+.sham {
+  background-image: url("../img/stigmatas/Shakespeare_Adrift_M.webp");
+}
+
+.shab {
+  background-image: url("../img/stigmatas/Shakespeare_Adrift_B.webp");
+}
+
+.shst {
+  background-image: url("../img/stigmatas/Raksha_T.webp");
+}
+
+.shsm {
+  background-image: url("../img/stigmatas/Sushang_M.webp");
+}
+
+.shsb {
+  background-image: url("../img/stigmatas/Empyrea_Phoenix_B.webp");
+}
+
+.siem {
+  background-image: url("../img/stigmatas/Siegfried_Kaslana_M.webp");
+}
+
+.tham {
+  background-image: url("../img/stigmatas/Thales_M.webp");
+}
+
+.vert {
+  background-image: url("../img/stigmatas/Verne_T.webp");
+}
+
+.verm {
+  background-image: url("../img/stigmatas/Verne_M.webp");
+}
+
+.verb {
+  background-image: url("../img/stigmatas/Verne_B.webp");
+}
+
+.want {
+  background-image: url("../img/stigmatas/Wang_Zhenyi_T.webp");
+}
+
+.wanm {
+  background-image: url("../img/stigmatas/Wang_Zhenyi_M.webp");
+}
+
+.wanb {
+  background-image: url("../img/stigmatas/Wang_Zhenyi_B.webp");
+}
+
+.welt {
+  background-image: url("../img/stigmatas/Welt_Yang_T.webp");
+}
+
+.welm {
+  background-image: url("../img/stigmatas/Welt_Yang_M.webp");
+}
+
+.welb {
+  background-image: url("../img/stigmatas/Welt_Yang_B.webp");
+}
+
+.zent {
+  background-image: url("../img/stigmatas/Zeno_T.webp");
+}
+
+.zenm {
+  background-image: url("../img/stigmatas/Zeno_M.webp");
+}
+
+.zenb {
+  background-image: url("../img/stigmatas/Zeno_B.webp");
+}
+
 #guide-container {
   width: 100%;
   height: 100%;
   position: fixed;
 }
-
 #guide-container::before {
   content: "";
   position: absolute;
@@ -1221,7 +1389,6 @@ body::-webkit-scrollbar-track {
   width: 100%;
   height: 5px;
 }
-
 #guide-container::after {
   content: "";
   position: absolute;
@@ -1229,7 +1396,6 @@ body::-webkit-scrollbar-track {
   opacity: 0;
   width: 100%;
   height: 3em;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(40%, rgba(0, 0, 0, 0.8)), to(transparent));
   background-image: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
 }
 
@@ -1260,7 +1426,6 @@ body::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.3);
   }
 }
-
 @-webkit-keyframes bgfadeout {
   from {
     background-color: rgba(0, 0, 0, 0.3);
@@ -1269,7 +1434,6 @@ body::-webkit-scrollbar-track {
     background-color: transparent;
   }
 }
-
 @keyframes bgfadeout {
   from {
     background-color: rgba(0, 0, 0, 0.3);
@@ -1278,40 +1442,32 @@ body::-webkit-scrollbar-track {
     background-color: transparent;
   }
 }
-
 .guide-content {
   scrollbar-width: none !important;
   overflow-x: hidden;
   overflow-y: scroll;
-  -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   position: fixed;
   left: 50%;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
 }
-
 .guide-content ::-webkit-scrollbar {
   display: none;
 }
-
 .guide-content.mobile {
   width: 100%;
   height: calc(100% - 25vw);
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
-
 .guide-content.mobile.upper {
   margin-top: 25vw;
 }
-
 .guide-content.desktop {
   width: 600px;
   height: 800px;
   border: 3px solid rgba(255, 255, 255, 0.5);
-  -webkit-transform: translate(-50%, 15%);
-          transform: translate(-50%, 15%);
+  transform: translate(-50%, 15%);
 }
 
 /* desktop */
@@ -1322,30 +1478,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes guideentrydesktop {
   from {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translate(-50%, 15%);
-            transform: translate(-50%, 15%);
+    transform: translate(-50%, 15%);
     opacity: 1;
   }
 }
 
 @keyframes guideentrydesktop {
   from {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translate(-50%, 15%);
-            transform: translate(-50%, 15%);
+    transform: translate(-50%, 15%);
     opacity: 1;
   }
 }
-
 .guide-exit-desktop {
   -webkit-animation: guideexitdesktop 0.6s forwards;
           animation: guideexitdesktop 0.6s forwards;
@@ -1353,30 +1504,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes guideexitdesktop {
   from {
-    -webkit-transform: translate(-50%, 15%);
-            transform: translate(-50%, 15%);
+    transform: translate(-50%, 15%);
     opacity: 1;
   }
   to {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
 }
 
 @keyframes guideexitdesktop {
   from {
-    -webkit-transform: translate(-50%, 15%);
-            transform: translate(-50%, 15%);
+    transform: translate(-50%, 15%);
     opacity: 1;
   }
   to {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
 }
-
 /* mobile */
 .guide-top-entry-mobile {
   -webkit-animation: guideopenentrymobile 0.6s ease-out forwards;
@@ -1385,30 +1531,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes guideopenentrymobile {
   from {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
 }
 
 @keyframes guideopenentrymobile {
   from {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
 }
-
 .guide-top-exit-mobile {
   -webkit-animation: guideopenexitmobile 0.5s ease-in forwards;
           animation: guideopenexitmobile 0.5s ease-in forwards;
@@ -1416,30 +1557,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes guideopenexitmobile {
   from {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
   to {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
 }
 
 @keyframes guideopenexitmobile {
   from {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
   to {
-    -webkit-transform: translate(-50%, -100px);
-            transform: translate(-50%, -100px);
+    transform: translate(-50%, -100px);
     opacity: 0;
   }
 }
-
 .guide-bot-entry-mobile {
   -webkit-animation: guidebotentrymobile 0.6s ease-out forwards;
           animation: guidebotentrymobile 0.6s ease-out forwards;
@@ -1447,30 +1583,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes guidebotentrymobile {
   from {
-    -webkit-transform: translate(-50%, 100px);
-            transform: translate(-50%, 100px);
+    transform: translate(-50%, 100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
 }
 
 @keyframes guidebotentrymobile {
   from {
-    -webkit-transform: translate(-50%, 100px);
-            transform: translate(-50%, 100px);
+    transform: translate(-50%, 100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
 }
-
 .guide-bot-exit-mobile {
   -webkit-animation: guidebotexitmobile 0.5s ease-in forwards;
           animation: guidebotexitmobile 0.5s ease-in forwards;
@@ -1478,38 +1609,32 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes guidebotexitmobile {
   from {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
   to {
-    -webkit-transform: translate(-50%, 100px);
-            transform: translate(-50%, 100px);
+    transform: translate(-50%, 100px);
     opacity: 0;
   }
 }
 
 @keyframes guidebotexitmobile {
   from {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 1;
   }
   to {
-    -webkit-transform: translate(-50%, 100px);
-            transform: translate(-50%, 100px);
+    transform: translate(-50%, 100px);
     opacity: 0;
   }
 }
-
 /* about page */
 #about #container {
   background-color: rgba(0, 0, 0, 0.83);
   height: 100vh;
 }
-
 #about #sub-container {
-  scrollbar-color: #282828 transparent !important;
+  scrollbar-color: rgb(40, 40, 40) transparent !important;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   width: 600px;
@@ -1517,57 +1642,43 @@ body::-webkit-scrollbar-track {
   padding: 20px;
   overflow-y: auto;
 }
-
 #about #sub-container::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
 #about .cell-center {
   width: 25px;
 }
-
 #about .sideways {
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  transform: rotate(180deg);
 }
-
 #about #timeline {
   max-width: 400px;
 }
-
 #about #timeline th:nth-child(1) {
   width: 10%;
 }
-
 #about h5 {
   font-size: 30px;
 }
-
 #about h6 {
   font-size: 24px;
 }
-
 #about p, #about li {
   line-height: 1.2;
 }
-
 #about table {
   margin: auto;
 }
-
 #about table td, #about table th {
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
-
 #about table th {
   vertical-align: middle;
   font-size: unset;
   width: 20%;
 }
-
 #about hr, #about a {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -1582,37 +1693,24 @@ body::-webkit-scrollbar-track {
     height: initial;
   }
 }
-
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .fh-center {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .fv-center {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .f-col {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .f-row {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .pos-abs {
@@ -1653,7 +1751,6 @@ body::-webkit-scrollbar-track {
     opacity: 0;
   }
 }
-
 .hidden {
   opacity: 0 !important;
 }
@@ -1666,30 +1763,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes fadeinup {
   from {
-    -webkit-transform: translateY(100px);
-            transform: translateY(100px);
+    transform: translateY(100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
 
 @keyframes fadeinup {
   from {
-    -webkit-transform: translateY(100px);
-            transform: translateY(100px);
+    transform: translateY(100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
-
 .fade-in-down {
   -webkit-animation: fadeindown 2s;
           animation: fadeindown 2s;
@@ -1697,30 +1789,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes fadeindown {
   from {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
+    transform: translateY(-100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
 
 @keyframes fadeindown {
   from {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
+    transform: translateY(-100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
-
 /* mobile banner animations */
 .fade-in-left {
   -webkit-animation: fadeinleft 2s;
@@ -1729,30 +1816,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes fadeinleft {
   from {
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    transform: translateX(100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
 
 @keyframes fadeinleft {
   from {
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    transform: translateX(100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
-
 .fade-in-right {
   -webkit-animation: fadeinright 2s;
           animation: fadeinright 2s;
@@ -1760,30 +1842,25 @@ body::-webkit-scrollbar-track {
 
 @-webkit-keyframes fadeinright {
   from {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
+    transform: translateX(-100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
 
 @keyframes fadeinright {
   from {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
+    transform: translateX(-100px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
     opacity: 1;
   }
 }
-
 .table-cell-hover {
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
@@ -1803,21 +1880,16 @@ body {
 
 header {
   background-color: rgba(0, 0, 0, 0.83);
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
-
 header * {
   -webkit-animation: headeranim 5s;
           animation: headeranim 5s;
 }
-
 header p {
   margin: 20px 0 10px 0;
   font-style: italic;
 }
-
 header a {
   color: rgba(255, 255, 255, 0.8);
   font-size: 12px;
@@ -1828,7 +1900,6 @@ header a {
     padding: 20px 0 20px 0;
   }
 }
-
 @-webkit-keyframes headeranim {
   from {
     color: transparent;
@@ -1837,7 +1908,6 @@ header a {
     color: rgba(255, 255, 255, 0.8);
   }
 }
-
 @keyframes headeranim {
   from {
     color: transparent;
@@ -1846,17 +1916,13 @@ header a {
     color: rgba(255, 255, 255, 0.8);
   }
 }
-
 main {
   background-color: rgba(0, 0, 0, 0.83);
 }
 
 footer {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0.75)));
   background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.75));
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  flex-grow: 2;
 }
 
 h1 {
@@ -1880,7 +1946,7 @@ h3 {
   line-height: 40px;
 }
 
-td, #about table th, th {
+td, th, #about table th {
   background: center/cover;
   text-align: center;
   vertical-align: middle;
@@ -1908,11 +1974,9 @@ tr:last-child:not(thead tr) {
   background-color: transparent;
   color: rgba(255, 255, 255, 0.6);
 }
-
 #close .material-icons {
   font-size: 35px;
 }
-
 #close:hover {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -1926,14 +1990,12 @@ tr:last-child:not(thead tr) {
   height: 50px;
   padding: 5px 0 0 0;
   border-radius: 50%;
-  background-color: #3c3c3c;
+  background-color: rgb(60, 60, 60);
   color: rgba(255, 255, 255, 0.8);
 }
-
 #goToTop .material-icons {
   font-size: 35px;
 }
-
 #goToTop:hover {
   background-color: rgba(60, 60, 60, 0.8);
 }
@@ -1945,5 +2007,4 @@ li {
 
 strong {
   font-weight: bold;
-}
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

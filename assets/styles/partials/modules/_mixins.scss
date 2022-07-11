@@ -73,3 +73,12 @@
         }
     }
 }
+
+@mixin tooltipSizePos($size) {
+    .tooltip {
+        transform: translateY(-#{$size}px);
+        input {
+            height: #{$size}px;
+        }
+    }
+}

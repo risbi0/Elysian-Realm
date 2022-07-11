@@ -126,6 +126,7 @@
     }
 }
 .emblem {
+    @include tooltipSizePos(50);
     width: 40%;
 
     table {
@@ -135,13 +136,17 @@
             width: 50px;
         }
     }
+
+    .pic { @include wh($w: 50px, $h: 50px); }
 }
 .supp {
     @include wh($w: 55%, $h: 150px);
+    @include tooltipSizePos(50);
 
     table { width: 100%; }
     p { color: transparent; }
 
+    .pic { height: 50px; }
     .supp-pic:hover {
         .pic {
             filter: brightness(50%);
@@ -153,7 +158,6 @@
         }
     }
 }
-.gear-tbl,
 .exclusive-tbl,
 .transitional-tbl,
 .main-tbl,
@@ -165,14 +169,22 @@
         width: 20%;
     }
 }
+.gear-tbl {
+    @include tooltipSizePos(100);
+    width: 300px;
+    margin-top: 10px;
+
+    tr:not(thead tr) { height: 100px; }
+    td { width: 100px; }
+
+    .pic { @include wh($w: 100px, $h: 100px); }
+}
 .pic {
     background: center/cover;
-    height: 50px;
     cursor: pointer;
 }
 .tooltip {
     @include wh($w: 100%, $h: 100%);
-    transform: translateY(-50px);
 
     p {
         transform: translateY(18px);
@@ -194,7 +206,7 @@
     }
 
     input {
-        @include wh($w: 100%, $h: 50px);
+        width: 100%;
         appearance: none;
         cursor: pointer;
 
