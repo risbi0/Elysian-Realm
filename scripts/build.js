@@ -83,15 +83,15 @@ for (let i = 0; i < valks.length; i++) {
         }
         const recSignets = document.createElement('div');
         recSignets.classList.add('rec-signets', 'flex', 'f-row');
-        for (let k = 1; k <= Object.keys(valks[i].builds[j].signet).length; k++) {
-            for (let l = 0; l < Object.keys(valks[i].builds[j].signet[k]).length; l++) {
+        for (let k = 0; k < valks[i].builds[j].signet.length; k++) {
+            for (let l = 0; l < valks[i].builds[j].signet[k].length; l++) {
                 const recSignetDiv = document.createElement('div');
                 recSignetDiv.classList.add('signet', 'sig-tog', 'flex', 'fh-center', 'fv-center', valks[i].builds[j].signet[k][l][0].name.toLowerCase());
                 recSignets.appendChild(recSignetDiv);
             }
         }
         guideContent.appendChild(recSignets);
-        const signetTableLength = Object.keys(valks[i].builds[j].signetTable).length;
+        const signetTableLength = valks[i].builds[j].signetTable.length;
         const hasTransitionTable = signetTableLength === 4;
         const anchorContainer = document.createElement('div');
         anchorContainer.classList.add('flex', 'f-row');
@@ -121,7 +121,7 @@ for (let i = 0; i < valks.length; i++) {
                 letter = 'S';
                 link = `secondary-signets-${i + 1}-${j + 1}`;
             }
-            else if ((k === 4 && hasNotes) || (k === 3 && !(3 in valks[i].builds[j].signetTable))) {
+            else if ((k === 4 && hasNotes) || (k === 3)) {
                 letter = 'N';
                 link = `notes-${i + 1}-${j + 1}`;
             }
@@ -151,16 +151,16 @@ for (let i = 0; i < valks.length; i++) {
         }
         emblemTableHead.appendChild(emblemTableHeadRow);
         const emblemTableBody = emblemTable.createTBody();
-        for (let k = 1; k <= 3; k++) {
+        for (let k = 0; k < 3; k++) {
             const emblemTableBodyRow = emblemTableBody.insertRow();
-            for (let l = 1; l <= 2; l++) {
+            for (let l = 0; l < 2; l++) {
                 let emblemTableBodyCell;
-                if (l === 1) {
+                if (l === 0) {
                     emblemTableBodyCell = emblemTableBodyRow.insertCell();
-                    emblemTableBodyCell.textContent = emblemTableTimeColumn[k - 1];
+                    emblemTableBodyCell.textContent = emblemTableTimeColumn[k];
                 }
                 else {
-                    for (let m = 1; m <= Object.keys(valks[i].builds[j].emblem[k]).length; m++) {
+                    for (let m = 0; m < valks[i].builds[j].emblem[k].length; m++) {
                         emblemTableBodyCell = imageAndLabel(emblemTableBodyCell, emblemTableBodyRow, valks[i].builds[j].emblem[k], m, false);
                     }
                 }
@@ -185,19 +185,19 @@ for (let i = 0; i < valks.length; i++) {
         }
         supportTableHead.appendChild(supportTableHeadRow);
         const supportTableBody = supportTable.createTBody();
-        for (let k = 1; k <= 2; k++) {
+        for (let k = 0; k < 2; k++) {
             const supportTableBodyRow = supportTableBody.insertRow();
-            for (let l = 1; l <= 3; l++) {
+            for (let l = 0; l < 3; l++) {
                 let supportTableBodyCell;
-                if (l === 1) {
+                if (l === 0) {
                     supportTableBodyCell = supportTableBodyRow.insertCell();
-                    supportTableBodyCell.textContent = supportTableTypeColumn[k - 1];
+                    supportTableBodyCell.textContent = supportTableTypeColumn[k];
                 }
                 else {
-                    for (let m = 1; m <= Object.keys(valks[i].builds[j].support[k][l - 1]).length; m++) {
+                    for (let m = 0; m < valks[i].builds[j].support[k][l - 1].length; m++) {
                         supportTableBodyCell = imageAndLabel(supportTableBodyCell, supportTableBodyRow, valks[i].builds[j].support[k][l - 1], m, true);
                     }
-                    if (Object.keys(valks[i].builds[j].support[k][l - 1]).length === 1) {
+                    if (valks[i].builds[j].support[k][l - 1].length === 1) {
                         supportTableBodyCell.setAttribute('colspan', '2');
                     }
                 }
@@ -262,11 +262,11 @@ for (let i = 0; i < valks.length; i++) {
                     headers = signetTableColumns;
                     const signets = document.createElement('div');
                     signets.classList.add('rec-signets', 'flex', 'f-row');
-                    for (let l = 0; l < Object.keys(valks[i].builds[j].signet[k]).length; l++) {
+                    for (let l = 0; l < valks[i].builds[j].signet[k - 1].length; l++) {
                         const recSignetDiv = document.createElement('div');
-                        recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].builds[j].signet[k][l][0].name.toLowerCase());
+                        recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].builds[j].signet[k - 1][l][0].name.toLowerCase());
                         const recSignetsLabel = document.createElement('label');
-                        recSignetsLabel.textContent = valks[i].builds[j].signet[k][l][1] === '1' ? 'I' : 'II';
+                        recSignetsLabel.textContent = valks[i].builds[j].signet[k - 1][l][1] === '1' ? 'I' : 'II';
                         recSignetDiv.appendChild(recSignetsLabel);
                         signets.appendChild(recSignetDiv);
                     }
@@ -283,11 +283,11 @@ for (let i = 0; i < valks.length; i++) {
             }
             signetTableHead.appendChild(signetTableHeadRow);
             const signetTableBody = signetTable.createTBody();
-            for (let l = 1; l <= Object.keys(valks[i].builds[j].signetTable[k]).length; l++) {
+            for (let l = 0; l < valks[i].builds[j].signetTable[k].length; l++) {
                 const signetTableBodyRow = signetTableBody.insertRow();
-                for (let m = 0; m < Object.keys(valks[i].builds[j].signetTable[k][l]).length; m++) {
+                for (let m = 0; m < valks[i].builds[j].signetTable[k][l].length; m++) {
                     let signetTableBodyCell;
-                    if (!(/^[0-9]+$/.test(valks[i].builds[j].signetTable[k][l][m])) && Object.keys(valks[i].builds[j].signetTable[k][l])[m] !== 'detail') {
+                    if (!(/^[0-9]+$/.test(valks[i].builds[j].signetTable[k][l][m]))) {
                         let prepend = '';
                         if (k === 0 && m === 0)
                             prepend = 'Blessing of ';
