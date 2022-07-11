@@ -36,6 +36,7 @@ const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).w
 const meter = document.querySelector('#meter');
 const banners = document.querySelectorAll('.banner');
 let done = 0, progressInPixels = 0;
+let once = true;
 url.forEach((link) => {
     load(link).then(() => {
         done += 1;
@@ -62,6 +63,24 @@ url.forEach((link) => {
                     banners[index].classList.remove('hidden'); });
                 setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll); }, noOfBannersInViewport * interval);
             }
+        }
+    }).catch(() => {
+        if (once) {
+            const errMsg = document.createElement('p');
+            errMsg.setAttribute('id', 'error-msg');
+            errMsg.innerText = 'An error occured. Please reload the page.';
+            const reloadBtn = document.createElement('button');
+            reloadBtn.setAttribute('id', 'refresh');
+            reloadBtn.setAttribute('onclick', 'window.location.reload();');
+            const span = document.createElement('span');
+            span.classList.add('material-icons');
+            span.innerText = 'refresh';
+            reloadBtn.appendChild(span);
+            cover.innerHTML = '';
+            cover.classList.add('f-col');
+            cover.appendChild(errMsg);
+            cover.appendChild(reloadBtn);
+            once = false;
         }
     });
 });

@@ -14,3 +14,14 @@
     background-color: gray;
     border-radius: 5px;
 }
+#error-msg {
+    font-size: 22px;
+}
+#refresh {
+    @include darkButton;
+    @include wh($w: 40px, $h: 40px);
+    @include margin($t: 10px);
+    @include padding($t: 4px);
+    cursor: pointer;
+    border: none;
+}
