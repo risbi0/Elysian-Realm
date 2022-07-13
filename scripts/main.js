@@ -341,7 +341,7 @@ banners.forEach((banner) => {
                 guideContainer.classList.remove('hidden', 'no-display');
                 currentGuide.classList.remove('no-display');
                 currentBanner = this;
-                this.children[0].style.filter = 'brightness(70%) blur(0.3px)';
+                this.children[0].style.filter = 'brightness(90%) blur(0.3px)';
                 this.children[1].children[0].style.color = 'white';
                 document.querySelectorAll('.vertical-text').forEach((text) => {
                     if (text.innerText !== this.innerText)
