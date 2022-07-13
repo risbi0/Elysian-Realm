@@ -625,7 +625,7 @@ export const valks = (function () {
                         [data.su.nexus2.name]
                     ]
                 ],
-                notes: `<p>Recommended Gear</p>Build Benares: Awakening M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Build 1: Benares: Awakening M as alternative.<br><br>
                         <p>Eden</p>If unable to get double signets, start with double Ego.<br><br>
                         <p>${data.hua.regular[6]}</p>Must upgrade.<br><br>
                         <p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
@@ -988,7 +988,7 @@ export const valks = (function () {
                     ]
                 ],
                 notes: `If there's no Normal Signet of Stars +2 stage effect, start with Aponia signets instead of Griseo signets.<br><br>
-                        <p>Recommended Gear</p>Build Marco Polo M as alternative.<br><br>
+                        <p>Recommended Gear</p>Build 3: Marco Polo M as alternative.<br><br>
                         <p>Aponia</p>Aponia's signet <span>${data.aponia.regular[4]}</span> is not recommended.<br><br>
                         <p>Eden</p>Start choosing her signets early only after obtaining Su's signet <span>${data.su.regular[2]}</span>`
             }
@@ -1120,7 +1120,7 @@ export const valks = (function () {
                         [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>Recommended Gear</p>Build 2 & Marco Polo M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Build 2 & 3: Marco Polo M as alternative.<br><br>
                         <p>Kalpas</p>If unable to get double signets, start with double Ego.`
             }
         }
@@ -1307,7 +1307,7 @@ export const valks = (function () {
                         [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>Recommended Gear</p>Positron Blasters > Domain of the Void > Others<br>Build Marco Polo M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Positron Blasters > Domain of the Void > Others<br>Build 2: Marco Polo M as alternative.<br><br>
                         <p>${data.aponia.regular[2]}, ${data.pardofelis.regular[2]}</p>If needed.`
             }
         }
@@ -1488,7 +1488,7 @@ export const valks = (function () {
                         [data.kalpas.regular[2]]
                     ]
                 ],
-                notes: `<p>Recommended Gear</p>Build Marco Polo M as alternative.<br><br>
+                notes: `<p>Recommended Gear</p>Build 2: Marco Polo M as alternative.<br><br>
                         <p>${data.pardofelis.regular[3]}</p>Take early.<br><br>
                         <p>Kalpas</p>Don't need nexus if using BR.`
             }
