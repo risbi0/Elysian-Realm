@@ -263,13 +263,15 @@ for (let i = 0; i < valks.length; i++) {
             const stigTable: HTMLTableElement = document.createElement('table');
             stigTable.classList.add('gear-tbl');
             // header
-            /*const stigTableHead: HTMLTableSectionElement = stigTable.createTHead();
+            /*
+            const stigTableHead: HTMLTableSectionElement = stigTable.createTHead();
             const stigTableHeadRow: HTMLTableRowElement = stigTableHead.insertRow();
             const stigTableHeader: HTMLTableCellElement = document.createElement('th');
             stigTableHeader.textContent = 'Stigmatas';
             stigTableHeader.setAttribute('colspan', '3');
             stigTableHeadRow.appendChild(stigTableHeader);
-            stigTableHead.appendChild(stigTableHeadRow);*/
+            stigTableHead.appendChild(stigTableHeadRow);
+            */
             // body
             const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
             for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) { // rows
