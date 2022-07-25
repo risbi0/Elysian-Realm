@@ -330,20 +330,27 @@ guideContainer.addEventListener('click', () => hide()); // close when clicking o
 guideContents.forEach(guideContent => guideContent.addEventListener('click', (e) => e.stopPropagation()));
 
 // style ::after and ::before psuedo selectors (mobile only)
-function contentFade(topOffset: string, bottomOffset: string, direction: string, psuedoDirection: string): void {
+function contentFade(afterOffset: string, direction: string, psuedoDirection: string): void {
+    const beforeOffset = 'calc(25vw - 5px)';
     for (const cssRule of mainStylesheet) {
         if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
             cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;
             if (cssRule.selectorText === '#guide-container::before') {
-                cssRule.style.top = topOffset;
+                if (direction === 'top') {
+                    cssRule.style.bottom = null;
+                    cssRule.style.top = beforeOffset;
+                } else {
+                    cssRule.style.top = null;
+                    cssRule.style.bottom = beforeOffset;
+                }
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
             }
-            if (cssRule.selectorText === '#guide-container::after') cssRule.style.bottom = bottomOffset;
+            if (cssRule.selectorText === '#guide-container::after') cssRule.style.bottom = afterOffset;
         }
     }
 }
-let psuedoStyles: [string, string, string, string];
+let psuedoStyles: [string, string, string];
 // show respective guide content on banner click
 banners.forEach((banner: any) => {
     banner.addEventListener('click', function(this: any) {
@@ -364,7 +371,7 @@ banners.forEach((banner: any) => {
             if (index > mobileUpperBanners) { // scroll to banner on bottom
                 currentGuide.classList.add('guide-bot-entry-mobile');
                 // style ::before and ::after psuedo selectors for content fade effect
-                psuedoStyles = ['calc(100vh - 25vw)', '25vw', 'bottom', 'up'];
+                psuedoStyles = ['25vw', 'bottom', 'up'];
                 // window scroll offset
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 // button offset
@@ -372,7 +379,7 @@ banners.forEach((banner: any) => {
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
             } else { // scroll to banner on top
                 currentGuide.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
-                psuedoStyles = ['calc(25vw - 5px)', '0', 'top', 'down'];
+                psuedoStyles = ['0', 'top', 'down'];
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;

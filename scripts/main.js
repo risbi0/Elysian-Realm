@@ -282,17 +282,25 @@ function hide() {
 closeButton.addEventListener('click', () => hide());
 guideContainer.addEventListener('click', () => hide());
 guideContents.forEach(guideContent => guideContent.addEventListener('click', (e) => e.stopPropagation()));
-function contentFade(topOffset, bottomOffset, direction, psuedoDirection) {
+function contentFade(afterOffset, direction, psuedoDirection) {
+    const beforeOffset = 'calc(25vw - 5px)';
     for (const cssRule of mainStylesheet) {
         if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
             cssRule.style.opacity = '1';
             cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;
             if (cssRule.selectorText === '#guide-container::before') {
-                cssRule.style.top = topOffset;
+                if (direction === 'top') {
+                    cssRule.style.bottom = null;
+                    cssRule.style.top = beforeOffset;
+                }
+                else {
+                    cssRule.style.top = null;
+                    cssRule.style.bottom = beforeOffset;
+                }
                 cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
             }
             if (cssRule.selectorText === '#guide-container::after')
-                cssRule.style.bottom = bottomOffset;
+                cssRule.style.bottom = afterOffset;
         }
     }
 }
@@ -310,14 +318,14 @@ banners.forEach((banner) => {
             let offset = 0;
             if (index > mobileUpperBanners) {
                 currentGuide.classList.add('guide-bot-entry-mobile');
-                psuedoStyles = ['calc(100vh - 25vw)', '25vw', 'bottom', 'up'];
+                psuedoStyles = ['25vw', 'bottom', 'up'];
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 0;
                 topButtonOffsetTop = deviceHeight - deviceWidth / 4;
             }
             else {
                 currentGuide.classList.add('guide-top-entry-mobile', 'upper');
-                psuedoStyles = ['calc(25vw - 5px)', '0', 'top', 'down'];
+                psuedoStyles = ['0', 'top', 'down'];
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
                 topButtonOffsetTop = deviceHeight;
