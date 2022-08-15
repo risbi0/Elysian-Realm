@@ -23,18 +23,14 @@ function fadeAnim(item, fade) {
     }, time);
     time += interval;
 }
+const banners = document.querySelectorAll('.banner');
 const url = [];
-const mainStylesheet = document.styleSheets[1].cssRules;
-for (const cssRule of mainStylesheet) {
-    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
-        url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
-    }
-}
+url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
+banners.forEach((banner) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
 const cover = document.querySelector('#cover');
 const progressBar = document.querySelector('#progress-bar');
 const progressBarWidthInPixels = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.querySelector('#meter');
-const banners = document.querySelectorAll('.banner');
 let done = 0, progressInPixels = 0;
 let once = true;
 url.forEach((link) => {
@@ -236,6 +232,7 @@ const goToTop = (e) => {
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 };
 const buttonVisibility = (e) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const mainStylesheet = document.styleSheets[1].cssRules;
 const topButton = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close');
 const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));

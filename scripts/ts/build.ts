@@ -6,35 +6,43 @@ import { emblemTableHeaders, emblemTableTimeColumn,
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
 mainContainer.innerHTML = ''; // remove comments
 
-function imageAndLabel(cell: HTMLTableCellElement, row: HTMLTableRowElement, item: any, index: number, hoverLabel: boolean): HTMLTableCellElement {
+function imageAndLabel(cell: HTMLTableCellElement,
+                       row: HTMLTableRowElement,
+                       item: any,
+                       index: number,
+                       hoverLabel: boolean,
+                       picClass: string='pic-100',
+                       spanClass: string='offset-100'): HTMLTableCellElement {
     cell = row.insertCell();
     cell.classList.add('pos-rel');
 
     const pic: HTMLDivElement = document.createElement('div');
-    pic.classList.add('pic', item[index].acr);
-
-    const label: HTMLLabelElement = document.createElement('label');
-    label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
-
-    const input: HTMLInputElement = document.createElement('input');
-    input.classList.add('pos-abs');
-    input.setAttribute('type', 'checkbox');
-
-    const span: HTMLSpanElement = document.createElement('span');
-    span.classList.add('pos-abs');
-    span.textContent = item[index].name;
-    // for support valk images
-    if (hoverLabel) {
-        cell.classList.add('supp-pic');
-        const acr: HTMLParagraphElement = document.createElement('p');
-        acr.textContent = item[index].acr.toUpperCase();
-        label.appendChild(acr);
-    }
-    label.appendChild(input);
-    label.appendChild(span);
+    pic.classList.add('pic', picClass, item[index].acr);
+    
     cell.appendChild(pic);
-    cell.appendChild(label);
 
+    if (item[index].acr != 'hawp') {
+        const label: HTMLLabelElement = document.createElement('label');
+        label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
+
+        const input: HTMLInputElement = document.createElement('input');
+        input.classList.add('pos-abs');
+        input.setAttribute('type', 'checkbox');
+
+        const span: HTMLSpanElement = document.createElement('span');
+        span.classList.add('pos-abs', spanClass);
+        span.textContent = item[index].name;
+        // for support valk images
+        if (hoverLabel) {
+            cell.classList.add('supp-pic');
+            const acr: HTMLParagraphElement = document.createElement('p');
+            acr.textContent = item[index].acr.toUpperCase();
+            label.appendChild(acr);
+        }
+        label.appendChild(input);
+        label.appendChild(span);
+        cell.appendChild(label);
+    }
     return cell;
 }
 
@@ -253,15 +261,28 @@ for (let i = 0; i < valks.length; i++) {
         emblemSupportDiv.appendChild(supportTableDiv);
         // supports table end
         guideContent.appendChild(emblemSupportDiv);
-        // stigmatas start
+        // gear start
         if ('gear' in valks[i].builds[j]) {
+            let tableWidth: string = '', rowHeight: string = '', picClass: string = '', spanClass = '';
+            if (valks[i].builds[0].gear[0].length == 4) {
+                tableWidth = 'tbl-80';
+                rowHeight ='row-height-80';
+                picClass = 'pic-80';
+                spanClass = 'offset-80';
+            } else {
+                tableWidth = 'tbl-100';
+                rowHeight = 'row-height-100';
+                picClass = 'pic-100';
+                spanClass = 'offset-100';
+            }
+            
             const stigTitle: HTMLHeadingElement = document.createElement('h3');
             stigTitle.innerText = 'Recommended Gear';
 
             guideContent.appendChild(stigTitle);
 
             const stigTable: HTMLTableElement = document.createElement('table');
-            stigTable.classList.add('gear-tbl');
+            stigTable.classList.add('gear-tbl', tableWidth);
             // header
             /*
             const stigTableHead: HTMLTableSectionElement = stigTable.createTHead();
@@ -276,9 +297,10 @@ for (let i = 0; i < valks.length; i++) {
             const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
             for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) { // rows
                 const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
-                for (let l = 0; l < 3; l++) { // cells
+                stigTableBodyRow.classList.add(rowHeight);
+                for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) { // cells
                     let stigTableBodyCell: HTMLTableCellElement;
-                    stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
+                    stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k], l, false, picClass, spanClass);
                 }
                 stigTableBody.appendChild(stigTableBodyRow);
             }
@@ -287,7 +309,7 @@ for (let i = 0; i < valks.length; i++) {
 
             guideContent.appendChild(stigTable);
         }
-        // stigmatas end
+        // gear end
 
         // signet tables start
         for (let k = 0; k < signetTableLength; k++) {

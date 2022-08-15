@@ -270,8 +270,8 @@ body::-webkit-scrollbar-track {
 }
 
 .gear-tbl {
-  width: 300px;
   margin-top: 10px;
+  /**tr:not(thead tr) { height: 80px; }*/
 }
 .gear-tbl .tooltip {
   transform: translateY(-100px);
@@ -279,13 +279,23 @@ body::-webkit-scrollbar-track {
 .gear-tbl .tooltip input {
   height: 100px;
 }
-.gear-tbl tr:not(thead tr) {
+.gear-tbl.tbl-80 {
+  width: 320px;
+}
+.gear-tbl.tbl-100 {
+  width: 300px;
+}
+.gear-tbl .row-height-80 {
+  height: 80px;
+}
+.gear-tbl .row-height-100 {
   height: 100px;
 }
-.gear-tbl td, .gear-tbl th, .gear-tbl #about table th, #about table .gear-tbl th {
-  width: 100px;
+.gear-tbl .pic-80 {
+  width: 80px;
+  height: 80px;
 }
-.gear-tbl .pic {
+.gear-tbl .pic-100 {
   width: 100px;
   height: 100px;
 }
@@ -307,7 +317,6 @@ body::-webkit-scrollbar-track {
   visibility: hidden;
   text-align: center;
   white-space: nowrap;
-  transform: translateY(-20px);
   background-color: rgb(34, 34, 34);
   padding: 5px;
   color: rgba(255, 255, 255, 0.8);
@@ -315,6 +324,12 @@ body::-webkit-scrollbar-track {
   border-radius: 6px;
   opacity: 0;
   transition: opacity 0.2s;
+}
+.tooltip span.offset-80 {
+  transform: translateY(-2px);
+}
+.tooltip span.offset-100 {
+  transform: translateY(-22px);
 }
 .tooltip input {
   width: 100%;
@@ -514,6 +529,40 @@ body::-webkit-scrollbar-track {
   font-size: 16px;
 }
 #fischl ~ .main-name > .mobile {
+  font-size: 7vw;
+}
+
+#gm {
+  background-image: url("../img/valks/Goushinnso_Memento.webp");
+}
+#gm.desktop-pos {
+  background-position: 44%;
+}
+#gm.mobile-pos {
+  transform-origin: top center;
+  transform: scale(16) translate(40.4%, -16.3%);
+}
+#gm ~ .main-name > .desktop {
+  font-size: 28px;
+}
+#gm ~ .main-name > .mobile {
+  font-size: 7vw;
+}
+
+#hc {
+  background-image: url("../img/valks/Helical_Contraption.webp");
+}
+#hc.desktop-pos {
+  background-position: 55.7%;
+}
+#hc.mobile-pos {
+  transform-origin: top center;
+  transform: scale(14) translate(34.4%, -16.4%);
+}
+#hc ~ .main-name > .desktop {
+  font-size: 24px;
+}
+#hc ~ .main-name > .mobile {
   font-size: 7vw;
 }
 
@@ -901,6 +950,10 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/emblems/Falling_in_Past_Light.webp");
 }
 
+.ff {
+  background-image: url("../img/emblems/Fragile_Friend.webp");
+}
+
 .foe {
   background-image: url("../img/emblems/Feast_of_Emptiness.webp");
 }
@@ -962,11 +1015,19 @@ body::-webkit-scrollbar-track {
 }
 
 .pm {
-  background-image: url("../img//emblems/Pseudo_Miracle.webp");
+  background-image: url("../img/emblems/Pseudo_Miracle.webp");
+}
+
+.pogae {
+  background-image: url("../img/emblems/Proof_of_Good_and_Evil.webp");
 }
 
 .r {
   background-image: url("../img/emblems/Resolve.webp");
+}
+
+.rl {
+  background-image: url("../img/emblems/Ruined_Legacy.webp");
 }
 
 .roa {
@@ -1038,12 +1099,160 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/avatars/Starlit_Astrologos_Avatar.webp");
 }
 
+.sn {
+  background-image: url("../img/avatars/Stygian_Nymph_Avatar.webp");
+}
+
 .ss {
   background-image: url("../img/avatars/Snowy_Sniper_Avatar.webp");
 }
 
 .vc {
   background-image: url("../img/avatars/Valkyrie_Chariot_Avatar.webp");
+}
+
+.hawp {
+  background-image: url("../img/weapons/_high_atk_weap.webp");
+}
+
+.abfl {
+  background-image: url("../img/weapons/Abyss_Flower_Liminal_Spiral.webp");
+}
+
+.asdi {
+  background-image: url("../img/weapons/Astral_Divide_Pisces.webp");
+}
+
+.baim {
+  background-image: url("../img/weapons/Basilisks_Image_Deathshroud.webp");
+}
+
+.dabr {
+  background-image: url("../img/weapons/Dawn_Breaker_Talwar.webp");
+}
+
+.doin {
+  background-image: url("../img/weapons/Domain_of_Incandescence.webp");
+}
+
+.dore {
+  background-image: url("../img/weapons/Domain_of_Revelation.webp");
+}
+
+.dosa {
+  background-image: url("../img/weapons/Domain_of_Sanction.webp");
+}
+
+.dose {
+  background-image: url("../img/weapons/Domain_of_Sentience.webp");
+}
+
+.dovo {
+  background-image: url("../img/weapons/Domain_of_the_Void.webp");
+}
+
+.ecpa {
+  background-image: url("../img/weapons/Echo_of_Paradise.webp");
+}
+
+.elas {
+  background-image: url("../img/weapons/Elysian_Astra_Hearts_Color.webp");
+}
+
+.eogl {
+  background-image: url("../img/weapons/Eos_Gloria.webp");
+}
+
+.fafl {
+  background-image: url("../img/weapons/Falcon_Flare_FINAL.webp");
+}
+
+.frna {
+  background-image: url("../img/weapons/Frozen_Naraka.webp");
+}
+
+.heso {
+  background-image: url("../img/weapons/Hekates_Sombre.webp");
+}
+
+.irhe {
+  background-image: url("../img/weapons/Iris_of_Helheim.webp");
+}
+
+.loco {
+  background-image: url("../img/weapons/Lost_Conviction_Damnation.webp");
+}
+
+.miat {
+  background-image: url("../img/weapons/Midnight_Ataegina.webp");
+}
+
+.miki {
+  background-image: url("../img/weapons/Miracle_Kissy_Pillow.webp");
+}
+
+.miwa {
+  background-image: url("../img/weapons/Mitternachts_Waltz.webp");
+}
+
+.mubl {
+  background-image: url("../img/weapons/Muramasa_Bloodlust.webp");
+}
+
+.paac {
+  background-image: url("../img/weapons/Path_to_Acheron_Kindred.webp");
+}
+
+.obdo {
+  background-image: url("../img/weapons/Oblivion_Down.webp");
+}
+
+.obwi {
+  background-image: url("../img/weapons/Obscuring_Wing.webp");
+}
+
+.pobl {
+  background-image: url("../img/weapons/Positron_Blasters.webp");
+}
+
+.puph {
+  background-image: url("../img/weapons/Purana_Phantasma.webp");
+}
+
+.saas {
+  background-image: url("../img/weapons/Sagittarius_Astra.webp");
+}
+
+.saga {
+  background-image: url("../img/weapons/Sanguine_Gaze_Union.webp");
+}
+
+.sena {
+  background-image: url("../img/weapons/Seven_Thunders_of_Retribution_Narukami.webp");
+}
+
+.seru {
+  background-image: url("../img/weapons/Seven_Thunders_of_Retribution_Rumble.webp");
+}
+
+.skth {
+  background-image: url("../img/weapons/Skadi_of_Thrymheim.webp");
+}
+
+.sldr {
+  background-image: url("../img/weapons/Sleepers_Dream.webp");
+}
+
+.thsa {
+  background-image: url("../img/weapons/3rd_Sacred_Relic.webp");
+}
+
+.topa {
+  background-image: url("../img/weapons/Tower_of_the_Past_Silk_Ladder.webp");
+}
+
+.whpa {
+  background-image: url("../img/weapons/Whisper_of_the_Past_Sonnet.webp");
 }
 
 /* stigmata images */
@@ -1129,6 +1338,18 @@ body::-webkit-scrollbar-track {
 
 .brob {
   background-image: url("../img/stigmatas/Bronya_N-EX_B.webp");
+}
+
+.cart {
+  background-image: url("../img/stigmatas/Carlo_Collodi_T.webp");
+}
+
+.carm {
+  background-image: url("../img/stigmatas/Carlo_Collodi_M.webp");
+}
+
+.carb {
+  background-image: url("../img/stigmatas/Carlo_Collodi_B.webp");
 }
 
 .cezt {

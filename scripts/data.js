@@ -24,6 +24,7 @@ export const fallingInPastLight = { name: 'Falling in Past Light', acr: 'fipl' }
 export const farawayShip = { name: 'Faraway Ship', acr: 'fas' };
 export const feastOfEmptiness = { name: 'Feast of Emptiness', acr: 'foe' };
 export const forbiddenSeed = { name: 'Forbidden Seed', acr: 'fos' };
+export const fragileFriend = { name: 'Fragile Friend', acr: 'ff' };
 export const forgetMeNot = { name: 'Forget-Me-Not', acr: 'fmt' };
 export const goldGoblet = { name: 'Gold Goblet', acr: 'gg' };
 export const goodOldDays = { name: 'Good Old Days', acr: 'god' };
@@ -37,9 +38,11 @@ export const lightAsABodhiLeaf = { name: 'Light as a Bodhi Leaf', acr: 'laabl' }
 export const madKingsMask = { name: 'Mad King\'s Mask', acr: 'mkm' };
 export const memory = { name: 'Memory', acr: 'm' };
 export const outOfReach = { name: 'Out of Reach', acr: 'oor' };
+export const proofOfGoodAndEvil = { name: 'Proof of Good and Evil', acr: 'pogae' };
 export const psuedoMiracle = { name: 'Psuedo Miracle', acr: 'pm' };
 export const rainbowOfAbsence = { name: 'Rainbow of Absence', acr: 'roa' };
 export const resolve = { name: 'Resolve', acr: 'r' };
+export const ruinedLegacy = { name: 'Ruined Legacy', acr: 'rl' };
 export const stainedSakura = { name: 'Stained Sakura', acr: 'sts' };
 export const theFirstScale = { name: 'The First Scale', acr: 'tfs' };
 export const theLonelyMoon = { name: 'The Lonely Moon', acr: 'tlm' };
@@ -56,6 +59,7 @@ export const le = { name: 'Lightning Empress', acr: 'le' };
 export const ma = { name: 'Midnight Absinthe', acr: 'ma' };
 export const rc = { name: 'Reverist Calico', acr: 'rc' };
 export const sa = { name: 'Starlit Astrologos', acr: 'sa' };
+export const sn = { name: 'Stygian Nymph', acr: 'sn' };
 export const ss = { name: 'Snowy Sniper', acr: 'ss' };
 export const vc = { name: 'Valkyrie Chariot', acr: 'vc' };
 export const vke = { name: 'Vermillion Knight: Eclipse', acr: 'vke' };
@@ -80,6 +84,9 @@ export const biab = { name: 'Bianka: Theatre B', acr: 'biab' };
 export const brot = { name: 'Bronya: N-EX T', acr: 'brot' };
 export const brom = { name: 'Bronya: N-EX M', acr: 'brom' };
 export const brob = { name: 'Bronya: N-EX B', acr: 'brob' };
+export const cart = { name: 'Carlo Collodi T', acr: 'cart' };
+export const carm = { name: 'Carlo Collodi M', acr: 'carm' };
+export const carb = { name: 'Carlo Collodi B', acr: 'carb' };
 export const cezt = { name: 'Cezanne T', acr: 'cezt' };
 export const cezm = { name: 'Cezanne M', acr: 'cezm' };
 export const cezb = { name: 'Cezanne B', acr: 'cezb' };
@@ -146,6 +153,42 @@ export const welb = { name: 'Welt Yang B', acr: 'welb' };
 export const zent = { name: 'Zeno T', acr: 'zent' };
 export const zenm = { name: 'Zeno M', acr: 'zenm' };
 export const zenb = { name: 'Zeno B', acr: 'zenb' };
+export const hawp = { name: '', acr: 'hawp' };
+export const abfl = { name: 'Abyss Flower: Liminal Spiral', acr: 'abfl' };
+export const asdi = { name: 'Astral Divide: Pisces', acr: 'asdi' };
+export const baim = { name: 'Basilik\'s Image: Deathshroud', acr: 'baim' };
+export const dabr = { name: 'Dawn Breaker: Talwar', acr: 'dabr' };
+export const doin = { name: 'Domain of Incandescence', acr: 'doin' };
+export const dore = { name: 'Domain of Revelation', acr: 'dore' };
+export const dosa = { name: 'Domain of Sanction', acr: 'dosa' };
+export const dose = { name: 'Domain of Sentience', acr: 'dose' };
+export const dovo = { name: 'Domain of the Void', acr: 'dovo' };
+export const ecpa = { name: 'Echo of Paradise', acr: 'ecpa' };
+export const elas = { name: 'Elysian Astra: Heart\'s Color', acr: 'elas' };
+export const eogl = { name: 'Eos Gloria', acr: 'eogl' };
+export const fafl = { name: 'Falcon Flare: FINAL', acr: 'fafl' };
+export const frna = { name: 'Frozen Naraka', acr: 'frna' };
+export const heso = { name: 'Hekate\'s Sombre', acr: 'heso' };
+export const irhe = { name: 'Iris of Helheim', acr: 'irhe' };
+export const loco = { name: 'Lost Conviction: Damnation', acr: 'loco' };
+export const miat = { name: 'Midnight Ataegina', acr: 'miat' };
+export const miki = { name: 'Miracle Kissy Pillow', acr: 'miki' };
+export const miwa = { name: 'Mitternachts Waltz', acr: 'miwa' };
+export const mubl = { name: 'Muramasa Bloodlust', acr: 'mubl' };
+export const obdo = { name: 'Oblivion Down', acr: 'obdo' };
+export const obwi = { name: 'Obscuring Wing', acr: 'obwi' };
+export const paac = { name: 'Path to Acheron: Kindred', acr: 'paac' };
+export const pobl = { name: 'Positron Blasters', acr: 'pobl' };
+export const puph = { name: 'Purana Phantasma', acr: 'puph' };
+export const saas = { name: 'Sagittarius Astra', acr: 'saas' };
+export const saga = { name: 'Sanguine Gaze: Union', acr: 'saga' };
+export const sena = { name: '7ToR Narukami', acr: 'sena' };
+export const seru = { name: '7ToR Rumble', acr: 'seru' };
+export const skth = { name: 'Skadi of Thrymheim', acr: 'skth' };
+export const sldr = { name: 'Sleeper\'s Dream', acr: 'sldr' };
+export const thsa = { name: '3rd Sacred Relic', acr: 'thsa' };
+export const topa = { name: 'Tower of the Past: Silk Ladder', acr: 'topa' };
+export const whpa = { name: 'Whisper of the Past: Sonnet', acr: 'whpa' };
 export const aponia = {
     name: 'Aponia',
     signet: 'Discipline',
@@ -306,6 +349,12 @@ export const kosma = {
         1: 'Unbending Hero',
         2: 'Undetermined Judgement',
         3: 'Unwavering Promies'
+    },
+    nexus2: {
+        name: 'Daybreak, Lone Beacon (Nexus)',
+        1: 'Choice, Ensuing Regret',
+        2: 'Dawn, Perpetual Wait',
+        3: 'Heart, Unshakable Character'
     }
 };
 export const mobius = {
@@ -348,6 +397,12 @@ export const pardofelis = {
         1: 'Improvised Drama',
         2: 'Setsuna Paw',
         3: 'This Is Now Where We Die'
+    },
+    nexus2: {
+        name: 'Empty Illusions, Empty Fantasies (Nexus)',
+        1: 'Improve Magic: Zeroing',
+        2: 'My Dreams Will Come True',
+        3: 'Snowy Paw'
     }
 };
 export const sakura = {
@@ -414,22 +469,29 @@ export const vv = {
         1: 'Act VII: Half-Closed Door',
         2: 'Act VIII: Adorned Chamber',
         3: 'Finale: Broken Truth'
+    },
+    nexus2: {
+        name: 'Intermezzo: Holistic Helix (Nexus)',
+        1: 'Puppetry: Interlacing Cells',
+        2: 'Drama: Origin of Slumber',
+        3: 'Saga: Overlapping Needles'
     }
 };
 export const damageDealt = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], griseo.nexus2[2], hua.regular[3],
     hua.nexus2[3], kalpas.regular[1], kevin.regular[3], mobius.regular[5], mobius.nexus1[1],
-    pardofelis.regular[4], sakura.regular[2], su.regular[6], vv.regular[3]];
+    pardofelis.regular[4], pardofelis.nexus2[1], sakura.regular[2], su.regular[6], vv.regular[3]];
 export const damageTaken = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
-export const physEleDamage = [aponia.nexus2[1], eden.regular[2], griseo.regular[1], kalpas.regular[2], pardofelis.regular[1],
-    vv.regular[4]];
+export const physEleDamage = [aponia.nexus2[1], eden.regular[2], griseo.regular[1], kalpas.regular[2], kosma.nexus2[3],
+    pardofelis.regular[1], vv.regular[4]];
 export const physDamage = [hua.regular[2], kevin.regular[5]];
 export const eleDamage = [hua.regular[1], kevin.regular[2]];
-export const physEleBreach = [aponia.nexus1[1], aponia.nexus2[2], griseo.nexus1[2], kalpas.nexus2[3], pardofelis.nexus1[3]];
+export const physEleBreach = [aponia.nexus1[1], aponia.nexus2[2], griseo.nexus1[2], kalpas.nexus2[3], kosma.nexus2[2],
+    pardofelis.nexus1[3], vv.nexus2[1]];
 export const physBreach = [hua.regular[5], kevin.regular[4], vv.nexus1[2]];
 export const eleBreach = [hua.regular[6], kevin.regular[1]];
 export const vurnerability = [aponia.regular[6], aponia.nexus2[3], eden.nexus1[3], eden.nexus1[2], griseo.regular[4],
-    griseo.regular[6], kalpas.regular[3], kevin.nexus2[3], mobius.regular[2], sakura.regular[5],
-    su.regular[3], su.nexus2[1], vv.regular[2]];
+    griseo.regular[6], kalpas.regular[3], kevin.nexus2[3], mobius.regular[2], pardofelis.nexus2[2],
+    sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2], vv.nexus2[2]];
 export const spRecovery = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
     griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
     kosma.regular[1]];
@@ -487,7 +549,7 @@ export const signetSummary = {
     50: { summary: 'Initial and SP Cap Increased', signets: eden.regular[4] },
     51: { summary: 'Increase Ultimate Physical & Elemental Damage', signets: aponia.regular[4] },
     52: { summary: 'Start With More Exhortation', signets: aponia.regular[5] },
-    53: { summary: 'Basic/Combo/Charged Attacks Trigger Bonus Damage', signets: kosma.regular[5] },
+    53: { summary: 'Basic/Combo/Charged ATKs Trigger Bonus Damage', signets: kosma.regular[5] },
     54: { summary: 'Longer Rend', signets: kosma.regular[3] },
     55: { summary: 'Weapon Bonus Damage', signets: vv.regular[1] },
     56: { summary: 'Ranged Total Damage', signets: vv.regular[5] },
@@ -496,5 +558,8 @@ export const signetSummary = {
     59: { summary: 'Fixed Exhortation Value', signets: aponia.nexus1[2] },
     60: { summary: 'Increase Ultimate Total Damage', signets: aponia.nexus1[3] },
     61: { summary: 'Reduce Enemy Resist', signets: griseo.nexus2[1] },
-    62: { summary: 'Increase Color Effect', signets: griseo.nexus2[3] }
+    62: { summary: 'Increase Color Effect', signets: griseo.nexus2[3] },
+    63: { summary: 'Combo/Charged ATKs Deal Adaptive Damage & Restore HP', signets: kosma.nexus2[1] },
+    64: { summary: 'VIP Service Stack Duration', signets: pardofelis.nexus2[3] },
+    65: { summary: 'Larger Area and Stronger Gravitational Field', signets: vv.nexus2[3] }
 };

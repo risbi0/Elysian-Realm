@@ -28,19 +28,15 @@ function fadeAnim(item: any, fade: string): void {
     time += interval;
 }
 // insert all webp paths
+const banners: any = document.querySelectorAll('.banner');
 const url: string[] = [];
-const mainStylesheet: any = document.styleSheets[1].cssRules; // styles.css
-for (const cssRule of mainStylesheet) {
-    if ('style' in cssRule && 'background-image' in cssRule.style && cssRule.style.backgroundImage.includes('url')) {
-       url.push('assets' + cssRule.style.backgroundImage.substring(7).slice(0, -2));
-    }
-}
+url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
+banners.forEach((banner: HTMLDivElement) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
 // wait for images to load
 const cover = document.querySelector('#cover') as HTMLDivElement;
 const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
 const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.querySelector('#meter') as HTMLDivElement;
-const banners: any = document.querySelectorAll('.banner');
 let done: number = 0, progressInPixels: number = 0;
 let once: boolean = true; // execute code once on error
 url.forEach((link: string) => {
@@ -278,6 +274,7 @@ const goToTop = (e: any) => {
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 }
 const buttonVisibility = (e: any) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const mainStylesheet: any = document.styleSheets[1].cssRules; // styles.css
 const topButton: any = document.querySelector('#goToTop');
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));

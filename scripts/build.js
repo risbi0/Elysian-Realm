@@ -2,29 +2,31 @@ import { valks } from './guide.js';
 import { emblemTableHeaders, emblemTableTimeColumn, supportTableHeaders, supportTableTypeColumn, exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 export const mainContainer = document.querySelector('#main-container');
 mainContainer.innerHTML = '';
-function imageAndLabel(cell, row, item, index, hoverLabel) {
+function imageAndLabel(cell, row, item, index, hoverLabel, picClass = 'pic-100', spanClass = 'offset-100') {
     cell = row.insertCell();
     cell.classList.add('pos-rel');
     const pic = document.createElement('div');
-    pic.classList.add('pic', item[index].acr);
-    const label = document.createElement('label');
-    label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
-    const input = document.createElement('input');
-    input.classList.add('pos-abs');
-    input.setAttribute('type', 'checkbox');
-    const span = document.createElement('span');
-    span.classList.add('pos-abs');
-    span.textContent = item[index].name;
-    if (hoverLabel) {
-        cell.classList.add('supp-pic');
-        const acr = document.createElement('p');
-        acr.textContent = item[index].acr.toUpperCase();
-        label.appendChild(acr);
-    }
-    label.appendChild(input);
-    label.appendChild(span);
+    pic.classList.add('pic', picClass, item[index].acr);
     cell.appendChild(pic);
-    cell.appendChild(label);
+    if (item[index].acr != 'hawp') {
+        const label = document.createElement('label');
+        label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
+        const input = document.createElement('input');
+        input.classList.add('pos-abs');
+        input.setAttribute('type', 'checkbox');
+        const span = document.createElement('span');
+        span.classList.add('pos-abs', spanClass);
+        span.textContent = item[index].name;
+        if (hoverLabel) {
+            cell.classList.add('supp-pic');
+            const acr = document.createElement('p');
+            acr.textContent = item[index].acr.toUpperCase();
+            label.appendChild(acr);
+        }
+        label.appendChild(input);
+        label.appendChild(span);
+        cell.appendChild(label);
+    }
     return cell;
 }
 const buttonClasses = ['banner', 'pos-rel', 'hidden'];
@@ -210,17 +212,31 @@ for (let i = 0; i < valks.length; i++) {
         emblemSupportDiv.appendChild(supportTableDiv);
         guideContent.appendChild(emblemSupportDiv);
         if ('gear' in valks[i].builds[j]) {
+            let tableWidth = '', rowHeight = '', picClass = '', spanClass = '';
+            if (valks[i].builds[0].gear[0].length == 4) {
+                tableWidth = 'tbl-80';
+                rowHeight = 'row-height-80';
+                picClass = 'pic-80';
+                spanClass = 'offset-80';
+            }
+            else {
+                tableWidth = 'tbl-100';
+                rowHeight = 'row-height-100';
+                picClass = 'pic-100';
+                spanClass = 'offset-100';
+            }
             const stigTitle = document.createElement('h3');
             stigTitle.innerText = 'Recommended Gear';
             guideContent.appendChild(stigTitle);
             const stigTable = document.createElement('table');
-            stigTable.classList.add('gear-tbl');
+            stigTable.classList.add('gear-tbl', tableWidth);
             const stigTableBody = stigTable.createTBody();
             for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) {
                 const stigTableBodyRow = stigTableBody.insertRow();
-                for (let l = 0; l < 3; l++) {
+                stigTableBodyRow.classList.add(rowHeight);
+                for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) {
                     let stigTableBodyCell;
-                    stigTableBodyCell = imageAndLabel(stigTableBodyCell, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
+                    stigTableBodyCell = imageAndLabel(stigTableBodyCell, stigTableBodyRow, valks[i].builds[j].gear[k], l, false, picClass, spanClass);
                 }
                 stigTableBody.appendChild(stigTableBodyRow);
             }

@@ -40,6 +40,14 @@
                       $desktop-font-size: 16px, $mobile-font-size: 7vw,
                       $desktop-offset: 57%, $mobile-offset: scale(13) translate(34%, -15%));
 
+@include bannerImages($name: gm, $src: url("../img/valks/Goushinnso_Memento.webp"),
+                      $desktop-font-size: 28px, $mobile-font-size: 7vw,
+                      $desktop-offset: 44%, $mobile-offset: scale(16) translate(40.4%, -16.3%));
+
+@include bannerImages($name: hc, $src: url("../img/valks/Helical_Contraption.webp"),
+                      $desktop-font-size: 24px, $mobile-font-size: 7vw,
+                      $desktop-offset: 55.7%, $mobile-offset: scale(14) translate(34.4%, -16.4%));
+
 @include bannerImages($name: hofs, $src: url("../img/valks/Herrscher_of_Flamescion.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 53.7%, $mobile-offset: scale(15) translate(28.9%, -16.7%));
