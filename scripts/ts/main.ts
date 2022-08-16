@@ -27,7 +27,7 @@ function fadeAnim(item: any, fade: string): void {
     }, time);
     time += interval;
 }
-// insert all webp paths
+// insert bg and banner image filenames
 const banners: any = document.querySelectorAll('.banner');
 const url: string[] = [];
 url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
