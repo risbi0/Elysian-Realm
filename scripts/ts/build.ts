@@ -106,7 +106,7 @@ for (let i = 0; i < valks.length; i++) {
     // rated difficulty
     const rating: HTMLParagraphElement = document.createElement('p');
     rating.classList.add('rating');
-    rating.textContent = valks[i].rate;
+    rating.textContent = valks[i].rating;
 
     guideContent.appendChild(rating);
     // iterate through builds

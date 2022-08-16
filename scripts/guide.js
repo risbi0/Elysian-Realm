@@ -3,7 +3,7 @@ export const valks = (function () {
     const aka = {
         name: 'Argent Knight: Artemis',
         acr: 'aka',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -67,7 +67,7 @@ export const valks = (function () {
     const bkek = {
         name: 'Bright Knight: Excelsis',
         acr: 'bke',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -138,7 +138,7 @@ export const valks = (function () {
     const da = {
         name: 'Dea Anchora',
         acr: 'da',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -195,7 +195,7 @@ export const valks = (function () {
     const dpe = {
         name: 'Disciplinary Perdition',
         acr: 'dip',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -254,7 +254,7 @@ export const valks = (function () {
     const fr = {
         name: 'Fallen Rosemary',
         acr: 'fr',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -317,7 +317,7 @@ export const valks = (function () {
     const gd = {
         name: 'Golden Diva',
         acr: 'ede',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -377,7 +377,7 @@ export const valks = (function () {
     const gm = {
         name: 'Goushinnso Memento',
         acr: 'gm',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -445,7 +445,7 @@ export const valks = (function () {
     const hc = {
         name: 'Helical Contraption',
         acr: 'hc',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -509,7 +509,7 @@ export const valks = (function () {
     const hofs = {
         name: 'Herrscher of Flamescion',
         acr: 'hofs',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -572,7 +572,7 @@ export const valks = (function () {
     const hor = {
         name: 'Herrscher of Reason',
         acr: 'hor',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -638,7 +638,7 @@ export const valks = (function () {
     const hos = {
         name: 'Herrscher of Sentience',
         acr: 'hos',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -703,7 +703,7 @@ export const valks = (function () {
     const hot = {
         name: 'Herrscher of Thunder',
         acr: 'hot',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -876,7 +876,7 @@ export const valks = (function () {
     const mobi = {
         name: 'Infinite Ouroboros',
         acr: 'mobius',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -937,7 +937,7 @@ export const valks = (function () {
     const lk = {
         name: 'Luna Kindred',
         acr: 'lk',
-        rate: data.inferno,
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [
@@ -1001,7 +1001,7 @@ export const valks = (function () {
     const raven = {
         name: 'Midnight Absinthe',
         acr: 'raven',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1066,7 +1066,7 @@ export const valks = (function () {
     const elysia = {
         name: 'Miss Pink Elf',
         acr: 'elysia',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1129,7 +1129,7 @@ export const valks = (function () {
     const ft = {
         name: 'Molotov Cherry',
         acr: 'ft',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1188,7 +1188,7 @@ export const valks = (function () {
     const pe = {
         name: 'Palatinus Equinox',
         acr: 'pe',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1253,7 +1253,7 @@ export const valks = (function () {
     const fischl = {
         name: 'Prinzessin der Verurteilung',
         acr: 'fischl',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1314,7 +1314,7 @@ export const valks = (function () {
     const rvc = {
         name: 'Reverist Calico',
         acr: 'rc',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1382,7 +1382,7 @@ export const valks = (function () {
     const ri = {
         name: 'Ritual Imayoh',
         acr: 'ri',
-        rate: data.inferno,
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [
@@ -1440,7 +1440,7 @@ export const valks = (function () {
     const sw = {
         name: 'Silverwing N-EX',
         acr: 'sw',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1502,7 +1502,7 @@ export const valks = (function () {
     const spa = {
         name: 'Spina Astera',
         acr: 'spa',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1563,7 +1563,7 @@ export const valks = (function () {
     const si = {
         name: 'Starry Impression',
         acr: 'si',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1622,7 +1622,7 @@ export const valks = (function () {
     const nyx = {
         name: 'Starchasm Nyx',
         acr: 'nyx',
-        rate: data.corruption,
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1688,7 +1688,7 @@ export const valks = (function () {
     const sn = {
         name: 'Stygian Nymph',
         acr: 'sn',
-        rate: data.inferno,
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [
@@ -1752,7 +1752,7 @@ export const valks = (function () {
     const carole = {
         name: 'Sweet \'n\' Spicy',
         acr: 'carole',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1814,7 +1814,7 @@ export const valks = (function () {
     const tp = {
         name: 'Twilight Paladin',
         acr: 'tp',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1875,7 +1875,7 @@ export const valks = (function () {
     const stfu = {
         name: 'Valkyrie Bladestrike',
         acr: 'stfu',
-        rate: data.abstinence,
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1944,7 +1944,7 @@ export const valks = (function () {
     const vg = {
         name: 'Valkyrie Gloria',
         acr: 'vg',
-        rate: data.inferno,
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [

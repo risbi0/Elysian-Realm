@@ -74,7 +74,7 @@ for (let i = 0; i < valks.length; i++) {
     }
     const rating = document.createElement('p');
     rating.classList.add('rating');
-    rating.textContent = valks[i].rate;
+    rating.textContent = valks[i].rating;
     guideContent.appendChild(rating);
     for (let j = 0; j < Object.keys(valks[i].builds).length; j++) {
         if (Object.keys(valks[i].builds).length > 1) {
