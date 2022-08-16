@@ -260,28 +260,26 @@ for (let i = 0; i < valks.length; i++) {
         // supports table end
         guideContent.appendChild(emblemSupportDiv);
         // gear start
-        if ('gear' in valks[i].builds[j]) {
-            const stigTitle: HTMLHeadingElement = document.createElement('h3');
-            stigTitle.innerText = 'Recommended Gear';
+        const stigTitle: HTMLHeadingElement = document.createElement('h3');
+        stigTitle.innerText = 'Recommended Gear';
 
-            guideContent.appendChild(stigTitle);
+        guideContent.appendChild(stigTitle);
 
-            const stigTable: HTMLTableElement = document.createElement('table');
-            stigTable.classList.add('gear-tbl');
+        const stigTable: HTMLTableElement = document.createElement('table');
+        stigTable.classList.add('gear-tbl');
 
-            const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
-            for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) { // rows
-                const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
-                for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) { // cells
-                    let stigTableBodyCell: HTMLTableCellElement;
-                    stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
-                }
-                stigTableBody.appendChild(stigTableBodyRow);
+        const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
+        for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) { // rows
+            const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
+            for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) { // cells
+                let stigTableBodyCell: HTMLTableCellElement;
+                stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
             }
-            stigTable.appendChild(stigTableBody);
-
-            guideContent.appendChild(stigTable);
+            stigTableBody.appendChild(stigTableBodyRow);
         }
+        stigTable.appendChild(stigTableBody);
+
+        guideContent.appendChild(stigTable);
         // gear end
 
         // signet tables start

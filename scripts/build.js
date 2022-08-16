@@ -211,24 +211,22 @@ for (let i = 0; i < valks.length; i++) {
         supportTableDiv.appendChild(supportTable);
         emblemSupportDiv.appendChild(supportTableDiv);
         guideContent.appendChild(emblemSupportDiv);
-        if ('gear' in valks[i].builds[j]) {
-            const stigTitle = document.createElement('h3');
-            stigTitle.innerText = 'Recommended Gear';
-            guideContent.appendChild(stigTitle);
-            const stigTable = document.createElement('table');
-            stigTable.classList.add('gear-tbl');
-            const stigTableBody = stigTable.createTBody();
-            for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) {
-                const stigTableBodyRow = stigTableBody.insertRow();
-                for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) {
-                    let stigTableBodyCell;
-                    stigTableBodyCell = imageAndLabel(stigTableBodyCell, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
-                }
-                stigTableBody.appendChild(stigTableBodyRow);
+        const stigTitle = document.createElement('h3');
+        stigTitle.innerText = 'Recommended Gear';
+        guideContent.appendChild(stigTitle);
+        const stigTable = document.createElement('table');
+        stigTable.classList.add('gear-tbl');
+        const stigTableBody = stigTable.createTBody();
+        for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) {
+            const stigTableBodyRow = stigTableBody.insertRow();
+            for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) {
+                let stigTableBodyCell;
+                stigTableBodyCell = imageAndLabel(stigTableBodyCell, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
             }
-            stigTable.appendChild(stigTableBody);
-            guideContent.appendChild(stigTable);
+            stigTableBody.appendChild(stigTableBodyRow);
         }
+        stigTable.appendChild(stigTableBody);
+        guideContent.appendChild(stigTable);
         for (let k = 0; k < signetTableLength; k++) {
             const signetTitle = document.createElement('h3');
             const signetTable = document.createElement('table');
