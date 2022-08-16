@@ -12,7 +12,6 @@ export const supportTableHeaders = ['Type', 'Supports'];
 export const supportTableTypeColumn = ['Utility', 'Damage'];
 export const emblemTableHeaders = ['Time', 'Emblems'];
 export const emblemTableTimeColumn = ['Early', 'Mid', 'Late'];
-export const stigTableHeaders = ['Rank', 'Stigmata Build'];
 export const exclusiveTableColumns = ['Signet', 'Priority'];
 export const signetTableColumns = ['Owner', 'Signet'];
 export const becauseOfYou = { name: 'Because of You', acr: 'boy' };

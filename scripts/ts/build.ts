@@ -1,6 +1,6 @@
 import { valks } from './guide.js';
 import { emblemTableHeaders, emblemTableTimeColumn,
-         supportTableHeaders, supportTableTypeColumn, stigTableHeaders,
+         supportTableHeaders, supportTableTypeColumn,
          exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
 
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;

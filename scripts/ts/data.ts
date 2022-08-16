@@ -39,7 +39,6 @@ export const supportTableHeaders:      string[] = ['Type', 'Supports'];
 export const supportTableTypeColumn:   string[] = ['Utility', 'Damage'];
 export const emblemTableHeaders:       string[] = ['Time', 'Emblems'];
 export const emblemTableTimeColumn:    string[] = ['Early', 'Mid', 'Late'];
-export const stigTableHeaders:         string[] = ['Rank', 'Stigmata Build'];
 export const exclusiveTableColumns:    string[] = ['Signet', 'Priority'];
 export const signetTableColumns:       string[] = ['Owner', 'Signet'];
 // emblems
