@@ -54,6 +54,7 @@
             <div class="guide-content flex fv-center f-col [desktop/mobile] no-display [animation name on click]">
                 <h2>[valk name]</h2> (desktop only)
                 <p class="rating">[Inferno/Abstinence/Corruption]</p>
+                <p class="build-no">Build [no.]</p> (for multiple builds only)
                 <div class="rec-signets flex f-row">
                     // 5 times
                     <div class="signet sig-tog flex fh-center fv-center [signet owner]"></div>
@@ -70,8 +71,8 @@
                     </div>
                     // ...
                 </div>
-                <div id="emblem-support" class="flex f-row">
-                    <div id="emblem" class="flex fh-center">
+                <div class="emblem-support flex f-row">
+                    <div class="emblem flex fh-center">
                         <table>
                             <thead>
                                 <tr><th>Time</th><th colspan="2">Emblem</th></tr>
@@ -94,7 +95,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="supp" class="flex fh-center">
+                    <div class="supp flex fh-center">
                         <table>
                             <thead>
                                 <tr><th>Type</th><th colspan="4">Supports</th></tr>
@@ -119,25 +120,41 @@
                         </table>
                     </div>
                 </div>
-                <h3>Exclusive Signets</h3>
+                <h3>Recommended Gear</h3>
+                <table class="gear-tbl">
+                    <tbody>
+                        // 2 rows
+                        <tr>
+                            <td class="pos-rel">
+                                <div class="pic [weapon/stig class]"></div>
+                                <label class="tooltip flex fh-center pos-abs">
+                                    <input class="pos-abs" type="checkbox">
+                                    <span class="pos-abs">[weapon/stig name]</span>
+                                </label>
+                            </td>
+                        </tr>
+                        // ...
+                    </tbody>
+                </table>
+                <h3 id="exclusive-signets-[valk index]-[build no.]">Exclusive Signets</h3>
                 <table id="exclusive-tbl">
                     <thead>
                         <tr><th>Signet</th><th>Priority</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Blessing of [exclusive signet 1]</td><td>Start</td></tr>
-                        <tr><td>Blessing of [exclusive signet 2]</td><td>1st</td></tr>
-                        <tr><td>Blessing of [exclusive signet 3]</td><td>2nd</td></tr>
-                        <tr><td>Blessing of [exclusive signet 4]</td><td rowspan="2">Filler</td></tr> // sample cell merge
-                        <tr><td>Blessing of [exclusive signet 5]</td></tr>
+                        // 5 times
+                        <tr>
+                            <td>Blessing of [exclusive signet name]</td>
+                            <td>[Start/1st/2nd/Filler/Reinforcement/No]</td>
+                        </tr>
                     </tbody>
                 </table>
                 // 2-3 times depending whether there's a transitional table or not
-                <h3 id="[main/secondary/transitional]-signets-[valk index-[build no.]">[Main/Secondary/Transitional] Signets</h3>
+                <h3 id="[main/secondary/transitional]-signets-[valk index]-[build no.]">[Main/Secondary/Transitional] Signets</h3>
                 <div class="rec-signets flex f-row">
                     // 1-4 times
                     <div class="signet sig-sep flex fv-center f-col [signet owner]">
-                        <label>[nexus series(1, 2, or none)]</label>
+                        <label>[I/II]</label>
                     </div>
                     // ...
                 </div>
