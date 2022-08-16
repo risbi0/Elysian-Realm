@@ -1752,7 +1752,7 @@ export const valks = (function () {
     const carole = {
         name: 'Sweet \'n\' Spicy',
         acr: 'carole',
-        rate: data.inferno,
+        rate: data.abstinence,
         builds: {
             0: {
                 signet: [
