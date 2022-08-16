@@ -255,6 +255,10 @@ body::-webkit-scrollbar-track {
   transition: 0.3s;
 }
 
+.emblem span, .supp span {
+  transform: translateY(-22px);
+}
+
 .exclusive-tbl,
 .transitional-tbl,
 .main-tbl,
@@ -271,7 +275,7 @@ body::-webkit-scrollbar-track {
 
 .gear-tbl {
   margin-top: 10px;
-  /**tr:not(thead tr) { height: 80px; }*/
+  width: 320px;
 }
 .gear-tbl .tooltip {
   transform: translateY(-100px);
@@ -279,25 +283,15 @@ body::-webkit-scrollbar-track {
 .gear-tbl .tooltip input {
   height: 100px;
 }
-.gear-tbl.tbl-80 {
-  width: 320px;
-}
-.gear-tbl.tbl-100 {
-  width: 300px;
-}
-.gear-tbl .row-height-80 {
+.gear-tbl tr:not(thead tr) {
   height: 80px;
 }
-.gear-tbl .row-height-100 {
-  height: 100px;
+.gear-tbl span {
+  transform: translateY(-2px);
 }
-.gear-tbl .pic-80 {
+.gear-tbl .pic {
   width: 80px;
   height: 80px;
-}
-.gear-tbl .pic-100 {
-  width: 100px;
-  height: 100px;
 }
 
 .pic {
@@ -324,12 +318,6 @@ body::-webkit-scrollbar-track {
   border-radius: 6px;
   opacity: 0;
   transition: opacity 0.2s;
-}
-.tooltip span.offset-80 {
-  transform: translateY(-2px);
-}
-.tooltip span.offset-100 {
-  transform: translateY(-22px);
 }
 .tooltip input {
   width: 100%;
