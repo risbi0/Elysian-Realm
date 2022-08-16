@@ -18,7 +18,7 @@ type Guide = {
         }
     }
 }
-export const valks: any = (function(): any {
+export const valks: any = (function(): Guide[] {
     // Argent Knight: Artemis
     const aka: Guide = {
         name: 'Argent Knight: Artemis',
