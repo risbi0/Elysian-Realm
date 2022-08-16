@@ -1,7 +1,7 @@
 import * as data from './data.js';
 
 type Signet = [data.Signets, '1' | '2']
-type Gear = [data.NameAcr, data.NameAcr, data.NameAcr]
+type Gear = [data.NameAcr, data.NameAcr, data.NameAcr, data.NameAcr]
 type Emblem = [data.NameAcr, data.NameAcr]
 type Guide = {
     name: string;
@@ -12,7 +12,7 @@ type Guide = {
             signet: Array<Array<Signet>>
             emblem: Array<Emblem>
             support: Array<Array<Array<data.NameAcr>>>
-            gear: any//Array<Gear>
+            gear: Array<Gear>
             signetTable: Array<Array<Array<string>>>
             notes?: string;
         }
