@@ -240,6 +240,7 @@ let currentBanner;
 let currentGuide;
 function hide() {
     body.style.overflow = 'auto';
+    body.style.pointerEvents = 'none';
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
     if (isMobile) {
@@ -269,6 +270,7 @@ function hide() {
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
     setTimeout(() => {
+        body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
         currentGuide.classList.add('no-display');
         currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', 'guide-entry-desktop', 'guide-exit-desktop');
@@ -304,6 +306,7 @@ function contentFade(afterOffset, direction, psuedoDirection) {
 let psuedoStyles;
 banners.forEach((banner) => {
     banner.addEventListener('click', function () {
+        body.style.pointerEvents = 'none';
         const index = Array.from(this.parentNode.children).indexOf(this);
         currentGuide = guideContents[index];
         guideContainer.classList.remove('bg-fade-out', 'no-display');
@@ -334,6 +337,7 @@ banners.forEach((banner) => {
             currentGuide.classList.add('guide-entry-desktop');
         }
         setTimeout(() => {
+            body.style.pointerEvents = 'auto';
             rowsExceptHeader.forEach((row) => row.addEventListener('mouseover', highlightRow));
             cellsWithRowspan.forEach((cell) => cell.addEventListener('mouseover', highlightRows));
             const setCloseButtonPos = (topOffset, leftOffset) => {

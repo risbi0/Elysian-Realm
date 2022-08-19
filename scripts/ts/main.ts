@@ -282,6 +282,7 @@ let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
 function hide() {
     body.style.overflow = 'auto'; // resume scroll
+    body.style.pointerEvents = 'none';
     guideContainer.classList.remove('bg-fade-in');
     guideContainer.classList.add('bg-fade-out');
     if (isMobile) {
@@ -312,8 +313,9 @@ function hide() {
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
-    // hide element right before animation ends
+    // renable pointer events and hide elements right before animation ends
     setTimeout(() => {
+        body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
         currentGuide.classList.add('no-display');
         currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', 'guide-entry-desktop', 'guide-exit-desktop');
@@ -350,7 +352,8 @@ function contentFade(afterOffset: string, direction: string, psuedoDirection: st
 let psuedoStyles: [string, string, string];
 // show respective guide content on banner click
 banners.forEach((banner: any) => {
-    banner.addEventListener('click', function(this: any) {
+    banner.addEventListener('click', function(this: any) {        
+        body.style.pointerEvents = 'none'; // disable events during transition
         const index = Array.from(this.parentNode.children).indexOf(this);
         currentGuide = guideContents[index];
         // animation
@@ -390,6 +393,7 @@ banners.forEach((banner: any) => {
         // timeout to prevent highlighting when guide is still in animation (desktop)
         // and to wait for animation to end to apply styles (mobile)
         setTimeout(() => {
+            body.style.pointerEvents = 'auto';
             rowsExceptHeader.forEach((row: any) => row.addEventListener('mouseover', highlightRow));
             cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseover', highlightRows));
             // close and to top button position
