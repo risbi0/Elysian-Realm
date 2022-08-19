@@ -1417,7 +1417,7 @@ export const valks: any = (function(): Guide[] {
                         [data.aponia.nexus2.name]
                     ]
                 ],
-                notes: `<p>'Blessing of the Tailpiece'</p>Pick only during 5.9 2nd half.<br><br>
+                notes: `<p>Blessing of the Tailpiece</p>Pick only during 5.9 2nd half.<br><br>
                         <p>${data.vv.nexus2[1]}</p>Recommended to upgrade.<br><br>
                         <p>Pardofelis</p>Buy enhanced signets from shop.`
             }
