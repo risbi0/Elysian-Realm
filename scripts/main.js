@@ -170,14 +170,13 @@ function revertText(deez) {
     originalText = null;
 }
 const guideContents = document.querySelectorAll('.guide-content');
-guideContents[0].classList.remove('no-display');
-const guidePos = guideContents[0].getBoundingClientRect();
-guideContents[0].classList.add('no-display');
-guideContainer.classList.add('no-display');
+const rightPos = deviceWidth / 2 + 243;
 let animation1, animation2;
 let preventScroll;
 let noOfBannersInViewport = 0;
 let finalArr = [];
+let guideEntryAnim, guideExitAnim;
+let topPos, bottomPos;
 let summOnHover;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
@@ -224,6 +223,14 @@ else {
         });
     };
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+    if (window.outerHeight > 1040) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    }
+    else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
 }
 summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 const interval = 300 - noOfBannersInViewport * 5;
@@ -264,8 +271,8 @@ function hide() {
             revertText(previousText);
     }
     else {
-        currentGuide.classList.remove('guide-entry-desktop');
-        currentGuide.classList.add('guide-exit-desktop');
+        currentGuide.classList.remove(guideEntryAnim);
+        currentGuide.classList.add(guideExitAnim);
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
@@ -273,7 +280,7 @@ function hide() {
         body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
         currentGuide.classList.add('no-display');
-        currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', 'guide-entry-desktop', 'guide-exit-desktop');
+        currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', guideEntryAnim, guideExitAnim);
     }, 450);
     rowsExceptHeader.forEach((row) => row.removeEventListener('mouseover', highlightRow));
     cellsWithRowspan.forEach((cell) => cell.removeEventListener('mouseover', highlightRows));
@@ -320,30 +327,30 @@ banners.forEach((banner) => {
                 currentGuide.classList.add('guide-bot-entry-mobile');
                 psuedoStyles = ['25vw', 'bottom', 'up'];
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
-                closeButtonOffsetTop = 0;
-                topButtonOffsetTop = deviceHeight - deviceWidth / 4;
+                closeButtonOffsetTop = 15;
+                topButtonOffsetTop = deviceHeight - deviceWidth / 4 - 60;
             }
             else {
                 currentGuide.classList.add('guide-top-entry-mobile', 'upper');
                 psuedoStyles = ['0', 'top', 'down'];
                 offset = this.offsetTop;
-                closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4);
-                topButtonOffsetTop = deviceHeight;
+                closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4) + 15;
+                topButtonOffsetTop = deviceHeight - 60;
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         }
         else {
-            currentGuide.classList.remove('guide-exit-desktop', 'no-display');
-            currentGuide.classList.add('guide-entry-desktop');
+            currentGuide.classList.remove(guideExitAnim, 'no-display');
+            currentGuide.classList.add(guideEntryAnim);
         }
         setTimeout(() => {
             body.style.pointerEvents = 'auto';
             rowsExceptHeader.forEach((row) => row.addEventListener('mouseover', highlightRow));
             cellsWithRowspan.forEach((cell) => cell.addEventListener('mouseover', highlightRows));
-            const setCloseButtonPos = (topOffset, leftOffset) => {
+            const setCloseButtonPos = (top, right) => {
                 closeButton.style.visibility = 'visible';
-                closeButton.style.top = `${topOffset + 15}px`;
-                closeButton.style.left = `${leftOffset - 60}px`;
+                closeButton.style.top = `${top}px`;
+                closeButton.style.left = `${right}px`;
             };
             if (isMobile) {
                 contentFade(...psuedoStyles);
@@ -356,14 +363,14 @@ banners.forEach((banner) => {
                     if (text.innerText !== this.innerText)
                         text.style.opacity = '0';
                 });
-                setCloseButtonPos(closeButtonOffsetTop, deviceWidth);
-                topButton.style.top = `${topButtonOffsetTop - 60}px`;
+                setCloseButtonPos(closeButtonOffsetTop, deviceWidth - 60);
+                topButton.style.top = `${topButtonOffsetTop}px`;
                 topButton.style.left = `${deviceWidth - 60}px`;
             }
             else {
-                setCloseButtonPos(guidePos.top, guidePos.right);
-                topButton.style.top = `${guidePos.bottom - 60}px`;
-                topButton.style.left = `${guidePos.right - 60}px`;
+                setCloseButtonPos(topPos, rightPos);
+                topButton.style.top = `${bottomPos}px`;
+                topButton.style.left = `${rightPos}px`;
             }
         }, 600);
         currentGuide.addEventListener('scroll', buttonVisibility);
