@@ -2,9 +2,49 @@ import { valks } from './guide.js';
 import { isMobile, signetSummary } from './data.js';
 import { mainContainer, guideContainer } from './build.js';
 
+const closeButton = document.querySelector('#close') as HTMLDivElement;
 const body = document.querySelector('body') as HTMLBodyElement;
-const deviceWidth: number = window.innerWidth;
-const deviceHeight: number = window.innerHeight;
+let deviceWidth: number = window.innerWidth;
+let deviceHeight: number = window.innerHeight;
+let guideEntryAnim: string, guideExitAnim: string;
+let topPos: number, bottomPos: number;
+// close and to top button position
+const setCloseButtonPos = (top: number, right: number): void => {
+    closeButton.style.top = `${top}px`;
+    closeButton.style.left = `${right}px`;
+}
+const topButton: any = document.querySelector('#goToTop');
+let rightPos: number = deviceWidth / 2 + 243;
+let prevHeight: number = window.outerHeight;
+window.addEventListener('resize', () => {
+    let outHeight: number = window.outerHeight;
+    deviceWidth = window.innerWidth;
+    deviceHeight = window.innerHeight;
+    rightPos = deviceWidth / 2 + 243;
+    
+    // hide guide when browser height threshold is reached
+    // manual browser window resizing
+    if ((outHeight >= 1030 && outHeight <= 1050) ||
+        // maximaze/restore browser window size
+        ((prevHeight <= 1040 && outHeight > 1040) || (prevHeight > 1040 && outHeight <= 1040))) {
+        hide();
+    }
+    
+    // set animation and button positions as browser is resized
+    if (outHeight > 1040) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n','guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    } else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s','guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+    
+    setCloseButtonPos(topPos, rightPos);
+    topButton.style.top = `${bottomPos}px`;
+    topButton.style.left = `${rightPos}px`;
+
+    prevHeight = outHeight;
+});
 
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
@@ -202,8 +242,6 @@ function revertText(deez: HTMLDivElement): void {
     originalText = null;
 }
 
-const guideContents = document.querySelectorAll('.guide-content');
-const rightPos: number = deviceWidth / 2 + 243;
 // setup of banner indices for animation order
 // desktop - banners in the middile of mainContainer (starting view) in random order, vertical animation
 // mobile - all banners in linear order, horizontal animation
@@ -211,8 +249,7 @@ let animation1: string, animation2: string;
 let preventScroll: any;
 let noOfBannersInViewport: number = 0;
 let finalArr: number[] = [];
-let guideEntryAnim: string, guideExitAnim: string;
-let topPos: number, bottomPos: number;
+
 // function to change signet name to summary on hover/mobile click
 let summOnHover: any;
 if (isMobile) {
@@ -262,10 +299,10 @@ if (isMobile) {
 
     // guide animations and close/gototop button positions
     if (window.outerHeight > 1040) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n','guide-exit-desktop-n'];
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
         [topPos, bottomPos] = [135, 866];
     } else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s','guide-exit-desktop-s'];
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
         [topPos, bottomPos] = [15, deviceHeight - 60];
     }
 }
@@ -275,6 +312,7 @@ summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transit
 // in mobile, interval is constant
 const interval: number = 300 - noOfBannersInViewport * 5;
 
+const guideContents = document.querySelectorAll('.guide-content');
 // setup modal closing
 const goToTop = (e: any) => {
     const dis = e.currentTarget.currentGuide;
@@ -282,8 +320,6 @@ const goToTop = (e: any) => {
 }
 const buttonVisibility = (e: any) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
 const mainStylesheet: any = document.styleSheets[1].cssRules; // styles.css
-const topButton: any = document.querySelector('#goToTop');
-const closeButton = document.querySelector('#close') as HTMLDivElement;
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
@@ -315,8 +351,10 @@ function hide() {
         // revert signet summary if present
         if (previousText !== null && previousText.textContent !== '') revertText(previousText);
     } else {
-        currentGuide.classList.remove(guideEntryAnim);
-        currentGuide.classList.add(guideExitAnim);
+        if (currentGuide) {
+            currentGuide.classList.remove(guideEntryAnim);
+            currentGuide.classList.add(guideExitAnim);
+        }
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
@@ -324,8 +362,10 @@ function hide() {
     setTimeout(() => {
         body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
-        currentGuide.classList.add('no-display');
-        currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', guideEntryAnim, guideExitAnim);
+        if (currentGuide) {
+            currentGuide.classList.add('no-display');
+            currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', guideEntryAnim, 'guide-exit-desktop-n', 'guide-exit-desktop-s');
+        }
     }, 450);
 
     rowsExceptHeader.forEach((row: any) => row.removeEventListener('mouseover', highlightRow));
@@ -359,7 +399,7 @@ function contentFade(afterOffset: string, direction: string, psuedoDirection: st
 let psuedoStyles: [string, string, string];
 // show respective guide content on banner click
 banners.forEach((banner: any) => {
-    banner.addEventListener('click', function(this: any) {        
+    banner.addEventListener('click', function(this: any) {
         body.style.pointerEvents = 'none'; // disable events during transition
         const index = Array.from(this.parentNode.children).indexOf(this);
         currentGuide = guideContents[index];
@@ -403,12 +443,8 @@ banners.forEach((banner: any) => {
             body.style.pointerEvents = 'auto';
             rowsExceptHeader.forEach((row: any) => row.addEventListener('mouseover', highlightRow));
             cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseover', highlightRows));
-            // close and to top button position
-            const setCloseButtonPos = (top: number, right: number): void => {
-                closeButton.style.visibility = 'visible';
-                closeButton.style.top = `${top}px`;
-                closeButton.style.left = `${right}px`;
-            }
+            closeButton.style.visibility = 'visible';
+
             if (isMobile) {
                 contentFade(...psuedoStyles);
                 guideContainer.classList.remove('hidden', 'no-display');

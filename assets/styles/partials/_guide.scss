@@ -63,10 +63,14 @@
         width: 600px;
         border: 3px solid rgba($color: white, $alpha: 0.5);
         transform: translate(-50%, 15%);
-        
-        &.n { height: 800px; }
-        &.s { height: calc(100vh - 15px); }
     }
+}
+@media only screen and (min-height: 950px) {
+    .guide-content.desktop { height: 800px; }
+}
+@media only screen and (max-height: 949px) {
+    .guide-content.desktop { height: calc(100vh - 15px); }
+    
 }
 /* desktop (outerHeight > 1040px) */
 @include animationPreset(guide-entry-desktop-n, guideentrydesktopn, 0.6s forwards, $guide-top, $desktop-og, 0, 1);

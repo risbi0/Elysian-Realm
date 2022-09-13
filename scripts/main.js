@@ -1,9 +1,41 @@
 import { valks } from './guide.js';
 import { isMobile, signetSummary } from './data.js';
 import { mainContainer, guideContainer } from './build.js';
+const closeButton = document.querySelector('#close');
 const body = document.querySelector('body');
-const deviceWidth = window.innerWidth;
-const deviceHeight = window.innerHeight;
+let deviceWidth = window.innerWidth;
+let deviceHeight = window.innerHeight;
+let guideEntryAnim, guideExitAnim;
+let topPos, bottomPos;
+const setCloseButtonPos = (top, right) => {
+    closeButton.style.top = `${top}px`;
+    closeButton.style.left = `${right}px`;
+};
+const topButton = document.querySelector('#goToTop');
+let rightPos = deviceWidth / 2 + 243;
+let prevHeight = window.outerHeight;
+window.addEventListener('resize', () => {
+    let outHeight = window.outerHeight;
+    deviceWidth = window.innerWidth;
+    deviceHeight = window.innerHeight;
+    rightPos = deviceWidth / 2 + 243;
+    if ((outHeight >= 1030 && outHeight <= 1050) ||
+        ((prevHeight <= 1040 && outHeight > 1040) || (prevHeight > 1040 && outHeight <= 1040))) {
+        hide();
+    }
+    if (outHeight > 1040) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    }
+    else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+    setCloseButtonPos(topPos, rightPos);
+    topButton.style.top = `${bottomPos}px`;
+    topButton.style.left = `${rightPos}px`;
+    prevHeight = outHeight;
+});
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 function load(src) {
@@ -169,14 +201,10 @@ function revertText(deez) {
     deez.textContent = originalText;
     originalText = null;
 }
-const guideContents = document.querySelectorAll('.guide-content');
-const rightPos = deviceWidth / 2 + 243;
 let animation1, animation2;
 let preventScroll;
 let noOfBannersInViewport = 0;
 let finalArr = [];
-let guideEntryAnim, guideExitAnim;
-let topPos, bottomPos;
 let summOnHover;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
@@ -234,14 +262,13 @@ else {
 }
 summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 const interval = 300 - noOfBannersInViewport * 5;
+const guideContents = document.querySelectorAll('.guide-content');
 const goToTop = (e) => {
     const dis = e.currentTarget.currentGuide;
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 };
 const buttonVisibility = (e) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
 const mainStylesheet = document.styleSheets[1].cssRules;
-const topButton = document.querySelector('#goToTop');
-const closeButton = document.querySelector('#close');
 const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner;
 let currentGuide;
@@ -271,16 +298,20 @@ function hide() {
             revertText(previousText);
     }
     else {
-        currentGuide.classList.remove(guideEntryAnim);
-        currentGuide.classList.add(guideExitAnim);
+        if (currentGuide) {
+            currentGuide.classList.remove(guideEntryAnim);
+            currentGuide.classList.add(guideExitAnim);
+        }
     }
     closeButton.style.visibility = 'hidden';
     topButton.style.visibility = 'hidden';
     setTimeout(() => {
         body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
-        currentGuide.classList.add('no-display');
-        currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', guideEntryAnim, guideExitAnim);
+        if (currentGuide) {
+            currentGuide.classList.add('no-display');
+            currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile', guideEntryAnim, 'guide-exit-desktop-n', 'guide-exit-desktop-s');
+        }
     }, 450);
     rowsExceptHeader.forEach((row) => row.removeEventListener('mouseover', highlightRow));
     cellsWithRowspan.forEach((cell) => cell.removeEventListener('mouseover', highlightRows));
@@ -347,11 +378,7 @@ banners.forEach((banner) => {
             body.style.pointerEvents = 'auto';
             rowsExceptHeader.forEach((row) => row.addEventListener('mouseover', highlightRow));
             cellsWithRowspan.forEach((cell) => cell.addEventListener('mouseover', highlightRows));
-            const setCloseButtonPos = (top, right) => {
-                closeButton.style.visibility = 'visible';
-                closeButton.style.top = `${top}px`;
-                closeButton.style.left = `${right}px`;
-            };
+            closeButton.style.visibility = 'visible';
             if (isMobile) {
                 contentFade(...psuedoStyles);
                 guideContainer.classList.remove('hidden', 'no-display');
