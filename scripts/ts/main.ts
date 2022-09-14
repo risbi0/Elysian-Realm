@@ -2,36 +2,47 @@ import { valks } from './guide.js';
 import { isMobile, signetSummary } from './data.js';
 import { mainContainer, guideContainer } from './build.js';
 
-const closeButton = document.querySelector('#close') as HTMLDivElement;
 const body = document.querySelector('body') as HTMLBodyElement;
+window.scrollTo({ top: 0 });
+body.style.overflow = 'hidden';
+
+const closeButton = document.querySelector('#close') as HTMLDivElement;
+const toTopButton: any = document.querySelector('#goToTop');
+// close and to top button position
+const setCloseAndTotopBtnPos = (closeTop: number, closeLeft: number, toTopTop: number, toTopLeft: number): void => {
+    closeButton.style.top = `${closeTop}px`;
+    closeButton.style.left = `${closeLeft}px`;
+    toTopButton.style.top = `${toTopTop}px`;
+    toTopButton.style.left = `${toTopLeft}px`;
+}
 let deviceWidth: number = window.innerWidth;
 let deviceHeight: number = window.innerHeight;
 let guideEntryAnim: string, guideExitAnim: string;
 let topPos: number, bottomPos: number;
-// close and to top button position
-const setCloseButtonPos = (top: number, right: number): void => {
-    closeButton.style.top = `${top}px`;
-    closeButton.style.left = `${right}px`;
-}
-const topButton: any = document.querySelector('#goToTop');
 let rightPos: number = deviceWidth / 2 + 243;
 let prevHeight: number = window.outerHeight;
-window.addEventListener('resize', () => {
-    let outHeight: number = window.outerHeight;
+function getAnimAndPos(): void {
+    // guide animations and close/gototop button positions
+    if (deviceHeight >=  950) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    } else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+}
+function setAnimAndPos(): void {
     deviceWidth = window.innerWidth;
     deviceHeight = window.innerHeight;
     rightPos = deviceWidth / 2 + 243;
     
     // hide guide when browser height threshold is reached
-    // manual browser window resizing
-    if ((outHeight >= 1030 && outHeight <= 1050) ||
-        // maximaze/restore browser window size
-        ((prevHeight <= 1040 && outHeight > 1040) || (prevHeight > 1040 && outHeight <= 1040))) {
-        hide();
-    }
+    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) console.log(); hide();
+    // for some reason, putting console.log before the function and placed on the same line as the condition
+    // fixes the guide not hiding on browser maximize/restore after page load, and unfixes itself when it's not  done that way
     
-    // set animation and button positions as browser is resized
-    if (outHeight > 1040) {
+    // set animation and button positions
+    if (deviceHeight >= 950) {
         [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n','guide-exit-desktop-n'];
         [topPos, bottomPos] = [135, 866];
     } else {
@@ -39,15 +50,17 @@ window.addEventListener('resize', () => {
         [topPos, bottomPos] = [15, deviceHeight - 60];
     }
     
-    setCloseButtonPos(topPos, rightPos);
-    topButton.style.top = `${bottomPos}px`;
-    topButton.style.left = `${rightPos}px`;
+    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
+    getAnimAndPos();
 
-    prevHeight = outHeight;
-});
-
-window.scrollTo({ top: 0 });
-body.style.overflow = 'hidden';
+    prevHeight = deviceHeight;
+};
+// wait for resize event to end before executing function
+let task: any;
+const waitResizeEnd = (): void => {
+    clearTimeout(task);
+    task = setTimeout(setAnimAndPos, 50);
+}
 
 // execute animation after all images are loaded
 function load(src: string): Promise<unknown> {
@@ -297,14 +310,8 @@ if (isMobile) {
     }
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
 
-    // guide animations and close/gototop button positions
-    if (window.outerHeight > 1040) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    } else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
+    getAnimAndPos();
+    window.addEventListener('resize', waitResizeEnd);
 }
 summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 
@@ -318,7 +325,7 @@ const goToTop = (e: any) => {
     const dis = e.currentTarget.currentGuide;
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 }
-const buttonVisibility = (e: any) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const buttonVisibility = (e: any) => toTopButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
 const mainStylesheet: any = document.styleSheets[1].cssRules; // styles.css
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting banner style in mobile
@@ -357,7 +364,7 @@ function hide() {
         }
     }
     closeButton.style.visibility = 'hidden';
-    topButton.style.visibility = 'hidden';
+    toTopButton.style.visibility = 'hidden';
     // renable pointer events and hide elements right before animation ends
     setTimeout(() => {
         body.style.pointerEvents = 'auto';
@@ -407,7 +414,7 @@ banners.forEach((banner: any) => {
         guideContainer.classList.remove('bg-fade-out', 'no-display');
         guideContainer.classList.add('bg-fade-in');
         // button offsets
-        let closeButtonOffsetTop: number, topButtonOffsetTop: number;
+        let closeButtonOffsetTop: number, toTopButtonOffsetTop: number;
         if (isMobile) {
             body.style.overflow = 'hidden'; // prevent outside scroll while guide is open
             currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
@@ -423,13 +430,13 @@ banners.forEach((banner: any) => {
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 // button offset
                 closeButtonOffsetTop = 15;
-                topButtonOffsetTop = deviceHeight - deviceWidth / 4 - 60;
+                toTopButtonOffsetTop = deviceHeight - deviceWidth / 4 - 60;
             } else { // scroll to banner on top
                 currentGuide.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
                 psuedoStyles = ['0', 'top', 'down'];
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4) + 15;
-                topButtonOffsetTop = deviceHeight - 60;
+                toTopButtonOffsetTop = deviceHeight - 60;
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         } else {
@@ -457,21 +464,17 @@ banners.forEach((banner: any) => {
                 document.querySelectorAll('.vertical-text').forEach((text: any) => {
                     if (text.innerText !== this.innerText) text.style.opacity = '0';
                 });
-                setCloseButtonPos(closeButtonOffsetTop, deviceWidth - 60);
-                topButton.style.top = `${topButtonOffsetTop}px`;
-                topButton.style.left = `${deviceWidth - 60}px`;
+                setCloseAndTotopBtnPos(closeButtonOffsetTop, deviceWidth - 60, toTopButtonOffsetTop, deviceWidth - 60);
             } else {
-                setCloseButtonPos(topPos, rightPos);
-                topButton.style.top = `${bottomPos}px`;
-                topButton.style.left = `${rightPos}px`;
+                setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
             }
         }, 600);
         
         // goToTop button visibility
         currentGuide.addEventListener('scroll', buttonVisibility);
         // go to top of guide
-        topButton.addEventListener('click', goToTop);
-        topButton.currentGuide = currentGuide;
+        toTopButton.addEventListener('click', goToTop);
+        toTopButton.currentGuide = currentGuide;
         // scroll to the top
         currentGuide.scrollTo({ top: 0 });
     });

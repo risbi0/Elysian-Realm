@@ -1,29 +1,25 @@
 import { valks } from './guide.js';
 import { isMobile, signetSummary } from './data.js';
 import { mainContainer, guideContainer } from './build.js';
-const closeButton = document.querySelector('#close');
 const body = document.querySelector('body');
+window.scrollTo({ top: 0 });
+body.style.overflow = 'hidden';
+const closeButton = document.querySelector('#close');
+const toTopButton = document.querySelector('#goToTop');
+const setCloseAndTotopBtnPos = (closeTop, closeLeft, toTopTop, toTopLeft) => {
+    closeButton.style.top = `${closeTop}px`;
+    closeButton.style.left = `${closeLeft}px`;
+    toTopButton.style.top = `${toTopTop}px`;
+    toTopButton.style.left = `${toTopLeft}px`;
+};
 let deviceWidth = window.innerWidth;
 let deviceHeight = window.innerHeight;
 let guideEntryAnim, guideExitAnim;
 let topPos, bottomPos;
-const setCloseButtonPos = (top, right) => {
-    closeButton.style.top = `${top}px`;
-    closeButton.style.left = `${right}px`;
-};
-const topButton = document.querySelector('#goToTop');
 let rightPos = deviceWidth / 2 + 243;
 let prevHeight = window.outerHeight;
-window.addEventListener('resize', () => {
-    let outHeight = window.outerHeight;
-    deviceWidth = window.innerWidth;
-    deviceHeight = window.innerHeight;
-    rightPos = deviceWidth / 2 + 243;
-    if ((outHeight >= 1030 && outHeight <= 1050) ||
-        ((prevHeight <= 1040 && outHeight > 1040) || (prevHeight > 1040 && outHeight <= 1040))) {
-        hide();
-    }
-    if (outHeight > 1040) {
+function getAnimAndPos() {
+    if (deviceHeight >= 950) {
         [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
         [topPos, bottomPos] = [135, 866];
     }
@@ -31,13 +27,32 @@ window.addEventListener('resize', () => {
         [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
         [topPos, bottomPos] = [15, deviceHeight - 60];
     }
-    setCloseButtonPos(topPos, rightPos);
-    topButton.style.top = `${bottomPos}px`;
-    topButton.style.left = `${rightPos}px`;
-    prevHeight = outHeight;
-});
-window.scrollTo({ top: 0 });
-body.style.overflow = 'hidden';
+}
+function setAnimAndPos() {
+    deviceWidth = window.innerWidth;
+    deviceHeight = window.innerHeight;
+    rightPos = deviceWidth / 2 + 243;
+    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949))
+        console.log();
+    hide();
+    if (deviceHeight >= 950) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    }
+    else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
+    getAnimAndPos();
+    prevHeight = deviceHeight;
+}
+;
+let task;
+const waitResizeEnd = () => {
+    clearTimeout(task);
+    task = setTimeout(setAnimAndPos, 50);
+};
 function load(src) {
     return new Promise((resolve, reject) => {
         const image = new Image();
@@ -251,14 +266,8 @@ else {
         });
     };
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
-    if (window.outerHeight > 1040) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    }
-    else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
+    getAnimAndPos();
+    window.addEventListener('resize', waitResizeEnd);
 }
 summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 const interval = 300 - noOfBannersInViewport * 5;
@@ -267,7 +276,7 @@ const goToTop = (e) => {
     const dis = e.currentTarget.currentGuide;
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 };
-const buttonVisibility = (e) => topButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const buttonVisibility = (e) => toTopButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
 const mainStylesheet = document.styleSheets[1].cssRules;
 const mobileUpperBanners = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner;
@@ -304,7 +313,7 @@ function hide() {
         }
     }
     closeButton.style.visibility = 'hidden';
-    topButton.style.visibility = 'hidden';
+    toTopButton.style.visibility = 'hidden';
     setTimeout(() => {
         body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
@@ -349,7 +358,7 @@ banners.forEach((banner) => {
         currentGuide = guideContents[index];
         guideContainer.classList.remove('bg-fade-out', 'no-display');
         guideContainer.classList.add('bg-fade-in');
-        let closeButtonOffsetTop, topButtonOffsetTop;
+        let closeButtonOffsetTop, toTopButtonOffsetTop;
         if (isMobile) {
             body.style.overflow = 'hidden';
             currentGuide.classList.remove('guide-bot-exit-mobile', 'guide-top-exit-mobile');
@@ -359,14 +368,14 @@ banners.forEach((banner) => {
                 psuedoStyles = ['25vw', 'bottom', 'up'];
                 offset = this.offsetTop + this.offsetHeight - deviceHeight;
                 closeButtonOffsetTop = 15;
-                topButtonOffsetTop = deviceHeight - deviceWidth / 4 - 60;
+                toTopButtonOffsetTop = deviceHeight - deviceWidth / 4 - 60;
             }
             else {
                 currentGuide.classList.add('guide-top-entry-mobile', 'upper');
                 psuedoStyles = ['0', 'top', 'down'];
                 offset = this.offsetTop;
                 closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4) + 15;
-                topButtonOffsetTop = deviceHeight - 60;
+                toTopButtonOffsetTop = deviceHeight - 60;
             }
             window.scroll({ top: offset, behavior: 'smooth' });
         }
@@ -390,19 +399,15 @@ banners.forEach((banner) => {
                     if (text.innerText !== this.innerText)
                         text.style.opacity = '0';
                 });
-                setCloseButtonPos(closeButtonOffsetTop, deviceWidth - 60);
-                topButton.style.top = `${topButtonOffsetTop}px`;
-                topButton.style.left = `${deviceWidth - 60}px`;
+                setCloseAndTotopBtnPos(closeButtonOffsetTop, deviceWidth - 60, toTopButtonOffsetTop, deviceWidth - 60);
             }
             else {
-                setCloseButtonPos(topPos, rightPos);
-                topButton.style.top = `${bottomPos}px`;
-                topButton.style.left = `${rightPos}px`;
+                setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
             }
         }, 600);
         currentGuide.addEventListener('scroll', buttonVisibility);
-        topButton.addEventListener('click', goToTop);
-        topButton.currentGuide = currentGuide;
+        toTopButton.addEventListener('click', goToTop);
+        toTopButton.currentGuide = currentGuide;
         currentGuide.scrollTo({ top: 0 });
     });
 });

@@ -50,7 +50,6 @@ const bannerClasses: string[] = [];
 const mainNameDivClasses: string[] = ['main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs'];
 const mainNameClasses: string[] = ['vertical-text'];
 let mobileOrDesktop: string = '';
-let normalOrShortDesktopHeight: string = ''; // for guide height
 if (isMobile) {
     mainContainer.classList.add('f-col');
 
@@ -65,7 +64,6 @@ if (isMobile) {
     mainNameClasses.push('desktop');
 
     mobileOrDesktop = 'desktop';
-    normalOrShortDesktopHeight = window.outerHeight > 1040 ? 'n' : 's';
 }
 
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
@@ -95,17 +93,15 @@ for (let i = 0; i < valks.length; i++) {
 
     // guides start
     const guideContent = document.createElement('div');
-    guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', mobileOrDesktop);
+    guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', mobileOrDesktop, 'no-display');
 
     if (!isMobile) {
         // inner name
         const innerName: HTMLHeadingElement = document.createElement('h2');
         innerName.textContent = valks[i].name;
 
-        guideContent.classList.add(normalOrShortDesktopHeight);
         guideContent.appendChild(innerName);
     }
-    guideContent.classList.add('no-display');
     
     // rated difficulty
     const rating: HTMLParagraphElement = document.createElement('p');

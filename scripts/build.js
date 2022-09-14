@@ -34,7 +34,6 @@ const bannerClasses = [];
 const mainNameDivClasses = ['main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs'];
 const mainNameClasses = ['vertical-text'];
 let mobileOrDesktop = '';
-let normalOrShortDesktopHeight = '';
 if (isMobile) {
     mainContainer.classList.add('f-col');
     buttonClasses.push('overflow-hide');
@@ -47,7 +46,6 @@ else {
     bannerClasses.push('desktop', 'desktop-pos');
     mainNameClasses.push('desktop');
     mobileOrDesktop = 'desktop';
-    normalOrShortDesktopHeight = window.outerHeight > 1040 ? 'n' : 's';
 }
 export const guideContainer = document.querySelector('#guide-container');
 guideContainer.innerHTML = '';
@@ -68,14 +66,12 @@ for (let i = 0; i < valks.length; i++) {
     button.appendChild(mainNameDiv);
     mainContainer.appendChild(button);
     const guideContent = document.createElement('div');
-    guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', mobileOrDesktop);
+    guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', mobileOrDesktop, 'no-display');
     if (!isMobile) {
         const innerName = document.createElement('h2');
         innerName.textContent = valks[i].name;
-        guideContent.classList.add(normalOrShortDesktopHeight);
         guideContent.appendChild(innerName);
     }
-    guideContent.classList.add('no-display');
     const rating = document.createElement('p');
     rating.classList.add('rating');
     rating.textContent = valks[i].rating;
