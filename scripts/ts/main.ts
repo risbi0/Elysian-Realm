@@ -230,9 +230,7 @@ function setAnimAndPos(): void {
     rightPos = deviceWidth / 2 + 243;
     
     // hide guide when browser height threshold is reached
-    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) console.log(); hide();
-    // for some reason, putting console.log before the function and placed on the same line as the condition
-    // fixes the guide not hiding on browser maximize/restore after page load, and unfixes itself when it's not  done that way
+    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) hide();
     
     // set animation and button positions
     if (deviceHeight >= 950) {

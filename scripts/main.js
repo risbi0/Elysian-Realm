@@ -196,8 +196,7 @@ function setAnimAndPos() {
     deviceHeight = window.innerHeight;
     rightPos = deviceWidth / 2 + 243;
     if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949))
-        console.log();
-    hide();
+        hide();
     if (deviceHeight >= 950) {
         [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
         [topPos, bottomPos] = [135, 866];
