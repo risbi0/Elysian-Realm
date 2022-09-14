@@ -72,10 +72,10 @@
     .guide-content.desktop { height: calc(100vh - 15px); }
     
 }
-/* desktop (outerHeight > 1040px) */
+/* desktop (innerHeight >= 950px) */
 @include animationPreset(guide-entry-desktop-n, guideentrydesktopn, 0.6s forwards, $guide-top, $desktop-og, 0, 1);
 @include animationPreset(guide-exit-desktop-n, guideexitdesktopn, 0.6s forwards, $desktop-og, $guide-top, 1, 0);
-/* desktop (outerHeight <= 1040px) */
+/* desktop (innerHeight <= 949px) */
 @include animationPreset(guide-entry-desktop-s, guideentrydesktops, 0.6s forwards, $guide-top, $desktop-s, 0, 1);
 @include animationPreset(guide-exit-desktop-s, guideexitdesktops, 0.6s forwards, $desktop-s, $guide-top, 1, 0);
 /* mobile */
