@@ -6,62 +6,6 @@ const body = document.querySelector('body') as HTMLBodyElement;
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 
-const closeButton = document.querySelector('#close') as HTMLDivElement;
-const toTopButton: any = document.querySelector('#goToTop');
-// close and to top button position
-const setCloseAndTotopBtnPos = (closeTop: number, closeLeft: number, toTopTop: number, toTopLeft: number): void => {
-    closeButton.style.top = `${closeTop}px`;
-    closeButton.style.left = `${closeLeft}px`;
-    toTopButton.style.top = `${toTopTop}px`;
-    toTopButton.style.left = `${toTopLeft}px`;
-}
-let deviceWidth: number = window.innerWidth;
-let deviceHeight: number = window.innerHeight;
-let guideEntryAnim: string, guideExitAnim: string;
-let topPos: number, bottomPos: number;
-let rightPos: number = deviceWidth / 2 + 243;
-let prevHeight: number = window.outerHeight;
-function getAnimAndPos(): void {
-    // guide animations and close/gototop button positions
-    if (deviceHeight >=  950) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    } else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
-}
-function setAnimAndPos(): void {
-    deviceWidth = window.innerWidth;
-    deviceHeight = window.innerHeight;
-    rightPos = deviceWidth / 2 + 243;
-    
-    // hide guide when browser height threshold is reached
-    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) console.log(); hide();
-    // for some reason, putting console.log before the function and placed on the same line as the condition
-    // fixes the guide not hiding on browser maximize/restore after page load, and unfixes itself when it's not  done that way
-    
-    // set animation and button positions
-    if (deviceHeight >= 950) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n','guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    } else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s','guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
-    
-    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
-    getAnimAndPos();
-
-    prevHeight = deviceHeight;
-};
-// wait for resize event to end before executing function
-let task: any;
-const waitResizeEnd = (): void => {
-    clearTimeout(task);
-    task = setTimeout(setAnimAndPos, 50);
-}
-
 // execute animation after all images are loaded
 function load(src: string): Promise<unknown> {
     return new Promise((resolve, reject) => {
@@ -253,6 +197,62 @@ function changeText(deez: HTMLDivElement): void {
 function revertText(deez: HTMLDivElement): void {
     deez.textContent = originalText;
     originalText = null;
+}
+
+const closeButton = document.querySelector('#close') as HTMLDivElement;
+const toTopButton: any = document.querySelector('#goToTop');
+// close and to top button position
+const setCloseAndTotopBtnPos = (closeTop: number, closeLeft: number, toTopTop: number, toTopLeft: number): void => {
+    closeButton.style.top = `${closeTop}px`;
+    closeButton.style.left = `${closeLeft}px`;
+    toTopButton.style.top = `${toTopTop}px`;
+    toTopButton.style.left = `${toTopLeft}px`;
+}
+let deviceWidth: number = window.innerWidth;
+let deviceHeight: number = window.innerHeight;
+let guideEntryAnim: string, guideExitAnim: string;
+let topPos: number, bottomPos: number;
+let rightPos: number = deviceWidth / 2 + 243;
+let prevHeight: number = window.outerHeight;
+function getAnimAndPos(): void {
+    // guide animations and close/gototop button positions
+    if (deviceHeight >=  950) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    } else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+}
+function setAnimAndPos(): void {
+    deviceWidth = window.innerWidth;
+    deviceHeight = window.innerHeight;
+    rightPos = deviceWidth / 2 + 243;
+    
+    // hide guide when browser height threshold is reached
+    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) console.log(); hide();
+    // for some reason, putting console.log before the function and placed on the same line as the condition
+    // fixes the guide not hiding on browser maximize/restore after page load, and unfixes itself when it's not  done that way
+    
+    // set animation and button positions
+    if (deviceHeight >= 950) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n','guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    } else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s','guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+    
+    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
+    getAnimAndPos();
+
+    prevHeight = deviceHeight;
+};
+// wait for resize event to end before executing function
+let task: any;
+const waitResizeEnd = (): void => {
+    clearTimeout(task);
+    task = setTimeout(setAnimAndPos, 50);
 }
 
 // setup of banner indices for animation order

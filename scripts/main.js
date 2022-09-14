@@ -4,55 +4,6 @@ import { mainContainer, guideContainer } from './build.js';
 const body = document.querySelector('body');
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
-const closeButton = document.querySelector('#close');
-const toTopButton = document.querySelector('#goToTop');
-const setCloseAndTotopBtnPos = (closeTop, closeLeft, toTopTop, toTopLeft) => {
-    closeButton.style.top = `${closeTop}px`;
-    closeButton.style.left = `${closeLeft}px`;
-    toTopButton.style.top = `${toTopTop}px`;
-    toTopButton.style.left = `${toTopLeft}px`;
-};
-let deviceWidth = window.innerWidth;
-let deviceHeight = window.innerHeight;
-let guideEntryAnim, guideExitAnim;
-let topPos, bottomPos;
-let rightPos = deviceWidth / 2 + 243;
-let prevHeight = window.outerHeight;
-function getAnimAndPos() {
-    if (deviceHeight >= 950) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    }
-    else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
-}
-function setAnimAndPos() {
-    deviceWidth = window.innerWidth;
-    deviceHeight = window.innerHeight;
-    rightPos = deviceWidth / 2 + 243;
-    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949))
-        console.log();
-    hide();
-    if (deviceHeight >= 950) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    }
-    else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
-    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
-    getAnimAndPos();
-    prevHeight = deviceHeight;
-}
-;
-let task;
-const waitResizeEnd = () => {
-    clearTimeout(task);
-    task = setTimeout(setAnimAndPos, 50);
-};
 function load(src) {
     return new Promise((resolve, reject) => {
         const image = new Image();
@@ -216,6 +167,55 @@ function revertText(deez) {
     deez.textContent = originalText;
     originalText = null;
 }
+const closeButton = document.querySelector('#close');
+const toTopButton = document.querySelector('#goToTop');
+const setCloseAndTotopBtnPos = (closeTop, closeLeft, toTopTop, toTopLeft) => {
+    closeButton.style.top = `${closeTop}px`;
+    closeButton.style.left = `${closeLeft}px`;
+    toTopButton.style.top = `${toTopTop}px`;
+    toTopButton.style.left = `${toTopLeft}px`;
+};
+let deviceWidth = window.innerWidth;
+let deviceHeight = window.innerHeight;
+let guideEntryAnim, guideExitAnim;
+let topPos, bottomPos;
+let rightPos = deviceWidth / 2 + 243;
+let prevHeight = window.outerHeight;
+function getAnimAndPos() {
+    if (deviceHeight >= 950) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    }
+    else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+}
+function setAnimAndPos() {
+    deviceWidth = window.innerWidth;
+    deviceHeight = window.innerHeight;
+    rightPos = deviceWidth / 2 + 243;
+    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949))
+        console.log();
+    hide();
+    if (deviceHeight >= 950) {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
+        [topPos, bottomPos] = [135, 866];
+    }
+    else {
+        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
+        [topPos, bottomPos] = [15, deviceHeight - 60];
+    }
+    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
+    getAnimAndPos();
+    prevHeight = deviceHeight;
+}
+;
+let task;
+const waitResizeEnd = () => {
+    clearTimeout(task);
+    task = setTimeout(setAnimAndPos, 50);
+};
 let animation1, animation2;
 let preventScroll;
 let noOfBannersInViewport = 0;
