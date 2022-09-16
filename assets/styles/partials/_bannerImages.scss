@@ -52,6 +52,10 @@
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 53.7%, $mobile-offset: scale(15) translate(28.9%, -16.7%));
 
+@include bannerImages($name: hoh, $src: url("../img/valks/Herrscher_of_Human_Ego.webp"),
+                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
+                      $desktop-offset: 53.9%, $mobile-offset: scale(16) translate(28.8%, -14.8%));
+
 @include bannerImages($name: hor, $src: url("../img/valks/Herrscher_of_Reason.webp"),
                       $desktop-font-size: 22px, $mobile-font-size: 7vw,
                       $desktop-offset: 54.1%, $mobile-offset: scale(14) translate(36.9%, -17%));
@@ -62,7 +66,11 @@
 
 @include bannerImages($name: hot, $src: url("../img/valks/Herrscher_of_Thunder.webp"),
                       $desktop-font-size: 22px, $mobile-font-size: 7vw,
-                      $desktop-offset: 57%, $mobile-offset: scale(14) translate(26.7%, -15.1%));
+                      $desktop-offset: 57%, $mobile-offset: scale(14) translate(27%, -15.1%));
+
+@include bannerImages($name: hov, $src: url("../img/valks/Herrscher_of_the_Void.webp"),
+                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
+                      $desktop-offset: 46%, $mobile-offset: scale(16) translate(36.7%, -13.3%));
 
 @include bannerImages($name: lk, $src: url("../img/valks/Luna_Kindred.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 8vw,

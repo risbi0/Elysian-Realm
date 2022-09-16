@@ -571,6 +571,23 @@ body::-webkit-scrollbar-track {
   font-size: 7vw;
 }
 
+#hoh {
+  background-image: url("../img/valks/Herrscher_of_Human_Ego.webp");
+}
+#hoh.desktop-pos {
+  background-position: 53.9%;
+}
+#hoh.mobile-pos {
+  transform-origin: top center;
+  transform: scale(16) translate(28.8%, -14.8%);
+}
+#hoh ~ .main-name > .desktop {
+  font-size: 20px;
+}
+#hoh ~ .main-name > .mobile {
+  font-size: 7vw;
+}
+
 #hor {
   background-image: url("../img/valks/Herrscher_of_Reason.webp");
 }
@@ -613,12 +630,29 @@ body::-webkit-scrollbar-track {
 }
 #hot.mobile-pos {
   transform-origin: top center;
-  transform: scale(14) translate(26.7%, -15.1%);
+  transform: scale(14) translate(27%, -15.1%);
 }
 #hot ~ .main-name > .desktop {
   font-size: 22px;
 }
 #hot ~ .main-name > .mobile {
+  font-size: 7vw;
+}
+
+#hov {
+  background-image: url("../img/valks/Herrscher_of_the_Void.webp");
+}
+#hov.desktop-pos {
+  background-position: 46%;
+}
+#hov.mobile-pos {
+  transform-origin: top center;
+  transform: scale(16) translate(36.7%, -13.3%);
+}
+#hov ~ .main-name > .desktop {
+  font-size: 20px;
+}
+#hov ~ .main-name > .mobile {
   font-size: 7vw;
 }
 
@@ -1119,6 +1153,10 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/weapons/Dawn_Breaker_Talwar.webp");
 }
 
+.doeg {
+  background-image: url("../img/weapons/Domain_of_Ego_Flawless_Return.webp");
+}
+
 .doin {
   background-image: url("../img/weapons/Domain_of_Incandescence.webp");
 }
@@ -1165,6 +1203,10 @@ body::-webkit-scrollbar-track {
 
 .irhe {
   background-image: url("../img/weapons/Iris_of_Helheim.webp");
+}
+
+.kevo {
+  background-image: url("../img/weapons/Keys_of_the_Void.webp");
 }
 
 .loco {
@@ -1388,6 +1430,18 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/stigmatas/Dracula_B.webp");
 }
 
+.elpt {
+  background-image: url("../img/stigmatas/Elysia_Pristine_T.webp");
+}
+
+.elpm {
+  background-image: url("../img/stigmatas/Elysia_Pristine_M.webp");
+}
+
+.elpb {
+  background-image: url("../img/stigmatas/Elysia_Pristine_B.webp");
+}
+
 .elyt {
   background-image: url("../img/stigmatas/Elysia_T.webp");
 }
@@ -1550,6 +1604,18 @@ body::-webkit-scrollbar-track {
 
 .siem {
   background-image: url("../img/stigmatas/Siegfried_Kaslana_M.webp");
+}
+
+.sirt {
+  background-image: url("../img/stigmatas/Sirin_Ascendant_T.webp");
+}
+
+.sirm {
+  background-image: url("../img/stigmatas/Sirin_Ascendant_M.webp");
+}
+
+.sirb {
+  background-image: url("../img/stigmatas/Sirin_Ascendant_B.webp");
 }
 
 .tham {
