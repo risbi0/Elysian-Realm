@@ -43,6 +43,7 @@ export const exclusiveTableColumns:    string[] = ['Signet', 'Priority'];
 export const signetTableColumns:       string[] = ['Owner', 'Signet'];
 // emblems
 export const becauseOfYou:         NameAcr = { name: 'Because of You',              acr: 'boy' };
+export const boundlessFeeling:     NameAcr = { name: 'Boundless Feeling',           acr: 'bf' };
 export const boundlessLogos:       NameAcr = { name: 'Boundless Logos',             acr: 'bl' };
 export const burden:               NameAcr = { name: 'Burden',                      acr: 'b' };
 export const dreamfulGold:         NameAcr = { name: 'Dreamful Gold',               acr: 'dg' };
@@ -210,6 +211,7 @@ export const irhe: NameAcr = { name: 'Iris of Helheim', acr: 'irhe' };
 export const kevo: NameAcr = { name: 'Keys of the Void', acr: 'kevo' };
 export const loco: NameAcr = { name: 'Lost Conviction: Damnation', acr: 'loco' };
 export const miat: NameAcr = { name: 'Midnight Ataegina', acr: 'miat' };
+export const miec: NameAcr = { name: 'Midnight Eclipse', acr: 'miec' };
 export const miki: NameAcr = { name: 'Miracle Kissy Pillow', acr: 'miki' };
 export const miwa: NameAcr = { name: 'Mitternachts Waltz', acr: 'miwa' };
 export const mubl: NameAcr = { name: 'Muramasa Bloodlust', acr: 'mubl' };
@@ -391,7 +393,7 @@ export const kosma: Signets = {
     },
     nexus2: {
         name: 'Daybreak, Lone Beacon (Nexus)',
-        1: 'Choice, Ensuing Regret', // combo/charged
+        1: 'Choice, Ensuing Regret', // restore hp
         2: 'Dawn, Perpetual Wait', // phys ele breach
         3: 'Heart, Unshakable Character' // phys ele dmg
     }
