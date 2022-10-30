@@ -843,6 +843,23 @@ body::-webkit-scrollbar-track {
   font-size: 7vw;
 }
 
+#sus {
+  background-image: url("../img/valks/Jade_Knight.webp");
+}
+#sus.desktop-pos {
+  background-position: 52.2%;
+}
+#sus.mobile-pos {
+  transform-origin: top center;
+  transform: scale(15) translate(29.3%, -16.1%);
+}
+#sus ~ .main-name > .desktop {
+  font-size: 36px;
+}
+#sus ~ .main-name > .mobile {
+  font-size: 8vw;
+}
+
 #sw {
   background-image: url("../img/valks/Silverwing_N-EX.webp");
 }
@@ -1153,6 +1170,10 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/weapons/Basilisks_Image_Deathshroud.webp");
 }
 
+.codu {
+  background-image: url("../img/weapons/Cosmic_Duality.webp");
+}
+
 .dabr {
   background-image: url("../img/weapons/Dawn_Breaker_Talwar.webp");
 }
@@ -1237,8 +1258,8 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/weapons/Muramasa_Bloodlust.webp");
 }
 
-.paac {
-  background-image: url("../img/weapons/Path_to_Acheron_Kindred.webp");
+.nost {
+  background-image: url("../img/weapons/Nocturnal_Stealth_Beam.webp");
 }
 
 .obdo {
@@ -1247,6 +1268,10 @@ body::-webkit-scrollbar-track {
 
 .obwi {
   background-image: url("../img/weapons/Obscuring_Wing.webp");
+}
+
+.paac {
+  background-image: url("../img/weapons/Path_to_Acheron_Kindred.webp");
 }
 
 .pobl {
@@ -1506,6 +1531,18 @@ body::-webkit-scrollbar-track {
   background-image: url("../img/stigmatas/Leeuwenhoek_B.webp");
 }
 
+.list {
+  background-image: url("../img/stigmatas/Li_Sushang_Shenzhou_Reminiscence_T.webp");
+}
+
+.lism {
+  background-image: url("../img/stigmatas/Li_Sushang_Shenzhou_Reminiscence_M.webp");
+}
+
+.lisb {
+  background-image: url("../img/stigmatas/Li_Sushang_Shenzhou_Reminiscence_B.webp");
+}
+
 .lint {
   background-image: url("../img/stigmatas/Linnaeus_T.webp");
 }
@@ -1664,6 +1701,18 @@ body::-webkit-scrollbar-track {
 
 .welb {
   background-image: url("../img/stigmatas/Welt_Yang_B.webp");
+}
+
+.wilt {
+  background-image: url("../img/stigmatas/Willows_T.webp");
+}
+
+.wilm {
+  background-image: url("../img/stigmatas/Willows_M.webp");
+}
+
+.wilb {
+  background-image: url("../img/stigmatas/Willows_B.webp");
 }
 
 .zent {

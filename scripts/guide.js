@@ -1182,6 +1182,72 @@ export const valks = (function () {
             }
         }
     };
+    const sus = {
+        name: 'Jade Knight',
+        acr: 'sus',
+        rating: data.corruption,
+        builds: {
+            0: {
+                signet: [
+                    [
+                        [data.aponia, '2']
+                    ],
+                    [
+                        [data.su, '2'],
+                        [data.eden, '2'],
+                        [data.sakura, '2'],
+                        [data.pardofelis, '1']
+                    ]
+                ],
+                emblem: [
+                    [data.veilOfTears, data.theLonelyMoon],
+                    [data.lightAsABodhiLeaf, data.theLonelyMoon],
+                    [data.keyToTheDeep, data.dreamfulGold]
+                ],
+                support: [
+                    [[data.br], [data.le, data.bke]],
+                    [[data.br], [data.hb]]
+                ],
+                gear: [
+                    [data.nost, data.list, data.lism, data.lisb],
+                    [data.codu, data.wilt, data.wilm, data.wilb]
+                ],
+                signetTable: [
+                    [
+                        ['Great Blade', data.start],
+                        ['Cloudwalker', data.first],
+                        ['Jade Moon', data.no, '2'],
+                        ['Shaft'],
+                        ['Smoky Waft']
+                    ],
+                    [
+                        [data.aponia.name, '5', data.aponia.regular[1]],
+                        [data.aponia.regular[3]],
+                        [data.aponia.nexus2.name],
+                        [data.aponia.nexus2[2]],
+                        [data.aponia.nexus2[3]]
+                    ],
+                    [
+                        [data.su.name, '4', data.su.regular[1]],
+                        [data.su.regular[2]],
+                        [data.su.regular[3]],
+                        [data.su.nexus2.name],
+                        [data.eden.name, '4', data.eden.regular[2]],
+                        [data.eden.regular[3]],
+                        [data.eden.regular[4]],
+                        [data.eden.nexus2.name],
+                        [data.sakura.name, '3', data.sakura.regular[2]],
+                        [data.sakura.regular[3]],
+                        [data.sakura.regular[5]],
+                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
+                        [data.pardofelis.regular[4]],
+                        [data.pardofelis.regular[5]],
+                        [data.pardofelis.nexus2.name]
+                    ]
+                ]
+            }
+        }
+    };
     const lk = {
         name: 'Luna Kindred',
         acr: 'lk',
@@ -2378,6 +2444,6 @@ export const valks = (function () {
         }
     };
     return [aka, bkek, da, dpe, fr, gd, gm, hc, hofs, hoh,
-        hor, hos, hov, hot, mobi, lk, raven, elysia, ft, pe, fischl,
-        rvc, ri, sw, spa, si, nyx, sn, carole, tp, stfu, vg];
+        hor, hos, hov, hot, mobi, sus, lk, raven, elysia, ft, pe,
+        fischl, rvc, ri, sw, spa, si, nyx, sn, carole, tp, stfu, vg];
 }());

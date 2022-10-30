@@ -116,6 +116,10 @@
                       $desktop-font-size: 22px, $mobile-font-size: 7vw,
                       $desktop-offset: 61.8%, $mobile-offset: scale(16) translate(39.2%, -16.8%));
 
+@include bannerImages($name: sus, $src: url("../img/valks/Jade_Knight.webp"),
+                      $desktop-font-size: 36px, $mobile-font-size: 8vw,
+                      $desktop-offset: 52.2%, $mobile-offset: scale(15) translate(29.3%, -16.1%));
+
 @include bannerImages($name: sw, $src: url("../img/valks/Silverwing_N-EX.webp"),
                       $desktop-font-size: 30px, $mobile-font-size: 8vw,
                       $desktop-offset: 58.3%, $mobile-offset: scale(14) translate(33.9%, -16.7%));

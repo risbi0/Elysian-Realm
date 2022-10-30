@@ -149,6 +149,9 @@ export const leeb: NameAcr = { name: 'Leeuwenhoek B', acr: 'leeb' };
 export const lint: NameAcr = { name: 'Linnaeus T', acr: 'lint' };
 export const linm: NameAcr = { name: 'Linnaeus M', acr: 'linm' };
 export const linb: NameAcr = { name: 'Linnaeus B', acr: 'linb' };
+export const list: NameAcr = { name: 'Li Sushang: Shenzhou Reminiscence T', acr: 'list' };
+export const lism: NameAcr = { name: 'Li Sushang: Shenzhou Reminiscence M', acr: 'lism' };
+export const lisb: NameAcr = { name: 'Li Sushang: Shenzhou Reminiscence B', acr: 'lisb' };
 export const marm: NameAcr = { name: 'Marco Polo M', acr: 'marm' };
 export const mict: NameAcr = { name: 'Michealangelo T', acr: 'mict' };
 export const micb: NameAcr = { name: 'Michealangelo B', acr: 'micb' };
@@ -186,6 +189,9 @@ export const wanb: NameAcr = { name: 'Wang Zhenyi B', acr: 'wanb' };
 export const welt: NameAcr = { name: 'Welt Yang T', acr: 'welt' };
 export const welm: NameAcr = { name: 'Welt Yang M', acr: 'welm' };
 export const welb: NameAcr = { name: 'Welt Yang B', acr: 'welb' };
+export const wilt: NameAcr = { name: 'Willows T', acr: 'wilt' };
+export const wilm: NameAcr = { name: 'Willows M', acr: 'wilm' };
+export const wilb: NameAcr = { name: 'Willows B', acr: 'wilb' };
 export const zent: NameAcr = { name: 'Zeno T', acr: 'zent' };
 export const zenm: NameAcr = { name: 'Zeno M', acr: 'zenm' };
 export const zenb: NameAcr = { name: 'Zeno B', acr: 'zenb' };
@@ -194,6 +200,7 @@ export const hawp: NameAcr = { name: '', acr: 'hawp' };
 export const abfl: NameAcr = { name: 'Abyss Flower: Liminal Spiral', acr: 'abfl' };
 export const asdi: NameAcr = { name: 'Astral Divide: Pisces', acr: 'asdi' };
 export const baim: NameAcr = { name: 'Basilik\'s Image: Deathshroud', acr: 'baim' };
+export const codu: NameAcr = { name: 'Cosmic Duality', acr: 'codu' };
 export const dabr: NameAcr = { name: 'Dawn Breaker: Talwar', acr: 'dabr' };
 export const doeg: NameAcr = { name: 'Domain of Ego: Flawless Return', acr: 'doeg' };
 export const doin: NameAcr = { name: 'Domain of Incandescence', acr: 'doin' };
@@ -215,6 +222,7 @@ export const miec: NameAcr = { name: 'Midnight Eclipse', acr: 'miec' };
 export const miki: NameAcr = { name: 'Miracle Kissy Pillow', acr: 'miki' };
 export const miwa: NameAcr = { name: 'Mitternachts Waltz', acr: 'miwa' };
 export const mubl: NameAcr = { name: 'Muramasa Bloodlust', acr: 'mubl' };
+export const nost: NameAcr = { name: 'Nocturnal Stealth: Beam', acr: 'nost' };
 export const obdo: NameAcr = { name: 'Oblivion Down', acr: 'obdo' };
 export const obwi: NameAcr = { name: 'Obscuring Wing', acr: 'obwi' };
 export const paac: NameAcr = { name: 'Path to Acheron: Kindred', acr: 'paac' };
@@ -444,7 +452,6 @@ export const pardofelis: Signets = {
         1: 'Improve Magic: Zeroing', // total dmg
         2: 'My Dreams Will Come True', // vuln
         3: 'Snowy Paw' // vip service stack
-        
     }
 }
 export const sakura: Signets = {
