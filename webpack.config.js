@@ -16,6 +16,7 @@ const getFiles = () => {
 
 module.exports = {
     target: 'web',
+    devtool: 'source-map',
     devServer: {
         open: true,
         hot: true,
