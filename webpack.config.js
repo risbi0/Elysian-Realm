@@ -25,7 +25,6 @@ module.exports = {
     entry: './src/scripts/script.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'dist',
         filename: 'static/script.js'
     },
     plugins: [
