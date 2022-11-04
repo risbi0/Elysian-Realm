@@ -3,6 +3,7 @@
     "semver": "^7.3.8"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "file-loader": "^6.2.0",
     "glob": "^8.0.3",
