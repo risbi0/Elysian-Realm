@@ -1,5 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const glob = require('glob');
@@ -17,7 +17,7 @@ const getFiles = () => {
 
 module.exports = {
     target: 'web',
-    devtool: 'source-map',
+    devtool: isDevelopment ? 'source-map' : false,
     devServer: {
         open: true,
         hot: true,
