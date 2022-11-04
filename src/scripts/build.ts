@@ -1,10 +1,9 @@
-import { valks } from './guide.js';
+import { valks } from './guide';
 import { emblemTableHeaders, emblemTableTimeColumn,
          supportTableHeaders, supportTableTypeColumn,
-         exclusiveTableColumns, signetTableColumns, isMobile } from './data.js';
+         exclusiveTableColumns, signetTableColumns, isMobile } from './data';
 
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
-mainContainer.innerHTML = ''; // remove comments
 
 function imageAndLabel(cell: HTMLTableCellElement,
                        row: HTMLTableRowElement,
@@ -19,7 +18,7 @@ function imageAndLabel(cell: HTMLTableCellElement,
     
     cell.appendChild(pic);
 
-    if (item[index].acr != 'hawp') {
+    if (item[index].acr !== 'hawp') {
         const label: HTMLLabelElement = document.createElement('label');
         label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
 

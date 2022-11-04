@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="black">
 
-        <link rel="icon" type="image/png" sizes="32x32" href="/Elysian-Realm/assets/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/Elysian-Realm/assets/favicon/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/Elysian-Realm/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/Elysian-Realm/static/favicon/favicon-16x16.png">
 
-        <link rel="stylesheet" href="assets/styles/reset.css">
-        <link rel="stylesheet" href="assets/styles/styles.css">
+        <link rel="stylesheet" href="static/styles/reset.css">
+        <link rel="stylesheet" href="static/styles/styles.css">
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8VQ1D30KV"></script>
         <script>
@@ -212,6 +212,6 @@
                 <p>Risbiantotri#9712 - website creator</p>
             </div>
         </div>
-        <script type="module">import { isMobile } from '/Elysian-Realm/scripts/data.js'; if (!isMobile) document.querySelector('#sub-container').style.height = '95vh';</script>
+        <script>if (!/Mobi/i.test(window.navigator.userAgent)) document.querySelector('#sub-container').style.height = '95vh';</script>
     </body>
 </html>

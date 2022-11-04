@@ -1,133 +1,133 @@
 @import 'modules/mixins';
 /* banner images, offsets, and name sizes */
-@include bannerImages($name: aka, $src: url("../img/valks/Argent_Knight_Artemis.webp"),
+@include bannerImages($name: aka, $src: url("../img/Argent_Knight_Artemis.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 57%, $mobile-offset: scale(14) translate(30.4%, -18%));
 
-@include bannerImages($name: bke, $src: url("../img/valks/Bright_Knight_Excelsis.webp"),
+@include bannerImages($name: bke, $src: url("../img/Bright_Knight_Excelsis.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 50%, $mobile-offset: scale(16) translate(33.5%, -16%));
 
-@include bannerImages($name: carole, $src: url("../img/valks/Sweet_n_Spicy.webp"),
+@include bannerImages($name: carole, $src: url("../img/Sweet_n_Spicy.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 7vw,
                       $desktop-offset: 51.4%, $mobile-offset: scale(13) translate(40.1%, -16%));
 
-@include bannerImages($name: da, $src: url("../img/valks/Dea_Anchora.webp"),
+@include bannerImages($name: da, $src: url("../img/Dea_Anchora.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 9vw,
                       $desktop-offset: 52.7%, $mobile-offset: scale(15) translate(31.63%, -16%));
 
-@include bannerImages($name: dip, $src: url("../img/valks/Disciplinary_Perdition.webp"),
+@include bannerImages($name: dip, $src: url("../img/Disciplinary_Perdition.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 55.3%, $mobile-offset: scale(15) translate(30.2%, -18%));
 
-@include bannerImages($name: ede, $src: url("../img/valks/Golden_Diva.webp"),
+@include bannerImages($name: ede, $src: url("../img/Golden_Diva.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 9vw,
                       $desktop-offset: 52.5%, $mobile-offset: scale(15) translate(36%, -17%));
 
-@include bannerImages($name: elysia, $src: url("../img/valks/Miss_Pink_Elf.webp"),
+@include bannerImages($name: elysia, $src: url("../img/Miss_Pink_Elf.webp"),
                       $desktop-font-size: 30px, $mobile-font-size: 8vw,
                       $desktop-offset: 52%, $mobile-offset: scale(14) translate(30.2%, -15%));
 
-@include bannerImages($name: fr, $src: url("../img/valks/Fallen_Rosemary.webp"),
+@include bannerImages($name: fr, $src: url("../img/Fallen_Rosemary.webp"),
                       $desktop-font-size: 28px, $mobile-font-size: 6vw,
                       $desktop-offset: 56.2%, $mobile-offset: scale(14) translate(28%, -19%));
 
-@include bannerImages($name: ft, $src: url("../img/valks/Fervent_Tempo.webp"),
+@include bannerImages($name: ft, $src: url("../img/Fervent_Tempo.webp"),
                       $desktop-font-size: 32px, $mobile-font-size: 7vw,
                       $desktop-offset: 39.6%, $mobile-offset: scale(10) translate(37%, -14.5%));        
 
-@include bannerImages($name: fischl, $src: url("../img/valks/Prinzessin_der_Verurteilung.webp"),
+@include bannerImages($name: fischl, $src: url("../img/Prinzessin_der_Verurteilung.webp"),
                       $desktop-font-size: 16px, $mobile-font-size: 7vw,
                       $desktop-offset: 57%, $mobile-offset: scale(13) translate(34%, -15%));
 
-@include bannerImages($name: gm, $src: url("../img/valks/Goushinnso_Memento.webp"),
+@include bannerImages($name: gm, $src: url("../img/Goushinnso_Memento.webp"),
                       $desktop-font-size: 28px, $mobile-font-size: 7vw,
                       $desktop-offset: 44%, $mobile-offset: scale(16) translate(40.4%, -16.3%));
 
-@include bannerImages($name: hc, $src: url("../img/valks/Helical_Contraption.webp"),
+@include bannerImages($name: hc, $src: url("../img/Helical_Contraption.webp"),
                       $desktop-font-size: 24px, $mobile-font-size: 7vw,
                       $desktop-offset: 55.7%, $mobile-offset: scale(14) translate(34.4%, -16.4%));
 
-@include bannerImages($name: hofs, $src: url("../img/valks/Herrscher_of_Flamescion.webp"),
+@include bannerImages($name: hofs, $src: url("../img/Herrscher_of_Flamescion.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 53.7%, $mobile-offset: scale(15) translate(28.9%, -16.7%));
 
-@include bannerImages($name: hoh, $src: url("../img/valks/Herrscher_of_Human_Ego.webp"),
+@include bannerImages($name: hoh, $src: url("../img/Herrscher_of_Human_Ego.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 53.9%, $mobile-offset: scale(16) translate(28.8%, -14.8%));
 
-@include bannerImages($name: hor, $src: url("../img/valks/Herrscher_of_Reason.webp"),
+@include bannerImages($name: hor, $src: url("../img/Herrscher_of_Reason.webp"),
                       $desktop-font-size: 22px, $mobile-font-size: 7vw,
                       $desktop-offset: 54.1%, $mobile-offset: scale(14) translate(36.9%, -17%));
 
-@include bannerImages($name: hos, $src: url("../img/valks/Herrscher_of_Sentience.webp"),
+@include bannerImages($name: hos, $src: url("../img/Herrscher_of_Sentience.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 51.2%, $mobile-offset: scale(14) translate(29.6%, -14%));
 
-@include bannerImages($name: hot, $src: url("../img/valks/Herrscher_of_Thunder.webp"),
+@include bannerImages($name: hot, $src: url("../img/Herrscher_of_Thunder.webp"),
                       $desktop-font-size: 22px, $mobile-font-size: 7vw,
                       $desktop-offset: 57%, $mobile-offset: scale(14) translate(27%, -15.1%));
 
-@include bannerImages($name: hov, $src: url("../img/valks/Herrscher_of_the_Void.webp"),
+@include bannerImages($name: hov, $src: url("../img/Herrscher_of_the_Void.webp"),
                       $desktop-font-size: 20px, $mobile-font-size: 7vw,
                       $desktop-offset: 46%, $mobile-offset: scale(16) translate(36.7%, -13.3%));
 
-@include bannerImages($name: lk, $src: url("../img/valks/Luna_Kindred.webp"),
+@include bannerImages($name: lk, $src: url("../img/Luna_Kindred.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 8vw,
                       $desktop-offset: 44.8%, $mobile-offset: scale(10) translate(35.4%, -14%));
 
-@include bannerImages($name: mobius, $src: url("../img/valks/Infinite_Ouroboros.webp"),
+@include bannerImages($name: mobius, $src: url("../img/Infinite_Ouroboros.webp"),
                       $desktop-font-size: 25px, $mobile-font-size: 8vw,
                       $desktop-offset: 52.8%, $mobile-offset: scale(14) translate(29%, -15.6%));
 
-@include bannerImages($name: nyx, $src: url("../img/valks/Starchasm_Nyx.webp"),
+@include bannerImages($name: nyx, $src: url("../img/Starchasm_Nyx.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 7vw,
                       $desktop-offset: 49.3%, $mobile-offset: scale(13) translate(30.8%, -15.4%));
 
-@include bannerImages($name: pe, $src: url("../img/valks/Palatinus_Equinox.webp"),
+@include bannerImages($name: pe, $src: url("../img/Palatinus_Equinox.webp"),
                       $desktop-font-size: 28px, $mobile-font-size: 8vw,
                       $desktop-offset: 48.76%, $mobile-offset: scale(14) translate(30.5%, -11.6%));
 
-@include bannerImages($name: raven, $src: url("../img/valks/Midnight_Absinthe.webp"),
+@include bannerImages($name: raven, $src: url("../img/Midnight_Absinthe.webp"),
                       $desktop-font-size: 25px, $mobile-font-size: 8vw,
                       $desktop-offset: 53.4%, $mobile-offset: scale(14) translate(29.3%, -15.2%));
 
-@include bannerImages($name: rc, $src: url("../img/valks/Reverist_Calico.webp"),
+@include bannerImages($name: rc, $src: url("../img/Reverist_Calico.webp"),
                       $desktop-font-size: 30px, $mobile-font-size: 8vw,
                       $desktop-offset: 56.4%, $mobile-offset: scale(13) translate(28%, -17%));
 
-@include bannerImages($name: ri, $src: url("../img/valks/Ritual_Imayoh.webp"),
+@include bannerImages($name: ri, $src: url("../img/Ritual_Imayoh.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 8vw,
                       $desktop-offset: 55%, $mobile-offset: scale(10) translate(34%, -11.2%));
 
-@include bannerImages($name: si, $src: url("../img/valks/Starry_Impression.webp"),
+@include bannerImages($name: si, $src: url("../img/Starry_Impression.webp"),
                       $desktop-font-size: 28px, $mobile-font-size: 6vw,
                       $desktop-offset: 46.2%, $mobile-offset: scale(14) translate(33%, -15.9%));  
 
-@include bannerImages($name: sn, $src: url("../img/valks/Stygian_Nymph.webp"),
+@include bannerImages($name: sn, $src: url("../img/Stygian_Nymph.webp"),
                       $desktop-font-size: 32px, $mobile-font-size: 7vw,
                       $desktop-offset: 44.6%, $mobile-offset: scale(12) translate(31.2%, -16.8%));
 
-@include bannerImages($name: spa, $src: url("../img/valks/Spina_Astera.webp"),
+@include bannerImages($name: spa, $src: url("../img/Spina_Astera.webp"),
                       $desktop-font-size: 35px, $mobile-font-size: 9vw,
                       $desktop-offset: 49.5%, $mobile-offset: scale(13) translate(30.4%, -15%));
 
-@include bannerImages($name: stfu, $src: url("../img/valks/Striker_Fulminata.webp"),
+@include bannerImages($name: stfu, $src: url("../img/Striker_Fulminata.webp"),
                       $desktop-font-size: 22px, $mobile-font-size: 7vw,
                       $desktop-offset: 61.8%, $mobile-offset: scale(16) translate(39.2%, -16.8%));
 
-@include bannerImages($name: sus, $src: url("../img/valks/Jade_Knight.webp"),
+@include bannerImages($name: sus, $src: url("../img/Jade_Knight.webp"),
                       $desktop-font-size: 36px, $mobile-font-size: 8vw,
                       $desktop-offset: 52.2%, $mobile-offset: scale(15) translate(29.3%, -16.1%));
 
-@include bannerImages($name: sw, $src: url("../img/valks/Silverwing_N-EX.webp"),
+@include bannerImages($name: sw, $src: url("../img/Silverwing_N-EX.webp"),
                       $desktop-font-size: 30px, $mobile-font-size: 8vw,
                       $desktop-offset: 58.3%, $mobile-offset: scale(14) translate(33.9%, -16.7%));
 
-@include bannerImages($name: tp, $src: url("../img/valks/Twilight_Paladin.webp"),
+@include bannerImages($name: tp, $src: url("../img/Twilight_Paladin.webp"),
                       $desktop-font-size: 30px, $mobile-font-size: 6vw,
                       $desktop-offset: 47.18%, $mobile-offset: scale(11) translate(35.2%, -15.3%));
 
-@include bannerImages($name: vg, $src: url("../img/valks/Valkyrie_Gloria.webp"),
+@include bannerImages($name: vg, $src: url("../img/Valkyrie_Gloria.webp"),
                       $desktop-font-size: 30px, $mobile-font-size: 7vw,
                       $desktop-offset: 50%, $mobile-offset: scale(15) translate(34.2%, -16%));

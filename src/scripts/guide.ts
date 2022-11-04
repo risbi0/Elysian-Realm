@@ -1,12 +1,32 @@
-import * as data from './data.js';
-export const valks = (function () {
-    const aka = {
+import * as data from './data';
+
+type Signet = [data.Signets, '1' | '2']
+type Gear = [data.NameAcr, data.NameAcr, data.NameAcr, data.NameAcr]
+type Emblem = [data.NameAcr, data.NameAcr]
+type Guide = {
+    name: string;
+    acr: string;
+    rating: string;
+    builds: {
+        [key: number]: {
+            signet: Array<Array<Signet>>
+            emblem: Array<Emblem>
+            support: Array<Array<Array<data.NameAcr>>>
+            gear: Array<Gear>
+            signetTable: Array<Array<Array<string>>>
+            notes?: string;
+        }
+    }
+}
+export const valks: any = (function(): Guide[] {
+    // Argent Knight: Artemis
+    const aka: Guide = {
         name: 'Argent Knight: Artemis',
         acr: 'aka',
         rating: data.corruption,
         builds: {
             0: {
-                signet: [
+                signet: [ // transitional, main, secondary
                     [
                         [data.hua, '2'],
                         [data.mobius, '1'],
@@ -18,20 +38,25 @@ export const valks = (function () {
                     ]
                 ],
                 emblem: [
-                    [data.memory, data.becauseOfYou],
-                    [data.forbiddenSeed, data.boundlessLogos],
-                    [data.ruinedLegacy, data.boundlessLogos]
+                    [data.memory, data.becauseOfYou], // early
+                    [data.forbiddenSeed, data.boundlessLogos], // mid
+                    [data.ruinedLegacy, data.boundlessLogos] // late
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.ae], [data.hb]]
+                    [ [data.ae], [data.le] ], // utility
+                    [ [data.ae], [data.hb] ] // damage
                 ],
-                gear: [
+                gear: [ // T, M, B
                     [data.skth, data.anat, data.anam, data.anab],
                     [data.hawp, data.bast, data.basm, data.basb]
                 ],
                 signetTable: [
+                    // elysian signets, core signets, reinforcement signets, transitional signets
+                    // respective order from signet Object
                     [
+                        // rows[columns]
+                        // whatever element that only has numbers - rowspan value for the preceding value
+                        // succeeding rows covered by the rowspan value starts first regardless
                         ['Frost Scythe', data.start],
                         ['Stellar Trials', data.first, '2'],
                         ['Winter Harvest'],
@@ -66,8 +91,9 @@ export const valks = (function () {
                 notes: `<p>${data.hua.regular[6]}</p>Recommended to upgrade.`
             }
         }
-    };
-    const bkek = {
+    }
+    // Bright Knight: Excelsis
+    const bkek: Guide = {
         name: 'Bright Knight: Excelsis',
         acr: 'bke',
         rating: data.abstinence,
@@ -90,8 +116,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.tsukimiHimiko]
                 ],
                 support: [
-                    [[data.sn], [data.le]],
-                    [[data.sa], [data.br]]
+                    [ [data.sn], [data.le] ],
+                    [ [data.sa], [data.br] ]
                 ],
                 gear: [
                     [data.abfl, data.dant, data.danm, data.danb],
@@ -144,8 +170,9 @@ export const valks = (function () {
                         <p>${data.kalpas.nexus2[3]}, ${data.kosma.nexus2[2]}, ${data.aponia.nexus2[2]}</p>If lacking impair.`
             }
         }
-    };
-    const da = {
+    }
+    // Dea Anchora
+    const da: Guide = {
         name: 'Dea Anchora',
         acr: 'da',
         rating: data.corruption,
@@ -168,8 +195,8 @@ export const valks = (function () {
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.ae], [data.br, data.ma]]
+                    [ [data.ae], [data.le] ],
+                    [ [data.ae], [data.br, data.ma] ]
                 ],
                 gear: [
                     [data.saas, data.shat, data.sham, data.shab],
@@ -208,8 +235,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const dpe = {
+    }
+    // Disciplinary Perdition
+    const dpe: Guide = {
         name: 'Disciplinary Perdition',
         acr: 'dip',
         rating: data.corruption,
@@ -232,8 +260,8 @@ export const valks = (function () {
                     [data.tinFlask, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.vc]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.vc] ]
                 ],
                 gear: [
                     [data.loco, data.zent, data.zenm, data.zenb],
@@ -279,8 +307,9 @@ export const valks = (function () {
                 notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}</p>Priority.`
             }
         }
-    };
-    const fr = {
+    }
+    // Fallen Rosemary
+    const fr: Guide = {
         name: 'Fallen Rosemary',
         acr: 'fr',
         rating: data.corruption,
@@ -303,8 +332,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.hb], [data.br]]
+                    [ [data.ae], [data.le] ],
+                    [ [data.hb], [data.br] ]
                 ],
                 gear: [
                     [data.irhe, data.hant, data.hanm, data.hanb],
@@ -344,8 +373,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const gd = {
+    }
+    // Golden Diva
+    const gd: Guide = {
         name: 'Golden Diva',
         acr: 'ede',
         rating: data.corruption,
@@ -355,7 +385,7 @@ export const valks = (function () {
                     [
                         [data.aponia, '2'],
                     ],
-                    [
+                    [   
                         [data.kalpas, '2'],
                         [data.griseo, '2'],
                         [data.sakura, '2'],
@@ -368,8 +398,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.le] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.doin, data.hant, data.hanm, data.hanb],
@@ -413,8 +443,9 @@ export const valks = (function () {
                 notes: `Can buy Su signets from shop.`
             }
         }
-    };
-    const gm = {
+    }
+    // Goushinnso Memento
+    const gm: Guide = {
         name: 'Goushinnso Memento',
         acr: 'gm',
         rating: data.corruption,
@@ -437,8 +468,8 @@ export const valks = (function () {
                     [data.tinFlask, data.homeTown]
                 ],
                 support: [
-                    [[data.ae], [data.sn]],
-                    [[data.ae], [data.hb]]
+                    [ [data.ae], [data.sn] ],
+                    [ [data.ae], [data.hb] ]
                 ],
                 gear: [
                     [data.frna, data.anat, data.anam, data.anab],
@@ -480,8 +511,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const hc = {
+    }
+    // Helical Contraption
+    const hc: Guide = {
         name: 'Helical Contraption',
         acr: 'hc',
         rating: data.corruption,
@@ -504,8 +536,8 @@ export const valks = (function () {
                     [data.tinFlask, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.ma]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.ma] ]
                 ],
                 gear: [
                     [data.topa, data.cart, data.carm, data.carb],
@@ -557,8 +589,9 @@ export const valks = (function () {
                         <p>Su</p>Can buy Sakura's signets as reinforcements.`
             }
         }
-    };
-    const hofs = {
+    }
+    // Herrscher of Flamescion
+    const hofs: Guide = {
         name: 'Herrscher of Flamescion',
         acr: 'hofs',
         rating: data.corruption,
@@ -581,8 +614,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.tsukimiHimiko]
                 ],
                 support: [
-                    [[data.ae], [data.br]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.br] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.doin, data.murt, data.murm, data.murb],
@@ -629,8 +662,9 @@ export const valks = (function () {
                         <p>${data.griseo.nexus2[3]}</p>Priority.`
             }
         }
-    };
-    const hoh = {
+    }
+    // Herrscher of Human: Ego
+    const hoh: Guide = {
         name: 'Herrscher of Human: Ego',
         acr: 'hoh',
         rating: data.corruption,
@@ -653,8 +687,8 @@ export const valks = (function () {
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.doeg, data.elpt, data.elpm, data.elpb],
@@ -720,8 +754,8 @@ export const valks = (function () {
                     [data.tinFlask, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.doeg, data.elpt, data.elpm, data.elpb],
@@ -762,8 +796,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const hor = {
+    }
+    // Herrscher of Reason
+    const hor: Guide = {
         name: 'Herrscher of Reason',
         acr: 'hor',
         rating: data.corruption,
@@ -786,8 +821,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.le] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.dore, data.vert, data.verm, data.ireb],
@@ -836,8 +871,9 @@ export const valks = (function () {
                 notes: `<p>${data.vv.nexus2[1]}</p>Priority.`
             }
         }
-    };
-    const hos = {
+    }
+    // Herrscher of Sentience
+    const hos: Guide = {
         name: 'Herrscher of Sentience',
         acr: 'hos',
         rating: data.corruption,
@@ -862,8 +898,8 @@ export const valks = (function () {
                     [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.vc], [data.ss]],
-                    [[data.vc], [data.ss]]
+                    [ [data.vc], [data.ss] ],
+                    [ [data.vc], [data.ss] ]
                 ],
                 gear: [
                     [data.dose, data.dirt, data.dirm, data.rebb],
@@ -911,8 +947,9 @@ export const valks = (function () {
                 notes: `<p>${data.griseo.nexus2[1]}</p>Priority.`
             }
         }
-    };
-    const hov = {
+    }
+    // Herrscher of the Void
+    const hov: Guide = {
         name: 'Herrscher of the Void',
         acr: 'hov',
         rating: data.corruption,
@@ -937,8 +974,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.boundlessLogos]
                 ],
                 support: [
-                    [[data.ss], [data.vc]],
-                    [[data.ss], [data.vc]]
+                    [ [data.ss], [data.vc] ],
+                    [ [data.ss], [data.vc] ]
                 ],
                 gear: [
                     [data.dovo, data.sirt, data.sirm, data.sirb],
@@ -984,8 +1021,9 @@ export const valks = (function () {
                         <p>Mobius</p>Can buy Su, Kalpas, and Eden signets from shop as further reinforcement.`
             }
         }
-    };
-    const hot = {
+    }
+    // Herrscher of Thunder
+    const hot: Guide = {
         name: 'Herrscher of Thunder',
         acr: 'hot',
         rating: data.corruption,
@@ -1008,8 +1046,8 @@ export const valks = (function () {
                     [data.ruinedLegacy, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.le], [data.vc]],
-                    [[data.ae], [data.vc]]
+                    [ [data.le], [data.vc] ],
+                    [ [data.ae], [data.vc] ]
                 ],
                 gear: [
                     [data.sena, data.hant, data.hanm, data.hanb],
@@ -1070,8 +1108,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.vc], [data.le]],
-                    [[data.ae], [data.vc]]
+                    [ [data.vc], [data.le] ],
+                    [ [data.ae], [data.vc] ]
                 ],
                 gear: [
                     [data.dosa, data.hant, data.hanm, data.hanb],
@@ -1111,8 +1149,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const mobi = {
+    }
+    // Infinite Ouroboros
+    const mobi: Guide = {
         name: 'Infinite Ouroboros',
         acr: 'mobius',
         rating: data.corruption,
@@ -1135,8 +1174,8 @@ export const valks = (function () {
                     [data.ruinedLegacy, data.boundlessLogos]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.vc]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.vc] ]
                 ],
                 gear: [
                     [data.baim, data.lint, data.linm, data.linb],
@@ -1181,8 +1220,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const sus = {
+    }
+    // Jade Knight
+    const sus: Guide = {
         name: 'Jade Knight',
         acr: 'sus',
         rating: data.corruption,
@@ -1205,8 +1245,8 @@ export const valks = (function () {
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.br], [data.le, data.bke]],
-                    [[data.br], [data.hb]]
+                    [ [data.br], [data.le, data.bke] ],
+                    [ [data.br], [data.hb] ]
                 ],
                 gear: [
                     [data.nost, data.list, data.lism, data.lisb],
@@ -1247,8 +1287,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const lk = {
+    }
+    // Luna Kindred
+    const lk: Guide = {
         name: 'Luna Kindred',
         acr: 'lk',
         rating: data.inferno,
@@ -1271,8 +1312,8 @@ export const valks = (function () {
                     [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.sn], [data.le]],
-                    [[data.dp], [data.le]]
+                    [ [data.sn], [data.le] ],
+                    [ [data.dp], [data.le] ]
                 ],
                 gear: [
                     [data.heso, data.drat, data.dram, data.drab],
@@ -1318,8 +1359,9 @@ export const valks = (function () {
                         <p>${data.mobius.regular[2]}, ${data.mobius.regular[5]}</p>If using dracula set.`
             }
         }
-    };
-    const raven = {
+    }
+    // Midnight Absinthe
+    const raven: Guide = {
         name: 'Midnight Absinthe',
         acr: 'raven',
         rating: data.abstinence,
@@ -1339,11 +1381,11 @@ export const valks = (function () {
                 emblem: [
                     [data.psuedoMiracle, data.fallingInPastLight],
                     [data.veilOfTears, data.fallingInPastLight],
-                    [data.goodOldDays, data.fallingInPastLight]
+                    [data.goodOldDays, data.fallingInPastLight] 
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.obwi, data.aslt, data.aslm, data.aslb],
@@ -1390,8 +1432,9 @@ export const valks = (function () {
                         <p>Griseo</p>Buy signets in shop if possible.`
             }
         }
-    };
-    const elysia = {
+    }
+    // Miss Pink Elf
+    const elysia: Guide = {
         name: 'Miss Pink Elf',
         acr: 'elysia',
         rating: data.corruption,
@@ -1414,8 +1457,8 @@ export const valks = (function () {
                     [data.ruinedLegacy, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.vc], [data.le]],
-                    [[data.vc], [data.br]]
+                    [ [data.vc], [data.le] ],
+                    [ [data.vc], [data.br] ]
                 ],
                 gear: [
                     [data.whpa, data.elyt, data.elym, data.elyb],
@@ -1463,8 +1506,9 @@ export const valks = (function () {
                         <p>Eden</p>Only after obtaining Su's signet <span>${data.su.regular[2]}</span>.`
             }
         }
-    };
-    const ft = {
+    }
+    // Molotov Cherry
+    const ft: Guide = {
         name: 'Molotov Cherry',
         acr: 'ft',
         rating: data.corruption,
@@ -1487,8 +1531,8 @@ export const valks = (function () {
                     [data.farawayShip, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ss], [data.sn]],
-                    [[data.ss], [data.br]]
+                    [ [data.ss], [data.sn] ],
+                    [ [data.ss], [data.br] ]
                 ],
                 gear: [
                     [data.sldr, data.mict, data.danm, data.micb],
@@ -1529,8 +1573,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const pe = {
+    }
+    // Palatinus Equinox
+    const pe: Guide = {
         name: 'Palatinus Equinox',
         acr: 'pe',
         rating: data.abstinence,
@@ -1553,8 +1598,8 @@ export const valks = (function () {
                     [data.farawayShip, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ss], [data.vc]],
-                    [[data.ss], [data.vc]]
+                    [ [data.ss], [data.vc] ],
+                    [ [data.ss], [data.vc] ]
                 ],
                 gear: [
                     [data.miat, data.biat, data.biam, data.biab],
@@ -1600,8 +1645,9 @@ export const valks = (function () {
                 notes: `<p>${data.griseo.nexus2[3]}</p>Priority.`
             }
         }
-    };
-    const fischl = {
+    }
+    // Prinzessin der Verurteilung
+    const fischl: Guide = {
         name: 'Prinzessin der Verurteilung',
         acr: 'fischl',
         rating: data.abstinence,
@@ -1624,8 +1670,8 @@ export const valks = (function () {
                     [data.tinFlask, data.homeTown]
                 ],
                 support: [
-                    [[data.ae], [data.sn]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.sn] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.whpa, data.want, data.wanm, data.wanb],
@@ -1668,8 +1714,9 @@ export const valks = (function () {
                 notes: `<p>${data.vv.nexus2[1]}, ${data.vv.nexus2[2]}</p>Priority.`
             }
         }
-    };
-    const rvc = {
+    }
+    // Reveris Calico
+    const rvc: Guide = {
         name: 'Reverist Calico',
         acr: 'rc',
         rating: data.corruption,
@@ -1692,8 +1739,8 @@ export const valks = (function () {
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.hb]],
-                    [[data.ae], [data.hb]]
+                    [ [data.ae], [data.hb] ],
+                    [ [data.ae], [data.hb] ]
                 ],
                 gear: [
                     [data.puph, data.brot, data.welm, data.brob],
@@ -1740,8 +1787,9 @@ export const valks = (function () {
                         <p>Griseo</p>Pick Sakura's nexus signet <span>${data.sakura.nexus2.name}</span> to synergize with <span>${data.griseo.regular[2]}</span>.`
             }
         }
-    };
-    const ri = {
+    }
+    // Ritual Imayoh
+    const ri: Guide = {
         name: 'Ritual Imayoh',
         acr: 'ri',
         rating: data.inferno,
@@ -1764,8 +1812,8 @@ export const valks = (function () {
                     [data.tinFlask, data.homeTown]
                 ],
                 support: [
-                    [[data.sn], [data.le]],
-                    [[data.vc], [data.br]]
+                    [ [data.sn], [data.le] ],
+                    [ [data.vc], [data.br] ]
                 ],
                 gear: [
                     [data.pobl, data.elyt, data.elym, data.elyb],
@@ -1805,8 +1853,9 @@ export const valks = (function () {
                 notes: `<p>${data.aponia.nexus2[2]}</p>Priority.`
             }
         }
-    };
-    const sw = {
+    }
+    // Silverwing N-EX
+    const sw: Guide = {
         name: 'Silverwing N-EX',
         acr: 'sw',
         rating: data.corruption,
@@ -1829,8 +1878,8 @@ export const valks = (function () {
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.hb, data.br]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.hb, data.br] ]
                 ],
                 gear: [
                     [data.fafl, data.brot, data.brom, data.brob],
@@ -1871,8 +1920,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const spa = {
+    }
+    // Spina Astera
+    const spa: Guide = {
         name: 'Spina Astera',
         acr: 'spa',
         rating: data.corruption,
@@ -1895,8 +1945,8 @@ export const valks = (function () {
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.ae], [data.vc]],
-                    [[data.ae], [data.br]]
+                    [ [data.ae], [data.vc] ],
+                    [ [data.ae], [data.br] ]
                 ],
                 gear: [
                     [data.asdi, data.ragt, data.ragm, data.ragb],
@@ -1939,8 +1989,9 @@ export const valks = (function () {
                         <p>Kalpas</p>If too hard use, drop picking her signets and start picking for Eden (2nd nexus).`
             }
         }
-    };
-    const si = {
+    }
+    // Starry Impression
+    const si: Guide = {
         name: 'Starry Impression',
         acr: 'si',
         rating: data.corruption,
@@ -1965,8 +2016,8 @@ export const valks = (function () {
                     [data.tinFlask, data.homeTown]
                 ],
                 support: [
-                    [[data.vc], [data.br]],
-                    [[data.vc], [data.dp]]
+                    [ [data.vc], [data.br] ],
+                    [ [data.vc], [data.dp] ]
                 ],
                 gear: [
                     [data.elas, data.cezt, data.cezm, data.cezb],
@@ -2012,8 +2063,9 @@ export const valks = (function () {
                 ]
             }
         }
-    };
-    const nyx = {
+    }
+    // Starchasm Nyx
+    const nyx: Guide = {
         name: 'Starchasm Nyx',
         acr: 'nyx',
         rating: data.corruption,
@@ -2036,8 +2088,8 @@ export const valks = (function () {
                     [data.ruinedLegacy, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.ae], [data.hb]]
+                    [ [data.ae], [data.le] ],
+                    [ [data.ae], [data.hb] ]
                 ],
                 gear: [
                     [data.saga, data.vert, data.verm, data.verb],
@@ -2081,8 +2133,9 @@ export const valks = (function () {
                         <p>Sakura</p>Buy signets from the shop if possible.`
             }
         }
-    };
-    const sn = {
+    }
+    // Stygian Nymph
+    const sn: Guide = {
         name: 'Stygian Nymph',
         acr: 'sn',
         rating: data.inferno,
@@ -2107,8 +2160,8 @@ export const valks = (function () {
                     [data.stainedSakura, data.tsukimiHimiko]
                 ],
                 support: [
-                    [[data.sa, data.vc], [data.ss]],
-                    [[data.ss], [data.br]]
+                    [ [data.sa, data.vc], [data.ss] ],
+                    [ [data.ss], [data.br] ]
                 ],
                 gear: [
                     [data.paac, data.biat, data.biam, data.biab],
@@ -2153,8 +2206,9 @@ export const valks = (function () {
                         <p>${data.hua.regular[4]}</p>Recommended to upgrade.`
             }
         }
-    };
-    const carole = {
+    }
+    // Sweet 'n' Spicy
+    const carole: Guide = {
         name: 'Sweet \'n\' Spicy',
         acr: 'carole',
         rating: data.abstinence,
@@ -2179,8 +2233,8 @@ export const valks = (function () {
                     [data.proofOfGoodAndEvil, data.homeTown]
                 ],
                 support: [
-                    [[data.ss], [data.sn]],
-                    [[data.ss], [data.br]]
+                    [ [data.ss], [data.sn] ],
+                    [ [data.ss], [data.br] ]
                 ],
                 gear: [
                     [data.obdo, data.biat, data.biam, data.biab],
@@ -2223,8 +2277,9 @@ export const valks = (function () {
                         <p>${data.aponia.nexus2[2]}</p>Priority.`
             }
         }
-    };
-    const tp = {
+    }
+    // Twilight Paladin
+    const tp: Guide = {
         name: 'Twilight Paladin',
         acr: 'tp',
         rating: data.abstinence,
@@ -2247,8 +2302,8 @@ export const valks = (function () {
                     [data.goodOldDays, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.sa], [data.sn]],
-                    [[data.ss], [data.br]]
+                    [ [data.sa], [data.sn] ],
+                    [ [data.ss], [data.br] ]
                 ],
                 gear: [
                     [data.heso, data.kaft, data.kafm, data.kafb],
@@ -2258,7 +2313,7 @@ export const valks = (function () {
                     [
                         ['Banishment', data.start],
                         ['Penalty', data.first],
-                        ['Dusk', data.second,],
+                        ['Dusk', data.second, ],
                         ['Radiance', data.reinforcement, '2'],
                         ['Sanction']
                     ],
@@ -2291,8 +2346,9 @@ export const valks = (function () {
                         <p>${data.griseo.nexus2[1]}</p>If lacking breach.`
             }
         }
-    };
-    const stfu = {
+    }
+    // Valkyrie Bladestrike
+    const stfu: Guide = {
         name: 'Valkyrie Bladestrike',
         acr: 'stfu',
         rating: data.abstinence,
@@ -2317,8 +2373,8 @@ export const valks = (function () {
                     [data.heavyAsAMillionLives, data.dreamfulGold]
                 ],
                 support: [
-                    [[data.le], [data.sn]],
-                    [[data.vc], [data.ss]]
+                    [ [data.le], [data.sn] ],
+                    [ [data.vc], [data.ss] ]
                 ],
                 gear: [
                     [data.dabr, data.dirt, data.dirm, data.dirb],
@@ -2368,8 +2424,9 @@ export const valks = (function () {
                         <p>${data.griseo.regular[3]}, ${data.eden.regular[1]}</p>If needed.`
             }
         }
-    };
-    const vg = {
+    }
+    // Valkyrie Gloria
+    const vg: Guide = {
         name: 'Valkyrie Gloria',
         acr: 'vg',
         rating: data.inferno,
@@ -2394,8 +2451,8 @@ export const valks = (function () {
                     [data.proofOfGoodAndEvil, data.fallingInPastLight]
                 ],
                 support: [
-                    [[data.ae], [data.le]],
-                    [[data.ae], [data.br, data.ma]]
+                    [ [data.ae], [data.le] ],
+                    [ [data.ae], [data.br, data.ma] ]
                 ],
                 gear: [
                     [data.eogl, data.leet, data.tham, data.leeb],
@@ -2442,8 +2499,8 @@ export const valks = (function () {
                         <p>${data.vv.nexus2[1]}</p>If lacking breach.`
             }
         }
-    };
+    }
     return [aka, bkek, da, dpe, fr, gd, gm, hc, hofs, hoh,
-        hor, hos, hov, hot, mobi, sus, lk, raven, elysia, ft, pe,
-        fischl, rvc, ri, sw, spa, si, nyx, sn, carole, tp, stfu, vg];
+            hor, hos, hov, hot, mobi, sus, lk, raven, elysia, ft, pe,
+            fischl, rvc, ri, sw, spa, si, nyx, sn, carole, tp, stfu, vg];
 }());

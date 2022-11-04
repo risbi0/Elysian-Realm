@@ -1,6 +1,6 @@
-import { valks } from './guide.js';
-import { isMobile, signetSummary } from './data.js';
-import { mainContainer, guideContainer } from './build.js';
+import { valks } from './guide';
+import { isMobile, signetSummary } from './data';
+import { mainContainer, guideContainer } from './build';
 
 const body = document.querySelector('body') as HTMLBodyElement;
 window.scrollTo({ top: 0 });
@@ -265,7 +265,7 @@ let finalArr: number[] = [];
 let summOnHover: any;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
-    finalArr = [...Array(valks.length).keys()]; // all
+    finalArr = Array.from(Array(valks.length).keys()); // all
 
     summOnHover = (signets: any) => {
         signets.forEach((signet: any) => {
@@ -291,7 +291,7 @@ if (isMobile) {
     noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
     const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
     const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
-    const bannerIndicesInDektopViewport: number[] = [...Array(noOfBannersInViewport).keys()].map((e) => { return e + noOfBannersLeftOfViewport });
+    const bannerIndicesInDektopViewport: number[] = Array.from(Array(noOfBannersInViewport).keys()).map((e) => { return e + noOfBannersLeftOfViewport });
     // randomize array elements
     const bannerLength: number = bannerIndicesInDektopViewport.length;
     for (let i = 0; i < bannerLength; i++) {
