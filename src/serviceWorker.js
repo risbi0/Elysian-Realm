@@ -263,6 +263,7 @@ const cachestatic = [
     './static/img/Seven_Thunders_of_Retribution_Rumble.webp',
     './static/img/Skadi_of_Thrymheim.webp',
     './static/img/Sleepers_Dream.webp',
+    './static/img/Star_of_Eden_World.webp',
     './static/img/Tower_of_the_Past_Silk_Ladder.webp',
     './static/img/Whisper_of_the_Past_Sonnet.webp'
 ]

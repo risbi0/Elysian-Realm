@@ -234,6 +234,7 @@ export const sena: NameAcr = { name: '7ToR Narukami', acr: 'sena' };
 export const seru: NameAcr = { name: '7ToR Rumble', acr: 'seru' };
 export const skth: NameAcr = { name: 'Skadi of Thrymheim', acr: 'skth' };
 export const sldr: NameAcr = { name: 'Sleeper\'s Dream', acr: 'sldr' };
+export const sted: NameAcr = { name: 'Star of Eden: World', acr: 'sted' };
 export const thsa: NameAcr = { name: '3rd Sacred Relic', acr: 'thsa' };
 export const topa: NameAcr = { name: 'Tower of the Past: Silk Ladder', acr: 'topa' };
 export const whpa: NameAcr = { name: 'Whisper of the Past: Sonnet', acr: 'whpa' };
@@ -243,7 +244,7 @@ export const aponia: Signets = {
     signet: 'Discipline',
     regular: {
         1: 'First, No Betrayal', // evasion
-        2: 'Second, No Deception', // summon entity
+        2: 'Second, No Deception', // dmg reduc
         3: 'Third, No Brutality', // combo hit
         4: 'Fourth, No Insolence', // weap skill
         5: 'Fifth, No Falsehood', // vuln
@@ -277,7 +278,7 @@ export const eden: Signets = {
         name: 'Aria of Gold (Nexus)',
         1: 'Aria of Dawn', // lightning
         2: 'Aria of Life', // sp restore
-        3: 'Aria of Soil' // stack intoxicated dmg
+        3: 'Aria of Soil' // vuln
     },
     nexus2: {
         name: 'Echo of Gold (Nexus)',
@@ -388,7 +389,7 @@ export const kosma: Signets = {
     regular: {
         1: 'Breath that Slanders Sulphur', // sp restore
         2: 'Eyes that Overlook the Vicious Abyss', // shield dmg
-        3: 'Heart that Committed Seven Crimes', // rend dur
+        3: 'Heart that Committed Seven Crimes', // time ext
         4: 'Horns that Rip the Bleak Sky', // ult
         5: 'Talons that Desecrate the Santuary', // basic/combo/charged
         6: 'Wings that Mask the Sanguine Moon' // evasion
