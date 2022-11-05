@@ -6,6 +6,7 @@ type Emblem = [data.NameAcr, data.NameAcr]
 type Guide = {
     name: string;
     acr: string;
+    rating: string;
     builds: {
         [key: number]: {
             signet: Array<Array<Signet>>
@@ -22,6 +23,7 @@ export const valks: any = (function(): Guide[] {
     const aka: Guide = {
         name: 'Argent Knight: Artemis',
         acr: 'aka',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [ // transitional (optional), main, secondary
@@ -100,6 +102,7 @@ export const valks: any = (function(): Guide[] {
     const bkek: Guide = {
         name: 'Bright Knight: Excelsis',
         acr: 'bke',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -178,6 +181,7 @@ export const valks: any = (function(): Guide[] {
     const da: Guide = {
         name: 'Dea Anchora',
         acr: 'da',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -242,6 +246,7 @@ export const valks: any = (function(): Guide[] {
     const dpe: Guide = {
         name: 'Disciplinary Perdition',
         acr: 'dip',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -317,6 +322,7 @@ export const valks: any = (function(): Guide[] {
     const fr: Guide = {
         name: 'Fallen Rosemary',
         acr: 'fr',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -385,6 +391,7 @@ export const valks: any = (function(): Guide[] {
     const gd: Guide = {
         name: 'Golden Diva',
         acr: 'ede',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -462,6 +469,7 @@ export const valks: any = (function(): Guide[] {
     const gm: Guide = {
         name: 'Goushinnso Memento',
         acr: 'gm',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -529,6 +537,7 @@ export const valks: any = (function(): Guide[] {
     const hc: Guide = {
         name: 'Helical Contraption',
         acr: 'hc',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -606,6 +615,7 @@ export const valks: any = (function(): Guide[] {
     const hofs: Guide = {
         name: 'Herrscher of Flamescion',
         acr: 'hofs',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -682,6 +692,7 @@ export const valks: any = (function(): Guide[] {
     const hoh: Guide = {
         name: 'Herrscher of Human: Ego',
         acr: 'hoh',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -820,6 +831,7 @@ export const valks: any = (function(): Guide[] {
     const hor: Guide = {
         name: 'Herrscher of Reason',
         acr: 'hor',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -893,6 +905,7 @@ export const valks: any = (function(): Guide[] {
     const hos: Guide = {
         name: 'Herrscher of Sentience',
         acr: 'hos',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -967,6 +980,7 @@ export const valks: any = (function(): Guide[] {
     const hov: Guide = {
         name: 'Herrscher of the Void',
         acr: 'hov',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1040,6 +1054,7 @@ export const valks: any = (function(): Guide[] {
     const hot: Guide = {
         name: 'Herrscher of Thunder',
         acr: 'hot',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1170,6 +1185,7 @@ export const valks: any = (function(): Guide[] {
     const mobi: Guide = {
         name: 'Infinite Ouroboros',
         acr: 'mobius',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1238,6 +1254,7 @@ export const valks: any = (function(): Guide[] {
     const sus: Guide = {
         name: 'Jade Knight',
         acr: 'sus',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1304,6 +1321,7 @@ export const valks: any = (function(): Guide[] {
     const lk: Guide = {
         name: 'Luna Kindred',
         acr: 'lk',
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [
@@ -1375,6 +1393,7 @@ export const valks: any = (function(): Guide[] {
     const raven: Guide = {
         name: 'Midnight Absinthe',
         acr: 'raven',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1447,6 +1466,7 @@ export const valks: any = (function(): Guide[] {
     const elysia: Guide = {
         name: 'Miss Pink Elf',
         acr: 'elysia',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1517,6 +1537,7 @@ export const valks: any = (function(): Guide[] {
     const ft: Guide = {
         name: 'Molotov Cherry',
         acr: 'ft',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1587,6 +1608,7 @@ export const valks: any = (function(): Guide[] {
     const pe: Guide = {
         name: 'Palatinus Equinox',
         acr: 'pe',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1659,6 +1681,7 @@ export const valks: any = (function(): Guide[] {
     const fischl: Guide = {
         name: 'Prinzessin der Verurteilung',
         acr: 'fischl',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -1727,6 +1750,7 @@ export const valks: any = (function(): Guide[] {
     const rvc: Guide = {
         name: 'Reverist Calico',
         acr: 'rc',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1797,6 +1821,7 @@ export const valks: any = (function(): Guide[] {
     const ri: Guide = {
         name: 'Ritual Imayoh',
         acr: 'ri',
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [
@@ -1862,6 +1887,7 @@ export const valks: any = (function(): Guide[] {
     const sw: Guide = {
         name: 'Silverwing N-EX',
         acr: 'sw',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -1927,6 +1953,7 @@ export const valks: any = (function(): Guide[] {
     const spa: Guide = {
         name: 'Spina Astera',
         acr: 'spa',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -2001,6 +2028,7 @@ export const valks: any = (function(): Guide[] {
     const si: Guide = {
         name: 'Starry Impression',
         acr: 'si',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -2073,6 +2101,7 @@ export const valks: any = (function(): Guide[] {
     const nyx: Guide = {
         name: 'Starchasm Nyx',
         acr: 'nyx',
+        rating: data.corruption,
         builds: {
             0: {
                 signet: [
@@ -2142,6 +2171,7 @@ export const valks: any = (function(): Guide[] {
     const sn: Guide = {
         name: 'Stygian Nymph',
         acr: 'sn',
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [
@@ -2214,6 +2244,7 @@ export const valks: any = (function(): Guide[] {
     const carole: Guide = {
         name: 'Sweet \'n\' Spicy',
         acr: 'carole',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -2284,6 +2315,7 @@ export const valks: any = (function(): Guide[] {
     const tp: Guide = {
         name: 'Twilight Paladin',
         acr: 'tp',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -2352,6 +2384,7 @@ export const valks: any = (function(): Guide[] {
     const stfu: Guide = {
         name: 'Valkyrie Bladestrike',
         acr: 'stfu',
+        rating: data.abstinence,
         builds: {
             0: {
                 signet: [
@@ -2429,6 +2462,7 @@ export const valks: any = (function(): Guide[] {
     const vg: Guide = {
         name: 'Valkyrie Gloria',
         acr: 'vg',
+        rating: data.inferno,
         builds: {
             0: {
                 signet: [

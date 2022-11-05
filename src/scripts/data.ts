@@ -23,6 +23,10 @@ export type Signets = Name & {
     nexus2: Nexus;
 }
 export const isMobile = /Mobi/i.test(window.navigator.userAgent);
+// difficulties
+export const abstinence: string = 'Abstinence';
+export const corruption: string = 'Corruption';
+export const inferno: string = 'Inferno';
 // priority terms
 export const start: string = 'Start';
 export const first: string = '1st';
