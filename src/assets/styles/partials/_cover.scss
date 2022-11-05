@@ -15,6 +15,9 @@
     border-radius: 5px;
 }
 #error-msg {
+    @include padding($l: 15px, $r: 15px);
+    text-align: center;
+    line-height: 30px;
     font-size: 22px;
 }
 #refresh {
