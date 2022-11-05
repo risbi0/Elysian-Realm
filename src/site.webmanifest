@@ -11,17 +11,17 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "assets/favicon/android-chrome-192x192.png",
+            "src": "static/favicon/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "assets/favicon/android-chrome-512x512.png",
+            "src": "static/favicon/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "assets/favicon/maskable-icon.png",
+            "src": "static/favicon/maskable-icon.png",
             "sizes": "320x320",
             "type": "image/png",
             "purpose": "maskable"
