@@ -2,7 +2,7 @@ const cacheName = 'herrscher-of-cache';
 
 const cachestatic = [
     './site.webmanifest',
-    './static/img.webp',
+    './static/img/bg.webp',
     // fonts
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap',
@@ -12,10 +12,7 @@ const cachestatic = [
     './index.html',
     './about.html',
     // javascript
-    './scripts/data.js',
-    './scripts/guide.js',
-    './scripts/build.js',
-    './scripts/main.js',
+    './static/script.js',
     // styles
     './static/styles/reset.css',
     './static/styles/styles.css',
@@ -60,11 +57,11 @@ const cachestatic = [
     './static/img/Sweet_n_Spicy_Desktop.png',
     './static/img/Twilight_Paladin_Desktop.png',
     './static/img/Valkyrie_Gloria_Desktop.png',
+    // valks (mobile)
     './static/img/Argent_Knight_Artemis_Mobile.png',
     './static/img/Bright_Knight_Excelsis_Mobile.png',
     './static/img/Dea_Anchora_Mobile.png',
     './static/img/Disciplinary_Perdition_Mobile.png',
-    // valks (mobile)
     './static/img/Fallen_Rosemary_Mobile.png',
     './static/img/Fervent_Tempo_Mobile.png',
     './static/img/Golden_Diva_Mobile.png',
