@@ -1,133 +1,70 @@
 @import 'modules/mixins';
-/* banner images, offsets, and name sizes */
-@include bannerImages($name: aka, $src: url("../img/Argent_Knight_Artemis.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 57%, $mobile-offset: scale(14) translate(30.4%, -18%));
-
-@include bannerImages($name: bke, $src: url("../img/Bright_Knight_Excelsis.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 50%, $mobile-offset: scale(16) translate(33.5%, -16%));
-
-@include bannerImages($name: carole, $src: url("../img/Sweet_n_Spicy.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 7vw,
-                      $desktop-offset: 51.4%, $mobile-offset: scale(13) translate(40.1%, -16%));
-
-@include bannerImages($name: da, $src: url("../img/Dea_Anchora.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 9vw,
-                      $desktop-offset: 52.7%, $mobile-offset: scale(15) translate(31.63%, -16%));
-
-@include bannerImages($name: dip, $src: url("../img/Disciplinary_Perdition.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 55.3%, $mobile-offset: scale(15) translate(30.2%, -18%));
-
-@include bannerImages($name: ede, $src: url("../img/Golden_Diva.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 9vw,
-                      $desktop-offset: 52.5%, $mobile-offset: scale(15) translate(36%, -17%));
-
-@include bannerImages($name: elysia, $src: url("../img/Miss_Pink_Elf.webp"),
-                      $desktop-font-size: 30px, $mobile-font-size: 8vw,
-                      $desktop-offset: 52%, $mobile-offset: scale(14) translate(30.2%, -15%));
-
-@include bannerImages($name: fr, $src: url("../img/Fallen_Rosemary.webp"),
-                      $desktop-font-size: 28px, $mobile-font-size: 6vw,
-                      $desktop-offset: 56.2%, $mobile-offset: scale(14) translate(28%, -19%));
-
-@include bannerImages($name: ft, $src: url("../img/Fervent_Tempo.webp"),
-                      $desktop-font-size: 32px, $mobile-font-size: 7vw,
-                      $desktop-offset: 39.6%, $mobile-offset: scale(10) translate(37%, -14.5%));        
-
-@include bannerImages($name: fischl, $src: url("../img/Prinzessin_der_Verurteilung.webp"),
-                      $desktop-font-size: 16px, $mobile-font-size: 7vw,
-                      $desktop-offset: 57%, $mobile-offset: scale(13) translate(34%, -15%));
-
-@include bannerImages($name: gm, $src: url("../img/Goushinnso_Memento.webp"),
-                      $desktop-font-size: 28px, $mobile-font-size: 7vw,
-                      $desktop-offset: 44%, $mobile-offset: scale(16) translate(40.4%, -16.3%));
-
-@include bannerImages($name: hc, $src: url("../img/Helical_Contraption.webp"),
-                      $desktop-font-size: 24px, $mobile-font-size: 7vw,
-                      $desktop-offset: 55.7%, $mobile-offset: scale(14) translate(34.4%, -16.4%));
-
-@include bannerImages($name: hofs, $src: url("../img/Herrscher_of_Flamescion.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 53.7%, $mobile-offset: scale(15) translate(28.9%, -16.7%));
-
-@include bannerImages($name: hoh, $src: url("../img/Herrscher_of_Human_Ego.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 53.9%, $mobile-offset: scale(16) translate(28.8%, -14.8%));
-
-@include bannerImages($name: hor, $src: url("../img/Herrscher_of_Reason.webp"),
-                      $desktop-font-size: 22px, $mobile-font-size: 7vw,
-                      $desktop-offset: 54.1%, $mobile-offset: scale(14) translate(36.9%, -17%));
-
-@include bannerImages($name: hos, $src: url("../img/Herrscher_of_Sentience.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 51.2%, $mobile-offset: scale(14) translate(29.6%, -14%));
-
-@include bannerImages($name: hot, $src: url("../img/Herrscher_of_Thunder.webp"),
-                      $desktop-font-size: 22px, $mobile-font-size: 7vw,
-                      $desktop-offset: 57%, $mobile-offset: scale(14) translate(27%, -15.1%));
-
-@include bannerImages($name: hov, $src: url("../img/Herrscher_of_the_Void.webp"),
-                      $desktop-font-size: 20px, $mobile-font-size: 7vw,
-                      $desktop-offset: 46%, $mobile-offset: scale(16) translate(36.7%, -13.3%));
-
-@include bannerImages($name: lk, $src: url("../img/Luna_Kindred.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 8vw,
-                      $desktop-offset: 44.8%, $mobile-offset: scale(10) translate(35.4%, -14%));
-
-@include bannerImages($name: mobius, $src: url("../img/Infinite_Ouroboros.webp"),
-                      $desktop-font-size: 25px, $mobile-font-size: 8vw,
-                      $desktop-offset: 52.8%, $mobile-offset: scale(14) translate(29%, -15.6%));
-
-@include bannerImages($name: nyx, $src: url("../img/Starchasm_Nyx.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 7vw,
-                      $desktop-offset: 49.3%, $mobile-offset: scale(13) translate(30.8%, -15.4%));
-
-@include bannerImages($name: pe, $src: url("../img/Palatinus_Equinox.webp"),
-                      $desktop-font-size: 28px, $mobile-font-size: 8vw,
-                      $desktop-offset: 48.76%, $mobile-offset: scale(14) translate(30.5%, -11.6%));
-
-@include bannerImages($name: raven, $src: url("../img/Midnight_Absinthe.webp"),
-                      $desktop-font-size: 25px, $mobile-font-size: 8vw,
-                      $desktop-offset: 53.4%, $mobile-offset: scale(14) translate(29.3%, -15.2%));
-
-@include bannerImages($name: rc, $src: url("../img/Reverist_Calico.webp"),
-                      $desktop-font-size: 30px, $mobile-font-size: 8vw,
-                      $desktop-offset: 56.4%, $mobile-offset: scale(13) translate(28%, -17%));
-
-@include bannerImages($name: ri, $src: url("../img/Ritual_Imayoh.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 8vw,
-                      $desktop-offset: 55%, $mobile-offset: scale(10) translate(34%, -11.2%));
-
-@include bannerImages($name: si, $src: url("../img/Starry_Impression.webp"),
-                      $desktop-font-size: 28px, $mobile-font-size: 6vw,
-                      $desktop-offset: 46.2%, $mobile-offset: scale(14) translate(33%, -15.9%));  
-
-@include bannerImages($name: sn, $src: url("../img/Stygian_Nymph.webp"),
-                      $desktop-font-size: 32px, $mobile-font-size: 7vw,
-                      $desktop-offset: 44.6%, $mobile-offset: scale(12) translate(31.2%, -16.8%));
-
-@include bannerImages($name: spa, $src: url("../img/Spina_Astera.webp"),
-                      $desktop-font-size: 35px, $mobile-font-size: 9vw,
-                      $desktop-offset: 49.5%, $mobile-offset: scale(13) translate(30.4%, -15%));
-
-@include bannerImages($name: stfu, $src: url("../img/Striker_Fulminata.webp"),
-                      $desktop-font-size: 22px, $mobile-font-size: 7vw,
-                      $desktop-offset: 61.8%, $mobile-offset: scale(16) translate(39.2%, -16.8%));
-
-@include bannerImages($name: sus, $src: url("../img/Jade_Knight.webp"),
-                      $desktop-font-size: 36px, $mobile-font-size: 8vw,
-                      $desktop-offset: 52.2%, $mobile-offset: scale(15) translate(29.3%, -16.1%));
-
-@include bannerImages($name: sw, $src: url("../img/Silverwing_N-EX.webp"),
-                      $desktop-font-size: 30px, $mobile-font-size: 8vw,
-                      $desktop-offset: 58.3%, $mobile-offset: scale(14) translate(33.9%, -16.7%));
-
-@include bannerImages($name: tp, $src: url("../img/Twilight_Paladin.webp"),
-                      $desktop-font-size: 30px, $mobile-font-size: 6vw,
-                      $desktop-offset: 47.18%, $mobile-offset: scale(11) translate(35.2%, -15.3%));
-
-@include bannerImages($name: vg, $src: url("../img/Valkyrie_Gloria.webp"),
-                      $desktop-font-size: 30px, $mobile-font-size: 7vw,
-                      $desktop-offset: 50%, $mobile-offset: scale(15) translate(34.2%, -16%));
+/* banner images and name sizes */
+/* desktop */
+@include desktopBanner(aka-desktop,     url("../img/Argent_Knight_Artemis_Desktop.png"),        20px);
+@include desktopBanner(bke-desktop,     url("../img/Bright_Knight_Excelsis_Desktop.png"),       20px);
+@include desktopBanner(carole-desktop,  url("../img/Sweet_n_Spicy_Desktop.png"),                35px);
+@include desktopBanner(da-desktop,      url("../img/Dea_Anchora_Desktop.png"),                  35px);
+@include desktopBanner(dip-desktop,     url("../img/Disciplinary_Perdition_Desktop.png"),       20px);
+@include desktopBanner(ede-desktop,     url("../img/Golden_Diva_Desktop.png"),                  35px);
+@include desktopBanner(elysia-desktop,  url("../img/Miss_Pink_Elf_Desktop.png"),                30px);
+@include desktopBanner(fr-desktop,      url("../img/Fallen_Rosemary_Desktop.png"),              28px);
+@include desktopBanner(ft-desktop,      url("../img/Fervent_Tempo_Desktop.png"),                32px);        
+@include desktopBanner(fischl-desktop,  url("../img/Prinzessin_der_Verurteilung_Desktop.png"),  16px);
+@include desktopBanner(gm-desktop,      url("../img/Goushinnso_Memento_Desktop.png"),           28px);
+@include desktopBanner(hc-desktop,      url("../img/Helical_Contraption_Desktop.png"),          24px);
+@include desktopBanner(hofs-desktop,    url("../img/Herrscher_of_Flamescion_Desktop.png"),      20px);
+@include desktopBanner(hoh-desktop,     url("../img/Herrscher_of_Human_Ego_Desktop.png"),       20px);
+@include desktopBanner(hor-desktop,     url("../img/Herrscher_of_Reason_Desktop.png"),          22px);
+@include desktopBanner(hos-desktop,     url("../img/Herrscher_of_Sentience_Desktop.png"),       20px);
+@include desktopBanner(hot-desktop,     url("../img/Herrscher_of_Thunder_Desktop.png"),         22px);
+@include desktopBanner(hov-desktop,     url("../img/Herrscher_of_the_Void_Desktop.png"),        20px);
+@include desktopBanner(lk-desktop,      url("../img/Luna_Kindred_Desktop.png"),                 35px);
+@include desktopBanner(mobius-desktop,  url("../img/Infinite_Ouroboros_Desktop.png"),           25px);
+@include desktopBanner(nyx-desktop,     url("../img/Starchasm_Nyx_Desktop.png"),                35px);
+@include desktopBanner(pe-desktop,      url("../img/Palatinus_Equinox_Desktop.png"),            28px);
+@include desktopBanner(raven-desktop,   url("../img/Midnight_Absinthe_Desktop.png"),            25px);
+@include desktopBanner(rc-desktop,      url("../img/Reverist_Calico_Desktop.png"),              30px);
+@include desktopBanner(ri-desktop,      url("../img/Ritual_Imayoh_Desktop.png"),                35px);
+@include desktopBanner(si-desktop,      url("../img/Starry_Impression_Desktop.png"),            28px);  
+@include desktopBanner(sn-desktop,      url("../img/Stygian_Nymph_Desktop.png"),                32px);
+@include desktopBanner(spa-desktop,     url("../img/Spina_Astera_Desktop.png"),                 35px);
+@include desktopBanner(stfu-desktop,    url("../img/Striker_Fulminata_Desktop.png"),            22px);
+@include desktopBanner(sus-desktop,     url("../img/Jade_Knight_Desktop.png"),                  36px);
+@include desktopBanner(sw-desktop,      url("../img/Silverwing_N-EX_Desktop.png"),              30px);
+@include desktopBanner(tp-desktop,      url("../img/Twilight_Paladin_Desktop.png"),             30px);
+@include desktopBanner(vg-desktop,      url("../img/Valkyrie_Gloria_Desktop.png"),              30px);
+/* mobile */
+@include mobileBanner(aka-mobile,       url("../img/Argent_Knight_Artemis_Mobile.png"),         7vw);
+@include mobileBanner(bke-mobile,       url("../img/Bright_Knight_Excelsis_Mobile.png"),        7vw);
+@include mobileBanner(carole-mobile,    url("../img/Sweet_n_Spicy_Mobile.png"),                 7vw);
+@include mobileBanner(da-mobile,        url("../img/Dea_Anchora_Mobile.png"),                   9vw);
+@include mobileBanner(dip-mobile,       url("../img/Disciplinary_Perdition_Mobile.png"),        7vw);
+@include mobileBanner(ede-mobile,       url("../img/Golden_Diva_Mobile.png"),                   9vw);
+@include mobileBanner(elysia-mobile,    url("../img/Miss_Pink_Elf_Mobile.png"),                 8vw);
+@include mobileBanner(fr-mobile,        url("../img/Fallen_Rosemary_Mobile.png"),               6vw);
+@include mobileBanner(ft-mobile,        url("../img/Fervent_Tempo_Mobile.png"),                 7vw);        
+@include mobileBanner(fischl-mobile,    url("../img/Prinzessin_der_Verurteilung_Mobile.png"),   7vw);
+@include mobileBanner(gm-mobile,        url("../img/Goushinnso_Memento_Mobile.png"),            7vw);
+@include mobileBanner(hc-mobile,        url("../img/Helical_Contraption_Mobile.png"),           7vw);
+@include mobileBanner(hofs-mobile,      url("../img/Herrscher_of_Flamescion_Mobile.png"),       7vw);
+@include mobileBanner(hoh-mobile,       url("../img/Herrscher_of_Human_Ego_Mobile.png"),        7vw);
+@include mobileBanner(hor-mobile,       url("../img/Herrscher_of_Reason_Mobile.png"),           7vw);
+@include mobileBanner(hos-mobile,       url("../img/Herrscher_of_Sentience_Mobile.png"),        7vw);
+@include mobileBanner(hot-mobile,       url("../img/Herrscher_of_Thunder_Mobile.png"),          7vw);
+@include mobileBanner(hov-mobile,       url("../img/Herrscher_of_the_Void_Mobile.png"),         7vw);
+@include mobileBanner(lk-mobile,        url("../img/Luna_Kindred_Mobile.png"),                  8vw);
+@include mobileBanner(mobius-mobile,    url("../img/Infinite_Ouroboros_Mobile.png"),            8vw);
+@include mobileBanner(nyx-mobile,       url("../img/Starchasm_Nyx_Mobile.png"),                 7vw);
+@include mobileBanner(pe-mobile,        url("../img/Palatinus_Equinox_Mobile.png"),             8vw);
+@include mobileBanner(raven-mobile,     url("../img/Midnight_Absinthe_Mobile.png"),             8vw);
+@include mobileBanner(rc-mobile,        url("../img/Reverist_Calico_Mobile.png"),               8vw);
+@include mobileBanner(ri-mobile,        url("../img/Ritual_Imayoh_Mobile.png"),                 8vw);
+@include mobileBanner(si-mobile,        url("../img/Starry_Impression_Mobile.png"),             6vw);  
+@include mobileBanner(sn-mobile,        url("../img/Stygian_Nymph_Mobile.png"),                 7vw);
+@include mobileBanner(spa-mobile,       url("../img/Spina_Astera_Mobile.png"),                  9vw);
+@include mobileBanner(stfu-mobile,      url("../img/Striker_Fulminata_Mobile.png"),             7vw);
+@include mobileBanner(sus-mobile,       url("../img/Jade_Knight_Mobile.png"),                   8vw);
+@include mobileBanner(sw-mobile,        url("../img/Silverwing_N-EX_Mobile.png"),               8vw);
+@include mobileBanner(tp-mobile,        url("../img/Twilight_Paladin_Mobile.png"),              6vw);
+@include mobileBanner(vg-mobile,        url("../img/Valkyrie_Gloria_Mobile.png"),               7vw);

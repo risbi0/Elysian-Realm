@@ -16,21 +16,20 @@
     text-align: center;
 }
 
-@mixin bannerImages($name, $src, $desktop-offset, $mobile-offset, $desktop-font-size, $mobile-font-size) {
+@mixin desktopBanner($name, $src, $font-size) {
     ##{$name} {
         background-image: $src;
-        &.desktop-pos {
-            background-position: $desktop-offset;
-        }
-        &.mobile-pos {
-            transform-origin: top center;
-            transform: $mobile-offset;
-        }
         ~ .main-name > .desktop {
-            font-size: $desktop-font-size;
+            font-size: $font-size;
         }
+    }
+}
+
+@mixin mobileBanner($name, $src, $font-size) {
+    ##{$name} {
+        background-image: $src;
         ~ .main-name > .mobile {
-            font-size: $mobile-font-size;
+            font-size: $font-size;
         }
     }
 }

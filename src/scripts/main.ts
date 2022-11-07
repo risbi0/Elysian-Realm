@@ -456,7 +456,7 @@ banners.forEach((banner: any) => {
                 currentGuide.classList.remove('no-display');
                 currentBanner = this;
                 // style banner
-                this.children[0].style.filter = 'brightness(90%) blur(0.3px)';
+                this.children[0].style.filter = 'brightness(90%) blur(4px)';
                 this.children[1].children[0].style.color = 'white';
                 // hide all banner names except from the selected banner
                 document.querySelectorAll('.vertical-text').forEach((text: any) => {

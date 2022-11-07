@@ -74,7 +74,7 @@ for (let i = 0; i < valks.length; i++) {
     button.classList.add(...buttonClasses);
 
     const banner: HTMLDivElement = document.createElement('div');
-    banner.setAttribute('id', valks[i].acr);
+    banner.setAttribute('id', `${valks[i].acr}-${mobileOrDesktop}`);
     banner.classList.add(...bannerClasses);
 
     const mainNameDiv: HTMLDivElement = document.createElement('div');
