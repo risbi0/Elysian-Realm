@@ -1,7 +1,6 @@
-export * from './build';
-export * from './data';
-export * from './guide';
-export * from './main';
-
-import '../assets/styles/reset.css';
-import '../assets/styles/styles.scss';
+require('./build');
+require('./data');
+require('./guide');
+require('./main');
+require('../assets/styles/reset.css');
+require('../assets/styles/styles.scss');
