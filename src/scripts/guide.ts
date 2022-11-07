@@ -1464,7 +1464,7 @@ export const valks: any = (function(): Guide[] {
     }
     // Miss Pink Elf
     const elysia: Guide = {
-        name: 'Miss Pink Elf',
+        name: 'Miss Pink Elf♪',
         acr: 'elysia',
         rating: data.corruption,
         builds: {
