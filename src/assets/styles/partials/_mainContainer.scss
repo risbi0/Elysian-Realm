@@ -21,25 +21,24 @@
 
     div:nth-child(1) {
         filter: brightness(35%);
-        transition: 0.2s;
-    }
-
-    &:hover div:nth-child(1) {
-        filter: brightness(70%);
-        transition: 0.2s;
-        color: white;
     }
 
     > .desktop {
         @include wh($w: 100px, $h: 800px);
         box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
         background-size: cover;
+        transition: filter 0.2s;
+    }
+
+    &:hover > .desktop {
+        filter: brightness(70%);
+        transition: 0.2s;
+        color: white;
     }
 
     > .mobile {
         @include wh($w: 100vw, $h: 25vw);
-        background-size: contain;
-        background-repeat: no-repeat;
+        background-size: cover;
     }
     > .mobile-shadow {
         box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8),
