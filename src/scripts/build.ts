@@ -51,7 +51,8 @@ const mainNameClasses: string[] = ['vertical-text'];
 let mobileOrDesktop: string = '';
 if (isMobile) {
     mainContainer.classList.add('f-col');
-
+    mainContainer.style.overflowX = 'hidden';
+    
     buttonClasses.push('overflow-hide');
     bannerClasses.push('mobile', 'mobile-pos');
     mainNameDivClasses.push('mobile-shadow');
