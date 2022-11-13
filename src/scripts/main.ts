@@ -324,7 +324,7 @@ const goToTop = (e: any) => {
     guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
 }
 const buttonVisibility = (e: any) => toTopButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
-const mainStylesheet: any = document.styleSheets[1].cssRules; // styles.css
+const mainStylesheet: any = document.styleSheets[document.styleSheets.length - 1].cssRules; // styles.css
 const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
