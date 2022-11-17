@@ -67,12 +67,17 @@
 .noted {
     background-color: rgba(70, 70, 70, 0.5);
 }
-body {
-    background: url('../img/bg.webp') no-repeat;
-    background-size: cover;
+body, #about {
+    background-size: cover !important;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: $white;
+}
+.avif body, #about {
+    background: url('../img/bg.avif') no-repeat black;
+}
+.fallback body, #about {
+    background: url('../img/bg.png') no-repeat black;
 }
 header {
     background-color: $dark-tint;

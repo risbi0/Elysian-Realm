@@ -48,23 +48,18 @@ const buttonClasses: string[] = ['banner', 'pos-rel', 'hidden']
 const bannerClasses: string[] = [];
 const mainNameDivClasses: string[] = ['main-name', 'flex', 'fh-center', 'fv-center', 'pos-abs'];
 const mainNameClasses: string[] = ['vertical-text'];
-let mobileOrDesktop: string = '';
+let device: string = '';
 if (isMobile) {
     mainContainer.classList.add('f-col');
     mainContainer.style.overflowX = 'hidden';
-    
     buttonClasses.push('overflow-hide');
-    bannerClasses.push('mobile', 'mobile-pos');
     mainNameDivClasses.push('mobile-shadow');
-    mainNameClasses.push('mobile');
-
-    mobileOrDesktop = 'mobile';
+    device = 'mb';
 } else {
-    bannerClasses.push('desktop', 'desktop-pos');
-    mainNameClasses.push('desktop');
-
-    mobileOrDesktop = 'desktop';
+    device = 'dt';
 }
+bannerClasses.push(device, `${device}-pos`);
+mainNameClasses.push(device);
 
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 // DOM generation start
@@ -75,7 +70,7 @@ for (let i = 0; i < valks.length; i++) {
     button.classList.add(...buttonClasses);
 
     const banner: HTMLDivElement = document.createElement('div');
-    banner.setAttribute('id', `${valks[i].acr}-${mobileOrDesktop}`);
+    banner.setAttribute('id', `${valks[i].acr}-${device}`);
     banner.classList.add(...bannerClasses);
 
     const mainNameDiv: HTMLDivElement = document.createElement('div');
@@ -92,7 +87,7 @@ for (let i = 0; i < valks.length; i++) {
 
     // guides start
     const guideContent = document.createElement('div');
-    guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', mobileOrDesktop, 'no-display');
+    guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', device, 'no-display');
 
     if (!isMobile) {
         // inner name

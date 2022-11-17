@@ -1,103 +1,104 @@
+@import 'modules/mixins';
 /* stigmata images */
-.allt    { background-image: url("../img/Allan_Poe_T.webp"); }
-.allm    { background-image: url("../img/Allan_Poe_M.webp"); }
-.allb    { background-image: url("../img/Allan_Poe_B.webp"); }
-.anat    { background-image: url("../img/Ana_Schariac_T.webp"); }
-.anam    { background-image: url("../img/Ana_Schariac_M.webp"); }
-.anab    { background-image: url("../img/Ana_Schariac_B.webp"); }
-.aslt    { background-image: url("../img/Aslaug_T.webp"); }
-.aslm    { background-image: url("../img/Aslaug_M.webp"); }
-.aslb    { background-image: url("../img/Aslaug_B.webp"); }
-.bast    { background-image: url("../img/Bastet_T.webp"); }
-.basm    { background-image: url("../img/Bastet_M.webp"); }
-.basb    { background-image: url("../img/Bastet_B.webp"); }
-.bent    { background-image: url("../img/Benares_Awakening_T.webp"); }
-.benm    { background-image: url("../img/Benares_Awakening_M.webp"); }
-.benb    { background-image: url("../img/Benares_Awakening_B.webp"); }
-.biat    { background-image: url("../img/Bianka_Theatre_T.webp"); }
-.biam    { background-image: url("../img/Bianka_Theatre_M.webp"); }
-.biab    { background-image: url("../img/Bianka_Theatre_B.webp"); }
-.brot    { background-image: url("../img/Bronya_N-EX_T.webp"); }
-.brom    { background-image: url("../img/Bronya_N-EX_M.webp"); }
-.brob    { background-image: url("../img/Bronya_N-EX_B.webp"); }
-.cart    { background-image: url("../img/Carlo_Collodi_T.webp"); }
-.carm    { background-image: url("../img/Carlo_Collodi_M.webp"); }
-.carb    { background-image: url("../img/Carlo_Collodi_B.webp"); }
-.cezt    { background-image: url("../img/Cezanne_T.webp"); }
-.cezm    { background-image: url("../img/Cezanne_M.webp"); }
-.cezb    { background-image: url("../img/Cezanne_B.webp"); }
-.dant    { background-image: url("../img/Dante_T.webp"); }
-.danm    { background-image: url("../img/Dante_M.webp"); }
-.danb    { background-image: url("../img/Dante_B.webp"); }
-.dirt    { background-image: url("../img/Dirac_T.webp"); }
-.dirm    { background-image: url("../img/Dirac_M.webp"); }
-.dirb    { background-image: url("../img/Dirac_B.webp"); }
-.drat    { background-image: url("../img/Dracula_T.webp"); }
-.dram    { background-image: url("../img/Dracula_M.webp"); }
-.drab    { background-image: url("../img/Dracula_B.webp"); }
-.elpt    { background-image: url("../img/Elysia_Pristine_T.webp"); }
-.elpm    { background-image: url("../img/Elysia_Pristine_M.webp"); }
-.elpb    { background-image: url("../img/Elysia_Pristine_B.webp"); }
-.elyt    { background-image: url("../img/Elysia_T.webp"); }
-.elym    { background-image: url("../img/Elysia_M.webp"); }
-.elyb    { background-image: url("../img/Elysia_B.webp"); }
-.hant    { background-image: url("../img/Handel_T.webp"); }
-.hanm    { background-image: url("../img/Handel_M.webp"); }
-.hanb    { background-image: url("../img/Handel_B.webp"); }
-.iret    { background-image: url("../img/Irene_Adler_T.webp"); }
-.irem    { background-image: url("../img/Irene_Adler_M.webp"); }
-.ireb    { background-image: url("../img/Irene_Adler_B.webp"); }
-.kaft    { background-image: url("../img/Kafka_T.webp"); }
-.kafm    { background-image: url("../img/Kafka_M.webp"); }
-.kafb    { background-image: url("../img/Kafka_B.webp"); }
-.leet    { background-image: url("../img/Leeuwenhoek_T.webp"); }
-.leeb    { background-image: url("../img/Leeuwenhoek_B.webp"); }
-.list    { background-image: url("../img/Li_Sushang_Shenzhou_Reminiscence_T.webp"); }
-.lism    { background-image: url("../img/Li_Sushang_Shenzhou_Reminiscence_M.webp"); }
-.lisb    { background-image: url("../img/Li_Sushang_Shenzhou_Reminiscence_B.webp"); }
-.lint    { background-image: url("../img/Linnaeus_T.webp"); }
-.linm    { background-image: url("../img/Linnaeus_M.webp"); }
-.linb    { background-image: url("../img/Linnaeus_B.webp"); }
-.marm    { background-image: url("../img/Marco_Polo_M.webp"); }
-.mict    { background-image: url("../img/Michelangelo_T.webp"); }
-.micb    { background-image: url("../img/Michelangelo_B.webp"); }
-.murt    { background-image: url("../img/Murata_Himeko_T.webp"); }
-.murm    { background-image: url("../img/Murata_Himeko_M.webp"); }
-.murb    { background-image: url("../img/Murata_Himeko_B.webp"); }
-.pagt    { background-image: url("../img/Paganini_T.webp"); }
-.pagm    { background-image: url("../img/Paganini_M.webp"); }
-.pagb    { background-image: url("../img/Paganini_B.webp"); }
-.ragt    { background-image: url("../img/Ragna_T.webp"); }
-.ragm    { background-image: url("../img/Ragna_M.webp"); }
-.ragb    { background-image: url("../img/Ragna_B.webp"); }
-.rebt    { background-image: url("../img/Mei_Spectramancer_T.webp"); }
-.rebb    { background-image: url("../img/Fu_Hua_Onyx_Simurgh_B.webp"); }
-.robt    { background-image: url("../img/Robert_Peary_T.webp"); }
-.robm    { background-image: url("../img/Robert_Peary_M.webp"); }
-.robb    { background-image: url("../img/Robert_Peary_B.webp"); }
-.shat    { background-image: url("../img/Shakespeare_Adrift_T.webp"); }
-.sham    { background-image: url("../img/Shakespeare_Adrift_M.webp"); }
-.shab    { background-image: url("../img/Shakespeare_Adrift_B.webp"); }
-.shst    { background-image: url("../img/Raksha_T.webp"); }
-.shsm    { background-image: url("../img/Sushang_M.webp"); }
-.shsb    { background-image: url("../img/Empyrea_Phoenix_B.webp"); }
-.siem    { background-image: url("../img/Siegfried_Kaslana_M.webp"); }
-.sirt    { background-image: url("../img/Sirin_Ascendant_T.webp"); }
-.sirm    { background-image: url("../img/Sirin_Ascendant_M.webp"); }
-.sirb    { background-image: url("../img/Sirin_Ascendant_B.webp"); }
-.tham    { background-image: url("../img/Thales_M.webp"); }
-.vert    { background-image: url("../img/Verne_T.webp"); }
-.verm    { background-image: url("../img/Verne_M.webp"); }
-.verb    { background-image: url("../img/Verne_B.webp"); }
-.want    { background-image: url("../img/Wang_Zhenyi_T.webp"); }
-.wanm    { background-image: url("../img/Wang_Zhenyi_M.webp"); }
-.wanb    { background-image: url("../img/Wang_Zhenyi_B.webp"); }
-.welt    { background-image: url("../img/Welt_Yang_T.webp"); }
-.welm    { background-image: url("../img/Welt_Yang_M.webp"); }
-.welb    { background-image: url("../img/Welt_Yang_B.webp"); }
-.wilt    { background-image: url("../img/Willows_T.webp"); }
-.wilm    { background-image: url("../img/Willows_M.webp"); }
-.wilb    { background-image: url("../img/Willows_B.webp"); }
-.zent    { background-image: url("../img/Zeno_T.webp"); }
-.zenm    { background-image: url("../img/Zeno_M.webp"); }
-.zenb    { background-image: url("../img/Zeno_B.webp"); }
+@include avifFallback(allt, Allan_Poe_T);
+@include avifFallback(allm, Allan_Poe_M);
+@include avifFallback(allb, Allan_Poe_B);
+@include avifFallback(anat, Ana_Schariac_T);
+@include avifFallback(anam, Ana_Schariac_M);
+@include avifFallback(anab, Ana_Schariac_B);
+@include avifFallback(aslt, Aslaug_T);
+@include avifFallback(aslm, Aslaug_M);
+@include avifFallback(aslb, Aslaug_B);
+@include avifFallback(bast, Bastet_T);
+@include avifFallback(basm, Bastet_M);
+@include avifFallback(basb, Bastet_B);
+@include avifFallback(bent, Benares_Awakening_T);
+@include avifFallback(benm, Benares_Awakening_M);
+@include avifFallback(benb, Benares_Awakening_B);
+@include avifFallback(biat, Bianka_Theatre_T);
+@include avifFallback(biam, Bianka_Theatre_M);
+@include avifFallback(biab, Bianka_Theatre_B);
+@include avifFallback(brot, Bronya_N-EX_T);
+@include avifFallback(brom, Bronya_N-EX_M);
+@include avifFallback(brob, Bronya_N-EX_B);
+@include avifFallback(cart, Carlo_Collodi_T);
+@include avifFallback(carm, Carlo_Collodi_M);
+@include avifFallback(carb, Carlo_Collodi_B);
+@include avifFallback(cezt, Cezanne_T);
+@include avifFallback(cezm, Cezanne_M);
+@include avifFallback(cezb, Cezanne_B);
+@include avifFallback(dant, Dante_T);
+@include avifFallback(danm, Dante_M);
+@include avifFallback(danb, Dante_B);
+@include avifFallback(dirt, Dirac_T);
+@include avifFallback(dirm, Dirac_M);
+@include avifFallback(dirb, Dirac_B);
+@include avifFallback(drat, Dracula_T);
+@include avifFallback(dram, Dracula_M);
+@include avifFallback(drab, Dracula_B);
+@include avifFallback(elpt, Elysia_Pristine_T);
+@include avifFallback(elpm, Elysia_Pristine_M);
+@include avifFallback(elpb, Elysia_Pristine_B);
+@include avifFallback(elyt, Elysia_T);
+@include avifFallback(elym, Elysia_M);
+@include avifFallback(elyb, Elysia_B);
+@include avifFallback(hant, Handel_T);
+@include avifFallback(hanm, Handel_M);
+@include avifFallback(hanb, Handel_B);
+@include avifFallback(iret, Irene_Adler_T);
+@include avifFallback(irem, Irene_Adler_M);
+@include avifFallback(ireb, Irene_Adler_B);
+@include avifFallback(kaft, Kafka_T);
+@include avifFallback(kafm, Kafka_M);
+@include avifFallback(kafb, Kafka_B);
+@include avifFallback(leet, Leeuwenhoek_T);
+@include avifFallback(leeb, Leeuwenhoek_B);
+@include avifFallback(list, Li_Sushang_Shenzhou_Reminiscence_T);
+@include avifFallback(lism, Li_Sushang_Shenzhou_Reminiscence_M);
+@include avifFallback(lisb, Li_Sushang_Shenzhou_Reminiscence_B);
+@include avifFallback(lint, Linnaeus_T);
+@include avifFallback(linm, Linnaeus_M);
+@include avifFallback(linb, Linnaeus_B);
+@include avifFallback(marm, Marco_Polo_M);
+@include avifFallback(mict, Michelangelo_T);
+@include avifFallback(micb, Michelangelo_B);
+@include avifFallback(murt, Murata_Himeko_T);
+@include avifFallback(murm, Murata_Himeko_M);
+@include avifFallback(murb, Murata_Himeko_B);
+@include avifFallback(pagt, Paganini_T);
+@include avifFallback(pagm, Paganini_M);
+@include avifFallback(pagb, Paganini_B);
+@include avifFallback(ragt, Ragna_T);
+@include avifFallback(ragm, Ragna_M);
+@include avifFallback(ragb, Ragna_B);
+@include avifFallback(rebt, Mei_Spectramancer_T);
+@include avifFallback(rebb, Fu_Hua_Onyx_Simurgh_B);
+@include avifFallback(robt, Robert_Peary_T);
+@include avifFallback(robm, Robert_Peary_M);
+@include avifFallback(robb, Robert_Peary_B);
+@include avifFallback(shat, Shakespeare_Adrift_T);
+@include avifFallback(sham, Shakespeare_Adrift_M);
+@include avifFallback(shab, Shakespeare_Adrift_B);
+@include avifFallback(shst, Raksha_T);
+@include avifFallback(shsm, Sushang_M);
+@include avifFallback(shsb, Empyrea_Phoenix_B);
+@include avifFallback(siem, Siegfried_Kaslana_M);
+@include avifFallback(sirt, Sirin_Ascendant_T);
+@include avifFallback(sirm, Sirin_Ascendant_M);
+@include avifFallback(sirb, Sirin_Ascendant_B);
+@include avifFallback(tham, Thales_M);
+@include avifFallback(vert, Verne_T);
+@include avifFallback(verm, Verne_M);
+@include avifFallback(verb, Verne_B);
+@include avifFallback(want, Wang_Zhenyi_T);
+@include avifFallback(wanm, Wang_Zhenyi_M);
+@include avifFallback(wanb, Wang_Zhenyi_B);
+@include avifFallback(welt, Welt_Yang_T);
+@include avifFallback(welm, Welt_Yang_M);
+@include avifFallback(welb, Welt_Yang_B);
+@include avifFallback(wilt, Willows_T);
+@include avifFallback(wilm, Willows_M);
+@include avifFallback(wilb, Willows_B);
+@include avifFallback(zent, Zeno_T);
+@include avifFallback(zenm, Zeno_M);
+@include avifFallback(zenb, Zeno_B);

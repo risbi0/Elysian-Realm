@@ -16,21 +16,38 @@
     text-align: center;
 }
 
-@mixin desktopBanner($name, $src, $font-size) {
-    ##{$name} {
-        background-image: $src;
-        ~ .main-name > .desktop {
-            font-size: $font-size;
+@mixin bannerImage($name, $src, $desktop-font-size, $mobile-font-size) {
+    $pre: "../img/" + $src;
+    .avif {
+        ##{$name}-dt {
+            background-image: url($pre + "_dt.avif");
         }
+        ##{$name}-mb {
+            background-image: url($pre + "_mb.avif");
+        }
+    }
+    .fallback {
+        ##{$name}-dt {
+            background-image: url($pre + "_dt.png");
+        }
+        ##{$name}-mb {
+            background-image: url($pre + "_mb.png");
+        }
+    }
+    ##{$name}-dt ~ .main-name > .dt {
+        font-size: $desktop-font-size;
+    }
+    ##{$name}-mb ~ .main-name > .mb {
+        font-size: $mobile-font-size;
     }
 }
 
-@mixin mobileBanner($name, $src, $font-size) {
-    ##{$name} {
-        background-image: $src;
-        ~ .main-name > .mobile {
-            font-size: $font-size;
-        }
+@mixin avifFallback($name, $url) {
+    .avif .#{$name} {
+        background-image: url("../img/" + $url + ".avif");
+    }
+    .fallback .#{$name} {
+        background-image: url("../img/" + $url + ".png");
     }
 }
 

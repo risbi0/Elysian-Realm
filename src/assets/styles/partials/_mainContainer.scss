@@ -23,20 +23,20 @@
         filter: brightness(35%);
     }
 
-    > .desktop {
+    > .dt {
         @include wh($w: 100px, $h: 800px);
         box-shadow: inset 0 -800px 800px -500px rgba(0, 0, 0, 0.8);
         background-size: cover;
         transition: filter 0.2s;
     }
 
-    &:hover > .desktop {
+    &:hover > .dt {
         filter: brightness(70%);
         transition: 0.2s;
         color: white;
     }
 
-    > .mobile {
+    > .mb {
         @include wh($w: 100vw, $h: 25vw);
         background-size: cover;
     }
@@ -55,7 +55,7 @@
     letter-spacing: 8px;
     color: rgba(255, 255, 255, 0.7);
 
-    &.desktop {
+    &.dt {
         writing-mode: vertical-lr;
         text-orientation: upright;
     }

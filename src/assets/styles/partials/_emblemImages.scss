@@ -1,37 +1,38 @@
+@import 'modules/mixins';
 /* emblem images */
-.boy    { background-image: url("../img/Because_of_You.webp"); }
-.bf     { background-image: url("../img/Boundless_Feeling.webp"); }
-.bl     { background-image: url("../img/Boundless_Logos.webp"); }
-.b      { background-image: url("../img/Burden.webp"); }
-.dg     { background-image: url("../img/Dreamful_Gold.webp"); }
-.els    { background-image: url("../img/Empty_Like_Shala.webp"); }
-.fas    { background-image: url("../img/Faraway_Ship.webp"); }
-.fipl   { background-image: url("../img/Falling_in_Past_Light.webp"); }
-.ff     { background-image: url("../img/Fragile_Friend.webp"); }
-.foe    { background-image: url("../img/Feast_of_Emptiness.webp"); }
-.fos    { background-image: url("../img/Forbidden_Seed.webp"); }
-.fmt    { background-image: url("../img/Forget_Me_Not.webp"); }
-.gg     { background-image: url("../img/Gold_Goblet.webp"); }
-.god    { background-image: url("../img/Good_Old_Days.webp"); }
-.gsr    { background-image: url("../img/Grey_Scale_Rainbow.webp"); }
-.h      { background-image: url("../img/Hometown.webp"); }
-.haaml  { background-image: url("../img/Heavy_as_a_Million_Lives.webp"); }
-.hl     { background-image: url("../img/Home_Lost.webp"); }
-.iwbw   { background-image: url("../img/It_Will_Be_Written.webp"); }
-.kttd   { background-image: url("../img/Key_to_the_Deep.webp"); }
-.laabl  { background-image: url("../img/Light_as_a_Bodhi_Leaf.webp"); }
-.mkm    { background-image: url("../img/Mad_Kings_Mask.webp"); }
-.m      { background-image: url("../img/Memory.webp"); }
-.oor    { background-image: url("../img/Out_of_Reach.webp"); }
-.pm     { background-image: url("../img/Pseudo_Miracle.webp"); }
-.pogae  { background-image: url("../img/Proof_of_Good_and_Evil.webp"); }
-.r      { background-image: url("../img/Resolve.webp"); }
-.rl     { background-image: url("../img/Ruined_Legacy.webp"); }
-.roa    { background-image: url("../img/Rainbow_of_Absence.webp"); }
-.sts    { background-image: url("../img/Stained_Sakura.webp"); }
-.tc     { background-image: url("../img/Thorny_Crown.webp"); }
-.tf     { background-image: url("../img/Tin_Flask.webp"); }
-.tfs    { background-image: url("../img/The_First_Scale.webp"); }
-.th     { background-image: url("../img/Tsukimi_Himiko.webp"); }
-.tlm    { background-image: url("../img/The_Lonely_Moon.webp"); }
-.vot    { background-image: url("../img/Veil_of_Tears.webp"); }
+@include avifFallback(boy,      Because_of_You);
+@include avifFallback(bf,       Boundless_Feeling);
+@include avifFallback(bl,       Boundless_Logos);
+@include avifFallback(b,        Burden);
+@include avifFallback(dg,       Dreamful_Gold);
+@include avifFallback(els,      Empty_Like_Shala);
+@include avifFallback(fas,      Faraway_Ship);
+@include avifFallback(fipl,     Falling_in_Past_Light);
+@include avifFallback(ff,       Fragile_Friend);
+@include avifFallback(foe,      Feast_of_Emptiness);
+@include avifFallback(fos,      Forbidden_Seed);
+@include avifFallback(fmt,      Forget_Me_Not);
+@include avifFallback(gg,       Gold_Goblet);
+@include avifFallback(god,      Good_Old_Days);
+@include avifFallback(gsr,      Grey_Scale_Rainbow);
+@include avifFallback(h,        Hometown);
+@include avifFallback(haaml,    Heavy_as_a_Million_Lives);
+@include avifFallback(hl,       Home_Lost);
+@include avifFallback(iwbw,     It_Will_Be_Written);
+@include avifFallback(kttd,     Key_to_the_Deep);
+@include avifFallback(laabl,    Light_as_a_Bodhi_Leaf);
+@include avifFallback(mkm,      Mad_Kings_Mask);
+@include avifFallback(m,        Memory);
+@include avifFallback(oor,      Out_of_Reach);
+@include avifFallback(pm,       Pseudo_Miracle);
+@include avifFallback(pogae,    Proof_of_Good_and_Evil);
+@include avifFallback(r,        Resolve);
+@include avifFallback(rl,       Ruined_Legacy);
+@include avifFallback(roa,      Rainbow_of_Absence);
+@include avifFallback(sts,      Stained_Sakura);
+@include avifFallback(tc,       Thorny_Crown);
+@include avifFallback(tf,       Tin_Flask);
+@include avifFallback(tfs,      The_First_Scale);
+@include avifFallback(th,       Tsukimi_Himiko);
+@include avifFallback(tlm,      The_Lonely_Moon);
+@include avifFallback(vot,      Veil_of_Tears);

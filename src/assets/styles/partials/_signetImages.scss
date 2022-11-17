@@ -1,13 +1,14 @@
+@import 'modules/mixins';
 /* signet imaages */
-.aponia     { background-image: url("../img/Aponia_Signet.webp"); }
-.eden       { background-image: url("../img/Eden_Signet.webp"); }
-.griseo     { background-image: url("../img/Griseo_Signet.webp"); }
-.hua        { background-image: url("../img/Hua_Signet.webp"); }
-.kalpas     { background-image: url("../img/Kalpas_Signet.webp"); }
-.kevin      { background-image: url("../img/Kevin_Signet.webp"); }
-.kosma      { background-image: url("../img/Kosma_Signet.webp"); }
-.mobius     { background-image: url("../img/Mobius_Signet.webp"); }
-.pardofelis { background-image: url("../img/Pardofelis_Signet.webp"); }
-.sakura     { background-image: url("../img/Sakura_Signet.webp"); }
-.su         { background-image: url("../img/Su_Signet.webp"); }
-.vill-v     { background-image: url("../img/Vill-V_Signet.webp"); }
+@include avifFallback(aponia,       Aponia_Signet);
+@include avifFallback(eden,         Eden_Signet);
+@include avifFallback(griseo,       Griseo_Signet);
+@include avifFallback(hua,          Hua_Signet);
+@include avifFallback(kalpas,       Kalpas_Signet);
+@include avifFallback(kevin,        Kevin_Signet);
+@include avifFallback(kosma,        Kosma_Signet);
+@include avifFallback(mobius,       Mobius_Signet);
+@include avifFallback(pardofelis,   Pardofelis_Signet);
+@include avifFallback(sakura,       Sakura_Signet);
+@include avifFallback(su,           Su_Signet);
+@include avifFallback(vill-v,       Vill-V_Signet);

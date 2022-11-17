@@ -1,13 +1,14 @@
+@import 'modules/mixins';
 /* support valk images */
-.ae    { background-image: url("../img/Azure_Empyrea_Avatar.webp"); }
-.bke   { background-image: url("../img/Bright_Knight_Excelsis_Avatar.webp"); }
-.br    { background-image: url("../img/Blood_Rose_Avatar.webp"); }
-.dp    { background-image: url("../img/Divine_Prayer_Avatar.webp"); }
-.hb    { background-image: url("../img/Haxxor_Bunny_Avatar.webp"); }
-.le    { background-image: url("../img/Lightning_Empress_Avatar.webp"); }
-.ma    { background-image: url("../img/Midnight_Absinthe_Avatar.webp"); }
-.rc    { background-image: url("../img/Reverist_Calico_Avatar.webp"); }
-.sa    { background-image: url("../img/Starlit_Astrologos_Avatar.webp"); }
-.sn    { background-image: url("../img/Stygian_Nymph_Avatar.webp"); }
-.ss    { background-image: url("../img/Snowy_Sniper_Avatar.webp"); }
-.vc    { background-image: url("../img/Valkyrie_Chariot_Avatar.webp"); }
+@include avifFallback(ae,   Azure_Empyrea_Avatar);
+@include avifFallback(bke,  Bright_Knight_Excelsis_Avatar);
+@include avifFallback(br,   Blood_Rose_Avatar);
+@include avifFallback(dp,   Divine_Prayer_Avatar);
+@include avifFallback(hb,   Haxxor_Bunny_Avatar);
+@include avifFallback(le,   Lightning_Empress_Avatar);
+@include avifFallback(ma,   Midnight_Absinthe_Avatar);
+@include avifFallback(rc,   Reverist_Calico_Avatar);
+@include avifFallback(sa,   Starlit_Astrologos_Avatar);
+@include avifFallback(sn,   Stygian_Nymph_Avatar);
+@include avifFallback(ss,   Snowy_Sniper_Avatar);
+@include avifFallback(vc,   Valkyrie_Chariot_Avatar);

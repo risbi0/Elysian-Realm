@@ -6,6 +6,13 @@ const body = document.querySelector('body') as HTMLBodyElement;
 window.scrollTo({ top: 0 });
 body.style.overflow = 'hidden';
 
+// determine AVIF support
+const addClass = (className: string): void => document.documentElement.classList.add(className);
+const avif: HTMLImageElement = new Image();
+avif.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+avif.onload = () => addClass('avif');
+avif.onerror = () => addClass('fallback');
+
 // execute animation after all images are loaded
 function load(src: string): Promise<unknown> {
     return new Promise((resolve, reject) => {
@@ -24,74 +31,76 @@ function fadeAnim(item: any, fade: string): void {
     }, time);
     time += interval;
 }
-// insert bg and banner image filenames
 const banners: any = document.querySelectorAll('.banner');
-const url: string[] = [];
-url.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
-banners.forEach((banner: HTMLDivElement) => url.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
-// wait for images to load
+const paths: string[] = [];
 const cover = document.querySelector('#cover') as HTMLDivElement;
 const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
 const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.querySelector('#meter') as HTMLDivElement;
 let done: number = 0, progressInPixels: number = 0;
 let once: boolean = true; // execute code once on error
-url.forEach((link: string) => {
-    load(link).then(() => {
-        done += 1;
-        // progress bar
-        const percentDone: number = Math.round(done / url.length * 100) / 100;
-        const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
-        while (meter.style.width !== `${fillPixels}px`) {
-            progressInPixels += 1;
-            meter.style.width = `${progressInPixels}px`;
-        }
-        if (done === url.length) { // start animation
-            body.style.overflow = 'auto';
-            cover.classList.add('fade');
-            setTimeout(() => { cover.remove() }, 1000);
-            // animations:
-            // fade-in-up/down, only applied to the banners in the viewport (desktop)
-            // fade-in-left/right, applied to all banners (mobile)
-            finalArr.forEach((_, index) => {
-                if (index % 2 === 0) {
-                    fadeAnim(banners[finalArr[index]], animation1);
-                } else {
-                    fadeAnim(banners[finalArr[index]], animation2);
-                }
-            });
-            if (!isMobile) {
-                // instantly display banners outside viewport
-                // not covering the one in a million chance that the user
-                // expands the window width while the animation is still ongoing 😡
-                banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
-                // allow scroll
-                setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
+window.addEventListener('load', () => {
+    // insert bg and banner image paths
+    banners.forEach((banner: HTMLDivElement) => paths.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
+    paths.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
+    paths.forEach((link: string) => {
+        // wait for images to load
+        load(link).then(() => {
+            done += 1;
+            // progress bar
+            const percentDone: number = Math.round(done / paths.length * 100) / 100;
+            const fillPixels: number = Math.round(percentDone * progressBarWidthInPixels);
+            while (meter.style.width !== `${fillPixels}px`) {
+                progressInPixels += 1;
+                meter.style.width = `${progressInPixels}px`;
             }
-        }
-    }).catch(() => {
-        if (once) { // make reload page
-            const errMsg: HTMLParagraphElement = document.createElement('p');
-            errMsg.setAttribute('id', 'error-msg');
-            errMsg.innerText = 'An error occured. Please reload the page.';
+            if (done === paths.length) { // start animation
+                body.style.overflow = 'auto';
+                cover.classList.add('fade');
+                setTimeout(() => { cover.remove() }, 1000);
+                // animations:
+                // fade-in-up/down, only applied to the banners in the viewport (desktop)
+                // fade-in-left/right, applied to all banners (mobile)
+                finalArr.forEach((_, index) => {
+                    if (index % 2 === 0) {
+                        fadeAnim(banners[finalArr[index]], animation1);
+                    } else {
+                        fadeAnim(banners[finalArr[index]], animation2);
+                    }
+                });
+                if (!isMobile) {
+                    // instantly display banners outside viewport
+                    // not covering the one in a million chance that the user
+                    // expands the window width while the animation is still ongoing 😡
+                    banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
+                    // allow scroll
+                    setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
+                }
+            }
+        }).catch(() => {
+            if (once) { // make reload page
+                const errMsg: HTMLParagraphElement = document.createElement('p');
+                errMsg.setAttribute('id', 'error-msg');
+                errMsg.innerText = 'An error occured. Please reload the page.';
 
-            const reloadBtn: HTMLButtonElement = document.createElement('button');
-            reloadBtn.setAttribute('id', 'refresh');
-            reloadBtn.setAttribute('onclick', 'window.location.reload();');
-            
-            const span: HTMLSpanElement = document.createElement('span');
-            span.classList.add('material-icons');
-            span.innerText = 'refresh';
+                const reloadBtn: HTMLButtonElement = document.createElement('button');
+                reloadBtn.setAttribute('id', 'refresh');
+                reloadBtn.setAttribute('onclick', 'window.location.reload();');
+                
+                const span: HTMLSpanElement = document.createElement('span');
+                span.classList.add('material-icons');
+                span.innerText = 'refresh';
 
-            reloadBtn.appendChild(span);
+                reloadBtn.appendChild(span);
 
-            cover.innerHTML = '';
-            cover.classList.add('f-col');
-            cover.appendChild(errMsg);
-            cover.appendChild(reloadBtn);
+                cover.innerHTML = '';
+                cover.classList.add('f-col');
+                cover.appendChild(errMsg);
+                cover.appendChild(reloadBtn);
 
-            once = false;
-        }
+                once = false;
+            }
+        });
     });
 });
 

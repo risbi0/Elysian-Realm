@@ -52,24 +52,24 @@
         display: none;
     }
 
-    &.mobile {
+    &.mb {
         @include wh($w: 100%, $h: calc(100% - 25vw));
         transform: translateX(-50%);
 
         &.upper { margin-top: 25vw; }
     }
 
-    &.desktop {
+    &.dt {
         width: 600px;
         border: 3px solid rgba($color: white, $alpha: 0.5);
         transform: translate(-50%, 15%);
     }
 }
 @media only screen and (min-height: 950px) {
-    .guide-content.desktop { height: 800px; }
+    .guide-content.dt { height: 800px; }
 }
 @media only screen and (max-height: 949px) {
-    .guide-content.desktop { height: calc(100vh - 15px); }
+    .guide-content.dt { height: calc(100vh - 15px); }
     
 }
 /* desktop (innerHeight >= 950px) */
