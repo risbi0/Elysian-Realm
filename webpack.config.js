@@ -8,7 +8,7 @@ const isDevelopment = process.argv[process.argv.indexOf('--mode') + 1] === 'deve
 
 const getFiles = () => {
     files = [];
-    glob('src/assets/img/**/**/*.{avif,png}', (_, imagePaths) => {
+    glob('src/assets/img/**/*.png', (_, imagePaths) => {
         for (const imagePath of imagePaths) files.push({ from: imagePath, to: 'static/img' });
     });
     files.push({ from: 'src/assets/favicon', to: 'static/favicon' }, 'src/serviceWorker.js', 'src/site.webmanifest');
