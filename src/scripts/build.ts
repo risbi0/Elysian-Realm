@@ -3,8 +3,6 @@ import { emblemTableHeaders, emblemTableTimeColumn,
          supportTableHeaders, supportTableTypeColumn,
          exclusiveTableColumns, signetTableColumns, isMobile } from './data';
 
-export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
-
 function imageAndLabel(cell: HTMLTableCellElement,
                        row: HTMLTableRowElement,
                        item: any,
@@ -43,6 +41,8 @@ function imageAndLabel(cell: HTMLTableCellElement,
     return cell;
 }
 
+export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
+export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 // setup classes
 const buttonClasses: string[] = ['banner', 'pos-rel', 'hidden']
 const bannerClasses: string[] = [];
@@ -61,7 +61,6 @@ if (isMobile) {
 bannerClasses.push(device, `${device}-pos`);
 mainNameClasses.push(device);
 
-export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 // DOM generation start
 for (let i = 0; i < valks.length; i++) {
     // banners start

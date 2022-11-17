@@ -1,14 +1,14 @@
 @import 'modules/mixins';
 /* signet imaages */
-@include avifFallback(aponia,       Aponia_Signet);
-@include avifFallback(eden,         Eden_Signet);
-@include avifFallback(griseo,       Griseo_Signet);
-@include avifFallback(hua,          Hua_Signet);
-@include avifFallback(kalpas,       Kalpas_Signet);
-@include avifFallback(kevin,        Kevin_Signet);
-@include avifFallback(kosma,        Kosma_Signet);
-@include avifFallback(mobius,       Mobius_Signet);
-@include avifFallback(pardofelis,   Pardofelis_Signet);
-@include avifFallback(sakura,       Sakura_Signet);
-@include avifFallback(su,           Su_Signet);
-@include avifFallback(vill-v,       Vill-V_Signet);
+@include image(aponia,       Aponia_Signet);
+@include image(eden,         Eden_Signet);
+@include image(griseo,       Griseo_Signet);
+@include image(hua,          Hua_Signet);
+@include image(kalpas,       Kalpas_Signet);
+@include image(kevin,        Kevin_Signet);
+@include image(kosma,        Kosma_Signet);
+@include image(mobius,       Mobius_Signet);
+@include image(pardofelis,   Pardofelis_Signet);
+@include image(sakura,       Sakura_Signet);
+@include image(su,           Su_Signet);
+@include image(vill-v,       Vill-V_Signet);

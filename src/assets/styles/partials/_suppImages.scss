@@ -1,14 +1,14 @@
 @import 'modules/mixins';
 /* support valk images */
-@include avifFallback(ae,   Azure_Empyrea_Avatar);
-@include avifFallback(bke,  Bright_Knight_Excelsis_Avatar);
-@include avifFallback(br,   Blood_Rose_Avatar);
-@include avifFallback(dp,   Divine_Prayer_Avatar);
-@include avifFallback(hb,   Haxxor_Bunny_Avatar);
-@include avifFallback(le,   Lightning_Empress_Avatar);
-@include avifFallback(ma,   Midnight_Absinthe_Avatar);
-@include avifFallback(rc,   Reverist_Calico_Avatar);
-@include avifFallback(sa,   Starlit_Astrologos_Avatar);
-@include avifFallback(sn,   Stygian_Nymph_Avatar);
-@include avifFallback(ss,   Snowy_Sniper_Avatar);
-@include avifFallback(vc,   Valkyrie_Chariot_Avatar);
+@include image(ae,   Azure_Empyrea_Avatar);
+@include image(bke,  Bright_Knight_Excelsis_Avatar);
+@include image(br,   Blood_Rose_Avatar);
+@include image(dp,   Divine_Prayer_Avatar);
+@include image(hb,   Haxxor_Bunny_Avatar);
+@include image(le,   Lightning_Empress_Avatar);
+@include image(ma,   Midnight_Absinthe_Avatar);
+@include image(rc,   Reverist_Calico_Avatar);
+@include image(sa,   Starlit_Astrologos_Avatar);
+@include image(sn,   Stygian_Nymph_Avatar);
+@include image(ss,   Snowy_Sniper_Avatar);
+@include image(vc,   Valkyrie_Chariot_Avatar);

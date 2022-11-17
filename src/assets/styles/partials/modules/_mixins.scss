@@ -16,38 +16,25 @@
     text-align: center;
 }
 
-@mixin bannerImage($name, $src, $desktop-font-size, $mobile-font-size) {
+@mixin bannerImage($id, $src, $desktop-font-size, $mobile-font-size) {
     $pre: "../img/" + $src;
-    .avif {
-        ##{$name}-dt {
-            background-image: url($pre + "_dt.avif");
-        }
-        ##{$name}-mb {
-            background-image: url($pre + "_mb.avif");
-        }
+    ##{$id}-dt {
+        background-image: url($pre + "_dt.png");
     }
-    .fallback {
-        ##{$name}-dt {
-            background-image: url($pre + "_dt.png");
-        }
-        ##{$name}-mb {
-            background-image: url($pre + "_mb.png");
-        }
+    ##{$id}-mb {
+        background-image: url($pre + "_mb.png");
     }
-    ##{$name}-dt ~ .main-name > .dt {
+    ##{$id}-dt ~ .main-name > .dt {
         font-size: $desktop-font-size;
     }
-    ##{$name}-mb ~ .main-name > .mb {
+    ##{$id}-mb ~ .main-name > .mb {
         font-size: $mobile-font-size;
     }
 }
 
-@mixin avifFallback($name, $url) {
-    .avif .#{$name} {
-        background-image: url("../img/" + $url + ".avif");
-    }
-    .fallback .#{$name} {
-        background-image: url("../img/" + $url + ".png");
+@mixin image($class, $name) {
+    .#{$class} {
+        background-image: url("../img/" + $name + ".png");
     }
 }
 
