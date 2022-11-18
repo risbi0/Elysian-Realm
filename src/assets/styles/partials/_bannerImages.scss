@@ -1,17 +1,17 @@
 @import 'modules/mixins';
 /* banner images and name sizes */
 @include bannerImage(aka,     Argent_Knight_Artemis,        20px, 7vw);
+@include bannerImage(aponia,  Disciplinary_Perdition,       20px, 7vw);
 @include bannerImage(bke,     Bright_Knight_Excelsis,       20px, 7vw);
 @include bannerImage(carole,  Sweet_n_Spicy,                35px, 7vw);
 @include bannerImage(da,      Dea_Anchora,                  35px, 9vw);
-@include bannerImage(dip,     Disciplinary_Perdition,       20px, 7vw);
-@include bannerImage(ede,     Golden_Diva,                  35px, 9vw);
+@include bannerImage(eden,    Golden_Diva,                  35px, 9vw);
 @include bannerImage(elysia,  Miss_Pink_Elf,                30px, 8vw);
 @include bannerImage(fr,      Fallen_Rosemary,              28px, 6vw);
 @include bannerImage(ft,      Fervent_Tempo,                32px, 7vw);        
 @include bannerImage(fischl,  Prinzessin_der_Verurteilung,  16px, 7vw);
 @include bannerImage(gm,      Goushinnso_Memento,           28px, 7vw);
-@include bannerImage(hc,      Helical_Contraption,          24px, 7vw);
+@include bannerImage(griseo,  Starry_Impression,            28px, 6vw);  
 @include bannerImage(hofs,    Herrscher_of_Flamescion,      20px, 7vw);
 @include bannerImage(hoh,     Herrscher_of_Human_Ego,       20px, 7vw);
 @include bannerImage(hor,     Herrscher_of_Reason,          22px, 7vw);
@@ -21,15 +21,15 @@
 @include bannerImage(lk,      Luna_Kindred,                 35px, 8vw);
 @include bannerImage(mobius,  Infinite_Ouroboros,           25px, 8vw);
 @include bannerImage(nyx,     Starchasm_Nyx,                35px, 7vw);
+@include bannerImage(pardo,   Reverist_Calico,              30px, 8vw);
 @include bannerImage(pe,      Palatinus_Equinox,            28px, 8vw);
 @include bannerImage(raven,   Midnight_Absinthe,            25px, 8vw);
-@include bannerImage(rc,      Reverist_Calico,              30px, 8vw);
 @include bannerImage(ri,      Ritual_Imayoh,                35px, 8vw);
-@include bannerImage(si,      Starry_Impression,            28px, 6vw);  
 @include bannerImage(sn,      Stygian_Nymph,                32px, 7vw);
 @include bannerImage(spa,     Spina_Astera,                 35px, 9vw);
 @include bannerImage(stfu,    Striker_Fulminata,            22px, 7vw);
 @include bannerImage(sus,     Jade_Knight,                  36px, 8vw);
 @include bannerImage(sw,      Silverwing_N-EX,              30px, 8vw);
 @include bannerImage(tp,      Twilight_Paladin,             30px, 6vw);
+@include bannerImage(villv,   Helical_Contraption,          24px, 7vw);
 @include bannerImage(vg,      Valkyrie_Gloria,              30px, 7vw);

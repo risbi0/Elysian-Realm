@@ -99,7 +99,7 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Bright Knight: Excelsis
-    const bkek: Guide = {
+    const bke: Guide = {
         name: 'Bright Knight: Excelsis',
         acr: 'bke',
         rating: data.abstinence,
@@ -243,9 +243,9 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Disciplinary Perdition
-    const dpe: Guide = {
+    const aponia: Guide = {
         name: 'Disciplinary Perdition',
-        acr: 'dip',
+        acr: 'aponia',
         rating: data.corruption,
         builds: {
             0: {
@@ -388,9 +388,9 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Golden Diva
-    const gd: Guide = {
+    const eden: Guide = {
         name: 'Golden Diva',
-        acr: 'ede',
+        acr: 'eden',
         rating: data.corruption,
         builds: {
             0: {
@@ -534,9 +534,9 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Helical Contraption
-    const hc: Guide = {
+    const villv: Guide = {
         name: 'Helical Contraption',
-        acr: 'hc',
+        acr: 'villv',
         rating: data.corruption,
         builds: {
             0: {
@@ -1182,7 +1182,7 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Infinite Ouroboros
-    const mobi: Guide = {
+    const mobius: Guide = {
         name: 'Infinite Ouroboros',
         acr: 'mobius',
         rating: data.corruption,
@@ -1747,9 +1747,9 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Reveris Calico
-    const rvc: Guide = {
+    const pardo: Guide = {
         name: 'Reverist Calico',
-        acr: 'rc',
+        acr: 'pardo',
         rating: data.corruption,
         builds: {
             0: {
@@ -2025,9 +2025,9 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Starry Impression
-    const si: Guide = {
+    const griseo: Guide = {
         name: 'Starry Impression',
-        acr: 'si',
+        acr: 'griseo',
         rating: data.corruption,
         builds: {
             0: {
@@ -2533,7 +2533,7 @@ export const valks: any = (function(): Guide[] {
             }
         }
     }
-    return [aka, bkek, da, dpe, fr, gd, gm, hc, hofs, hoh,
-            hor, hos, hov, hot, mobi, sus, lk, raven, elysia, ft, pe,
-            fischl, rvc, ri, sw, spa, si, nyx, sn, carole, tp, stfu, vg];
+    return [aka, bke, da, aponia, fr, eden, gm, villv, hofs, hoh,
+            hor, hos, hov, hot, mobius, sus, lk, raven, elysia, ft, pe,
+            fischl, pardo, ri, sw, spa, griseo, nyx, sn, carole, tp, stfu, vg];
 }());
