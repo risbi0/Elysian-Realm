@@ -20,15 +20,17 @@
     $pre: "../img/" + $src;
     ##{$id}-dt {
         background-image: url($pre + "_dt.png");
+
+        ~ .main-name > .dt {
+            font-size: $desktop-font-size;
+        }
     }
     ##{$id}-mb {
         background-image: url($pre + "_mb.png");
-    }
-    ##{$id}-dt ~ .main-name > .dt {
-        font-size: $desktop-font-size;
-    }
-    ##{$id}-mb ~ .main-name > .mb {
-        font-size: $mobile-font-size;
+
+        ~ .main-name > .mb {
+            font-size: $mobile-font-size;
+        }
     }
 }
 
