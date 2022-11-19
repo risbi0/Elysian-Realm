@@ -387,6 +387,77 @@ export const valks: any = (function(): Guide[] {
             }
         }
     }
+    // Fervent Tempo
+    const mc: Guide = {
+        name: 'Fervent Tempo',
+        acr: 'mc',
+        rating: data.corruption,
+        builds: {
+            0: {
+                signet: [
+                    [
+                        [data.griseo, '2'],
+                        [data.aponia, '2']
+                    ],
+                    [
+                        [data.eden, '2'],
+                        [data.vv, '1'],
+                        [data.pardofelis, '1']
+                    ]
+                ],
+                emblem: [
+                    [data.rainbowOfAbsence, data.theLonelyMoon],
+                    [data.veilOfTears, data.theLonelyMoon],
+                    [data.farawayShip, data.dreamfulGold]
+                ],
+                support: [
+                    [ [data.ss], [data.bke] ],
+                    [ [data.ss], [data.dp, data.br] ]
+                ],
+                gear: [
+                    [data.sldr, data.mict, data.danm, data.micb],
+                    [data.hawp, data.elyt, data.danm, data.elyb]
+                ],
+                signetTable: [
+                    [
+                        ['Silence', data.start],
+                        ['Mixing', data.first],
+                        ['Fervor', data.second],
+                        ['Solitude', data.reinforcement],
+                        ['Thorns', data.no]
+                    ],
+                    [
+                        [data.aponia.name, '6', data.aponia.regular[1]],
+                        [data.aponia.regular[3]],
+                        [data.aponia.regular[4]],
+                        [data.aponia.nexus2.name],
+                        [data.aponia.nexus2[2]],
+                        [data.aponia.nexus2[3]],
+                        [data.griseo.name, '6', data.griseo.regular[1]],
+                        [data.griseo.regular[4]],
+                        [data.griseo.regular[5]],
+                        [data.griseo.regular[6]],
+                        [data.griseo.nexus2.name],
+                        [data.griseo.nexus2[1]]
+                    ],
+                    [
+                        [data.eden.name, '5', data.eden.regular[2]],
+                        [data.eden.regular[3]],
+                        [data.eden.regular[6]],
+                        [data.eden.nexus2.name],
+                        [data.eden.nexus2[2]],
+                        [data.vv.name, '4', data.vv.regular[2]],
+                        [data.vv.regular[3]],
+                        [data.vv.regular[6]],
+                        [data.vv.nexus1.name],
+                        [data.pardofelis.name, '3', data.pardofelis.regular[1]],
+                        [data.pardofelis.regular[4]],
+                        [data.pardofelis.nexus1.name]
+                    ]
+                ]
+            }
+        }
+    }
     // Golden Diva
     const eden: Guide = {
         name: 'Golden Diva',
@@ -1533,77 +1604,6 @@ export const valks: any = (function(): Guide[] {
             }
         }
     }
-    // Molotov Cherry
-    const ft: Guide = {
-        name: 'Molotov Cherry',
-        acr: 'ft',
-        rating: data.corruption,
-        builds: {
-            0: {
-                signet: [
-                    [
-                        [data.griseo, '2'],
-                        [data.aponia, '2']
-                    ],
-                    [
-                        [data.eden, '2'],
-                        [data.vv, '1'],
-                        [data.pardofelis, '1']
-                    ]
-                ],
-                emblem: [
-                    [data.rainbowOfAbsence, data.theLonelyMoon],
-                    [data.veilOfTears, data.theLonelyMoon],
-                    [data.farawayShip, data.dreamfulGold]
-                ],
-                support: [
-                    [ [data.ss], [data.bke] ],
-                    [ [data.ss], [data.dp, data.br] ]
-                ],
-                gear: [
-                    [data.sldr, data.mict, data.danm, data.micb],
-                    [data.hawp, data.elyt, data.danm, data.elyb]
-                ],
-                signetTable: [
-                    [
-                        ['Silence', data.start],
-                        ['Mixing', data.first],
-                        ['Fervor', data.second],
-                        ['Solitude', data.reinforcement],
-                        ['Thorns', data.no]
-                    ],
-                    [
-                        [data.aponia.name, '6', data.aponia.regular[1]],
-                        [data.aponia.regular[3]],
-                        [data.aponia.regular[4]],
-                        [data.aponia.nexus2.name],
-                        [data.aponia.nexus2[2]],
-                        [data.aponia.nexus2[3]],
-                        [data.griseo.name, '6', data.griseo.regular[1]],
-                        [data.griseo.regular[4]],
-                        [data.griseo.regular[5]],
-                        [data.griseo.regular[6]],
-                        [data.griseo.nexus2.name],
-                        [data.griseo.nexus2[1]]
-                    ],
-                    [
-                        [data.eden.name, '5', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[6]],
-                        [data.eden.nexus2.name],
-                        [data.eden.nexus2[2]],
-                        [data.vv.name, '4', data.vv.regular[2]],
-                        [data.vv.regular[3]],
-                        [data.vv.regular[6]],
-                        [data.vv.nexus1.name],
-                        [data.pardofelis.name, '3', data.pardofelis.regular[1]],
-                        [data.pardofelis.regular[4]],
-                        [data.pardofelis.nexus1.name]
-                    ]
-                ]
-            }
-        }
-    }
     // Palatinus Equinox
     const pe: Guide = {
         name: 'Palatinus Equinox',
@@ -2312,9 +2312,9 @@ export const valks: any = (function(): Guide[] {
         }
     }
     // Twilight Paladin
-    const tp: Guide = {
+    const ve: Guide = {
         name: 'Twilight Paladin',
-        acr: 'tp',
+        acr: 've',
         rating: data.abstinence,
         builds: {
             0: {
@@ -2377,84 +2377,6 @@ export const valks: any = (function(): Guide[] {
                 notes: `<p>Su</p>Don't pick enhanced signets. Double Ego start.<br><br>
                         <p>${data.su.regular[2]}</p>Priority.<br><br>
                         <p>${data.griseo.nexus2[1]}</p>If lacking breach.`
-            }
-        }
-    }
-    // Valkyrie Bladestrike
-    const stfu: Guide = {
-        name: 'Valkyrie Bladestrike',
-        acr: 'stfu',
-        rating: data.abstinence,
-        builds: {
-            0: {
-                signet: [
-                    [
-                        [data.su, '2']
-                    ],
-                    [
-                        [data.kevin, '1']
-                    ],
-                    [
-                        [data.griseo, '2'],
-                        [data.aponia, '2'],
-                        [data.eden, '2']
-                    ]
-                ],
-                emblem: [
-                    [data.lightAsABodhiLeaf, data.theLonelyMoon],
-                    [data.burden, data.theLonelyMoon],
-                    [data.heavyAsAMillionLives, data.dreamfulGold]
-                ],
-                support: [
-                    [ [data.le], [data.sn] ],
-                    [ [data.vc], [data.ss] ]
-                ],
-                gear: [
-                    [data.dabr, data.dirt, data.dirm, data.dirb],
-                    [data.dosa, data.elyt, data.dirm, data.elyb],
-                    [data.thsa, data.rebt, data.marm, data.rebb]
-                ],
-                signetTable: [
-                    [
-                        ['Current', data.start],
-                        ['Karma', data.first],
-                        ['Idea', data.second, '2'],
-                        ['Thunder'],
-                        ['Zanshin', data.no]
-                    ],
-                    [
-                        [data.su.name, '5', data.su.regular[1], ''],
-                        [data.su.regular[2]],
-                        [data.su.regular[5], ''],
-                        [data.su.regular[6]],
-                        [data.su.nexus2.name]
-                    ],
-                    [
-                        [data.kevin.name, '5', data.kevin.regular[4]],
-                        [data.kevin.regular[6]],
-                        [data.kevin.nexus1.name],
-                        [data.kevin.nexus1[1]],
-                        [data.kevin.nexus1[2]]
-                    ],
-                    [
-                        [data.griseo.name, '5', data.griseo.regular[1]],
-                        [data.griseo.regular[3], ''],
-                        [data.griseo.regular[4]],
-                        [data.griseo.regular[6]],
-                        [data.griseo.nexus2.name],
-                        [data.aponia.name, '4', data.aponia.regular[4]],
-                        [data.aponia.nexus2.name],
-                        [data.aponia.nexus2[1]],
-                        [data.aponia.nexus2[3]],
-                        [data.eden.name, '4', data.eden.regular[1], ''],
-                        [data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.nexus2.name]
-                    ],
-                ],
-                notes: `<p>Recommended Gear</p>Build 2: If not enough breach or impair, pick breach from signets.<br><br>
-                        <p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
-                        <p>${data.griseo.regular[3]}, ${data.eden.regular[1]}</p>If needed.`
             }
         }
     }
@@ -2533,7 +2455,85 @@ export const valks: any = (function(): Guide[] {
             }
         }
     }
-    return [aka, bke, da, aponia, fr, eden, gm, villv, hofs, hoh,
-            hor, hos, hov, hot, mobius, sus, lk, raven, elysia, ft, pe,
-            fischl, pardo, ri, sw, spa, griseo, nyx, sn, carole, tp, stfu, vg];
+    // Striker Fulminata
+    const vb: Guide = {
+        name: 'Striker Fulminata',
+        acr: 'vb',
+        rating: data.abstinence,
+        builds: {
+            0: {
+                signet: [
+                    [
+                        [data.su, '2']
+                    ],
+                    [
+                        [data.kevin, '1']
+                    ],
+                    [
+                        [data.griseo, '2'],
+                        [data.aponia, '2'],
+                        [data.eden, '2']
+                    ]
+                ],
+                emblem: [
+                    [data.lightAsABodhiLeaf, data.theLonelyMoon],
+                    [data.burden, data.theLonelyMoon],
+                    [data.heavyAsAMillionLives, data.dreamfulGold]
+                ],
+                support: [
+                    [ [data.le], [data.sn] ],
+                    [ [data.vc], [data.ss] ]
+                ],
+                gear: [
+                    [data.dabr, data.dirt, data.dirm, data.dirb],
+                    [data.dosa, data.elyt, data.dirm, data.elyb],
+                    [data.thsa, data.rebt, data.marm, data.rebb]
+                ],
+                signetTable: [
+                    [
+                        ['Current', data.start],
+                        ['Karma', data.first],
+                        ['Idea', data.second, '2'],
+                        ['Thunder'],
+                        ['Zanshin', data.no]
+                    ],
+                    [
+                        [data.su.name, '5', data.su.regular[1], ''],
+                        [data.su.regular[2]],
+                        [data.su.regular[5], ''],
+                        [data.su.regular[6]],
+                        [data.su.nexus2.name]
+                    ],
+                    [
+                        [data.kevin.name, '5', data.kevin.regular[4]],
+                        [data.kevin.regular[6]],
+                        [data.kevin.nexus1.name],
+                        [data.kevin.nexus1[1]],
+                        [data.kevin.nexus1[2]]
+                    ],
+                    [
+                        [data.griseo.name, '5', data.griseo.regular[1]],
+                        [data.griseo.regular[3], ''],
+                        [data.griseo.regular[4]],
+                        [data.griseo.regular[6]],
+                        [data.griseo.nexus2.name],
+                        [data.aponia.name, '4', data.aponia.regular[4]],
+                        [data.aponia.nexus2.name],
+                        [data.aponia.nexus2[1]],
+                        [data.aponia.nexus2[3]],
+                        [data.eden.name, '4', data.eden.regular[1], ''],
+                        [data.eden.regular[2]],
+                        [data.eden.regular[3]],
+                        [data.eden.nexus2.name]
+                    ],
+                ],
+                notes: `<p>Recommended Gear</p>Build 2: If not enough breach or impair, pick breach from signets.<br><br>
+                        <p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
+                        <p>${data.griseo.regular[3]}, ${data.eden.regular[1]}</p>If needed.`
+            }
+        }
+    }
+    return [aka, bke, da, aponia, fr, mc, eden, gm, villv, hofs,
+            hoh, hor, hos, hov, hot, mobius, sus, lk, raven, elysia, pe,
+            fischl, pardo, ri, sw, spa, griseo, nyx, sn, carole, ve, vg, vb];
 }());
