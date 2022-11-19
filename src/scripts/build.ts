@@ -76,7 +76,7 @@ for (let i = 0; i < valks.length; i++) {
     mainNameDiv.classList.add(...mainNameDivClasses, `-${valks[i].acr}-`);
     const mainName: HTMLSpanElement = document.createElement('span');
     mainName.classList.add(...mainNameClasses, `-${valks[i].acr}-`);
-    mainName.textContent = valks[i].name.replace(/[^a-z A-Z]/g, '');
+    mainName.textContent = valks[i].name.replace(/[^a-z A-Z -]/g, '');
 
     mainNameDiv.appendChild(mainName);
     button.appendChild(banner);

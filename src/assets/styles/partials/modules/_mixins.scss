@@ -1,3 +1,5 @@
+@import 'functions';
+
 @mixin wh($w, $h) {
     width: $w;
     height: $h;
@@ -16,8 +18,10 @@
     text-align: center;
 }
 
-@mixin bannerImage($id, $src, $desktop-font-size, $mobile-font-size) {
-    $pre: "../img/" + $src;
+@mixin bannerImage($id, $name) {
+    $pre: "../img/" + $name;
+    $desktop-font-size: nth(getFontSize($name), 1) + unquote("px");
+    $mobile-font-size: nth(getFontSize($name), 2) + unquote("vw");
     ##{$id}-dt {
         background-image: url($pre + "_dt.png");
 

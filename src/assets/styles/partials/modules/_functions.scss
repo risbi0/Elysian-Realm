@@ -1,0 +1,45 @@
+/* return font size based on string length */
+@function getFontSize($name) {
+    $sl: str-length($name);
+    /* desktop font size */
+    $dfs: 0;
+    @if $sl >= 11 and $sl <= 13 {
+        $dfs: 35;
+    }
+    @else if $sl >= 14 and $sl <= 16 {
+        $dfs: 30;
+    }
+    @else if $sl >= 17 and $sl <= 18 {
+        $dfs: 28;
+    }
+    @else if $sl >= 19 and $sl <= 20 {
+        $dfs: 22;
+    }
+    @else if $sl >= 21 and $sl <= 24 {
+        $dfs: 20;
+    }
+    @else if $sl >= 25 and $sl <= 27 {
+        $dfs: 16;
+    }
+    @if $name == "Sweet_n_Spicy" {
+        $dfs: 32;
+    }
+    /* mobile font size */
+    $mfs: 7;
+    @if $sl >= 11 and $sl <= 12 {
+        $mfs: 9;
+    }
+    /* special cases */
+    @else if $name == "Infinite_Ouroboros" or
+             $name == "Midnight_Absinthe" or
+             $name == "Miss_Pink_Elf" or
+             $name == "Palatinus_Equinox" or
+             $name == "Ritual_Imayoh" {
+        $mfs: 8;
+    }
+    @else if $name == "Starry_Impression" or
+             $name == "Striker_Fulminata" {
+        $mfs: 6;
+    }
+    @return $dfs, $mfs;
+}
