@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache';
+const cacheName = 'herrscher-of-cache-v1';
 
 const cacheAssets = [
     './site.webmanifest',
@@ -27,71 +27,43 @@ const cacheAssets = [
     './static/favicon/safari-pinned-tab.svg'
 ];
 
+const bannerImages = [
+    'Argent_Knight_Artemis',
+    'Bright_Knight_Excelsis',
+    'Dea_Anchora',
+    'Disciplinary_Perdition',
+    'Fallen_Rosemary',
+    'Fervent_Tempo',
+    'Golden_Diva',
+    'Goushinnso_Memento',
+    'Helical_Contraption',
+    'Herrscher_of_Flamescion',
+    'Herrscher_of_Human_Ego',
+    'Herrscher_of_Reason',
+    'Herrscher_of_Sentience',
+    'Herrscher_of_the_Void',
+    'Herrscher_of_Thunder',
+    'Infinite_Ouroboros',
+    'Jade_Knight',
+    'Luna_Kindred',
+    'Midnight_Absinthe',
+    'Miss_Pink_Elf',
+    'Palatinus_Equinox',
+    'Prinzessin_der_Verurteilung',
+    'Reverist_Calico',
+    'Ritual_Imayoh',
+    'Silverwing_N-EX',
+    'Spina_Astera',
+    'Starchasm_Nyx',
+    'Starry_Impression',
+    'Stygian_Nymph',
+    'Sweet_n_Spicy',
+    'Striker_Fulminata',
+    'Twilight_Paladin',
+    'Valkyrie_Gloria'
+];
+
 const images = [
-    // valks (desktop)
-    'Argent_Knight_Artemis_dt',
-    'Bright_Knight_Excelsis_dt',
-    'Dea_Anchora_dt',
-    'Disciplinary_Perdition_dt',
-    'Fallen_Rosemary_dt',
-    'Fervent_Tempo_dt',
-    'Golden_Diva_dt',
-    'Goushinnso_Memento_dt',
-    'Helical_Contraption_dt',
-    'Herrscher_of_Flamescion_dt',
-    'Herrscher_of_Reason_dt',
-    'Herrscher_of_Sentience_dt',
-    'Herrscher_of_Thunder_dt',
-    'Infinite_Ouroboros_dt',
-    'Jade_Knight_dt',
-    'Luna_Kindred_dt',
-    'Midnight_Absinthe_dt',
-    'Miss_Pink_Elf_dt',
-    'Palatinus_Equinox_dt',
-    'Prinzessin_der_Verurteilung_dt',
-    'Reverist_Calico_dt',
-    'Ritual_Imayoh_dt',
-    'Silverwing_N-EX_dt',
-    'Spina_Astera_dt',
-    'Starchasm_Nyx_dt',
-    'Starry_Impression_dt',
-    'Stygian_Nymph_dt',
-    'Striker_Fulminata_dt',
-    'Sweet_n_Spicy_dt',
-    'Twilight_Paladin_dt',
-    'Valkyrie_Gloria_dt',
-    // valks (mobile)
-    'Argent_Knight_Artemis_mb',
-    'Bright_Knight_Excelsis_mb',
-    'Dea_Anchora_mb',
-    'Disciplinary_Perdition_mb',
-    'Fallen_Rosemary_mb',
-    'Fervent_Tempo_mb',
-    'Golden_Diva_mb',
-    'Goushinnso_Memento_mb',
-    'Helical_Contraption_mb',
-    'Herrscher_of_Flamescion_mb',
-    'Herrscher_of_Reason_mb',
-    'Herrscher_of_Sentience_mb',
-    'Herrscher_of_Thunder_mb',
-    'Infinite_Ouroboros_mb',
-    'Jade_Knight_mb',
-    'Luna_Kindred_mb',
-    'Midnight_Absinthe_mb',
-    'Miss_Pink_Elf_mb',
-    'Palatinus_Equinox_mb',
-    'Prinzessin_der_Verurteilung_mb',
-    'Reverist_Calico_mb',
-    'Ritual_Imayoh_mb',
-    'Silverwing_N-EX_mb',
-    'Spina_Astera_mb',
-    'Starchasm_Nyx_mb',
-    'Starry_Impression_mb',
-    'Stygian_Nymph_mb',
-    'Striker_Fulminata_mb',
-    'Sweet_n_Spicy_mb',
-    'Twilight_Paladin_mb',
-    'Valkyrie_Gloria_mb',
     // avatars
     'Azure_Empyrea_Avatar',
     'Blood_Rose_Avatar',
@@ -300,30 +272,46 @@ const images = [
     'Whisper_of_the_Past_Sonnet'
 ];
 
-for (let i = 0; i < images.length; i++) {
-    cacheAssets.push(`./static/img/${images[i]}.png`);
-}
-
 // installation
 self.addEventListener('install', (e) => {
-    console.log('Service Worker: Installed');
+    const selfUrl = new URL(self.location);
+    const device = selfUrl.searchParams.get('device');
     e.waitUntil(
-        caches.open(cacheName)
-            .then(cache => {
-                console.log('Service Worker: Caching Files');
-                cache.addAll(cacheAssets);
-            })
-            .then(() => self.skipWaiting())
+        caches.open(cacheName).then((cache) => {
+            console.log('Service Worker: Caching Files...');
+            for (let i = 0; i < images.length; i++) {
+                cacheAssets.push(`./static/img/${images[i]}.png`);
+            }
+            for (let i = 0; i < bannerImages.length; i++) {
+                cacheAssets.push(`./static/img/${bannerImages[i]}_${device}.png`);
+            }
+            cache.addAll(cacheAssets);
+        }).then(() => {
+            self.skipWaiting();
+            console.log('Service Worker: Installed');
+        })
     );
 });
 
 // activation
-self.addEventListener('activate', () => {
-    console.log('Service Worker: Activated');
+self.addEventListener('activate', (e) => {
+    e.waitUntil(
+        caches.keys().then((keys) => {
+            Promise.all(
+                keys.map((key) => {
+                    if (![cacheName].includes(key)) {
+                        return caches.delete(key);
+                    }
+                })
+            )
+        }).then(() => {
+            console.log(`Service Worker: Activated`);
+        })
+    );
 });
 
 // fetch
 self.addEventListener('fetch', (e) => {
-    console.log('Service Worker: Fetching');
+    console.log('Service Worker: Fetching...');
     e.respondWith(fetch(e.request).catch(() => caches.match(e.request))); 
 });

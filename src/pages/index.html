@@ -205,8 +205,10 @@
         <script>
         // register service worker
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('serviceWorker.js')
-                .then(() => console.log("Service Worker Registered"));
+            const device = /Mobi/i.test(window.navigator.userAgent) ? 'mb' : 'dt';
+            const value = encodeURIComponent(device);
+            const swUrl = `serviceWorker.js?device=${value}`;
+            navigator.serviceWorker.register(swUrl).then(() => console.log("Service Worker Registered"));
         }
         </script>
     </body>
