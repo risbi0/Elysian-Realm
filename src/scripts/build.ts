@@ -236,7 +236,7 @@ for (let i = 0; i < valks.length; i++) {
                     supportTableBodyCell = supportTableBodyRow.insertCell();
                     supportTableBodyCell.textContent = supportTableTypeColumn[k];
                 } else {
-                    for (let m = 0; m <valks[i].builds[j].support[k][l - 1].length; m++) {
+                    for (let m = 0; m < valks[i].builds[j].support[k][l - 1].length; m++) {
                         supportTableBodyCell = imageAndLabel(supportTableBodyCell!, supportTableBodyRow, valks[i].builds[j].support[k][l - 1], m, true);
                     }
                     if (valks[i].builds[j].support[k][l - 1].length === 1) {
