@@ -347,8 +347,6 @@ function hide() {
                 cssRule.style.animation = '';
             }
         }
-        // revert signet summary if present
-        if (previousText !== null && previousText.textContent !== '') revertText(previousText);
     } else {
         if (currentGuide) {
             currentGuide.classList.remove(guideEntryAnim);
