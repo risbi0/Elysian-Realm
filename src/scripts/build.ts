@@ -348,11 +348,15 @@ for (let i = 0; i < valks.length; i++) {
                         if (k === 0 && m === 0) prepend = 'Blessing of ';
                         signetTableBodyCell = signetTableBodyRow.insertCell();
                         signetTableBodyCell.textContent = `${prepend}${valks[i].builds[j].signetTable[k][l][m]}`;
-                        if (valks[i].builds[j].signetTable[k][l][m] === '') signetTableBodyCell.previousElementSibling!.classList.add('noted');
                     }
-                    try { // check if next value is only a number, if so, apply as rowspan value
+                    try {
+                        // check if next value is only a number, if so, apply as rowspan value
                         if (/^[0-9]+$/.test(valks[i].builds[j].signetTable[k][l][m + 1])) {
                             signetTableBodyCell!.setAttribute('rowspan', valks[i].builds[j].signetTable[k][l][m + 1]);
+                        }
+                        // check if next value is an empty string, if so, apply 'noted' class
+                        if (valks[i].builds[j].signetTable[k][l][m+1] === '') {
+                            signetTableBodyCell!.classList.add('noted');
                         }
                     } catch (e) { continue; }
                 }

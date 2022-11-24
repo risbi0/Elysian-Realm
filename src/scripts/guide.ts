@@ -1356,7 +1356,7 @@ export const valks: any = (function(): Guide[] {
                     [
                         ['Great Blade', data.start],
                         ['Cloudwalker', data.first],
-                        ['Jade Moon', data.no, '2'],
+                        ['Jade Moon', data.no, '3'],
                         ['Shaft'],
                         ['Smoky Waft']
                     ],
@@ -2534,6 +2534,8 @@ export const valks: any = (function(): Guide[] {
         }
     }
     return [aka, bke, da, aponia, fr, mc, eden, gm, villv, hofs,
-            hoh, hor, hos, hov, hot, mobius, sus, lk, raven, elysia, pe,
-            fischl, pardo, ri, sw, spa, griseo, nyx, sn, carole, ve, vg, vb];
+            hoh, hor, hos, hov, hot, mobius, sus, lk, raven, elysia,
+            pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn, carole,
+            ve, vg, vb];
 }());
+export const valksLength: number = valks.length;

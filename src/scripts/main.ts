@@ -1,4 +1,4 @@
-import { valks } from './guide';
+import { valksLength } from './guide';
 import { isMobile, signetSummary } from './data';
 import { mainContainer, guideContainer } from './build';
 
@@ -25,10 +25,11 @@ function fadeAnim(item: any, fade: string): void {
     time += interval;
 }
 // insert bg and banner image paths
-const banners: any = document.querySelectorAll('.banner');
+const banners: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.banner');
 const paths: string[] = [];
-paths.push(window.getComputedStyle(body).getPropertyValue('background-image').substring(5).slice(0, -2));
-banners.forEach((banner: HTMLDivElement) => paths.push(window.getComputedStyle(banner.children[0]).getPropertyValue('background-image').substring(5).slice(0, -2)));
+const getBgPath = (el: Element): string => window.getComputedStyle(el).getPropertyValue('background-image').substring(5).slice(0, -2);
+paths.push(getBgPath(body));
+banners.forEach((banner: HTMLButtonElement) => paths.push(getBgPath(banner.children[0])));
 // wait for images to load
 const cover = document.querySelector('#cover') as HTMLDivElement;
 const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
@@ -53,7 +54,7 @@ paths.forEach((link: string) => {
             // animations:
             // fade-in-up/down, only applied to the banners in the viewport (desktop)
             // fade-in-left/right, applied to all banners (mobile)
-            finalArr.forEach((_, index) => {
+            finalArr.forEach((_, index: number) => {
                 if (index % 2 === 0) {
                     fadeAnim(banners[finalArr[index]], animation1);
                 } else {
@@ -64,7 +65,7 @@ paths.forEach((link: string) => {
                 // instantly display banners outside viewport
                 // not covering the one in a million chance that the user
                 // expands the window width while the animation is still ongoing 😡
-                banners.forEach((_: any, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
+                banners.forEach((_, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden') });
                 // allow scroll
                 setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
             }
@@ -95,21 +96,24 @@ paths.forEach((link: string) => {
     });
 });
 
+// highlight adjacent merged cell on hover from table rows
+// since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
 function highlightAdjacentMergedCell(row: any, bool: boolean): void {
     // check if inner HTML only has 1 pair of td tags
     // in a 2 column table it has 2 td tags per row
     // meaning if a row has one less td tag it either has
-    // a missing cell in the row, or a merged cell (this case)
-    if (row.innerHTML.match(/<\/td>/g).length === 1 && !(row.innerHTML.includes('rowspan')) ||
+    // a missing cell in the row, or a merged cell (this case)    
+    if (row.innerHTML.match(/<\/td>/g).length === 1 ||
         // for cells with .noted class
-        (row.innerHTML.match(/"temp"|"noted"/))) {
+        row.innerHTML.match(/"temp"|"noted"/) &&
+        // doesn't include rowspan, since it's already part of the first row
+        !row.innerHTML.includes('rowspan')) {
         // get all rows of its parent table
         const parentChildren: any = row.parentNode.children;
         // iterate and check if row has a rowspan attribute in the cell of the 2nd column
         for (let i = 0; i < parentChildren.length; i++) {
             if (parentChildren[i].innerHTML.includes('rowspan')) {
-                let j: number;
-                parentChildren[i].children[0].hasAttribute('rowspan') ? j = 0 : j = 1;
+                const j: number = parentChildren[i].children[0].hasAttribute('rowspan') ? 0 : 1;
                 // get rowspan value
                 const range: number = parseInt(parentChildren[i].children[j].getAttribute('rowspan')) - 1;
                 // get index of selected row and merged cell
@@ -125,7 +129,7 @@ function highlightAdjacentMergedCell(row: any, bool: boolean): void {
         }
     }
 }
-function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
+function notedCell(row: HTMLTableRowElement, removee: string, addee: string): void {
     // .temp class to know which had the .noted class
     for (let i = 0; i < row.children.length; i++) {
         if (row.children[i].classList.contains(removee)) {
@@ -134,21 +138,21 @@ function notedCell(row: HTMLDivElement, removee: string, addee: string): void {
         }
     }
 }
-// higlight table rows, including merged cells, on hover
-// since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
-function highlightRow(this: any) {
-    this.classList.add('table-cell-hover');
-    notedCell(this, 'noted', 'temp');
-    highlightAdjacentMergedCell(this, true);
-}
-const rowsExceptHeader: any = document.querySelectorAll('tr:not(thead tr):not(.gear-tbl tr)');
-rowsExceptHeader.forEach((row: any) => {
-    row.addEventListener('mouseout', function(this: any) {
+const rowsExceptHeader: NodeListOf<HTMLTableRowElement> = document.querySelectorAll('tr:not(thead tr):not(.gear-tbl tr)');
+rowsExceptHeader.forEach((row: HTMLTableRowElement) => {
+    row.addEventListener('mouseout', function(this: HTMLTableRowElement) {
         this.classList.remove('table-cell-hover');
-        notedCell(this, 'temp', 'noted');
         highlightAdjacentMergedCell(this, false);
+        notedCell(this, 'temp', 'noted');
     });
 });
+function highlightRow(this: HTMLTableRowElement): void {
+    this.classList.add('table-cell-hover');
+    highlightAdjacentMergedCell(this, true);
+    notedCell(this, 'noted', 'temp');
+}
+
+// highlight all adjacent rows on hover from merged cells
 function highlightInvolvedRows(row: any, bool: boolean): void {
     const mergeSize: number = parseInt(row.getAttribute('rowspan')) - 1;
     const cellIndex: number = row.parentNode.rowIndex;
@@ -162,29 +166,34 @@ function highlightInvolvedRows(row: any, bool: boolean): void {
         }
     }
 }
-// highlight adjacent rows on hovering from merged cells
-const highlightRows = function(this: any) { highlightInvolvedRows(this, true); }
-const cellsWithRowspan: any = document.querySelectorAll('td[rowspan]');
-cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseout', function(this: any) { highlightInvolvedRows(this, false) }));
+const cellsWithRowspan: NodeListOf<HTMLTableCellElement> = document.querySelectorAll('td[rowspan]');
+cellsWithRowspan.forEach((cell: HTMLTableCellElement) => {
+    cell.addEventListener('mouseout', function(this: HTMLTableCellElement) {
+        highlightInvolvedRows(this, false);
+    });
+});
+function highlightRows(this: HTMLTableRowElement) {
+    highlightInvolvedRows(this, true);
+}
 
 // hide previously clicked tooltip
-const tooltipable: any = document.querySelectorAll('input');
-tooltipable.forEach((item: any) => {
+const tooltipable: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
+tooltipable.forEach((item: HTMLInputElement) => {
     item.addEventListener('click', () => {
         for (const otherItem of tooltipable) { if (otherItem !== item) otherItem.checked = false }
     });
 });
 
 // anchor smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => e.preventDefault());
+document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
+    anchor.addEventListener('click', (e: Event) => e.preventDefault());
     anchor.addEventListener('click', function(this: any) {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
 
 let originalText: string | null = null, previousText: any = null;
-function changeText(deez: HTMLDivElement): void {
+function changeText(deez: HTMLTableCellElement): void {
     for(let i = 0; i < Object.keys(signetSummary).length; i++) {
         if (signetSummary[i].signets.includes(deez.textContent) ||
             signetSummary[i].signets === deez.textContent) {
@@ -194,15 +203,15 @@ function changeText(deez: HTMLDivElement): void {
         } 
     }
 }
-function revertText(deez: HTMLDivElement): void {
+function revertText(deez: any): void {
     deez.textContent = originalText;
     originalText = null;
 }
 
+// close and to top button position
 const closeButton = document.querySelector('#close') as HTMLDivElement;
 const toTopButton: any = document.querySelector('#goToTop');
-// close and to top button position
-const setCloseAndTotopBtnPos = (closeTop: number, closeLeft: number, toTopTop: number, toTopLeft: number): void => {
+function setCloseAndTotopBtnPos(closeTop: number, closeLeft: number, toTopTop: number, toTopLeft: number): void {
     closeButton.style.top = `${closeTop}px`;
     closeButton.style.left = `${closeLeft}px`;
     toTopButton.style.top = `${toTopTop}px`;
@@ -214,7 +223,7 @@ let guideEntryAnim: string, guideExitAnim: string;
 let topPos: number, bottomPos: number;
 let rightPos: number = deviceWidth / 2 + 243;
 let prevHeight: number = window.outerHeight;
-function getAnimAndPos(): void {
+function setAnimAndPos(): void {
     // guide animations and close/gototop button positions
     if (deviceHeight >=  950) {
         [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
@@ -224,35 +233,8 @@ function getAnimAndPos(): void {
         [topPos, bottomPos] = [15, deviceHeight - 60];
     }
 }
-function setAnimAndPos(): void {
-    deviceWidth = window.innerWidth;
-    deviceHeight = window.innerHeight;
-    rightPos = deviceWidth / 2 + 243;
-    
-    // hide guide when browser height threshold is reached
-    if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) hide();
-    
-    // set animation and button positions
-    if (deviceHeight >= 950) {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n','guide-exit-desktop-n'];
-        [topPos, bottomPos] = [135, 866];
-    } else {
-        [guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s','guide-exit-desktop-s'];
-        [topPos, bottomPos] = [15, deviceHeight - 60];
-    }
-    
-    setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
-    getAnimAndPos();
 
-    prevHeight = deviceHeight;
-};
-// wait for resize event to end before executing function
-let task: any;
-const waitResizeEnd = (): void => {
-    clearTimeout(task);
-    task = setTimeout(setAnimAndPos, 50);
-}
-
+const signetTableCells: NodeListOf<HTMLTableCellElement> = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
 // setup of banner indices for animation order
 // desktop - banners in the middile of mainContainer (starting view) in random order, vertical animation
 // mobile - all banners in linear order, horizontal animation
@@ -260,16 +242,14 @@ let animation1: string, animation2: string;
 let preventScroll: any;
 let noOfBannersInViewport: number = 0;
 let finalArr: number[] = [];
-
-// function to change signet name to summary on hover/mobile click
-let summOnHover: any;
 if (isMobile) {
     [animation1, animation2] = ['fade-in-left', 'fade-in-right'];
-    finalArr = Array.from(Array(valks.length).keys()); // all
+    finalArr = Array.from(Array(valksLength).keys()); // all
 
-    summOnHover = (signets: any) => {
-        signets.forEach((signet: any) => {
-            signet.addEventListener('mouseover', function(this: any) {
+    // change signet name to summary on hover/mobile click
+    ((signetTableCells: NodeListOf<HTMLTableCellElement>): void => {
+        signetTableCells.forEach((cell: HTMLTableCellElement) => {
+            cell.addEventListener('mouseover', function(this: any) {
                 if (originalText !== null && previousText !== null && !this.textContent.includes('(Nexus)')) {               
                     revertText(previousText);
                     changeText(this);
@@ -277,7 +257,8 @@ if (isMobile) {
                 } else { revertText(previousText); }
             });
         });
-    }
+    })(signetTableCells);
+
     guideContainer.classList.add('hidden');
 } else {
     [animation1, animation2] = ['fade-in-up', 'fade-in-down'];
@@ -289,9 +270,9 @@ if (isMobile) {
 
     // setup no. of banners
     noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
-    const noOfBannersNotInViewport: number = valks.length - noOfBannersInViewport;
+    const noOfBannersNotInViewport: number = valksLength - noOfBannersInViewport;
     const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
-    const bannerIndicesInDektopViewport: number[] = Array.from(Array(noOfBannersInViewport).keys()).map((e) => { return e + noOfBannersLeftOfViewport });
+    const bannerIndicesInDektopViewport: number[] = Array.from(Array(noOfBannersInViewport).keys()).map((e) =>  e + noOfBannersLeftOfViewport);
     // randomize array elements
     const bannerLength: number = bannerIndicesInDektopViewport.length;
     for (let i = 0; i < bannerLength; i++) {
@@ -300,32 +281,45 @@ if (isMobile) {
         bannerIndicesInDektopViewport.splice(bannerIndicesInDektopViewport.indexOf(bannerIndicesInDektopViewport[randomIndex]), 1);
     }
 
-    summOnHover = (signets: any) => {
-        signets.forEach((signet: any) => {
-            signet.addEventListener('mouseover', function(this: any) { changeText(this) });
-            signet.addEventListener('mouseout', function(this: any) { if (originalText !== null) revertText(this) });
+    ((signetTableCells: NodeListOf<HTMLTableCellElement>): void => {
+        signetTableCells.forEach((cell: HTMLTableCellElement) => {
+            cell.addEventListener('mouseover', function(this: any) { changeText(this) });
+            cell.addEventListener('mouseout', function(this: any) { if (originalText !== null) revertText(this) });
         });
-    }
+    })(signetTableCells);
+    
     guideContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
 
-    getAnimAndPos();
-    window.addEventListener('resize', waitResizeEnd);
+    setAnimAndPos();
+    // wait for resize event to end before executing function
+    let task: any;
+    window.addEventListener('resize', () => {
+        clearTimeout(task);
+        task = setTimeout(() => {
+            // update animations and button positions
+            deviceWidth = window.innerWidth;
+            deviceHeight = window.innerHeight;
+            rightPos = deviceWidth / 2 + 243;
+            
+            // hide guide when browser height threshold is reached
+            if ((prevHeight <= 949 && deviceHeight >= 950) || (prevHeight >= 950 && deviceHeight <= 949)) hide();
+
+            setAnimAndPos();
+            setCloseAndTotopBtnPos(topPos, rightPos, bottomPos, rightPos);
+
+            prevHeight = deviceHeight;
+        }, 50);
+    });
 }
-summOnHover(document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td'));
 
 // interval gets faster the more banners are in viewport
 // in mobile, interval is constant
 const interval: number = 300 - noOfBannersInViewport * 5;
 
-const guideContents = document.querySelectorAll('.guide-content');
 // setup modal closing
-const goToTop = (e: any) => {
-    const dis = e.currentTarget.currentGuide;
-    guideContents[Array.from(dis.parentNode.children).indexOf(dis)].scroll({ top: 0, behavior: 'smooth' });
-}
-const buttonVisibility = (e: any) => toTopButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden';
+const verticalText: NodeListOf<HTMLSpanElement> = document.querySelectorAll('.vertical-text');
 const mainStylesheet: any = document.styleSheets[document.styleSheets.length - 1].cssRules; // styles.css
-const mobileUpperBanners: number = valks.length - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
+const mobileUpperBanners: number = valksLength - 1 - Math.floor(deviceHeight / (deviceWidth / 4));
 let currentBanner: any; // for unsetting banner style in mobile
 let currentGuide: any;
 function hide() {
@@ -345,7 +339,7 @@ function hide() {
             currentGuide.classList.add('guide-top-exit-mobile');
         }
         // unhide banner names
-        document.querySelectorAll('.vertical-text').forEach((text: any) => text.style.opacity = '1');
+        verticalText.forEach((text: HTMLSpanElement) => text.style.opacity = '1');
         // hide fade effect
         for (const cssRule of mainStylesheet) {
             if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
@@ -363,7 +357,7 @@ function hide() {
     }
     closeButton.style.visibility = 'hidden';
     toTopButton.style.visibility = 'hidden';
-    // renable pointer events and hide elements right before animation ends
+    // re-enable pointer events and hide elements right before animation ends
     setTimeout(() => {
         body.style.pointerEvents = 'auto';
         guideContainer.classList.add('no-display');
@@ -373,12 +367,11 @@ function hide() {
         }
     }, 450);
 
-    rowsExceptHeader.forEach((row: any) => row.removeEventListener('mouseover', highlightRow));
-    cellsWithRowspan.forEach((cell: any) => cell.removeEventListener('mouseover', highlightRows));
+    rowsExceptHeader.forEach((row: HTMLTableRowElement) => row.removeEventListener('mouseover', highlightRow));
+    cellsWithRowspan.forEach((cell: HTMLTableCellElement) => cell.removeEventListener('mouseover', highlightRows));
 }
 closeButton.addEventListener('click', () => hide()); // close on close button click
 guideContainer.addEventListener('click', () => hide()); // close when clicking outside modal
-guideContents.forEach(guideContent => guideContent.addEventListener('click', (e) => e.stopPropagation()));
 
 // style ::after and ::before psuedo selectors (mobile only)
 function contentFade(afterOffset: string, direction: string, psuedoDirection: string): void {
@@ -401,12 +394,15 @@ function contentFade(afterOffset: string, direction: string, psuedoDirection: st
         }
     }
 }
+
+const guideContents: NodeListOf<HTMLDivElement> = document.querySelectorAll('.guide-content');
+guideContents.forEach((guideContent: HTMLDivElement) => guideContent.addEventListener('click', (e) => e.stopPropagation()));
 let psuedoStyles: [string, string, string];
 // show respective guide content on banner click
-banners.forEach((banner: any) => {
+banners.forEach((banner: HTMLButtonElement) => {
     banner.addEventListener('click', function(this: any) {
         body.style.pointerEvents = 'none'; // disable events during transition
-        const index = Array.from(this.parentNode.children).indexOf(this);
+        const index: number = Array.from(this.parentNode.children).indexOf(this);
         currentGuide = guideContents[index];
         // animation
         guideContainer.classList.remove('bg-fade-out', 'no-display');
@@ -446,8 +442,8 @@ banners.forEach((banner: any) => {
         // and to wait for animation to end to apply styles (mobile)
         setTimeout(() => {
             body.style.pointerEvents = 'auto';
-            rowsExceptHeader.forEach((row: any) => row.addEventListener('mouseover', highlightRow));
-            cellsWithRowspan.forEach((cell: any) => cell.addEventListener('mouseover', highlightRows));
+            rowsExceptHeader.forEach((row: HTMLTableRowElement) => row.addEventListener('mouseover', highlightRow));
+            cellsWithRowspan.forEach((cell: HTMLTableCellElement) => cell.addEventListener('mouseover', highlightRows));
             closeButton.style.visibility = 'visible';
 
             if (isMobile) {
@@ -459,7 +455,7 @@ banners.forEach((banner: any) => {
                 this.children[0].style.filter = 'brightness(90%) blur(4px)';
                 this.children[1].children[0].style.color = 'white';
                 // hide all banner names except from the selected banner
-                document.querySelectorAll('.vertical-text').forEach((text: any) => {
+                verticalText.forEach((text: HTMLSpanElement) => {
                     if (text.innerText !== this.innerText) text.style.opacity = '0';
                 });
                 setCloseAndTotopBtnPos(closeButtonOffsetTop, deviceWidth - 60, toTopButtonOffsetTop, deviceWidth - 60);
@@ -469,9 +465,12 @@ banners.forEach((banner: any) => {
         }, 600);
         
         // goToTop button visibility
-        currentGuide.addEventListener('scroll', buttonVisibility);
+        currentGuide.addEventListener('scroll', (e: any) => toTopButton.style.visibility = e.currentTarget.scrollTop > 700 ? 'visible' : 'hidden');
         // go to top of guide
-        toTopButton.addEventListener('click', goToTop);
+        toTopButton.addEventListener('click', (e: any) => {
+            const t = e.currentTarget.currentGuide;
+            guideContents[Array.from(t.parentNode.children).indexOf(t)].scroll({ top: 0, behavior: 'smooth' });
+        });
         toTopButton.currentGuide = currentGuide;
         // scroll to the top
         currentGuide.scrollTo({ top: 0 });
