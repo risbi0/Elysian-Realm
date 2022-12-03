@@ -28,13 +28,13 @@ export const valks: any = (function(): Guide[] {
             0: {
                 signet: [ // transitional (optional), main, secondary
                     [
+                        [data.hua, '2'],
                         [data.mobius, '1'],
                         [data.vv, '2']
                     ],
                     [
                         [data.griseo, '1'],
-                        [data.aponia, '2'],
-                        [data.pardofelis, '1']
+                        [data.aponia, '2']
                     ]
                 ],
                 emblem: [
@@ -64,37 +64,34 @@ export const valks: any = (function(): Guide[] {
                         ['Uranian Mirror', data.reinforcement]
                     ],
                     [
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[6]],
+                        [data.hua.nexus2.name],
                         [data.mobius.name, '6', data.mobius.regular[2]],
                         [data.mobius.regular[3]],
                         [data.mobius.regular[5]],
                         [data.mobius.nexus1.name],
                         [data.mobius.nexus1[1]],
                         [data.mobius.nexus1[3]],
-                        [data.vv.name, '6', data.vv.regular[2]],
+                        [data.vv.name, '5', data.vv.regular[2]],
                         [data.vv.regular[3]],
                         [data.vv.regular[6]],
                         [data.vv.nexus2.name],
-                        [data.vv.nexus2[1], ''],
-                        [data.vv.nexus2[2]]
+                        [data.vv.nexus2[1]]
                     ],
                     [
                         [data.griseo.name, '5', data.griseo.regular[1]],
                         [data.griseo.regular[4]],
                         [data.griseo.regular[6]],
                         [data.griseo.nexus1.name],
-                        [data.griseo.nexus1[2], ''],
+                        [data.griseo.nexus1[2]],
                         [data.aponia.name, '4', data.aponia.regular[3]],
                         [data.aponia.regular[4]],
                         [data.aponia.regular[5]],
-                        [data.aponia.nexus2.name],
-                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
-                        [data.pardofelis.regular[4]],
-                        [data.pardofelis.nexus1.name],
-                        [data.pardofelis.nexus1[3], '']
+                        [data.aponia.nexus2.name]
                     ]
-                ],
-                notes: `<p>${data.vv.nexus2[1]}</p>Max upgrade.<br><br>
-                        <p>${data.griseo.nexus1[2]}, ${data.pardofelis.nexus1[3]}</p>If breach is not yet 63%.`
+                ]
             }
         }
     }
@@ -257,7 +254,7 @@ export const valks: any = (function(): Guide[] {
                     [
                         [data.kalpas, '2'],
                         [data.sakura, '1'],
-                        [data.pardofelis, '1']
+                        [data.kosma, '2']
                     ]
                 ],
                 emblem: [
@@ -266,7 +263,7 @@ export const valks: any = (function(): Guide[] {
                     [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
-                    [ [data.ae], [data.bke] ],
+                    [ [data.ae], [data.le, data.bke] ],
                     [ [data.ae], [data.br] ]
                 ],
                 gear: [
@@ -307,10 +304,10 @@ export const valks: any = (function(): Guide[] {
                         [data.kalpas.nexus2[3], ''],
                         [data.sakura.name, '2', data.sakura.regular[2]],
                         [data.sakura.regular[5]],
-                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
-                        [data.pardofelis.regular[4]],
-                        [data.pardofelis.regular[5]],
-                        [data.pardofelis.nexus1.name]
+                        [data.kosma.name, '4', data.kosma.regular[3]],
+                        [data.kosma.regular[4]],
+                        [data.kosma.regular[5]],
+                        [data.kosma.nexus2.name]
                     ]
                 ],
                 notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}, ${data.griseo.nexus2[3]}</p>Priority.<br><br>
@@ -328,22 +325,22 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.aponia, '2'],
-                        [data.eden, '2']
+                        [data.hua, '2']
                     ],
                     [
                         [data.griseo, '2'],
                         [data.pardofelis, '1'],
-                        [data.sakura, '2']
+                        [data.kalpas, '2']
                     ]
                 ],
                 emblem: [
                     [data.veilOfTears, data.becauseOfYou],
-                    [data.veilOfTears, data.dreamfulGold],
-                    [data.goodOldDays, data.dreamfulGold]
+                    [data.memory, data.theLonelyMoon],
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
                     [ [data.ae], [data.le, data.bke] ],
-                    [ [data.hb], [data.br] ]
+                    [ [data.hb], [data.hb, data.br] ]
                 ],
                 gear: [
                     [data.irhe, data.hant, data.hanm, data.hanb],
@@ -364,24 +361,21 @@ export const valks: any = (function(): Guide[] {
                         [data.aponia.nexus2.name],
                         [data.aponia.nexus2[2]],
                         [data.aponia.nexus2[3]],
-                        [data.eden.name, '5', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[4]],
-                        [data.eden.regular[6]],
-                        [data.eden.nexus2.name]
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[6]],
+                        [data.hua.nexus2.name]
                     ],
                     [
                         [data.griseo.name, '3', data.griseo.regular[3]],
                         [data.griseo.regular[4]],
                         [data.griseo.regular[6]],
-                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
+                        [data.pardofelis.name, '3', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
-                        [data.pardofelis.regular[5]],
                         [data.pardofelis.nexus1.name],
-                        [data.kalpas.name, '4', data.kalpas.regular[1]],
+                        [data.kalpas.name, '3', data.kalpas.regular[1]],
                         [data.kalpas.regular[2]],
-                        [data.kalpas.regular[6]],
-                        [data.kalpas.nexus2.name]
+                        [data.kalpas.regular[6]]
                     ]
                 ]
             }
@@ -468,18 +462,18 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.aponia, '2'],
-                        [data.eden, '1'],
+                        [data.kosma, '2'],
                     ],
                     [   
-                        [data.griseo, '2'],
+                        [data.kalpas, '2'],
                         [data.su, '2'],
                         [data.pardofelis, '1'],
                     ]
                 ],
                 emblem: [
                     [data.veilOfTears, data.theLonelyMoon],
-                    [data.goldGoblet, data.theLonelyMoon],
-                    [data.keyToTheDeep, data.dreamfulGold]
+                    [data.fragileFriend, data.theLonelyMoon],
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
                     [ [data.ae], [data.le, data.bke] ],
@@ -505,34 +499,30 @@ export const valks: any = (function(): Guide[] {
                         [data.aponia.nexus2[1]],
                         [data.aponia.nexus2[2], ''],
                         [data.aponia.nexus2[3], ''],
-                        [data.eden.name, '7', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[4]],
-                        [data.eden.nexus1.name],
-                        [data.eden.nexus1[1]],
-                        [data.eden.nexus1[2]],
-                        [data.eden.nexus1[3]]
+                        [data.kosma.name, '6', data.kosma.regular[3]],
+                        [data.kosma.regular[4]],
+                        [data.kosma.regular[6]],
+                        [data.kosma.nexus2.name],
+                        [data.kosma.nexus2[1], ''],
+                        [data.kosma.nexus2[2], '']
                     ],
                     [
-                        [data.griseo.name, '5', data.griseo.regular[3]],
-                        [data.griseo.regular[4]],
-                        [data.griseo.regular[6]],
-                        [data.griseo.nexus2.name],
-                        [data.griseo.nexus2[1]],
-                        [data.su.name, '5', data.su.regular[1]],
-                        [data.su.regular[2]],
+                        [data.kalpas.name, '5', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[3]],
+                        [data.kalpas.regular[6]],
+                        [data.kalpas.nexus2.name],
+                        [data.su.name, '4', data.su.regular[1]],
                         [data.su.regular[3]],
                         [data.su.regular[5]],
                         [data.su.nexus2.name],
-                        [data.pardofelis.name, '5', data.pardofelis.regular[1]],
+                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
                         [data.pardofelis.regular[5]],
-                        [data.pardofelis.nexus1.name],
-                        [data.pardofelis.nexus1[3], '']
+                        [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[2]}</p>Priority.<br><br>
-                        <p>${data.griseo.nexus2[1]}, ${data.pardofelis.nexus1[3]}</p>If breach is not yet 63%.`
+                notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[2]}, ${data.kosma.nexus2[1]}, ${data.kosma.nexus2[2]}</p>Priority.`
             }
         }
     }
@@ -702,8 +692,8 @@ export const valks: any = (function(): Guide[] {
                 ],
                 emblem: [
                     [data.madKingsMask, data.becauseOfYou],
-                    [data.memory, data.itWillBeWritten],
-                    [data.ruinedLegacy, data.tsukimiHimiko]
+                    [data.memory, data.theLonelyMoon],
+                    [data.stainedSakura, data.tsukimiHimiko]
                 ],
                 support: [
                     [ [data.ae], [data.bke] ],
@@ -754,7 +744,7 @@ export const valks: any = (function(): Guide[] {
                         [data.kosma.nexus2.name]
                     ]
                 ],
-                notes: `<p>${data.sakura.nexus1.name}</p>Can also pick <span>${data.sakura.nexus1.name}</p><br><br>
+                notes: `<p>${data.sakura.nexus1.name}</p>Can also pick <span>${data.sakura.nexus2.name}</p><br><br>
                         <p>${data.griseo.nexus2[3]}</p>Priority.`
             }
         }
@@ -769,17 +759,17 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.aponia, '2'],
-                        [data.eden, '1']
+                        [data.hua, '2']
                     ],
                     [
-                        [data.hua, '2'],
+                        [data.eden, '1'],
                         [data.pardofelis, '1'],
                         [data.kalpas, '2']
                     ]
                 ],
                 emblem: [
                     [data.veilOfTears, data.boundlessFeeling],
-                    [data.goldGoblet, data.boundlessFeeling],
+                    [data.memory, data.boundlessFeeling],
                     [data.keyToTheDeep, data.dreamfulGold]
                 ],
                 support: [
@@ -799,25 +789,26 @@ export const valks: any = (function(): Guide[] {
                         ['First Journey']
                     ],
                     [
-                        [data.aponia.name, '5', data.aponia.regular[1]],
+                        [data.aponia.name, '6', data.aponia.regular[1]],
                         [data.aponia.regular[2], ''],
+                        [data.aponia.regular[3]],
                         [data.aponia.nexus2.name],
                         [data.aponia.nexus2[2]],
                         [data.aponia.nexus2[3]],
+                        [data.hua.name, '6', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[4]],
+                        [data.hua.nexus2.name],
+                        [data.hua.nexus2[1], ''],
+                        [data.hua.nexus2[2], ''],
+                    ],
+                    [
                         [data.eden.name, '6', data.eden.regular[1], ''],
                         [data.eden.regular[2]],
                         [data.eden.regular[3]],
                         [data.eden.regular[4]],
                         [data.eden.nexus1.name],
-                        [data.eden.nexus1[3]]
-                    ],
-                    [
-                        [data.hua.name, '6', data.hua.regular[1]],
-                        [data.hua.regular[3]],
-                        [data.hua.regular[4]],
-                        [data.hua.nexus2.name],
-                        [data.hua.nexus2[1]],
-                        [data.hua.nexus2[2]],
+                        [data.eden.nexus1[3]],
                         [data.pardofelis.name, '4', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
                         [data.pardofelis.regular[5]],
@@ -829,27 +820,28 @@ export const valks: any = (function(): Guide[] {
                         [data.kalpas.nexus2.name]
                     ]
                 ],
-                notes: `<p>${data.aponia.regular[2]}, ${data.eden.regular[1]}, ${data.kalpas.regular[5]}</p>Can pick to synergize with Hua's enhanced signets.`
+                notes: `<p>${data.aponia.regular[2]}, ${data.eden.regular[1]}, ${data.kalpas.regular[5]}</p>Can pick to synergize with Hua's enhanced signets.<br><br>
+                        <p>${data.hua.nexus2[1]}, ${data.hua.nexus2[2]}</p>If missing Aponia's breach.`
             },
             1: {
                 signet: [
                     [
-                        [data.vv, '2'],
-                        [data.griseo, '2']
+                        [data.hua, '2'],
+                        [data.vv, '2']
                     ],
                     [
+                        [data.griseo, '2'],
                         [data.sakura, '1'],
-                        [data.pardofelis, '1'],
-                        [data.kalpas, '1']
+                        [data.pardofelis, '1']
                     ]
                 ],
                 emblem: [
-                    [data.memory, data.theLonelyMoon],
-                    [data.rainbowOfAbsence, data.theLonelyMoon],
-                    [data.tinFlask, data.theLonelyMoon]
+                    [data.memory, data.fallingInPastLight],
+                    [data.psuedoMiracle, data.fallingInPastLight],
+                    [data.ruinedLegacy, data.fallingInPastLight]
                 ],
                 support: [
-                    [ [data.ae], [data.vc, data.bke] ],
+                    [ [data.ae], [data.bke] ],
                     [ [data.ae], [data.br] ]
                 ],
                 gear: [
@@ -865,36 +857,32 @@ export const valks: any = (function(): Guide[] {
                         ['First Yearning']
                     ],
                     [
-                        [data.vv.name, '6', data.vv.regular[2]],
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[6]],
+                        [data.hua.nexus2.name],
+                        [data.vv.name, '5', data.vv.regular[2]],
                         [data.vv.regular[3]],
                         [data.vv.regular[5]],
                         [data.vv.nexus2.name],
-                        [data.vv.nexus2[1], ''],
-                        [data.vv.nexus2[2]],
-                        [data.griseo.name, '9', data.griseo.regular[1]],
+                        [data.vv.nexus2[2]]
+                    ],
+                    [
+                        [data.griseo.name, '5', data.griseo.regular[1]],
                         [data.griseo.regular[2]],
                         [data.griseo.regular[3]],
                         [data.griseo.regular[4]],
                         [data.griseo.regular[6]],
-                        [data.griseo.nexus2.name],
-                        [data.griseo.nexus2[1], ''],
-                        [data.griseo.nexus2[2]],
-                        [data.griseo.nexus2[3]]
-                    ],
-                    [
-                        [data.sakura.name, '3', data.sakura.regular[2]],
-                        [data.sakura.regular[3]],
+                        [data.sakura.name, '3', data.sakura.regular[3]],
                         [data.sakura.regular[5]],
+                        [data.sakura.nexus1.name],
                         [data.pardofelis.name, '3', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
                         [data.pardofelis.nexus1.name],
-                        [data.kalpas.name, '2', data.kalpas.regular[1]],
-                        [data.kalpas.regular[2]]
+                        
                     ]
                 ],
-                notes: `Eden's signet <span>${data.eden.regular[4]}</span> is recommended to speed up rotations.<br><br>
-                        <p>${data.vv.nexus2[1]}</p>Recommended to upgrade.<br><br>
-                        <p>${data.griseo.nexus2[1]}</p>If not able to upgrade <span>${data.vv.nexus2[1]}<span/>.`
+                notes: `<p>Pardofelis</p>Recommended to get <span>${data.kalpas.regular[1]}</span> and <span>${data.kalpas.regular[2]}</span> from Kalpas, with BR to reduce HP.`
             }
         }
     }
@@ -907,18 +895,18 @@ export const valks: any = (function(): Guide[] {
             0: {
                 signet: [
                     [
-                        [data.vv, '2'],
-                        [data.sakura, '2'],
-                        [data.griseo, '2']
+                        [data.hua, '2'],
                     ],
                     [
+                        [data.kalpas, '2'],
+                        [data.sakura, '2'],
+                        [data.griseo, '2'],
                         [data.pardofelis, '1'],
-                        [data.su, '2']
                     ]
                 ],
                 emblem: [
-                    [data.psuedoMiracle, data.theLonelyMoon],
                     [data.memory, data.theLonelyMoon],
+                    [data.madKingsMask, data.theLonelyMoon],
                     [data.stainedSakura, data.dreamfulGold]
                 ],
                 support: [
@@ -938,37 +926,35 @@ export const valks: any = (function(): Guide[] {
                         ['Creation', data.no]
                     ],
                     [
-                        [data.vv.name, '6', data.vv.regular[2]],
-                        [data.vv.regular[3]],
-                        [data.vv.nexus2.name],
-                        [data.vv.nexus2[1], ''],
-                        [data.vv.nexus2[2]],
-                        [data.vv.nexus2[3]],
-                        [data.sakura.name, '5', data.sakura.regular[2]],
-                        [data.sakura.regular[3]],
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[6]],
+                        [data.hua.nexus2.name]
+                    ],
+                    [
+                        [data.kalpas.name, '4', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[3]],
+                        [data.kalpas.nexus2.name],
+                        [data.sakura.name, '4', data.sakura.regular[3]],
                         [data.sakura.regular[4]],
                         [data.sakura.regular[5]],
                         [data.sakura.nexus2.name],
-                        [data.griseo.name, '9', data.griseo.regular[1]],
-                        [data.griseo.regular[2]],
+                        [data.griseo.name, '8', data.griseo.regular[2]],
                         [data.griseo.regular[3]],
                         [data.griseo.regular[4]],
                         [data.griseo.regular[6]],
                         [data.griseo.nexus2.name],
                         [data.griseo.nexus2[1]],
                         [data.griseo.nexus2[2]],
-                        [data.griseo.nexus2[3]]
-                    ],
-                    [
+                        [data.griseo.nexus2[3]],
                         [data.pardofelis.name, '3', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
-                        [data.pardofelis.nexus1.name],
-                        [data.su.name, '3', data.su.regular[1]],
-                        [data.su.regular[3]],
-                        [data.su.regular[6]]
+                        [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>${data.vv.nexus2[1]}</p>Priority.`
+                notes: `<p>Early Emblem</p>The Lonely Moon or Because of You. Take Inspiration and Truth at 7F.<br><br>
+                        <p>Blessing of Reason</p>Only if using DoR.`
             }
         }
     }
@@ -982,23 +968,23 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.aponia, '2'],
-                        [data.eden, '2']
+                        [data.kalpas, '2']
                     ],
                     [
+                        [data.kosma, '2'],
                         [data.griseo, '2']
                     ],
                     [
-                        [data.pardofelis, '1'],
-                        [data.kosma, '2']
+                        [data.pardofelis, '1']
                     ]
                 ],
                 emblem: [
                     [data.veilOfTears, data.theLonelyMoon],
-                    [data.goldGoblet, data.theLonelyMoon],
-                    [data.ruinedLegacy, data.dreamfulGold]
+                    [data.madKingsMask, data.theLonelyMoon],
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
-                    [ [data.br], [data.bke] ],
+                    [ [data.vc], [data.le, data.bke] ],
                     [ [data.br], [data.ss] ]
                 ],
                 gear: [
@@ -1018,12 +1004,16 @@ export const valks: any = (function(): Guide[] {
                         [data.aponia.regular[4]],
                         [data.aponia.nexus2.name],
                         [data.aponia.nexus2[3]],
-                        [data.eden.name, '4', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[6]],
-                        [data.eden.nexus2.name]
+                        [data.kalpas.name, '4', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[3]],
+                        [data.kalpas.nexus2.name]
                     ],
                     [
+                        [data.kosma.name, '4', data.kosma.regular[2]],
+                        [data.kosma.regular[3]],
+                        [data.kosma.regular[6]],
+                        [data.kosma.nexus2.name],
                         [data.griseo.name, '8', data.griseo.regular[2]],
                         [data.griseo.regular[3]],
                         [data.griseo.regular[4]],
@@ -1036,14 +1026,10 @@ export const valks: any = (function(): Guide[] {
                     [
                         [data.pardofelis.name, '3', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
-                        [data.pardofelis.nexus1.name],
-                        [data.kosma.name, '3', data.kosma.regular[3]],
-                        [data.kosma.regular[6]],
-                        [data.kosma.nexus2.name]
+                        [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `If can't get double signets in 4F, start with double Ego.<br><br>
-                        <p>${data.griseo.nexus2[1]}</p>Priority.`
+                notes: `<p>${data.griseo.nexus2[1]}</p>Priority.`
             }
         }
     }
@@ -1056,10 +1042,8 @@ export const valks: any = (function(): Guide[] {
             0: {
                 signet: [
                     [
-                        [data.sakura, '1']
-                    ],
-                    [
                         [data.vv, '2'],
+                        [data.sakura, '1'],
                         [data.hua, '2']
                     ],
                     [
@@ -1068,12 +1052,12 @@ export const valks: any = (function(): Guide[] {
                     ]
                 ],
                 emblem: [
-                    [data.forgetMeNot, data.theLonelyMoon],
-                    [data.psuedoMiracle, data.boundlessLogos],
+                    [data.psuedoMiracle, data.fallingInPastLight],
+                    [data.forgetMeNot, data.boundlessLogos],
                     [data.stainedSakura, data.boundlessLogos]
                 ],
                 support: [
-                    [ [data.ss], [data.vc] ],
+                    [ [data.ss], [data.bke] ],
                     [ [data.ss], [data.vc] ]
                 ],
                 gear: [
@@ -1089,20 +1073,18 @@ export const valks: any = (function(): Guide[] {
                         ['Law', data.no]
                     ],
                     [
-                        [data.sakura.name, '4', data.sakura.regular[2]],
-                        [data.sakura.regular[3]],
-                        [data.sakura.regular[5]],
-                        [data.sakura.nexus1.name]
-                    ],
-                    [
-                        [data.vv.name, '7', data.vv.regular[2]],
+                        [data.vv.name, '7', data.vv.regular[1]],
+                        [data.vv.regular[2]],
                         [data.vv.regular[3]],
-                        [data.vv.regular[5]],
                         [data.vv.nexus2.name],
                         [data.vv.nexus2[1], ''],
                         [data.vv.nexus2[2], ''],
                         [data.vv.nexus2[3]],
-                        [data.hua.name, '3', data.hua.regular[3]],
+                        [data.sakura.name, '3', data.sakura.regular[3]],
+                        [data.sakura.regular[5]],
+                        [data.sakura.nexus1.name],
+                        [data.hua.name, '4', data.hua.regular[2]],
+                        [data.hua.regular[3]],
                         [data.hua.regular[5]],
                         [data.hua.nexus2.name]
                     ],
@@ -1117,6 +1099,7 @@ export const valks: any = (function(): Guide[] {
                     ]
                 ],
                 notes: `<p>${data.vv.nexus2[1]}, ${data.vv.nexus2[1]}</p>Priority.<br><br>
+                        <p>Griseo</p>Can buy her signets in shop.<br><br>
                         <p>Mobius</p>Can buy Su, Kalpas, and Eden signets from shop as further reinforcement.`
             }
         }
@@ -1131,7 +1114,7 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.griseo, '2'],
-                        [data.hua, '1']
+                        [data.hua, '2']
                     ],
                     [
                         [data.pardofelis, '1'],
@@ -1145,7 +1128,7 @@ export const valks: any = (function(): Guide[] {
                     [data.ruinedLegacy, data.dreamfulGold]
                 ],
                 support: [
-                    [ [data.le], [data.ae, data.bke] ],
+                    [ [data.ae], [data.le, data.bke] ],
                     [ [data.ae], [data.br] ]
                 ],
                 gear: [
@@ -1161,7 +1144,9 @@ export const valks: any = (function(): Guide[] {
                         ['Mitama']
                     ],
                     [
-                        [data.griseo.name, '6', data.griseo.regular[4]],
+                        [data.griseo.name, '8', data.griseo.regular[2]],
+                        [data.griseo.regular[3]],
+                        [data.griseo.regular[4]],
                         [data.griseo.regular[6]],
                         [data.griseo.nexus2.name],
                         [data.griseo.nexus2[1]],
@@ -1170,12 +1155,14 @@ export const valks: any = (function(): Guide[] {
                         [data.hua.name, '4', data.hua.regular[1]],
                         [data.hua.regular[3]],
                         [data.hua.regular[6]],
-                        [data.hua.nexus1.name]
+                        [data.hua.nexus2.name]
                     ],
                     [
-                        [data.pardofelis.name, '3', data.pardofelis.regular[1]],
+                        [data.pardofelis.name, '5', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
                         [data.pardofelis.nexus1.name],
+                        [data.pardofelis.nexus1[1]],
+                        [data.pardofelis.nexus1[2]],
                         [data.mobius.name, '4', data.mobius.regular[2]],
                         [data.mobius.regular[5]],
                         [data.mobius.regular[5]],
@@ -1195,15 +1182,15 @@ export const valks: any = (function(): Guide[] {
                         [data.griseo, '2']
                     ],
                     [
-                        [data.sakura, '1'],
-                        [data.pardofelis, '1'],
-                        [data.eden, '2']
+                        [data.kosma, '2'],
+                        [data.kalpas, '2'],
+                        [data.pardofelis, '1']
                     ]
                 ],
                 emblem: [
                     [data.veilOfTears, data.theLonelyMoon],
                     [data.rainbowOfAbsence, data.theLonelyMoon],
-                    [data.stainedSakura, data.dreamfulGold]
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
                     [ [data.ae], [data.le] ],
@@ -1235,20 +1222,21 @@ export const valks: any = (function(): Guide[] {
                         [data.griseo.nexus2[3]]
                     ],
                     [
-                        [data.sakura.name, '4', data.sakura.regular[2]],
-                        [data.sakura.regular[3]],
-                        [data.sakura.regular[5]],
-                        [data.sakura.nexus1.name],
+                        [data.kosma.name, '5', data.kosma.regular[3]],
+                        [data.kosma.regular[4]],
+                        [data.kosma.regular[6]],
+                        [data.kosma.nexus2.name],
+                        [data.kosma.nexus2[1]],
+                        [data.kalpas.name, '4', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[3]],
+                        [data.kalpas.nexus2.name],
                         [data.pardofelis.name, '3', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
-                        [data.pardofelis.nexus1.name],
-                        [data.eden.name, '5', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[4]],
-                        [data.eden.regular[6]],
-                        [data.eden.nexus2.name]
+                        [data.pardofelis.nexus1.name]
                     ]
-                ]
+                ],
+                notes: `<p>Pardofelis</p>Can pick Sakura's signets <span>${data.sakura.regular[2]}</span> and <span>${data.sakura.regular[5]}</span>`
             }
         }
     }
@@ -1262,7 +1250,7 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.mobius, '1'],
-                        [data.aponia, '2'],
+                        [data.hua, '2'],
                         [data.griseo, '2']
                     ],
                     [
@@ -1272,7 +1260,7 @@ export const valks: any = (function(): Guide[] {
                 ],
                 emblem: [
                     [data.forbiddenSeed, data.boundlessLogos],
-                    [data.veilOfTears, data.boundlessLogos],
+                    [data.memory, data.boundlessLogos],
                     [data.ruinedLegacy, data.boundlessLogos]
                 ],
                 support: [
@@ -1285,9 +1273,9 @@ export const valks: any = (function(): Guide[] {
                 ],
                 signetTable: [
                     [
-                        ['Ascension', data.start, '2'],
+                        ['Ill Fortune', data.start, '2'],
                         ['Dark Assault'],
-                        ['Ill Fortune', data.first],
+                        ['Ascension', data.first],
                         ['Ravenousness', data.reinforcement],
                         ['Mirage', data.no]
                     ],
@@ -1295,11 +1283,10 @@ export const valks: any = (function(): Guide[] {
                         [data.mobius.name, '3', data.mobius.regular[2]],
                         [data.mobius.regular[5]],
                         [data.mobius.nexus1.name],
-                        [data.aponia.name, '5', data.aponia.regular[1]],
-                        [data.aponia.regular[3]],
-                        [data.aponia.regular[5]],
-                        [data.aponia.nexus2.name],
-                        [data.aponia.nexus2[2]],
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[6]],
+                        [data.hua.nexus2.name],
                         [data.griseo.name, '8', data.griseo.regular[2]],
                         [data.griseo.regular[3]],
                         [data.griseo.regular[4]],
@@ -1310,11 +1297,11 @@ export const valks: any = (function(): Guide[] {
                         [data.griseo.nexus2[3]]
                     ],
                     [
-                        [data.sakura.name, '3', data.sakura.regular[1]],
+                        [data.sakura.name, '2', data.sakura.regular[1]],
                         [data.sakura.regular[5]],
-                        [data.sakura.nexus1.name],
-                        [data.kalpas.name, '3', data.kalpas.regular[1]],
+                        [data.kalpas.name, '4', data.kalpas.regular[1]],
                         [data.kalpas.regular[2]],
+                        [data.kalpas.regular[6]],
                         [data.kalpas.nexus2.name]
                     ]
                 ]
@@ -1330,19 +1317,19 @@ export const valks: any = (function(): Guide[] {
             0: {
                 signet: [
                     [
-                        [data.aponia, '2']
+                        [data.hua, '2'],
+                        [data.griseo, '2'],
+                        [data.kalpas, '2']
                     ],
                     [
-                        [data.su, '2'],
-                        [data.eden, '2'],
-                        [data.sakura, '2'],
-                        [data.pardofelis, '1']
+                        [data.aponia, '2'],
+                        [data.su, '2']
                     ]
                 ],
                 emblem: [
-                    [data.veilOfTears, data.theLonelyMoon],
-                    [data.lightAsABodhiLeaf, data.theLonelyMoon],
-                    [data.keyToTheDeep, data.dreamfulGold]
+                    [data.memory, data.theLonelyMoon],
+                    [data.rainbowOfAbsence, data.theLonelyMoon],
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
                     [ [data.br], [data.le, data.bke] ],
@@ -1361,30 +1348,37 @@ export const valks: any = (function(): Guide[] {
                         ['Smoky Waft']
                     ],
                     [
-                        [data.aponia.name, '5', data.aponia.regular[1]],
-                        [data.aponia.regular[3]],
-                        [data.aponia.nexus2.name],
-                        [data.aponia.nexus2[2]],
-                        [data.aponia.nexus2[3]]
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[6]],
+                        [data.hua.nexus2.name],
+                        [data.griseo.name, '8', data.griseo.regular[2]],
+                        [data.griseo.regular[3]],
+                        [data.griseo.regular[4]],
+                        [data.griseo.regular[6]],
+                        [data.griseo.nexus2.name],
+                        [data.griseo.nexus2[1]],
+                        [data.griseo.nexus2[2], ''],
+                        [data.griseo.nexus2[3], ''],
+                        [data.kalpas.name, '3', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[6]]
                     ],
                     [
-                        [data.su.name, '4', data.su.regular[1]],
-                        [data.su.regular[2]],
+                        [data.aponia.name, '7', data.aponia.regular[1]],
+                        [data.aponia.regular[3]],
+                        [data.aponia.regular[4]],
+                        [data.aponia.regular[5]],
+                        [data.aponia.nexus2.name],
+                        [data.aponia.nexus2[2]],
+                        [data.aponia.nexus2[3]],
+                        [data.su.name, '4', data.su.regular[2]],
                         [data.su.regular[3]],
-                        [data.su.nexus2.name],
-                        [data.eden.name, '4', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[4]],
-                        [data.eden.nexus2.name],
-                        [data.sakura.name, '3', data.sakura.regular[2]],
-                        [data.sakura.regular[3]],
-                        [data.sakura.regular[5]],
-                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
-                        [data.pardofelis.regular[4]],
-                        [data.pardofelis.regular[5]],
-                        [data.pardofelis.nexus2.name]
+                        [data.su.regular[6]],
+                        [data.su.nexus2.name]
                     ]
-                ]
+                ],
+                notes: `<p>${data.griseo.nexus2[2]}, ${data.griseo.nexus2[3]}</p>Priority.`
             }
         }
     }
@@ -1548,7 +1542,7 @@ export const valks: any = (function(): Guide[] {
                     [
                         [data.griseo, '2'],
                         [data.su, '2'],
-                        [data.eden, '2']
+                        [data.pardofelis, '1']
                     ]
                 ],
                 emblem: [
@@ -1558,7 +1552,7 @@ export const valks: any = (function(): Guide[] {
                 ],
                 support: [
                     [ [data.vc], [data.le, data.bke] ],
-                    [ [data.ss], [data.br] ]
+                    [ [data.ss], [data.vc] ]
                 ],
                 gear: [
                     [data.whpa, data.elyt, data.elym, data.elyb],
@@ -1581,12 +1575,11 @@ export const valks: any = (function(): Guide[] {
                         [data.vv.nexus2[1], ''],
                         [data.vv.nexus2[2]],
                         [data.vv.nexus2[3]],
-                        [data.aponia.name, '6', data.aponia.regular[1]],
+                        [data.aponia.name, '5', data.aponia.regular[1]],
                         [data.aponia.regular[3]],
                         [data.aponia.regular[5]],
                         [data.aponia.nexus2.name],
-                        [data.aponia.nexus2[2]],
-                        [data.aponia.nexus2[3]]
+                        [data.aponia.nexus2[2]]
                     ],
                     [
                         [data.griseo.name, '2', data.griseo.regular[1]],
@@ -1594,10 +1587,9 @@ export const valks: any = (function(): Guide[] {
                         [data.su.name, '3', data.su.regular[3]],
                         [data.su.regular[6]],
                         [data.su.nexus2.name],
-                        [data.eden.name, '4', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.regular[4]],
-                        [data.eden.nexus2.name]
+                        [data.pardofelis.name, '3', data.eden.regular[1]],
+                        [data.pardofelis.regular[4]],
+                        [data.pardofelis.nexus1.name]
                     ]
                 ],
                 notes: `<p>${data.vv.nexus2[1]}</p>Max upgrade.`
@@ -1756,21 +1748,21 @@ export const valks: any = (function(): Guide[] {
                 signet: [
                     [
                         [data.vv, '2'],
-                        [data.eden, '2'],
-                        [data.hua, '2'],
+                        [data.hua, '2']
                     ],
                     [
                         [data.griseo, '2'],
+                        [data.kalpas, '2'],
                         [data.pardofelis, '1']
                     ]
                 ],
                 emblem: [
                     [data.psuedoMiracle, data.fallingInPastLight],
-                    [data.goldGoblet, data.fallingInPastLight],
-                    [data.keyToTheDeep, data.dreamfulGold]
+                    [data.memory, data.fallingInPastLight],
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
-                    [ [data.ae], [data.br, data.bke] ],
+                    [ [data.ae], [data.bke] ],
                     [ [data.ae], [data.br] ]
                 ],
                 gear: [
@@ -1790,30 +1782,26 @@ export const valks: any = (function(): Guide[] {
                         [data.vv.regular[2]],
                         [data.vv.regular[3]],
                         [data.vv.nexus2.name],
-                        [data.vv.nexus2[1], ''],
+                        [data.vv.nexus2[1]],
                         [data.vv.nexus2[2]],
-                        [data.eden.name, '4', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.nexus2.name],
-                        [data.eden.nexus2[3]],
                         [data.hua.name, '4', data.hua.regular[1]],
                         [data.hua.regular[4]],
                         [data.hua.regular[6]],
                         [data.hua.nexus2.name]
                     ],
                     [
-                        [data.griseo.name, '4', data.griseo.regular[1]],
-                        [data.griseo.regular[3]],
+                        [data.griseo.name, '2', data.griseo.regular[1]],
                         [data.griseo.regular[4]],
-                        [data.griseo.regular[6]],
+                        [data.kalpas.name, '3', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.nexus2.name],
                         [data.pardofelis.name, '4', data.pardofelis.regular[1]],
                         [data.pardofelis.regular[4]],
                         [data.pardofelis.regular[5]],
                         [data.pardofelis.nexus1.name]
                     ]
                 ],
-                notes: `<p>Blessing of the Tailpiece</p>Reinforcement if Infinity signets +2.<br><br>
-                        <p>${data.vv.nexus2[1]}</p>Max upgrade.`
+                notes: `<p>Blessing of the Tailpiece</p>Start if Infinity signets +2.<br><br>`
             }
         }
     }
@@ -2033,23 +2021,25 @@ export const valks: any = (function(): Guide[] {
             0: {
                 signet: [
                     [
+                        [data.hua, '2']
+                    ],
+                    [
                         [data.griseo, '2'],
                         [data.mobius, '1']
                     ],
                     [
-                        [data.sakura, '1'],
-                        [data.pardofelis, '1'],
-                        [data.hua, '2']
+                        [data.kalpas, '2'],
+                        [data.pardofelis, '1']
                     ]
                 ],
                 emblem: [
-                    [data.forbiddenSeed, data.theLonelyMoon],
+                    [data.memory, data.theLonelyMoon],
                     [data.rainbowOfAbsence, data.theLonelyMoon],
-                    [data.theFirstScale, data.dreamfulGold]
+                    [data.tinFlask, data.dreamfulGold]
                 ],
                 support: [
-                    [ [data.br], [data.bke] ],
-                    [ [data.br], [data.ss, data.dp] ]
+                    [ [data.br], [data.vc, data.bke] ],
+                    [ [data.br], [data.dp] ]
                 ],
                 gear: [
                     [data.elas, data.cezt, data.cezm, data.cezb],
@@ -2064,36 +2054,36 @@ export const valks: any = (function(): Guide[] {
                         ['Feathers']
                     ],
                     [
-                        [data.griseo.name, '9', data.griseo.regular[1]],
-                        [data.griseo.regular[2]],
-                        [data.griseo.regular[3]],
-                        [data.griseo.regular[4]],
-                        [data.griseo.regular[6]],
-                        [data.griseo.nexus2.name],
-                        [data.griseo.nexus2[1], ''],
-                        [data.griseo.nexus2[2]],
-                        [data.griseo.nexus2[3]],
-                        [data.mobius.name, '6', data.mobius.regular[2]],
-                        [data.mobius.regular[3]],
-                        [data.mobius.regular[5]],
-                        [data.mobius.nexus1.name],
-                        [data.mobius.nexus1[1]],
-                        [data.mobius.nexus1[3]]
-                    ],
-                    [
-                        [data.sakura.name, '2', data.sakura.regular[2]],
-                        [data.sakura.regular[5]],
-                        [data.pardofelis.name, '3', data.pardofelis.regular[1]],
-                        [data.pardofelis.regular[4]],
-                        [data.pardofelis.nexus1.name],
                         [data.hua.name, '4', data.hua.regular[2]],
                         [data.hua.regular[3]],
                         [data.hua.regular[5]],
                         [data.hua.nexus2.name]
+                    ],
+                    [
+                        [data.griseo.name, '5', data.griseo.regular[2]],
+                        [data.griseo.regular[4]],
+                        [data.griseo.regular[6]],
+                        [data.griseo.nexus2.name],
+                        [data.griseo.nexus2[1]],
+                        [data.mobius.name, '7', data.mobius.regular[2]],
+                        [data.mobius.regular[3]],
+                        [data.mobius.regular[4]],
+                        [data.mobius.regular[5]],
+                        [data.mobius.nexus1.name],
+                        [data.mobius.nexus1[1]],
+                        [data.mobius.nexus1[2]]
+                    ],
+                    [
+                        [data.kalpas.name, '4', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[6]],
+                        [data.kalpas.nexus2.name],
+                        [data.pardofelis.name, '4', data.pardofelis.regular[1]],
+                        [data.pardofelis.regular[4]],
+                        [data.pardofelis.regular[5]],
+                        [data.pardofelis.nexus1.name]
                     ]
-                ],
-                notes: `<p>${data.griseo.nexus2[1]}</p>Priority.<br><br>
-                        <p>Hua</p>After nexus is unlocked, can pick Kalpas's signets <span>${data.kalpas.regular[1]}</span> and <span>${data.kalpas.regular[2]}</span> and rely on BR to reduce HP.`
+                ]
             }
         }
     }
@@ -2106,27 +2096,29 @@ export const valks: any = (function(): Guide[] {
             0: {
                 signet: [
                     [
-                        [data.hua, '2'],
-                        [data.griseo, '2'],
+                        [data.hua, '2']
+                    ],
+                    [
                         [data.vv, '2']
                     ],
                     [
-                        [data.sakura, '1'],
-                        [data.eden, '2']
+                        [data.kosma, '2'],
+                        [data.kalpas, '2'],
+                        [data.griseo, '2']
                     ]
                 ],
                 emblem: [
-                    [data.memory, data.becauseOfYou],
-                    [data.rainbowOfAbsence, data.fallingInPastLight],
-                    [data.ruinedLegacy, data.fallingInPastLight]
+                    [data.memory, data.fallingInPastLight],
+                    [data.psuedoMiracle, data.becauseOfYou],
+                    [data.tinFlask, data.fallingInPastLight]
                 ],
                 support: [
                     [ [data.ae], [data.le] ],
                     [ [data.ae], [data.hb] ]
                 ],
                 gear: [
-                    [data.saga, data.vert, data.verm, data.verb],
-                    [data.hawp, data.anat, data.anam, data.anab]
+                    [data.saun, data.vert, data.verm, data.verb],
+                    [data.saga, data.wilt, data.wilm, data.wilb]
                 ],
                 signetTable: [
                     [
@@ -2137,33 +2129,34 @@ export const valks: any = (function(): Guide[] {
                         ['Nightmare', data.no]
                     ],
                     [
-                        [data.hua.name, '2', data.hua.regular[6], ''],
-                        [data.hua.nexus2.name],
-                        [data.griseo.name, '8', data.griseo.regular[1]],
-                        [data.griseo.regular[2]],
-                        [data.griseo.regular[4]],
-                        [data.griseo.regular[6]],
-                        [data.griseo.nexus2.name],
-                        [data.griseo.nexus2[1]],
-                        [data.griseo.nexus2[2], ''],
-                        [data.griseo.nexus2[3], ''],
-                        [data.vv.name, '4', data.vv.regular[2]],
+                        [data.hua.name, '4', data.hua.regular[1]],
+                        [data.hua.regular[3]],
+                        [data.hua.regular[5]],
+                        [data.hua.nexus2.name]
+                    ],
+                    [
+                        [data.vv.name, '5', data.vv.regular[2]],
                         [data.vv.regular[3]],
                         [data.vv.nexus2.name],
+                        [data.vv.nexus2[1]],
                         [data.vv.nexus2[2]]
                     ],
                     [
-                        [data.sakura.name, '3', data.sakura.regular[5]],
-                        [data.sakura.regular[6]],
-                        [data.sakura.nexus1.name],
-                        [data.eden.name, '3', data.eden.regular[2]],
-                        [data.eden.regular[3]],
-                        [data.eden.nexus2.name]
+                        [data.kosma.name, '4', data.kosma.regular[3]],
+                        [data.kosma.regular[4]],
+                        [data.kosma.regular[6]],
+                        [data.kosma.nexus2.name],
+                        [data.kalpas.name, '4', data.kalpas.regular[1]],
+                        [data.kalpas.regular[2]],
+                        [data.kalpas.regular[3]],
+                        [data.kalpas.nexus2.name],
+                        [data.griseo.name, '4', data.griseo.regular[1]],
+                        [data.griseo.regular[4]],
+                        [data.griseo.regular[6]],
+                        [data.griseo.nexus2.name]
                     ]
                 ],
-                notes: `<p>${data.hua.regular[6]}</p>Recommended to upgrade.<br><br>
-                        <p>${data.griseo.nexus2[2]}, ${data.griseo.nexus2[3]}</p>Priority.<br><br>
-                        <p>Sakura</p>Buy signets from the shop if possible.`
+                notes: `Other secondary signets include Sakura's signets <span>${data.sakura.regular[5]}</span> and <span>${data.sakura.regular[6]}</span>.`
             }
         }
     }

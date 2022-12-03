@@ -265,6 +265,7 @@ const images = [
     'Positron_Blasters',
     'Purana_Phantasma',
     'Sagittarius_Astra',
+    'Sanguine_Gaze',
     'Sanguine_Gaze_Union',
     'Seven_Thunders_of_Retribution_Narukami',
     'Seven_Thunders_of_Retribution_Rumble',
