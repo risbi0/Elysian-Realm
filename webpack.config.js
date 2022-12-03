@@ -7,7 +7,7 @@ const glob = require('glob');
 const isDevelopment = process.argv[process.argv.indexOf('--mode') + 1] === 'development';
 
 const getFiles = () => {
-    files = [];
+    const files = [];
     glob('src/assets/img/**/*.png', (_, imagePaths) => {
         for (const imagePath of imagePaths) files.push({ from: imagePath, to: 'static/img' });
     });
@@ -38,7 +38,7 @@ module.exports = {
                 removeComments: true,
                 collapseWhitespace: true,
                 minifyJS: {
-                    compress: { 
+                    compress: {
                         conditionals: false
                     }
                 }
@@ -51,7 +51,7 @@ module.exports = {
                 removeComments: true,
                 collapseWhitespace: true,
                 minifyJS: {
-                    compress: { 
+                    compress: {
                         conditionals: false
                     }
                 }
