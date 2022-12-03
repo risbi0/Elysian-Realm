@@ -1,0 +1,26 @@
+{
+    "artificialDelayMilliseconds": 1000,
+    "keepExistingTerminalsOpen": false,
+    "runOnStartup": true,
+    "terminals": [
+        {
+            "splitTerminals": [
+                {
+                    "name": "Serve",
+                    "commands": ["npm run serve"]
+                },
+                {
+                    "name": "Watch",
+                    "commands": ["npm run watch"]
+                }
+            ]
+        },
+        {
+            "splitTerminals": [
+                {
+                    "name": "Main"
+                }
+            ]
+        }
+    ]
+}
