@@ -1,0 +1,9 @@
+root = true
+
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.{html,css,scss,js,ts}]
+indent_style = tab
+indent_size = 4
