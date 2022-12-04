@@ -36,7 +36,6 @@ const progressBar = document.querySelector('#progress-bar') as HTMLDivElement;
 const progressBarWidthInPixels: number = parseInt(window.getComputedStyle(progressBar).width) + 1;
 const meter = document.querySelector('#meter') as HTMLDivElement;
 let done = 0, progressInPixels = 0;
-let once = true; // execute code once on error
 paths.forEach((link: string) => {
 	load(link).then(() => {
 		done += 1;
@@ -71,28 +70,25 @@ paths.forEach((link: string) => {
 			}
 		}
 	}).catch(() => {
-		if (once) { // make reload page
-			const errMsg: HTMLParagraphElement = document.createElement('p');
-			errMsg.setAttribute('id', 'error-msg');
-			errMsg.innerText = 'An error occured. Please reload the page.';
+		// make reload page
+		const errMsg: HTMLParagraphElement = document.createElement('p');
+		errMsg.setAttribute('id', 'error-msg');
+		errMsg.innerText = 'An error occured. Please reload the page.';
 
-			const reloadBtn: HTMLButtonElement = document.createElement('button');
-			reloadBtn.setAttribute('id', 'refresh');
-			reloadBtn.setAttribute('onclick', 'window.location.reload();');
+		const reloadBtn: HTMLButtonElement = document.createElement('button');
+		reloadBtn.setAttribute('id', 'refresh');
+		reloadBtn.setAttribute('onclick', 'window.location.reload();');
 
-			const span: HTMLSpanElement = document.createElement('span');
-			span.classList.add('material-icons');
-			span.innerText = 'refresh';
+		const span: HTMLSpanElement = document.createElement('span');
+		span.classList.add('material-icons');
+		span.innerText = 'refresh';
 
-			reloadBtn.appendChild(span);
+		reloadBtn.appendChild(span);
 
-			cover.innerHTML = '';
-			cover.classList.add('f-col');
-			cover.appendChild(errMsg);
-			cover.appendChild(reloadBtn);
-
-			once = false;
-		}
+		cover.innerHTML = '';
+		cover.classList.add('f-col');
+		cover.appendChild(errMsg);
+		cover.appendChild(reloadBtn);
 	});
 });
 
