@@ -395,12 +395,12 @@ const eden: Guide = {
 			signet: [
 				[
 					[data.aponia, '2'],
-					[data.kosma, '2'],
+					[data.kosma, '2']
 				],
 				[
 					[data.kalpas, '2'],
 					[data.su, '2'],
-					[data.pardofelis, '1'],
+					[data.pardofelis, '1']
 				]
 			],
 			emblem: [
@@ -1005,7 +1005,7 @@ const hoh: Guide = {
 					[data.hua.regular[4]],
 					[data.hua.nexus2.name],
 					[data.hua.nexus2[1], ''],
-					[data.hua.nexus2[2], ''],
+					[data.hua.nexus2[2], '']
 				],
 				[
 					[data.eden.name, '6', data.eden.regular[1], ''],
@@ -1083,7 +1083,7 @@ const hoh: Guide = {
 					[data.sakura.nexus1.name],
 					[data.pardofelis.name, '3', data.pardofelis.regular[1]],
 					[data.pardofelis.regular[4]],
-					[data.pardofelis.nexus1.name],
+					[data.pardofelis.nexus1.name]
 
 				]
 			],
@@ -1100,13 +1100,13 @@ const hor: Guide = {
 		0: {
 			signet: [
 				[
-					[data.hua, '2'],
+					[data.hua, '2']
 				],
 				[
 					[data.kalpas, '2'],
 					[data.sakura, '2'],
 					[data.griseo, '2'],
-					[data.pardofelis, '1'],
+					[data.pardofelis, '1']
 				]
 			],
 			emblem: [
@@ -1734,7 +1734,7 @@ const pe: Guide = {
 		0: {
 			signet: [
 				[
-					[data.vv, '1'],
+					[data.vv, '1']
 				],
 				[
 					[data.griseo, '2']
@@ -2295,7 +2295,7 @@ const vb: Guide = {
 					[data.eden.regular[2]],
 					[data.eden.regular[3]],
 					[data.eden.nexus2.name]
-				],
+				]
 			],
 			notes: `<p>Recommended Gear</p>Build 2: If not enough breach or impair, pick breach from signets.<br><br>
 					<p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
@@ -2338,7 +2338,7 @@ const ve: Guide = {
 				[
 					['Banishment', data.start],
 					['Penalty', data.first],
-					['Dusk', data.second, ],
+					['Dusk', data.second],
 					['Radiance', data.reinforcement, '2'],
 					['Sanction']
 				],

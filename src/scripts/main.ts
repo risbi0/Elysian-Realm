@@ -190,7 +190,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
 
 let originalText: string | null = null, previousText: HTMLTableCellElement;
 function changeText(deez: HTMLTableCellElement): void {
-	for(let i = 0; i < Object.keys(signetSummary).length; i++) {
+	for (let i = 0; i < Object.keys(signetSummary).length; i++) {
 		if (signetSummary[i].signets!.includes(deez.textContent!) ||
 			signetSummary[i].signets === deez.textContent) {
 			previousText = deez;
@@ -221,7 +221,7 @@ let rightPos: number = deviceWidth / 2 + 243;
 let prevHeight: number = window.outerHeight;
 function setAnimAndPos(): void {
 	// guide animations and close/gototop button positions
-	if (deviceHeight >=  950) {
+	if (deviceHeight >= 950) {
 		[guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
 		[topPos, bottomPos] = [135, 866];
 	} else {
@@ -249,8 +249,11 @@ if (isMobile) {
 				if (originalText !== null && previousText !== null && !this.textContent!.includes('(Nexus)')) {
 					revertText(previousText);
 					changeText(this);
-				} else if (originalText === null) { changeText(this);
-				} else { revertText(previousText) }
+				} else if (originalText === null) {
+					changeText(this);
+				} else {
+					revertText(previousText);
+				}
 			});
 		});
 	})(signetTableCells);
@@ -268,7 +271,7 @@ if (isMobile) {
 	noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
 	const noOfBannersNotInViewport: number = valksLength - noOfBannersInViewport;
 	const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
-	const bannerIndicesInDektopViewport: number[] = Array.from(Array(noOfBannersInViewport).keys()).map((e) =>  e + noOfBannersLeftOfViewport);
+	const bannerIndicesInDektopViewport: number[] = Array.from(Array(noOfBannersInViewport).keys()).map((e) => e + noOfBannersLeftOfViewport);
 	// randomize array elements
 	const bannerLength: number = bannerIndicesInDektopViewport.length;
 	for (let i = 0; i < bannerLength; i++) {
@@ -338,7 +341,7 @@ function hide() {
 		verticalText.forEach((text: HTMLSpanElement) => text.style.opacity = '1');
 		// hide fade effect
 		for (let i = 0; i < mainStylesheet.length; i++) {
-			let cssRule = mainStylesheet[i] as CSSStyleRule;
+			const cssRule = mainStylesheet[i] as CSSStyleRule;
 			if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
 				cssRule.style.opacity = '0';
 				cssRule.style.animation = '';
@@ -423,7 +426,7 @@ banners.forEach((banner: HTMLButtonElement) => {
 				// style ::after and ::before psuedo selectors
 				const beforeOffset = 'calc(25vw - 5px)';
 				for (let i = 0; i < mainStylesheet.length; i++) {
-					let cssRule = mainStylesheet[i] as CSSStyleRule;
+					const cssRule = mainStylesheet[i] as CSSStyleRule;
 					if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
 						cssRule.style.opacity = '1';
 						cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;

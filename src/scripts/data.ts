@@ -35,63 +35,63 @@ export const filler = 'Filler';
 export const reinforcement = 'Reinforcement';
 export const no = 'No';
 // table headers
-export const supportTableHeaders:	  string[] = ['Type', 'Supports'];
-export const supportTableTypeColumn:   string[] = ['Utility', 'Damage'];
-export const emblemTableHeaders:	   string[] = ['Time', 'Emblems'];
+export const supportTableHeaders: string[] = ['Type', 'Supports'];
+export const supportTableTypeColumn: string[] = ['Utility', 'Damage'];
+export const emblemTableHeaders: string[] = ['Time', 'Emblems'];
 export const emblemTableTimeColumn:	string[] = ['Early', 'Mid', 'Late'];
 export const exclusiveTableColumns:	string[] = ['Signet', 'Priority'];
-export const signetTableColumns:	   string[] = ['Owner', 'Signet'];
+export const signetTableColumns: string[] = ['Owner', 'Signet'];
 // emblems
-export const becauseOfYou:		 NameAcr = { name: 'Because of You',			  acr: 'boy' };
-export const boundlessFeeling:	 NameAcr = { name: 'Boundless Feeling',		   acr: 'bf' };
-export const boundlessLogos:	   NameAcr = { name: 'Boundless Logos',			 acr: 'bl' };
-export const burden:			   NameAcr = { name: 'Burden',					  acr: 'b' };
-export const dreamfulGold:		 NameAcr = { name: 'Dreamful Gold',			   acr: 'dg' };
-export const emptyLikeShala:	   NameAcr = { name: 'Empty Like Shala',			acr: 'els' };
-export const fallingInPastLight:   NameAcr = { name: 'Falling in Past Light',	   acr: 'fipl' };
-export const farawayShip:		  NameAcr = { name: 'Faraway Ship',				acr: 'fas' };
-export const feastOfEmptiness:	 NameAcr = { name: 'Feast of Emptiness',		  acr: 'foe' };
-export const forbiddenSeed:		NameAcr = { name: 'Forbidden Seed',			  acr: 'fos' };
-export const fragileFriend:		NameAcr = { name: 'Fragile Friend',			  acr: 'ff' };
-export const forgetMeNot:		  NameAcr = { name: 'Forget-Me-Not',			   acr: 'fmt' };
-export const goldGoblet:		   NameAcr = { name: 'Gold Goblet',				 acr: 'gg' };
-export const goodOldDays:		  NameAcr = { name: 'Good Old Days',			   acr: 'god' };
-export const greyScaleRainbow:	 NameAcr = { name: 'Grey-scale Rainbow',		  acr: 'gsr' };
-export const heavyAsAMillionLives: NameAcr = { name: 'Heavy as a Million Lives',	acr: 'haaml' };
-export const homeLost:			 NameAcr = { name: 'Home Lost',				   acr: 'hl' };
-export const homeTown:			 NameAcr = { name: 'Hometown',					acr: 'h' };
-export const itWillBeWritten:	  NameAcr = { name: 'It Will Be Written',		  acr: 'iwbw' };
-export const keyToTheDeep:		 NameAcr = { name: 'Key to the Deep',			 acr: 'kttd' };
-export const lightAsABodhiLeaf:	NameAcr = { name: 'Light as a Bodhi Leaf',	   acr: 'laabl' };
-export const madKingsMask:		 NameAcr = { name: 'Mad King\'s Mask',			acr: 'mkm' };
-export const memory:			   NameAcr = { name: 'Memory',					  acr: 'm' };
-export const outOfReach:		   NameAcr = { name: 'Out of Reach',				acr: 'oor' };
-export const proofOfGoodAndEvil:   NameAcr = { name: 'Proof of Good and Evil',	  acr: 'pogae' };
-export const psuedoMiracle:		NameAcr = { name: 'Psuedo Miracle',			  acr: 'pm' };
-export const rainbowOfAbsence:	 NameAcr = { name: 'Rainbow of Absence',		  acr: 'roa' };
-export const resolve:			  NameAcr = { name: 'Resolve',					 acr: 'r' };
-export const ruinedLegacy:		 NameAcr = { name: 'Ruined Legacy',			   acr: 'rl' };
-export const stainedSakura:		NameAcr = { name: 'Stained Sakura',			  acr: 'sts' };
-export const theFirstScale:		NameAcr = { name: 'The First Scale',			 acr: 'tfs' };
-export const theLonelyMoon:		NameAcr = { name: 'The Lonely Moon',			 acr: 'tlm' };
-export const tinFlask:			 NameAcr = { name: 'Tin Flask',				   acr: 'tf' };
-export const thornyCrown:		  NameAcr = { name: 'Thorny Crown',				acr: 'tc' };
-export const tsukimiHimiko:		NameAcr = { name: 'Tsukimi Himiko',			  acr: 'th' };
-export const veilOfTears:		  NameAcr = { name: 'Veil of Tears',			   acr: 'vot' };
+export const becauseOfYou:			NameAcr = { name: 'Because of You',				acr: 'boy' };
+export const boundlessFeeling:		NameAcr = { name: 'Boundless Feeling',			acr: 'bf' };
+export const boundlessLogos:		NameAcr = { name: 'Boundless Logos',			acr: 'bl' };
+export const burden:				NameAcr = { name: 'Burden',						acr: 'b' };
+export const dreamfulGold:			NameAcr = { name: 'Dreamful Gold',				acr: 'dg' };
+export const emptyLikeShala:		NameAcr = { name: 'Empty Like Shala',			acr: 'els' };
+export const fallingInPastLight:	NameAcr = { name: 'Falling in Past Light',		acr: 'fipl' };
+export const farawayShip:			NameAcr = { name: 'Faraway Ship',				acr: 'fas' };
+export const feastOfEmptiness:		NameAcr = { name: 'Feast of Emptiness',			acr: 'foe' };
+export const forbiddenSeed:			NameAcr = { name: 'Forbidden Seed',				acr: 'fos' };
+export const fragileFriend:			NameAcr = { name: 'Fragile Friend',				acr: 'ff' };
+export const forgetMeNot:			NameAcr = { name: 'Forget-Me-Not',				acr: 'fmt' };
+export const goldGoblet:			NameAcr = { name: 'Gold Goblet',				acr: 'gg' };
+export const goodOldDays:			NameAcr = { name: 'Good Old Days',			   	acr: 'god' };
+export const greyScaleRainbow:		NameAcr = { name: 'Grey-scale Rainbow',		  	acr: 'gsr' };
+export const heavyAsAMillionLives:	NameAcr = { name: 'Heavy as a Million Lives',	acr: 'haaml' };
+export const homeLost:				NameAcr = { name: 'Home Lost',					acr: 'hl' };
+export const homeTown:				NameAcr = { name: 'Hometown',					acr: 'h' };
+export const itWillBeWritten:		NameAcr = { name: 'It Will Be Written',			acr: 'iwbw' };
+export const keyToTheDeep:			NameAcr = { name: 'Key to the Deep',			acr: 'kttd' };
+export const lightAsABodhiLeaf:		NameAcr = { name: 'Light as a Bodhi Leaf',		acr: 'laabl' };
+export const madKingsMask:			NameAcr = { name: 'Mad King\'s Mask',			acr: 'mkm' };
+export const memory:				NameAcr = { name: 'Memory',						acr: 'm' };
+export const outOfReach:			NameAcr = { name: 'Out of Reach',				acr: 'oor' };
+export const proofOfGoodAndEvil:	NameAcr = { name: 'Proof of Good and Evil',		acr: 'pogae' };
+export const psuedoMiracle:			NameAcr = { name: 'Psuedo Miracle',				acr: 'pm' };
+export const rainbowOfAbsence:		NameAcr = { name: 'Rainbow of Absence',			acr: 'roa' };
+export const resolve:				NameAcr = { name: 'Resolve',					acr: 'r' };
+export const ruinedLegacy:			NameAcr = { name: 'Ruined Legacy',				acr: 'rl' };
+export const stainedSakura:			NameAcr = { name: 'Stained Sakura',				acr: 'sts' };
+export const theFirstScale:			NameAcr = { name: 'The First Scale',			acr: 'tfs' };
+export const theLonelyMoon:			NameAcr = { name: 'The Lonely Moon',			acr: 'tlm' };
+export const tinFlask:				NameAcr = { name: 'Tin Flask',					acr: 'tf' };
+export const thornyCrown:			NameAcr = { name: 'Thorny Crown',				acr: 'tc' };
+export const tsukimiHimiko:			NameAcr = { name: 'Tsukimi Himiko',				acr: 'th' };
+export const veilOfTears:			NameAcr = { name: 'Veil of Tears',				acr: 'vot' };
 // support valks
 export const ae:  NameAcr = { name: 'Azure Empyrea',				acr: 'ae' };
-export const bke: NameAcr = { name: 'Bright Knight: Excelsis',	  acr: 'bke' };
-export const br:  NameAcr = { name: 'Blood Rose',				   acr: 'br' };
+export const bke: NameAcr = { name: 'Bright Knight: Excelsis',		acr: 'bke' };
+export const br:  NameAcr = { name: 'Blood Rose',					acr: 'br' };
 export const dp:  NameAcr = { name: 'Divine Prayer',				acr: 'dp' };
-export const hb:  NameAcr = { name: 'Haxxor Bunny',				 acr: 'hb' };
+export const hb:  NameAcr = { name: 'Haxxor Bunny',					acr: 'hb' };
 export const le:  NameAcr = { name: 'Lightning Empress',			acr: 'le' };
 export const ma:  NameAcr = { name: 'Midnight Absinthe',			acr: 'ma' };
-export const rc:  NameAcr = { name: 'Reverist Calico',			  acr: 'rc' };
-export const sa:  NameAcr = { name: 'Starlit Astrologos',		   acr: 'sa' };
+export const rc:  NameAcr = { name: 'Reverist Calico',				acr: 'rc' };
+export const sa:  NameAcr = { name: 'Starlit Astrologos',			acr: 'sa' };
 export const sn:  NameAcr = { name: 'Stygian Nymph',				acr: 'sn' };
-export const ss:  NameAcr = { name: 'Snowy Sniper',				 acr: 'ss' };
-export const vc:  NameAcr = { name: 'Valkyrie Chariot',			 acr: 'vc' };
-export const vke: NameAcr = { name: 'Vermillion Knight: Eclipse',   acr: 'vke' };
+export const ss:  NameAcr = { name: 'Snowy Sniper',					acr: 'ss' };
+export const vc:  NameAcr = { name: 'Valkyrie Chariot',				acr: 'vc' };
+export const vke: NameAcr = { name: 'Vermillion Knight: Eclipse',	acr: 'vke' };
 // stigmatas
 export const allt: NameAcr = { name: 'Allan Poe T', acr: 'allt' };
 export const allm: NameAcr = { name: 'Allan Poe M', acr: 'allm' };
@@ -273,7 +273,7 @@ export const eden: Signets = {
 		3: 'Recitatif of Eden', // total dmg
 		4: 'Recitatif of Fine Jade', // max & initial sp
 		5: 'Recitatif of Fruit Trees', // sp restore from atk
-		6: 'Recitatif of Good Wine' /// sp restore
+		6: 'Recitatif of Good Wine' // sp restore
 	},
 	nexus1: {
 		name: 'Aria of Gold (Nexus)',
