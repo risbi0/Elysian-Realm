@@ -8,6 +8,18 @@
         "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [
+        {
+            "files": ["src/scripts/build.ts"],
+            "rules": {
+                "prefer-const": "off"
+            }
+        },
+        {
+            "files": ["src/scripts/data.ts"],
+            "rules": {
+                "no-multi-spaces": "off"
+            }
+        }
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -17,10 +29,30 @@
     "plugins": [
         "@typescript-eslint"
     ],
-    "ignorePatterns": [
-        "webpack.config.js"
-    ],
     "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-this-alias": "off",
+        "arrow-parens": "warn",
+        "arrow-spacing": "warn",
+        "block-spacing": "warn",
+        "brace-style": [
+            "warn",
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
+        "camelcase": "error",
+        "comma-dangle": "warn",
+        "comma-spacing": [
+            "warn",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "eqeqeq": "error",
         "indent": [
             "warn",
             "tab",
@@ -28,10 +60,63 @@
                 "SwitchCase": 1
             }
         ],
+        "keyword-spacing": [
+            "warn",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
         "linebreak-style": [
             "error",
             "windows"
         ],
+        "new-parens": "warn",
+        "no-case-declarations": "off",
+        "no-mixed-spaces-and-tabs": "off",
+        "no-multi-spaces": [
+            "warn",
+            {
+                "exceptions": {
+                    "Property": true,
+                    "VariableDeclarator": true
+                }
+            }
+        ],
+        "no-multiple-empty-lines": [
+            "warn",
+            {
+                "max": 1
+            }
+        ],
+        "no-unneeded-ternary": "error",
+        "no-whitespace-before-property": "warn",
+        "nonblock-statement-body-position": "warn",
+        "object-curly-newline": [
+            "warn",
+            {
+                "ObjectExpression": {
+                    "multiline": true
+                },
+                "ImportDeclaration": "never"
+            }
+        ],
+        "object-curly-spacing": [
+            "warn",
+            "always"
+        ],
+        "operator-assignment": "error",
+        "operator-linebreak": [
+            "warn",
+            "none",
+            {
+                "overrides": {
+                    "&&": "ignore",
+                    "||": "ignore"
+                }
+            }
+        ],
+        "prefer-const": "error",
         "quotes": [
             "error",
             "single"
@@ -43,11 +128,8 @@
                 "omitLastInOneLineBlock": true
             }
         ],
-        "camelcase": "error",
-        "no-mixed-spaces-and-tabs": "off",
-        "prefer-const": "off",
-        "no-case-declarations": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/no-this-alias": "off"
+        "semi-spacing": "error",
+        "spaced-comment": "warn",
+        "template-curly-spacing": "warn"
     }
 }
