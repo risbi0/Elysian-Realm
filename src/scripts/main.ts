@@ -372,32 +372,9 @@ function hide() {
 closeButton.addEventListener('click', () => hide()); // close on close button click
 guideContainer.addEventListener('click', () => hide()); // close when clicking outside modal
 
-// style ::after and ::before psuedo selectors (mobile only)
-function contentFade(afterOffset: string, direction: string, psuedoDirection: string): void {
-	const beforeOffset = 'calc(25vw - 5px)';
-	for (let i = 0; i < mainStylesheet.length; i++) {
-		let cssRule = mainStylesheet[i] as CSSStyleRule;
-		if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
-			cssRule.style.opacity = '1';
-			cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;
-			if (cssRule.selectorText === '#guide-container::before') {
-				if (direction === 'top') {
-					cssRule.style.bottom = '';
-					cssRule.style.top = beforeOffset;
-				} else {
-					cssRule.style.top = '';
-					cssRule.style.bottom = beforeOffset;
-				}
-				cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
-			}
-			if (cssRule.selectorText === '#guide-container::after') cssRule.style.bottom = afterOffset;
-		}
-	}
-}
-
 const guideContents: NodeListOf<HTMLDivElement> = document.querySelectorAll('.guide-content');
 guideContents.forEach((guideContent: HTMLDivElement) => guideContent.addEventListener('click', (e) => e.stopPropagation()));
-let psuedoStyles: [string, string, string];
+let afterOffset: string, direction:string, psuedoDirection:string;
 // show respective guide content on banner click
 banners.forEach((banner: HTMLButtonElement) => {
 	banner.addEventListener('click', function(this: HTMLButtonElement) {
@@ -419,7 +396,7 @@ banners.forEach((banner: HTMLButtonElement) => {
 			if (index > mobileUpperBanners) { // scroll to banner on bottom
 				currentGuide.classList.add('guide-bot-entry-mobile');
 				// style ::before and ::after psuedo selectors for content fade effect
-				psuedoStyles = ['25vw', 'bottom', 'up'];
+				[afterOffset, direction, psuedoDirection] = ['25vw', 'bottom', 'up'];
 				// window scroll offset
 				offset = this.offsetTop + this.offsetHeight - deviceHeight;
 				// button offset
@@ -427,7 +404,7 @@ banners.forEach((banner: HTMLButtonElement) => {
 				toTopButtonOffsetTop = deviceHeight - deviceWidth / 4 - 60;
 			} else { // scroll to banner on top
 				currentGuide.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
-				psuedoStyles = ['0', 'top', 'down'];
+				[afterOffset, direction, psuedoDirection] = ['0', 'top', 'down'];
 				offset = this.offsetTop;
 				closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4) + 15;
 				toTopButtonOffsetTop = deviceHeight - 60;
@@ -447,7 +424,27 @@ banners.forEach((banner: HTMLButtonElement) => {
 			closeButton.style.visibility = 'visible';
 
 			if (isMobile) {
-				contentFade(...psuedoStyles);
+				// style ::after and ::before psuedo selectors
+				const beforeOffset = 'calc(25vw - 5px)';
+				for (let i = 0; i < mainStylesheet.length; i++) {
+					let cssRule = mainStylesheet[i] as CSSStyleRule;
+					if (cssRule.selectorText === '#guide-container::before' || cssRule.selectorText === '#guide-container::after') {
+						cssRule.style.opacity = '1';
+						cssRule.style.animation = `fadein${psuedoDirection} 0.6s ease-out forwards`;
+						if (cssRule.selectorText === '#guide-container::before') {
+							if (direction === 'top') {
+								cssRule.style.bottom = '';
+								cssRule.style.top = beforeOffset;
+							} else {
+								cssRule.style.top = '';
+								cssRule.style.bottom = beforeOffset;
+							}
+							cssRule.style.backgroundImage = `linear-gradient(to ${direction}, rgba(0, 0, 0, 0.7), transparent)`;
+						}
+						if (cssRule.selectorText === '#guide-container::after') cssRule.style.bottom = afterOffset;
+					}
+				}
+				// show guide
 				guideContainer.classList.remove('hidden', 'no-display');
 				currentGuide.classList.remove('no-display');
 				currentBanner = this;

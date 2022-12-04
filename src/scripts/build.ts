@@ -1,22 +1,22 @@
 import { valks } from './guide';
 import { emblemTableHeaders, emblemTableTimeColumn,
 		 supportTableHeaders, supportTableTypeColumn,
-		 exclusiveTableColumns, signetTableColumns, isMobile } from './data';
+		 exclusiveTableColumns, signetTableColumns,
+		 isMobile, NameAcr } from './data';
 
 function imageAndLabel(cell: HTMLTableCellElement,
 					   row: HTMLTableRowElement,
-					   item: any,
-					   index: number,
+					   gear: NameAcr,
 					   hoverLabel: boolean): HTMLTableCellElement {
 	cell = row.insertCell();
 	cell.classList.add('pos-rel');
 
 	const pic: HTMLDivElement = document.createElement('div');
-	pic.classList.add('pic', item[index].acr);
+	pic.classList.add('pic', gear.acr);
 
 	cell.appendChild(pic);
 
-	if (item[index].acr !== 'hawp') {
+	if (gear.acr !== 'hawp') {
 		const label: HTMLLabelElement = document.createElement('label');
 		label.classList.add('tooltip', 'flex', 'fh-center', 'pos-abs');
 
@@ -26,12 +26,12 @@ function imageAndLabel(cell: HTMLTableCellElement,
 
 		const span: HTMLSpanElement = document.createElement('span');
 		span.classList.add('pos-abs');
-		span.textContent = item[index].name;
+		span.textContent = gear.name;
 		// for support valk images
 		if (hoverLabel) {
 			cell.classList.add('supp-pic');
 			const acr: HTMLParagraphElement = document.createElement('p');
-			acr.textContent = item[index].acr.toUpperCase();
+			acr.textContent = gear.acr.toUpperCase();
 			label.appendChild(acr);
 		}
 		label.appendChild(input);
@@ -198,7 +198,7 @@ for (let i = 0; i < valks.length; i++) {
 					emblemTableBodyCell.textContent = emblemTableTimeColumn[k];
 				} else {
 					for (let m = 0; m < valks[i].builds[j].emblem[k].length; m++) {
-						emblemTableBodyCell = imageAndLabel(emblemTableBodyCell!, emblemTableBodyRow, valks[i].builds[j].emblem[k], m, false);
+						emblemTableBodyCell = imageAndLabel(emblemTableBodyCell!, emblemTableBodyRow, valks[i].builds[j].emblem[k][m], false);
 					}
 				}
 			}
@@ -237,7 +237,7 @@ for (let i = 0; i < valks.length; i++) {
 					supportTableBodyCell.textContent = supportTableTypeColumn[k];
 				} else {
 					for (let m = 0; m < valks[i].builds[j].support[k][l - 1].length; m++) {
-						supportTableBodyCell = imageAndLabel(supportTableBodyCell!, supportTableBodyRow, valks[i].builds[j].support[k][l - 1], m, true);
+						supportTableBodyCell = imageAndLabel(supportTableBodyCell!, supportTableBodyRow, valks[i].builds[j].support[k][l - 1][m], true);
 					}
 					if (valks[i].builds[j].support[k][l - 1].length === 1) {
 						supportTableBodyCell!.setAttribute('colspan', '2');
@@ -266,7 +266,7 @@ for (let i = 0; i < valks.length; i++) {
 			const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
 			for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) { // cells
 				let stigTableBodyCell: HTMLTableCellElement;
-				stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k], l, false);
+				stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k][l], false);
 			}
 			stigTableBody.appendChild(stigTableBodyRow);
 		}
