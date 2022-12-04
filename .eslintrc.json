@@ -106,6 +106,13 @@
             "warn",
             "always"
         ],
+        "object-property-newline": [
+            "warn",
+            {
+                "allowMultiplePropertiesPerLine":  true
+            }
+
+        ],
         "operator-assignment": "error",
         "operator-linebreak": [
             "warn",
@@ -130,6 +137,11 @@
             }
         ],
         "semi-spacing": "error",
+        "space-in-parens": "warn",
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
         "spaced-comment": "warn",
         "template-curly-spacing": "warn"
     }
