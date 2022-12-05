@@ -2528,7 +2528,7 @@ const villv: Guide = {
 export const valks: Guide[] = [
 	aka, bke, da, aponia, fr, mc, eden, gm, villv, hofs,
 	hoh, hor, hos, hov, hot, mobius, sus, lk, raven, elysia,
-	pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn, carole,
-	ve, vg, vb
+	pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn, vb,
+	carole, ve, vg
 ];
 export const valksLength: number = valks.length;
