@@ -3,6 +3,10 @@
  */
 import { describe, test, expect } from '@jest/globals';
 import { valks } from './src/scripts/guide';
+import { aponia, eden, griseo, hua, kalpas, kevin, kosma, mobius, pardofelis, sakura, su, vv } from './src/scripts/data';
+
+const objectValuesToArray = (object) => Object.values(object).map((v) => v);
+const flamechasers = [aponia, eden, griseo, hua, kalpas, kevin, kosma, mobius, pardofelis, sakura, su, vv];
 
 // valks
 for (let i = 0; i < valks.length; i++) {
@@ -26,7 +30,6 @@ for (let i = 0; i < valks.length; i++) {
                                             let withinRowspanValue = true;
                                             for (let k = 1; k < endIndex; k++) {
                                                 if (signetTable[l + k].length !== 1) {
-                                                    console.log(signetTable[l + k]);
                                                     withinRowspanValue = false;
                                                 }
                                             }
@@ -48,17 +51,16 @@ for (let i = 0; i < valks.length; i++) {
                         }
                         describe(`${tableName} Signets`, () => {
                             const accountedRows = [];
-							let signetOwner;
+							let signetOwner, ownerIndex = 0;
                             for (let l = 0; l < tableLength; l++) {
 								const isSignetOwnerStart = [3, 4].includes(signetTable[l].length);
 								if (isSignetOwnerStart) signetOwner = signetTable[l][0];
 								describe(signetOwner, () => {
 									// check if row is signet owner start
 									if (isSignetOwnerStart) {
+										let subSignetTable;
 										describe('Rowspan value', () => {
 											const endIndex = parseInt(signetTable[l][1]) + l;
-											// store rows within range of rowspan value for another layer of validation
-											accountedRows.push(valks[i].builds[j].signetTable[k].slice(l, endIndex));
 											test('Next row is new signet or end of table', () => {
 												expect(
 													tableLength === endIndex || // end of table
@@ -71,6 +73,34 @@ for (let i = 0; i < valks.length; i++) {
 													signetTable[endIndex - 1] !== undefined && // short-circuit
 													[1, 2].includes(signetTable[endIndex - 1].length) // 1/2 = signet name
 												).toBe(true);
+											});
+											// store rows within range of rowspan value for another layer of validation
+											subSignetTable = valks[i].builds[j].signetTable[k].slice(l, endIndex);
+											accountedRows.push(subSignetTable);
+										});
+										describe('Signet ownership', () => {
+											test('Correct owner and nexus signets', () => {
+												const subSignetTableSignets = [];
+												let expectedSignets;
+												subSignetTable.forEach((row) => {
+													if (row.length === 3 || row.length === 4) {
+														// make array of signet names based on owner with specified nexus series
+														const owner = flamechasers.find((flamechaser) => flamechaser.name === row[0]);
+														const nexusSeries = valks[i].builds[j].signet[k - 1][ownerIndex][1];
+														const regularSignets = owner.regular;
+														const nexusSignets = owner[`nexus${nexusSeries}`];
+														expectedSignets = [
+															...objectValuesToArray(regularSignets),
+															...objectValuesToArray(nexusSignets)
+														];
+														// save signet
+														subSignetTableSignets.push(row[2]);
+													} else {
+														subSignetTableSignets.push(row[0]);
+													}
+												});
+												ownerIndex++;
+												expect(subSignetTableSignets.every((signet) => expectedSignets.includes(signet))).toBe(true);
 											});
 										});
 									}
@@ -102,5 +132,4 @@ for (let i = 0; i < valks.length; i++) {
             });
         }
     });
-	break;
 }
