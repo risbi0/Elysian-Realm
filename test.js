@@ -48,47 +48,50 @@ for (let i = 0; i < valks.length; i++) {
                         }
                         describe(`${tableName} Signets`, () => {
                             const accountedRows = [];
+							let signetOwner;
                             for (let l = 0; l < tableLength; l++) {
-                                // check if row is signet owner start
-                                if ([3, 4].includes(signetTable[l].length)) {
-                                    const signetOwner = signetTable[l][0];
-                                    describe(`${signetOwner} - Rowspan value`, () => {
-                                        console.log(signetOwner);
-                                        const endIndex = parseInt(signetTable[l][1]) + l;
-                                        // store rows within range of rowspan value for another layer of validation
-                                        accountedRows.push(valks[i].builds[j].signetTable[k].slice(l, endIndex));
-                                        test('Next row is new signet or end of table', () => {
-											expect(
-												tableLength === endIndex || // end of table
-                                                signetTable[endIndex] !== undefined && // short-circuit
-                                                [3, 4].includes(signetTable[endIndex].length) // 3/4 = signet owner start
-											).toBe(true);
-                                        });
-                                        test('Last row is own signet and not starting signet', () => {
-                                            expect(
-                                                signetTable[endIndex - 1] !== undefined && // short-circuit
-                                                [1, 2].includes(signetTable[endIndex - 1].length) // 1/2 = signet name
-                                            ).toBe(true);
-                                        });
-                                    });
-                                }
-                                // check if marked signet is mentioned in notes
-                                if ([2, 4].includes(signetTable[l].length)) {
-                                    let signetName;
-                                    if (signetTable[l].length === 2) {
-                                        signetName = signetTable[l][0];
-                                    } else {
-                                        signetName = signetTable[l][2];
-                                    }
-                                    describe('Notes', () => {
-                                        test('Marked signet mentioned in notes', () => {
-                                            expect(
-                                                'notes' in valks[i].builds[j] && // short-circuit
-                                                valks[i].builds[j].notes.includes(signetName)
-                                            ).toBe(true);
-                                        });
-                                    });
-                                }
+								const isSignetOwnerStart = [3, 4].includes(signetTable[l].length);
+								if (isSignetOwnerStart) signetOwner = signetTable[l][0];
+								describe(signetOwner, () => {
+									// check if row is signet owner start
+									if (isSignetOwnerStart) {
+										describe('Rowspan value', () => {
+											const endIndex = parseInt(signetTable[l][1]) + l;
+											// store rows within range of rowspan value for another layer of validation
+											accountedRows.push(valks[i].builds[j].signetTable[k].slice(l, endIndex));
+											test('Next row is new signet or end of table', () => {
+												expect(
+													tableLength === endIndex || // end of table
+													signetTable[endIndex] !== undefined && // short-circuit
+													[3, 4].includes(signetTable[endIndex].length) // 3/4 = signet owner start
+												).toBe(true);
+											});
+											test('Last row is own signet and not starting signet', () => {
+												expect(
+													signetTable[endIndex - 1] !== undefined && // short-circuit
+													[1, 2].includes(signetTable[endIndex - 1].length) // 1/2 = signet name
+												).toBe(true);
+											});
+										});
+									}
+									// check if marked signet is mentioned in notes
+									if ([2, 4].includes(signetTable[l].length)) {
+										let signetName;
+										if (signetTable[l].length === 2) {
+											signetName = signetTable[l][0];
+										} else {
+											signetName = signetTable[l][2];
+										}
+										describe('Notes', () => {
+											test('Marked signet is mentioned', () => {
+												expect(
+													'notes' in valks[i].builds[j] && // short-circuit
+													valks[i].builds[j].notes.includes(signetName)
+												).toBe(true);
+											});
+										});
+									}
+								});
                             }
                             test('Accounted rows are equal to table size', () => {
                                 expect(accountedRows.flat().length).toEqual(valks[i].builds[j].signetTable[k].length);
@@ -99,4 +102,5 @@ for (let i = 0; i < valks.length; i++) {
             });
         }
     });
+	break;
 }
