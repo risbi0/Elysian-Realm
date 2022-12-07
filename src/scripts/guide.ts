@@ -519,7 +519,7 @@ const elysia: Guide = {
 					[data.su.name, '3', data.su.regular[3]],
 					[data.su.regular[6]],
 					[data.su.nexus2.name],
-					[data.pardofelis.name, '3', data.eden.regular[1]],
+					[data.pardofelis.name, '3', data.pardofelis.regular[1]],
 					[data.pardofelis.regular[4]],
 					[data.pardofelis.nexus1.name]
 				]
@@ -1813,7 +1813,7 @@ const raven: Guide = {
 					[data.aponia, '2'],
 					[data.griseo, '1'],
 					[data.eden, '2'],
-					[data.sakura, '1']
+					[data.sakura, '2']
 				]
 			],
 			emblem: [
@@ -1841,7 +1841,7 @@ const raven: Guide = {
 					[data.vv.name, '7', data.vv.regular[2]],
 					[data.vv.regular[3]],
 					[data.vv.regular[5]],
-					[data.vv.nexus1.name],
+					[data.vv.nexus2.name],
 					[data.vv.nexus2[1], ''],
 					[data.vv.nexus2[2], ''],
 					[data.vv.nexus2[3]]
