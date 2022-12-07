@@ -455,7 +455,7 @@ const eden: Guide = {
 					[data.pardofelis.nexus1.name]
 				]
 			],
-			notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[2]}, ${data.kosma.nexus2[1]}, ${data.kosma.nexus2[2]}</p>Priority.`
+			notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}, ${data.kosma.nexus2[1]}, ${data.kosma.nexus2[2]}</p>Priority.`
 		}
 	}
 };
@@ -1303,7 +1303,7 @@ const hov: Guide = {
 					[data.mobius.nexus1[1]]
 				]
 			],
-			notes: `<p>${data.vv.nexus2[1]}, ${data.vv.nexus2[1]}</p>Priority.<br><br>
+			notes: `<p>${data.vv.nexus2[1]}, ${data.vv.nexus2[2]}</p>Priority.<br><br>
 					<p>Griseo</p>Can buy her signets in shop.<br><br>
 					<p>Mobius</p>Can buy Su, Kalpas, and Eden signets from shop as further reinforcement.`
 		}
