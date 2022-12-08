@@ -10,7 +10,7 @@ const flamechasers = [aponia, eden, griseo, hua, kalpas, kevin, kosma, mobius, p
 
 // valks
 for (let i = 0; i < valks.length; i++) {
-    describe(`${valks[i].name}`, () => {
+    describe(valks[i].name, () => {
         // builds
         for (let j = 0; j < Object.keys(valks[i].builds).length; j++) {
             const signetTableLength = valks[i].builds[j].signetTable.length;
