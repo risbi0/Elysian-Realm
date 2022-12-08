@@ -320,6 +320,80 @@ const carole: Guide = {
 		}
 	}
 };
+// Chrono Navi
+const cv: Guide = {
+	name: 'Chrono Navi',
+	acr: 'cv',
+	rating: data.corruption,
+	builds: {
+		0: {
+			signet: [
+				[
+					[data.aponia, '2']
+				],
+				[
+					[data.vv, '1'],
+					[data.kalpas, '2'],
+					[data.su, '2'],
+					[data.eden, '2']
+				]
+			],
+			emblem: [
+				[data.veilOfTears, data.becauseOfYou],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.tinFlask, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.ae], [data.bke] ],
+				[ [data.ae], [data.br] ]
+			],
+			gear: [
+				[data.rudr, data.chrt, data.chrm, data.chrb],
+				[data.hawp, data.ragt, data.tham, data.ragb]
+			],
+			signetTable: [
+				[
+					['Succession', data.start],
+					['Time Crystal', data.first],
+					['Bladepiece', data.second, '2'],
+					['Constant'],
+					['Final Dream', data.reinforcement]
+				],
+				[
+					[data.aponia.name, '7', data.aponia.regular[2]],
+					[data.aponia.regular[3]],
+					[data.aponia.regular[4]],
+					[data.aponia.regular[5]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[2]],
+					[data.aponia.nexus2[3]]
+				],
+				[
+					[data.vv.name, '5', data.vv.regular[1]],
+					[data.vv.regular[2]],
+					[data.vv.regular[3]],
+					[data.vv.regular[5]],
+					[data.vv.nexus1.name],
+					[data.kalpas.name, '4', data.kalpas.regular[1]],
+					[data.kalpas.regular[2]],
+					[data.kalpas.regular[3]],
+					[data.kalpas.nexus2.name],
+					[data.su.name, '5', data.su.regular[1]],
+					[data.su.regular[3]],
+					[data.su.regular[5]],
+					[data.su.regular[6]],
+					[data.su.nexus2.name],
+					[data.eden.name, '4', data.eden.regular[2]],
+					[data.eden.regular[3]],
+					[data.eden.regular[4]],
+					[data.eden.nexus2.name]
+				]
+			],
+			notes: `<p>Aponia</p>Must pick at least 3 signets that recover Exhortation.<br><br>
+					<p>Su, Eden</p>Optional. Can pick Griseo's signet <span>${data.griseo.regular[4]}</span> as reinforcement.`
+		}
+	}
+};
 // Dea Anchora
 const da: Guide = {
 	name: 'Dea Anchora',
@@ -2525,10 +2599,81 @@ const villv: Guide = {
 		}
 	}
 };
+// Vermillion Knight: Eclipse
+const vkek: Guide = {
+	name: 'Vermillion Knight: Eclipse',
+	acr: 'vke',
+	rating: data.corruption,
+	builds: {
+		0: {
+			signet: [
+				[
+					[data.kalpas, '2'],
+					[data.aponia, '2']
+				],
+				[
+					[data.griseo, '2'],
+					[data.sakura, '2'],
+					[data.su, '2']
+				]
+			],
+			emblem: [
+				[data.madKingsMask, data.becauseOfYou],
+				[data.veilOfTears, data.outOfReach],
+				[data.stainedSakura, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.le] ],
+				[ [data.ae], [data.br] ]
+			],
+			gear: [
+				[data.shur, data.aslt, data.aslm, data.aslb],
+				[data.blda, data.ragt, data.tham, data.ragb]
+			],
+			signetTable: [
+				[
+					['Fiery Mind', data.start],
+					['Burning Flow', data.second, '2'],
+					['Wild Flare'],
+					['Sharp Flames', data.reinforcement],
+					['Blaze', data.no]
+				],
+				[
+					[data.kalpas.name, '4', data.kalpas.regular[1]],
+					[data.kalpas.regular[2]],
+					[data.kalpas.regular[3]],
+					[data.kalpas.nexus2.name],
+					[data.aponia.name, '5', data.aponia.regular[3]],
+					[data.aponia.regular[4]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[2]],
+					[data.aponia.nexus2[3]]
+				],
+				[
+					[data.griseo.name, '4', data.griseo.regular[1]],
+					[data.griseo.regular[3]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[6]],
+					[data.sakura.name, '4', data.sakura.regular[2]],
+					[data.sakura.regular[3]],
+					[data.sakura.regular[5]],
+					[data.sakura.nexus2.name],
+					[data.su.name, '4', data.su.regular[3]],
+					[data.su.regular[5]],
+					[data.su.regular[6]],
+					[data.su.nexus2.name]
+				]
+			],
+			notes: `If can't get double signets in 4F, start with double Ego.<br><br>
+					<p>Griseo</p>Can buy from shop.<br><br>
+					<p>Su</p>Optional. Can also pick Kevin's signets <span>${data.kevin.regular[2]}</span> and <span>${data.kevin.regular[3]}</span>.`
+		}
+	}
+};
 export const valks: Guide[] = [
-	aka, bke, da, aponia, fr, mc, eden, gm, villv, hofs,
+	aka, bke, cv, da, aponia, fr, mc, eden, gm, villv, hofs,
 	hoh, hor, hos, hov, hot, mobius, sus, lk, raven, elysia,
 	pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn, vb,
-	carole, ve, vg
+	carole, ve, vg, vkek
 ];
 export const valksLength: number = valks.length;

@@ -15,15 +15,20 @@
     @else if $sl >= 19 and $sl <= 20 {
         $dfs: 22;
     }
-    @else if $sl >= 21 and $sl <= 24 {
+    @else if $sl >= 21 and $sl <= 23 {
         $dfs: 20;
     }
-    @else if $sl >= 25 and $sl <= 27 {
+    @else {
         $dfs: 16;
     }
-    @if $name == "Sweet_n_Spicy" {
-        $dfs: 32;
+	/* override some sizes since names being the same
+	length side-by-side don't look that good */
+    @if $name == "Chrono_Navi" {
+        $dfs: 38;
     }
+	@if $name == "Fervent_Tempo" {
+		$dfs: 32;
+	}
     /* mobile font size */
     $mfs: 7;
     @if $sl >= 11 and $sl <= 12 {

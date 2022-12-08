@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v1';
+const cacheName = 'herrscher-of-cache-v2';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -30,6 +30,7 @@ const cacheAssets = [
 const bannerImages = [
 	'Argent_Knight_Artemis',
 	'Bright_Knight_Excelsis',
+	'Chrono_Navi',
 	'Dea_Anchora',
 	'Disciplinary_Perdition',
 	'Fallen_Rosemary',
@@ -60,7 +61,8 @@ const bannerImages = [
 	'Sweet_n_Spicy',
 	'Striker_Fulminata',
 	'Twilight_Paladin',
-	'Valkyrie_Gloria'
+	'Valkyrie_Gloria',
+	'Vermilion_Knight_Eclipse'
 ];
 
 const images = [
@@ -173,6 +175,9 @@ const images = [
 	'Handel_T',
 	'Handel_M',
 	'Handel_B',
+	'Idol_Transformation_T',
+	'Idol_Transformation_M',
+	'Idol_Transformation_B',
 	'Irene_Adler_T',
 	'Irene_Adler_M',
 	'Irene_Adler_B',
@@ -236,6 +241,7 @@ const images = [
 	'Abyss_Flower_Liminal_Spiral',
 	'Astral_Divide_Pisces',
 	'Basilisks_Image_Deathshroud',
+	'Blood_Dance',
 	'Cosmic_Duality',
 	'Dawn_Breaker_Talwar',
 	'Domain_of_Ego_Flawless_Return',
@@ -264,11 +270,13 @@ const images = [
 	'Path_to_Acheron_Kindred',
 	'Positron_Blasters',
 	'Purana_Phantasma',
+	'Rudder_in_Dream',
 	'Sagittarius_Astra',
 	'Sanguine_Gaze',
 	'Sanguine_Gaze_Union',
 	'Seven_Thunders_of_Retribution_Narukami',
 	'Seven_Thunders_of_Retribution_Rumble',
+	'Shuhadaku_of_Uriel',
 	'Skadi_of_Thrymheim',
 	'Sleepers_Dream',
 	'Star_of_Eden_World',
