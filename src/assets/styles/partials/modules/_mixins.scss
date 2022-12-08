@@ -44,6 +44,15 @@
     }
 }
 
+@mixin stigmataImage($class, $name) {
+	$stigTypes: T, M, B;
+	@each $type in $stigTypes {
+		.#{$class + to-lower-case($type)} {
+			background-image: url("../img/" + $name + _ + $type + ".png");
+		}
+	}
+}
+
 @mixin colorTransition($c, $t) {
     color: $c;
     transition: $t;
