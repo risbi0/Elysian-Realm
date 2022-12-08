@@ -26,15 +26,18 @@ for (let i = 0; i < valks.length; i++) {
                                 if (signetTable[l].length === 3) {
                                     describe('Rowspan value', () => {
                                         const endIndex = parseInt(signetTable[l][2]);
-                                        test('Within rowspan value', () => {
-                                            let withinRowspanValue = true;
+                                        test('Correct rowspan value', () => {
+                                            let correctRowspanValue = true;
                                             for (let k = 1; k < endIndex; k++) {
                                                 if (signetTable[l + k].length !== 1) {
-                                                    withinRowspanValue = false;
+                                                    correctRowspanValue = false;
                                                 }
                                             }
-                                            if (endIndex === 1) withinRowspanValue = false;
-											expect(withinRowspanValue).toBe(true);
+                                            if (signetTable[l + endIndex] !== undefined &&
+												signetTable[l + endIndex].length === 1) {
+												correctRowspanValue = false;
+											}
+											expect(correctRowspanValue).toBe(true);
                                         });
                                     });
                                 }
