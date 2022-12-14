@@ -534,7 +534,7 @@ export const vv: Signets = {
 		3: 'Saga: Overlapping Needles' // grav field
 	}
 };
-type signetSummaryType = { summary: string, signets: string | string[] }[]
+type signetSummaryType = { signets: string | string[], summary: string }[]
 // rough signet effect summaries
 const damageDealt: string[] = [
 	aponia.regular[1], eden.regular[3], griseo.nexus1[1], griseo.nexus2[2], hua.regular[3],
@@ -574,71 +574,98 @@ const spRecovery: string[] = [
 	griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
 	kosma.regular[1]
 ];
+const lightningDamage: string[] = [
+	eden.nexus1[1], eden.nexus2[2]
+];
+const bonusDamage: string[] = [
+	griseo.nexus1[3], kalpas.nexus2[1], su.nexus2[2]
+];
+const normalSignetCap: string[] = [
+	hua.nexus1[3], hua.nexus2[1]
+];
+const normalSignetBuff: string[] = [
+	kevin.nexus1[1], kevin.nexus2[1]
+];
+const elfUltSuppValkCD: string[] = [
+	mobius.regular[4], mobius.nexus1[3]
+];
+const ultimateEvasion: string[] = [
+	kosma.regular[6], pardofelis.nexus1[1]
+];
+const ultBonusDamage: string[] = [
+	kosma.regular[4], pardofelis.nexus1[2]
+];
+const iceDamage: string[] = [
+	sakura.nexus1[3], sakura.nexus2[3], sakura.nexus2[2]
+];
+const damageShields: string[] = [
+	su.nexus1[3], kosma.regular[2], vv.nexus1[3]
+];
 export const signetSummary: signetSummaryType = [
-	{ summary: 'Total Damage Dealt',                                   signets: damageDealt },
-	{ summary: 'Total Damage Taken',                                   signets: damageTaken },
-	{ summary: 'Physical & Elemental Damage',                          signets: physEleDamage },
-	{ summary: 'Physical Damage',                                      signets: physDamage },
-	{ summary: 'Elemental Damage',                                     signets: eleDamage },
-	{ summary: 'Physical & Elemental Breach',                          signets: physEleBreach },
-	{ summary: 'Physical Breach',                                      signets: physBreach },
-	{ summary: 'Elemental Breach',                                     signets: eleBreach },
-	{ summary: 'Damage Taken By Enemies',                              signets: vurnerability },
-	{ summary: 'SP Recovery',                                          signets: spRecovery },
-	{ summary: 'Lightning Damage',                                     signets: [eden.nexus1[1], eden.nexus2[2]] },
-	{ summary: 'Reduce Enemy Damage and Movement',                     signets: griseo.regular[2] },
-	{ summary: 'Longer Taint',                                         signets: griseo.regular[3] },
-	{ summary: 'Bonus Damage',                                         signets: [griseo.nexus1[3], kalpas.nexus2[1], su.nexus2[2]] },
-	{ summary: 'Bonus Fire Damage',                                    signets: kalpas.nexus1[1] },
-	{ summary: 'Additional Initial Stack of Soldier\'s Resolve',       signets: hua.nexus1[2] },
-	{ summary: 'Bonus Resolve Stack per Second to Normal Signets',     signets: hua.nexus1[1] },
-	{ summary: 'Increase Normal Signet Cap Increased',                 signets: [hua.nexus1[3], hua.nexus2[1]] },
-	{ summary: 'Extends Incincibility From Soldier\'s Remembrance',    signets: hua.nexus2[2] },
-	{ summary: 'Max HP Increase',                                      signets: kalpas.regular[6] },
-	{ summary: 'Losing HP Recharges Blood Boil ',                      signets: kalpas.nexus1[2] },
-	{ summary: 'More BB Damage to Higher HP% Enemies',                 signets: kalpas.nexus1[3] },
-	{ summary: 'BA Absorb Damage Equal to % of Charges',               signets: kalpas.nexus2[2] },
-	{ summary: 'Total Damage Increase in Burst Mode',                  signets: kevin.nexus1[3] },
-	{ summary: 'Normal Signets Increased Buff',                        signets: [kevin.nexus1[1], kevin.nexus2[1]] },
-	{ summary: 'Final Battle and Normal Signet Duration Extended',     signets: kevin.nexus1[2] },
-	{ summary: 'Total Damage Increase in Ultimate or Burst Mode Hit',  signets: kevin.nexus2[2] },
-	{ summary: 'Entity Damage Dealt',                                  signets: mobius.regular[3] },
-	{ summary: 'Elf Ultimate and Support Valk Skill Reduced CD',       signets: [mobius.regular[4], mobius.nexus1[3]] },
-	{ summary: 'Elf SP Recovery',                                      signets: mobius.regular[1] },
-	{ summary: 'Mind Sync Duration Extended',                          signets: mobius.nexus1[2] },
-	{ summary: 'HP and SP Cap',                                        signets: pardofelis.regular[5] },
-	{ summary: 'HP and SP Recovery',                                   signets: pardofelis.regular[2] },
-	{ summary: 'Shiny Silver Increase Each Floor',                     signets: pardofelis.regular[3] },
-	{ summary: 'Shiny Silver Each Kill ',                              signets: pardofelis.regular[6] },
-	{ summary: 'Ultimate Evasion Trigger Bonus Damage',                signets: [kosma.regular[6], pardofelis.nexus1[1]] },
-	{ summary: 'Ultimate Trigger Bonus Damage',                        signets: [kosma.regular[4], pardofelis.nexus1[2]] },
-	{ summary: 'Attack Speed & Move Speed',                            signets: sakura.regular[6] },
-	{ summary: 'Ultimate Evasion Reset CD',                            signets: sakura.regular[4] },
-	{ summary: 'Ultimate Evasion 1 More Charge and Reduced CD',        signets: sakura.regular[3] },
-	{ summary: 'Sakura Screen Resets Ultimate and Weapon CD',          signets: sakura.nexus1[1] },
-	{ summary: 'Ice Damage',                                           signets: [sakura.nexus1[3], sakura.nexus2[3], sakura.nexus2[2]] },
-	{ summary: 'Sakura Screen Pause Duration',                         signets: sakura.nexus1[2] },
-	{ summary: 'Reduce Ultimate Evasion Remaining CD',                 signets: sakura.nexus2[1] },
-	{ summary: 'Combo Increased to 60 When Below 60',                  signets: su.regular[5] },
-	{ summary: '25 Bonus Combo',                                       signets: su.regular[1] },
-	{ summary: 'Enemy Disable Shield Recovery',                        signets: su.nexus1[2] },
-	{ summary: 'Reduce Enemy Damage',                                  signets: su.nexus1[1] },
-	{ summary: 'Bonus Damage to Shields',                              signets: [su.nexus1[3], kosma.regular[2], vv.nexus1[3]] },
-	{ summary: '3 Random Debuffs on Hit',                              signets: su.nexus2[3] },
-	{ summary: 'Initial and SP Cap Increased',                         signets: eden.regular[4] },
-	{ summary: 'Increase Ultimate Physical & Elemental Damage',        signets: aponia.regular[4] },
-	{ summary: 'Start With More Exhortation',                          signets: aponia.regular[5] },
-	{ summary: 'Basic/Combo/Charged ATKs Trigger Bonus Damage',        signets: kosma.regular[5] },
-	{ summary: 'Longer Rend',                                          signets: kosma.regular[3] },
-	{ summary: 'Weapon Bonus Damage',                                  signets: vv.regular[1] },
-	{ summary: 'Ranged Total Damage',                                  signets: vv.regular[5] },
-	{ summary: 'SP Recovery and Reduce Weapon CD',                     signets: vv.regular[6] },
-	{ summary: 'Marvelous Magic Deals Bonus ATK',                      signets: vv.nexus1[1] },
-	{ summary: 'Fixed Exhortation Value',                              signets: aponia.nexus1[2] },
-	{ summary: 'Increase Ultimate Total Damage',                       signets: aponia.nexus1[3] },
-	{ summary: 'Reduce Enemy Resist',                                  signets: griseo.nexus2[1] },
-	{ summary: 'Increase Color Effect',                                signets: griseo.nexus2[3] },
-	{ summary: 'Combo/Charged ATKs Deal Adaptive Damage & Restore HP', signets: kosma.nexus2[1] },
-	{ summary: 'VIP Service Stack Duration',                           signets: pardofelis.nexus2[3] },
-	{ summary: 'Larger Area and Stronger Gravitational Field',         signets: vv.nexus2[3] }
+	{ signets: damageDealt,           summary: 'Total Damage Dealt' },
+	{ signets: damageTaken,           summary: 'Total Damage Taken' },
+	{ signets: physEleDamage,         summary: 'Physical & Elemental Damage' },
+	{ signets: physDamage,            summary: 'Physical Damage' },
+	{ signets: eleDamage,             summary: 'Elemental Damage' },
+	{ signets: physEleBreach,         summary: 'Physical & Elemental Breach' },
+	{ signets: physBreach,            summary: 'Physical Breach' },
+	{ signets: eleBreach,             summary: 'Elemental Breach' },
+	{ signets: vurnerability,         summary: 'Damage Taken By Enemies' },
+	{ signets: spRecovery,            summary: 'SP Recovery' },
+	{ signets: lightningDamage,       summary: 'Lightning Damage' },
+	{ signets: bonusDamage,           summary: 'Bonus Damage' },
+	{ signets: normalSignetCap,       summary: 'Increase Normal Signet Cap Increased' },
+	{ signets: normalSignetBuff,      summary: 'Normal Signets Increased Buff' },
+	{ signets: elfUltSuppValkCD,      summary: 'Elf Ultimate and Support Valk Skill Reduced CD' },
+	{ signets: ultimateEvasion,       summary: 'Ultimate Evasion Trigger Bonus Damage' },
+	{ signets: ultBonusDamage,        summary: 'Ultimate Trigger Bonus Damage' },
+	{ signets: iceDamage,             summary: 'Ice Damage' },
+	{ signets: damageShields,         summary: 'Bonus Damage to Shields' },
+	{ signets: aponia.regular[4],     summary: 'Increase Ultimate Physical & Elemental Damage' },
+	{ signets: aponia.regular[5],     summary: 'Start With More Exhortation' },
+	{ signets: aponia.nexus1[2],      summary: 'Fixed Exhortation Value' },
+	{ signets: aponia.nexus1[3],      summary: 'Increase Ultimate Total Damage' },
+	{ signets: eden.regular[4],       summary: 'Initial and SP Cap Increased' },
+	{ signets: kosma.regular[5],      summary: 'Basic/Combo/Charged ATKs Trigger Bonus Damage' },
+	{ signets: kosma.regular[3],      summary: 'Longer Rend' },
+	{ signets: griseo.regular[2],     summary: 'Reduce Enemy Damage and Movement' },
+	{ signets: griseo.regular[3],     summary: 'Longer Taint' },
+	{ signets: griseo.nexus2[1],      summary: 'Reduce Enemy Resist' },
+	{ signets: griseo.nexus2[3],      summary: 'Increase Color Effect' },
+	{ signets: hua.nexus1[2],         summary: 'Additional Initial Stack of Soldier\'s Resolve' },
+	{ signets: hua.nexus1[1],         summary: 'Bonus Resolve Stack per Second to Normal Signets' },
+	{ signets: hua.nexus2[2],         summary: 'Extends Incincibility From Soldier\'s Remembrance' },
+	{ signets: kalpas.nexus1[1],      summary: 'Bonus Fire Damage' },
+	{ signets: kalpas.regular[6],     summary: 'Max HP Increase' },
+	{ signets: kalpas.nexus1[2],      summary: 'Losing HP Recharges Blood Boil ' },
+	{ signets: kalpas.nexus1[3],      summary: 'More BB Damage to Higher HP% Enemies' },
+	{ signets: kalpas.nexus2[2],      summary: 'BA Absorb Damage Equal to % of Charges' },
+	{ signets: kevin.nexus1[3],       summary: 'Total Damage Increase in Burst Mode' },
+	{ signets: kevin.nexus1[2],       summary: 'Final Battle and Normal Signet Duration Extended' },
+	{ signets: kevin.nexus2[2],       summary: 'Total Damage Increase in Ultimate or Burst Mode Hit' },
+	{ signets: kosma.nexus2[1],       summary: 'Combo/Charged ATKs Deal Adaptive Damage & Restore HP' },
+	{ signets: mobius.regular[3],     summary: 'Entity Damage Dealt' },
+	{ signets: mobius.regular[1],     summary: 'Elf SP Recovery' },
+	{ signets: mobius.nexus1[2],      summary: 'Mind Sync Duration Extended' },
+	{ signets: pardofelis.regular[5], summary: 'HP and SP Cap' },
+	{ signets: pardofelis.regular[2], summary: 'HP and SP Recovery' },
+	{ signets: pardofelis.regular[3], summary: 'Shiny Silver Increase Each Floor' },
+	{ signets: pardofelis.regular[6], summary: 'Shiny Silver Each Kill ' },
+	{ signets: pardofelis.nexus2[3],  summary: 'VIP Service Stack Duration' },
+	{ signets: sakura.regular[6],     summary: 'Attack Speed & Move Speed' },
+	{ signets: sakura.regular[4],     summary: 'Ultimate Evasion Reset CD' },
+	{ signets: sakura.regular[3],     summary: 'Ultimate Evasion 1 More Charge and Reduced CD' },
+	{ signets: sakura.nexus1[1],      summary: 'Sakura Screen Resets Ultimate and Weapon CD' },
+	{ signets: sakura.nexus1[2],      summary: 'Sakura Screen Pause Duration' },
+	{ signets: sakura.nexus2[1],      summary: 'Reduce Ultimate Evasion Remaining CD' },
+	{ signets: su.regular[5],         summary: 'Combo Increased to 60 When Below 60' },
+	{ signets: su.regular[1],         summary: '25 Bonus Combo' },
+	{ signets: su.nexus1[2],          summary: 'Enemy Disable Shield Recovery' },
+	{ signets: su.nexus1[1],          summary: 'Reduce Enemy Damage' },
+	{ signets: su.nexus2[3],          summary: '3 Random Debuffs on Hit' },
+	{ signets: vv.regular[1],         summary: 'Weapon Bonus Damage' },
+	{ signets: vv.regular[5],         summary: 'Ranged Total Damage' },
+	{ signets: vv.regular[6],         summary: 'SP Recovery and Reduce Weapon CD' },
+	{ signets: vv.nexus1[1],          summary: 'Marvelous Magic Deals Bonus ATK' },
+	{ signets: vv.nexus2[3],          summary: 'Larger Area and Stronger Gravitational Field'  }
 ];
