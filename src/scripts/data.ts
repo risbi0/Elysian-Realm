@@ -536,24 +536,44 @@ export const vv: Signets = {
 };
 type signetSummaryType = { summary: string, signets: string | string[] }[]
 // rough signet effect summaries
-const damageDealt: string[] = [aponia.regular[1], eden.regular[3], griseo.nexus1[1], griseo.nexus2[2], hua.regular[3],
+const damageDealt: string[] = [
+	aponia.regular[1], eden.regular[3], griseo.nexus1[1], griseo.nexus2[2], hua.regular[3],
 	hua.nexus2[3], kalpas.regular[1], kevin.regular[3], mobius.regular[5], mobius.nexus1[1],
-	pardofelis.regular[4], pardofelis.nexus2[1], sakura.regular[2], su.regular[6], vv.regular[3]];
-const damageTaken: string[] = [aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]];
-const physEleDamage: string[] = [aponia.nexus2[1], eden.regular[2], griseo.regular[1], kalpas.regular[2], kosma.nexus2[3],
-	pardofelis.regular[1], vv.regular[4]];
-const physDamage: string[] = [hua.regular[2], kevin.regular[5]];
-const eleDamage: string[] = [hua.regular[1], kevin.regular[2]];
-const physEleBreach: string[] = [aponia.nexus1[1], aponia.nexus2[2], griseo.nexus1[2], kalpas.nexus2[3], kosma.nexus2[2],
-	pardofelis.nexus1[3], vv.nexus2[1]];
-const physBreach: string[] = [hua.regular[5], kevin.regular[4], vv.nexus1[2]];
-const eleBreach: string[] = [hua.regular[6], kevin.regular[1]];
-const vurnerability: string[] = [aponia.regular[6], aponia.nexus2[3], eden.nexus1[3], eden.nexus1[2], griseo.regular[4],
+	pardofelis.regular[4], pardofelis.nexus2[1], sakura.regular[2], su.regular[6], vv.regular[3]
+];
+const damageTaken: string[] = [
+	aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]
+];
+const physEleDamage: string[] = [
+	aponia.nexus2[1], eden.regular[2], griseo.regular[1], kalpas.regular[2], kosma.nexus2[3],
+	pardofelis.regular[1], vv.regular[4]
+];
+const physDamage: string[] = [
+	hua.regular[2], kevin.regular[5]
+];
+const eleDamage: string[] = [
+	hua.regular[1], kevin.regular[2]
+];
+const physEleBreach: string[] = [
+	aponia.nexus1[1], aponia.nexus2[2], griseo.nexus1[2], kalpas.nexus2[3], kosma.nexus2[2],
+	pardofelis.nexus1[3], vv.nexus2[1]
+];
+const physBreach: string[] = [
+	hua.regular[5], kevin.regular[4], vv.nexus1[2]
+];
+const eleBreach: string[] = [
+	hua.regular[6], kevin.regular[1]
+];
+const vurnerability: string[] = [
+	aponia.regular[6], aponia.nexus2[3], eden.nexus1[3], eden.nexus1[2], griseo.regular[4],
 	griseo.regular[6], kalpas.regular[3], kevin.nexus2[3], mobius.regular[2], pardofelis.nexus2[2],
-	sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2], vv.nexus2[2]];
-const spRecovery: string[] = [aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
+	sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2], vv.nexus2[2]
+];
+const spRecovery: string[] = [
+	aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
 	griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
-	kosma.regular[1]];
+	kosma.regular[1]
+];
 export const signetSummary: signetSummaryType = [
 	{ summary: 'Total Damage Dealt',                                   signets: damageDealt },
 	{ summary: 'Total Damage Taken',                                   signets: damageTaken },
