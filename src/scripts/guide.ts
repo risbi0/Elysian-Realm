@@ -2671,9 +2671,9 @@ const vkek: Guide = {
 	}
 };
 export const valks: Guide[] = [
-	aka, bke, cv, da, aponia, fr, mc, eden, gm, villv, hofs,
-	hoh, hor, hos, hov, hot, mobius, sus, lk, raven, elysia,
-	pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn, vb,
-	carole, ve, vg, vkek
+	aka, bke, cv, da, aponia, fr, mc, eden, gm, villv,
+	hofs, hoh, hor, hos, hov, hot, mobius, sus, lk, raven,
+	elysia, pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn,
+	vb, carole, ve, vg, vkek
 ];
 export const valksLength: number = valks.length;
