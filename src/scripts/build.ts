@@ -107,7 +107,7 @@ for (let i = 0; i < valks.length; i++) {
 		if (Object.keys(valks[i].builds).length > 1) {
 			const buildNo: HTMLParagraphElement = document.createElement('p');
 			buildNo.classList.add('build-no');
-			buildNo.innerText = `Build ${j + 1}`;
+			buildNo.innerText = `Build: ${valks[i].builds[j].name}`;
 			guideContent.appendChild(buildNo);
 		}
 		// signets images

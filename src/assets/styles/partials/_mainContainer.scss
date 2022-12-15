@@ -4,10 +4,10 @@
 #main-container {
     overflow-y: hidden;
     background-image: linear-gradient(to top, black, transparent);
-    
+
     &:hover {
         scrollbar-color: $scrollbar-thumb black !important;
-        
+
         &::-webkit-scrollbar-thumb {
             background-color: $scrollbar-thumb;
         }
@@ -65,7 +65,7 @@
     font-style: italic;
 }
 .build-no {
-    @include margin($t: 5px);
+    @include margin($t: 15px);
     font-size: 12px;
 }
 .rec-signets {
@@ -178,7 +178,7 @@
 
     tr:not(thead tr) { height: 80px; }
     span { transform: translateY(-2px); }
-    
+
     .pic { @include wh($w: 80px, $h: 80px); }
 }
 .pic {
@@ -192,7 +192,7 @@
         transform: translateY(18px);
         height: 25px;
     }
-    
+
     span {
         visibility: hidden;
         text-align: center;

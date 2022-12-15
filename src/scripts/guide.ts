@@ -9,6 +9,7 @@ type Guide = {
 	rating: string;
 	builds: {
 		[key: number]: {
+			name?: string
 			signet: Array<Array<Signet>>
 			emblem: Array<Emblem>
 			support: Array<Array<Array<data.NameAcr>>>
@@ -1035,6 +1036,7 @@ const hoh: Guide = {
 	rating: data.corruption,
 	builds: {
 		0: {
+			name: 'Charge',
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -1103,6 +1105,7 @@ const hoh: Guide = {
 					<p>${data.hua.nexus2[1]}, ${data.hua.nexus2[2]}</p>If missing Aponia's breach.`
 		},
 		1: {
+			name: 'Ult',
 			signet: [
 				[
 					[data.hua, '2'],
@@ -1390,6 +1393,7 @@ const hot: Guide = {
 	rating: data.corruption,
 	builds: {
 		0: {
+			name: 'Narukami',
 			signet: [
 				[
 					[data.griseo, '2'],
@@ -1455,6 +1459,7 @@ const hot: Guide = {
 					Can buy Sakura and Vill-V signets in shop as reinforcement.`
 		},
 		1: {
+			name: 'Divine Penalty',
 			signet: [
 				[
 					[data.aponia, '2'],
