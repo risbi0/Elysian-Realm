@@ -1,15 +1,15 @@
-type Name = {
+export type NameAcr = {
 	name: string;
-}
-export type NameAcr = Name & {
 	acr: string;
 }
-type Nexus = Name & {
+type Nexus = {
+	name: string;
 	1: string;
 	2: string;
 	3: string;
 }
-export type Signets = Name & {
+export type Signets = {
+	name: string;
 	signet: string;
 	regular: {
 		1: string;
