@@ -7,8 +7,8 @@ type Guide = {
 	name: string;
 	acr: string;
 	rating: string;
-	builds: {
-		[key: number]: {
+	builds:
+		{
 			name?: string
 			signet: Array<Array<Signet>>
 			emblem: Array<Emblem>
@@ -16,16 +16,15 @@ type Guide = {
 			gear: Array<Gear>
 			signetTable: Array<Array<Array<string>>>
 			notes?: string;
-		}
-	}
+		}[]
 }
 // Argent Knight: Artemis
 const aka: Guide = {
 	name: 'Argent Knight: Artemis',
 	acr: 'aka',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [ // transitional (optional), main, secondary
 				[
 					[data.hua, '2'],
@@ -93,15 +92,15 @@ const aka: Guide = {
 				]
 			]
 		}
-	}
+	]
 };
 // Disciplinary Perdition
 const aponia: Guide = {
 	name: 'Disciplinary Perdition',
 	acr: 'aponia',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -169,15 +168,15 @@ const aponia: Guide = {
 			notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}, ${data.griseo.nexus2[3]}</p>Priority.<br><br>
 					<p>${data.griseo.nexus2[1]}, ${data.kalpas.nexus2[3]}</p>If breach is not yet 63%.`
 		}
-	}
+	]
 };
 // Bright Knight: Excelsis
 const bke: Guide = {
 	name: 'Bright Knight: Excelsis',
 	acr: 'bke',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.sakura, '1'],
@@ -248,15 +247,15 @@ const bke: Guide = {
 					<p>${data.griseo.regular[3]}</p>Minimum of +2 upgrade.<br><br>
 					<p>${data.kalpas.nexus2[3]}, ${data.kosma.nexus2[2]}, ${data.aponia.nexus2[2]}</p>If lacking impair.`
 		}
-	}
+	]
 };
 // Sweet 'n' Spicy
 const carole: Guide = {
 	name: 'Sweet \'n\' Spicy',
 	acr: 'carole',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.griseo, '1']
@@ -319,15 +318,15 @@ const carole: Guide = {
 			notes: `<p>${data.griseo.regular[1]}, ${data.griseo.regular[4]}</p>Buy from shop.<br><br>
 					<p>${data.aponia.nexus2[2]}</p>Priority.`
 		}
-	}
+	]
 };
 // Chrono Navi
 const cv: Guide = {
 	name: 'Chrono Navi',
 	acr: 'cv',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2']
@@ -393,15 +392,15 @@ const cv: Guide = {
 			notes: `<p>Aponia</p>Must pick at least 3 signets that recover Exhortation.<br><br>
 					<p>Su, Eden</p>Optional. Can pick Griseo's signet <span>${data.griseo.regular[4]}</span> as reinforcement.`
 		}
-	}
+	]
 };
 // Dea Anchora
 const da: Guide = {
 	name: 'Dea Anchora',
 	acr: 'da',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2']
@@ -456,7 +455,7 @@ const da: Guide = {
 					[data.su.regular[5]],
 					[data.su.nexus2.name]
 				]
-			]
+	]
 		}
 	}
 };
@@ -465,8 +464,8 @@ const eden: Guide = {
 	name: 'Golden Diva',
 	acr: 'eden',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -532,15 +531,15 @@ const eden: Guide = {
 			],
 			notes: `<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}, ${data.kosma.nexus2[1]}, ${data.kosma.nexus2[2]}</p>Priority.`
 		}
-	}
+	]
 };
 // Miss Pink Elf
 const elysia: Guide = {
 	name: 'Miss Pink Elf♪',
 	acr: 'elysia',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '2'],
@@ -601,15 +600,15 @@ const elysia: Guide = {
 			],
 			notes: `<p>${data.vv.nexus2[1]}</p>Max upgrade.`
 		}
-	}
+	]
 };
 // Prinzessin der Verurteilung
 const fischl: Guide = {
 	name: 'Prinzessin der Verurteilung',
 	acr: 'fischl',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '2']
@@ -670,15 +669,15 @@ const fischl: Guide = {
 			],
 			notes: `<p>${data.vv.nexus2[1]}, ${data.vv.nexus2[2]}</p>Priority.`
 		}
-	}
+	]
 };
 // Fallen Rosemary
 const fr: Guide = {
 	name: 'Fallen Rosemary',
 	acr: 'fr',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -734,7 +733,7 @@ const fr: Guide = {
 					[data.kalpas.regular[2]],
 					[data.kalpas.regular[6]]
 				]
-			]
+	]
 		}
 	}
 };
@@ -743,8 +742,8 @@ const mc: Guide = {
 	name: 'Fervent Tempo',
 	acr: 'mc',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.griseo, '2'],
@@ -807,15 +806,15 @@ const mc: Guide = {
 				]
 			]
 		}
-	}
+	]
 };
 // Goushinnso Memento
 const gm: Guide = {
 	name: 'Goushinnso Memento',
 	acr: 'gm',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.kosma, '2'],
@@ -875,15 +874,15 @@ const gm: Guide = {
 				]
 			]
 		}
-	}
+	]
 };
 // Starry Impression
 const griseo: Guide = {
 	name: 'Starry Impression',
 	acr: 'griseo',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.hua, '2']
@@ -950,15 +949,15 @@ const griseo: Guide = {
 				]
 			]
 		}
-	}
+	]
 };
 // Herrscher of Flamescion
 const hofs: Guide = {
 	name: 'Herrscher of Flamescion',
 	acr: 'hofs',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.kalpas, '2'],
@@ -1027,15 +1026,15 @@ const hofs: Guide = {
 			notes: `<p>${data.sakura.nexus1.name}</p>Can also pick <span>${data.sakura.nexus2.name}</p><br><br>
 					<p>${data.griseo.nexus2[3]}</p>Priority.`
 		}
-	}
+	]
 };
 // Herrscher of Human: Ego
 const hoh: Guide = {
 	name: 'Herrscher of Human: Ego',
 	acr: 'hoh',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			name: 'Charge',
 			signet: [
 				[
@@ -1104,7 +1103,7 @@ const hoh: Guide = {
 			notes: `<p>${data.aponia.regular[2]}, ${data.eden.regular[1]}, ${data.kalpas.regular[5]}</p>Can pick to synergize with Hua's enhanced signets.<br><br>
 					<p>${data.hua.nexus2[1]}, ${data.hua.nexus2[2]}</p>If missing Aponia's breach.`
 		},
-		1: {
+		{
 			name: 'Ult',
 			signet: [
 				[
@@ -1166,15 +1165,15 @@ const hoh: Guide = {
 			],
 			notes: `<p>Pardofelis</p>Recommended to get <span>${data.kalpas.regular[1]}</span> and <span>${data.kalpas.regular[2]}</span> from Kalpas, with BR to reduce HP.`
 		}
-	}
+	]
 };
 // Herrscher of Reason
 const hor: Guide = {
 	name: 'Herrscher of Reason',
 	acr: 'hor',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.hua, '2']
@@ -1238,15 +1237,15 @@ const hor: Guide = {
 			notes: `<p>Early Emblem</p>The Lonely Moon or Because of You. Take Inspiration and Truth at 7F.<br><br>
 					<p>Blessing of Reason</p>Only if using DoR.`
 		}
-	}
+	]
 };
 // Herrscher of Sentience
 const hos: Guide = {
 	name: 'Herrscher of Sentience',
 	acr: 'hos',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -1313,15 +1312,15 @@ const hos: Guide = {
 			],
 			notes: `<p>${data.griseo.nexus2[1]}</p>Priority.`
 		}
-	}
+	]
 };
 // Herrscher of the Void
 const hov: Guide = {
 	name: 'Herrscher of the Void',
 	acr: 'hov',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '2'],
@@ -1384,15 +1383,15 @@ const hov: Guide = {
 					<p>Griseo</p>Can buy her signets in shop.<br><br>
 					<p>Mobius</p>Can buy Su, Kalpas, and Eden signets from shop as further reinforcement.`
 		}
-	}
+	]
 };
 // Herrscher of Thunder
 const hot: Guide = {
 	name: 'Herrscher of Thunder',
 	acr: 'hot',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			name: 'Narukami',
 			signet: [
 				[
@@ -1458,7 +1457,7 @@ const hot: Guide = {
 			notes: `If can't get double signets in 4F, start with double Ego.<br><br>
 					Can buy Sakura and Vill-V signets in shop as reinforcement.`
 		},
-		1: {
+		{
 			name: 'Divine Penalty',
 			signet: [
 				[
@@ -1522,15 +1521,15 @@ const hot: Guide = {
 			],
 			notes: `<p>Pardofelis</p>Can pick Sakura's signets <span>${data.sakura.regular[2]}</span> and <span>${data.sakura.regular[5]}</span>`
 		}
-	}
+	]
 };
 // Luna Kindred
 const lk: Guide = {
 	name: 'Luna Kindred',
 	acr: 'lk',
 	rating: data.inferno,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.kalpas, '2'],
@@ -1594,15 +1593,15 @@ const lk: Guide = {
 					<p>${data.kalpas.regular[6]}, ${data.aponia.nexus2[2]}</p>Recommended to upgrade.<br><br>
 					<p>${data.mobius.regular[2]}, ${data.mobius.regular[5]}</p>If using dracula set.`
 		}
-	}
+	]
 };
 // Infinite Ouroboros
 const mobius: Guide = {
 	name: 'Infinite Ouroboros',
 	acr: 'mobius',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.mobius, '1'],
@@ -1662,15 +1661,15 @@ const mobius: Guide = {
 				]
 			]
 		}
-	}
+	]
 };
 // Starchasm Nyx
 const nyx: Guide = {
 	name: 'Starchasm Nyx',
 	acr: 'nyx',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.hua, '2']
@@ -1735,15 +1734,15 @@ const nyx: Guide = {
 			],
 			notes: `Other secondary signets include Sakura's signets <span>${data.sakura.regular[5]}</span> and <span>${data.sakura.regular[6]}</span>.`
 		}
-	}
+	]
 };
 // Reveris Calico
 const pardo: Guide = {
 	name: 'Reverist Calico',
 	acr: 'pardo',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '2'],
@@ -1802,15 +1801,15 @@ const pardo: Guide = {
 			],
 			notes: '<p>Blessing of the Tailpiece</p>Start if Infinity signets +2.<br><br>'
 		}
-	}
+	]
 };
 // Palatinus Equinox
 const pe: Guide = {
 	name: 'Palatinus Equinox',
 	acr: 'pe',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '1']
@@ -1875,15 +1874,15 @@ const pe: Guide = {
 			],
 			notes: `<p>${data.griseo.nexus2[3]}</p>Priority.`
 		}
-	}
+	]
 };
 // Midnight Absinthe
 const raven: Guide = {
 	name: 'Midnight Absinthe',
 	acr: 'raven',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '2']
@@ -1948,15 +1947,15 @@ const raven: Guide = {
 					<p>${data.aponia.nexus2[2]}</p>If lacking breach.<br><br>
 					<p>Griseo</p>Buy signets in shop if possible.`
 		}
-	}
+	]
 };
 // Ritual Imayoh
 const ri: Guide = {
 	name: 'Ritual Imayoh',
 	acr: 'ri',
 	rating: data.inferno,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -2014,15 +2013,15 @@ const ri: Guide = {
 			],
 			notes: `<p>${data.aponia.nexus2[2]}</p>Priority.`
 		}
-	}
+	]
 };
 // Stygian Nymph
 const sn: Guide = {
 	name: 'Stygian Nymph',
 	acr: 'sn',
 	rating: data.inferno,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.sakura, '1']
@@ -2087,15 +2086,15 @@ const sn: Guide = {
 					<p>${data.kosma.nexus2[2]}</p>Priority.<br><br>
 					<p>${data.hua.regular[4]}</p>Recommended to upgrade.`
 		}
-	}
+	]
 };
 // Spina Astera
 const spa: Guide = {
 	name: 'Spina Astera',
 	acr: 'spa',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.eden, '2'],
@@ -2162,15 +2161,15 @@ const spa: Guide = {
 					<p>${data.griseo.nexus2[1]}</p>If breach is not yet 63%.<br><br>
 					<p>${data.kalpas.nexus2.name}</p>Don't unlock before 12F.`
 		}
-	}
+	]
 };
 // Jade Knight
 const sus: Guide = {
 	name: 'Jade Knight',
 	acr: 'sus',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.hua, '2'],
@@ -2236,15 +2235,15 @@ const sus: Guide = {
 			],
 			notes: `<p>${data.griseo.nexus2[2]}, ${data.griseo.nexus2[3]}</p>Priority.`
 		}
-	}
+	]
 };
 // Silverwing N-EX
 const sw: Guide = {
 	name: 'Silverwing N-EX',
 	acr: 'sw',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.aponia, '2'],
@@ -2302,15 +2301,15 @@ const sw: Guide = {
 				]
 			]
 		}
-	}
+	]
 };
 // Striker Fulminata
 const vb: Guide = {
 	name: 'Striker Fulminata',
 	acr: 'vb',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.su, '2']
@@ -2380,15 +2379,15 @@ const vb: Guide = {
 					<p>${data.su.regular[1]}, ${data.su.regular[5]}</p>Buy from shop if possible.<br><br>
 					<p>${data.griseo.regular[3]}, ${data.eden.regular[1]}</p>If needed.`
 		}
-	}
+	]
 };
 // Twilight Paladin
 const ve: Guide = {
 	name: 'Twilight Paladin',
 	acr: 've',
 	rating: data.abstinence,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.su, '2'],
@@ -2449,15 +2448,15 @@ const ve: Guide = {
 					<p>${data.su.regular[2]}</p>Priority.<br><br>
 					<p>${data.griseo.nexus2[1]}</p>If lacking breach.`
 		}
-	}
+	]
 };
 // Valkyrie Gloria
 const vg: Guide = {
 	name: 'Valkyrie Gloria',
 	acr: 'vg',
 	rating: data.inferno,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.kalpas, '1']
@@ -2524,15 +2523,15 @@ const vg: Guide = {
 			notes: `<p>${data.aponia.nexus2[1]}, ${data.aponia.nexus2[2]}</p>Priority.<br><br>
 					<p>${data.vv.nexus2[1]}</p>If lacking breach.`
 		}
-	}
+	]
 };
 // Helical Contraption
 const villv: Guide = {
 	name: 'Helical Contraption',
 	acr: 'villv',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.vv, '2'],
@@ -2602,15 +2601,15 @@ const villv: Guide = {
 					<p>${data.griseo.nexus2[1]}</p>Priority.<br><br>
 					<p>Su</p>Can buy Sakura's signets as reinforcements.`
 		}
-	}
+	]
 };
 // Vermillion Knight: Eclipse
 const vkek: Guide = {
 	name: 'Vermillion Knight: Eclipse',
 	acr: 'vke',
 	rating: data.corruption,
-	builds: {
-		0: {
+	builds: [
+		{
 			signet: [
 				[
 					[data.kalpas, '2'],
@@ -2673,7 +2672,7 @@ const vkek: Guide = {
 					<p>Griseo</p>Can buy from shop.<br><br>
 					<p>Su</p>Optional. Can also pick Kevin's signets <span>${data.kevin.regular[2]}</span> and <span>${data.kevin.regular[3]}</span>.`
 		}
-	}
+	]
 };
 export const valks: Guide[] = [
 	aka, bke, cv, da, aponia, fr, mc, eden, gm, villv,
