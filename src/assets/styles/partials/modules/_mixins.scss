@@ -1,4 +1,5 @@
 @import 'functions';
+@import 'variables';
 
 @mixin wh($w, $h) {
     width: $w;
@@ -72,7 +73,7 @@
 @mixin darkButton {
     border-radius: 50%;
     background-color: rgb(60, 60, 60);
-    color: rgba(255, 255, 255, 0.8);
+    color: $white;
 
     &:hover {
         background-color: rgba(60, 60, 60, 0.8);

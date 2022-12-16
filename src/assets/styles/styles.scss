@@ -147,7 +147,7 @@ tr:last-child:not(thead tr) {
     color: rgba(255, 255, 255, 0.6);
 
     &:hover {
-        color: rgba(255, 255, 255, 0.8);
+        color: $white;
     }
 }
 #goToTop {
