@@ -82,12 +82,17 @@ header {
     }
     p {
         @include margin($t: 20px, $b: 10px);
-        font-style: italic;
+		font-family: 'Plus Jakarta Sans';
+		font-style: italic;
     }
     a {
         color: $white;
+		font-family: 'Plus Jakarta Sans';
         font-size: 12px;
     }
+	a:hover {
+		color: white;
+	}
 }
 @media only screen and (max-height: 1100px) {
     header {
@@ -110,7 +115,9 @@ footer {
     flex-grow: 2;
 }
 h1 {
-    @include header(4em);
+    @include header(6em);
+	font-family: 'Raleway';
+	font-weight: 100;
     letter-spacing: 10px;
     text-transform: uppercase;
 }

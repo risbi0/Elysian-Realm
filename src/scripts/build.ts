@@ -43,6 +43,7 @@ function imageAndLabel(cell: HTMLTableCellElement,
 
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
+const title = document.querySelector('header h1') as HTMLDivElement;
 // setup classes
 const buttonClasses: string[] = ['banner', 'pos-rel', 'hidden'];
 const bannerClasses: string[] = [];
@@ -50,6 +51,7 @@ const mainNameDivClasses: string[] = ['main-name', 'flex', 'fh-center', 'fv-cent
 const mainNameClasses: string[] = ['vertical-text'];
 let device = '';
 if (isMobile) {
+	title.style.fontSize = '4.5em';
 	mainContainer.classList.add('f-col');
 	mainContainer.style.overflowX = 'hidden';
 	buttonClasses.push('overflow-hide');

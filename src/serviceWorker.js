@@ -5,7 +5,8 @@ const cacheAssets = [
 	'./static/img/bg.png',
 	// fonts
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
-	'https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap',
+	'https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap',
+	'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&display=swap',
 	// html
 	'./index.html',
 	'./about.html',
