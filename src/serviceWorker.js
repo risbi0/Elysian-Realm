@@ -22,7 +22,6 @@ const cacheAssets = [
 	'./static/favicon/favicon-16x16.png',
 	'./static/favicon/favicon-32x32.png',
 	'./static/favicon/maskable-icon.png',
-	'./static/favicon/mstile-150x150.png',
 	'./static/favicon/safari-pinned-tab.svg'
 ];
 
