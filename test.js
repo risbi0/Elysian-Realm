@@ -109,12 +109,7 @@ for (let i = 0; i < valks.length; i++) {
                   }
                   // check if marked signet is mentioned in notes
                   if ([2, 4].includes(signetTable[l].length)) {
-                    let signetName;
-                    if (signetTable[l].length === 2) {
-                      signetName = signetTable[l][0];
-                    } else {
-                      signetName = signetTable[l][2];
-                    }
+                    const signetName = signetTable[l].length === 2 ? signetTable[l][0] : signetTable[l][2];
                     describe('Notes', () => {
                       test('Marked signet is mentioned', () => {
                         expect(
