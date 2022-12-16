@@ -47,6 +47,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/pages/about.html',
             filename: 'about.html',
+			excludeChunks: ['main'],
             minify: isDevelopment ? false : {
                 removeComments: true,
                 collapseWhitespace: true,
