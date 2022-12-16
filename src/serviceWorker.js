@@ -6,8 +6,6 @@ const cacheAssets = [
 	// fonts
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
 	'https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap',
-	'https://fonts.gstatic.com/s/raleway/v27/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtaorCIPrEVJz9d.woff2',
-	'https://fonts.gstatic.com/s/materialicons/v129/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
 	// html
 	'./index.html',
 	'./about.html',
