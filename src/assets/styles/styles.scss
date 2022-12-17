@@ -13,6 +13,13 @@
 @import 'partials/guide';
 @import 'partials/about';
 
+* {
+	-webkit-user-select: none;
+	user-select: none;
+	&:focus {
+		outline: none;
+	}
+}
 .flex {
     display: flex;
 }
