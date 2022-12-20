@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v2';
+const cacheName = 'herrscher-of-cache-v3';
 
 const cacheAssets = [
 	'./site.webmanifest',
