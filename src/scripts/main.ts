@@ -3,7 +3,7 @@ import { isMobile, signetSummary } from './data';
 import { mainContainer, guideContainer } from './build';
 
 const body = document.querySelector('body') as HTMLBodyElement;
-window.scrollTo({ top: 0 });
+window.scroll({ top: 0 });
 body.style.overflow = 'hidden';
 
 // execute animation after all images are loaded
