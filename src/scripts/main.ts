@@ -373,7 +373,7 @@ guideContainer.addEventListener('click', () => hide()); // close when clicking o
 
 const guideContents: NodeListOf<HTMLDivElement> = document.querySelectorAll('.guide-content');
 guideContents.forEach((guideContent: HTMLDivElement) => guideContent.addEventListener('click', (e) => e.stopPropagation()));
-let afterOffset: string, direction:string, psuedoDirection:string;
+let afterOffset: string, direction: string, psuedoDirection: string;
 // show respective guide content on banner click
 banners.forEach((banner: HTMLButtonElement) => {
 	banner.addEventListener('click', function(this: HTMLButtonElement) {
