@@ -405,7 +405,7 @@ banners.forEach((banner: HTMLButtonElement) => {
 				currentGuide.classList.add('guide-top-entry-mobile', 'upper'); // (animation, spacing)
 				[afterOffset, direction, psuedoDirection] = ['0', 'top', 'down'];
 				offset = this.offsetTop;
-				closeButtonOffsetTop = deviceHeight - (deviceHeight - deviceWidth / 4) + 15;
+				closeButtonOffsetTop = deviceWidth / 4 + 15;
 				toTopButtonOffsetTop = deviceHeight - 60;
 			}
 			window.scroll({ top: offset, behavior: 'smooth' });
