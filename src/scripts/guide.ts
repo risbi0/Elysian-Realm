@@ -385,7 +385,7 @@ const cn: Guide = {
 					[data.eden.nexus2.name]
 				]
 			],
-			notes: `Vill-V and Eden signets are optioanl.<br><br>
+			notes: `Vill-V and Eden signets are optional.<br><br>
 					<p>Aponia</p>Must pick at least 3 signets that recover Exhortation.`
 		}
 	]
