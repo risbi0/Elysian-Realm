@@ -357,7 +357,7 @@ for (let i = 0; i < valks.length; i++) {
 							signetTableBodyCell!.setAttribute('rowspan', valks[i].builds[j].signetTable[k][l][m + 1]);
 						}
 						// check if next value is an empty string, if so, apply 'noted' class
-						if (valks[i].builds[j].signetTable[k][l][m+1] === '') {
+						if (valks[i].builds[j].signetTable[k][l][m + 1] === '') {
 							signetTableBodyCell!.classList.add('noted');
 						}
 					} catch (e) { continue }
