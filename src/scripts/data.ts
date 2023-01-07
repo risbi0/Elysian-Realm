@@ -242,6 +242,7 @@ export const shur: NameAcr = { name: 'Shuhadaku of Uriel', acr: 'shur' };
 export const skth: NameAcr = { name: 'Skadi of Thrymheim', acr: 'skth' };
 export const sldr: NameAcr = { name: 'Sleeper\'s Dream', acr: 'sldr' };
 export const sted: NameAcr = { name: 'Star of Eden: World', acr: 'sted' };
+export const sumu: NameAcr = { name: 'Surtr Muspellsverd', acr: 'sumu' };
 export const thsa: NameAcr = { name: '3rd Sacred Relic', acr: 'thsa' };
 export const topa: NameAcr = { name: 'Tower of the Past: Silk Ladder', acr: 'topa' };
 export const whpa: NameAcr = { name: 'Whisper of the Past: Sonnet', acr: 'whpa' };

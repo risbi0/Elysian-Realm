@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v3';
+const cacheName = 'herrscher-of-cache-v4';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -186,6 +186,7 @@ const images = [
 	'Skadi_of_Thrymheim',
 	'Sleepers_Dream',
 	'Star_of_Eden_World',
+	'Surtr_Muspellsverd',
 	'Tower_of_the_Past_Silk_Ladder',
 	'Whisper_of_the_Past_Sonnet'
 ];
