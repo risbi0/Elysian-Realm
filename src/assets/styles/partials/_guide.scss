@@ -70,7 +70,6 @@
 }
 @media only screen and (max-height: 949px) {
     .guide-content.dt { height: calc(100vh - 15px); }
-    
 }
 /* desktop (innerHeight >= 950px) */
 @include animationPreset(guide-entry-desktop-n, guideentrydesktopn, 0.6s forwards, $guide-top, $desktop-og, 0, 1);
