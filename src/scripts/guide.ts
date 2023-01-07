@@ -319,9 +319,9 @@ const carole: Guide = {
 	]
 };
 // Chrono Navi
-const cv: Guide = {
+const cn: Guide = {
 	name: 'Chrono Navi',
-	acr: 'cv',
+	acr: 'cn',
 	rating: data.corruption,
 	builds: [
 		{
@@ -2610,7 +2610,7 @@ const vkek: Guide = {
 	]
 };
 export const valks: Guide[] = [
-	aka, bke, cv, da, aponia, fr, mc, eden, gm, villv,
+	aka, bke, cn, da, aponia, fr, mc, eden, gm, villv,
 	hofs, hoh, hor, hos, hov, hot, mobius, sus, lk, raven,
 	elysia, pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn,
 	vb, carole, ve, vg, vkek
