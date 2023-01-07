@@ -174,7 +174,7 @@
 }
 .gear-tbl {
     @include tooltipSizePos(100);
-    margin-top: 10px;
+	@include margin($t: 10px);
     width: 320px;
 
     tr:not(thead tr) { height: 80px; }

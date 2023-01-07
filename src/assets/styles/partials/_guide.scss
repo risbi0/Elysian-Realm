@@ -56,7 +56,7 @@
         @include wh($w: 100%, $h: calc(100% - 25vw));
         transform: translateX(-50%);
 
-        &.upper { margin-top: 25vw; }
+        &.upper { @include margin($t: 25vw); }
     }
 
     &.dt {
