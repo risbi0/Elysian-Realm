@@ -34,13 +34,13 @@ export const second = '2nd';
 export const filler = 'Filler';
 export const reinforcement = 'Reinforcement';
 export const no = 'No';
-// table headers
+// table column values & headers
 export const supportTableHeaders: string[] = ['Type', 'Supports'];
 export const supportTableTypeColumn: string[] = ['Utility', 'Damage'];
 export const emblemTableHeaders: string[] = ['Time', 'Emblems'];
 export const emblemTableTimeColumn:	string[] = ['Start', 'Shop 1', '16F'];
-export const exclusiveTableColumns:	string[] = ['Signet', 'Priority'];
-export const signetTableColumns: string[] = ['Owner', 'Signet'];
+export const exclusiveTableHeaders:	string[] = ['Signet', 'Priority'];
+export const signetTableHeaders: string[] = ['Owner', 'Signet'];
 // emblems
 export const becauseOfYou:			NameAcr = { name: 'Because of You',				acr: 'boy' };
 export const boundlessFeeling:		NameAcr = { name: 'Boundless Feeling',			acr: 'bf' };

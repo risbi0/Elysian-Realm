@@ -1,7 +1,7 @@
 import { valks } from './guide';
 import { emblemTableHeaders, emblemTableTimeColumn,
 		 supportTableHeaders, supportTableTypeColumn,
-		 exclusiveTableColumns, signetTableColumns,
+		 exclusiveTableHeaders, signetTableHeaders,
 		 isMobile, NameAcr } from './data';
 
 function imageAndLabel(cell: HTMLTableCellElement,
@@ -289,7 +289,7 @@ for (let i = 0; i < valks.length; i++) {
 					signetTitle.textContent = 'Exclusive Signets';
 					guideContent.appendChild(signetTitle);
 					signetTable.classList.add('exclusive-tbl');
-					headers = exclusiveTableColumns;
+					headers = exclusiveTableHeaders;
 					break;
 				default:
 					if ((k === 1 && hasTransitionTable)) {
@@ -312,7 +312,7 @@ for (let i = 0; i < valks.length; i++) {
 					signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`);
 					signetTitle.textContent = title;
 
-					headers = signetTableColumns;
+					headers = signetTableHeaders;
 					// signets
 					const signets: HTMLDivElement = document.createElement('div');
 					signets.classList.add('rec-signets', 'flex', 'f-row');
