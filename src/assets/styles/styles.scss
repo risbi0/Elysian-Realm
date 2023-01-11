@@ -75,11 +75,21 @@
     background-color: rgba(70, 70, 70, 0.5);
 }
 body {
-    background: url('../img/bg.png') no-repeat;
-    background-size: cover;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: $white;
+}
+#bg {
+	@include wh($w: 100vw, $h: 100vh);
+	background-size: cover;
+	position: fixed;
+	z-index: -1;
+}
+.bg-dt {
+	background: url('../img/bg-dt.png') center no-repeat;
+}
+.bg-mb {
+	background: url('../img/bg-mb.png') center no-repeat;
 }
 header {
     background-color: $dark-tint;

@@ -3,7 +3,10 @@
 
 #main-container {
     overflow-y: hidden;
-    background-image: linear-gradient(to top, black, transparent);
+
+	&.dt {
+		background-image: linear-gradient(to top, black, transparent);
+	}
 
     &:hover {
         scrollbar-color: $scrollbar-thumb black !important;
@@ -38,11 +41,9 @@
 
     > .mb {
         @include wh($w: 100vw, $h: 25vw);
-        background-size: cover;
-    }
-    > .mobile-shadow {
-        box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8),
+		box-shadow: inset 100px 0px 90px -90px rgba(0, 0, 0, 0.8),
                     inset -100px 0px 90px -90px rgba(0, 0, 0, 0.8);
+        background-size: cover;
     }
 }
 .main-name {

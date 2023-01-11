@@ -25,6 +25,7 @@
         </script>
     </head>
     <body id="about">
+		<div id="bg"></div>
         <div id="container" class="flex fh-center fv-center">
             <div id="sub-container">
                 <h5>About This Guide</h5><hr><br>
@@ -237,6 +238,13 @@
                 <ul><li>Initial release</li></ul>
             </div>
         </div>
-        <script>if (!/Mobi/i.test(window.navigator.userAgent)) document.querySelector('#sub-container').style.height = '95vh';</script>
+        <script>
+			if (!/Mobi/i.test(window.navigator.userAgent)) {
+				document.querySelector('#sub-container').style.height = '95vh';
+				document.querySelector('#bg').classList.add('bg-dt');
+			} else {
+				document.querySelector('#bg').classList.add('bg-mb');
+			}
+		</script>
     </body>
 </html>

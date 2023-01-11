@@ -1,8 +1,9 @@
-const cacheName = 'herrscher-of-cache-v4';
+const cacheName = 'herrscher-of-cache-v5';
 
 const cacheAssets = [
 	'./site.webmanifest',
-	'./static/img/bg.png',
+	'./static/img/bg-dt.png',
+	'./static/img/bg-mb.png',
 	// fonts
 	'https://fonts.googleapis.com/icon?family=Material+Icons',
 	'https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap',

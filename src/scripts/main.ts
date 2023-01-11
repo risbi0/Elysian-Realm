@@ -1,6 +1,6 @@
 import { valksLength } from './guide';
 import { isMobile, signetSummary } from './data';
-import { mainContainer, guideContainer } from './build';
+import { bg, mainContainer, guideContainer } from './build';
 
 const body = document.querySelector('body') as HTMLBodyElement;
 window.scroll({ top: 0 });
@@ -28,7 +28,7 @@ function fadeAnim(item: HTMLButtonElement, fade: string): void {
 const banners: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.banner');
 const paths: string[] = [];
 const getBgPath = (el: Element): string => window.getComputedStyle(el).getPropertyValue('background-image').substring(5).slice(0, -2);
-paths.push(getBgPath(body));
+paths.push(getBgPath(bg));
 banners.forEach((banner: HTMLButtonElement) => paths.push(getBgPath(banner.children[0])));
 // wait for images to load
 const cover = document.querySelector('#cover') as HTMLDivElement;
