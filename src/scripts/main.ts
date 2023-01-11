@@ -2,6 +2,9 @@ import { valksLength } from './guide';
 import { isMobile, signetSummary } from './data';
 import { bg, mainContainer, guideContainer } from './build';
 
+import LogRocket from 'logrocket';
+LogRocket.init('h6xl7p/elysian-realm');
+
 const body = document.querySelector('body') as HTMLBodyElement;
 window.scroll({ top: 0 });
 body.style.overflow = 'hidden';
@@ -377,6 +380,7 @@ let afterOffset: string, direction: string, psuedoDirection: string;
 // show respective guide content on banner click
 banners.forEach((banner: HTMLButtonElement) => {
 	banner.addEventListener('click', function(this: HTMLButtonElement) {
+		console.log(this.textContent);
 		body.style.pointerEvents = 'none'; // disable events during transition
 		const index: number = Array.from(this.parentNode!.children).indexOf(this);
 		currentGuide = guideContents[index];
