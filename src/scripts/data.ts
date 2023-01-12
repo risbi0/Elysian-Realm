@@ -36,7 +36,7 @@ export const reinforcement = 'Reinforcement';
 export const optional = 'Optional';
 export const no = 'No';
 // table column values & headers
-export const supportTableHeaders: string[] = ['Type', 'Supports'];
+export const supportTableHeaders: string[] = ['Type', 'Supp1', 'Supp2'];
 export const supportTableTypeColumn: string[] = ['Utility', 'Damage'];
 export const emblemTableHeaders: string[] = ['Time', 'Emblems'];
 export const emblemTableTimeColumn:	string[] = ['Start', 'Shop 1', '16F'];

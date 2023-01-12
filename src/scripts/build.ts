@@ -270,7 +270,7 @@ for (let i = 0; i < valks.length; i++) {
 		for (let k = 0; k < supportTableHeaders.length; k++) {
 			const supportTableHeader: HTMLTableCellElement = document.createElement('th');
 			supportTableHeader.textContent = supportTableHeaders[k];
-			if (k === 1) supportTableHeader.setAttribute('colspan', '4');
+			if (k === 1 || k === 2) supportTableHeader.setAttribute('colspan', '2');
 
 			supportTableHeadRow.appendChild(supportTableHeader);
 		}
