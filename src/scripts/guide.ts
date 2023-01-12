@@ -2701,9 +2701,9 @@ const villv: Guide = {
 		}
 	]
 };
-// Vermillion Knight: Eclipse
+// Vermilion Knight: Eclipse
 const vkek: Guide = {
-	name: 'Vermillion Knight: Eclipse',
+	name: 'Vermilion Knight: Eclipse',
 	acr: 'vke',
 	rating: data.corruption,
 	builds: [

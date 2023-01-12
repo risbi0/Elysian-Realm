@@ -93,7 +93,7 @@ export const sa:  NameAcr = { name: 'Starlit Astrologos',			acr: 'sa' };
 export const sn:  NameAcr = { name: 'Stygian Nymph',				acr: 'sn' };
 export const ss:  NameAcr = { name: 'Snowy Sniper',					acr: 'ss' };
 export const vc:  NameAcr = { name: 'Valkyrie Chariot',				acr: 'vc' };
-export const vke: NameAcr = { name: 'Vermillion Knight: Eclipse',	acr: 'vke' };
+export const vke: NameAcr = { name: 'Vermilion Knight: Eclipse',	acr: 'vke' };
 // stigmatas
 export const allt: NameAcr = { name: 'Allan Poe T', acr: 'allt' };
 export const allm: NameAcr = { name: 'Allan Poe M', acr: 'allm' };
