@@ -5,6 +5,14 @@ import { bg, mainContainer, guideContainer } from './build';
 import LogRocket from 'logrocket';
 LogRocket.init('h6xl7p/elysian-realm');
 
+// get/set unique ID
+let uniqueId = localStorage.getItem('uniqueId');
+if (!uniqueId) {
+	uniqueId = crypto.randomUUID();
+	localStorage.setItem('uniqueId', uniqueId);
+}
+LogRocket.identify(uniqueId);
+
 const body = document.querySelector('body') as HTMLBodyElement;
 window.scroll({ top: 0 });
 body.style.overflow = 'hidden';
