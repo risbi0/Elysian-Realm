@@ -114,6 +114,9 @@
         font-size: 10px;
     }
 }
+.buff-tbl {
+	@include margin($t: 10px, $b: 20px);
+}
 .emblem-support {
     justify-content: space-between;
     width: 90%;
@@ -162,6 +165,7 @@
 .emblem, .supp {
     span { transform: translateY(-22px); }
 }
+.buff-tbl,
 .exclusive-tbl,
 .transitional-tbl,
 .main-tbl,

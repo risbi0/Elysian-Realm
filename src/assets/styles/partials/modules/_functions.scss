@@ -10,24 +10,30 @@
         $dfs: 30;
     }
     @else if $sl >= 17 and $sl <= 18 {
-        $dfs: 28;
+        $dfs: 26;
     }
-    @else if $sl >= 19 and $sl <= 20 {
+    @else if $sl >= 19 and $sl <= 21 {
         $dfs: 22;
     }
-    @else if $sl >= 21 and $sl <= 23 {
+    @else if $sl >= 22 and $sl <= 23 {
         $dfs: 20;
+    }
+    @else if $sl == 24 {
+        $dfs: 18;
     }
     @else {
         $dfs: 16;
     }
-	/* override some sizes since names being the same
+	/* override some sizes since names having the same
 	length side-by-side don't look that good */
     @if $name == "Chrono_Navi" {
         $dfs: 38;
     }
 	@if $name == "Fervent_Tempo" {
 		$dfs: 32;
+	}
+	@if $name == "Herrscher_of_Truth" {
+		$dfs: 24;
 	}
     /* mobile font size */
     $mfs: 7;

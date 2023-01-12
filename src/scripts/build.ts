@@ -2,7 +2,7 @@ import { valks } from './guide';
 import { emblemTableHeaders, emblemTableTimeColumn,
 		 supportTableHeaders, supportTableTypeColumn,
 		 exclusiveTableHeaders, signetTableHeaders,
-		 isMobile, NameAcr } from './data';
+		 buffTableHeaders, isMobile, NameAcr, buffs } from './data';
 
 function imageAndLabel(cell: HTMLTableCellElement,
 					   row: HTMLTableRowElement,
@@ -39,6 +39,17 @@ function imageAndLabel(cell: HTMLTableCellElement,
 		cell.appendChild(label);
 	}
 	return cell;
+}
+
+function getIndex(str: string): number {
+	for (let i = 0; i < buffs.length; i++) {
+		for (let j = 0; j < buffs[i].length; j++) {
+			if (buffs[i][j] === str) {
+				return i;
+			}
+		}
+	}
+	return -1;
 }
 
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
@@ -173,6 +184,40 @@ for (let i = 0; i < valks.length; i++) {
 		//  anchors end
 		guideContent.appendChild(anchorContainer);
 
+		// buffs tables start
+		if ('buff' in valks[i].builds[j]) {
+			const buffTable: HTMLTableElement = document.createElement('table');
+			buffTable.classList.add('buff-tbl');
+			// header
+			const buffTableHead: HTMLTableSectionElement = buffTable.createTHead();
+			const buffTableHeadRow: HTMLTableRowElement = buffTableHead.insertRow();
+			for (let k = 0; k < buffTableHeaders.length; k++) {
+				const buffTableHeader: HTMLTableCellElement = document.createElement('th');
+				buffTableHeader.textContent = buffTableHeaders[k];
+
+				buffTableHeadRow.appendChild(buffTableHeader);
+			}
+			buffTableHead.appendChild(buffTableHeadRow);
+			// body
+			const buffTableBody: HTMLTableSectionElement = buffTable.createTBody();
+			for (let k = 0; k < valks[i].builds[j].buff.length; k++) { // rows
+				const buffTableBodyRow: HTMLTableRowElement = buffTableBody.insertRow();
+				const cost: string = (5 * getIndex(valks[i].builds[j].buff[k])).toString();
+				for (let l = 0; l < 2; l++) { // cells
+					const buffTableBodyCell: HTMLTableCellElement = buffTableBodyRow.insertCell();
+					if (l === 0) {
+						buffTableBodyCell.textContent = cost;
+					} else {
+						buffTableBodyCell.textContent = valks[i].builds[j].buff[k];
+					}
+				}
+			}
+			buffTable.appendChild(buffTableHead);
+			buffTable.appendChild(buffTableBody);
+			guideContent.appendChild(buffTable);
+		}
+		// buffs table end
+
 		const emblemSupportDiv: HTMLDivElement = document.createElement('div');
 		emblemSupportDiv.classList.add('emblem-support', 'flex', 'f-row');
 		// emblem table start
@@ -256,27 +301,30 @@ for (let i = 0; i < valks.length; i++) {
 		emblemSupportDiv.appendChild(supportTableDiv);
 		// supports table end
 		guideContent.appendChild(emblemSupportDiv);
+
 		// gear start
-		const stigTitle: HTMLHeadingElement = document.createElement('h3');
-		stigTitle.innerText = 'Recommended Gear';
+		if ('gear' in valks[i].builds[j]) {
+			const stigTitle: HTMLHeadingElement = document.createElement('h3');
+			stigTitle.innerText = 'Recommended Gear';
 
-		guideContent.appendChild(stigTitle);
+			guideContent.appendChild(stigTitle);
 
-		const stigTable: HTMLTableElement = document.createElement('table');
-		stigTable.classList.add('gear-tbl');
+			const stigTable: HTMLTableElement = document.createElement('table');
+			stigTable.classList.add('gear-tbl');
 
-		const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
-		for (let k = 0; k < Object.keys(valks[i].builds[j].gear).length; k++) { // rows
-			const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
-			for (let l = 0; l < valks[i].builds[j].gear[k].length; l++) { // cells
-				let stigTableBodyCell: HTMLTableCellElement;
-				stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear[k][l], false);
+			const stigTableBody: HTMLTableSectionElement = stigTable.createTBody();
+			for (let k = 0; k < Object.keys(valks[i].builds[j].gear!).length; k++) { // rows
+				const stigTableBodyRow: HTMLTableRowElement = stigTableBody.insertRow();
+				for (let l = 0; l < valks[i].builds[j].gear![k].length; l++) { // cells
+					let stigTableBodyCell: HTMLTableCellElement;
+					stigTableBodyCell = imageAndLabel(stigTableBodyCell!, stigTableBodyRow, valks[i].builds[j].gear![k][l], false);
+				}
+				stigTableBody.appendChild(stigTableBodyRow);
 			}
-			stigTableBody.appendChild(stigTableBodyRow);
-		}
-		stigTable.appendChild(stigTableBody);
+			stigTable.appendChild(stigTableBody);
 
-		guideContent.appendChild(stigTable);
+			guideContent.appendChild(stigTable);
+		}
 		// gear end
 
 		// signet tables start

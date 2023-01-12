@@ -33,6 +33,7 @@ export const first = '1st';
 export const second = '2nd';
 export const filler = 'Filler';
 export const reinforcement = 'Reinforcement';
+export const optional = 'Optional';
 export const no = 'No';
 // table column values & headers
 export const supportTableHeaders: string[] = ['Type', 'Supports'];
@@ -41,6 +42,7 @@ export const emblemTableHeaders: string[] = ['Time', 'Emblems'];
 export const emblemTableTimeColumn:	string[] = ['Start', 'Shop 1', '16F'];
 export const exclusiveTableHeaders:	string[] = ['Signet', 'Priority'];
 export const signetTableHeaders: string[] = ['Owner', 'Signet'];
+export const buffTableHeaders: string[] = ['Cost', 'Effect'];
 // emblems
 export const becauseOfYou:			NameAcr = { name: 'Because of You',				acr: 'boy' };
 export const boundlessFeeling:		NameAcr = { name: 'Boundless Feeling',			acr: 'bf' };
@@ -246,17 +248,37 @@ export const sumu: NameAcr = { name: 'Surtr Muspellsverd', acr: 'sumu' };
 export const thsa: NameAcr = { name: '3rd Sacred Relic', acr: 'thsa' };
 export const topa: NameAcr = { name: 'Tower of the Past: Silk Ladder', acr: 'topa' };
 export const whpa: NameAcr = { name: 'Whisper of the Past: Sonnet', acr: 'whpa' };
+// buffs
+export const buffs = [
+	// 0
+	[
+		'RPC-6626 weak to Ice'
+	],
+	// 5
+	[
+		'Same type support damage bonus'
+	],
+	// 10
+	[
+		'Enemy affected by status gives TDM'
+	],
+	// 15
+	[
+		'SP usage vulnerability',
+		'Weapon type TDM bonus'
+	]
+];
 // signets
 export const aponia: Signets = {
 	name: 'Aponia',
 	signet: 'Discipline',
 	regular: {
-		1: 'First, No Betrayal', // evasion
-		2: 'Second, No Deception', // dmg reduc
-		3: 'Third, No Brutality', // combo hit
-		4: 'Fourth, No Insolence', // weap skill
-		5: 'Fifth, No Falsehood', // vuln
-		6: 'Sixth, No Decadence' // total dmg
+		1: 'First, No Betrayal', // evasion, basic atk
+		2: 'Second, No Deception', // dmg reduc, entity
+		3: 'Third, No Brutality', // combo hit, sp regen
+		4: 'Fourth, No Insolence', // weap skill, ult phys & elem dmg
+		5: 'Fifth, No Falsehood', // vuln, exhortation red
+		6: 'Sixth, No Decadence' // total dmg, qte
 	},
 	nexus1: {
 		name: 'You Shall Be Subject to Numerous Disciplines (Nexus)',

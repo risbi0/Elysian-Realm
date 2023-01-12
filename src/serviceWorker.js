@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v5';
+const cacheName = 'herrscher-of-cache-v6';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -43,6 +43,7 @@ const bannerImages = [
 	'Herrscher_of_Sentience',
 	'Herrscher_of_the_Void',
 	'Herrscher_of_Thunder',
+	'Herrscher_of_Truth',
 	'Infinite_Ouroboros',
 	'Jade_Knight',
 	'Luna_Kindred',
@@ -53,6 +54,7 @@ const bannerImages = [
 	'Reverist_Calico',
 	'Ritual_Imayoh',
 	'Silverwing_N-EX',
+	'Sixth_Serenade',
 	'Spina_Astera',
 	'Starchasm_Nyx',
 	'Starry_Impression',

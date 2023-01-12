@@ -10,10 +10,11 @@ type Guide = {
 	builds:
 		{
 			name?: string
+			buff?: any
 			signet: Array<Array<Signet>>
 			emblem: Array<Emblem>
 			support: Array<Array<Array<data.NameAcr>>>
-			gear: Array<Gear>
+			gear?: Array<Gear>
 			signetTable: Array<Array<Array<string>>>
 			notes?: string;
 		}[]
@@ -1462,6 +1463,80 @@ const hot: Guide = {
 		}
 	]
 };
+// Herrscher of Truth
+const hotr: Guide = {
+	name: 'Herrscher of Truth',
+	acr: 'hotr',
+	rating: data.corruption,
+	builds: [
+		{
+			buff: [
+				data.buffs[0][0],
+				data.buffs[3][0],
+				data.buffs[3][1]
+			],
+			signet: [
+				[
+					[data.griseo, '2'],
+					[data.hua, '2']
+				],
+				[
+					[data.vv, '1'],
+					[data.mobius, '1'],
+					[data.pardofelis, '1']
+				]
+			],
+			emblem: [
+				[data.rainbowOfAbsence, data.theLonelyMoon],
+				[data.memory, data.theLonelyMoon],
+				[data.thornyCrown, data.boundlessLogos]
+			],
+			support: [
+				[ [data.ae], [data.le, data.bke] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: [
+				[
+					['Genuine Solution', data.start, '2'],
+					['Intellect Core'],
+					['Vector', data.optional],
+					['Continuation', data.no, '2'],
+					['Konstruktion']
+				],
+				[
+					[data.griseo.name, '9', data.griseo.regular[1]],
+					[data.griseo.regular[2]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[5]],
+					[data.griseo.regular[6]],
+					[data.griseo.nexus2.name],
+					[data.griseo.nexus2[1]],
+					[data.griseo.nexus2[2]],
+					[data.griseo.nexus2[3]],
+					[data.hua.name, '4', data.hua.regular[1]],
+					[data.hua.regular[3]],
+					[data.hua.regular[6]],
+					[data.hua.nexus2.name]
+				],
+				[
+					[data.vv.name, '4', data.vv.regular[2]],
+					[data.vv.regular[3]],
+					[data.vv.regular[5]],
+					[data.vv.nexus1.name],
+					[data.mobius.name, '4', data.mobius.regular[2]],
+					[data.mobius.regular[3]],
+					[data.mobius.regular[5]],
+					[data.mobius.nexus1.name],
+					[data.pardofelis.name, '3', data.pardofelis.regular[1]],
+					[data.pardofelis.regular[4]],
+					[data.pardofelis.nexus1.name]
+				]
+			],
+			notes: `Pardofelis signets are optional.<br><br>
+					Can pick Sakura's signets <span>${data.sakura.regular[1]}</span>, <span>${data.sakura.regular[2]}</span>, and <span>${data.sakura.regular[5]}</span> as reinforcement.`
+		}
+	]
+};
 // Luna Kindred
 const lk: Guide = {
 	name: 'Luna Kindred',
@@ -2112,6 +2187,81 @@ const spa: Guide = {
 		}
 	]
 };
+// Sixth Serenade
+const ss: Guide = {
+	name: 'Sixth Serenade',
+	acr: 'ss',
+	rating: data.corruption,
+	builds: [
+		{
+			buff: [
+				data.buffs[0][0],
+				data.buffs[1][0],
+				data.buffs[2][0],
+				data.buffs[3][0]
+			],
+			signet: [
+				[
+					[data.aponia, '2']
+				],
+				[
+					[data.sakura, '2'],
+					[data.griseo, '2'],
+					[data.eden, '2'],
+					[data.kalpas, '1']
+				]
+			],
+			emblem: [
+				[data.veilOfTears, data.theLonelyMoon],
+				[data.forgetMeNot, data.theLonelyMoon],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.le, data.bke] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: [
+				[
+					['Nocturnal Tides', data.start, '2'],
+					['Tragedy'],
+					['Finale', data.first],
+					['Expiation', data.optional, '2'],
+					['Raven Eye']
+				],
+				[
+					[data.aponia.name, '6', data.aponia.regular[1]],
+					[data.aponia.regular[3]],
+					[data.aponia.regular[5]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[2]],
+					[data.aponia.nexus2[3]]
+				],
+				[
+					[data.sakura.name, '4', data.sakura.regular[2]],
+					[data.sakura.regular[3]],
+					[data.sakura.regular[5]],
+					[data.sakura.nexus2.name],
+					[data.griseo.name, '9', data.griseo.regular[1]],
+					[data.griseo.regular[2]],
+					[data.griseo.regular[3]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[6]],
+					[data.griseo.nexus2.name],
+					[data.griseo.nexus2[1]],
+					[data.griseo.nexus2[2]],
+					[data.griseo.nexus2[3]],
+					[data.eden.name, '4', data.eden.regular[2]],
+					[data.eden.regular[3]],
+					[data.eden.regular[4]],
+					[data.eden.nexus2.name],
+					[data.kalpas.name, '3', data.kalpas.regular[1]],
+					[data.kalpas.regular[2]],
+					[data.kalpas.regular[3]]
+				]
+			]
+		}
+	]
+};
 // Jade Knight
 const sus: Guide = {
 	name: 'Jade Knight',
@@ -2682,8 +2832,8 @@ const vkek: Guide = {
 };
 export const valks: Guide[] = [
 	aka, bke, cn, da, aponia, fr, mc, eden, gm, villv,
-	hofs, hoh, hor, hos, hov, hot, mobius, sus, lk, raven,
-	elysia, pe, fischl, pardo, ri, sw, spa, griseo, nyx, sn,
-	vb, carole, ve, vg, vkek
+	hofs, hoh, hor, hos, hov, hot, hotr, mobius, sus, lk,
+	raven, elysia, pe, fischl, pardo, ri, sw, ss, spa, griseo,
+	nyx, sn, vb, carole, ve, vg, vkek
 ];
 export const valksLength: number = valks.length;
