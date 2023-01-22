@@ -256,11 +256,13 @@ export const buffs = [
 	],
 	// 5
 	[
-		'Same type support damage bonus'
+		'Same type support damage bonus',
+		'At max HP gain 1 SP/s'
 	],
 	// 10
 	[
-		'Enemy affected by status gives TDM'
+		'Enemy affected by status gives TDM',
+		'TDM+15% until damage taken'
 	],
 	// 15
 	[
