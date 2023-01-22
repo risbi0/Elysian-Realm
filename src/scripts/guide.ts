@@ -2734,7 +2734,7 @@ const villv: Guide = {
 				[ [data.ae], [data.ma] ]
 			],
 			gear: [
-				[data.elas, data.cart, data.carm, data.carb],
+				[data.topa, data.cart, data.carm, data.carb],
 				[data.hawp, data.leet, data.tham, data.leeb]
 			],
 			signetTable: [
