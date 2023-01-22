@@ -249,6 +249,9 @@ let animation1: string, animation2: string;
 let preventScroll: () => void;
 let noOfBannersInViewport = 0;
 let finalArr: number[] = [];
+// interval gets faster the more banners are in viewport
+// in mobile, interval is constant
+let interval = 0;
 if (isMobile) {
 	[animation1, animation2] = ['fade-in-left', 'fade-in-right'];
 	finalArr = Array.from(Array(valksLength).keys()); // all
@@ -269,6 +272,7 @@ if (isMobile) {
 		});
 	})(signetTableCells);
 
+	interval = 100;
 	guideContainer.classList.add('hidden');
 } else {
 	[animation1, animation2] = ['fade-in-up', 'fade-in-down'];
@@ -320,11 +324,8 @@ if (isMobile) {
 			prevHeight = deviceHeight;
 		}, 50);
 	});
+	interval = 300 - noOfBannersInViewport * 5;
 }
-
-// interval gets faster the more banners are in viewport
-// in mobile, interval is constant
-const interval: number = 300 - noOfBannersInViewport * 5;
 
 // setup modal closing
 const verticalText: NodeListOf<HTMLSpanElement> = document.querySelectorAll('.vertical-text');
