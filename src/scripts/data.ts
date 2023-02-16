@@ -252,12 +252,15 @@ export const whpa: NameAcr = { name: 'Whisper of the Past: Sonnet', acr: 'whpa' 
 export const buffs = [
 	// 0
 	[
-		'RPC-6626 weak to Ice'
+		'RPC-6626 weak to Ice',
+		'RPC-6626 weak to Elements'
 	],
 	// 5
 	[
 		'Same type support damage bonus',
-		'At max HP gain 1 SP/s'
+		'At max HP gain 1 SP/s',
+		'Ultimate Evasion recovers 10 SP',
+		'Valk type matching enemy +TDM'
 	],
 	// 10
 	[
@@ -267,7 +270,8 @@ export const buffs = [
 	// 15
 	[
 		'SP usage vulnerability',
-		'Weapon type TDM bonus'
+		'Weapon type TDM bonus',
+		'Same type support valk + breach'
 	]
 ];
 // signets

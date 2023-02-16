@@ -992,7 +992,153 @@ const griseo: Guide = {
 		}
 	]
 };
-// Herrscher of Flamescion
+// Herrscher of Finality
+const hofi: Guide = {
+	name: 'Herrscher of Finality',
+	acr: 'hofi',
+	rating: data.corruption,
+	builds: [
+		{
+			name: 'Ult',
+			buff: [
+				data.buffs[0][0],
+				data.buffs[3][0],
+				data.buffs[3][2]
+			],
+			signet: [
+				[
+					[data.aponia, '2']
+				],
+				[
+					[data.kevin, '1'],
+					[data.pardofelis, '1'],
+					[data.kalpas, '1'],
+					[data.griseo, '2']
+				]
+			],
+			emblem: [
+				[data.veilOfTears, data.theLonelyMoon],
+				[data.burden, data.theLonelyMoon],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.le, data.br] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: [
+				[
+					['Finale Moon', data.start],
+					['Rift', data.first],
+					['Clarity', data.no, '3'],
+					['Condescension'],
+					['High Flames']
+				],
+				[
+					[data.aponia.name, '6', data.aponia.regular[3]],
+					[data.aponia.regular[4]],
+					[data.aponia.regular[5]],
+					[data.aponia.regular[6]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[3]]
+				],
+				[
+					[data.kevin.name, '5', data.kevin.regular[1]],
+					[data.kevin.regular[2]],
+					[data.kevin.regular[3]],
+					[data.kevin.regular[6]],
+					[data.kevin.nexus1.name],
+					[data.pardofelis.name, '4', data.pardofelis.regular[1]],
+					[data.pardofelis.regular[4]],
+					[data.pardofelis.regular[5]],
+					[data.pardofelis.nexus1.name],
+					[data.kalpas.name, '5', data.kalpas.regular[1]],
+					[data.kalpas.regular[2]],
+					[data.kalpas.regular[3]],
+					[data.kalpas.regular[6]],
+					[data.kalpas.nexus1.name],
+					[data.griseo.name, '3', data.griseo.regular[1]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[6]]
+				]
+			],
+			notes: `Griseo signets are optional.<br><br>
+					Can pick Eden and Vill-V signets as reinforcement.`
+		},
+		{
+			name: 'Combo',
+			buff: [
+				data.buffs[0][0],
+				data.buffs[3][0],
+				data.buffs[3][2]
+			],
+			signet: [
+				[
+					[data.aponia, '2'],
+					[data.griseo, '2']
+				],
+				[
+					[data.vv, '2'],
+					[data.pardofelis, '1'],
+					[data.eden, '2']
+				]
+			],
+			emblem: [
+				[data.veilOfTears, data.becauseOfYou],
+				[data.rainbowOfAbsence, data.theLonelyMoon],
+				[data.thornyCrown, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.vke] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: [
+				[
+					['Condescension', data.start],
+					['Clarity', data.first, '2'],
+					['High Flames'],
+					['Finale Moon', data.second],
+					['Rift', data.no]
+				],
+				[
+					[data.aponia.name, '5', data.aponia.regular[1]],
+					[data.aponia.regular[3]],
+					[data.aponia.regular[5]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[3]],
+					[data.griseo.name, '8', data.griseo.regular[1]],
+					[data.griseo.regular[2]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[6]],
+					[data.griseo.nexus2.name],
+					[data.griseo.nexus2[1]],
+					[data.griseo.nexus2[2]],
+					[data.griseo.nexus2[3], '']
+				],
+				[
+					[data.vv.name, '7', data.vv.regular[2]],
+					[data.vv.regular[3]],
+					[data.vv.regular[4]],
+					[data.vv.nexus2.name],
+					[data.vv.nexus2[1], ''],
+					[data.vv.nexus2[2]],
+					[data.vv.nexus2[3]],
+					[data.pardofelis.name, '3', data.pardofelis.regular[1]],
+					[data.pardofelis.regular[4]],
+					[data.pardofelis.nexus1.name],
+					[data.eden.name, '4', data.eden.regular[2]],
+					[data.eden.regular[3]],
+					[data.eden.regular[4]],
+					[data.eden.nexus2.name]
+				]
+			],
+			notes: `Eden signets are optional.<br><br>
+					Can pick Sakura signets as reinforcement.<br><br>
+					Thorny Crown or Key to the Deep in 16F emblem.<br><br>
+					<p>${data.griseo.nexus2[3]}</p>Priority.<br><br>
+					<p>${data.vv.nexus2[1]}</p>If breach is not 63%.`
+		}
+	]
+};
 const hofs: Guide = {
 	name: 'Herrscher of Flamescion',
 	acr: 'hofs',
@@ -1223,6 +1369,150 @@ const hoh: Guide = {
 			notes: `Kalpas signets are optional.<br><br>
 					Can pick Eden's signets <span>${data.eden.regular[2]}</span> and <span>${data.eden.regular[3]}</span>,
 					and Sakura's signets <span>${data.sakura.regular[2]}</span> and <span>${data.sakura.regular[5]}</span> as reinforcements.`
+		}
+	]
+};
+// Herrscher of Origin
+const hoo: Guide = {
+	name: 'Herrscher of Origin',
+	acr: 'hoo',
+	rating: data.corruption,
+	builds: [
+		{
+			name: 'Ult',
+			buff: [
+				data.buffs[0][1],
+				data.buffs[1][2],
+				data.buffs[1][3],
+				data.buffs[3][1]
+			],
+			signet: [
+				[
+					[data.aponia, '2'],
+					[data.griseo, '2']
+				],
+				[
+					[data.pardofelis, '1'],
+					[data.kevin, '1'],
+					[data.sakura, '1']
+				]
+			],
+			emblem: [
+				[data.veilOfTears, data.theLonelyMoon],
+				[data.rainbowOfAbsence, data.theLonelyMoon],
+				[data.tinFlask, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.bke] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: [
+				[
+					['Ultra', data.start],
+					['Inscription', data.first],
+					['Expungement', data.no, '3'],
+					['Lethal Smite'],
+					['Nature']
+				],
+				[
+					[data.aponia.name, '7', data.aponia.regular[1]],
+					[data.aponia.regular[3]],
+					[data.aponia.regular[5]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[1]],
+					[data.aponia.nexus2[2], ''],
+					[data.aponia.nexus2[3], ''],
+					[data.griseo.name, '8', data.griseo.regular[1]],
+					[data.griseo.regular[2]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[6]],
+					[data.griseo.nexus2.name],
+					[data.griseo.nexus2[1]],
+					[data.griseo.nexus2[2]],
+					[data.griseo.nexus2[3]]
+				],
+				[
+					[data.pardofelis.name, '3', data.pardofelis.regular[1]],
+					[data.pardofelis.regular[4]],
+					[data.pardofelis.nexus1.name],
+					[data.kevin.name, '3', data.kevin.regular[1]],
+					[data.kevin.regular[2]],
+					[data.kevin.nexus1.name],
+					[data.sakura.name, '2', data.sakura.regular[2]],
+					[data.sakura.regular[5]]
+				]
+			],
+			notes: `Sakura signets are optional.<br><br>
+					Can pick Kalpas's signets <span>${data.kalpas.regular[1]}</span>, <span>${data.kalpas.regular[2]}</span>, and <span>${data.kalpas.regular[3]}</span> as reinforcements.<br><br>
+					<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}</p>Priority.`
+		},
+		{
+			name: 'Combo',
+			buff: [
+				data.buffs[0][1],
+				data.buffs[1][2],
+				data.buffs[1][3],
+				data.buffs[3][1]
+			],
+			signet: [
+				[
+					[data.aponia, '2']
+				],
+				[
+					[data.griseo, '2'],
+					[data.pardofelis, '1'],
+					[data.kalpas, '1'],
+					[data.vv, '1']
+				]
+			],
+			emblem: [
+				[data.veilOfTears, data.becauseOfYou],
+				[data.rainbowOfAbsence, data.becauseOfYou],
+				[data.tinFlask, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.bke] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: [
+				[
+					['Nature', data.start],
+					['Lethal Smite', data.first],
+					['Expungement', data.second],
+					['Inscription', data.no, '2'],
+					['Ultra']
+				],
+				[
+					[data.aponia.name, '7', data.aponia.regular[1]],
+					[data.aponia.regular[2]],
+					[data.aponia.regular[5]],
+					[data.aponia.nexus2.name],
+					[data.aponia.nexus2[1]],
+					[data.aponia.nexus2[2], ''],
+					[data.aponia.nexus2[3], '']
+				],
+				[
+					[data.griseo.name, '8', data.griseo.regular[1]],
+					[data.griseo.regular[2]],
+					[data.griseo.regular[4]],
+					[data.griseo.regular[6]],
+					[data.griseo.nexus2.name],
+					[data.griseo.nexus2[1]],
+					[data.griseo.nexus2[2]],
+					[data.griseo.nexus2[3]],
+					[data.pardofelis.name, '3', data.pardofelis.regular[1]],
+					[data.pardofelis.regular[4]],
+					[data.pardofelis.nexus1.name],
+					[data.kalpas.name, '3', data.kalpas.regular[1]],
+					[data.kalpas.regular[2]],
+					[data.kalpas.regular[3]],
+					[data.vv.name, '2', data.vv.regular[2]],
+					[data.vv.regular[4]]
+				]
+			],
+			notes: `Kalpas and Vill-V signets are optional.<br><br>
+					Can pick Eden's signets <span>${data.eden.regular[2]}</span>, and <span>${data.eden.regular[3]}</span>, and Sakura's signet <span>${data.sakura.regular[5]}</span> as reinforcements.<br><br>
+					<p>${data.aponia.nexus2[2]}, ${data.aponia.nexus2[3]}</p>Priority.`
 		}
 	]
 };
@@ -2861,8 +3151,8 @@ const vkek: Guide = {
 };
 export const valks: Guide[] = [
 	aka, bke, cn, da, aponia, fr, mc, eden, gm, villv,
-	hofs, hoh, hor, hos, hov, hot, hotr, mobius, sus, lk,
-	raven, elysia, pe, fischl, pardo, ri, sw, ss, spa, griseo,
-	nyx, sn, vb, carole, ve, vg, vkek
+	hofi, hofs, hoh, hoo, hor, hos, hov, hot, hotr, mobius,
+	sus, lk, raven, elysia, pe, fischl, pardo, ri, sw, ss,
+	spa, griseo, nyx, sn, vb, carole, ve, vg, vkek
 ];
 export const valksLength: number = valks.length;
