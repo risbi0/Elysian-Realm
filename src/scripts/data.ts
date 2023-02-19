@@ -265,7 +265,9 @@ export const buffs = [
 	// 10
 	[
 		'Enemy affected by status gives TDM',
-		'TDM+15% until damage taken'
+		'TDM+15% until damage taken',
+		'For every 100 HP + TDM',
+		'Ignite or para, valk +dmg'
 	],
 	// 15
 	[
