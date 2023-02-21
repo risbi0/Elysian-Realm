@@ -306,7 +306,7 @@ const bke: Guide = {
 					[data.aponia.name]: [
 						data.aponia.regular.spRestore,
 						data.aponia.regular.dmgPhysEle,
-						data.aponia.nexus2.namew,
+						data.aponia.nexus2.name,
 						data.aponia.nexus2.breachPhysEle,
 						data.aponia.nexus2.vuln
 					]
@@ -392,7 +392,7 @@ const carole: Guide = {
 						data.sakura.nexus2.name
 					],
 					[data.kalpas.name]: [
-						data.kalpas.regular.dmgTotals,
+						data.kalpas.regular.dmgTotal,
 						data.kalpas.regular.dmgPhysEle
 					]
 
@@ -1675,7 +1675,7 @@ const hoh: Guide = {
 						data.eden.nexus1.name
 					],
 					[data.su.name]: [
-						data.su.regular.combo2,
+						data.su.regular.combo25,
 						data.su.regular.vuln,
 						data.su.regular.combo60,
 						data.su.regular.dmgTotal,
@@ -1839,7 +1839,7 @@ const hoo: Guide = {
 				},
 				main: {
 					[data.aponia.name]: [
-						data.aponia.regular.basicAt,
+						data.aponia.regular.basicAtk,
 						data.aponia.regular.dmgReduc,
 						data.aponia.regular.vuln,
 						data.aponia.nexus2.name,
@@ -1962,7 +1962,7 @@ const hor: Guide = {
 						data.griseo.nexus2.purple
 					],
 					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgPhysEles,
+						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.nexus1.name
 					]
@@ -3413,7 +3413,7 @@ const sw: Guide = {
 					[data.aponia.name]: [
 						data.aponia.regular.basicAtk,
 						data.aponia.regular.spRestore,
-						data.aponia.regular.dmgTotalw,
+						data.aponia.regular.dmgTotal,
 						data.aponia.nexus2.name,
 						data.aponia.nexus2.breachPhysEle
 					],
