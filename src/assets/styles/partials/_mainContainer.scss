@@ -62,16 +62,12 @@
         text-orientation: upright;
     }
 }
-.rating {
-    @include margin($t: 10px, $b: 2px);
-    font-style: italic;
-}
 .build-no {
     @include margin($t: 15px);
     font-size: 12px;
 }
 .rec-signets {
-    @include margin($t: 5px, $b: 10px);
+    @include margin($t: 10px, $b: 10px);
 }
 .signet {
     background-size: contain;
@@ -169,7 +165,8 @@
 .exclusive-tbl,
 .transitional-tbl,
 .main-tbl,
-.secondary-tbl {
+.secondary-tbl,
+.optional-tbl {
     width: 50%;
     min-width: 90%;
 

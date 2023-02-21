@@ -111,8 +111,6 @@ function highlightAdjacentMergedCell(row: HTMLTableRowElement, bool: boolean): v
 	// meaning if a row has one less td tag it either has
 	// a missing cell in the row, or a merged cell (this case)
 	if (row.innerHTML.match(/<\/td>/g)!.length === 1 ||
-		// for cells with .noted class
-		row.innerHTML.match(/"temp"|"noted"/) &&
 		// doesn't include rowspan, since it's already part of the first row
 		!row.innerHTML.includes('rowspan')) {
 		// get all rows of its parent table
@@ -136,27 +134,16 @@ function highlightAdjacentMergedCell(row: HTMLTableRowElement, bool: boolean): v
 		}
 	}
 }
-function notedCell(row: HTMLTableRowElement, removee: string, addee: string): void {
-	// .temp class to know which had the .noted class
-	for (let i = 0; i < row.children.length; i++) {
-		if (row.children[i].classList.contains(removee)) {
-			row.children[i].classList.remove(removee);
-			row.children[i].classList.add(addee);
-		}
-	}
-}
 const rowsExceptHeader: NodeListOf<HTMLTableRowElement> = document.querySelectorAll('tr:not(thead tr):not(.gear-tbl tr)');
 rowsExceptHeader.forEach((row: HTMLTableRowElement) => {
 	row.addEventListener('mouseout', function(this: HTMLTableRowElement) {
 		this.classList.remove('table-cell-hover');
 		highlightAdjacentMergedCell(this, false);
-		notedCell(this, 'temp', 'noted');
 	});
 });
 function highlightRow(this: HTMLTableRowElement): void {
 	this.classList.add('table-cell-hover');
 	highlightAdjacentMergedCell(this, true);
-	notedCell(this, 'noted', 'temp');
 }
 
 // highlight all adjacent rows on hover from merged cells
@@ -166,10 +153,8 @@ function highlightInvolvedRows(row: any, bool: boolean): void {
 	for (let i = cellIndex; i < cellIndex + mergeSize; i++) {
 		if (bool) {
 			row.parentNode.parentNode.children[i].classList.add('table-cell-hover');
-			notedCell(row.parentNode.parentNode.children[i], 'noted', 'temp');
 		} else {
 			row.parentNode.parentNode.children[i].classList.remove('table-cell-hover');
-			notedCell(row.parentNode.parentNode.children[i], 'temp', 'noted');
 		}
 	}
 }
@@ -241,7 +226,7 @@ function setAnimAndPos(): void {
 	}
 }
 
-const signetTableCells: NodeListOf<HTMLTableCellElement> = document.querySelectorAll('.main-tbl td, .secondary-tbl td, .transitional-tbl td');
+const signetTableCells: NodeListOf<HTMLTableCellElement> = document.querySelectorAll('.transitional-tbl td, .main-tbl td, .secondary-tbl td, .optional-tbl td');
 // setup of banner indices for animation order
 // desktop - banners in the middile of mainContainer (starting view) in random order, vertical animation
 // mobile - all banners in linear order, horizontal animation

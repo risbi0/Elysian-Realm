@@ -4,34 +4,22 @@ export type NameAcr = {
 }
 type Nexus = {
 	name: string;
-	1: string;
-	2: string;
-	3: string;
+	[key: string]: string;
 }
-export type Signets = {
+export type Signet = {
 	name: string;
 	signet: string;
 	regular: {
-		1: string;
-		2: string;
-		3: string;
-		4: string;
-		5: string;
-		6: string;
+		[key: string]: string;
 	}
 	nexus1: Nexus;
 	nexus2: Nexus;
 }
 export const isMobile = /Mobi/i.test(window.navigator.userAgent);
-// difficulties
-export const abstinence = 'Abstinence';
-export const corruption = 'Corruption';
-export const inferno = 'Inferno';
 // priority terms
 export const start = 'Start';
 export const first = '1st';
 export const second = '2nd';
-export const filler = 'Filler';
 export const reinforcement = 'Reinforcement';
 export const optional = 'Optional';
 export const no = 'No';
@@ -277,426 +265,426 @@ export const buffs = [
 	]
 ];
 // signets
-export const aponia: Signets = {
+export const aponia: Signet = {
 	name: 'Aponia',
 	signet: 'Discipline',
 	regular: {
-		1: 'First, No Betrayal', // evasion, basic atk
-		2: 'Second, No Deception', // dmg reduc, entity
-		3: 'Third, No Brutality', // combo hit, sp regen
-		4: 'Fourth, No Insolence', // weap skill, ult phys & elem dmg
-		5: 'Fifth, No Falsehood', // vuln, exhortation red
-		6: 'Sixth, No Decadence' // total dmg, qte
+		basicAtk: 'First, No Betrayal', // evasion, basic atk
+		dmgReduc: 'Second, No Deception', // dmg reduc, entity
+		spRestore: 'Third, No Brutality', // combo hit, sp regen
+		dmgPhysEle: 'Fourth, No Insolence', // weap skill, ult phys & elem dmg
+		vuln: 'Fifth, No Falsehood', // vuln, exhortation red
+		dmgTotal: 'Sixth, No Decadence' // total dmg, qte
 	},
 	nexus1: {
 		name: 'You Shall Be Subject to Numerous Disciplines (Nexus)',
-		1: 'You Shall Be Bound by Thy Body', // phys ele breach
-		2: 'You Shall Be Committed to Thy Life', // exhortation limit
-		3: 'You Shall Be Witnessed by Thy Heart' // more ult dmg less phy ele basic atk
+		breachPhysEle: 'You Shall Be Bound by Thy Body', // phys ele breach
+		limit: 'You Shall Be Committed to Thy Life', // exhortation limit
+		dmgUlt: 'You Shall Be Witnessed by Thy Heart' // more ult dmg less phy ele basic atk
 	},
 	nexus2: {
 		name: 'You Shall Receive Disciplines\' Blessing (Nexus)',
-		1: 'You Shall Answer Prayers', // phys ele dmg
-		2: 'You Shall Follow Good', // phys ele breach
-		3: 'You Shall Punish Evil' // vuln
+		dmgPhysEle: 'You Shall Answer Prayers', // phys ele dmg
+		breachPhysEle: 'You Shall Follow Good', // phys ele breach
+		vuln: 'You Shall Punish Evil' // vuln
 	}
 };
-export const eden: Signets = {
+export const eden: Signet = {
 	name: 'Eden',
 	signet: 'Gold',
 	regular: {
-		1: 'Recitatif of Birds', // dmg reduc
-		2: 'Recitatif of Creeks', // phys ele dmg
-		3: 'Recitatif of Eden', // total dmg
-		4: 'Recitatif of Fine Jade', // max & initial sp
-		5: 'Recitatif of Fruit Trees', // sp restore from atk
-		6: 'Recitatif of Good Wine' // sp restore
+		dmgReduc: 'Recitatif of Birds', // dmg reduc
+		dmgPhysEle: 'Recitatif of Creeks', // phys ele dmg
+		dmgTotal: 'Recitatif of Eden', // total dmg
+		spCapInitial: 'Recitatif of Fine Jade', // max & initial sp
+		spRestoreAtk: 'Recitatif of Fruit Trees', // sp restore from atk
+		spRestore: 'Recitatif of Good Wine' // sp restore
 	},
 	nexus1: {
 		name: 'Aria of Gold (Nexus)',
-		1: 'Aria of Dawn', // lightning
-		2: 'Aria of Life', // sp restore
-		3: 'Aria of Soil' // vuln
+		lightning: 'Aria of Dawn', // lightning
+		spRestore: 'Aria of Life', // sp restore
+		vuln: 'Aria of Soil' // vuln
 	},
 	nexus2: {
 		name: 'Echo of Gold (Nexus)',
-		1: 'Echo of Shrill Wind', // lightning
-		2: 'Echo of Silent Night', // reduce enemy resist
-		3: 'Echo of Withered Soil' // sp cap, restore sp
+		lightning: 'Echo of Shrill Wind', // lightning
+		vuln: 'Echo of Silent Night', // reduce enemy resist
+		spCapRestore: 'Echo of Withered Soil' // sp cap, restore sp
 	}
 };
-export const griseo: Signets = {
+export const griseo: Signet = {
 	name: 'Griseo',
 	signet: 'Stars',
 	regular: {
-		1: 'Black & Dark', // phys ele dmg
-		2: 'Blue & Cold', // reduce enemy dmg & move speed
-		3: 'Grey & Empty', // taint extension
-		4: 'Red & Hot', // phys ele dmg
-		5: 'White & Bright', // sp restore
-		6: 'Yellow & Warm' // vuln
+		black: 'Black & Dark', // phys ele dmg
+		blue: 'Blue & Cold', // reduce enemy dmg & move speed
+		grey: 'Grey & Empty', // taint extension
+		red: 'Red & Hot', // phys ele dmg
+		white: 'White & Bright', // sp restore
+		yellow: 'Yellow & Warm' // vuln
 	},
 	nexus1: {
 		name: 'Shining Like Stars (Nexus)',
-		1: 'Blooming Like Flowers', // purple
-		2: 'Burning Like Flames', // orange
-		3: 'Stretching Like Leaves' // green
+		purple: 'Blooming Like Flowers', // purple
+		orange: 'Burning Like Flames', // orange
+		green: 'Stretching Like Leaves' // green
 	},
 	nexus2: {
 		name: 'Faded Stars (Nexus)',
-		1: 'A Flame Extinguished', // orange
-		2: 'Fallen Leaves', // green
-		3: 'Petals in the Wind' // purple
+		orange: 'A Flame Extinguished', // orange
+		green: 'Fallen Leaves', // green
+		purple: 'Petals in the Wind' // purple
 	}
 };
-export const hua: Signets = {
+export const hua: Signet = {
 	name: 'Hua',
 	signet: 'Vicissitude',
 	regular: {
-		1: 'Dark Garb No More', // ele dmg
-		2: 'Days Gone', // phys dmg
-		3: 'Long trip', // total dmg
-		4: 'Lost and Found', // dmg reduc
-		5: 'No One to Share', // phys breach
-		6: 'Old Dreams Again' // ele breach
+		dmgEle: 'Dark Garb No More', // ele dmg
+		dmgPhys: 'Days Gone', // phys dmg
+		dmgTotal: 'Long trip', // total dmg
+		dmgReduc: 'Lost and Found', // dmg reduc
+		breachPhys: 'No One to Share', // phys breach
+		breachEle: 'Old Dreams Again' // ele breach
 	},
 	nexus1: {
 		name: 'Vivid Vicissitude (Nexus)',
-		1: 'Fallen Flowers', // stack per sec
-		2: 'Fleeting Fantasy', // initial stack
-		3: 'Forgotten and Forsaken' // increase normal signet stack
+		stackRegen: 'Fallen Flowers', // stack per sec
+		stackInitial: 'Fleeting Fantasy', // initial stack
+		stackEffect: 'Forgotten and Forsaken' // increase normal signet stack
 	},
 	nexus2: {
 		name: 'Suffering Mass (Nexus)',
-		1: 'Broken Dream', //  increase normal signet stack
-		2: 'Go with the Flow', // absorb more dmg, extend invincibility
-		3: 'Worldy Troubles' // total dmg
+		stackCap: 'Broken Dream', //  increase normal signet stack
+		extend: 'Go with the Flow', // absorb more dmg, extend invincibility
+		dmgTotal: 'Worldy Troubles' // total dmg
 	}
 };
-export const kalpas: Signets = {
+export const kalpas: Signet = {
 	name: 'Kalpas',
 	signet: 'Decimation',
 	regular: {
-		1: 'Blade, Grave, and Scar', // total dmg
-		2: 'Bone, Blood, and Ribbon', // phys ele dmg
-		3: 'Desireless, Mindless, and Homeless', // vuln
-		4: 'God, Me, and the Only', // sp restore
-		5: 'Letter, Maniac, and Ravings', // dmg reduc
-		6: 'Path, Misfortune, and Written Fate' // hp
+		dmgTotal: 'Blade, Grave, and Scar', // total dmg
+		dmgPhysEle: 'Bone, Blood, and Ribbon', // phys ele dmg
+		vuln: 'Desireless, Mindless, and Homeless', // vuln
+		spRestore: 'God, Me, and the Only', // sp restore
+		dmgReduc: 'Letter, Maniac, and Ravings', // dmg reduc
+		hp: 'Path, Misfortune, and Written Fate' // hp
 	},
 	nexus1: {
 		name: 'Fight, Struggle, and Decimation (Nexus)',
-		1: 'Burden, Difficulty, and Calamity', // fire dmg
-		2: 'Inhuman, Unevil, and Ungodly', // lose hp recharge blood boil
-		3: 'Man, Mask, and Contract' // more dmg to higher hp%
+		fire: 'Burden, Difficulty, and Calamity', // fire dmg
+		bbRecharge: 'Inhuman, Unevil, and Ungodly', // lose hp recharge blood boil
+		dmgBonus: 'Man, Mask, and Contract' // more dmg to higher hp%
 	},
 	nexus2: {
 		name: 'Soldiers, Scissors, Spoils, and Slaughter (Nexus)',
-		1: 'Body, Bones, Heart , and Soul', // bonus dmg on cap threshold
-		2: 'Death, Life, Oblivion, and Existence', // absorb dmg equal to % of charges
-		3: 'Homeland and Friends' // phys ele breach
+		dmgBonus: 'Body, Bones, Heart , and Soul', // bonus dmg on cap threshold
+		absorb: 'Death, Life, Oblivion, and Existence', // absorb dmg equal to % of charges
+		breachPhysEle: 'Homeland and Friends' // phys ele breach
 	}
 };
-export const kevin: Signets = {
+export const kevin: Signet = {
 	name: 'Kevin',
 	signet: 'Deliverance',
 	regular: {
-		1: 'Artifact of the Inhibitor', // ele breach
-		2: 'Brand of the Undead', // ele dmg
-		3: 'Goblet of the Giver', // total dmg
-		4: 'Mask of the Predator', // phys breach
-		5: 'Pendant of the Watcher', // phys dmg
-		6: 'Rochet of the Pilgrim' // sp restore
+		breachEle: 'Artifact of the Inhibitor', // ele breach
+		dmgEle: 'Brand of the Undead', // ele dmg
+		dmgTotal: 'Goblet of the Giver', // total dmg
+		breachPhys: 'Mask of the Predator', // phys breach
+		dmgPhys: 'Pendant of the Watcher', // phys dmg
+		spRestore: 'Rochet of the Pilgrim' // sp restore
 	},
 	nexus1: {
 		name: 'Blade of the Deliverer (Nexus)',
-		1: 'Crusade of the Deliverer', // increase normal signet buff
-		2: 'Echo of the Deliverer', // increase normal signet dur
-		3: 'Flock of the Deliverer' // burst mode
+		effect: 'Crusade of the Deliverer', // increase normal signet buff
+		dur: 'Echo of the Deliverer', // increase normal signet dur
+		burst: 'Flock of the Deliverer' // burst mode
 	},
 	nexus2: {
 		name: 'Shadow of the Deliverer (Nexus)',
-		1: 'Dream of the Deliverer', // increase normal signet buff
-		2: 'Resolve of the Deliverer', // total dmg
-		3: 'Triumph of the Deliverer' // ignore def & ele resist
+		effect: 'Dream of the Deliverer', // increase normal signet buff
+		dmgTotal: 'Resolve of the Deliverer', // total dmg
+		ignoreRes: 'Triumph of the Deliverer' // ignore def & ele resist
 	}
 };
-export const kosma: Signets = {
+export const kosma: Signet = {
 	name: 'Kosma',
 	signet: 'Daybreak',
 	regular: {
-		1: 'Breath that Slanders Sulphur', // sp restore
-		2: 'Eyes that Overlook the Vicious Abyss', // shield dmg
-		3: 'Heart that Committed Seven Crimes', // time ext
-		4: 'Horns that Rip the Bleak Sky', // ult
-		5: 'Talons that Desecrate the Santuary', // basic/combo/charged
-		6: 'Wings that Mask the Sanguine Moon' // evasion
+		spRestore: 'Breath that Slanders Sulphur', // sp restore
+		dmgShield: 'Eyes that Overlook the Vicious Abyss', // shield dmg
+		extend: 'Heart that Committed Seven Crimes', // time ext
+		ult: 'Horns that Rip the Bleak Sky', // ult
+		atk: 'Talons that Desecrate the Santuary', // basic/combo/charged
+		evasion: 'Wings that Mask the Sanguine Moon' // evasion
 	},
 	nexus1: {
 		name: 'Daybreak, an Undying Light (Nexus)',
-		1: 'Unbending Hero', // phys ele breach
-		2: 'Undetermined Judgement', // bonus dmg to broken shield
-		3: 'Unwavering Promies' // vuln
+		breachPhysEle: 'Unbending Hero', // phys ele breach
+		dmgShield: 'Undetermined Judgement', // bonus dmg to broken shield
+		vuln: 'Unwavering Promies' // vuln
 	},
 	nexus2: {
 		name: 'Daybreak, Lone Beacon (Nexus)',
-		1: 'Choice, Ensuing Regret', // restore hp
-		2: 'Dawn, Perpetual Wait', // phys ele breach
-		3: 'Heart, Unshakable Character' // phys ele dmg
+		hpRestore: 'Choice, Ensuing Regret', // restore hp
+		breachPhysEle: 'Dawn, Perpetual Wait', // phys ele breach
+		dmgPhysEle: 'Heart, Unshakable Character' // phys ele dmg
 	}
 };
-export const mobius: Signets = {
+export const mobius: Signet = {
 	name: 'Mobius',
 	signet: 'Infinity',
 	regular: {
-		1: 'Dark Pupil', // elf sp
-		2: 'Entwined [P]', // vuln
-		3: 'Lip Poison [E]', // entity dmg
-		4: 'Lodging [C]', // cd reduc
-		5: 'Rodent [V]', // total dmg
-		6: 'Silent [B]' // dmg reduc
+		elfSp: 'Dark Pupil', // elf sp
+		vuln: 'Entwined [P]', // vuln
+		dmgEntity: 'Lip Poison [E]', // entity dmg
+		cdReduc: 'Lodging [C]', // cd reduc
+		dmgTotal: 'Rodent [V]', // total dmg
+		dmgReduc: 'Silent [B]' // dmg reduc
 	},
 	nexus1: {
 		name: 'Infinite [X] (Nexus)',
-		1: 'Dead [X]', // total dmg
-		2: 'Newborn [X]', // extend mind sync duration
-		3: 'Unknown [X]' // reduce elf ult & supp valk skills
+		dmgTotal: 'Dead [X]', // total dmg
+		extend: 'Newborn [X]', // extend mind sync duration
+		reduce: 'Unknown [X]' // reduce elf ult & supp valk skills
 	},
 	nexus2: {
 		name: 'Infinite [M] (Nexus)',
-		1: 'Collapsed [M]', // vuln
-		2: 'Immortal [M]', // phys ele dmg
-		3: 'Sacrificial [M]' // increase sentience sync duration
+		vuln: 'Collapsed [M]', // vuln
+		dmgPhysEle: 'Immortal [M]', // phys ele dmg
+		extend: 'Sacrificial [M]' // increase sentience sync duration
 	}
 };
-export const pardofelis: Signets = {
+export const pardofelis: Signet = {
 	name: 'Pardofelis',
 	signet: 'Reverie',
 	regular: {
-		1: 'Back-Curled Tail', // phys ele dmg
-		2: 'Flexible P&C', // restore hp sp
-		3: 'Merchant\'s Philosophy', // currency
-		4: 'Motto of Meow', // total dmg
-		5: 'Neighborhood Chatters', // max hp sp
-		6: 'Shiny & Valuable' // currency/kill
+		dmgPhysEle: 'Back-Curled Tail', // phys ele dmg
+		spHpRestore: 'Flexible P&C', // restore hp sp
+		curr: 'Merchant\'s Philosophy', // currency
+		dmgTotal: 'Motto of Meow', // total dmg
+		spHpCap: 'Neighborhood Chatters', // max hp sp
+		currKill: 'Shiny & Valuable' // currency/kill
 	},
 	nexus1: {
 		name: 'Empty Dreams, Self, Set, and Joy (Nexus)',
-		1: 'Improvised Drama', // evasion trigger move
-		2: 'Setsuna Paw', // ult trigger move
-		3: 'This Is Now Where We Die' // phys ele breach
+		evasion: 'Improvised Drama', // evasion trigger move
+		ult: 'Setsuna Paw', // ult trigger move
+		breachPhysEle: 'This Is Now Where We Die' // phys ele breach
 	},
 	nexus2: {
 		name: 'Empty Illusions, Empty Fantasies (Nexus)',
-		1: 'Improve Magic: Zeroing', // total dmg
-		2: 'My Dreams Will Come True', // vuln
-		3: 'Snowy Paw' // vip service stack
+		dmgTotal: 'Improve Magic: Zeroing', // total dmg
+		vuln: 'My Dreams Will Come True', // vuln
+		stack: 'Snowy Paw' // vip service stack
 	}
 };
-export const sakura: Signets = {
+export const sakura: Signet = {
 	name: 'Sakura',
 	signet: 'Setsuna',
 	regular: {
-		1: 'Bountiful Blossom: Ayame', // sp restore
-		2: 'Bountiful Blossom: Botan', // total dmg
-		3: 'Bountiful Blossom: Fuji', // +1 evasion, reduce cd
-		4: 'Bountiful Blossom: Kiku', // reset evaision
-		5: 'Bountiful Blossom: Koyo', // vuln
-		6: 'Bountiful Blossom: Ume' // atk & move speed
+		spRestore: 'Bountiful Blossom: Ayame', // sp restore
+		dmgTotal: 'Bountiful Blossom: Botan', // total dmg
+		evasionAdd: 'Bountiful Blossom: Fuji', // +1 evasion, reduce cd
+		evasionReset: 'Bountiful Blossom: Kiku', // reset evaision
+		vuln: 'Bountiful Blossom: Koyo', // vuln
+		speed: 'Bountiful Blossom: Ume' // atk & move speed
 	},
 	nexus1: {
 		name: 'Setsuna Blade: Sakura ni Maku (Nexus)',
-		1: 'Setsuna Blade: Ame-Shiko', // reset ult & weap cd
-		2: 'Setsuna Blade: Ino-Shika-Cho', // pause sakura screen dur
-		3: 'Setsuna Blade: Tsukimi-de Ippai' // ice
+		cd: 'Setsuna Blade: Ame-Shiko', // reset ult & weap cd
+		pause: 'Setsuna Blade: Ino-Shika-Cho', // pause sakura screen dur
+		ice: 'Setsuna Blade: Tsukimi-de Ippai' // ice
 	},
 	nexus2: {
 		name: 'Setsuna Blade: Yasha (Nexus)',
-		1: 'Setsuna Blade: Mugenjigoku', // reduce evasion cd
-		2: 'Setsuna Blade: Mumyo', // setsuna blade: karuma, ice dmg
-		3: 'Setsuna Blade: Shinra Bansho' // evasion, ice dmg
+		cd: 'Setsuna Blade: Mugenjigoku', // reduce evasion cd
+		ice: 'Setsuna Blade: Mumyo', // setsuna blade: karuma, ice dmg
+		evasionIce: 'Setsuna Blade: Shinra Bansho' // evasion, ice dmg
 	}
 };
-export const su: Signets = {
+export const su: Signet = {
 	name: 'Su',
 	signet: 'Bodhi',
 	regular: {
-		1: 'Motto of Asavakkhaya', // 25 combo
-		2: 'Motto of Ceto-Pariya-Nana', // sp restore
-		3: 'Motto of Dibba-Cakkhu', // vuln
-		4: 'Motto of Dibba-Sota', // dmg reduc
-		5: 'Motto of Iddhi-Vidha', // 60 combo
-		6: 'Motto of Pubbe-Nivasanussati' // total dmg
+		combo25: 'Motto of Asavakkhaya', // 25 combo
+		spRestore: 'Motto of Ceto-Pariya-Nana', // sp restore
+		vuln: 'Motto of Dibba-Cakkhu', // vuln
+		dmgReduc: 'Motto of Dibba-Sota', // dmg reduc
+		combo60: 'Motto of Iddhi-Vidha', // 60 combo
+		dmgTotal: 'Motto of Pubbe-Nivasanussati' // total dmg
 	},
 	nexus1: {
 		name: 'Maxim of Bodhi (Nexus)',
-		1: 'Maxim of Anatman', // reduce enemy dmg
-		2: 'Maxim of Anitya', // disable shield recovery
-		3: 'Maxim of Santam' // bonus dmg to shield and unshielded
+		enemyDmg: 'Maxim of Anatman', // reduce enemy dmg
+		shieldDisable: 'Maxim of Anitya', // disable shield recovery
+		dmgShield: 'Maxim of Santam' // bonus dmg to shield and unshielded
 	},
 	nexus2: {
 		name: 'Dictum of Bodhi (Nexus)',
-		1: 'Dictum of Anatman', // total dmg per debuff
-		2: 'Dictum of Anitya', // adaptive dmg per debuff
-		3: 'Dictum of Santam' // random debuff
+		dmgTotal: 'Dictum of Anatman', // total dmg per debuff
+		dmgBonus: 'Dictum of Anitya', // adaptive dmg per debuff
+		debuff: 'Dictum of Santam' // random debuff
 	}
 };
-export const vv: Signets = {
+export const vv: Signet = {
 	name: 'Vill-V',
 	signet: 'Helix',
 	regular: {
-		1: 'Act I: Magic', // weap dmg
-		2: 'Act II: Pendulum', // vuln
-		3: 'Act III: Conflict', // total dmg
-		4: 'Act IV: Spoon', // phys ele dmg
-		5: 'Act V: Spider Web', // ranged dmg
-		6: 'Act VI: Sneer' // sp restore & weap cd
+		dmgWeap: 'Act I: Magic', // weap dmg
+		vuln: 'Act II: Pendulum', // vuln
+		dmgTotal: 'Act III: Conflict', // total dmg
+		dmgPhysEle: 'Act IV: Spoon', // phys ele dmg
+		dmgRanged: 'Act V: Spider Web', // ranged dmg
+		spRestore: 'Act VI: Sneer' // sp restore & weap cd
 	},
 	nexus1: {
 		name: 'Interlude: Reversed Spiral (Nexus)',
-		1: 'Act VII: Half-Closed Door', // blades
-		2: 'Act VIII: Adorned Chamber', // phys breach
-		3: 'Finale: Broken Truth' // bonus dmg to shield
+		blades: 'Act VII: Half-Closed Door', // blades
+		breachPhys: 'Act VIII: Adorned Chamber', // phys breach
+		dmgShield: 'Finale: Broken Truth' // bonus dmg to shield
 	},
 	nexus2: {
 		name: 'Intermezzo: Holistic Helix (Nexus)',
-		1: 'Puppetry: Interlacing Cells', // phys ele breach
-		2: 'Drama: Origin of Slumber', // vuln
-		3: 'Saga: Overlapping Needles' // grav field
+		breachPhysEle: 'Puppetry: Interlacing Cells', // phys ele breach
+		vuln: 'Drama: Origin of Slumber', // vuln
+		gravField: 'Saga: Overlapping Needles' // grav field
 	}
 };
 type signetSummaryType = { signets: string | string[], summary: string }[]
 // rough signet effect summaries
 const damageDealt: string[] = [
-	aponia.regular[1], eden.regular[3], griseo.nexus1[1], griseo.nexus2[2], hua.regular[3],
-	hua.nexus2[3], kalpas.regular[1], kevin.regular[3], mobius.regular[5], mobius.nexus1[1],
-	pardofelis.regular[4], pardofelis.nexus2[1], sakura.regular[2], su.regular[6], vv.regular[3]
+	aponia.regular.basicAtk, eden.regular.dmgTotal, griseo.nexus1.purple, griseo.nexus2.green, hua.regular.dmgTotal,
+	hua.nexus2.dmgTotal, kalpas.regular.dmgTotal, kevin.regular.dmgTotal, mobius.regular.dmgTotal, mobius.nexus1.dmgTotal,
+	pardofelis.regular.dmgTotal, pardofelis.nexus2.dmgTotal, sakura.regular.dmgTotal, su.regular.dmgTotal, vv.regular.dmgTotal
 ];
 const damageTaken: string[] = [
-	aponia.regular[2], eden.regular[1], hua.regular[4], kalpas.regular[5], mobius.regular[6], su.regular[4]
+	aponia.regular.dmgReduc, eden.regular.dmgReduc, hua.regular.dmgReduc, kalpas.regular.dmgReduc, mobius.regular.dmgReduc, su.regular.dmgReduc
 ];
 const physEleDamage: string[] = [
-	aponia.nexus2[1], eden.regular[2], griseo.regular[1], kalpas.regular[2], kosma.nexus2[3],
-	pardofelis.regular[1], vv.regular[4]
+	aponia.nexus2.dmgPhysEle, eden.regular.dmgPhysEle, griseo.regular.black, kalpas.regular.dmgPhysEle, kosma.nexus2.dmgPhysEle,
+	pardofelis.regular.dmgPhysEle, vv.regular.dmgPhysEle
 ];
 const physDamage: string[] = [
-	hua.regular[2], kevin.regular[5]
+	hua.regular.dmgPhys, kevin.regular.dmgPhys
 ];
 const eleDamage: string[] = [
-	hua.regular[1], kevin.regular[2]
+	hua.regular.dmgEle, kevin.regular.dmgEle
 ];
 const physEleBreach: string[] = [
-	aponia.nexus1[1], aponia.nexus2[2], griseo.nexus1[2], kalpas.nexus2[3], kosma.nexus2[2],
-	pardofelis.nexus1[3], vv.nexus2[1]
+	aponia.nexus1.breachPhysEle, aponia.nexus2.breachPhysEle, griseo.nexus1.orange, kalpas.nexus2.breachPhysEle, kosma.nexus2.breachPhysEle,
+	pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle
 ];
 const physBreach: string[] = [
-	hua.regular[5], kevin.regular[4], vv.nexus1[2]
+	hua.regular.breachPhys, kevin.regular.breachPhys, vv.nexus1.breachPhys
 ];
 const eleBreach: string[] = [
-	hua.regular[6], kevin.regular[1]
+	hua.regular.breachEle, kevin.regular.breachEle
 ];
 const vurnerability: string[] = [
-	aponia.regular[6], aponia.nexus2[3], eden.nexus1[3], eden.nexus1[2], griseo.regular[4],
-	griseo.regular[6], kalpas.regular[3], kevin.nexus2[3], mobius.regular[2], pardofelis.nexus2[2],
-	sakura.regular[5], su.regular[3], su.nexus2[1], vv.regular[2], vv.nexus2[2]
+	aponia.regular.dmgTotal, aponia.nexus2.vuln, eden.nexus1.vuln, eden.nexus1.spRestore, griseo.regular.red,
+	griseo.regular.yellow, kalpas.regular.vuln, kevin.nexus2.ignoreRes, mobius.regular.vuln, pardofelis.nexus2.vuln,
+	sakura.regular.vuln, su.regular.vuln, su.nexus2.dmgTotal, vv.regular.vuln, vv.nexus2.vuln
 ];
 const spRecovery: string[] = [
-	aponia.regular[3], eden.regular[5], eden.regular[6], eden.nexus1[2], eden.nexus2[3],
-	griseo.regular[5], kalpas.regular[4], kevin.regular[6], sakura.regular[1], su.regular[2],
-	kosma.regular[1]
+	aponia.regular.spRestore, eden.regular.spRestoreAtk, eden.regular.spRestore, eden.nexus1.spRestore, eden.nexus2.spCapRestore,
+	griseo.regular.white, kalpas.regular.spRestore, kevin.regular.spRestore, sakura.regular.spRestore, su.regular.spRestore,
+	kosma.regular.spRestore
 ];
 const lightningDamage: string[] = [
-	eden.nexus1[1], eden.nexus2[2]
+	eden.nexus1.lightning, eden.nexus2.vuln
 ];
 const bonusDamage: string[] = [
-	griseo.nexus1[3], kalpas.nexus2[1], su.nexus2[2]
+	griseo.nexus1.green, kalpas.nexus2.dmgBonus, su.nexus2.dmgBonus
 ];
 const normalSignetCap: string[] = [
-	hua.nexus1[3], hua.nexus2[1]
+	hua.nexus1.stackEffect, hua.nexus2.stackCap
 ];
 const normalSignetBuff: string[] = [
-	kevin.nexus1[1], kevin.nexus2[1]
+	kevin.nexus1.effect, kevin.nexus2.effect
 ];
 const elfUltSuppValkCD: string[] = [
-	mobius.regular[4], mobius.nexus1[3]
+	mobius.regular.cdReduc, mobius.nexus1.reduce
 ];
 const ultimateEvasion: string[] = [
-	kosma.regular[6], pardofelis.nexus1[1]
+	kosma.regular.evasion, pardofelis.nexus1.evasion
 ];
 const ultBonusDamage: string[] = [
-	kosma.regular[4], pardofelis.nexus1[2]
+	kosma.regular.ult, pardofelis.nexus1.ult
 ];
 const iceDamage: string[] = [
-	sakura.nexus1[3], sakura.nexus2[3], sakura.nexus2[2]
+	sakura.nexus1.ice, sakura.nexus2.evasionIce, sakura.nexus2.ice
 ];
 const damageShields: string[] = [
-	su.nexus1[3], kosma.regular[2], vv.nexus1[3]
+	su.nexus1.dmgShield, kosma.regular.dmgShield, vv.nexus1.dmgShield
 ];
 export const signetSummary: signetSummaryType = [
-	{ signets: damageDealt,           summary: 'Total Damage Dealt' },
-	{ signets: damageTaken,           summary: 'Total Damage Taken' },
-	{ signets: physEleDamage,         summary: 'Physical & Elemental Damage' },
-	{ signets: physDamage,            summary: 'Physical Damage' },
-	{ signets: eleDamage,             summary: 'Elemental Damage' },
-	{ signets: physEleBreach,         summary: 'Physical & Elemental Breach' },
-	{ signets: physBreach,            summary: 'Physical Breach' },
-	{ signets: eleBreach,             summary: 'Elemental Breach' },
-	{ signets: vurnerability,         summary: 'Damage Taken By Enemies' },
-	{ signets: spRecovery,            summary: 'SP Recovery' },
-	{ signets: lightningDamage,       summary: 'Lightning Damage' },
-	{ signets: bonusDamage,           summary: 'Bonus Damage' },
-	{ signets: normalSignetCap,       summary: 'Increase Normal Signet Cap Increased' },
-	{ signets: normalSignetBuff,      summary: 'Normal Signets Increased Buff' },
-	{ signets: elfUltSuppValkCD,      summary: 'Elf Ultimate and Support Valk Skill Reduced CD' },
-	{ signets: ultimateEvasion,       summary: 'Ultimate Evasion Trigger Bonus Damage' },
-	{ signets: ultBonusDamage,        summary: 'Ultimate Trigger Bonus Damage' },
-	{ signets: iceDamage,             summary: 'Ice Damage' },
-	{ signets: damageShields,         summary: 'Bonus Damage to Shields' },
-	{ signets: aponia.regular[4],     summary: 'Increase Ultimate Physical & Elemental Damage' },
-	{ signets: aponia.regular[5],     summary: 'Start With More Exhortation' },
-	{ signets: aponia.nexus1[2],      summary: 'Fixed Exhortation Value' },
-	{ signets: aponia.nexus1[3],      summary: 'Increase Ultimate Total Damage' },
-	{ signets: eden.regular[4],       summary: 'Initial and SP Cap Increased' },
-	{ signets: kosma.regular[5],      summary: 'Basic/Combo/Charged ATKs Trigger Bonus Damage' },
-	{ signets: kosma.regular[3],      summary: 'Longer Rend' },
-	{ signets: griseo.regular[2],     summary: 'Reduce Enemy Damage and Movement' },
-	{ signets: griseo.regular[3],     summary: 'Longer Taint' },
-	{ signets: griseo.nexus2[1],      summary: 'Reduce Enemy Resist' },
-	{ signets: griseo.nexus2[3],      summary: 'Increase Color Effect' },
-	{ signets: hua.nexus1[2],         summary: 'Additional Initial Stack of Soldier\'s Resolve' },
-	{ signets: hua.nexus1[1],         summary: 'Bonus Resolve Stack per Second to Normal Signets' },
-	{ signets: hua.nexus2[2],         summary: 'Extends Incincibility From Soldier\'s Remembrance' },
-	{ signets: kalpas.nexus1[1],      summary: 'Bonus Fire Damage' },
-	{ signets: kalpas.regular[6],     summary: 'Max HP Increase' },
-	{ signets: kalpas.nexus1[2],      summary: 'Losing HP Recharges Blood Boil ' },
-	{ signets: kalpas.nexus1[3],      summary: 'More BB Damage to Higher HP% Enemies' },
-	{ signets: kalpas.nexus2[2],      summary: 'BA Absorb Damage Equal to % of Charges' },
-	{ signets: kevin.nexus1[3],       summary: 'Total Damage Increase in Burst Mode' },
-	{ signets: kevin.nexus1[2],       summary: 'Final Battle and Normal Signet Duration Extended' },
-	{ signets: kevin.nexus2[2],       summary: 'Total Damage Increase in Ultimate or Burst Mode Hit' },
-	{ signets: kosma.nexus2[1],       summary: 'Combo/Charged ATKs Deal Adaptive Damage & Restore HP' },
-	{ signets: mobius.regular[3],     summary: 'Entity Damage Dealt' },
-	{ signets: mobius.regular[1],     summary: 'Elf SP Recovery' },
-	{ signets: mobius.nexus1[2],      summary: 'Mind Sync Duration Extended' },
-	{ signets: pardofelis.regular[5], summary: 'HP and SP Cap' },
-	{ signets: pardofelis.regular[2], summary: 'HP and SP Recovery' },
-	{ signets: pardofelis.regular[3], summary: 'Shiny Silver Increase Each Floor' },
-	{ signets: pardofelis.regular[6], summary: 'Shiny Silver Each Kill ' },
-	{ signets: pardofelis.nexus2[3],  summary: 'VIP Service Stack Duration' },
-	{ signets: sakura.regular[6],     summary: 'Attack Speed & Move Speed' },
-	{ signets: sakura.regular[4],     summary: 'Ultimate Evasion Reset CD' },
-	{ signets: sakura.regular[3],     summary: 'Ultimate Evasion 1 More Charge and Reduced CD' },
-	{ signets: sakura.nexus1[1],      summary: 'Sakura Screen Resets Ultimate and Weapon CD' },
-	{ signets: sakura.nexus1[2],      summary: 'Sakura Screen Pause Duration' },
-	{ signets: sakura.nexus2[1],      summary: 'Reduce Ultimate Evasion Remaining CD' },
-	{ signets: su.regular[5],         summary: 'Combo Increased to 60 When Below 60' },
-	{ signets: su.regular[1],         summary: '25 Bonus Combo' },
-	{ signets: su.nexus1[2],          summary: 'Enemy Disable Shield Recovery' },
-	{ signets: su.nexus1[1],          summary: 'Reduce Enemy Damage' },
-	{ signets: su.nexus2[3],          summary: '3 Random Debuffs on Hit' },
-	{ signets: vv.regular[1],         summary: 'Weapon Bonus Damage' },
-	{ signets: vv.regular[5],         summary: 'Ranged Total Damage' },
-	{ signets: vv.regular[6],         summary: 'SP Recovery and Reduce Weapon CD' },
-	{ signets: vv.nexus1[1],          summary: 'Marvelous Magic Deals Bonus ATK' },
-	{ signets: vv.nexus2[3],          summary: 'Larger Area and Stronger Gravitational Field'  }
+	{ signets: damageDealt, summary: 'Total Damage Dealt' },
+	{ signets: damageTaken, summary: 'Total Damage Taken' },
+	{ signets: physEleDamage, summary: 'Physical & Elemental Damage' },
+	{ signets: physDamage, summary: 'Physical Damage' },
+	{ signets: eleDamage, summary: 'Elemental Damage' },
+	{ signets: physEleBreach, summary: 'Physical & Elemental Breach' },
+	{ signets: physBreach, summary: 'Physical Breach' },
+	{ signets: eleBreach, summary: 'Elemental Breach' },
+	{ signets: vurnerability, summary: 'Damage Taken By Enemies' },
+	{ signets: spRecovery, summary: 'SP Recovery' },
+	{ signets: lightningDamage, summary: 'Lightning Damage' },
+	{ signets: bonusDamage, summary: 'Bonus Damage' },
+	{ signets: normalSignetCap, summary: 'Increase Normal Signet Cap Increased' },
+	{ signets: normalSignetBuff, summary: 'Normal Signets Increased Buff' },
+	{ signets: elfUltSuppValkCD, summary: 'Elf Ultimate and Support Valk Skill Reduced CD' },
+	{ signets: ultimateEvasion, summary: 'Ultimate Evasion Trigger Bonus Damage' },
+	{ signets: ultBonusDamage, summary: 'Ultimate Trigger Bonus Damage' },
+	{ signets: iceDamage, summary: 'Ice Damage' },
+	{ signets: damageShields, summary: 'Bonus Damage to Shields' },
+	{ signets: aponia.regular.dmgPhysEle, summary: 'Increase Ultimate Physical & Elemental Damage' },
+	{ signets: aponia.regular.vuln, summary: 'Start With More Exhortation' },
+	{ signets: aponia.nexus1.limit, summary: 'Fixed Exhortation Value' },
+	{ signets: aponia.nexus1.dmgUlt, summary: 'Increase Ultimate Total Damage' },
+	{ signets: eden.regular.spCapInitial, summary: 'Initial and SP Cap Increased' },
+	{ signets: kosma.regular.atk, summary: 'Basic/Combo/Charged ATKs Trigger Bonus Damage' },
+	{ signets: kosma.regular.extend, summary: 'Longer Rend' },
+	{ signets: griseo.regular.blue, summary: 'Reduce Enemy Damage and Movement' },
+	{ signets: griseo.regular.grey, summary: 'Longer Taint' },
+	{ signets: griseo.nexus2.orange, summary: 'Reduce Enemy Resist' },
+	{ signets: griseo.nexus2.purple, summary: 'Increase Color Effect' },
+	{ signets: hua.nexus1.stackInitial, summary: 'Additional Initial Stack of Soldier\'s Resolve' },
+	{ signets: hua.nexus1.stackRegen, summary: 'Bonus Resolve Stack per Second to Normal Signets' },
+	{ signets: hua.nexus2.extend, summary: 'Extends Incincibility From Soldier\'s Remembrance' },
+	{ signets: kalpas.nexus1.fire, summary: 'Bonus Fire Damage' },
+	{ signets: kalpas.regular.hp, summary: 'Max HP Increase' },
+	{ signets: kalpas.nexus1.bbRecharge, summary: 'Losing HP Recharges Blood Boil ' },
+	{ signets: kalpas.nexus1.dmgBonus, summary: 'More BB Damage to Higher HP% Enemies' },
+	{ signets: kalpas.nexus2.absorb, summary: 'BA Absorb Damage Equal to % of Charges' },
+	{ signets: kevin.nexus1.burst, summary: 'Total Damage Increase in Burst Mode' },
+	{ signets: kevin.nexus1.dur, summary: 'Final Battle and Normal Signet Duration Extended' },
+	{ signets: kevin.nexus2.dmgTotal, summary: 'Total Damage Increase in Ultimate or Burst Mode Hit' },
+	{ signets: kosma.nexus2.hpRestore, summary: 'Combo/Charged ATKs Deal Adaptive Damage & Restore HP' },
+	{ signets: mobius.regular.dmgEntity, summary: 'Entity Damage Dealt' },
+	{ signets: mobius.regular.elfSp, summary: 'Elf SP Recovery' },
+	{ signets: mobius.nexus1.extend, summary: 'Mind Sync Duration Extended' },
+	{ signets: pardofelis.regular.spHpCap, summary: 'HP and SP Cap' },
+	{ signets: pardofelis.regular.spHpRestore, summary: 'HP and SP Recovery' },
+	{ signets: pardofelis.regular.curr, summary: 'Shiny Silver Increase Each Floor' },
+	{ signets: pardofelis.regular.currKill, summary: 'Shiny Silver Each Kill ' },
+	{ signets: pardofelis.nexus2.stack, summary: 'VIP Service Stack Duration' },
+	{ signets: sakura.regular.speed, summary: 'Attack Speed & Move Speed' },
+	{ signets: sakura.regular.evasionReset, summary: 'Ultimate Evasion Reset CD' },
+	{ signets: sakura.regular.evasionAdd, summary: 'Ultimate Evasion 1 More Charge and Reduced CD' },
+	{ signets: sakura.nexus1.cd, summary: 'Sakura Screen Resets Ultimate and Weapon CD' },
+	{ signets: sakura.nexus1.pause, summary: 'Sakura Screen Pause Duration' },
+	{ signets: sakura.nexus2.cd, summary: 'Reduce Ultimate Evasion Remaining CD' },
+	{ signets: su.regular.combo60, summary: 'Combo Increased to 60 When Below 60' },
+	{ signets: su.regular.combo25, summary: '25 Bonus Combo' },
+	{ signets: su.nexus1.shieldDisable, summary: 'Enemy Disable Shield Recovery' },
+	{ signets: su.nexus1.enemyDmg, summary: 'Reduce Enemy Damage' },
+	{ signets: su.nexus2.debuff, summary: '3 Random Debuffs on Hit' },
+	{ signets: vv.regular.dmgWeap, summary: 'Weapon Bonus Damage' },
+	{ signets: vv.regular.dmgRanged, summary: 'Ranged Total Damage' },
+	{ signets: vv.regular.spRestore, summary: 'SP Recovery and Reduce Weapon CD' },
+	{ signets: vv.nexus1.blades, summary: 'Marvelous Magic Deals Bonus ATK' },
+	{ signets: vv.nexus2.gravField, summary: 'Larger Area and Stronger Gravitational Field'  }
 ];

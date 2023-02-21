@@ -111,68 +111,44 @@ for (let i = 0; i < valks.length; i++) {
 		guideContent.appendChild(innerName);
 	}
 
-	// rated difficulty
-	const rating: HTMLParagraphElement = document.createElement('p');
-	rating.classList.add('rating');
-	rating.textContent = valks[i].rating;
-
-	guideContent.appendChild(rating);
 	// iterate through builds
 	for (let j = 0; j < Object.keys(valks[i].builds).length; j++) {
+		const signetTypes: string[] = Object.keys(valks[i].builds[j].signetTable);
+		const [, ...signetTypesWithoutExclusive]: string[] = signetTypes;
+		// build name
 		if (Object.keys(valks[i].builds).length > 1) {
 			const buildNo: HTMLParagraphElement = document.createElement('p');
 			buildNo.classList.add('build-no');
-			buildNo.innerText = `Build: ${valks[i].builds[j].name}`;
+			buildNo.textContent = `Build: ${valks[i].builds[j].name}`;
+
 			guideContent.appendChild(buildNo);
 		}
 		// signets images
 		const recSignets: HTMLDivElement = document.createElement('div');
 		recSignets.classList.add('rec-signets', 'flex', 'f-row');
-		for (let k = 0; k < valks[i].builds[j].signet.length; k++) {
-			for (let l = 0; l < valks[i].builds[j].signet[k].length; l++) {
+		signetTypesWithoutExclusive.forEach((signetType) => {
+			for (let k = 0; k < valks[i].builds[j].signet[signetType].length; k++) {
 				const recSignetDiv: HTMLDivElement = document.createElement('div');
-				recSignetDiv.classList.add('signet', 'sig-tog', 'flex', 'fh-center', 'fv-center', valks[i].builds[j].signet[k][l][0].name.toLowerCase());
+				recSignetDiv.classList.add('signet', 'sig-tog', 'flex', 'fh-center', 'fv-center', valks[i].builds[j].signet[signetType][k][0].name.toLowerCase());
 
 				recSignets.appendChild(recSignetDiv);
 			}
-		}
+		});
 		guideContent.appendChild(recSignets);
 		// anchors start
-		const signetTableLength: number = valks[i].builds[j].signetTable.length;
-		const hasTransitionTable: boolean = signetTableLength === 4;
-
 		const anchorContainer: HTMLDivElement = document.createElement('div');
 		anchorContainer.classList.add('flex', 'f-row');
 
 		const hasNotes: boolean = 'notes' in valks[i].builds[j];
-		let anchors = 3;
-		if (hasTransitionTable) anchors += 1; // check for transitional table
-		if (hasNotes) anchors += 1;
-		for (let k = 0; k < anchors; k++) {
-			let letter = '', link = '';
+		let anchorTypes: string[] = [...signetTypes];
+		if (hasNotes) anchorTypes.push('notes');
+		anchorTypes.forEach((anchorType) => {
 			const anchorDiv: HTMLDivElement = document.createElement('div');
 			anchorDiv.classList.add('anchor', 'flex', 'fh-center', 'fv-center', 'pos-rel');
-
-			if (k === 0) {
-				letter = 'E';
-				link = `exclusive-signets-${i + 1}-${j + 1}`;
-			} else if (k === 1 && hasTransitionTable) {
-				letter = 'T';
-				link = `transitional-signets-${i + 1}-${j + 1}`;
-			} else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
-				letter = 'M';
-				link = `main-signets-${i + 1}-${j + 1}`;
-			} else if ((k === 2 && !hasTransitionTable) || (k === 3 && hasTransitionTable)) {
-				letter = 'S';
-				link = `secondary-signets-${i + 1}-${j + 1}`;
-			} else if ((k === 4 && hasNotes) || (k === 3)) {
-				letter = 'N';
-				link = `notes-${i + 1}-${j + 1}`;
-			}
-			anchorDiv.innerText = letter;
+			anchorDiv.textContent = anchorType.charAt(0).toUpperCase();
 
 			const anchor: HTMLAnchorElement = document.createElement('a');
-			anchor.setAttribute('href', `#${link}`);
+			anchor.setAttribute('href', `#${anchorType}-${i + 1}-${j + 1}`);
 
 			const linkSpanner: HTMLSpanElement = document.createElement('span');
 			linkSpanner.classList.add('link-spanner', 'pos-abs');
@@ -180,7 +156,7 @@ for (let i = 0; i < valks.length; i++) {
 			anchor.appendChild(linkSpanner);
 			anchorDiv.appendChild(anchor);
 			anchorContainer.appendChild(anchorDiv);
-		}
+		});
 		//  anchors end
 		guideContent.appendChild(anchorContainer);
 
@@ -305,7 +281,7 @@ for (let i = 0; i < valks.length; i++) {
 		// gear start
 		if ('gear' in valks[i].builds[j]) {
 			const stigTitle: HTMLHeadingElement = document.createElement('h3');
-			stigTitle.innerText = 'Recommended Gear';
+			stigTitle.textContent = 'Recommended Gear';
 
 			guideContent.appendChild(stigTitle);
 
@@ -322,102 +298,90 @@ for (let i = 0; i < valks.length; i++) {
 				stigTableBody.appendChild(stigTableBodyRow);
 			}
 			stigTable.appendChild(stigTableBody);
-
 			guideContent.appendChild(stigTable);
 		}
 		// gear end
 
 		// signet tables start
-		for (let k = 0; k < signetTableLength; k++) {
+		signetTypes.forEach((signetType) => {
 			const signetTitle: HTMLHeadingElement = document.createElement('h3');
 			const signetTable: HTMLTableElement = document.createElement('table');
-			let title = '', link = '', headers: string[] = [];
-			// title and signets
-			switch (k) {
-				case 0:
-					signetTitle.setAttribute('id', `exclusive-signets-${i + 1}-${j + 1}`);
-					signetTitle.textContent = 'Exclusive Signets';
-					guideContent.appendChild(signetTitle);
-					signetTable.classList.add('exclusive-tbl');
-					headers = exclusiveTableHeaders;
-					break;
-				default:
-					if ((k === 1 && hasTransitionTable)) {
-						title = 'Transitional Signets';
-						link ='transitional-signets';
-						signetTable.classList.add('transitional-tbl');
-					} else if ((k === 1 && !hasTransitionTable) || (k === 2 && hasTransitionTable)) {
-						title = 'Main Signets';
-						link = 'main-signets';
-						signetTable.classList.add('main-tbl');
-					} else if ((k === 2 && !hasTransitionTable) || (k === 3 && hasTransitionTable)) {
-						title = 'Secondary Signets';
-						link = 'secondary-signets';
-						signetTable.classList.add('secondary-tbl');
-						// apply bottom margin on the secondary signets table
-						// so the bottom row wouldn't be partly covered by the fade effect on mobile
-						// also useful as spacing in desktop
-						if (!hasNotes) signetTable.style.marginBottom = '35px';
-					}
-					signetTitle.setAttribute('id', `${link}-${i + 1}-${j + 1}`);
-					signetTitle.textContent = title;
+			signetTable.classList.add(`${signetType}-tbl`);
 
-					headers = signetTableHeaders;
-					// signets
-					const signets: HTMLDivElement = document.createElement('div');
-					signets.classList.add('rec-signets', 'flex', 'f-row');
-					for (let l = 0; l < valks[i].builds[j].signet[k - 1].length; l++) {
-						const recSignetDiv: HTMLDivElement = document.createElement('div');
-						recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].builds[j].signet[k - 1][l][0].name.toLowerCase());
+			const signetTypeIsExclusive = signetType === 'exclusive';
+			let headers: string[] = [];
 
-						const recSignetsLabel: HTMLLabelElement = document.createElement('label');
-						recSignetsLabel.textContent = valks[i].builds[j].signet[k - 1][l][1] === '1' ? 'I' : 'II';
+			// title
+			signetTitle.textContent = `${signetType} signets`;
+			signetTitle.setAttribute('id', `${signetType}-${i + 1}-${j + 1}`);
 
-						recSignetDiv.appendChild(recSignetsLabel);
-						signets.appendChild(recSignetDiv);
-					}
-					guideContent.appendChild(signetTitle);
-					guideContent.appendChild(signets);
-					break;
+			guideContent.appendChild(signetTitle);
+
+			if (!signetTypeIsExclusive) {
+				// signets
+				const signets: HTMLDivElement = document.createElement('div');
+				signets.classList.add('rec-signets', 'flex', 'f-row');
+				for (let k = 0; k < valks[i].builds[j].signet[signetType].length; k++) {
+					const recSignetDiv: HTMLDivElement = document.createElement('div');
+					recSignetDiv.classList.add('signet', 'sig-sep', 'flex', 'fv-center', 'f-col', valks[i].builds[j].signet[signetType][k][0].name.toLowerCase());
+
+					const recSignetsLabel: HTMLLabelElement = document.createElement('label');
+					recSignetsLabel.textContent = valks[i].builds[j].signet[signetType][k][1] === '1' ? 'I' : 'II';
+
+					recSignetDiv.appendChild(recSignetsLabel);
+					signets.appendChild(recSignetDiv);
+				}
+				guideContent.appendChild(signets);
+				// assign table headers
+				headers = signetTableHeaders;
+			} else {
+				headers = exclusiveTableHeaders;
 			}
+
+			// table
 			const signetTableHead: HTMLTableSectionElement = signetTable.createTHead();
 			const signetTableHeadRow: HTMLTableRowElement = signetTableHead.insertRow();
-			for (let l = 0; l < 2; l++) {
+			for (let k = 0; k < 2; k++) {
 				const signetTableHeader: HTMLTableCellElement = document.createElement('th');
-				signetTableHeader.textContent = headers[l];
+				signetTableHeader.textContent = headers[k];
 				signetTableHeadRow.appendChild(signetTableHeader);
 			}
 			signetTableHead.appendChild(signetTableHeadRow);
 
 			const signetTableBody: HTMLTableSectionElement = signetTable.createTBody();
-			for (let l = 0; l < valks[i].builds[j].signetTable[k].length; l++) { // rows
-				const signetTableBodyRow: HTMLTableRowElement = signetTableBody.insertRow();
-				for (let m = 0; m < valks[i].builds[j].signetTable[k][l].length; m++) { // cells
-					let signetTableBodyCell: HTMLTableCellElement;
-					// check if value isn't only a number, which is a value for rowspan
-					if (!(/^[0-9]+$/.test(valks[i].builds[j].signetTable[k][l][m]))) {
-						let prepend = '';
-						if (k === 0 && m === 0) prepend = 'Blessing of ';
-						signetTableBodyCell = signetTableBodyRow.insertCell();
-						signetTableBodyCell.textContent = `${prepend}${valks[i].builds[j].signetTable[k][l][m]}`;
+			const signets = Object.keys(valks[i].builds[j].signetTable[signetType]);
+			signets.forEach((key: string) => {
+				const signetAmount = valks[i].builds[j].signetTable[signetType][key].length;
+				for (let k = 0; k < signetAmount; k++) { // rows
+					const signetTableBodyRow: HTMLTableRowElement = signetTableBody.insertRow();
+					for (let l = 0; l < 2; l++) { // cells
+						// change boolean depending if for exclusive table or the rest
+						const applySignetName = signetTypeIsExclusive ? l === 0 : l === 1;
+						const applyRowspan = signetTypeIsExclusive ? k === 0 : k === 0 && l === 0;
+						if (applySignetName || applyRowspan) {
+							const signetTableBodyCell: HTMLTableCellElement = signetTableBodyRow.insertCell();
+							if (applySignetName) { // signet name
+								signetTableBodyCell.textContent = valks[i].builds[j].signetTable[signetType][key][k];
+								if (signetTypeIsExclusive) signetTableBodyCell.textContent = `Blessing of ${signetTableBodyCell.textContent}`;
+							} else if (applyRowspan) { // signet owner/priority
+								signetTableBodyCell.textContent = key;
+								signetTableBodyCell.setAttribute('rowspan', `${signetAmount}`);
+							}
+						}
 					}
-					try {
-						// check if next value is only a number, if so, apply as rowspan value
-						if (/^[0-9]+$/.test(valks[i].builds[j].signetTable[k][l][m + 1])) {
-							signetTableBodyCell!.setAttribute('rowspan', valks[i].builds[j].signetTable[k][l][m + 1]);
-						}
-						// check if next value is an empty string, if so, apply 'noted' class
-						if (valks[i].builds[j].signetTable[k][l][m + 1] === '') {
-							signetTableBodyCell!.classList.add('noted');
-						}
-					} catch (e) { continue }
+					signetTableBody.appendChild(signetTableBodyRow);
 				}
-				signetTableBody.appendChild(signetTableBodyRow);
-			}
+			});
+
+			// apply bottom margin on the last signet table
+			// so the bottom row wouldn't be partly covered by the fade effect on mobile
+			// also useful as spacing in desktop
+			if (!hasNotes) signetTable.style.marginBottom = '35px';
+
 			signetTable.appendChild(signetTableHead);
 			signetTable.appendChild(signetTableBody);
 			guideContent.appendChild(signetTable);
-		}
+		});
 		// signet tables end
 
 		// notes

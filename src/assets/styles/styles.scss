@@ -71,9 +71,6 @@
     background-color: $white;
     color: black;
 }
-.noted {
-    background-color: rgba(70, 70, 70, 0.5);
-}
 body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
@@ -147,6 +144,7 @@ h3 {
     @include header(30px);
     @include margin($t: 20px);
     line-height: 40px;
+	text-transform: capitalize;
 }
 td {
     background: center/cover;
