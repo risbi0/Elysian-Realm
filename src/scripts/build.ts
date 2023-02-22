@@ -139,6 +139,11 @@ for (let i = 0; i < valks.length; i++) {
 		const anchorContainer: HTMLDivElement = document.createElement('div');
 		anchorContainer.classList.add('flex', 'f-row');
 
+		const anchorSymbol = document.createElement('span');
+		anchorSymbol.classList.add('material-symbols-outlined', 'flex', 'fv-center');
+		anchorSymbol.textContent = 'anchor';
+		anchorContainer.appendChild(anchorSymbol);
+
 		const hasNotes: boolean = 'notes' in valks[i].builds[j];
 		let anchorTypes: string[] = [...signetTypes];
 		if (hasNotes) anchorTypes.push('notes');
@@ -157,6 +162,7 @@ for (let i = 0; i < valks.length; i++) {
 			anchorDiv.appendChild(anchor);
 			anchorContainer.appendChild(anchorDiv);
 		});
+		anchorContainer.appendChild(anchorSymbol.cloneNode(true));
 		//  anchors end
 		guideContent.appendChild(anchorContainer);
 

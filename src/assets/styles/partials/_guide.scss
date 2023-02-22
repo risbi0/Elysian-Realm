@@ -64,6 +64,19 @@
         border: 3px solid rgba($color: white, $alpha: 0.5);
         transform: translate(-50%, 15%);
     }
+
+	.material-symbols-outlined {
+		font-size: 20px;
+
+		&:first-child {
+			@include margin($r: 5px);
+		}
+
+		&:last-child {
+			@include margin($l: 5px);
+		}
+	}
+
 }
 @media only screen and (min-height: 950px) {
     .guide-content.dt { height: 800px; }
