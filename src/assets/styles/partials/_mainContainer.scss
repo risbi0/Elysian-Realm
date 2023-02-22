@@ -186,7 +186,10 @@
 }
 .pic {
     background: center/cover;
-    cursor: pointer;
+
+	&:not(.hawp) {
+		cursor: pointer;
+	}
 }
 .tooltip {
     @include wh($w: 100%, $h: 100%);
