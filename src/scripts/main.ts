@@ -2,7 +2,7 @@ import { valksLength } from './guide';
 import { isMobile, signetSummary } from './data';
 import { bg, mainContainer, guideContainer } from './build';
 
-import LogRocket from 'logrocket';
+/* import LogRocket from 'logrocket';
 LogRocket.init('h6xl7p/elysian-realm');
 
 // get/set unique ID
@@ -11,7 +11,7 @@ if (!uniqueId) {
 	uniqueId = crypto.randomUUID();
 	localStorage.setItem('uniqueId', uniqueId);
 }
-LogRocket.identify(uniqueId);
+LogRocket.identify(uniqueId);*/
 
 const body = document.querySelector('body') as HTMLBodyElement;
 window.scroll({ top: 0 });
