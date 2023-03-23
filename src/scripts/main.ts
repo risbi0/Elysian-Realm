@@ -77,7 +77,7 @@ paths.forEach((link: string) => {
 				// expands the window width while the animation is still ongoing 😡
 				banners.forEach((_, index: number) => { if (!finalArr.includes(index)) banners[index].classList.remove('hidden'); });
 				// allow scroll
-				setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, noOfBannersInViewport * interval);
+				setTimeout(() => { mainContainer.removeEventListener('scroll', preventScroll) }, bannersInViewport * interval);
 			}
 		}
 	}).catch(() => {
@@ -232,7 +232,7 @@ const signetTableCells: NodeListOf<HTMLTableCellElement> = document.querySelecto
 // mobile - all banners in linear order, horizontal animation
 let animation1: string, animation2: string;
 let preventScroll: () => void;
-let noOfBannersInViewport = 0;
+let bannersInViewport = 0;
 let finalArr: number[] = [];
 // interval gets faster the more banners are in viewport
 // in mobile, interval is constant
@@ -268,16 +268,18 @@ if (isMobile) {
 	mainContainer.addEventListener('scroll', preventScroll);
 
 	// setup no. of banners
-	noOfBannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
-	const noOfBannersNotInViewport: number = valksLength - noOfBannersInViewport;
-	const noOfBannersLeftOfViewport: number = Math.round(noOfBannersNotInViewport / 2);
-	const bannerIndicesInDektopViewport: number[] = Array.from(Array(noOfBannersInViewport).keys()).map((e) => e + noOfBannersLeftOfViewport);
+	bannersInViewport = Math.ceil((deviceWidth + Math.floor(deviceWidth / 100)) / 100) + 1;
 	// randomize array elements
-	const bannerLength: number = bannerIndicesInDektopViewport.length;
-	for (let i = 0; i < bannerLength; i++) {
-		const randomIndex: number = Math.floor(Math.random() * bannerIndicesInDektopViewport.length);
-		finalArr.push(bannerIndicesInDektopViewport[randomIndex]);
-		bannerIndicesInDektopViewport.splice(bannerIndicesInDektopViewport.indexOf(bannerIndicesInDektopViewport[randomIndex]), 1);
+	const rng = (min: number, max: number): number => Math.floor(Math.random() * (max - min) + min);
+	const hiddenBanners: number = valksLength - bannersInViewport;
+	const bannerIndicesInViewport: number[] = Array.from(Array(bannersInViewport).keys()).map((e) => e + Math.round(hiddenBanners / 2));
+	while (bannerIndicesInViewport.length !== 0) {
+		const bannerLength: number = bannerIndicesInViewport.length;
+		const randomIndex = bannerIndicesInViewport.length % 2 === 0 ? rng(0, bannerLength / 2) : rng(Math.floor(bannerLength / 2), bannerLength);
+		const randomElement = bannerIndicesInViewport[randomIndex];
+
+		finalArr.push(randomElement);
+		bannerIndicesInViewport.splice(bannerIndicesInViewport.indexOf(randomElement), 1);
 	}
 
 	((signetTableCells: NodeListOf<HTMLTableCellElement>): void => {
@@ -309,7 +311,7 @@ if (isMobile) {
 			prevHeight = deviceHeight;
 		}, 50);
 	});
-	interval = 300 - noOfBannersInViewport * 5;
+	interval = 300 - bannersInViewport * 5;
 }
 
 // setup modal closing
