@@ -73,6 +73,7 @@ export const ae:  NameAcr = { name: 'Azure Empyrea',				acr: 'ae' };
 export const bke: NameAcr = { name: 'Bright Knight: Excelsis',		acr: 'bke' };
 export const br:  NameAcr = { name: 'Blood Rose',					acr: 'br' };
 export const dp:  NameAcr = { name: 'Divine Prayer',				acr: 'dp' };
+export const fr:  NameAcr = { name: 'Fallen Rosemary',				acr: 'fr' };
 export const hb:  NameAcr = { name: 'Haxxor Bunny',					acr: 'hb' };
 export const le:  NameAcr = { name: 'Lightning Empress',			acr: 'le' };
 export const ma:  NameAcr = { name: 'Midnight Absinthe',			acr: 'ma' };
@@ -248,20 +249,24 @@ export const buffs = [
 		'Same type support damage bonus',
 		'At max HP gain 1 SP/s',
 		'Ultimate Evasion recovers 10 SP',
-		'Valk type matching enemy +TDM'
+		'Valk type matching enemy +TDM',
+		'Weapon active vulnerability'
 	],
 	// 10
 	[
 		'Enemy affected by status gives TDM',
 		'TDM+15% until damage taken',
 		'For every 100 HP + TDM',
-		'Ignite or para, valk +dmg'
+		'Ignite or para, valk +dmg',
+		'60 combo vulnerability',
+		'Both damage boosts after ultimate evasion'
 	],
 	// 15
 	[
 		'SP usage vulnerability',
 		'Weapon type TDM bonus',
-		'Same type support valk + breach'
+		'Same type support valk + breach',
+		'300 elemental DMG vulnerability'
 	]
 ];
 // signets
