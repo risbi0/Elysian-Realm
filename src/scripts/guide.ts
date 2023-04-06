@@ -3187,6 +3187,100 @@ const sus: Guide = {
 		}
 	]
 };
+// Shadow Knight
+const sk: Guide = {
+	name: 'Shadow Knight',
+	acr: 'sk',
+	builds: [
+		{
+			buff: [
+				data.buffs[0][2],
+				data.buffs[1][5],
+				data.buffs[2][6],
+				data.buffs[3][4]
+			],
+			signet: {
+				main: [
+					[data.hua, '2']
+				],
+				secondary: [
+					[data.aponia, '2'],
+					[data.su, '2'],
+					[data.eden, '1']
+				],
+				optional: [
+					[data.sakura, '1']
+				]
+			},
+			emblem: [
+				[data.memory, data.theLonelyMoon],
+				[data.veilOfTears, data.theLonelyMoon],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.sn, data.vc] ],
+				[ [data.ae], [data.br] ]
+			],
+			gear: [
+				[data.nure, data.zent, data.zenm, data.zenb]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Forces',
+						'Lunar Eclipse'
+					],
+					[data.optional]: [
+						'Mindfulness'
+					],
+					[data.no]: [
+						'Form & Spirit',
+						'Six Fists'
+					]
+				},
+				main: {
+					[data.hua.name]: [
+						data.hua.regular.dmgEle,
+						data.hua.regular.dmgTotal,
+						data.hua.regular.breachPhys,
+						data.hua.nexus2.name
+					]
+				},
+				secondary: {
+					[data.aponia.name]: [
+						data.aponia.regular.dmgReduc,
+						data.aponia.regular.spRestore,
+						data.aponia.regular.dmgPhysEle,
+						data.aponia.nexus2.name,
+						data.aponia.nexus2.breachPhysEle
+					],
+					[data.su.name]: [
+						data.su.regular.vuln,
+						data.su.regular.dmgTotal,
+						data.su.regular.spRestore,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus2.name
+					],
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.nexus1.name,
+						data.eden.nexus1.lightning
+					]
+				},
+				optional: {
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.regular.speed
+					]
+				}
+			},
+			notes: 'Can pick Griseo, Kalpas, or Kosma signets as reinforcement.'
+		}
+	]
+};
 // Silverwing N-EX
 const sw: Guide = {
 	name: 'Silverwing N-EX',
@@ -3649,6 +3743,98 @@ const villv: Guide = {
 		}
 	]
 };
+// Valkyrie Quicksand
+const vq: Guide = {
+	name: 'Valkyrie Quicksand',
+	acr: 'vq',
+	builds: [
+		{
+			buff: [
+				data.buffs[0][2],
+				data.buffs[3][4],
+				data.buffs[3][5]
+			],
+			signet: {
+				main: [
+					[data.vv, '2'],
+					[data.aponia, '2']
+				],
+				secondary: [
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.griseo, '1'],
+					[data.eden, '1']
+				]
+			},
+			emblem: [
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.veilOfTears, data.fallingInPastLight],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.sa], [data.bke] ],
+				[ [data.br], [data.ss] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Dappled Shade'
+					],
+					[data.first]: [
+						'Luster'
+					],
+					[data.second]: [
+						'Rarities'
+					],
+					[data.no]: [
+						'Tambourine',
+						'Whimsy'
+					]
+				},
+				main: {
+					[data.vv.name]: [
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.regular.vuln,
+						data.vv.nexus2.name,
+						data.vv.nexus2.breachPhysEle,
+						data.vv.nexus2.vuln,
+						data.vv.nexus2.gravField
+					],
+					[data.aponia.name]: [
+						data.aponia.regular.basicAtk,
+						data.aponia.regular.dmgReduc,
+						data.aponia.regular.spRestore,
+						data.aponia.nexus2.name,
+						data.aponia.nexus2.dmgPhysEle,
+						data.aponia.nexus2.breachPhysEle,
+						data.aponia.nexus2.vuln
+					]
+				},
+				secondary: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.black
+					],
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle
+					]
+				}
+			},
+			notes: `Can pick Kalpas's signet <span>${data.kalpas.regular.vuln}</span> as reinforcement.`
+		}
+	]
+};
 // Vermilion Knight: Eclipse
 const vkek: Guide = {
 	name: 'Vermilion Knight: Eclipse',
@@ -3741,9 +3927,10 @@ const vkek: Guide = {
 	]
 };
 export const valks: any[] = [
-	aka, bke, cn, da, aponia, fr, mc, eden, gm, villv,
-	hofi, hofs, hoh, hoo, hor, hos, hov, hot, hotr, mobius,
-	sus, lk, raven, elysia, pe, fischl, pardo, ri, sw, ss,
-	spa, griseo, nyx, sn, vb, carole, ve, vg, vkek
+	aka,	bke,	cn,		da,		aponia,	fr,		mc,		eden,	gm,		villv,
+	hofi, 	hofs,	hoh,	hoo,	hor,	hos,	hov,	hot,	hotr,	mobius,
+	sus, 	lk, 	raven, 	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,
+	ss,		spa,	griseo,	nyx,	sn,		vb,		carole,	ve,		vg,		vq,
+	vkek
 ];
 export const valksLength: number = valks.length;

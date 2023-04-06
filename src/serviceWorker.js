@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v8';
+const cacheName = 'herrscher-of-cache-v9';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -56,6 +56,7 @@ const bannerImages = [
 	'Prinzessin_der_Verurteilung',
 	'Reverist_Calico',
 	'Ritual_Imayoh',
+	'Shadow_Knight',
 	'Silverwing_N-EX',
 	'Sixth_Serenade',
 	'Spina_Astera',
@@ -66,6 +67,7 @@ const bannerImages = [
 	'Striker_Fulminata',
 	'Twilight_Paladin',
 	'Valkyrie_Gloria',
+	'Valkyrie_Quicksand',
 	'Vermilion_Knight_Eclipse'
 ];
 
@@ -177,6 +179,7 @@ const images = [
 	'Mitternachts_Waltz',
 	'Muramasa_Bloodlust',
 	'Nocturnal_Stealth_Beam',
+	'Nuadas_Revenge',
 	'Oblivion_Down',
 	'Obscuring_Wing',
 	'Path_to_Acheron_Kindred',

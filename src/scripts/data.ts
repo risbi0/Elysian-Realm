@@ -218,6 +218,7 @@ export const miki: NameAcr = { name: 'Miracle Kissy Pillow', acr: 'miki' };
 export const miwa: NameAcr = { name: 'Mitternachts Waltz', acr: 'miwa' };
 export const mubl: NameAcr = { name: 'Muramasa Bloodlust', acr: 'mubl' };
 export const nost: NameAcr = { name: 'Nocturnal Stealth: Beam', acr: 'nost' };
+export const nure: NameAcr = { name: 'Nuada\'s Revenge', acr: 'nure' };
 export const obdo: NameAcr = { name: 'Oblivion Down', acr: 'obdo' };
 export const obwi: NameAcr = { name: 'Obscuring Wing', acr: 'obwi' };
 export const paac: NameAcr = { name: 'Path to Acheron: Kindred', acr: 'paac' };
@@ -242,7 +243,8 @@ export const buffs = [
 	// 0
 	[
 		'RPC-6626 weak to Ice',
-		'RPC-6626 weak to Elements'
+		'RPC-6626 weak to Elements',
+		'Couatl: Revenant'
 	],
 	// 5
 	[
@@ -250,7 +252,8 @@ export const buffs = [
 		'At max HP gain 1 SP/s',
 		'Ultimate Evasion recovers 10 SP',
 		'Valk type matching enemy +TDM',
-		'Weapon active vulnerability'
+		'Weapon active vulnerability',
+		'Melee ATK for 10% TDM'
 	],
 	// 10
 	[
@@ -259,14 +262,17 @@ export const buffs = [
 		'For every 100 HP + TDM',
 		'Ignite or para, valk +dmg',
 		'60 combo vulnerability',
-		'Both damage boosts after ultimate evasion'
+		'Both damage boosts after ultimate evasion',
+		'Paralyzed or bleeding TDM bonus'
 	],
 	// 15
 	[
 		'SP usage vulnerability',
 		'Weapon type TDM bonus',
 		'Same type support valk + breach',
-		'300 elemental DMG vulnerability'
+		'300 elemental DMG vulnerability',
+		'Combo ATK bonus',
+		'Bleed vulnerability'
 	]
 ];
 // signets
