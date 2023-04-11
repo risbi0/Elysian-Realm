@@ -219,10 +219,10 @@ function setAnimAndPos(): void {
 	// guide animations and close/gototop button positions
 	if (deviceHeight >= 950) {
 		[guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-n', 'guide-exit-desktop-n'];
-		[topPos, bottomPos] = [135, 866];
+		[topPos, bottomPos] = [deviceHeight * 0.13, deviceHeight * 0.87];
 	} else {
 		[guideEntryAnim, guideExitAnim] = ['guide-entry-desktop-s', 'guide-exit-desktop-s'];
-		[topPos, bottomPos] = [15, deviceHeight - 60];
+		[topPos, bottomPos] = [deviceHeight * 0.03, deviceHeight * 0.87];
 	}
 }
 

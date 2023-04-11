@@ -79,7 +79,7 @@
 
 }
 @media only screen and (min-height: 950px) {
-    .guide-content.dt { height: 800px; }
+    .guide-content.dt { height: 80vh; }
 }
 @media only screen and (max-height: 949px) {
     .guide-content.dt { height: calc(100vh - 15px); }
