@@ -253,7 +253,8 @@ export const buffs = [
 		'Ultimate Evasion recovers 10 SP',
 		'Valk type matching enemy +TDM',
 		'Weapon active vulnerability',
-		'Melee ATK for 10% TDM'
+		'Melee ATK for 10% TDM', //
+		'SP cap up'
 	],
 	// 10
 	[
@@ -262,8 +263,9 @@ export const buffs = [
 		'For every 100 HP + TDM',
 		'Ignite or para, valk +dmg',
 		'60 combo vulnerability',
-		'Both damage boosts after ultimate evasion',
-		'Paralyzed or bleeding TDM bonus'
+		'Both damage boosts after ultimate evasion', //
+		'Paralyzed or bleeding TDM bonus',
+		'Different support type bonus'
 	],
 	// 15
 	[
@@ -272,7 +274,7 @@ export const buffs = [
 		'Same type support valk + breach',
 		'300 elemental DMG vulnerability',
 		'Combo ATK bonus',
-		'Bleed vulnerability'
+		'Bleed vulnerability' //
 	]
 ];
 // signets
