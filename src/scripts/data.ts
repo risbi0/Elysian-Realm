@@ -244,7 +244,8 @@ export const buffs = [
 	[
 		'RPC-6626 weak to Ice',
 		'RPC-6626 weak to Elements',
-		'Couatl: Revenant'
+		'Couatl: Revenant',
+		'Huodou'
 	],
 	// 5
 	[
@@ -265,7 +266,8 @@ export const buffs = [
 		'60 combo vulnerability',
 		'Both damage boosts after ultimate evasion', //
 		'Paralyzed or bleeding TDM bonus',
-		'Different support type bonus'
+		'Different support type bonus',
+		'Shield broken vulnerability'
 	],
 	// 15
 	[
@@ -274,7 +276,9 @@ export const buffs = [
 		'Same type support valk + breach',
 		'300 elemental DMG vulnerability',
 		'Combo ATK bonus',
-		'Bleed vulnerability' //
+		'Bleed vulnerability', //
+		'Weapon type breach',
+		'Melee vulnerability'
 	]
 ];
 // signets
@@ -315,13 +319,13 @@ export const eden: Signet = {
 	},
 	nexus1: {
 		name: 'Aria of Gold (Nexus)',
-		lightning: 'Aria of Dawn', // lightning
+		lightning: 'Aria of Dawn', // adaptive dmg
 		spRestore: 'Aria of Life', // sp restore
 		vuln: 'Aria of Soil' // vuln
 	},
 	nexus2: {
 		name: 'Echo of Gold (Nexus)',
-		lightning: 'Echo of Shrill Wind', // lightning
+		lightning: 'Echo of Shrill Wind', // adaptive dmg
 		vuln: 'Echo of Silent Night', // reduce enemy resist
 		spCapRestore: 'Echo of Withered Soil' // sp cap, restore sp
 	}
@@ -387,7 +391,7 @@ export const kalpas: Signet = {
 	},
 	nexus1: {
 		name: 'Fight, Struggle, and Decimation (Nexus)',
-		fire: 'Burden, Difficulty, and Calamity', // fire dmg
+		fire: 'Burden, Difficulty, and Calamity', // adaptive dmg
 		bbRecharge: 'Inhuman, Unevil, and Ungodly', // lose hp recharge blood boil
 		dmgBonus: 'Man, Mask, and Contract' // more dmg to higher hp%
 	},
@@ -509,13 +513,13 @@ export const sakura: Signet = {
 		name: 'Setsuna Blade: Sakura ni Maku (Nexus)',
 		cd: 'Setsuna Blade: Ame-Shiko', // reset ult & weap cd
 		pause: 'Setsuna Blade: Ino-Shika-Cho', // pause sakura screen dur
-		ice: 'Setsuna Blade: Tsukimi-de Ippai' // ice
+		ice: 'Setsuna Blade: Tsukimi-de Ippai' // adaptive dmg
 	},
 	nexus2: {
 		name: 'Setsuna Blade: Yasha (Nexus)',
 		cd: 'Setsuna Blade: Mugenjigoku', // reduce evasion cd
-		ice: 'Setsuna Blade: Mumyo', // setsuna blade: karuma, ice dmg
-		evasionIce: 'Setsuna Blade: Shinra Bansho' // evasion, ice dmg
+		ice: 'Setsuna Blade: Mumyo', // adaptive dmg
+		evasionIce: 'Setsuna Blade: Shinra Bansho' // adaptive dmg
 	}
 };
 export const su: Signet = {
@@ -531,13 +535,13 @@ export const su: Signet = {
 	},
 	nexus1: {
 		name: 'Maxim of Bodhi (Nexus)',
-		enemyDmg: 'Maxim of Anatman', // reduce enemy dmg
-		shieldDisable: 'Maxim of Anitya', // disable shield recovery
+		vuln: 'Maxim of Anatman', // vuln
+		breachPhysEle: 'Maxim of Anitya', // phys ele breach
 		dmgShield: 'Maxim of Santam' // bonus dmg to shield and unshielded
 	},
 	nexus2: {
 		name: 'Dictum of Bodhi (Nexus)',
-		dmgTotal: 'Dictum of Anatman', // total dmg per debuff
+		vuln: 'Dictum of Anatman', // vuln
 		dmgBonus: 'Dictum of Anitya', // adaptive dmg per debuff
 		debuff: 'Dictum of Santam' // random debuff
 	}
@@ -563,7 +567,7 @@ export const vv: Signet = {
 		name: 'Intermezzo: Holistic Helix (Nexus)',
 		breachPhysEle: 'Puppetry: Interlacing Cells', // phys ele breach
 		vuln: 'Drama: Origin of Slumber', // vuln
-		gravField: 'Saga: Overlapping Needles' // grav field
+		gravField: 'Saga: Overlapping Needles' // adaptive dmg
 	}
 };
 type signetSummaryType = { signets: string | string[], summary: string }[]
@@ -588,7 +592,7 @@ const eleDamage: string[] = [
 ];
 const physEleBreach: string[] = [
 	aponia.nexus1.breachPhysEle, aponia.nexus2.breachPhysEle, griseo.nexus1.orange, kalpas.nexus2.breachPhysEle, kosma.nexus2.breachPhysEle,
-	pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle
+	pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle, su.nexus1.shieldDisable
 ];
 const physBreach: string[] = [
 	hua.regular.breachPhys, kevin.regular.breachPhys, vv.nexus1.breachPhys
@@ -599,15 +603,17 @@ const eleBreach: string[] = [
 const vurnerability: string[] = [
 	aponia.regular.dmgTotal, aponia.nexus2.vuln, eden.nexus1.vuln, eden.nexus1.spRestore, griseo.regular.red,
 	griseo.regular.yellow, kalpas.regular.vuln, kevin.nexus2.ignoreRes, mobius.regular.vuln, pardofelis.nexus2.vuln,
-	sakura.regular.vuln, su.regular.vuln, su.nexus2.dmgTotal, vv.regular.vuln, vv.nexus2.vuln
+	sakura.regular.vuln, su.regular.vuln, su.nexus2.vuln, vv.regular.vuln, vv.nexus2.vuln,
+	su.nexus1.enemyDmg
 ];
 const spRecovery: string[] = [
 	aponia.regular.spRestore, eden.regular.spRestoreAtk, eden.regular.spRestore, eden.nexus1.spRestore, eden.nexus2.spCapRestore,
 	griseo.regular.white, kalpas.regular.spRestore, kevin.regular.spRestore, sakura.regular.spRestore, su.regular.spRestore,
 	kosma.regular.spRestore
 ];
-const lightningDamage: string[] = [
-	eden.nexus1.lightning, eden.nexus2.vuln
+const adaptiveDamaage: string[] = [
+	eden.nexus1.lightning, eden.nexus2.vuln, kalpas.nexus1.fire, sakura.nexus1.ice, sakura.nexus2.evasionIce,
+	sakura.nexus2.ice,  vv.nexus2.gravField
 ];
 const bonusDamage: string[] = [
 	griseo.nexus1.green, kalpas.nexus2.dmgBonus, su.nexus2.dmgBonus
@@ -627,9 +633,6 @@ const ultimateEvasion: string[] = [
 const ultBonusDamage: string[] = [
 	kosma.regular.ult, pardofelis.nexus1.ult
 ];
-const iceDamage: string[] = [
-	sakura.nexus1.ice, sakura.nexus2.evasionIce, sakura.nexus2.ice
-];
 const damageShields: string[] = [
 	su.nexus1.dmgShield, kosma.regular.dmgShield, vv.nexus1.dmgShield
 ];
@@ -644,14 +647,13 @@ export const signetSummary: signetSummaryType = [
 	{ signets: eleBreach, summary: 'Elemental Breach' },
 	{ signets: vurnerability, summary: 'Damage Taken By Enemies' },
 	{ signets: spRecovery, summary: 'SP Recovery' },
-	{ signets: lightningDamage, summary: 'Lightning Damage' },
+	{ signets: adaptiveDamaage, summary: 'Adaptive Damage' },
 	{ signets: bonusDamage, summary: 'Bonus Damage' },
 	{ signets: normalSignetCap, summary: 'Increase Normal Signet Cap Increased' },
 	{ signets: normalSignetBuff, summary: 'Normal Signets Increased Buff' },
 	{ signets: elfUltSuppValkCD, summary: 'Elf Ultimate and Support Valk Skill Reduced CD' },
 	{ signets: ultimateEvasion, summary: 'Ultimate Evasion Trigger Bonus Damage' },
 	{ signets: ultBonusDamage, summary: 'Ultimate Trigger Bonus Damage' },
-	{ signets: iceDamage, summary: 'Ice Damage' },
 	{ signets: damageShields, summary: 'Bonus Damage to Shields' },
 	{ signets: aponia.regular.dmgPhysEle, summary: 'Increase Ultimate Physical & Elemental Damage' },
 	{ signets: aponia.regular.vuln, summary: 'Start With More Exhortation' },
@@ -667,7 +669,6 @@ export const signetSummary: signetSummaryType = [
 	{ signets: hua.nexus1.stackInitial, summary: 'Additional Initial Stack of Soldier\'s Resolve' },
 	{ signets: hua.nexus1.stackRegen, summary: 'Bonus Resolve Stack per Second to Normal Signets' },
 	{ signets: hua.nexus2.extend, summary: 'Extends Incincibility From Soldier\'s Remembrance' },
-	{ signets: kalpas.nexus1.fire, summary: 'Bonus Fire Damage' },
 	{ signets: kalpas.regular.hp, summary: 'Max HP Increase' },
 	{ signets: kalpas.nexus1.bbRecharge, summary: 'Losing HP Recharges Blood Boil ' },
 	{ signets: kalpas.nexus1.dmgBonus, summary: 'More BB Damage to Higher HP% Enemies' },
@@ -692,12 +693,9 @@ export const signetSummary: signetSummaryType = [
 	{ signets: sakura.nexus2.cd, summary: 'Reduce Ultimate Evasion Remaining CD' },
 	{ signets: su.regular.combo60, summary: 'Combo Increased to 60 When Below 60' },
 	{ signets: su.regular.combo25, summary: '25 Bonus Combo' },
-	{ signets: su.nexus1.shieldDisable, summary: 'Enemy Disable Shield Recovery' },
-	{ signets: su.nexus1.enemyDmg, summary: 'Reduce Enemy Damage' },
 	{ signets: su.nexus2.debuff, summary: '3 Random Debuffs on Hit' },
 	{ signets: vv.regular.dmgWeap, summary: 'Weapon Bonus Damage' },
 	{ signets: vv.regular.dmgRanged, summary: 'Ranged Total Damage' },
 	{ signets: vv.regular.spRestore, summary: 'SP Recovery and Reduce Weapon CD' },
-	{ signets: vv.nexus1.blades, summary: 'Marvelous Magic Deals Bonus ATK' },
-	{ signets: vv.nexus2.gravField, summary: 'Larger Area and Stronger Gravitational Field'  }
+	{ signets: vv.nexus1.blades, summary: 'Marvelous Magic Deals Bonus ATK' }
 ];
