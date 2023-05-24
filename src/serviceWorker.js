@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v10';
+const cacheName = 'herrscher-of-cache-v11';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -101,6 +101,7 @@ const images = [
 	'Su_Signet',
 	'Vill-V_Signet',
 	// emblems
+	'An_Old_Pals_Legacy',
 	'Because_of_You',
 	'Boundless_Feeling',
 	'Boundless_Logos',

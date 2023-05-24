@@ -32,6 +32,7 @@ export const exclusiveTableHeaders:	string[] = ['Signet', 'Priority'];
 export const signetTableHeaders: string[] = ['Owner', 'Signet'];
 export const buffTableHeaders: string[] = ['Cost', 'Effect'];
 // emblems
+export const anOldPalsLegacy:		NameAcr = { name: 'An Old Pal\'s Legacy',		acr: 'aopl' };
 export const becauseOfYou:			NameAcr = { name: 'Because of You',				acr: 'boy' };
 export const boundlessFeeling:		NameAcr = { name: 'Boundless Feeling',			acr: 'bf' };
 export const boundlessLogos:		NameAcr = { name: 'Boundless Logos',			acr: 'bl' };
@@ -255,7 +256,8 @@ export const buffs = [
 		'Valk type matching enemy +TDM',
 		'Weapon active vulnerability',
 		'Melee ATK for 10% TDM', //
-		'SP cap up'
+		'SP cap up',
+		'Max SP +30'
 	],
 	// 10
 	[
@@ -464,7 +466,7 @@ export const mobius: Signet = {
 	nexus1: {
 		name: 'Infinite [X] (Nexus)',
 		dmgTotal: 'Dead [X]', // total dmg
-		extend: 'Newborn [X]', // extend mind sync duration
+		breachPhysEle: 'Newborn [X]', // phys ele breach
 		reduce: 'Unknown [X]' // reduce elf ult & supp valk skills
 	},
 	nexus2: {
@@ -505,7 +507,7 @@ export const sakura: Signet = {
 		spRestore: 'Bountiful Blossom: Ayame', // sp restore
 		dmgTotal: 'Bountiful Blossom: Botan', // total dmg
 		evasionAdd: 'Bountiful Blossom: Fuji', // +1 evasion, reduce cd
-		evasionReset: 'Bountiful Blossom: Kiku', // reset evaision
+		evasionReset: 'Bountiful Blossom: Kiku', // reset evasion
 		vuln: 'Bountiful Blossom: Koyo', // vuln
 		speed: 'Bountiful Blossom: Ume' // atk & move speed
 	},
@@ -592,7 +594,7 @@ const eleDamage: string[] = [
 ];
 const physEleBreach: string[] = [
 	aponia.nexus1.breachPhysEle, aponia.nexus2.breachPhysEle, griseo.nexus1.orange, kalpas.nexus2.breachPhysEle, kosma.nexus2.breachPhysEle,
-	pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle, su.nexus1.shieldDisable
+	pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle, su.nexus1.shieldDisable, mobius.nexus1.extend
 ];
 const physBreach: string[] = [
 	hua.regular.breachPhys, kevin.regular.breachPhys, vv.nexus1.breachPhys
@@ -679,7 +681,6 @@ export const signetSummary: signetSummaryType = [
 	{ signets: kosma.nexus2.hpRestore, summary: 'Combo/Charged ATKs Deal Adaptive Damage & Restore HP' },
 	{ signets: mobius.regular.dmgEntity, summary: 'Entity Damage Dealt' },
 	{ signets: mobius.regular.elfSp, summary: 'Elf SP Recovery' },
-	{ signets: mobius.nexus1.extend, summary: 'Mind Sync Duration Extended' },
 	{ signets: pardofelis.regular.spHpCap, summary: 'HP and SP Cap' },
 	{ signets: pardofelis.regular.spHpRestore, summary: 'HP and SP Recovery' },
 	{ signets: pardofelis.regular.curr, summary: 'Shiny Silver Increase Each Floor' },
