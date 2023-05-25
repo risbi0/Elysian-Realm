@@ -103,6 +103,12 @@ for (let i = 0; i < valks.length; i++) {
 	const guideContent = document.createElement('div');
 	guideContent.classList.add('guide-content', 'flex', 'fv-center', 'f-col', device, 'no-display');
 
+	// ribbon
+	const version = document.createElement('div');
+	version.textContent = valks[i].version;
+	version.classList.add('pos-abs', 'ribbon');
+	guideContent.appendChild(version);
+
 	if (!isMobile) {
 		// inner name
 		const innerName: HTMLHeadingElement = document.createElement('h2');

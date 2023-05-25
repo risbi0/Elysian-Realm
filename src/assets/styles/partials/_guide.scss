@@ -38,12 +38,13 @@
         background-color: transparent;
     }
 }
+
 .guide-content {
     scrollbar-width: none !important;
     overflow-x: hidden;
     overflow-y: scroll;
     transition: 0.3s ease;
-    position: fixed;
+    position: relative;
     left: 50%;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
@@ -52,17 +53,39 @@
         display: none;
     }
 
+	.ribbon {
+		background: rgba(255, 255, 255, 0.5);
+		color: $white;
+	}
+
     &.mb {
         @include wh($w: 100%, $h: calc(100% - 25vw));
         transform: translateX(-50%);
 
         &.upper { @include margin($t: 25vw); }
+
+		.ribbon {
+			top: 20px;
+			left: 0px;
+			padding: 5px 15px;
+			font-size: 22px;
+		}
     }
 
     &.dt {
         width: 600px;
         border: 3px solid rgba($color: white, $alpha: 0.5);
         transform: translate(-50%, 15%);
+
+		.ribbon {
+			@include padding($t: 20px, $b: 7px);
+			top: -7px;
+			left: -35px;
+			width: 100px;
+			transform: rotate(-45deg);
+			text-align: center;
+			font-size: 20px;
+		}
     }
 
 	.material-symbols-outlined {
@@ -76,7 +99,6 @@
 			@include margin($l: 5px);
 		}
 	}
-
 }
 @media only screen and (min-height: 950px) {
     .guide-content.dt { height: 800px; }

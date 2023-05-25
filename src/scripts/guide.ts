@@ -8,6 +8,7 @@ type Priority = 'Start' | '1st' | '2nd' | 'Reinforcement' | 'Optional' | 'No';
 type Guide = {
 	name: string;
 	acr: string;
+	version: string;
 	builds: {
 		name?: string;
 		buff?: any;
@@ -41,6 +42,7 @@ type Guide = {
 const aka: Guide = {
 	name: 'Argent Knight: Artemis',
 	acr: 'aka',
+	version: '6.1',
 	builds: [
 		{
 			signet: {
@@ -129,6 +131,7 @@ const aka: Guide = {
 const aponia: Guide = {
 	name: 'Disciplinary Perdition',
 	acr: 'aponia',
+	version: '6.5',
 	builds: [
 		{
 			buff: [
@@ -228,6 +231,7 @@ const aponia: Guide = {
 const bke: Guide = {
 	name: 'Bright Knight: Excelsis',
 	acr: 'bke',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -324,6 +328,7 @@ const bke: Guide = {
 const carole: Guide = {
 	name: 'Sweet \'n\' Spicy',
 	acr: 'carole',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -415,6 +420,7 @@ const carole: Guide = {
 const cn: Guide = {
 	name: 'Chrono Navi',
 	acr: 'cn',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -522,6 +528,7 @@ const cn: Guide = {
 const da: Guide = {
 	name: 'Dea Anchora',
 	acr: 'da',
+	version: '6.4',
 	builds: [
 		{
 			buff: [
@@ -614,6 +621,7 @@ const da: Guide = {
 const dw: Guide = {
 	name: 'Dreamweaver',
 	acr: 'dw',
+	version: '6.6',
 	builds: [
 		{
 			name: 'flag',
@@ -796,6 +804,7 @@ const dw: Guide = {
 const eden: Guide = {
 	name: 'Golden Diva',
 	acr: 'eden',
+	version: '6.4',
 	builds: [
 		{
 			buff: [
@@ -889,6 +898,7 @@ const eden: Guide = {
 const elysia: Guide = {
 	name: 'Miss Pink Elf♪',
 	acr: 'elysia',
+	version: '6.3',
 	builds: [
 		{
 			buff: [
@@ -986,6 +996,7 @@ const elysia: Guide = {
 const fischl: Guide = {
 	name: 'Prinzessin der Verurteilung',
 	acr: 'fischl',
+	version: '6.5',
 	builds: [
 		{
 			buff: [
@@ -1086,6 +1097,7 @@ const fischl: Guide = {
 const fr: Guide = {
 	name: 'Fallen Rosemary',
 	acr: 'fr',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -1188,6 +1200,7 @@ const fr: Guide = {
 const mc: Guide = {
 	name: 'Fervent Tempo',
 	acr: 'mc',
+	version: '6.2',
 	builds: [
 		{
 			signet: {
@@ -1285,6 +1298,7 @@ const mc: Guide = {
 const gm: Guide = {
 	name: 'Goushinnso Memento',
 	acr: 'gm',
+	version: '6.0',
 	builds: [
 		{
 			signet: {
@@ -1366,6 +1380,7 @@ const gm: Guide = {
 const griseo: Guide = {
 	name: 'Starry Impression',
 	acr: 'griseo',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -1468,6 +1483,7 @@ const griseo: Guide = {
 const hofi: Guide = {
 	name: 'Herrscher of Finality',
 	acr: 'hofi',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -1561,6 +1577,7 @@ const hofi: Guide = {
 const hofs: Guide = {
 	name: 'Herrscher of Flamescion',
 	acr: 'hofs',
+	version: '6.4',
 	builds: [
 		{
 			buff: [
@@ -1661,6 +1678,7 @@ const hofs: Guide = {
 const hoh: Guide = {
 	name: 'Herrscher of Human: Ego',
 	acr: 'hoh',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -1759,6 +1777,7 @@ const hoh: Guide = {
 const hoo: Guide = {
 	name: 'Herrscher of Origin',
 	acr: 'hoo',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -1859,6 +1878,7 @@ const hoo: Guide = {
 const hor: Guide = {
 	name: 'Herrscher of Reason',
 	acr: 'hor',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -1958,6 +1978,7 @@ const hor: Guide = {
 const hos: Guide = {
 	name: 'Herrscher of Sentience',
 	acr: 'hos',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -2056,6 +2077,7 @@ const hos: Guide = {
 const hov: Guide = {
 	name: 'Herrscher of the Void',
 	acr: 'hov',
+	version: '6.1',
 	builds: [
 		{
 			signet: {
@@ -2144,6 +2166,7 @@ const hov: Guide = {
 const hot: Guide = {
 	name: 'Herrscher of Thunder',
 	acr: 'hot',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -2240,6 +2263,7 @@ const hot: Guide = {
 const hotr: Guide = {
 	name: 'Herrscher of Truth',
 	acr: 'hotr',
+	version: '6.5',
 	builds: [
 		{
 			buff: [
@@ -2334,6 +2358,7 @@ const hotr: Guide = {
 const lk: Guide = {
 	name: 'Luna Kindred',
 	acr: 'lk',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -2423,6 +2448,7 @@ const lk: Guide = {
 const mobius: Guide = {
 	name: 'Infinite Ouroboros',
 	acr: 'mobius',
+	version: '6.5',
 	builds: [
 		{
 			buff: [
@@ -2517,6 +2543,7 @@ const mobius: Guide = {
 const nyx: Guide = {
 	name: 'Starchasm Nyx',
 	acr: 'nyx',
+	version: '6.1',
 	builds: [
 		{
 			signet: {
@@ -2607,6 +2634,7 @@ const nyx: Guide = {
 const pardo: Guide = {
 	name: 'Reverist Calico',
 	acr: 'pardo',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -2700,6 +2728,7 @@ const pardo: Guide = {
 const pe: Guide = {
 	name: 'Palatinus Equinox',
 	acr: 'pe',
+	version: '6.1',
 	builds: [
 		{
 			signet: {
@@ -2790,6 +2819,7 @@ const pe: Guide = {
 const raven: Guide = {
 	name: 'Midnight Absinthe',
 	acr: 'raven',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -2878,6 +2908,7 @@ const raven: Guide = {
 const ri: Guide = {
 	name: 'Ritual Imayoh',
 	acr: 'ri',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -2961,6 +2992,7 @@ const ri: Guide = {
 const sn: Guide = {
 	name: 'Stygian Nymph',
 	acr: 'sn',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -3049,6 +3081,7 @@ const sn: Guide = {
 const spa: Guide = {
 	name: 'Spina Astera',
 	acr: 'spa',
+	version: '6.4',
 	builds: [
 		{
 			buff: [
@@ -3141,6 +3174,7 @@ const spa: Guide = {
 const ss: Guide = {
 	name: 'Sixth Serenade',
 	acr: 'ss',
+	version: '6.3',
 	builds: [
 		{
 			buff: [
@@ -3231,6 +3265,7 @@ const ss: Guide = {
 const sus: Guide = {
 	name: 'Jade Knight',
 	acr: 'sus',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -3330,6 +3365,7 @@ const sus: Guide = {
 const sk: Guide = {
 	name: 'Shadow Knight',
 	acr: 'sk',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -3429,6 +3465,7 @@ const sk: Guide = {
 const sw: Guide = {
 	name: 'Silverwing N-EX',
 	acr: 'sw',
+	version: '6.4',
 	builds: [
 		{
 			buff: [
@@ -3527,6 +3564,7 @@ const sw: Guide = {
 const ta: Guide = {
 	name: 'Terminal Aide 0017',
 	acr: 'ta',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -3621,6 +3659,7 @@ const ta: Guide = {
 const vb: Guide = {
 	name: 'Striker Fulminata',
 	acr: 'vb',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -3716,6 +3755,7 @@ const vb: Guide = {
 const ve: Guide = {
 	name: 'Twilight Paladin',
 	acr: 've',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -3802,6 +3842,7 @@ const ve: Guide = {
 const vg: Guide = {
 	name: 'Valkyrie Gloria',
 	acr: 'vg',
+	version: '5.9',
 	builds: [
 		{
 			signet: {
@@ -3892,6 +3933,7 @@ const vg: Guide = {
 const villv: Guide = {
 	name: 'Helical Contraption',
 	acr: 'villv',
+	version: '6.5',
 	builds: [
 		{
 			buff: [
@@ -3987,6 +4029,7 @@ const villv: Guide = {
 const vq: Guide = {
 	name: 'Valkyrie Quicksand',
 	acr: 'vq',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
@@ -4079,6 +4122,7 @@ const vq: Guide = {
 const vkek: Guide = {
 	name: 'Vermilion Knight: Eclipse',
 	acr: 'vke',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
