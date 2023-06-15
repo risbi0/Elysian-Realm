@@ -443,7 +443,7 @@ export const kosma: Signet = {
 		name: 'Daybreak, an Undying Light (Nexus)',
 		breachPhysEle: 'Unbending Hero', // phys ele breach
 		dmgShield: 'Undetermined Judgement', // bonus dmg to broken shield
-		vuln: 'Unwavering Promies' // vuln
+		vuln: 'Unwavering Promise' // vuln
 	},
 	nexus2: {
 		name: 'Daybreak, Lone Beacon (Nexus)',
