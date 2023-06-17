@@ -425,26 +425,25 @@ const cn: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][6]
+				data.buffs[3][6],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
-					[data.aponia, '2']
+					[data.vv, '2']
 				],
 				secondary: [
 					[data.su, '1'],
-					[data.kosma, '1'],
-					[data.vv, '1']
+					[data.kosma, '1']
 				],
 				optional: [
+					[data.pardofelis, '1'],
 					[data.griseo, '1']
 				]
 			},
 			emblem: [
-				[data.veilOfTears, data.becauseOfYou],
-				[data.veilOfTears, data.fallingInPastLight],
+				[data.psuedoMiracle, data.becauseOfYou],
+				[data.psuedoMiracle, data.fallingInPastLight],
 				[data.heavyAsAMillionLives, data.dreamfulGold]
 			],
 			support: [
@@ -464,21 +463,22 @@ const cn: Guide = {
 						'Time Crystal'
 					],
 					[data.second]: [
-						'Bladepiece',
-						'Constant'
+						'Bladepiece'
 					],
 					[data.optional]: [
+						'Constant',
 						'Final Dream'
 					]
 				},
 				main: {
-					[data.aponia.name]: [
-						data.aponia.regular.dmgReduc,
-						data.aponia.regular.dmgPhysEle,
-						data.aponia.regular.vuln,
-						data.aponia.nexus2.name,
-						data.aponia.nexus2.breachPhysEle,
-						data.aponia.nexus2.vuln
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.regular.dmgRanged,
+						data.vv.nexus2.name,
+						data.vv.nexus2.breachPhysEle,
+						data.vv.nexus2.vuln
 					]
 				},
 				secondary: {
@@ -495,20 +495,15 @@ const cn: Guide = {
 						data.kosma.regular.dmgShield,
 						data.kosma.regular.atk,
 						data.kosma.regular.ult,
-						data.kosma.regular.extend,
-						data.kosma.nexus1.name,
-						data.kosma.nexus1.breachPhysEle,
-						data.kosma.nexus1.vuln
-					],
-					[data.vv.name]: [
-						data.vv.regular.dmgWeap,
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.regular.dmgRanged,
-						data.vv.nexus1.name
+						data.kosma.nexus1.name
 					]
 				},
 				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.nexus1.name
+					],
 					[data.griseo.name]: [
 						data.griseo.regular.black,
 						data.griseo.regular.red,
@@ -519,7 +514,6 @@ const cn: Guide = {
 				}
 			},
 			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span> and <span>${data.eden.regular.dmgTotal}</span> as reinforcements.<br><br>
-					<p>1st Shop Emblem</p>Can pick Light as a Bodhi Leaf.<br><br>
 					<p>${data.griseo.regular.red}</p>Buy ASAP if in shop.`
 		}
 	]
@@ -624,30 +618,28 @@ const dw: Guide = {
 	version: '6.6',
 	builds: [
 		{
-			name: 'flag',
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][6]
+				data.buffs[3][6],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
 					[data.mobius, '2']
 				],
 				secondary: [
-					[data.kevin, '1'],
-					[data.pardofelis, '1'],
-					[data.vv, '1']
+					[data.vv, '1'],
+					[data.eden, '1'],
+					[data.pardofelis, '1']
 				],
 				optional: [
-					[data.eden, '1']
+					[data.griseo, '1']
 				]
 			},
 			emblem: [
-				[data.forbiddenSeed, data.itWillBeWritten],
-				[data.burden, data.outOfReach],
-				[data.farawayShip, data.dreamfulGold]
+				[data.forbiddenSeed, data.fallingInPastLight],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.farawayShip, data.fallingInPastLight]
 			],
 			support: [
 				[ [data.vc], [data.bke] ],
@@ -679,124 +671,34 @@ const dw: Guide = {
 					]
 				},
 				secondary: {
-					[data.kevin.name]: [
-						data.kevin.regular.dmgTotal,
-						data.kevin.regular.breachPhys,
-						data.kevin.regular.dmgPhys,
-						data.kevin.regular.spRestore,
-						data.kevin.nexus1.name,
-						data.kevin.nexus1.effect
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgRanged,
+						data.vv.nexus1.name,
+						data.vv.nexus1.breachPhys
+					],
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
 					],
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.spHpCap,
 						data.pardofelis.nexus1.name
-					],
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.regular.dmgRanged,
-						data.vv.nexus1.name
 					]
 				},
 				optional: {
-					[data.eden.name]: [
-						data.eden.regular.dmgTotal,
-						data.eden.regular.dmgPhysEle,
-						data.eden.regular.spCapInitial
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black
 					]
 				}
-			},
-			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, <span>${data.griseo.regular.yellow}</span>, and <span>${data.griseo.regular.black}</span>, or Kalpas's signet <span>${data.kalpas.regular.vuln}</span> as reinforcement.`
-		},
-		{
-			name: 'spear',
-			buff: [
-				data.buffs[0][3],
-				data.buffs[3][6],
-				data.buffs[3][7]
-			],
-			signet: {
-				main: [
-					[data.mobius, '2']
-				],
-				secondary: [
-					[data.su, '1'],
-					[data.pardofelis, '1'],
-					[data.vv, '1']
-				],
-				optional: [
-					[data.eden, '1']
-				]
-			},
-			emblem: [
-				[data.forbiddenSeed, data.outOfReach],
-				[data.lightAsABodhiLeaf, data.outOfReach],
-				[data.farawayShip, data.dreamfulGold]
-			],
-			support: [
-				[ [data.le], [data.bke] ],
-				[ [data.ss], [data.le, data.sa] ]
-			],
-			signetTable: {
-				exclusive: {
-					[data.start]: [
-						'Absoluteness'
-					],
-					[data.first]: [
-						'Legacy'
-					],
-					[data.optional]: [
-						'Oneiromancy'
-					],
-					[data.no]: [
-						'Forms',
-						'Thousand Thoughts'
-					]
-				},
-				main: {
-					[data.mobius.name]: [
-						data.mobius.regular.dmgEntity,
-						data.mobius.regular.dmgTotal,
-						data.mobius.regular.vuln,
-						data.mobius.nexus2.name,
-						data.mobius.nexus2.vuln,
-						data.mobius.nexus2.dmgPhysEle,
-						data.mobius.nexus2.extend
-					]
-				},
-				secondary: {
-					[data.su.name]: [
-						data.su.regular.vuln,
-						data.su.regular.dmgTotal,
-						data.su.regular.spRestore,
-						data.su.nexus1.name,
-						data.su.nexus1.vuln,
-						data.su.nexus1.breachPhysEle
-					],
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name
-					],
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.regular.dmgRanged,
-						data.vv.nexus1.name
-					]
-				},
-				optional: {
-					[data.eden.name]: [
-						data.eden.regular.dmgTotal,
-						data.eden.regular.dmgPhysEle,
-						data.eden.regular.spCapInitial
-					]
-				}
-			},
-			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, <span>${data.griseo.regular.yellow}</span>, and <span>${data.griseo.regular.black}</span>, or Kalpas's signet <span>${data.kalpas.regular.vuln}</span> as reinforcement.`
+			}
 		}
 	]
 };
@@ -804,17 +706,17 @@ const dw: Guide = {
 const eden: Guide = {
 	name: 'Golden Diva',
 	acr: 'eden',
-	version: '6.4',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][1],
-				data.buffs[3][2],
-				data.buffs[3][3]
+				data.buffs[0][3],
+				data.buffs[3][6],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
-					[data.aponia, '2'],
+					[data.eden, '1'],
 					[data.kosma, '1']
 				],
 				secondary: [
@@ -824,13 +726,13 @@ const eden: Guide = {
 				]
 			},
 			emblem: [
-				[data.veilOfTears, data.theLonelyMoon],
-				[data.fragileFriend, data.theLonelyMoon],
-				[data.tinFlask, data.dreamfulGold]
+				[data.goldGoblet, data.dreamfulGold],
+				[data.fragileFriend, data.outOfReach],
+				[data.keyToTheDeep, data.outOfReach]
 			],
 			support: [
 				[ [data.le], [data.ae, data.bke] ],
-				[ [data.ae], [data.br] ]
+				[ [data.le], [data.br, data.rc] ]
 			],
 			gear: [
 				[data.doin, data.hant, data.hanm, data.hanb],
@@ -842,29 +744,30 @@ const eden: Guide = {
 						'Arioso',
 						'Symphony'
 					],
-					[data.optional]: [
-						'Fugue'
-					],
 					[data.no]: [
 						'Cadenza',
-						'Conerto'
+						'Conerto',
+						'Fugue'
 					]
 				},
 				main: {
-					[data.aponia.name]: [
-						data.aponia.regular.basicAtk,
-						data.aponia.regular.dmgReduc,
-						data.aponia.regular.spRestore,
-						data.aponia.nexus2.name,
-						data.aponia.nexus2.dmgPhysEle,
-						data.aponia.nexus2.breachPhysEle,
-						data.aponia.nexus2.vuln
+					[data.eden.name]: [
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.dmgTotal,
+						data.eden.regular.spRestore,
+						data.eden.nexus1.name,
+						data.eden.nexus1.spRestore,
+						data.eden.nexus1.vuln
 					],
 					[data.kosma.name]: [
 						data.kosma.regular.extend,
 						data.kosma.regular.ult,
 						data.kosma.regular.atk,
-						data.kosma.nexus1.name
+						data.kosma.regular.dmgShield,
+						data.kosma.regular.spRestore,
+						data.kosma.nexus1.name,
+						data.kosma.nexus1.breachPhysEle,
+						data.kosma.nexus1.dmgPhysEle
 					]
 				},
 				secondary: {
@@ -873,24 +776,22 @@ const eden: Guide = {
 						data.kalpas.regular.dmgPhysEle,
 						data.kalpas.regular.vuln,
 						data.kalpas.regular.hp,
-						data.kalpas.nexus2.name,
-						data.kalpas.nexus2.breachPhysEle
+						data.kalpas.nexus2.name
 					],
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.spHpCap,
 						data.pardofelis.nexus1.name
 					],
 					[data.griseo.name]: [
 						data.griseo.regular.grey,
 						data.griseo.regular.red,
-						data.griseo.regular.yellow
+						data.griseo.regular.yellow,
+						data.griseo.nexus1.name
 					]
 				}
 			},
-			notes: `Can pick Su's signets <span>${data.su.regular.combo25}</span>, <span>${data.su.regular.combo60}</span>, and <span>${data.su.regular.vuln}</span> as reinforcement.<br><br>
-					<p>${data.aponia.nexus2.breachPhysEle}</p>Priority.`
+			notes: `Can pick Aponias's nexus <span>${data.aponia.nexus2.name}</span> as reinforcement.`
 		}
 	]
 };
@@ -1102,17 +1003,17 @@ const fr: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][7]
+				data.buffs[1][8],
+				data.buffs[2][10],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
 					[data.aponia, '2'],
-					[data.kevin, '1'],
-					[data.su, '1']
+					[data.kevin, '1']
 				],
 				secondary: [
+					[data.su, '1'],
 					[data.griseo, '1']
 				],
 				optional: [
@@ -1121,12 +1022,12 @@ const fr: Guide = {
 			},
 			emblem: [
 				[data.veilOfTears, data.becauseOfYou],
-				[data.burden, data.itWillBeWritten],
-				[data.heavyAsAMillionLives, data.dreamfulGold]
+				[data.burden, data.dreamfulGold],
+				[data.ruinedLegacy, data.dreamfulGold]
 			],
 			support: [
-				[ [data.le], [data.ae, data.bke] ],
-				[ [data.ae], [data.rc] ]
+				[ [data.le], [data.bke] ],
+				[ [data.ae], [data.br] ]
 			],
 			gear: [
 				[data.irhe, data.hant, data.hanm, data.hanb],
@@ -1163,23 +1064,24 @@ const fr: Guide = {
 						data.kevin.regular.dmgTotal,
 						data.kevin.regular.dmgEle,
 						data.kevin.regular.spRestore,
-						data.kevin.nexus1.name
-					],
+						data.kevin.nexus1.name,
+						data.kevin.nexus1.effect
+					]
+				},
+				secondary: {
 					[data.su.name]: [
 						data.su.regular.dmgTotal,
 						data.su.regular.vuln,
 						data.su.regular.combo25,
 						data.su.regular.combo60,
+						data.su.regular.spRestore,
 						data.su.nexus1.name,
 						data.su.nexus1.vuln
-					]
-				},
-				secondary: {
+					],
 					[data.griseo.name]: [
 						data.griseo.regular.grey,
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
-						data.griseo.regular.black,
 						data.griseo.nexus1.name
 					]
 				},
@@ -1187,12 +1089,12 @@ const fr: Guide = {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.spHpRestore,
 						data.pardofelis.nexus1.name
 					]
 				}
 			},
-			notes: `Can pick Eden's sigent <span>${data.eden.regular.spCapInitial}</span> as reinforcement.`
+			notes: `Can pick Eden's sigent <span>${data.eden.regular.spCapInitial}</span> to speed up rotations.<br><br>
+					<p>${data.kevin.regular.breachEle}</p>Upgrade to max.`
 		}
 	]
 };
@@ -1385,9 +1287,9 @@ const griseo: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][7]
+				data.buffs[1][8],
+				data.buffs[2][10],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
@@ -1396,10 +1298,10 @@ const griseo: Guide = {
 				],
 				secondary: [
 					[data.mobius, '1'],
-					[data.pardofelis, '1']
+					[data.griseo, '1']
 				],
 				optional: [
-					[data.griseo, '1']
+					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
@@ -1421,7 +1323,7 @@ const griseo: Guide = {
 						'River Forest',
 						'Starry Night'
 					],
-					[data.optional]: [
+					[data.first]: [
 						'Cloud Valley'
 					],
 					[data.no]: [
@@ -1438,7 +1340,7 @@ const griseo: Guide = {
 						data.kosma.regular.extend,
 						data.kosma.nexus1.name,
 						data.kosma.nexus1.breachPhysEle,
-						data.kosma.nexus1.dmgShield,
+						data.kosma.nexus1.dmgPhysEle,
 						data.kosma.nexus1.vuln
 					],
 					[data.kalpas.name]: [
@@ -1460,22 +1362,22 @@ const griseo: Guide = {
 						data.mobius.nexus1.dmgTotal,
 						data.mobius.nexus1.breachPhysEle
 					],
+					[data.griseo.name]: [
+						data.griseo.regular.black,
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.nexus1.name
+					]
+				},
+				optional: {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.spHpCap,
 						data.pardofelis.nexus1.name
 					]
-				},
-				optional: {
-					[data.griseo.name]: [
-						data.griseo.regular.grey,
-						data.griseo.regular.red,
-						data.griseo.regular.yellow
-					]
 				}
-			},
-			notes: 'Buy Griseo signets from shop.'
+			}
 		}
 	]
 };
@@ -1487,30 +1389,30 @@ const hofi: Guide = {
 	builds: [
 		{
 			buff: [
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][6]
+				data.buffs[0][3],
+				data.buffs[3][6],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
 					[data.aponia, '2'],
-					[data.kevin, '1']
+					[data.griseo, '1']
 				],
 				secondary: [
-					[data.pardofelis, '1'],
-					[data.kalpas, '2']
+					[data.kevin, '1'],
+					[data.pardofelis, '1']
 				],
 				optional: [
-					[data.griseo, '1']
+					[data.kalpas, '2']
 				]
 			},
 			emblem: [
 				[data.veilOfTears, data.becauseOfYou],
-				[data.burden, data.itWillBeWritten],
-				[data.keyToTheDeep, data.dreamfulGold]
+				[data.rainbowOfAbsence, data.dreamfulGold],
+				[data.tinFlask, data.dreamfulGold]
 			],
 			support: [
-				[ [data.br], [data.le, data.vke] ],
+				[ [data.ae], [data.vke] ],
 				[ [data.br], [data.ae, data.rc] ]
 			],
 			signetTable: {
@@ -1539,38 +1441,37 @@ const hofi: Guide = {
 						data.aponia.nexus2.vuln,
 						data.aponia.nexus2.breachPhysEle
 					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					]
+				},
+				secondary: {
 					[data.kevin.name]: [
 						data.kevin.regular.breachEle,
 						data.kevin.regular.dmgEle,
 						data.kevin.regular.dmgTotal,
-						data.kevin.regular.spRestore,
 						data.kevin.nexus1.name
-					]
-				},
-				secondary: {
+					],
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name,
-						data.pardofelis.nexus1.evasion,
-						data.pardofelis.nexus1.ult
-					],
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
 					[data.kalpas.name]: [
 						data.kalpas.regular.dmgTotal,
 						data.kalpas.regular.dmgPhysEle,
 						data.kalpas.regular.hp,
 						data.kalpas.nexus2.name
 					]
-				},
-				optional: {
-					[data.griseo.name]: [
-						data.griseo.regular.red,
-						data.griseo.regular.yellow
-					]
 				}
 			},
-			notes: `Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, and <span>${data.vv.regular.dmgTotal}</span>, or Eden's signet <span>${data.eden.regular.spCapInitial}</span> as reinforcement.`
+			notes: `Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, and <span>${data.vv.regular.dmgTotal}</span>, or Kosma's signet <span>${data.kosma.regular.ult}</span>, and <span>${data.kosma.regular.dmgShield}</span> as reinforcement.`
 		}
 	]
 };
@@ -1684,21 +1585,20 @@ const hoh: Guide = {
 			buff: [
 				data.buffs[0][3],
 				data.buffs[1][4],
-				data.buffs[1][7],
-				data.buffs[2][7],
-				data.buffs[2][8]
+				data.buffs[2][10],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
-					[data.kalpas, '1'],
-					[data.pardofelis, '1']
+					[data.kalpas, '1']
 				],
 				secondary: [
-					[data.kevin, '2']
+					[data.pardofelis, '1'],
+					[data.griseo, '1']
 				],
 				optional: [
-					[data.griseo, '1'],
-					[data.vv, '1']
+					[data.vv, '1'],
+					[data.kosma, '2']
 				]
 			},
 			emblem: [
@@ -1707,7 +1607,7 @@ const hoh: Guide = {
 				[data.tinFlask, data.dreamfulGold]
 			],
 			support: [
-				[ [data.br], [data.bke] ],
+				[ [data.hb], [data.bke] ],
 				[ [data.br], [data.ae, data.rc] ]
 			],
 			gear: [
@@ -1720,7 +1620,7 @@ const hoh: Guide = {
 						'First Bloom',
 						'First Journey'
 					],
-					[data.optional]: [
+					[data.second]: [
 						'First Awakening'
 					],
 					[data.no]: [
@@ -1735,7 +1635,9 @@ const hoh: Guide = {
 						data.kalpas.regular.hp,
 						data.kalpas.nexus1.name,
 						data.kalpas.nexus1.fire
-					],
+					]
+				},
+				secondary: {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.dmgPhysEle,
@@ -1744,32 +1646,29 @@ const hoh: Guide = {
 						data.pardofelis.nexus1.name,
 						data.pardofelis.nexus1.breachPhysEle,
 						data.pardofelis.nexus1.ult
-					]
-				},
-				secondary: {
-					[data.kevin.name]: [
-						data.kevin.regular.breachEle,
-						data.kevin.regular.dmgEle,
-						data.kevin.regular.dmgTotal,
-						data.kevin.nexus2.name
-					]
-				},
-				optional: {
+					],
 					[data.griseo.name]: [
 						data.griseo.regular.black,
 						data.griseo.regular.red,
-						data.griseo.regular.yellow
-					],
+						data.griseo.regular.yellow,
+						data.griseo.nexus1.name
+					]
+				},
+				optional: {
 					[data.vv.name]: [
 						data.vv.regular.vuln,
 						data.vv.regular.dmgTotal,
 						data.vv.regular.dmgRanged,
 						data.vv.nexus1.name
+					],
+					[data.kosma.name]: [
+						data.kosma.regular.ult,
+						data.kosma.regular.evasion,
+						data.kosma.regular.dmgShield
 					]
 				}
 			},
-			notes: `Can pick Sakura's signet <span>${data.sakura.regular.vuln}</span>, and <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.<br><br>
-					Buy Griseo Signets from shop.`
+			notes: `Can pick Sakura's signet <span>${data.sakura.regular.vuln}</span>, and <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.`
 		}
 	]
 };
@@ -1783,8 +1682,8 @@ const hoo: Guide = {
 			buff: [
 				data.buffs[0][3],
 				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][7]
+				data.buffs[2][9],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
@@ -1844,20 +1743,19 @@ const hoo: Guide = {
 					]
 				},
 				secondary: {
-
 					[data.vv.name]: [
 						data.vv.regular.vuln,
 						data.vv.regular.dmgTotal,
 						data.vv.regular.dmgPhysEle,
 						data.vv.nexus2.name,
-						data.vv.nexus2.breachPhysEle,
 						data.vv.nexus2.vuln
 					],
 					[data.griseo.name]: [
 						data.griseo.regular.black,
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
-						data.griseo.regular.grey
+						data.griseo.regular.grey,
+						data.griseo.nexus1.name
 					]
 				},
 				optional: {
@@ -1883,9 +1781,9 @@ const hor: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][6]
+				data.buffs[1][8],
+				data.buffs[2][10],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
@@ -1902,12 +1800,12 @@ const hor: Guide = {
 			},
 			emblem: [
 				[data.burden, data.itWillBeWritten],
-				[data.lightAsABodhiLeaf, data.becauseOfYou],
-				[data.stainedSakura, data.dreamfulGold]
+				[data.forgetMeNot, data.becauseOfYou],
+				[data.heavyAsAMillionLives, data.dreamfulGold]
 			],
 			support: [
-				[ [data.le], [data.bke] ],
-				[ [data.ae], [data.le, data.br] ]
+				[ [data.ae], [data.le, data.bke] ],
+				[ [data.br], [data.ae, data.rc] ]
 			],
 			gear: [
 				[data.sted, data.wilt, data.wilm, data.wilb],
@@ -1918,8 +1816,10 @@ const hor: Guide = {
 					[data.start]: [
 						'Wisdon'
 					],
+					[data.first]: [
+						'Truth'
+					],
 					[data.second]: [
-						'Truth',
 						'Inspiration'
 					],
 					[data.no]: [
@@ -2077,28 +1977,36 @@ const hos: Guide = {
 const hov: Guide = {
 	name: 'Herrscher of the Void',
 	acr: 'hov',
-	version: '6.1',
+	version: '6.6',
 	builds: [
 		{
+			buff: [
+				data.buffs[0][3],
+				data.buffs[1][3],
+				data.buffs[2][9],
+				data.buffs[3][6]
+			],
 			signet: {
 				main: [
-					[data.vv, '2'],
-					[data.sakura, '1'],
-					[data.hua, '2']
+					[data.vv, '1'],
+					[data.mobius, '1']
 				],
 				secondary: [
-					[data.griseo, '1'],
-					[data.mobius, '1']
+					[data.sakura, '1'],
+					[data.eden, '1']
+				],
+				optional:  [
+					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
 				[data.psuedoMiracle, data.fallingInPastLight],
-				[data.forgetMeNot, data.boundlessLogos],
-				[data.stainedSakura, data.boundlessLogos]
+				[data.forbiddenSeed, data.boundlessLogos],
+				[data.farawayShip, data.dreamfulGold]
 			],
 			support: [
 				[ [data.ss], [data.bke] ],
-				[ [data.ss], [data.vc] ]
+				[ [data.ss], [data.vc, data.br] ]
 			],
 			gear: [
 				[data.dovo, data.sirt, data.sirm, data.sirb],
@@ -2109,56 +2017,61 @@ const hov: Guide = {
 					[data.start]: [
 						'Innateness'
 					],
-					[data.second]: [
+					[data.first]: [
 						'Coleus'
 					],
-					[data.reinforcement]: [
-						'Annihilation',
-						'Virtuality'
-					],
 					[data.no]: [
-						'Law'
+						'Annihilation',
+						'Law',
+						'Virtuality'
 					]
 				},
 				main: {
 					[data.vv.name]: [
-						data.vv.regular.dmgWeap,
 						data.vv.regular.vuln,
 						data.vv.regular.dmgTotal,
-						data.vv.nexus2.name,
-						data.vv.nexus2.breachPhysEle,
-						data.vv.nexus2.vuln,
-						data.vv.nexus2.gravField
-					],
-					[data.sakura.name]: [
-						data.sakura.regular.evasionAdd,
-						data.sakura.regular.vuln,
-						data.sakura.nexus1.name
-					],
-					[data.hua.name]: [
-						data.hua.regular.dmgPhys,
-						data.hua.regular.dmgTotal,
-						data.hua.regular.breachPhys,
-						data.hua.nexus2.name
-					]
-				},
-				secondary: {
-					[data.griseo.name]: [
-						data.griseo.regular.black,
-						data.griseo.regular.red
+						data.vv.regular.dmgRanged,
+						data.vv.nexus1.name,
+						data.vv.nexus1.blades,
+						data.vv.nexus1.breachPhys,
+						data.vv.nexus1.dmgShield
 					],
 					[data.mobius.name]: [
 						data.mobius.regular.vuln,
 						data.mobius.regular.dmgEntity,
 						data.mobius.regular.dmgTotal,
 						data.mobius.nexus1.name,
-						data.mobius.nexus1.dmgTotal
+						data.mobius.nexus1.dmgTotal,
+						data.mobius.nexus1.reduce
+					]
+				},
+				secondary: {
+					[data.sakura.name]: [
+						data.sakura.regular.evasionAdd,
+						data.sakura.regular.vuln,
+						data.sakura.regular.spRestore,
+						data.sakura.nexus1.name
+					],
+					[data.eden.name]: [
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.dmgTotal,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name,
+						data.eden.nexus1.lightning,
+						data.eden.nexus1.vuln
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
 					]
 				}
 			},
-			notes: `<p>${data.vv.nexus2.breachPhysEle}, ${data.vv.nexus2.vuln}</p>Priority.<br><br>
-					<p>Griseo</p>Can buy her signets in shop.<br><br>
-					<p>Mobius</p>Can buy Su, Kalpas, and Eden signets from shop as further reinforcement.`
+			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span> (buy from shop), and <span>${data.griseo.regular.black}</span> as reinforcement.<br><br>
+					<p>${data.vv.nexus1.breachPhys}</p>Priority.`
 		}
 	]
 };
@@ -2448,35 +2361,36 @@ const lk: Guide = {
 const mobius: Guide = {
 	name: 'Infinite Ouroboros',
 	acr: 'mobius',
-	version: '6.5',
+	version: '6.6',
 	builds: [
 		{
 			buff: [
-				data.buffs[1][6],
-				data.buffs[2][7],
-				data.buffs[3][4]
+				data.buffs[0][3],
+				data.buffs[1][8],
+				data.buffs[2][9],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
-					[data.mobius, '1'],
-					[data.hua, '2'],
-					[data.griseo, '2']
+					[data.mobius, '1']
 				],
 				secondary: [
-					[data.kalpas, '2']
+					[data.griseo, '1'],
+					[data.kosma, '1'],
+					[data.kalpas, '1']
 				],
 				optional: [
-					[data.sakura, '1']
+					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
 				[data.forbiddenSeed, data.boundlessLogos],
-				[data.memory, data.boundlessLogos],
+				[data.rainbowOfAbsence, data.boundlessLogos],
 				[data.ruinedLegacy, data.boundlessLogos]
 			],
 			support: [
-				[ [data.le], [data.ae, data.bke] ],
-				[ [data.ae], [data.br] ]
+				[ [data.ae], [data.le, data.bke] ],
+				[ [data.br], [data.ae, data.rc] ]
 			],
 			gear: [
 				[data.baim, data.lint, data.linm, data.linb],
@@ -2488,7 +2402,7 @@ const mobius: Guide = {
 						'Ascension',
 						'Ill Fortune'
 					],
-					[data.second]: [
+					[data.first]: [
 						'Dark Assault'
 					],
 					[data.optional]: [
@@ -2501,41 +2415,48 @@ const mobius: Guide = {
 						data.mobius.regular.vuln,
 						data.mobius.regular.dmgEntity,
 						data.mobius.regular.dmgTotal,
-						data.mobius.nexus1.name
-					],
-					[data.hua.name]: [
-						data.hua.regular.breachEle,
-						data.hua.regular.dmgEle,
-						data.hua.regular.dmgTotal,
-						data.hua.nexus1.name
-					],
+						data.mobius.nexus1.name,
+						data.mobius.nexus1.dmgTotal,
+						data.mobius.nexus1.breachPhysEle,
+						data.mobius.nexus1.reduce
+					]
+				},
+				secondary: {
 					[data.griseo.name]: [
 						data.griseo.regular.blue,
 						data.griseo.regular.grey,
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
-						data.griseo.regular.white,
-						data.griseo.nexus2.name,
-						data.griseo.nexus2.orange,
-						data.griseo.nexus2.green,
-						data.griseo.nexus2.purple
-					]
-				},
-				secondary: {
+						data.griseo.nexus1.name,
+						data.griseo.nexus1.purple,
+						data.griseo.nexus1.orange,
+						data.griseo.nexus1.green
+					],
+					[data.kosma.name]: [
+						data.kosma.regular.atk,
+						data.kosma.regular.evasion,
+						data.kosma.regular.ult,
+						data.kosma.regular.dmgShield,
+						data.kosma.nexus1.name
+					],
 					[data.kalpas.name]: [
 						data.kalpas.regular.dmgTotal,
-						data.kalpas.regular.dmgPhysEle
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name
 					]
 				},
 				optional: {
-					[data.sakura.name]: [
-						data.sakura.regular.dmgTotal,
-						data.sakura.regular.evasionAdd,
-						data.sakura.regular.vuln
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
 					]
 				}
 			},
-			notes: `Can pick Eden's signet <span>${data.eden.regular.spCapInitial}</span> to speed up rotations.`
+			notes: `Can pick Eden's signet <span>${data.eden.regular.spCapInitial}</span> to speed up rotations, and Sakura's signets <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.eden.regular.vuln}</span> as reinforcement.`
 		}
 	]
 };
@@ -2639,32 +2560,32 @@ const pardo: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
+				data.buffs[1][8],
+				data.buffs[2][10],
 				data.buffs[3][6]
 			],
 			signet: {
 				main: [
-					[data.vv, '2']
+					[data.eden, '1']
 				],
 				secondary: [
-					[data.kosma, '1'],
-					[data.aponia, '1'],
 					[data.su, '1'],
-					[data.pardofelis, '1']
+					[data.pardofelis, '1'],
+					[data.kalpas, '1'],
+					[data.griseo, '1']
 				]
 			},
 			emblem: [
-				[data.psuedoMiracle, data.fallingInPastLight],
-				[data.veilOfTears, data.outOfReach],
+				[data.goldGoblet, data.dreamfulGold],
+				[data.lightAsABodhiLeaf, data.fallingInPastLight],
 				[data.heavyAsAMillionLives, data.dreamfulGold]
 			],
 			support: [
-				[ [data.br], [data.bke] ],
-				[ [data.ae], [data.br] ]
+				[ [data.vc], [data.bke] ],
+				[ [data.br], [data.ae, data.vc] ]
 			],
 			gear: [
-				[data.puph, data.brot, data.welm, data.brob],
+				[data.puph, data.brot, data.wilm, data.brob],
 				[data.hawp, data.bast, data.basm, data.basb]
 			],
 			signetTable: {
@@ -2680,47 +2601,54 @@ const pardo: Guide = {
 					]
 				},
 				main: {
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.nexus2.name,
-						data.vv.nexus2.breachPhysEle,
-						data.vv.nexus2.vuln,
-						data.vv.nexus2.gravField
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.regular.spRestore,
+						data.eden.nexus1.name
 					]
 				},
 				secondary: {
-					[data.kosma.name]: [
-						data.kosma.regular.ult,
-						data.kosma.regular.atk,
-						data.kosma.regular.dmgShield,
-						data.kosma.regular.extend,
-						data.kosma.nexus1.name
-					],
-					[data.aponia.name]: [
-						data.aponia.regular.basicAtk,
-						data.aponia.regular.dmgPhysEle,
-						data.aponia.regular.vuln,
-						data.aponia.regular.dmgTotal,
-						data.aponia.nexus1.name
-					],
 					[data.su.name]: [
 						data.su.regular.vuln,
 						data.su.regular.dmgTotal,
 						data.su.regular.spRestore,
 						data.su.regular.combo25,
-						data.su.regular.combo60
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.breachPhysEle,
+						data.su.nexus1.dmgShield
 					],
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.nexus1.name
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.regular.curr,
+						data.pardofelis.nexus1.name,
+						data.pardofelis.nexus1.ult,
+						data.pardofelis.nexus1.breachPhysEle
+					],
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.black,
+						data.griseo.regular.yellow,
+						data.griseo.regular.grey
 					]
 				}
 			},
-			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span>, or Eden's signets <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.dmgTotal}</span> as reinforcements.<br><br>
+			notes: `Can pick Vill-V's signets <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.vuln}</span>, or Kosma's signets <span>${data.kosma.regular.ult}</span>, and <span>${data.kosma.regular.dmgShield}</span> as reinforcements.<br><br>
 					<p>Blessing of the Tailpiece</p>1st if Infinity signets +2.<br><br>
-					<p>${data.vv.nexus2.breachPhysEle}</p>Priority.`
+					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
 };
@@ -3270,9 +3198,8 @@ const sus: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][6]
+				data.buffs[3][6],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
@@ -3290,7 +3217,7 @@ const sus: Guide = {
 			emblem: [
 				[data.fragileFriend, data.outOfReach],
 				[data.madKingsMask, data.outOfReach],
-				[data.keyToTheDeep, data.dreamfulGold]
+				[data.tinFlask, data.dreamfulGold]
 			],
 			support: [
 				[ [data.le], [data.bke] ],
@@ -3305,7 +3232,7 @@ const sus: Guide = {
 					[data.start]: [
 						'Great Blade'
 					],
-					[data.first]: [
+					[data.second]: [
 						'Cloudwalker'
 					],
 					[data.no]: [
@@ -3371,7 +3298,7 @@ const sk: Guide = {
 			buff: [
 				data.buffs[0][3],
 				data.buffs[3][6],
-				data.buffs[3][7]
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
@@ -3383,16 +3310,16 @@ const sk: Guide = {
 					[data.kalpas, '1']
 				],
 				optional: [
-					[data.pardofelis, '1']
+					[data.eden, '2']
 				]
 			},
 			emblem: [
 				[data.fragileFriend, data.outOfReach],
 				[data.memory, data.outOfReach],
-				[data.heavyAsAMillionLives, data.dreamfulGold]
+				[data.keyToTheDeep, data.outOfReach]
 			],
 			support: [
-				[ [data.ae], [data.fr] ],
+				[ [data.br], [data.bke] ],
 				[ [data.br], [data.ae, data.rc] ]
 			],
 			gear: [
@@ -3420,7 +3347,7 @@ const sk: Guide = {
 						data.kosma.regular.extend,
 						data.kosma.nexus1.name,
 						data.kosma.nexus1.breachPhysEle,
-						data.kosma.nexus1.dmgShield,
+						data.kosma.nexus1.dmgPhysEle,
 						data.kosma.nexus1.vuln
 					]
 				},
@@ -3433,7 +3360,6 @@ const sk: Guide = {
 					],
 					[data.su.name]: [
 						data.su.regular.vuln,
-						data.su.regular.dmgTotal,
 						data.su.regular.spRestore,
 						data.su.regular.combo25,
 						data.su.regular.combo60,
@@ -3448,16 +3374,13 @@ const sk: Guide = {
 					]
 				},
 				optional: {
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle
 					]
 				}
 			},
-			notes: `Can pick Griseo's signet <span>${data.griseo.regular.red}</span>, Sakura's signets <span>${data.sakura.regular.vuln}</span>, and <span>${data.sakura.regular.dmgTotal}</span>, or Eden's signets <span>${data.eden.regular.dmgTotal}</span>, Eden's signet <span>${data.eden.regular.dmgPhys}</span> as reinforcement.<br><br>
-					<p>${data.kosma.nexus1.breachPhysEle}</p>Priority.`
+			notes: `Can pick Griseo's signet <span>${data.griseo.regular.red}</span> as reinforcement.`
 		}
 	]
 };
@@ -3569,31 +3492,30 @@ const ta: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][6]
+				data.buffs[3][6],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
-					[data.kalpas, '1']
-				],
-				secondary: [
-					[data.kevin, '1'],
-					[data.pardofelis, '1'],
 					[data.vv, '1']
 				],
-				optional: [
+				secondary: [
+					[data.eden, '2'],
 					[data.griseo, '1']
+				],
+				optional: [
+					[data.pardofelis, '1'],
+					[data.kalpas, '1']
 				]
 			},
 			emblem: [
-				[data.madKingsMask, data.fallingInPastLight],
-				[data.burden, data.fallingInPastLight],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.goldGoblet, data.dreamfulGold],
 				[data.farawayShip, data.dreamfulGold]
 			],
 			support: [
-				[ [data.br], [data.bke] ],
-				[ [data.br], [data.ss, data.sa] ]
+				[ [data.ss], [data.bke] ],
+				[ [data.ss], [data.sa] ]
 			],
 			signetTable: {
 				exclusive: {
@@ -3612,46 +3534,42 @@ const ta: Guide = {
 					]
 				},
 				main: {
-					[data.kalpas.name]: [
-						data.kalpas.regular.dmgTotal,
-						data.kalpas.regular.dmgPhysEle,
-						data.kalpas.regular.vuln,
-						data.kalpas.regular.hp,
-						data.kalpas.nexus1.name,
-						data.kalpas.nexus1.dmgBonus
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.spRestore,
+						data.vv.nexus1.name,
+						data.vv.nexus1.blades,
+						data.vv.nexus1.breachPhys
 					]
 				},
 				secondary: {
-					[data.kevin.name]: [
-						data.kevin.regular.breachPhys,
-						data.kevin.regular.dmgTotal,
-						data.kevin.regular.dmgPhys,
-						data.kevin.nexus1.name,
-						data.kevin.nexus1.effect,
-						data.kevin.nexus1.dur
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus2.name
 					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					]
+				},
+				optional: {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.spHpCap,
 						data.pardofelis.nexus1.name
 					],
-					[data.vv.name]: [
-						data.vv.regular.dmgWeap,
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.nexus1.name
-					]
-				},
-				optional: {
-					[data.griseo.name]: [
-						data.griseo.regular.red,
-						data.griseo.regular.yellow,
-						data.griseo.regular.black
+					[data.kalpas.name]: [
+						data.kalpas.regular.vuln
 					]
 				}
 			},
-			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span> and <span>${data.eden.regular.dmgTotal}</span> as reinforcement.`
+			notes: `<p>Eden</p>Can pick Nexus 2 signet <span>${data.eden.nexus2.name}</span>.`
 		}
 	]
 };
@@ -3937,31 +3855,30 @@ const villv: Guide = {
 	builds: [
 		{
 			buff: [
-				data.buffs[0][1],
-				data.buffs[1][5],
-				data.buffs[1][6],
-				data.buffs[2][6],
-				data.buffs[2][7]
+				data.buffs[0][3],
+				data.buffs[1][8],
+				data.buffs[3][9],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
-					[data.griseo, '2'],
-					[data.vv, '2']
+					[data.vv, '2'],
+					[data.griseo, '1']
 				],
 				secondary: [
 					[data.mobius, '1'],
-					[data.pardofelis, '1'],
+					[data.kosma, '1'],
 					[data.su, '2']
 				]
 			},
 			emblem: [
-				[data.rainbowOfAbsence, data.theLonelyMoon],
-				[data.psuedoMiracle, data.theLonelyMoon],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.rainbowOfAbsence, data.fallingInPastLight],
 				[data.tinFlask, data.fallingInPastLight]
 			],
 			support: [
-				[ [data.ae], [data.vc, data.vke] ],
-				[ [data.ma], [data.ae, data.vke] ]
+				[ [data.ae], [data.br, data.vc] ],
+				[ [data.ma], [data.ae, data.br] ]
 			],
 			gear: [
 				[data.topa, data.cart, data.carm, data.carb],
@@ -3973,7 +3890,7 @@ const villv: Guide = {
 						'Facade',
 						'Sleight'
 					],
-					[data.reinforcement]: [
+					[data.optional]: [
 						'Reversal'
 					],
 					[data.no]: [
@@ -3982,23 +3899,20 @@ const villv: Guide = {
 					]
 				},
 				main: {
-					[data.griseo.name]: [
-						data.griseo.regular.black,
-						data.griseo.regular.blue,
-						data.griseo.regular.red,
-						data.griseo.regular.yellow,
-						data.griseo.nexus2.name,
-						data.griseo.nexus2.orange,
-						data.griseo.nexus2.green,
-						data.griseo.nexus2.purple
-					],
 					[data.vv.name]: [
 						data.vv.regular.vuln,
 						data.vv.regular.dmgTotal,
 						data.vv.regular.dmgRanged,
 						data.vv.nexus2.name,
 						data.vv.nexus2.breachPhysEle,
-						data.vv.nexus2.vuln
+						data.vv.nexus2.vuln,
+						data.vv.nexus2.gravField
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.black,
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.nexus1.name
 					]
 				},
 				secondary: {
@@ -4007,21 +3921,22 @@ const villv: Guide = {
 						data.mobius.regular.dmgEntity,
 						data.mobius.regular.dmgTotal,
 						data.mobius.nexus1.name,
-						data.mobius.nexus1.dmgTotal
+						data.mobius.nexus1.dmgTotal,
+						data.mobius.nexus1.breachPhysEle
 					],
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.nexus1.name
+					[data.kosma.name]: [
+						data.kosma.regular.ult,
+						data.kosma.regular.evasion,
+						data.kosma.regular.dmgShield
 					],
 					[data.su.name]: [
 						data.su.regular.vuln,
-						data.su.regular.combo60,
+						data.su.regular.combo25,
 						data.su.regular.dmgTotal
 					]
 				}
 			},
-			notes: `Can buy Sakura's signet <span>${data.sakura.regular.vuln}</span>, or Kalpas's signet <span>${data.kalpas.regular.vuln}</span> as reinforcement.`
+			notes: `Can buy Sakura's signet <span>${data.sakura.regular.dmgTotal}</span>, or Eden's signets <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.dmgTotal}</span> as reinforcement.`
 		}
 	]
 };
@@ -4034,31 +3949,31 @@ const vq: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
+				data.buffs[1][8],
+				data.buffs[2][10],
 				data.buffs[3][6]
 			],
 			signet: {
 				main: [
-					[data.kosma, '1']
+					[data.vv, '1'],
+					[data.eden, '1']
 				],
 				secondary: [
-					[data.kalpas, '1'],
-					[data.vv, '1'],
-					[data.griseo, '1']
+					[data.kalpas, '1']
 				],
 				optional: [
+					[data.griseo, '1'],
 					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
-				[data.fragileFriend, data.outOfReach],
-				[data.madKingsMask, data.outOfReach],
-				[data.farawayShip, data.outOfReach]
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.goldGoblet, data.fallingInPastLight],
+				[data.farawayShip, data.dreamfulGold]
 			],
 			support: [
-				[ [data.ss], [data.bke] ],
-				[ [data.br], [data.ss, data.sa] ]
+				[ [data.sa], [data.bke] ],
+				[ [data.ss], [data.br, data.sa] ]
 			],
 			signetTable: {
 				exclusive: {
@@ -4068,7 +3983,7 @@ const vq: Guide = {
 					[data.first]: [
 						'Luster'
 					],
-					[data.optional]: [
+					[data.second]: [
 						'Rarities'
 					],
 					[data.no]: [
@@ -4077,13 +3992,21 @@ const vq: Guide = {
 					]
 				},
 				main: {
-					[data.kosma.name]: [
-						data.kosma.regular.atk,
-						data.kosma.regular.evasion,
-						data.kosma.regular.ult,
-						data.kosma.regular.dmgShield,
-						data.kosma.regular.extend,
-						data.kosma.nexus1.name
+					[data.vv.name]: [
+						data.vv.regular.dmgWeap,
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.spRestore,
+						data.vv.nexus1.name,
+						data.vv.nexus1.blades,
+						data.vv.nexus1.breachPhys,
+						data.vv.nexus1.dmgShield
+					],
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
 					]
 				},
 				secondary: {
@@ -4092,19 +4015,13 @@ const vq: Guide = {
 						data.kalpas.regular.dmgPhysEle,
 						data.kalpas.regular.hp,
 						data.kalpas.nexus1.name
-					],
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.nexus1.name,
-						data.vv.nexus1.dmgShield
-					],
-					[data.griseo.name]: [
-						data.griseo.regular.red,
-						data.griseo.regular.black
 					]
 				},
 				optional: {
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.black
+					],
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
@@ -4113,7 +4030,8 @@ const vq: Guide = {
 					]
 				}
 			},
-			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.dmgTotal}</span> as reinforcement.<br><br>
+			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.dmgTotal}</span>, or Kosma's siget <span>${data.kosma.regular.ult}</span> as reinforcement.<br><br>
+					<p>${data.vv.nexus1.breachPhys}</p>Priority and upgrade.<br><br>
 					<p>${data.griseo.regular.red}</p>Buy if in shop.`
 		}
 	]
@@ -4127,9 +4045,9 @@ const vkek: Guide = {
 		{
 			buff: [
 				data.buffs[0][3],
-				data.buffs[1][4],
-				data.buffs[2][8],
-				data.buffs[3][7]
+				data.buffs[1][8],
+				data.buffs[2][10],
+				data.buffs[3][8]
 			],
 			signet: {
 				main: [
@@ -4147,11 +4065,11 @@ const vkek: Guide = {
 			emblem: [
 				[data.burden, data.itWillBeWritten],
 				[data.lightAsABodhiLeaf, data.becauseOfYou],
-				[data.keyToTheDeep, data.outOfReach]
+				[data.keyToTheDeep, data.dreamfulGold]
 			],
 			support: [
 				[ [data.ae], [data.le] ],
-				[ [data.br], [data.ae, data.rc] ]
+				[ [data.ae], [data.br] ]
 			],
 			gear: [
 				[data.shur, data.ragt, data.ragm, data.ragb],
@@ -4212,12 +4130,12 @@ const vkek: Guide = {
 						data.griseo.regular.grey,
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
-						data.griseo.regular.black
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
 					]
 				}
 			},
-			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span> and <span>${data.eden.regular.dmgTotal}</span> as reinforcement.<br><br>
-					<p>${data.griseo.regular.yellow}</p>Buy from shop.`
+			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span> and <span>${data.eden.regular.dmgTotal}</span> as reinforcement.`
 		}
 	]
 };

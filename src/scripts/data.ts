@@ -257,7 +257,8 @@ export const buffs = [
 		'Weapon active vulnerability',
 		'Melee ATK for 10% TDM', //
 		'SP cap up',
-		'Max SP +30'
+		'Max SP +30',
+		'Shieldbreak 5 SP'
 	],
 	// 10
 	[
@@ -269,7 +270,9 @@ export const buffs = [
 		'Both damage boosts after ultimate evasion', //
 		'Paralyzed or bleeding TDM bonus',
 		'Different support type bonus',
-		'Shield broken vulnerability'
+		'Shield broken vulnerability',
+		'Ultimate evasion dmg boost',
+		'Melee atk TDM' //
 	],
 	// 15
 	[
@@ -280,7 +283,8 @@ export const buffs = [
 		'Combo ATK bonus',
 		'Bleed vulnerability', //
 		'Weapon type breach',
-		'Melee vulnerability'
+		'Melee vulnerability',
+		'Ult vulnerability'
 	]
 ];
 // signets
@@ -442,7 +446,7 @@ export const kosma: Signet = {
 	nexus1: {
 		name: 'Daybreak, an Undying Light (Nexus)',
 		breachPhysEle: 'Unbending Hero', // phys ele breach
-		dmgShield: 'Undetermined Judgement', // bonus dmg to broken shield
+		dmgPhysEle: 'Undetermined Judgement', // phys ele dmg
 		vuln: 'Unwavering Promise' // vuln
 	},
 	nexus2: {
@@ -561,7 +565,7 @@ export const vv: Signet = {
 	},
 	nexus1: {
 		name: 'Interlude: Reversed Spiral (Nexus)',
-		blades: 'Act VII: Half-Closed Door', // blades
+		blades: 'Act VII: Half-Closed Door', // blades/phys dmg
 		breachPhys: 'Act VIII: Adorned Chamber', // phys breach
 		dmgShield: 'Finale: Broken Truth' // bonus dmg to shield
 	},
@@ -583,8 +587,8 @@ const damageTaken: string[] = [
 	aponia.regular.dmgReduc, eden.regular.dmgReduc, hua.regular.dmgReduc, kalpas.regular.dmgReduc, mobius.regular.dmgReduc, su.regular.dmgReduc
 ];
 const physEleDamage: string[] = [
-	aponia.nexus2.dmgPhysEle, eden.regular.dmgPhysEle, griseo.regular.black, kalpas.regular.dmgPhysEle, kosma.nexus2.dmgPhysEle,
-	pardofelis.regular.dmgPhysEle, vv.regular.dmgPhysEle
+	aponia.nexus2.dmgPhysEle, eden.regular.dmgPhysEle, griseo.regular.black, kalpas.regular.dmgPhysEle, kosma.nexus1.dmgPhysEle,
+	kosma.nexus2.dmgPhysEle, pardofelis.regular.dmgPhysEle, vv.regular.dmgPhysEle
 ];
 const physDamage: string[] = [
 	hua.regular.dmgPhys, kevin.regular.dmgPhys
@@ -593,8 +597,8 @@ const eleDamage: string[] = [
 	hua.regular.dmgEle, kevin.regular.dmgEle
 ];
 const physEleBreach: string[] = [
-	aponia.nexus1.breachPhysEle, aponia.nexus2.breachPhysEle, griseo.nexus1.orange, kalpas.nexus2.breachPhysEle, kosma.nexus2.breachPhysEle,
-	pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle, su.nexus1.shieldDisable, mobius.nexus1.extend
+	aponia.nexus1.breachPhysEle, aponia.nexus2.breachPhysEle, griseo.nexus1.orange, kalpas.nexus2.breachPhysEle, kosma.nexus1.breachPhysEle,
+	kosma.nexus2.breachPhysEle, pardofelis.nexus1.breachPhysEle, vv.nexus2.breachPhysEle, su.nexus1.shieldDisable, mobius.nexus1.extend
 ];
 const physBreach: string[] = [
 	hua.regular.breachPhys, kevin.regular.breachPhys, vv.nexus1.breachPhys
@@ -603,10 +607,10 @@ const eleBreach: string[] = [
 	hua.regular.breachEle, kevin.regular.breachEle
 ];
 const vurnerability: string[] = [
-	aponia.regular.dmgTotal, aponia.nexus2.vuln, eden.nexus1.vuln, eden.nexus1.spRestore, griseo.regular.red,
+	aponia.regular.dmgTotal, aponia.nexus2.vuln, eden.nexus1.vuln, griseo.regular.red,
 	griseo.regular.yellow, kalpas.regular.vuln, kevin.nexus2.ignoreRes, mobius.regular.vuln, pardofelis.nexus2.vuln,
 	sakura.regular.vuln, su.regular.vuln, su.nexus2.vuln, vv.regular.vuln, vv.nexus2.vuln,
-	su.nexus1.enemyDmg
+	su.nexus1.enemyDmg, kosma.nexus1.vuln
 ];
 const spRecovery: string[] = [
 	aponia.regular.spRestore, eden.regular.spRestoreAtk, eden.regular.spRestore, eden.nexus1.spRestore, eden.nexus2.spCapRestore,
