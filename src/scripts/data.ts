@@ -246,7 +246,8 @@ export const buffs = [
 		'RPC-6626 weak to Ice',
 		'RPC-6626 weak to Elements',
 		'Couatl: Revenant',
-		'Huodou'
+		'Huodou',
+		'DJXY'
 	],
 	// 5
 	[
@@ -284,7 +285,8 @@ export const buffs = [
 		'Bleed vulnerability', //
 		'Weapon type breach',
 		'Melee vulnerability',
-		'Ult vulnerability'
+		'Ult vulnerability',
+		'QTE bonus'
 	]
 ];
 // signets

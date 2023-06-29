@@ -2267,6 +2267,185 @@ const hotr: Guide = {
 		}
 	]
 };
+// Shigure Kira
+const kira: Guide = {
+	name: 'Shigure Kira',
+	acr: 'kira',
+	version: '6.7',
+	builds: [
+		{
+			name: 'ult',
+			buff: [
+				data.buffs[0][4],
+				data.buffs[3][6],
+				data.buffs[3][9]
+			],
+			signet: {
+				main: [
+					[data.eden, '2'],
+					[data.kevin, '1']
+				],
+				secondary: [
+					[data.kalpas, '2'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.griseo, '2']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.becauseOfYou],
+				[data.burden, data.dreamfulGold],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.bke] ],
+				[ [data.br], [data.ae, data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Roller Dance'
+					],
+					[data.second]: [
+						'Acoustic Spectrum',
+						'Salute'
+					],
+					[data.no]: [
+						'Astral Path',
+						'Rhythm'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.regular.spRestore,
+						data.eden.nexus2.name
+					],
+					[data.kevin.name]: [
+						data.kevin.regular.dmgTotal,
+						data.kevin.regular.dmgEle,
+						data.kevin.regular.breachEle,
+						data.kevin.regular.spRestore,
+						data.kevin.nexus1.name,
+						data.kevin.nexus1.effect,
+						data.kevin.nexus1.dur
+					]
+				},
+				secondary: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.griseo.name]: [
+						data.griseo.regular.black,
+						data.griseo.regular.grey,
+						data.griseo.regular.red,
+						data.griseo.regular.yellow
+					]
+				}
+			},
+			notes: `Can pick Aponia's signet <span>${data.aponia.regular.dmgTotal}</span> as reinforcement.`
+		},
+		{
+			name: 'charge',
+			buff: [
+				data.buffs[0][4],
+				data.buffs[3][6],
+				data.buffs[3][9]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.vv, '2'],
+					[data.kalpas, '2'],
+					[data.aponia, '1'],
+					[data.griseo, '1']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.becauseOfYou],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.keyToTheDeep, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.ae], [data.bke] ],
+				[ [data.br], [data.ae, data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Roller Dance'
+					],
+					[data.second]: [
+						'Acoustic Spectrum',
+						'Salute'
+					],
+					[data.no]: [
+						'Astral Path',
+						'Rhythm'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.regular.spRestore,
+						data.eden.nexus1.name
+					]
+				},
+				secondary: {
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.regular.dmgRanged,
+						data.vv.nexus2.name,
+						data.vv.nexus2.breachPhysEle,
+						data.vv.nexus2.vuln
+					],
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name
+					],
+					[data.aponia.name]: [
+						data.aponia.regular.basicAtk,
+						data.aponia.regular.spRestore,
+						data.aponia.regular.dmgPhysEle,
+						data.aponia.regular.vuln,
+						data.aponia.regular.dmgTotal,
+						data.aponia.nexus1.name
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.black,
+						data.griseo.regular.red
+					]
+				}
+			},
+			notes: `<p>Kalpas</p>not recommended to pick damage boosts before 12F.<br><br>
+					<p>${data.griseo.regular.red}</p>Buy from shop.`
+		}
+	]
+};
 // Luna Kindred
 const lk: Guide = {
 	name: 'Luna Kindred',
@@ -4143,7 +4322,7 @@ export const valks: any[] = [
 	aka,	bke,	cn,		da,		aponia,	dw,		fr,		mc,		eden,	gm,
 	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	hos,	hov,	hot,	hotr,
 	mobius,	sus, 	lk, 	raven, 	elysia,	pe,		fischl,	pardo,	ri,		sk,
-	sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		carole,	ta,		ve,
-	vg,		vq,		vkek
+	kira,	sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		carole,	ta,
+	ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;

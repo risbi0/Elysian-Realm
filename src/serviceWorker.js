@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v11';
+const cacheName = 'herrscher-of-cache-v12';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -64,6 +64,7 @@ const bannerImages = [
 	'Starchasm_Nyx',
 	'Starry_Impression',
 	'Stygian_Nymph',
+	'Sugary_Starburst',
 	'Sweet_n_Spicy',
 	'Striker_Fulminata',
 	'Terminal_Aide_0017',
