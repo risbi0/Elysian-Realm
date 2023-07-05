@@ -1475,6 +1475,7 @@ const hofi: Guide = {
 		}
 	]
 };
+// Herrscher of Flamescion
 const hofs: Guide = {
 	name: 'Herrscher of Flamescion',
 	acr: 'hofs',
