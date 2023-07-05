@@ -258,8 +258,9 @@ export const buffs = [
 		'Weapon active vulnerability',
 		'Melee ATK for 10% TDM', //
 		'SP cap up',
-		'Max SP +30',
-		'Shieldbreak 5 SP'
+		'SP +30',
+		'Shieldbreak 5 SP',
+		'Charged ATK vulnerability'
 	],
 	// 10
 	[
@@ -270,10 +271,11 @@ export const buffs = [
 		'60 combo vulnerability',
 		'Both damage boosts after ultimate evasion', //
 		'Paralyzed or bleeding TDM bonus',
-		'Different support type bonus',
+		'Support type DMG bonus',
 		'Shield broken vulnerability',
 		'Ultimate evasion dmg boost',
-		'Melee atk TDM' //
+		'Melee atk TDM', //
+		'Counter type TDM boost'
 	],
 	// 15
 	[
@@ -351,15 +353,15 @@ export const griseo: Signet = {
 	},
 	nexus1: {
 		name: 'Shining Like Stars (Nexus)',
-		purple: 'Blooming Like Flowers', // purple
-		orange: 'Burning Like Flames', // orange
-		green: 'Stretching Like Leaves' // green
+		purple: 'Blooming Like Flowers', // total dmg
+		orange: 'Burning Like Flames', // breach
+		green: 'Stretching Like Leaves' // adaptive dmg
 	},
 	nexus2: {
 		name: 'Faded Stars (Nexus)',
-		orange: 'A Flame Extinguished', // orange
-		green: 'Fallen Leaves', // green
-		purple: 'Petals in the Wind' // purple
+		orange: 'A Flame Extinguished', // enemy resist
+		green: 'Fallen Leaves', // adaptive dmg
+		purple: 'Petals in the Wind' // effect
 	}
 };
 export const hua: Signet = {
