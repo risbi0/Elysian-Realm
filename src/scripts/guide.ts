@@ -2255,9 +2255,9 @@ const hotr: Guide = {
 		}
 	]
 };
-// Shigure Kira
+// Sugary Starburst
 const kira: Guide = {
-	name: 'Shigure Kira',
+	name: 'Sugary Starburst',
 	acr: 'kira',
 	version: '6.7',
 	builds: [
@@ -4318,7 +4318,7 @@ export const valks: any[] = [
 	aka,	bke,	cn,		da,		aponia,	dw,		fr,		mc,		eden,	gm,
 	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	hos,	hov,	hot,	hotr,
 	mobius,	sus, 	lk, 	raven, 	elysia,	pe,		fischl,	pardo,	ri,		sk,
-	kira,	sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		carole,	ta,
+	sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,
 	ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;
