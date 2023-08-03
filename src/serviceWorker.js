@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v12';
+const cacheName = 'herrscher-of-cache-v13';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -44,6 +44,7 @@ const bannerImages = [
 	'Herrscher_of_Human_Ego',
 	'Herrscher_of_Origin',
 	'Herrscher_of_Reason',
+	'Herrscher_of_Rebirth',
 	'Herrscher_of_Sentience',
 	'Herrscher_of_the_Void',
 	'Herrscher_of_Thunder',

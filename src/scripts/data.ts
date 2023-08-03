@@ -247,7 +247,8 @@ export const buffs = [
 		'RPC-6626 weak to Elements',
 		'Couatl: Revenant',
 		'Huodou',
-		'DJXY'
+		'DJXY',
+		'RPC' //
 	],
 	// 5
 	[

@@ -1867,6 +1867,185 @@ const hor: Guide = {
 		}
 	]
 };
+// Herrscher of Rebirth
+const horb: Guide = {
+	name: 'Herrscher of Rebirth',
+	acr: 'horb',
+	version: '6.8',
+	builds: [
+		{
+			name: 'Soul Shaper',
+			buff: [
+				data.buffs[0][5],
+				data.buffs[3][4],
+				data.buffs[3][6]
+			],
+			signet: {
+				main: [
+					[data.kalpas, '1']
+				],
+				secondary: [
+					[data.hua, '2'],
+					[data.mobius, '1'],
+					[data.su, '1']
+				],
+				optional: [
+					[data.pardofelis, '1']
+				]
+			},
+			emblem: [
+				[data.madKingsMask, data.itWillBeWritten],
+				[data.forgetMeNot, data.becauseOfYou],
+				[data.heavyAsAMillionLives, data.dreamfulGold]
+			],
+			support: [
+				[ [data.vc], [data.bke] ],
+				[ [data.br], [data.vc, data.ss] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Spirits'
+					],
+					[data.no]: [
+						'Decay',
+						'Shared Destiny',
+						'Soothingness',
+						'Rising Sun'
+					]
+				},
+				main: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.regular.vuln,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire,
+						data.kalpas.nexus1.dmgBonus
+					]
+				},
+				secondary: {
+					[data.hua.name]: [
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.regular.breachEle,
+						data.hua.nexus2.name,
+						data.hua.nexus2.stackCap
+					],
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.nexus1.name,
+						data.mobius.nexus1.dmgTotal
+					],
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				}
+			},
+			notes: `Can pick Sakura's signets <span>${data.sakura.regular.vuln}</span>, <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.evasionAdd}</span> as reinforcement.`
+		},
+		{
+			name: 'Life Binder',
+			buff: [
+				data.buffs[0][5],
+				data.buffs[3][4],
+				data.buffs[3][6]
+			],
+			signet: {
+				main: [
+					[data.kalpas, '1']
+				],
+				secondary: [
+					[data.hua, '2'],
+					[data.mobius, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.vv, '1']
+				]
+			},
+			emblem: [
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.memory, data.anOldPalsLegacy],
+				[data.farawayShip, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ss], [data.bke] ],
+				[ [data.br], [data.sa] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Soothingness'
+					],
+					[data.optional]: [
+						'Shared Destiny'
+					],
+					[data.no]: [
+						'Decay',
+						'Rising Sun',
+						'Spirits'
+					]
+				},
+				main: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.regular.vuln,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire,
+						data.kalpas.nexus1.dmgBonus
+					]
+				},
+				secondary: {
+					[data.hua.name]: [
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.regular.breachEle,
+						data.hua.nexus2.name,
+						data.hua.nexus2.stackCap
+					],
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.nexus1.name,
+						data.mobius.nexus1.dmgTotal
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgRanged,
+						data.vv.nexus1.name
+					]
+				}
+			},
+			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.yellow}</span>, or Sakura's signets <span>${data.sakura.regular.vuln}</span>, and <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.`
+		}
+	]
+};
 // Herrscher of Sentience
 const hos: Guide = {
 	name: 'Herrscher of Sentience',
@@ -4316,9 +4495,9 @@ const vkek: Guide = {
 };
 export const valks: any[] = [
 	aka,	bke,	cn,		da,		aponia,	dw,		fr,		mc,		eden,	gm,
-	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	hos,	hov,	hot,	hotr,
-	mobius,	sus, 	lk, 	raven, 	elysia,	pe,		fischl,	pardo,	ri,		sk,
-	sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,
-	ve,		vg,		vq,		vkek
+	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,	hov,	hot,
+	hotr,	mobius,	sus, 	lk, 	raven, 	elysia,	pe,		fischl,	pardo,	ri,
+	sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,
+	ta,		ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;
