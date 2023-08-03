@@ -1928,8 +1928,8 @@ const horb: Guide = {
 				secondary: {
 					[data.hua.name]: [
 						data.hua.regular.dmgTotal,
-						data.hua.regular.dmgEle,
-						data.hua.regular.breachEle,
+						data.hua.regular.dmgPhys,
+						data.hua.regular.breachPhys,
 						data.hua.nexus2.name,
 						data.hua.nexus2.stackCap
 					],
@@ -2015,8 +2015,8 @@ const horb: Guide = {
 				secondary: {
 					[data.hua.name]: [
 						data.hua.regular.dmgTotal,
-						data.hua.regular.dmgEle,
-						data.hua.regular.breachEle,
+						data.hua.regular.dmgPhys,
+						data.hua.regular.breachPhys,
 						data.hua.nexus2.name,
 						data.hua.nexus2.stackCap
 					],
