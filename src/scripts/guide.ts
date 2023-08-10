@@ -1894,9 +1894,9 @@ const horb: Guide = {
 				]
 			},
 			emblem: [
-				[data.madKingsMask, data.itWillBeWritten],
-				[data.forgetMeNot, data.becauseOfYou],
-				[data.heavyAsAMillionLives, data.dreamfulGold]
+				[data.madKingsMask, data.outOfReach],
+				[data.memory, data.boundlessLogos],
+				[data.heavyAsAMillionLives, data.boundlessLogos]
 			],
 			support: [
 				[ [data.vc], [data.bke] ],
