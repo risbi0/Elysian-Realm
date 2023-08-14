@@ -2255,7 +2255,9 @@ const hot: Guide = {
 				secondary: [
 					[data.kevin, '2'],
 					[data.su, '1'],
-					[data.mobius, '1'],
+					[data.mobius, '1']
+				],
+				optional: [
 					[data.pardofelis, '1']
 				]
 			},
