@@ -276,7 +276,8 @@ export const buffs = [
 		'Shield broken vulnerability',
 		'Ultimate evasion dmg boost',
 		'Melee atk TDM', //
-		'Counter type TDM boost'
+		'Counter type TDM boost',
+		'Status TDM bonus'
 	],
 	// 15
 	[
@@ -289,7 +290,8 @@ export const buffs = [
 		'Weapon type breach',
 		'Melee vulnerability',
 		'Ult vulnerability',
-		'QTE bonus'
+		'QTE bonus',
+		'Summons TDM bonus' //
 	]
 ];
 // signets
