@@ -2531,6 +2531,100 @@ const lk: Guide = {
 		}
 	]
 };
+// Miracle ☆ Magical Girl
+const sirin: Guide = {
+	name: 'Miracle ☆ Magical Girl',
+	acr: 'sirin',
+	version: '6.9',
+	builds: [
+		{
+			buff: [
+				data.buffs[0][6],
+				data.buffs[3][6],
+				data.buffs[3][11]
+			],
+			signet: {
+				main: [
+					[data.kalpas, '2']
+				],
+				secondary: [
+					[data.vv, '1'],
+					[data.sakura, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.eden, '1']
+				]
+			},
+			emblem: [
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.psuedoMiracle, data.anOldPalsLegacy],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.ae], [data.vke] ],
+				[ [data.br], [data.ae, data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Inner Blaze',
+						'Resplendence'
+					],
+					[data.optional]: [
+						'Stellar Breach'
+					],
+					[data.no]: [
+						'Dreamstitch',
+						'Tailor'
+					]
+				},
+				main: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name,
+						data.kalpas.nexus2.breachPhysEle
+					]
+				},
+				secondary: {
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgRanged,
+						data.vv.nexus1.name,
+						data.vv.nexus1.blades,
+						data.vv.nexus1.breachPhys
+					],
+					[data.sakura.name]: [
+						data.sakura.regular.vuln,
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.evasionAdd,
+						data.sakura.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.eden.name]: [
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.dmgTotal,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+
+				}
+			},
+			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span> as reinforcement.`
+		}
+	]
+};
 // Infinite Ouroboros
 const mobius: Guide = {
 	name: 'Infinite Ouroboros',
@@ -4319,8 +4413,8 @@ const vkek: Guide = {
 export const valks: any[] = [
 	aka,	bke,	cn,		da,		aponia,	dw,		fr,		mc,		eden,	gm,
 	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,	hov,	hot,
-	hotr,	mobius,	sus, 	lk, 	raven, 	elysia,	pe,		fischl,	pardo,	ri,
-	sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,
-	ta,		ve,		vg,		vq,		vkek
+	hotr,	mobius,	sus, 	lk, 	raven,	sirin, 	elysia,	pe,		fischl,	pardo,
+	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,
+	carole,	ta,		ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;

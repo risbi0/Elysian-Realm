@@ -248,7 +248,8 @@ export const buffs = [
 		'Couatl: Revenant',
 		'Huodou',
 		'DJXY',
-		'RPC' //
+		'RPC', //
+		'Dominator of Wolves'
 	],
 	// 5
 	[
@@ -291,7 +292,8 @@ export const buffs = [
 		'Melee vulnerability',
 		'Ult vulnerability',
 		'QTE bonus',
-		'Summons TDM bonus' //
+		'Summons TDM bonus', //
+		'Ignite vulnerability'
 	]
 ];
 // signets
