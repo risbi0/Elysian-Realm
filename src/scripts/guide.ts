@@ -2538,6 +2538,88 @@ const sirin: Guide = {
 	version: '6.9',
 	builds: [
 		{
+			name: 'basic',
+			buff: [
+				data.buffs[0][6],
+				data.buffs[3][6],
+				data.buffs[3][11]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.sakura, '1'],
+					[data.griseo, '1'],
+					[data.kalpas, '2']
+				],
+				optional: [
+					[data.pardofelis, '1']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.dreamfulGold],
+				[data.forgetMeNot, data.tsukimiHimiko],
+				[data.keyToTheDeep, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.bke], [data.vke] ],
+				[ [data.br], [data.ae, data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Dreamstitch',
+						'Tailor'
+					],
+					[data.no]: [
+						'Inner Blaze',
+						'Resplendence',
+						'Stellar Breach'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.dmgTotal,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+				},
+				secondary: {
+					[data.sakura.name]: [
+						data.sakura.regular.vuln,
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.evasionAdd,
+						data.sakura.nexus1.name
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.black,
+						data.griseo.regular.white,
+						data.griseo.nexus1.name
+					],
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				}
+			},
+			notes: `Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, and <span>${data.vv.regular.dmgTotal}</span> as reinforcement.`
+		},
+		{
+			name: 'charged',
 			buff: [
 				data.buffs[0][6],
 				data.buffs[3][6],
