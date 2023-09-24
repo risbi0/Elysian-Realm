@@ -103,6 +103,7 @@ export const benb: NameAcr = { name: 'Benares: Awakening B', acr: 'benb' };
 export const biat: NameAcr = { name: 'Bianka: Theatre T', acr: 'biat' };
 export const biam: NameAcr = { name: 'Bianka: Theatre M', acr: 'biam' };
 export const biab: NameAcr = { name: 'Bianka: Theatre B', acr: 'biab' };
+export const brdm: NameAcr = { name: 'Broboli: Demo M', acr: 'brdm' };
 export const brot: NameAcr = { name: 'Bronya: N-EX T', acr: 'brot' };
 export const brom: NameAcr = { name: 'Bronya: N-EX M', acr: 'brom' };
 export const brob: NameAcr = { name: 'Bronya: N-EX B', acr: 'brob' };
@@ -262,7 +263,8 @@ export const buffs = [
 		'SP cap up',
 		'SP +30',
 		'Shieldbreak 5 SP',
-		'Charged ATK vulnerability'
+		'Charged ATK vulnerability',
+		'Summons TDM bonus' //
 	],
 	// 10
 	[
@@ -278,7 +280,8 @@ export const buffs = [
 		'Ultimate evasion dmg boost',
 		'Melee atk TDM', //
 		'Counter type TDM boost',
-		'Status TDM bonus'
+		'Status TDM bonus',
+		'Combo ATK vulnerability'
 	],
 	// 15
 	[

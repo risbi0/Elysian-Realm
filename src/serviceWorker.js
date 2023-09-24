@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v14';
+const cacheName = 'herrscher-of-cache-v15';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -155,6 +155,7 @@ const images = [
 	'Empyrea_Phoenix_B',
 	'Siegfried_Kaslana_M',
 	'Thales_M',
+	'Broboli_M',
 	// weapons
 	'0_high_atk_weap',
 	'3rd_Sacred_Relic',
