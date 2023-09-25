@@ -791,7 +791,7 @@ const eden: Guide = {
 						data.griseo.regular.grey,
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
-						data.griseo.nexus1.name
+						data.griseo.nexus2.name
 					]
 				}
 			},
@@ -981,7 +981,7 @@ const fischl: Guide = {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.nexus2.name
+						data.pardofelis.nexus1.name
 					]
 				},
 				optional: {
