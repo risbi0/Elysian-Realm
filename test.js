@@ -4,7 +4,7 @@
 import { describe, test, expect } from '@jest/globals';
 import { valks } from './src/scripts/guide';
 
-// check signet names are not undefined
+// test valk guides
 // valks
 for (let i = 0; i < valks.length; i++) {
   describe(valks[i].name, () => {
@@ -36,6 +36,7 @@ for (let i = 0; i < valks.length; i++) {
                     });
                   }
                 });
+                // check signet names are not undefined
                 describe('Signets', () => {
                   signetNames.forEach((signet) => {
                     test(signet, () => {
