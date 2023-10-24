@@ -27,7 +27,7 @@ for (let i = 0; i < valks.length; i++) {
                     expect(signetOwner).toEqual(valks[i].builds[j].signet[tableName][index][0].name);
                   });
                   // check nexus series if nexus series is in guide
-                  const nexusName = signetNames.find((signet) => signet.includes('Nexus'));
+                  const nexusName = signetNames.find((signet) => `${signet}`.includes('Nexus'));
                   if (nexusName) {
                     const nexusSeries = valks[i].builds[j].signet[tableName][index][1];
                     const nexusSeriesName = valks[i].builds[j].signet[tableName][index][0][`nexus${nexusSeries}`].name;
