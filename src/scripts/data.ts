@@ -254,7 +254,7 @@ export const buffs = [
 	],
 	// 5
 	[
-		'Same type support damage bonus',
+		'Same type damage bonus',
 		'At max HP gain 1 SP/s',
 		'Ultimate Evasion recovers 10 SP',
 		'Valk type matching enemy +TDM',
@@ -264,7 +264,8 @@ export const buffs = [
 		'SP +30',
 		'Shieldbreak 5 SP',
 		'Charged ATK vulnerability',
-		'Summons TDM bonus' //
+		'Summons TDM bonus', //
+		'Max HP +200'
 	],
 	// 10
 	[
@@ -281,7 +282,8 @@ export const buffs = [
 		'Melee atk TDM', //
 		'Counter type TDM boost',
 		'Status TDM bonus',
-		'Combo ATK vulnerability'
+		'Combo ATK vulnerability',
+		'Status vulnerability'
 	],
 	// 15
 	[
@@ -296,7 +298,8 @@ export const buffs = [
 		'Ult vulnerability',
 		'QTE bonus',
 		'Summons TDM bonus', //
-		'Ignite vulnerability'
+		'Ignite vulnerability',
+		'Weapon active vulnerability'
 	]
 ];
 // signets
