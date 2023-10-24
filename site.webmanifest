@@ -1,0 +1,30 @@
+{
+    "name": "Elysian Realm Guide",
+    "short_name": "HI3 ER Guide",
+    "description": "Recommended builds and team for Elysian Realm in Honkai Impact",
+    "start_url": "https://risbi0.github.io/Elysian-Realm/",
+    "scope": "https://risbi0.github.io/Elysian-Realm/",
+    "id": "/",
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "static/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "static/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "static/favicon/maskable-icon.png",
+            "sizes": "320x320",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
