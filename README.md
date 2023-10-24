@@ -29,7 +29,7 @@ Test the guide file:
 npm test
 ```
 
-When ready to deploy (Windows users only):
+Deploy to GitHub Pages:
 ```
-deploy
+npm run deploy
 ```

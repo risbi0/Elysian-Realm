@@ -1,3 +1,4 @@
 webpack.config.js
 dist
 test.js
+deploy.js
