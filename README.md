@@ -24,7 +24,7 @@ When adding new files, this command needs to be restarted.
 
 ### Other Scripts
 
-Test the guide file:
+Test the guide contents:
 ```
 npm test
 ```
