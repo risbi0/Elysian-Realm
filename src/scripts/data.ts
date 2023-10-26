@@ -250,7 +250,8 @@ export const buffs = [
 		'Huodou',
 		'DJXY',
 		'RPC', //
-		'Dominator of Wolves'
+		'Dominator of Wolves',
+		'Cruising Tribunal'
 	],
 	// 5
 	[
@@ -299,7 +300,8 @@ export const buffs = [
 		'QTE bonus',
 		'Summons TDM bonus', //
 		'Ignite vulnerability',
-		'Weapon active vulnerability'
+		'Weapon active vulnerability',
+		'Max HP DMG buff'
 	]
 ];
 // signets

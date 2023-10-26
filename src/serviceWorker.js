@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v15';
+const cacheName = 'herrscher-of-cache-v16';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -52,6 +52,7 @@ const bannerImages = [
 	'Infinite_Ouroboros',
 	'Jade_Knight',
 	'Luna_Kindred',
+	'Lunar_Vow_Crimson_Love',
 	'Midnight_Absinthe',
 	'Miracle_Magical_Girl',
 	'Miss_Pink_Elf',

@@ -2539,6 +2539,196 @@ const lk: Guide = {
 		}
 	]
 };
+// Lunar Vow: Crimson Love
+const lv: Guide = {
+	name: 'Lunar Vow: Crimson Love',
+	acr: 'lv',
+	version: '7.0',
+	builds: [
+		{
+			name: 'basic',
+			buff: [
+				data.buffs[0][7],
+				data.buffs[3][6],
+				data.buffs[3][13]
+			],
+			signet: {
+				main: [
+					[data.kalpas, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.pardofelis, '1'],
+					[data.sakura, '2']
+				],
+				optional: [
+					[data.kosma, '1']
+				]
+			},
+			emblem: [
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.lightAsABodhiLeaf, data.anOldPalsLegacy],
+				[data.heavyAsAMillionLives, data.anOldPalsLegacy]
+			],
+			support: [
+				[ [data.br], [data.bke] ],
+				[ [data.br], [data.ae, data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Vessel'
+					],
+					[data.second]: [
+						'Lasting Embrace'
+					],
+					[data.optional]: [
+						'Hermit'
+					],
+					[data.no]: [
+						'Chase',
+						'Divine Pact'
+					]
+				},
+				main: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire,
+						data.kalpas.nexus1.dmgBonus
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.breachPhysEle
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					],
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.regular.evasionAdd,
+						data.sakura.nexus2.name
+					]
+				},
+				optional: {
+					[data.kosma.name]: [
+						data.kosma.regular.ult,
+						data.kosma.regular.atk,
+						data.kosma.regular.evasion,
+						data.kosma.regular.dmgShield,
+						data.kosma.nexus1.name
+					]
+				}
+			},
+			notes: `Rotation : Evade - hold basic - tap glowing basic, repeat, use ultimate whenever available; recommended to swap sigil on 5F; if have Griseo Red, tap weapon skill to dye enemies.<br><br>
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.yellow}</span> as reinforcement.`
+		},
+		{
+			name: 'weapon',
+			buff: [
+				data.buffs[0][7],
+				data.buffs[3][6],
+				data.buffs[3][13]
+			],
+			signet: {
+				main: [
+					[data.vv, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.griseo, '1'],
+					[data.kalpas, '1']
+				],
+				optional: [
+					[data.pardofelis, '1']
+				]
+			},
+			emblem: [
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.lightAsABodhiLeaf, data.fallingInPastLight],
+				[data.heavyAsAMillionLives, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.br], [data.bke] ],
+				[ [data.br], [data.ae, data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Chase'
+					],
+					[data.second]: [
+						'Divine Pact'
+					],
+					[data.optional]: [
+						'Hermit'
+					],
+					[data.no]: [
+						'Vessel',
+						'Lasting Embrace'
+					]
+				},
+				main: {
+					[data.vv.name]: [
+						data.vv.regular.dmgWeap,
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.spRestore,
+						data.vv.nexus1.name
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.breachPhysEle
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					],
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				}
+			},
+			notes: `Rotation : Use ultimate whenever available, tap weapon multiple times to spend bar - then long press weapon to recover bar(single Ego) / use ultimate (double ego); recommended to swap sigils on 5F.<br><br>
+					Can pick Kosma's signets <span>${data.kosma.regular.ult}</span>, <span>${data.kosma.regular.atk}</span>, and <span>${data.kosma.regular.evasion}</span> as reinforcement.`
+		}
+	]
+};
 // Miracle ☆ Magical Girl
 const sirin: Guide = {
 	name: 'Miracle ☆ Magical Girl',
@@ -4420,8 +4610,8 @@ const vkek: Guide = {
 export const valks: any[] = [
 	aka,	bke,	cn,		da,		aponia,	dw,		fr,		mc,		eden,	gm,
 	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,	hov,	hot,
-	hotr,	mobius,	sus, 	lk, 	raven,	sirin, 	elysia,	pe,		fischl,	pardo,
-	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,
-	carole,	ta,		ve,		vg,		vq,		vkek
+	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin, 	elysia,	pe,		fischl,
+	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,
+	kira,	carole,	ta,		ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;
