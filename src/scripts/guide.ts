@@ -318,8 +318,8 @@ const bke: Guide = {
 					]
 				}
 			},
-			notes: `<p>${data.sakura.nexus1.cd}</p>If don't have <span>Blessing of Paragon</span>.<br><br>
-					<p>${data.griseo.regular.grey}</p>Minimum of +2 upgrade.<br><br>
+			notes: `<p>${data.sakura.nexus1.cd}</p>If don't have <span>Blessing of Paragon</span>.
+					<p>${data.griseo.regular.grey}</p>Minimum of +2 upgrade.
 					<p>${data.kalpas.nexus2.breachPhysEle}, ${data.kosma.nexus2.breachPhysEle}, ${data.aponia.nexus2.breachPhysEle}</p>If lacking impair.`
 		}
 	]
@@ -511,9 +511,9 @@ const cn: Guide = {
 					]
 				}
 			},
-			notes: `For single Ego start with Succession, lower level setup must reset for Time Crystal on 2F; If able to get Su's breach on 5F, swap sigil on 6F, otherwise continue picking Su.<br><br>
-					<p>1st Shop Emblem</p>Gold Goblet or Light as a Bodhi Leaf.<br><br>
-					<p>${data.vv.nexus2.gravField}</p>Don't pick.<br><br>
+			notes: `For single Ego start with Succession, lower level setup must reset for Time Crystal on 2F; If able to get Su's breach on 5F, swap sigil on 6F, otherwise continue picking Su.
+					<p>1st Shop Emblem</p>Gold Goblet or Light as a Bodhi Leaf.
+					<p>${data.vv.nexus2.gravField}</p>Don't pick.
 					<p>${data.griseo.regular.red}</p>Buy in shop.`
 		}
 	]
@@ -700,7 +700,7 @@ const dw: Guide = {
 					]
 				}
 			},
-			notes: `Su signets can help with damage reduction; recommended to swap sigil on 5F.<br><br>
+			notes: `Su signets can help with damage reduction; recommended to swap sigil on 5F.
 					Can pick Su's signets <span>${data.su.regular.combo25}</span>, and <span>${data.su.regular.combo60}</span> (60 combos must be complemented by the other signets) as reinforcement.`
 		}
 	]
@@ -993,7 +993,7 @@ const fischl: Guide = {
 					]
 				}
 			},
-			notes: `Can pick Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, and <span>${data.kalpas.regular.dmgPhysEle}</span>, and Su signets as reinforcement.<br><br>
+			notes: `Can pick Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, and <span>${data.kalpas.regular.dmgPhysEle}</span>, and Su signets as reinforcement.
 					<p>${data.aponia.nexus2.breachPhysEle}</p>Priority.`
 		}
 	]
@@ -1097,7 +1097,7 @@ const fr: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to swap sigil on 5F<br><br>
+			notes: `Recommended to swap sigil on 5F
 					Can pick Aponia's signets <span>${data.aponia.regular.basicAtk}</span>, <span>${data.aponia.regular.spRestore}</span>, <span>${data.aponia.regular.dmgPhysEle}</span>, and <span>${data.aponia.regular.vuln}</span> as reinforcement.`
 		}
 	]
@@ -1195,7 +1195,7 @@ const mc: Guide = {
 					]
 				}
 			},
-			notes: `Can pick Su/Sakura signets as reinforcement.<br><br>
+			notes: `Can pick Su/Sakura signets as reinforcement.
 					<p>${data.kevin.regular.breachPhys}</p>Upgrade twice.`
 		}
 	]
@@ -1475,8 +1475,8 @@ const hofi: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to reset for Rift on 2F; after unlocking Kevin nexus, try to get Pardofelis silver generation asap, if not able to clear 1 wave per ultimate, can pick Su to further increase damage, recommended to swap sigil on 5F.<br><br>
-					Can pick Eden's signet <span>${data.eden.regular.dmgTotal}</span>, or Aponia's signet <span>${data.aponia.regular.dmgTotal}</span>, or Vill-V's signets <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.vuln}</span> as reinforcement.<br><br>
+			notes: `Recommended to reset for Rift on 2F; after unlocking Kevin nexus, try to get Pardofelis silver generation asap, if not able to clear 1 wave per ultimate, can pick Su to further increase damage, recommended to swap sigil on 5F.
+					Can pick Eden's signet <span>${data.eden.regular.dmgTotal}</span>, or Aponia's signet <span>${data.aponia.regular.dmgTotal}</span>, or Vill-V's signets <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.vuln}</span> as reinforcement.
 					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
@@ -1671,8 +1671,8 @@ const hoh: Guide = {
 					]
 				}
 			},
-			notes: `Can buy Su's damage reduction in shop if needed; if triggering revive too easily can pick Kalpas2 to maintain damage buffs; recommended to swap sigil on 5F.<br><br>
-					Can pick Eden's signet <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.physEleDamage}</span>, or Vill-V's signets <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.dmgRanged}</span>, or Sakura's signet <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.<br><br>
+			notes: `Can buy Su's damage reduction in shop if needed; if triggering revive too easily can pick Kalpas2 to maintain damage buffs; recommended to swap sigil on 5F.
+					Can pick Eden's signet <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.physEleDamage}</span>, or Vill-V's signets <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.dmgRanged}</span>, or Sakura's signet <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.
 					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
@@ -1771,7 +1771,7 @@ const hoo: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to reset for Nature on 2F; swap sigils on 5F, try to buy 1 Su signet, unlock nexus on 7F then pick up enhanced; if not good at dodging not recommended to pick Kalpas before 12F.<br><br>
+			notes: `Recommended to reset for Nature on 2F; swap sigils on 5F, try to buy 1 Su signet, unlock nexus on 7F then pick up enhanced; if not good at dodging not recommended to pick Kalpas before 12F.
 					Can pick Sakura's signets <span>${data.sakura.regular.evasionReset}</span>, and <span>${data.sakura.regular.evasionAdd}</span>, <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.vuln}</span> as reinforcement.`
 		}
 	]
@@ -1873,8 +1873,8 @@ const hor: Guide = {
 					]
 				}
 			},
-			notes: `Can pick Kalpas's signets, <span>${data.kalpas.regular.dmgTotal}</span>, <span>${data.kalpas.regular.dmgPhysEle}</span>, and <span>${data.kalpas.regular.hp}</span>, or Eden's signets <span>${data.eden.regular.dmgTotal}</span>, <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.spCapInitial}</span> as reinforcement.<br><br>
-					<p>1st Shop Emblem</p>Forget-Me-Not or Light as a Bodhi Leaf.<br><br>
+			notes: `Can pick Kalpas's signets, <span>${data.kalpas.regular.dmgTotal}</span>, <span>${data.kalpas.regular.dmgPhysEle}</span>, and <span>${data.kalpas.regular.hp}</span>, or Eden's signets <span>${data.eden.regular.dmgTotal}</span>, <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.spCapInitial}</span> as reinforcement.
+					<p>1st Shop Emblem</p>Forget-Me-Not or Light as a Bodhi Leaf.
 					<p>${data.griseo.regular.red}</p>Buy if in shop.`
 		}
 	]
@@ -1961,7 +1961,7 @@ const horb: Guide = {
 					]
 				}
 			},
-			notes: `Dodge in soul shaper form then basic attack to get full bar to use combo ATK; recommended to swap sigil on 6F, roll Su on 7F; remember to place Mobius support skill in range of the enemies.<br><br>
+			notes: `Dodge in soul shaper form then basic attack to get full bar to use combo ATK; recommended to swap sigil on 6F, roll Su on 7F; remember to place Mobius support skill in range of the enemies.
 					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, <span>${data.griseo.regular.yellow}</span>, and <span>${data.griseo.regular.grey}</span> as reinforcement.`
 		}
 	]
@@ -2058,7 +2058,7 @@ const hos: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to swap sigils on 5F, try to buy 1 Kosma signet, unlock nexus on 7F then pick up enhanced; recommended to bring LE at start, pick either breach from Su / Kosma.<br><br>
+			notes: `Recommended to swap sigils on 5F, try to buy 1 Kosma signet, unlock nexus on 7F then pick up enhanced; recommended to bring LE at start, pick either breach from Su / Kosma.
 					Can pick Kalpas's signet <span>${data.kalpas.regular.vuln}</span> as reinforcement.`
 		}
 	]
@@ -2157,7 +2157,7 @@ const hov: Guide = {
 					]
 				}
 			},
-			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span> (buy from shop), and <span>${data.griseo.regular.black}</span> as reinforcement.<br><br>
+			notes: `Can pick Griseo's signets <span>${data.griseo.regular.red}</span> (buy from shop), and <span>${data.griseo.regular.black}</span> as reinforcement.
 					<p>${data.mobius.nexus1.breachPhysEle}</p>Priority.`
 		}
 	]
@@ -2351,8 +2351,8 @@ const hotr: Guide = {
 					]
 				}
 			},
-			notes: `Bring Falling in Past Light for the bull fight, use it on the eggs after core is exposed, fighting Cruising Tribunal is also fine; recommended to reset for Continuation on 2F; recommended to swap sigil on 6F, roll Mobius on 7F.<br><br>
-					Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhysEle}</span> as reinforcement.<br><br>
+			notes: `Bring Falling in Past Light for the bull fight, use it on the eggs after core is exposed, fighting Cruising Tribunal is also fine; recommended to reset for Continuation on 2F; recommended to swap sigil on 6F, roll Mobius on 7F.
+					Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhysEle}</span> as reinforcement.
 					<p>${data.mobius.nexus1.breachPhysEle}</p>Priority.`
 		}
 	]
@@ -2449,7 +2449,7 @@ const kira: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to swap sigil on 6F, roll Kalpas on 7F; can buy Su's signets in shop to reduce damage taken.<br><br>
+			notes: `Recommended to swap sigil on 6F, roll Kalpas on 7F; can buy Su's signets in shop to reduce damage taken.
 					Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhys}</span> as reinforcement.`
 		}
 	]
@@ -2538,8 +2538,8 @@ const lk: Guide = {
 					]
 				}
 			},
-			notes: `If equipped with Hekate's Sombre, can buy Su signets.<br><br>
-					<p>${data.kalpas.regular.hp}, ${data.aponia.nexus2.breachPhysEle}</p>Recommended to upgrade.<br><br>
+			notes: `If equipped with Hekate's Sombre, can buy Su signets.
+					<p>${data.kalpas.regular.hp}, ${data.aponia.nexus2.breachPhysEle}</p>Recommended to upgrade.
 					<p>${data.mobius.regular.vuln}, ${data.mobius.regular.dmgTotal}</p>If using dracula set.`
 		}
 	]
@@ -2639,7 +2639,7 @@ const lv: Guide = {
 					]
 				}
 			},
-			notes: `Rotation : Evade - hold basic - tap glowing basic, repeat, use ultimate whenever available; recommended to swap sigil on 5F; if have Griseo Red, tap weapon skill to dye enemies.<br><br>
+			notes: `Rotation : Evade - hold basic - tap glowing basic, repeat, use ultimate whenever available; recommended to swap sigil on 5F; if have Griseo Red, tap weapon skill to dye enemies.
 					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.yellow}</span> as reinforcement.`
 		},
 		{
@@ -2729,7 +2729,7 @@ const lv: Guide = {
 					]
 				}
 			},
-			notes: `Rotation : Use ultimate whenever available, tap weapon multiple times to spend bar - then long press weapon to recover bar(single Ego) / use ultimate (double ego); recommended to swap sigils on 5F.<br><br>
+			notes: `Rotation : Use ultimate whenever available, tap weapon multiple times to spend bar - then long press weapon to recover bar(single Ego) / use ultimate (double ego); recommended to swap sigils on 5F.
 					Can pick Kosma's signets <span>${data.kosma.regular.ult}</span>, <span>${data.kosma.regular.atk}</span>, and <span>${data.kosma.regular.evasion}</span> as reinforcement.`
 		}
 	]
@@ -2825,7 +2825,7 @@ const sirin: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to have full signature before attempting; recommended to reset for Inner Blazer; recommended to swap sigil on 6F, roll Kalpas on 7th.<br><br>
+			notes: `Recommended to have full signature before attempting; recommended to reset for Inner Blazer; recommended to swap sigil on 6F, roll Kalpas on 7th.
 					Can pick Griseo's signet <span>${data.griseo.regular.red}</span> as reinforcement.`
 		}
 	]
@@ -2919,7 +2919,7 @@ const mobius: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to only attempt with signature gear, recommended to swap sigil on 6F, roll Infinity on 7F; not recommended to take Kalpas then reduce hp before 12F.<br><br>
+			notes: `Recommended to only attempt with signature gear, recommended to swap sigil on 6F, roll Infinity on 7F; not recommended to take Kalpas then reduce hp before 12F.
 					Can pick Eden's signet <span>${data.eden.regular.spCapInitial}</span> to speed up rotations, or Sakura's signets <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.vuln}</span> as reinforcement.`
 		}
 	]
@@ -3113,8 +3113,8 @@ const pardo: Guide = {
 					]
 				}
 			},
-			notes: `After getting Kalpas1 nexus, reduce HP at shop; recommended to swap sigil on 5F.<br><br>
-					Can pick Vill-V's signets <span>${data.kalpas.regular.vuln}</span>, and <span>${data.kalpas.regular.dmgTotal}</span>, or Aponia's signets <span>${data.aponia.regular.dmgPhysEle}</span>, <span>${data.aponia.regular.vuln}</span>, and <span>${data.aponia.regular.dmgTotal}</span> as reinforcements.<br><br>
+			notes: `After getting Kalpas1 nexus, reduce HP at shop; recommended to swap sigil on 5F.
+					Can pick Vill-V's signets <span>${data.kalpas.regular.vuln}</span>, and <span>${data.kalpas.regular.dmgTotal}</span>, or Aponia's signets <span>${data.aponia.regular.dmgPhysEle}</span>, <span>${data.aponia.regular.vuln}</span>, and <span>${data.aponia.regular.dmgTotal}</span> as reinforcements.
 					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
@@ -3293,8 +3293,8 @@ const raven: Guide = {
 					]
 				}
 			},
-			notes: `<p>${data.vv.nexus2.breachPhysEle}, ${data.vv.nexus2.vuln}</p>Priority.<br><br>
-					<p>${data.aponia.nexus2.breachPhysEle}</p>If lacking breach.<br><br>
+			notes: `<p>${data.vv.nexus2.breachPhysEle}, ${data.vv.nexus2.vuln}</p>Priority.
+					<p>${data.aponia.nexus2.breachPhysEle}</p>If lacking breach.
 					<p>Griseo</p>Buy signets in shop if possible.`
 		}
 	]
@@ -3466,8 +3466,8 @@ const sn: Guide = {
 					]
 				}
 			},
-			notes: `<p>${data.sakura.regular.evasionAdd}</p>If not SS.<br><br>
-					<p>${data.kosma.nexus2.breachPhysEle}</p>Priority.<br><br>
+			notes: `<p>${data.sakura.regular.evasionAdd}</p>If not SS.
+					<p>${data.kosma.nexus2.breachPhysEle}</p>Priority.
 					<p>${data.hua.regular.dmgReduc}</p>Recommended to upgrade.`
 		}
 	]
@@ -3653,7 +3653,7 @@ const ss: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to reset for 2F Tragedy; Eden SP recovery can improve rotations, recommended to buy from shop.<br><br>
+			notes: `Recommended to reset for 2F Tragedy; Eden SP recovery can improve rotations, recommended to buy from shop.
 					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, <span>${data.griseo.regular.yellow}</span>, and <span>${data.griseo.regular.grey}</span> as reinforcement.`
 		}
 	]
@@ -3751,7 +3751,7 @@ const sus: Guide = {
 					]
 				}
 			},
-			notes: `Use LE at the start then ultimate immediately to apply Eden buffs; recommended to swap sigil on 5F.<br><br>
+			notes: `Use LE at the start then ultimate immediately to apply Eden buffs; recommended to swap sigil on 5F.
 					Can pick Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, and <span>${data.kalpas.regular.dmgPhysEle}</span> as reinforcement.`
 		}
 	]
@@ -3852,7 +3852,7 @@ const sk: Guide = {
 					]
 				}
 			},
-			notes: `Must have at least Nuada's ; lower HP to around 1000, pay attention to dodging Huodou's phase 2 transition fire breath attack; Hua2 can substitute Kevin2; recommended to swap sigil on 5F.<br><br>
+			notes: `Must have at least Nuada's ; lower HP to around 1000, pay attention to dodging Huodou's phase 2 transition fire breath attack; Hua2 can substitute Kevin2; recommended to swap sigil on 5F.
 					Can pick Griseo's signet <span>${data.griseo.regular.red}</span>, or Sakura's signets <span>${data.sakura.regular.vuln}</span>, and <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.`
 		}
 	]
@@ -3951,7 +3951,7 @@ const sw: Guide = {
 					]
 				}
 			},
-			notes: `Can pick Kalpas and Eden signets as reinforcement.<br><br>
+			notes: `Can pick Kalpas and Eden signets as reinforcement.
 					<p>${data.aponia.nexus2.breachPhysEle}</p>Priority.`
 		}
 	]
@@ -4044,7 +4044,7 @@ const ta: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to reset for Recursion on 2F, can unlock Su1 to help with damage reduction; recommended to swap sigil on 5F.<br><br>
+			notes: `Recommended to reset for Recursion on 2F, can unlock Su1 to help with damage reduction; recommended to swap sigil on 5F.
 					Can pick Su's signets <span>${data.su.regular.vuln}</span>, <span>${data.su.regular.combo25}</span>, and <span>${data.su.regular.combo60}</span> as reinforcement.`
 		}
 	]
@@ -4139,8 +4139,8 @@ const vb: Guide = {
 					]
 				}
 			},
-			notes: `<p>Recommended Gear</p>Build 2: If not enough breach or impair, pick breach from signets.<br><br>
-					<p>${data.su.regular.combo25}, ${data.su.regular.combo60}</p>Buy from shop if possible.<br><br>
+			notes: `<p>Recommended Gear</p>Build 2: If not enough breach or impair, pick breach from signets.
+					<p>${data.su.regular.combo25}, ${data.su.regular.combo60}</p>Buy from shop if possible.
 					<p>${data.griseo.regular.grey}, ${data.eden.regular.dmgReduc}</p>If needed.`
 		}
 	]
@@ -4226,8 +4226,8 @@ const ve: Guide = {
 					]
 				}
 			},
-			notes: `<p>Su</p>Don't pick enhanced signets. Double Ego start.<br><br>
-					<p>${data.su.regular.spRestore}</p>Priority.<br><br>
+			notes: `<p>Su</p>Don't pick enhanced signets. Double Ego start.
+					<p>${data.su.regular.spRestore}</p>Priority.
 					<p>${data.griseo.nexus2.orange}</p>If lacking breach.`
 		}
 	]
@@ -4318,7 +4318,7 @@ const vg: Guide = {
 					]
 				}
 			},
-			notes: `<p>${data.aponia.nexus2.dmgPhysEle}, ${data.aponia.nexus2.breachPhysEle}</p>Priority.<br><br>
+			notes: `<p>${data.aponia.nexus2.dmgPhysEle}, ${data.aponia.nexus2.breachPhysEle}</p>Priority.
 					<p>${data.vv.nexus2.breachPhysEle}</p>If lacking breach.`
 		}
 	]
@@ -4511,8 +4511,8 @@ const vq: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to swap sigils on 5F; if having trouble can reset for Luster on 2F; after getting enough Vill-V, swap to Kosma 4* support sigil to help with stacks.<br><br>
-					Can pick Kalpas's signet <span>${data.kalpas.regular.vuln}</span>, or Sakura's signets <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.vuln}</span> as reinforcement.<br><br>
+			notes: `Recommended to swap sigils on 5F; if having trouble can reset for Luster on 2F; after getting enough Vill-V, swap to Kosma 4* support sigil to help with stacks.
+					Can pick Kalpas's signet <span>${data.kalpas.regular.vuln}</span>, or Sakura's signets <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.vuln}</span> as reinforcement.
 					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
@@ -4615,7 +4615,7 @@ const vkek: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to reset for Sharp Flames on 2F; 3 charge attacks for every 1 ultimate; recommended to swap sigil on 5F.<br><br>
+			notes: `Recommended to reset for Sharp Flames on 2F; 3 charge attacks for every 1 ultimate; recommended to swap sigil on 5F.
 					Can pick Eden's signets <span>${data.eden.regular.dmgPhysEle}</span>, <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.spCapInitial}</span> as reinforcement.`
 		}
 	]

@@ -401,7 +401,9 @@ for (let i = 0; i < valks.length; i++) {
 			const notes: HTMLDivElement = document.createElement('div');
 			notes.setAttribute('id', `notes-${i + 1}-${j + 1}`);
 			notes.classList.add('notes');
-			notes.innerHTML = `Notes:<br><br>${valks[i].builds[j].notes}`;
+			// replace() somehow doesn't replace all newlines hence this monster
+			// 3rd <p> tag also somehow not being replaced
+			notes.innerHTML = `Notes:<br><br>${valks[i].builds[j].notes.replace('\n', '<br><br>').replace('<p>', '<br><br><p>')}`.replace('<br><br><br><br>', '<br><br>');
 
 			guideContent.appendChild(notes);
 		}
