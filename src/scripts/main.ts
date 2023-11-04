@@ -103,12 +103,11 @@ paths.forEach((link: string) => {
 	});
 });
 
-const device = isMobile ? 'mb' : 'dt';
 // click banner from updated valks list
 const updatedValksList = document.querySelectorAll('#updated-valks-list a');
 updatedValksList.forEach((valk: any) => {
 	valk.addEventListener('click', () => {
-		const banner = document.querySelector(`#${valk.textContent?.toLowerCase()}-${device}`) as HTMLDivElement;
+		const banner = document.querySelector(`.-${valk.textContent?.toLowerCase()}-`) as HTMLDivElement;
 		banner.click();
 	});
 });
