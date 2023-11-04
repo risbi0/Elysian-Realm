@@ -95,17 +95,30 @@ header {
         animation: headeranim 5s;
     }
     p {
-        @include margin($t: 20px, $b: 10px);
+        @include margin($t: 20px);
 		font-family: 'Plus Jakarta Sans';
 		font-style: italic;
     }
     a {
+		cursor: pointer;
         color: $white;
 		font-family: 'Plus Jakarta Sans';
         font-size: 12px;
     }
 	a:hover {
+		text-decoration: underline;
 		color: white;
+	}
+	#updated-valks-list {
+		@include margin($t: 10px, $b: 10px);
+		width:  100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		* {
+			margin: 5px;
+		}
 	}
 }
 @media only screen and (max-height: 1100px) {

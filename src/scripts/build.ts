@@ -52,6 +52,18 @@ function getIndex(str: string): number {
 	return -1;
 }
 
+// create updated valks list
+const desc = document.querySelector('header p')?.textContent as string;
+const numberRegex = /(\d+(\.\d+)?)/g;
+const updatedValksList = document.querySelector('#updated-valks-list') as HTMLDivElement;
+const updatedValks = valks.filter((valk) => valk.version === String(desc.match(numberRegex)));
+updatedValks.forEach((valk, index) => {
+	const el = document.createElement('a');
+	el.textContent = valk.acr.toUpperCase();
+	updatedValksList.appendChild(el);
+	if (!isMobile && index !== updatedValks.length - 1) updatedValksList.innerHTML += '|';
+});
+
 export const mainContainer = document.querySelector('#main-container') as HTMLDivElement;
 export const guideContainer = document.querySelector('#guide-container') as HTMLDivElement;
 export const bg = document.querySelector('#bg') as HTMLDivElement;

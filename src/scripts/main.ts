@@ -103,6 +103,16 @@ paths.forEach((link: string) => {
 	});
 });
 
+const device = isMobile ? 'mb' : 'dt';
+// click banner from updated valks list
+const updatedValksList = document.querySelectorAll('#updated-valks-list a');
+updatedValksList.forEach((valk: any) => {
+	valk.addEventListener('click', () => {
+		const banner = document.querySelector(`#${valk.textContent?.toLowerCase()}-${device}`) as HTMLDivElement;
+		banner.click();
+	});
+});
+
 // highlight adjacent merged cell on hover from table rows
 // since rows that have an adjacent merged cell and don't have the rowspan attribute won't highlight it
 function highlightAdjacentMergedCell(row: HTMLTableRowElement, bool: boolean): void {
