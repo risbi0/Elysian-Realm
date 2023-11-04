@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v16';
+const cacheName = 'herrscher-of-cache-v17';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -218,6 +218,7 @@ const stigImages = [
 	'Bianka_Theatre',
 	'Bronya_N-EX',
 	'Carlo_Collodi',
+	'Cecilia_Youth',
 	'Cezanne',
 	'Dante',
 	'Dirac',
@@ -235,6 +236,7 @@ const stigImages = [
 	'Robert_Peary',
 	'Shakespeare_Adrift',
 	'Sirin_Ascendant',
+	'Sweet_Dreams',
 	'Verne',
 	'Wang_Zhenyi',
 	'Welt_Yang',
