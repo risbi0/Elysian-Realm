@@ -518,6 +518,195 @@ const cn: Guide = {
 		}
 	]
 };
+const ce: Guide = {
+	name: 'Cosmic Expression',
+	acr: 'ce',
+	version: '7.1',
+	builds: [
+		{
+			name: 'Parry',
+			buff: [
+				data.buffs[0][8],
+				data.buffs[3][2],
+				data.buffs[3][14]
+			],
+			signet: {
+				main: [
+					[data.kosma, '1']
+				],
+				secondary: [
+					[data.mobius, '1'],
+					[data.eden, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.kalpas, '2']
+				]
+			},
+			emblem: [
+				[data.fragileFriend, data.outOfReach],
+				[data.forbiddenSeed, data.outOfReach],
+				[data.keyToTheDeep, data.outOfReach]
+			],
+			support: [
+				[ [data.sa], [data.bke] ],
+				[ [data.ss], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Meteorite',
+						'Starlight'
+					],
+					[data.no]: [
+						'Anchor',
+						'Dazzle',
+						'Shining Blade'
+					]
+				},
+				main: {
+					[data.kosma.name]: [
+						data.kosma.regular.ult,
+						data.kosma.regular.atk,
+						data.kosma.regular.evasion,
+						data.kosma.regular.dmgShield,
+						data.kosma.regular.extend,
+						data.kosma.nexus1.name,
+						data.kosma.nexus1.breachPhysEle,
+						data.kosma.nexus1.dmgPhysEle,
+						data.kosma.nexus1.vuln
+					]
+				},
+				secondary: {
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.regular.cdReduc,
+						data.mobius.regular.vuln,
+						data.mobius.nexus1.name
+					],
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name,
+						data.eden.nexus1.vuln
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.regular.curr,
+						data.pardofelis.regular.currKill,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name
+					]
+				}
+			},
+			notes: `Rotation : tap weapon active, hold evasion to use up KE, basic ATK to replenish KE, tap weapon active again and repeat; recommended to swap sigil on 6F, roll Kosma on 7F.
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.yellow}</span>, or Sakura's signets <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.vuln}</span>, or Vill-V's signet <span>${data.vv.regular.dmgWeap}</span> as reinforcement.
+					<p>${data.pardofelis.regular.curr}, ${data.pardofelis.regular.currKill}</p>Buy in early shop.`
+		},
+		{
+			name: 'Basic',
+			buff: [
+				data.buffs[0][8],
+				data.buffs[3][2],
+				data.buffs[3][14]
+			],
+			signet: {
+				main: [
+					[data.kosma, '1']
+				],
+				secondary: [
+					[data.mobius, '1'],
+					[data.su, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.griseo, '2']
+				]
+			},
+			emblem: [
+				[data.fragileFriend, data.outOfReach],
+				[data.forbiddenSeed, data.outOfReach],
+				[data.heavyAsAMillionLives, data.outOfReach]
+			],
+			support: [
+				[ [data.sa], [data.bke] ],
+				[ [data.ss], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Anchor',
+						'Dazzle'
+					],
+					[data.no]: [
+						'Meteorite',
+						'Shining Blade',
+						'Starlight'
+					]
+				},
+				main: {
+
+					[data.kosma.name]: [
+						data.kosma.regular.ult,
+						data.kosma.regular.atk,
+						data.kosma.regular.evasion,
+						data.kosma.regular.dmgShield,
+						data.kosma.regular.extend,
+						data.kosma.nexus1.name,
+						data.kosma.nexus1.breachPhysEle,
+						data.kosma.nexus1.dmgPhysEle
+					]
+				},
+				secondary: {
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.regular.cdReduc,
+						data.mobius.regular.vuln,
+						data.mobius.nexus1.name
+					],
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.vuln,
+						data.su.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.regular.curr,
+						data.pardofelis.regular.currKill,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black
+					]
+				}
+			},
+			notes: `Rotation : evade > basic > combo > ultimate > evade > basic > combo > 2 sets of basic+combo > ultimate > repeat; recommended to swap sigil on 6F, roll Kosma on 7F.
+					Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhysEle}</span>, or Vill-V's signets <span>${data.vv.regular.vuln}</span>, and <span>${data.vv.regular.dmgTotal}</span> as reinforcement.
+					<p>${data.pardofelis.regular.curr}, ${data.pardofelis.regular.currKill}</p>Buy in early shop.`
+		}
+	]
+};
 // Dea Anchora
 const da: Guide = {
 	name: 'Dea Anchora',
@@ -4621,10 +4810,10 @@ const vkek: Guide = {
 	]
 };
 export const valks: any[] = [
-	aka,	bke,	cn,		da,		aponia,	dw,		fr,		mc,		eden,	gm,
-	villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,	hov,	hot,
-	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin, 	elysia,	pe,		fischl,
-	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,
-	kira,	carole,	ta,		ve,		vg,		vq,		vkek
+	aka,	bke,	ce,		cn,		da,		aponia,	dw,		fr,		mc,		eden,
+	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,	hov,
+	hot,	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin, 	elysia,	pe,
+	fischl,	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,	sn,
+	vb,		kira,	carole,	ta,		ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;

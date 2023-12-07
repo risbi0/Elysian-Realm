@@ -257,7 +257,8 @@ export const buffs = [
 		'DJXY',
 		'RPC', //
 		'Dominator of Wolves',
-		'Cruising Tribunal'
+		'Cruising Tribunal',
+		'Pishacha'
 	],
 	// 5
 	[
@@ -307,7 +308,8 @@ export const buffs = [
 		'Summons TDM bonus', //
 		'Ignite vulnerability',
 		'Weapon active vulnerability',
-		'Max HP DMG buff'
+		'Max HP DMG buff',
+		'Melee ATK breach'
 	]
 ];
 // signets

@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v17';
+const cacheName = 'herrscher-of-cache-v18';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -31,6 +31,7 @@ const bannerImages = [
 	'Argent_Knight_Artemis',
 	'Bright_Knight_Excelsis',
 	'Chrono_Navi',
+	'Cosmic_Expression',
 	'Dea_Anchora',
 	'Disciplinary_Perdition',
 	'Dreamweaver',
