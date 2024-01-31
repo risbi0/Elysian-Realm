@@ -258,7 +258,8 @@ export const buffs = [
 		'RPC', //
 		'Dominator of Wolves',
 		'Cruising Tribunal',
-		'Pishacha'
+		'Pishacha',
+		'Parvati'
 	],
 	// 5
 	[
@@ -309,7 +310,8 @@ export const buffs = [
 		'Ignite vulnerability',
 		'Weapon active vulnerability',
 		'Max HP DMG buff',
-		'Melee ATK breach'
+		'Melee ATK breach',
+		'Max HP breach' //
 	]
 ];
 // signets

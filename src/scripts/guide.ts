@@ -1288,6 +1288,191 @@ const fr: Guide = {
 		}
 	]
 };
+// Fenghuang of Vicissitude
+const fv: Guide = {
+	name: 'Fenghuang of Vicissitude',
+	acr: 'fv',
+	version: '7.2',
+	builds: [
+		{
+			name: 'basic',
+			buff: [
+				data.buffs[0][9],
+				data.buffs[3][2],
+				data.buffs[3][15]
+			],
+			signet: {
+				main: [
+					[data.kalpas, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.hua, '2'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.griseo, '1']
+				]
+			},
+			emblem: [
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.lightAsABodhiLeaf, data.anOldPalsLegacy],
+				[data.heavyAsAMillionLives, data.anOldPalsLegacy]
+			],
+			support: [
+				[ [data.vc], [data.vke] ],
+				[ [data.br], [data.ae, data.ma] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Arcane Traces',
+						'Attainment'
+					],
+					[data.second]: [
+						'Observation'
+					],
+					[data.no]: [
+						'Unbroken Rampart',
+						'Vermillion Fire'
+					]
+				},
+				main: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire,
+						data.kalpas.nexus1.bbRecharge,
+						data.kalpas.nexus1.dmgBonus
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.spRestore,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln
+					],
+					[data.hua.name]: [
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.regular.breachEle,
+						data.hua.nexus2.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.griseo.name]: [
+						data.griseo.regular.grey,
+						data.griseo.regular.red,
+						data.griseo.regular.yellow
+					]
+				}
+			},
+			notes: `Recommended to swap sigil on 6F, get Kalpas on 7F; Rotation: tap weapon around every 12s, use ultimate when available, use basic atk rest of the time; lower level runs can use Su + Griseo breach to replace Hua.
+					Can pick Kosma's signets <span>${data.kosma.regular.atk}</span>, and <span>${data.kosma.regular.ult}</span> as reinforcement.`
+		},
+		{
+			name: 'combo',
+			buff: [
+				data.buffs[0][9],
+				data.buffs[3][2],
+				data.buffs[3][15]
+			],
+			signet: {
+				main: [
+					[data.kalpas, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.hua, '2'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.vv, '1']
+				]
+			},
+			emblem: [
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.lightAsABodhiLeaf, data.anOldPalsLegacy],
+				[data.heavyAsAMillionLives, data.anOldPalsLegacy]
+			],
+			support: [
+				[ [data.vc], [data.vke] ],
+				[ [data.br], [data.ae, data.ma] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Unbroken Rampart',
+						'Vermillion Fire'
+					],
+					[data.second]: [
+						'Observation'
+					],
+					[data.no]: [
+						'Arcane Traces',
+						'Attainment'
+					]
+				},
+				main: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire,
+						data.kalpas.nexus1.bbRecharge,
+						data.kalpas.nexus1.dmgBonus
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.spRestore,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln
+					],
+					[data.hua.name]: [
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.regular.breachEle,
+						data.hua.nexus2.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal
+					]
+				}
+			},
+			notes: `Rotation : Hold basic atk for combo - tap basic - tap basic on the flashing circle - hold basic for combo - tap weapon - tap basic on flashing circle - use ultimate whenever available; recommended to swap sigils on 6F, roll Kalpas on 7F; low level runs can use Su + Griseo breach to substitute for Hua.
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.yellow}</span> as reinforcement.`
+		}
+	]
+};
 // Fervent Tempo
 const mc: Guide = {
 	name: 'Fervent Tempo',
@@ -4734,10 +4919,10 @@ const vkek: Guide = {
 	]
 };
 export const valks: any[] = [
-	aka,	bke,	ce,		cn,		da,		aponia,	dw,		fr,		mc,		eden,
-	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,	hov,
-	hot,	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin, 	elysia,	pe,
-	fischl,	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,	sn,
-	vb,		kira,	carole,	ta,		ve,		vg,		vq,		vkek
+	aka,	bke,	ce,		cn,		da,		aponia,	dw,		fr,		fv,		mc,
+	eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,
+	hov,	hot,	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin, 	elysia,
+	pe,		fischl,	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,
+	sn,		vb,		kira,	carole,	ta,		ve,		vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;
