@@ -34,6 +34,6 @@
     "watch": "webpack --watch --mode development",
     "serve": "webpack serve --mode development",
     "test": "jest",
-    "deploy": "npm run test && npm run build && node deploy.js"
+    "deploy": "npm run test && npm run build && gh-pages -d dist"
   }
 }
