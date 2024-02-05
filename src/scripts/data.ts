@@ -274,12 +274,13 @@ export const buffs = [
 		'Shieldbreak 5 SP',
 		'Charged ATK vulnerability',
 		'Summons TDM bonus', //
-		'Max HP +200'
+		'Max HP +200',
+		'Max HP +500'
 	],
 	// 10
 	[
 		'Enemy affected by status gives TDM',
-		'TDM+15% until damage taken',
+		'TDM bonus if no damage taken',
 		'For every 100 HP + TDM',
 		'Ignite or para, valk +dmg',
 		'60 combo vulnerability',
