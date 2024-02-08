@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v19';
+const cacheName = 'herrscher-of-cache-v20';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -180,6 +180,7 @@ const images = [
 	'Falcon_Flare_FINAL',
 	'Frozen_Naraka',
 	'Hekates_Sombre',
+	'Incredibly_Infinite_Intimidator',
 	'Iris_of_Helheim',
 	'Keys_of_the_Void',
 	'Lost_Conviction_Damnation',
@@ -234,6 +235,7 @@ const stigImages = [
 	'Li_Sushang_Shenzhou_Reminiscence',
 	'Murata_Himeko',
 	'Paganini',
+	'Pericles',
 	'Ragna',
 	'Robert_Peary',
 	'Shakespeare_Adrift',
