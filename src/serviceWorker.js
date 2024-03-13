@@ -33,6 +33,7 @@ const bannerImages = [
 	'Chrono_Navi',
 	'Cosmic_Expression',
 	'Dea_Anchora',
+	'Deepspace_Anchor_First_Light',
 	'Disciplinary_Perdition',
 	'Dreamweaver',
 	'Fallen_Rosemary',
@@ -74,6 +75,8 @@ const bannerImages = [
 	'Striker_Fulminata',
 	'Terminal_Aide_0017',
 	'Twilight_Paladin',
+	'Valkyrie_Blastmetal',
+	'Valkyrie_Boltstorm',
 	'Valkyrie_Gloria',
 	'Valkyrie_Quicksand',
 	'Vermilion_Knight_Eclipse'

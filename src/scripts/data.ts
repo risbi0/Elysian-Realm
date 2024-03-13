@@ -73,6 +73,7 @@ export const veilOfTears:			NameAcr = { name: 'Veil of Tears',				acr: 'vot' };
 export const ae:  NameAcr = { name: 'Azure Empyrea',				acr: 'ae' };
 export const bke: NameAcr = { name: 'Bright Knight: Excelsis',		acr: 'bke' };
 export const br:  NameAcr = { name: 'Blood Rose',					acr: 'br' };
+export const dafl:  NameAcr = { name: 'Deepspace Anchor: First Light', acr: 'dafl' };
 export const dp:  NameAcr = { name: 'Divine Prayer',				acr: 'dp' };
 export const fr:  NameAcr = { name: 'Fallen Rosemary',				acr: 'fr' };
 export const hb:  NameAcr = { name: 'Haxxor Bunny',					acr: 'hb' };
@@ -263,7 +264,8 @@ export const buffs = [
 		'Dominator of Wolves',
 		'Cruising Tribunal',
 		'Pishacha',
-		'Parvati'
+		'Parvati',
+		'HOMU' //
 	],
 	// 5
 	[
@@ -297,13 +299,14 @@ export const buffs = [
 		'Counter type TDM boost',
 		'Status TDM bonus',
 		'Combo ATK vulnerability',
-		'Status vulnerability'
+		'Status vulnerability',
+		'Weapon active vulnerability' //
 	],
 	// 15
 	[
 		'SP usage vulnerability',
 		'Weapon type TDM bonus',
-		'Same type support valk + breach',
+		'Support type breach',
 		'300 elemental DMG vulnerability',
 		'Combo ATK bonus',
 		'Bleed vulnerability', //
@@ -316,7 +319,8 @@ export const buffs = [
 		'Weapon active vulnerability',
 		'Max HP DMG buff',
 		'Melee ATK breach',
-		'Max HP breach' //
+		'Max HP breach', //
+		'Support type DMG bonus'
 	]
 ];
 // signets

@@ -1752,6 +1752,195 @@ const griseo: Guide = {
 		}
 	]
 };
+// Valkyrie Blastmetal
+const herta: Guide = {
+	name: 'Valkyrie Blastmetal',
+	acr: 'herta',
+	version: '7.3',
+	builds: [
+		{
+			name: 'Astral Ring',
+			buff: [
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][6]
+			],
+			signet: {
+				main: [
+					[data.vv, '1']
+				],
+				secondary: [
+					[data.mobius, '1'],
+					[data.griseo, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.su, '1']
+				]
+			},
+			emblem: [
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.forbiddenSeed, data.fallingInPastLight],
+				[data.heavyAsAMillionLives, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.ae], [data.vke] ],
+				[ [data.dafl], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Bolt'
+					],
+					[data.first]: [
+						'Readiness'
+					],
+					[data.second]: [
+						'Primer'
+					],
+					[data.no]: [
+						'Proficiency',
+						'Sky Blitz'
+					]
+				},
+				main: {
+					[data.vv.name]: [
+						data.vv.regular.dmgWeap,
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.regular.spRestore,
+						data.vv.nexus1.name
+					]
+				},
+				secondary: {
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.regular.vuln,
+						data.mobius.nexus1.name,
+						data.mobius.nexus1.dmgTotal,
+						data.mobius.nexus1.breachPhysEle
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name
+					]
+				}
+			},
+			notes: `Recommended to reset for Readiness on 2F, recommended to swap sigil on 5F. Rotation : Activate Astral Ring then keep pressing weapon active until all the Hammering Feel is used up then activate ultimate, then activate Astral Ring again and repeat. If not enough Hammering Feel at the start of the fight, jump then press weapon twice.
+					Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.spCapInitial}</span> as reinforcement.
+					<p>${data.griseo.regular.red}</p>Buy from shop.`
+		},
+		{
+			name: 'No Astral Ring',
+			buff: [
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][6]
+			],
+			signet: {
+				main: [
+					[data.vv, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.sakura, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.kalpas, '1']
+				]
+			},
+			emblem: [
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.lightAsABodhiLeaf, data.fallingInPastLight],
+				[data.heavyAsAMillionLives, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.ae], [data.vke] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Primer'
+					],
+					[data.second]: [
+						'Bolt',
+						'Proficiency'
+					],
+					[data.no]: [
+						'Readiness',
+						'Sky Blitz'
+					]
+				},
+				main: {
+					[data.vv.name]: [
+						data.vv.regular.dmgWeap,
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.nexus1.name
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.breachPhysEle
+					],
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.regular.evasionAdd,
+						data.sakura.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name
+					]
+				}
+			},
+			notes: `Recommended to swap sigil on 5F. Rotation : Double jump then press weapon twice and repeat.
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span>, or Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhysEle}</span> as reinforcement.`
+		}
+	]
+};
 // Herrscher of Finality
 const hofi: Guide = {
 	name: 'Herrscher of Finality',
@@ -3755,6 +3944,101 @@ const ri: Guide = {
 		}
 	]
 };
+// Deepspace Anchor: First Light
+const sena: Guide = {
+	name: 'Deepspace Anchor: First Light',
+	acr: 'sena',
+	version: '7.3',
+	builds: [
+		{
+			buff: [
+				data.buffs[0][10],
+				data.buffs[3][6],
+				data.buffs[3][16]
+			],
+			signet: {
+				main: [
+					[data.vv, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.griseo, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.sakura, '2']
+				]
+			},
+			emblem: [
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.lightAsABodhiLeaf, data.fallingInPastLight],
+				[data.heavyAsAMillionLives, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.ae], [data.bke] ],
+				[ [data.br], [data.rc] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Initial Dawning'
+					],
+					[data.first]: [
+						'Stellar Drive'
+					],
+					[data.second]: [
+						'Effortlessness'
+					],
+					[data.no]: [
+						'Increment',
+						'Sudden Thunderbolt'
+					]
+				},
+				main: {
+					[data.vv.name]: [
+						data.vv.regular.dmgWeap,
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.nexus1.name
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.breachPhysEle
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.nexus2.name
+					]
+				}
+			},
+			notes: `If not using full gear, recommended to reset for Stellar Drive on 2F; recommended to swap sigil on 5F. Rotation : tap weapon active, then tap whatever button lights up. when the bottom bar is blue, use ultimate then continue to press the buttons that light up. If damage is not enough, save an evasion charge to clear overheat.
+					<p>${data.griseo.regular.red}</p>Buy from shop.`
+		}
+	]
+};
 // Stygian Nymph
 const sn: Guide = {
 	name: 'Stygian Nymph',
@@ -4693,6 +4977,101 @@ const vg: Guide = {
 		}
 	]
 };
+// Valkyrie Boltstorm
+const vill2: Guide = {
+	name: 'Valkyrie Boltstorm',
+	acr: 'vill2',
+	version: '7.3',
+	builds: [
+		{
+			buff: [
+				data.buffs[0][10],
+				data.buffs[3][6],
+				data.buffs[3][16]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.sakura, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.kalpas, '1']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.dreamfulGold],
+				[data.lightAsABodhiLeaf, data.dreamfulGold],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.bke], [data.vke] ],
+				[ [data.dafl, data.rc], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Vivace'
+					],
+					[data.second]: [
+						'Resolution'
+					],
+					[data.optional]: [
+						'Meditation'
+					],
+					[data.no]: [
+						'Improvisation',
+						'Sparkling Lightning'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.spRestore,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln
+					],
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.regular.evasionAdd,
+						data.sakura.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name
+					]
+				}
+			},
+			notes: `Recommended to swap sigil on 5F. Rotation : Activate Astral Ring whenever possible, after bar is full, tap weapon active to start shooting. Once the bar is depleted, tap weapon active then basic ATK to recharge the bar.
+					Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.dmgRanged}</span>, or Griseo's signets Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span> as reinforcement.`
+		}
+	]
+};
 // Helical Contraption
 const villv: Guide = {
 	name: 'Helical Contraption',
@@ -4992,10 +5371,11 @@ const vkek: Guide = {
 	]
 };
 export const valks: any[] = [
-	aka,	bke,	ce,		cn,		da,		aponia,	dw,		fr,		fv,		mc,
-	eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,	hos,
-	hov,	hot,	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin, 	elysia,
-	pe,		fischl,	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,	nyx,
-	sn,		vb,		kira,	carole,	ta,		ve,		vg,		vq,		vkek
+	aka,	bke,	ce,		cn,		da,		sena,	aponia,	dw,		fr,		fv,
+	mc,		eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,
+	hos,	hov,	hot,	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin,
+	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,
+	nyx,	sn,		vb,		kira,	carole,	ta,		ve,		herta,	vill2,		vg,
+	vq,		vkek
 ];
 export const valksLength: number = valks.length;
