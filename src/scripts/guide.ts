@@ -1189,12 +1189,14 @@ const fischl: Guide = {
 const fr: Guide = {
 	name: 'Fallen Rosemary',
 	acr: 'fr',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -1210,13 +1212,13 @@ const fr: Guide = {
 				]
 			},
 			emblem: [
-				[data.burden, data.itWillBeWritten],
-				[data.lightAsABodhiLeaf, data.itWillBeWritten],
+				[data.burden, data.dreamfulGold],
+				[data.lightAsABodhiLeaf, data.dreamfulGold],
 				[data.heavyAsAMillionLives, data.dreamfulGold]
 			],
 			support: [
 				[ [data.le], [data.bke] ],
-				[ [data.br], [data.ae] ]
+				[ [data.ae], [data.le, data.br] ]
 			],
 			gear: [
 				[data.irhe, data.hant, data.hanm, data.hanb],
@@ -1282,7 +1284,7 @@ const fr: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to reset for Nocturne on 2F; SP gained is important; recommended to swap sigil on 5F; use Kevin support on 4F and 7F wave 3.
+			notes: `Recommended to reset for Nocturne on 2F; SP gained is important; recommended to swap sigil on 5F.
 					Can pick Eden's signet <span>${data.eden.regular.spCapInitial}</span> as reinforcement.`
 		}
 	]
@@ -1291,14 +1293,13 @@ const fr: Guide = {
 const fv: Guide = {
 	name: 'Fenghuang of Vicissitude',
 	acr: 'fv',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
-			name: 'basic',
 			buff: [
-				data.buffs[0][9],
-				data.buffs[3][2],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[3][6],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -1379,96 +1380,7 @@ const fv: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to swap sigil on 6F, get Kalpas on 7F; Rotation: tap weapon around every 12s, use ultimate when available, use basic atk rest of the time; lower level runs can use Su + Griseo breach to replace Hua.
-					Can pick Kosma's signets <span>${data.kosma.regular.atk}</span>, and <span>${data.kosma.regular.ult}</span> as reinforcement.`
-		},
-		{
-			name: 'combo',
-			buff: [
-				data.buffs[0][9],
-				data.buffs[3][2],
-				data.buffs[3][15]
-			],
-			signet: {
-				main: [
-					[data.kalpas, '1']
-				],
-				secondary: [
-					[data.su, '1'],
-					[data.hua, '2'],
-					[data.pardofelis, '1']
-				],
-				optional: [
-					[data.vv, '1']
-				]
-			},
-			emblem: [
-				[data.madKingsMask, data.anOldPalsLegacy],
-				[data.lightAsABodhiLeaf, data.anOldPalsLegacy],
-				[data.heavyAsAMillionLives, data.anOldPalsLegacy]
-			],
-			support: [
-				[ [data.vc], [data.vke] ],
-				[ [data.br], [data.ae, data.ma] ]
-			],
-			signetTable: {
-				exclusive: {
-					[data.start]: [
-						'Unbroken Rampart',
-						'Vermillion Fire'
-					],
-					[data.second]: [
-						'Observation'
-					],
-					[data.no]: [
-						'Arcane Traces',
-						'Attainment'
-					]
-				},
-				main: {
-					[data.kalpas.name]: [
-						data.kalpas.regular.dmgTotal,
-						data.kalpas.regular.dmgPhysEle,
-						data.kalpas.regular.vuln,
-						data.kalpas.regular.hp,
-						data.kalpas.nexus1.name,
-						data.kalpas.nexus1.fire,
-						data.kalpas.nexus1.bbRecharge,
-						data.kalpas.nexus1.dmgBonus
-					]
-				},
-				secondary: {
-					[data.su.name]: [
-						data.su.regular.dmgTotal,
-						data.su.regular.vuln,
-						data.su.regular.combo25,
-						data.su.regular.combo60,
-						data.su.regular.spRestore,
-						data.su.nexus1.name,
-						data.su.nexus1.vuln
-					],
-					[data.hua.name]: [
-						data.hua.regular.dmgTotal,
-						data.hua.regular.dmgEle,
-						data.hua.regular.breachEle,
-						data.hua.nexus2.name
-					],
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name
-					]
-				},
-				optional: {
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal
-					]
-				}
-			},
-			notes: `Rotation : Hold basic atk for combo - tap basic - tap basic on the flashing circle - hold basic for combo - tap weapon - tap basic on flashing circle - use ultimate whenever available; recommended to swap sigils on 6F, roll Kalpas on 7F; low level runs can use Su + Griseo breach to substitute for Hua.
-					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.yellow}</span> as reinforcement.`
+			notes: 'Recommended to swap sigil on 5F Rotation: tap weapon around every 12s, use ultimate when available, use basic atk rest of the time.'
 		}
 	]
 };
@@ -1656,13 +1568,14 @@ const gm: Guide = {
 const griseo: Guide = {
 	name: 'Starry Impression',
 	acr: 'griseo',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][9],
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][16],
+				data.buffs[3][6]
 			],
 			signet: {
 				main: [
@@ -1670,11 +1583,11 @@ const griseo: Guide = {
 				],
 				secondary: [
 					[data.mobius, '1'],
-					[data.kalpas, '1'],
-					[data.griseo, '1']
+					[data.pardofelis, '1'],
+					[data.kalpas, '1']
 				],
 				optional: [
-					[data.pardofelis, '1']
+					[data.griseo, '1']
 				]
 			},
 			emblem: [
@@ -1725,6 +1638,11 @@ const griseo: Guide = {
 						data.mobius.nexus1.name,
 						data.mobius.nexus1.dmgTotal
 					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.nexus1.name
+					],
 					[data.kalpas.name]: [
 						data.kalpas.regular.dmgTotal,
 						data.kalpas.regular.dmgPhysEle,
@@ -1733,18 +1651,13 @@ const griseo: Guide = {
 						data.kalpas.nexus1.name,
 						data.kalpas.nexus1.fire,
 						data.kalpas.nexus1.dmgBonus
-					],
+					]
+				},
+				optional: {
 					[data.griseo.name]: [
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
 						data.griseo.nexus1.name
-					]
-				},
-				optional: {
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.nexus1.name
 					]
 				}
 			},
@@ -1945,30 +1858,29 @@ const herta: Guide = {
 const hofi: Guide = {
 	name: 'Herrscher of Finality',
 	acr: 'hofi',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
+				data.buffs[0][10],
 				data.buffs[1][12],
-				data.buffs[2][1],
-				data.buffs[3][15]
+				data.buffs[2][15],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
-					[data.kevin, '1']
+					[data.vv, '1']
 				],
 				secondary: [
-					[data.pardofelis, '1'],
 					[data.su, '1'],
-					[data.griseo, '1']
-				],
-				optional: [
-					[data.vv, '1']
+					[data.griseo, '1'],
+					[data.aponia, '1'],
+					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
-				[data.burden, data.itWillBeWritten],
-				[data.lightAsABodhiLeaf, data.itWillBeWritten],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.lightAsABodhiLeaf, data.fallingInPastLight],
 				[data.heavyAsAMillionLives, data.dreamfulGold]
 			],
 			support: [
@@ -1992,22 +1904,14 @@ const hofi: Guide = {
 					]
 				},
 				main: {
-					[data.kevin.name]: [
-						data.kevin.regular.dmgTotal,
-						data.kevin.regular.dmgPhys,
-						data.kevin.regular.breachPhys,
-						data.kevin.regular.spRestore,
-						data.kevin.nexus1.name
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.spRestore,
+						data.vv.nexus1.name
 					]
 				},
 				secondary: {
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.curr,
-						data.pardofelis.regular.currKill,
-						data.pardofelis.nexus1.name
-					],
 					[data.su.name]: [
 						data.su.regular.dmgTotal,
 						data.su.regular.combo25,
@@ -2022,18 +1926,23 @@ const hofi: Guide = {
 						data.griseo.regular.yellow,
 						data.griseo.regular.black,
 						data.griseo.nexus1.name
-					]
-				},
-				optional: {
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.regular.spRestore
+					],
+					[data.aponia.name]: [
+						data.aponia.regular.basicAtk,
+						data.aponia.regular.spRestore,
+						data.aponia.regular.vuln,
+						data.aponia.regular.dmgTotal,
+						data.aponia.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.nexus1.name
 					]
 				}
 			},
-			notes: `Recommended to reset for Rift on 2F; if picking Vill-V, requires Domain of Genesis, use weapon active before ultimate; recommended to swap sigil on 5F; use Kevin support on 4F 7F wave 3.
-					Can pick Eden's signet <span>${data.eden.regular.spCapInitial}</span>, or Aponia's signet <span>${data.aponia.regular.dmgTotal}</span>, or Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, and <span>${data.kalpas.regular.dmgPhysEle}</span> as reinforcement.
+			notes: `Recommended to reset for Rift on 2F; if picking Vill-V, requires Domain of Genesis, use weapon active before ultimate; recommended to swap sigil on 5F.
+					Can pick Eden's signet <span>${data.eden.regular.spCapInitial}</span>, or Kevin's signet <span>${data.kevin.regular.dmgTotal}</span>, and <span>${data.kevin.regular.dmgEle}</span>, or Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, <span>${data.kalpas.regular.dmgPhysEle}</span>, and <span>${data.kalpas.regular.hp}</span> as reinforcement.
 					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
@@ -2141,36 +2050,36 @@ const hofs: Guide = {
 const hoh: Guide = {
 	name: 'Herrscher of Human: Ego',
 	acr: 'hoh',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][9],
+				data.buffs[0][10],
+				data.buffs[1][0],
 				data.buffs[1][12],
-				data.buffs[2][1],
-				data.buffs[3][15]
+				data.buffs[2][15]
 			],
 			signet: {
 				main: [
 					[data.kalpas, '1']
 				],
 				secondary: [
-					[data.sakura, '1'],
-					[data.hua, '2'],
+					[data.griseo, '1'],
+					[data.kevin, '2'],
 					[data.pardofelis, '1']
 				],
 				optional: [
-					[data.eden, '1']
+					[data.vv, '2']
 				]
 			},
 			emblem: [
-				[data.madKingsMask, data.itWillBeWritten],
-				[data.forgetMeNot, data.itWillBeWritten],
-				[data.keyToTheDeep, data.dreamfulGold]
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.rainbowOfAbsence, data.anOldPalsLegacy],
+				[data.tinFlask, data.anOldPalsLegacy]
 			],
 			support: [
-				[ [data.ae], [data.vc] ],
-				[ [data.br], [data.ae] ]
+				[ [data.ae], [data.bke] ],
+				[ [data.br], [data.rc] ]
 			],
 			gear: [
 				[data.doeg, data.elpt, data.elpm, data.elpb],
@@ -2179,15 +2088,15 @@ const hoh: Guide = {
 			signetTable: {
 				exclusive: {
 					[data.start]: [
-						'First Encounter',
-						'First Yearning'
+						'First Bloom',
+						'First Journey'
 					],
-					[data.optional]: [
-						'First Bloom'
+					[data.second]: [
+						'First Awakening'
 					],
 					[data.no]: [
-						'First Awakening',
-						'First Journey'
+						'First Encounter',
+						'First Yearning'
 					]
 				},
 				main: {
@@ -2202,17 +2111,17 @@ const hoh: Guide = {
 					]
 				},
 				secondary: {
-					[data.sakura.name]: [
-						data.sakura.regular.dmgTotal,
-						data.sakura.regular.vuln,
-						data.sakura.regular.evasionAdd,
-						data.sakura.nexus1.name
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
 					],
-					[data.hua.name]: [
-						data.hua.regular.dmgTotal,
-						data.hua.regular.dmgEle,
-						data.hua.regular.breachEle,
-						data.hua.nexus2.name
+					[data.kevin.name]: [
+						data.kevin.regular.dmgTotal,
+						data.kevin.regular.dmgEle,
+						data.kevin.regular.breachEle,
+						data.kevin.nexus2.name
 					],
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgTotal,
@@ -2222,14 +2131,18 @@ const hoh: Guide = {
 					]
 				},
 				optional: {
-					[data.eden.name]: [
-						data.eden.regular.dmgTotal,
-						data.eden.regular.dmgPhysEle
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgRanged,
+						data.vv.nexus2.name
 					]
 				}
 			},
-			notes: `Recommended to only try this with full signature, otherwise use fast ult build. Rotation : Use evasion and weapon active whenever available, charge attack the rest of the time, use 3 charge atk per 1 weapon; recommended to swap sigil on 6F, roll Kalpas on 7F, use Kevin support on 4F and 7F wave 3.
-					Can pick Griseo's signet <span>${data.griseo.regular.red}</span> (buy from shop), or Vill-V's signets <span>${data.vv.regular.vuln}</span>, <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.dmgRanged}</span> as reinforcement.`
+			notes: `If dying easily, can pick Kalpas2 to preserve damage boost; recommended to swap sigil on 5F.
+					Can pick or Sakura's signets <span>${data.sakura.regular.vuln}</span>, and <span>${data.sakura.regular.dmgTotal}</span> as reinforcement.
+					<p>First Awakening</p>1st if weak setup.
+					<p>${data.griseo.regular.red}</p> Buy from shop.`
 		}
 	]
 };
@@ -2237,30 +2150,31 @@ const hoh: Guide = {
 const hoo: Guide = {
 	name: 'Herrscher of Origin',
 	acr: 'hoo',
-	version: '6.9',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[1][7],
-				data.buffs[2][7],
-				data.buffs[2][13]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
-					[data.vv, '1']
+					[data.kalpas, '1']
 				],
 				secondary: [
+					[data.hua, '1'],
 					[data.su, '1'],
-					[data.griseo, '1'],
-					[data.kalpas, '1']
+					[data.vv, '1']
 				],
 				optional: [
 					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
-				[data.psuedoMiracle, data.fallingInPastLight],
-				[data.lightAsABodhiLeaf, data.fallingInPastLight],
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.memory, data.anOldPalsLegacy],
 				[data.heavyAsAMillionLives, data.dreamfulGold]
 			],
 			support: [
@@ -2270,43 +2184,20 @@ const hoo: Guide = {
 			signetTable: {
 				exclusive: {
 					[data.start]: [
-						'Expungement',
 						'Lethal Smite'
 					],
 					[data.first]: [
-						'Nature'
+						'Expungement'
 					],
-					[data.optional]: [
+					[data.second]: [
 						'Ultra'
 					],
 					[data.no]: [
-						'Inscription'
+						'Inscription',
+						'Nature'
 					]
 				},
 				main: {
-					[data.vv.name]: [
-						data.vv.regular.vuln,
-						data.vv.regular.dmgTotal,
-						data.vv.regular.dmgPhysEle,
-						data.vv.nexus1.name
-					]
-				},
-				secondary: {
-					[data.su.name]: [
-						data.su.regular.vuln,
-						data.su.regular.combo25,
-						data.su.regular.combo60,
-						data.su.regular.dmgTotal,
-						data.su.nexus1.name,
-						data.su.nexus1.vuln,
-						data.su.nexus1.breachPhysEle
-					],
-					[data.griseo.name]: [
-						data.griseo.regular.red,
-						data.griseo.regular.yellow,
-						data.griseo.regular.black,
-						data.griseo.nexus1.name
-					],
 					[data.kalpas.name]: [
 						data.kalpas.regular.dmgTotal,
 						data.kalpas.regular.dmgPhysEle,
@@ -2317,18 +2208,40 @@ const hoo: Guide = {
 						data.kalpas.nexus1.dmgBonus
 					]
 				},
+				secondary: {
+					[data.hua.name]: [
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.regular.breachEle,
+						data.hua.nexus1.name
+					],
+					[data.su.name]: [
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.dmgTotal,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.breachPhysEle
+					],
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgPhysEle,
+						data.vv.nexus1.name
+					]
+				},
 				optional: {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name,
-						data.pardofelis.nexus1.breachPhysEle
+						data.pardofelis.nexus1.name
 					]
 				}
 			},
-			notes: `Recommended to reset for Nature on 2F; swap sigils on 5F, try to buy 1 Su signet, unlock nexus on 7F then pick up enhanced; if not good at dodging not recommended to pick Kalpas before 12F.
-					Can pick Sakura's signets <span>${data.sakura.regular.evasionReset}</span>, and <span>${data.sakura.regular.evasionAdd}</span>, <span>${data.sakura.regular.dmgTotal}</span>, and <span>${data.sakura.regular.vuln}</span> as reinforcement.`
+			notes: `Recommended to swap sigil on 5F, recommended to reset for Expungement on 2F.
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span> as reinforcement.`
 		}
 	]
 };
@@ -2924,14 +2837,14 @@ const hot: Guide = {
 const hotr: Guide = {
 	name: 'Herrscher of Truth',
 	acr: 'hotr',
-	version: '7.1',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[1][7],
-				data.buffs[1][10],
-				data.buffs[2][7],
-				data.buffs[2][13]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -2940,19 +2853,19 @@ const hotr: Guide = {
 				secondary: [
 					[data.su, '2'],
 					[data.griseo, '1'],
-					[data.pardofelis, '1']
+					[data.eden, '1']
 				],
 				optional: [
-					[data.sakura, '2']
+					[data.pardofelis, '1']
 				]
 			},
 			emblem: [
 				[data.forbiddenSeed, data.boundlessLogos],
-				[data.lightAsABodhiLeaf, data.boundlessLogos],
-				[data.keyToTheDeep, data.fallingInPastLight]
+				[data.goldGoblet, data.boundlessLogos],
+				[data.keyToTheDeep, data.boundlessLogos]
 			],
 			support: [
-				[ [data.vc], [data.bke] ],
+				[ [data.bke], [data.vke] ],
 				[ [data.br], [data.ae, data.rc] ]
 			],
 			signetTable: {
@@ -2987,32 +2900,34 @@ const hotr: Guide = {
 						data.su.regular.combo25,
 						data.su.regular.vuln,
 						data.su.regular.dmgTotal,
+						data.su.regular.spRestore,
 						data.su.nexus2.name
 					],
 					[data.griseo.name]: [
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
 						data.griseo.regular.grey,
+						data.griseo.regular.black,
 						data.griseo.nexus1.name
 					],
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+				},
+				optional: {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgTotal,
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.spHpCap,
 						data.pardofelis.nexus1.name
 					]
-				},
-				optional: {
-					[data.sakura.name]: [
-						data.sakura.regular.dmgTotal,
-						data.sakura.regular.vuln,
-						data.sakura.regular.evasionAdd,
-						data.sakura.nexus2.name
-					]
 				}
 			},
-			notes: `Can pick Pishacha; recommended to reset for Continuation on 2F; recommended to swap sigil on 6F, roll Mobius on 7F.
-					Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhysEle}</span>, or Vill-V's signets  <span>${data.vv.regular.vuln}</span>, and  <span>${data.vv.regular.dmgTotal}</span> as reinforcement.
+			notes: `Recommended to reset for Continuation on 2F; recommended to swap sigil on 6F, roll Mobius on 7F.
+					Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, and  <span>${data.vv.regular.dmgTotal}</span> as reinforcement.
 					<p>${data.mobius.nexus1.breachPhysEle}</p>Priority.`
 		}
 	]
@@ -3203,13 +3118,14 @@ const lk: Guide = {
 const lv: Guide = {
 	name: 'Lunar Vow: Crimson Love',
 	acr: 'lv',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][9],
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][16],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -3230,8 +3146,8 @@ const lv: Guide = {
 				[data.tinFlask, data.anOldPalsLegacy]
 			],
 			support: [
-				[ [data.br], [data.bke] ],
-				[ [data.br], [data.ae, data.rc] ]
+				[ [data.ae], [data.bke] ],
+				[ [data.br], [data.rc] ]
 			],
 			signetTable: {
 				exclusive: {
@@ -3396,12 +3312,13 @@ const sirin: Guide = {
 const mobius: Guide = {
 	name: 'Infinite Ouroboros',
 	acr: 'mobius',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[3][6],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -3417,8 +3334,8 @@ const mobius: Guide = {
 				]
 			},
 			emblem: [
-				[data.forbiddenSeed, data.itWillBeWritten],
-				[data.rainbowOfAbsence, data.itWillBeWritten],
+				[data.forbiddenSeed, data.boundlessLogos],
+				[data.rainbowOfAbsence, data.boundlessLogos],
 				[data.ruinedLegacy, data.boundlessLogos]
 			],
 			support: [
@@ -3471,6 +3388,7 @@ const mobius: Guide = {
 					[data.sakura.name]: [
 						data.sakura.regular.vuln,
 						data.sakura.regular.dmgTotal,
+						data.sakura.regular.evasionAdd,
 						data.sakura.nexus1.name
 					]
 				},
@@ -3483,7 +3401,7 @@ const mobius: Guide = {
 					]
 				}
 			},
-			notes: `Recommended to only attempt with signature gear, otherwise performance is not good; recommended to swap sigil on 6F, roll Mobius on 7F; use Kevin support on 4F and 7F wave 3.
+			notes: `Recommended to only attempt with signature gear, otherwise performance is not good; recommended to swap sigil on 6F, roll Mobius on 7F.
 					Can pick Eden's signet <span>${data.eden.regular.dmgTotal}</span>, <span>${data.eden.regular.dmgPhysEle}</span>, and <span>${data.eden.regular.spCapInitial}</span> as reinforcement.`
 		}
 	]
@@ -4318,13 +4236,14 @@ const ss: Guide = {
 const sus: Guide = {
 	name: 'Jade Knight',
 	acr: 'sus',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][9],
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][12]
 			],
 			signet: {
 				main: [
@@ -4332,7 +4251,7 @@ const sus: Guide = {
 				],
 				secondary: [
 					[data.griseo, '1'],
-					[data.pardofelis, '1'],
+					[data.kalpas, '1'],
 					[data.hua, '2']
 				],
 				optional: [
@@ -4341,7 +4260,7 @@ const sus: Guide = {
 			},
 			emblem: [
 				[data.goldGoblet, data.dreamfulGold],
-				[data.rainbowOfAbsence, data.dreamfulGold],
+				[data.memory, data.dreamfulGold],
 				[data.keyToTheDeep, data.dreamfulGold]
 			],
 			support: [
@@ -4379,15 +4298,16 @@ const sus: Guide = {
 						data.griseo.regular.red,
 						data.griseo.regular.yellow,
 						data.griseo.regular.grey,
-						data.griseo.regular.blue,
-						data.griseo.nexus1.name,
-						data.griseo.nexus1.purple
+						data.griseo.nexus1.name
 					],
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.vuln,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name,
+						data.kalpas.nexus1.fire,
+						data.kalpas.nexus1.dmgBonus
 					],
 					[data.hua.name]: [
 						data.hua.regular.dmgTotal,
@@ -4406,8 +4326,8 @@ const sus: Guide = {
 					]
 				}
 			},
-			notes: `After getting Eden starting SP, use LE immediately at the start then ulti to activate Eden; recommended to swap sigil on 5F.
-					Can pick Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, and <span>${data.kalpas.regular.dmgPhysEle}</span> as reinforcement.`
+			notes: `After getting Eden starting SP, use LE immediately at the start then ulti to activate Eden; recommended to swap sigil on 5F; leave around 2k HP to leave a margin of error, swap to BKE at 2nd shop to help vs Heimdall.
+					Can pick Pardofelis's signets <span>${data.pardofelis.regular.dmgTotal}</span>, <span>${data.pardofelis.regular.dmgPhysEle}</span>, and <span>${data.pardofelis.regular.spHpCap}</span> as reinforcement.`
 		}
 	]
 };
@@ -4415,13 +4335,13 @@ const sus: Guide = {
 const sk: Guide = {
 	name: 'Shadow Knight',
 	acr: 'sk',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][9],
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[3][6],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -4437,8 +4357,8 @@ const sk: Guide = {
 				]
 			},
 			emblem: [
-				[data.madKingsMask, data.itWillBeWritten],
-				[data.lightAsABodhiLeaf, data.itWillBeWritten],
+				[data.madKingsMask, data.anOldPalsLegacy],
+				[data.lightAsABodhiLeaf, data.anOldPalsLegacy],
 				[data.heavyAsAMillionLives, data.anOldPalsLegacy]
 			],
 			support: [
@@ -4481,8 +4401,7 @@ const sk: Guide = {
 						data.su.regular.combo60,
 						data.su.nexus1.name,
 						data.su.nexus1.vuln,
-						data.su.nexus1.breachPhysEle,
-						data.su.nexus1.dmgShield
+						data.su.nexus1.breachPhysEle
 					],
 					[data.hua.name]: [
 						data.hua.regular.dmgTotal,
@@ -4506,7 +4425,7 @@ const sk: Guide = {
 					]
 				}
 			},
-			notes: `Must have at least Nuada's ; lower HP to around 1000, pay attention to dodging Huodou's phase 2 transition fire breath attack; recommended to swap sigil on 5F; use Kevin support on 4F 7F wave 3.
+			notes: `Must have at least Nuada's ; lower HP to around 1000, pay attention to dodging Huodou's phase 2 transition fire breath attack; recommended to swap sigil on 5F.
 					Can pick Griseo's signet <span>${data.griseo.regular.red}</span>, or Sakura's signet <span>${data.sakura.regular.vuln}</span> as reinforcement.`
 		}
 	]
@@ -4984,6 +4903,7 @@ const vill2: Guide = {
 	version: '7.3',
 	builds: [
 		{
+			name: 'Astral Ring',
 			buff: [
 				data.buffs[0][10],
 				data.buffs[3][6],
@@ -5068,6 +4988,94 @@ const vill2: Guide = {
 				}
 			},
 			notes: `Recommended to swap sigil on 5F. Rotation : Activate Astral Ring whenever possible, after bar is full, tap weapon active to start shooting. Once the bar is depleted, tap weapon active then basic ATK to recharge the bar.
+					Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.dmgRanged}</span>, or Griseo's signets Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span> as reinforcement.`
+		},
+		{
+			name: 'No Astral Ring',
+			buff: [
+				data.buffs[0][10],
+				data.buffs[3][6],
+				data.buffs[3][16]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.su, '1'],
+					[data.sakura, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.kalpas, '1']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.dreamfulGold],
+				[data.lightAsABodhiLeaf, data.dreamfulGold],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.bke], [data.vke] ],
+				[ [data.rc], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Sparkling Lightning'
+					],
+					[data.first]: [
+						'Improvisation'
+					],
+					[data.optional]: [
+						'Meditation'
+					],
+					[data.no]: [
+						'Resolution',
+						'Vivace'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.spRestore,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln
+					],
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.regular.evasionAdd,
+						data.sakura.nexus1.name
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus1.name
+					]
+				}
+			},
+			notes: `Recommended to swap sigil on 5F. Rotation : Tap weapon - basic - basic until full bar - tap weapon to start shooting, pick up energy to replenish bar. In between waves or when shooting lasts longer than 25s, tap weapon twice to end Rapid Shot, pick up energy then tap weapon again to start shooting.
 					Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, <span>${data.vv.regular.dmgTotal}</span>, and <span>${data.vv.regular.dmgRanged}</span>, or Griseo's signets Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span> as reinforcement.`
 		}
 	]
@@ -5174,14 +5182,13 @@ const villv: Guide = {
 const vq: Guide = {
 	name: 'Valkyrie Quicksand',
 	acr: 'vq',
-	version: '7.1',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[0][8],
-				data.buffs[1][7],
-				data.buffs[2][13],
-				data.buffs[3][2]
+				data.buffs[0][10],
+				data.buffs[2][15],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -5203,7 +5210,7 @@ const vq: Guide = {
 			],
 			support: [
 				[ [data.sa], [data.bke] ],
-				[ [data.ss], [data.br, data.sa] ]
+				[ [data.ss], [data.sa, data.br] ]
 			],
 			signetTable: {
 				exclusive: {
@@ -5254,15 +5261,14 @@ const vq: Guide = {
 					[data.pardofelis.name]: [
 						data.pardofelis.regular.dmgPhysEle,
 						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.spHpCap,
 						data.pardofelis.regular.curr,
 						data.pardofelis.regular.currKill,
 						data.pardofelis.nexus1.name
 					]
 				}
 			},
-			notes: `Recommended to swap sigils on 5F; bleed damage is not counted as melee or ranged so the breach buff is not taken; if having difficulty then reset for Luster on 2F.
-					Can pick Kalpas's signet <span>${data.kalpas.regular.vuln}</span>, or Sakura's signet <span>${data.sakura.regular.vuln}</span> as reinforcement.
+			notes: `Recommended to swap sigils on 5F; if having difficulty then reset for Luster on 2F.
+					Can pick Kalpas's signet <span>${data.kalpas.regular.vuln}</span> as reinforcement.
 					<p>${data.pardofelis.regular.curr}, ${data.pardofelis.regular.currKill}</p>Buy from shop.`
 		}
 	]

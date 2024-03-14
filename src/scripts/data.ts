@@ -300,7 +300,8 @@ export const buffs = [
 		'Status TDM bonus',
 		'Combo ATK vulnerability',
 		'Status vulnerability',
-		'Weapon active vulnerability' //
+		'Weapon active vulnerability', //
+		'Abnormal status TDM bonus'
 	],
 	// 15
 	[
