@@ -3501,12 +3501,14 @@ const nyx: Guide = {
 const pardo: Guide = {
 	name: 'Reverist Calico',
 	acr: 'pardo',
-	version: '7.2',
+	version: '7.3',
 	builds: [
 		{
 			buff: [
-				data.buffs[3][1],
-				data.buffs[3][15]
+				data.buffs[0][10],
+				data.buffs[1][12],
+				data.buffs[2][15],
+				data.buffs[3][16]
 			],
 			signet: {
 				main: [
@@ -3518,12 +3520,12 @@ const pardo: Guide = {
 					[data.kalpas, '1']
 				],
 				optional: [
-					[data.pardofelis, '1']
+					[data.aponia, '1']
 				]
 			},
 			emblem: [
-				[data.goldGoblet, data.itWillBeWritten],
-				[data.lightAsABodhiLeaf, data.itWillBeWritten],
+				[data.goldGoblet, data.dreamfulGold],
+				[data.lightAsABodhiLeaf, data.dreamfulGold],
 				[data.heavyAsAMillionLives, data.fallingInPastLight]
 			],
 			support: [
@@ -3584,16 +3586,17 @@ const pardo: Guide = {
 					]
 				},
 				optional: {
-					[data.pardofelis.name]: [
-						data.pardofelis.regular.dmgPhysEle,
-						data.pardofelis.regular.dmgTotal,
-						data.pardofelis.regular.spHpCap,
-						data.pardofelis.nexus1.name
+					[data.aponia.name]: [
+						data.aponia.regular.spRestore,
+						data.aponia.regular.dmgPhysEle,
+						data.aponia.regular.dmgTotal,
+						data.aponia.nexus1.name
 					]
 				}
 			},
-			notes: `After getting Kalpas1 nexus, reduce HP at shop; Cecilia: Youth > N-EX TB + Willows M > N-EX TB + Welt M > Willows set; recommended to swap sigil on 5F; use Kevin support on 4F and 7F wave 3.
-					Can pick Vill-V's signets <span>${data.kalpas.regular.vuln}</span>, and <span>${data.kalpas.regular.dmgTotal}</span>, or Aponia's signets <span>${data.aponia.regular.dmgPhysEle}</span>, <span>${data.aponia.regular.vuln}</span>, and <span>${data.aponia.regular.dmgTotal}</span> as reinforcements.
+			notes: `After getting Kalpas1 nexus, reduce HP at shop; Cecilia: Youth > N-EX TB + Willows M > N-EX TB + Welt M > Willows set; recommended to swap sigil on 5F.
+					Can pick Vill-V's signets <span>${data.vv.regular.vuln}</span>, and <span>${data.vv.regular.dmgTotal}</span>, or Pardofelis's signets <span>${data.pardofelis.regular.dmgTotal}</span>, <span>${data.pardofelis.regular.dmgPhysEle}</span>, and <span>${data.pardofelis.regular.spHpCap}</span> as reinforcements.
+					<p>Blessing of Tailpiece</p>1st if Infinity +2.
 					<p>${data.griseo.regular.red}</p>Buy from shop.`
 		}
 	]
