@@ -1666,9 +1666,9 @@ const griseo: Guide = {
 	]
 };
 // Valkyrie Blastmetal
-const herta: Guide = {
+const coralie: Guide = {
 	name: 'Valkyrie Blastmetal',
-	acr: 'herta',
+	acr: 'coralie',
 	version: '7.3',
 	builds: [
 		{
@@ -4900,9 +4900,9 @@ const vg: Guide = {
 	]
 };
 // Valkyrie Boltstorm
-const vill2: Guide = {
+const helia: Guide = {
 	name: 'Valkyrie Boltstorm',
-	acr: 'vill2',
+	acr: 'helia',
 	version: '7.3',
 	builds: [
 		{
@@ -5384,7 +5384,7 @@ export const valks: any[] = [
 	mc,		eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,
 	hos,	hov,	hot,	hotr,	mobius,	sus, 	lk, 	lv,		raven,	sirin,
 	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,		ss,		spa,	griseo,
-	nyx,	sn,		vb,		kira,	carole,	ta,		ve,		herta,	vill2,		vg,
+	nyx,	sn,		vb,		kira,	carole,	ta,		ve,		coralie,	helia,		vg,
 	vq,		vkek
 ];
 export const valksLength: number = valks.length;
