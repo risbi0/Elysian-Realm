@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v20';
+const cacheName = 'herrscher-of-cache-v21';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -56,6 +56,7 @@ const bannerImages = [
 	'Jade_Knight',
 	'Luna_Kindred',
 	'Lunar_Vow_Crimson_Love',
+	'Mad_Pleasure_Shadowbringer',
 	'Midnight_Absinthe',
 	'Miracle_Magical_Girl',
 	'Miss_Pink_Elf',
@@ -171,6 +172,7 @@ const images = [
 	'Abyss_Flower_Liminal_Spiral',
 	'Astral_Divide_Pisces',
 	'Basilisks_Image_Deathshroud',
+	'Blast_Hammer_Blazing_Red',
 	'Blood_Dance',
 	'Cosmic_Duality',
 	'Dawn_Breaker_Talwar',
@@ -234,11 +236,13 @@ const stigImages = [
 	'Dracula',
 	'Elysia',
 	'Elysia_Pristine',
+	'Flavors_of_Time',
 	'Handel',
 	'Idol_Transformation',
 	'Irene_Adler',
 	'Kafka',
 	'Li_Sushang_Shenzhou_Reminiscence',
+	'Little_Joys',
 	'Murata_Himeko',
 	'Paganini',
 	'Pericles',

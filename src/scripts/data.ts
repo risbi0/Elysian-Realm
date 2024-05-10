@@ -135,6 +135,9 @@ export const elpb: NameAcr = { name: 'Elysia: Pristine B', acr: 'elpb' };
 export const elyt: NameAcr = { name: 'Elysia T', acr: 'elyt' };
 export const elym: NameAcr = { name: 'Elysia M', acr: 'elym' };
 export const elyb: NameAcr = { name: 'Elysia B', acr: 'elyb' };
+export const fltt: NameAcr = { name: 'Fu Hua: Ordinary Day T', acr: 'fltt' };
+export const fltm: NameAcr = { name: 'Fu Hua: Ordinary Day M', acr: 'fltm' };
+export const fltb: NameAcr = { name: 'Fu Hua: Ordinary Day B', acr: 'fltb' };
 export const hant: NameAcr = { name: 'Handel T', acr: 'hant' };
 export const hanm: NameAcr = { name: 'Handel M', acr: 'hanm' };
 export const hanb: NameAcr = { name: 'Handel B', acr: 'hanb' };
@@ -152,6 +155,9 @@ export const linb: NameAcr = { name: 'Linnaeus B', acr: 'linb' };
 export const list: NameAcr = { name: 'Li Sushang: Shenzhou Reminiscence T', acr: 'list' };
 export const lism: NameAcr = { name: 'Li Sushang: Shenzhou Reminiscence M', acr: 'lism' };
 export const lisb: NameAcr = { name: 'Li Sushang: Shenzhou Reminiscence B', acr: 'lisb' };
+export const litt: NameAcr = { name: 'TeRiRi: Gift T', acr: 'litt' };
+export const litm: NameAcr = { name: 'Broboli: Demo M', acr: 'litm' };
+export const litb: NameAcr = { name: 'Vollerei: Review B', acr: 'litb' };
 export const marm: NameAcr = { name: 'Marco Polo M', acr: 'marm' };
 export const mict: NameAcr = { name: 'Michealangelo T', acr: 'mict' };
 export const micb: NameAcr = { name: 'Michealangelo B', acr: 'micb' };
@@ -207,6 +213,7 @@ export const abfl: NameAcr = { name: 'Abyss Flower: Liminal Spiral', acr: 'abfl'
 export const asdi: NameAcr = { name: 'Astral Divide: Pisces', acr: 'asdi' };
 export const baim: NameAcr = { name: 'Basilik\'s Image: Deathshroud', acr: 'baim' };
 export const blda: NameAcr = { name: 'Blood Dance', acr: 'blda' };
+export const blha: NameAcr = { name: 'Blast Hammer: Blazing Red', acr: 'blha' };
 export const codu: NameAcr = { name: 'Cosmic Duality', acr: 'codu' };
 export const dabr: NameAcr = { name: 'Dawn Breaker: Talwar', acr: 'dabr' };
 export const doeg: NameAcr = { name: 'Domain of Ego: Flawless Return', acr: 'doeg' };
@@ -281,7 +288,8 @@ export const buffs = [
 		'Charged ATK vulnerability',
 		'Summons TDM bonus', //
 		'Max HP +200',
-		'Max HP +500'
+		'Max HP +500',
+		'Different type support bonus'
 	],
 	// 10
 	[
@@ -301,7 +309,9 @@ export const buffs = [
 		'Combo ATK vulnerability',
 		'Status vulnerability',
 		'Weapon active vulnerability', //
-		'Abnormal status TDM bonus'
+		'Abnormal status TDM bonus',
+		'Ele DMG bonus',
+		'Weapon skill TDM bonus'
 	],
 	// 15
 	[
@@ -321,7 +331,9 @@ export const buffs = [
 		'Max HP DMG buff',
 		'Melee ATK breach',
 		'Max HP breach', //
-		'Support type DMG bonus'
+		'Support type DMG bonus',
+		'Ele DMG bonus',
+		'Nexus Ice DMG bonus'
 	]
 ];
 // signets
