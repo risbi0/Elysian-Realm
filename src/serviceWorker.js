@@ -87,7 +87,9 @@ const images = [
 	'Azure_Empyrea_Avatar',
 	'Blood_Rose_Avatar',
 	'Bright_Knight_Excelsis_Avatar',
+	'Deepspace_Anchor_First_Light_Avatar',
 	'Divine_Prayer_Avatar',
+	'Fallen_Rosemary_Avatar',
 	'Haxxor_Bunny_Avatar',
 	'Lightning_Empress_Avatar',
 	'Midnight_Absinthe_Avatar',
@@ -96,6 +98,7 @@ const images = [
 	'Starlit_Astrologos_Avatar',
 	'Stygian_Nymph_Avatar',
 	'Valkyrie_Chariot_Avatar',
+	'Vermilion_Knight_Eclipse_Avatar',
 	// signets
 	'Aponia_Signet',
 	'Eden_Signet',
