@@ -2939,6 +2939,200 @@ const kira: Guide = {
 		}
 	]
 };
+// Lone Destruction: Shadowchaser
+const lantern: Guide = {
+	name: 'Lone Destruction: Shadowchaser',
+	acr: 'lantern',
+	version: '7.5',
+	builds: [
+		{
+			name: 'No Astral Ring',
+			buff: [
+				data.buffs[0][11],
+				data.buffs[3][7],
+				data.buffs[3][19]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.sakura, '2'],
+					[data.hua, '2'],
+					[data.su, '2']
+				],
+				optional: [
+					[data.pardofelis, '1']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.dreamfulGold],
+				[data.forgetMeNot, data.dreamfulGold],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.vke], [data.bke] ],
+				[ [data.dafl, data.ae], [data.br] ]
+			],
+			gear: [
+				[data.blha, data.fltt, data.fltm, data.fltb]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Blazing Torch'
+					],
+					[data.second]: [
+						'Luminance'
+					],
+					[data.optional]: [
+						'Illuminated Night'
+					],
+					[data.no]: [
+						'Raging Fire',
+						'Scorching Flames'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.regular.spRestore,
+						data.eden.nexus1.name,
+						data.eden.nexus1.vuln
+					]
+				},
+				secondary: {
+					[data.sakura.name]: [
+						data.sakura.regular.dmgTotal,
+						data.sakura.regular.vuln,
+						data.sakura.regular.evasionReset,
+						data.sakura.nexus2.name
+					],
+					[data.hua.name]: [
+						data.hua.regular.breachEle,
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.nexus2.name,
+						data.hua.nexus2.stackCap
+					],
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus2.name
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.nexus1.name
+					]
+				}
+			},
+			notes: `Recommended to swap sigil on 5F. Rotation : Tap basic then weapon, then hold evade and steer. If Luminance is obtained, wait until evasion charges are finished before using ultimate.
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span>, or Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, <span>${data.kalpas.regular.dmgPhysEle}</span> and <span>${data.kalpas.regular.hp}</span> as reinforcement.`
+		},
+		{
+			name: 'Astral Ring',
+			buff: [
+				data.buffs[0][11],
+				data.buffs[3][7],
+				data.buffs[3][19]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.su, '2'],
+					[data.vv, '2'],
+					[data.griseo, '1']
+				],
+				optional: [
+					[data.pardofelis, '1']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.dreamfulGold],
+				[data.lightAsABodhiLeaf, data.dreamfulGold],
+				[data.keyToTheDeep, data.dreamfulGold]
+			],
+			support: [
+				[ [data.vke], [data.bke] ],
+				[ [data.dafl], [data.br] ]
+			],
+			gear: [
+				[data.blha, data.fltt, data.fltm, data.fltb]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Raging Fire'
+					],
+					[data.second]: [
+						'Scorching Flames'
+					],
+					[data.optional]: [
+						'Illuminated Night'
+					],
+					[data.no]: [
+						'Blazing Torch',
+						'Luminance'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.regular.spRestore,
+						data.eden.nexus1.name,
+						data.eden.nexus1.vuln
+					]
+				},
+				secondary: {
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.spRestore,
+						data.su.nexus2.name
+					],
+					[data.vv.name]: [
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.regular.dmgRanged,
+						data.vv.regular.spRestore,
+						data.vv.nexus2.name,
+						data.vv.nexus2.breachPhysEle,
+						data.vv.nexus2.vuln,
+						data.vv.nexus2.gravField
+					],
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.nexus1.name
+					]
+				}
+			},
+			notes: `Recommended to swap sigil on 5F. Rotation : Tap basic then weapon, use both supports then use astral outburst. Once the bar is full, hold basic atk to do the combo attack. Basic attack the rest of the time, recommended to use ultimate after the combo attack. Prioritise using lantern's phantom support when in astral outburst.
+					Can pick Griseo's signets <span>${data.griseo.regular.red}</span>, and <span>${data.griseo.regular.black}</span>, or Kalpas's signets <span>${data.kalpas.regular.dmgTotal}</span>, <span>${data.kalpas.regular.dmgPhysEle}</span> and <span>${data.kalpas.regular.hp}</span> as reinforcement.`
+		}
+	]
+};
 // Luna Kindred
 const lk: Guide = {
 	name: 'Luna Kindred',
@@ -5401,9 +5595,9 @@ const vkek: Guide = {
 export const valks: any[] = [
 	aka,	bke,	ce,		cn,		da,		sena,	aponia,	dw,		fr,		fv,
 	mc,		eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,
-	hos,	hov,	hot,	hotr,	mobius,	sus, 	lk, 	lv,		mps,		raven,
-	sirin,	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,		ss,		spa,
-	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,		ve,		coralie,	helia,
-	vg,		vq,		vkek
+	hos,	hov,	hot,	hotr,	mobius,	sus,	lantern,	lk, 	lv,		mps,
+	raven,	sirin,	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,		ss,
+	spa,	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,		ve,		coralie,
+	helia,	vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;

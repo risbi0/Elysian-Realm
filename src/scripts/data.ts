@@ -272,7 +272,8 @@ export const buffs = [
 		'Cruising Tribunal',
 		'Pishacha',
 		'Parvati',
-		'HOMU' //
+		'HOMU', //
+		'MHT-3B'
 	],
 	// 5
 	[
@@ -333,7 +334,8 @@ export const buffs = [
 		'Max HP breach', //
 		'Support type DMG bonus',
 		'Ele DMG bonus',
-		'Nexus Ice DMG bonus'
+		'Nexus Ice DMG bonus',
+		'Weapon skill TDM bonus'
 	]
 ];
 // signets
