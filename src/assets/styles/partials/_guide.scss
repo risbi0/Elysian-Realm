@@ -60,7 +60,6 @@
 
     &.mb {
         @include wh($w: 100%, $h: calc(100% - 25vw));
-        transform: translateX(-50%);
 
         &.upper { @include margin($t: 25vw); }
 
@@ -75,7 +74,6 @@
     &.dt {
         width: 600px;
         border: 2px solid rgba($color: white, $alpha: 0.5);
-        transform: translate(-50%, 15%);
 
 		.ribbon {
 			@include padding($t: 20px, $b: 7px);
