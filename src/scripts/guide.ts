@@ -3710,9 +3710,9 @@ const pe: Guide = {
 		}
 	]
 };
-const mps: Guide = {
+const thelema: Guide = {
 	name: 'Mad Pleasure: Shadowbringer',
-	acr: 'mps',
+	acr: 'thelema',
 	version: '7.6',
 	builds: [
 		{
@@ -5604,7 +5604,7 @@ export const valks: any[] = [
 	aka,	bke,	ce,		cn,		da,		sena,	aponia,	dw,		fr,		fv,
 	mc,		eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,
 	hos,	hov,	hot,	hotr,	mobius,	sus,	songque, lantern,	lk, 	lv,
-	mps,	raven,	sirin,	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,
+	thelema, raven,	sirin,	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,
 	ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,		ve,
 	coralie, helia,	vg,		vq,		vkek
 ];
