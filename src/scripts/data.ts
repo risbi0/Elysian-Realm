@@ -201,6 +201,8 @@ export const wanb: NameAcr = { name: 'Wang Zhenyi B', acr: 'wanb' };
 export const welt: NameAcr = { name: 'Welt Yang T', acr: 'welt' };
 export const welm: NameAcr = { name: 'Welt Yang M', acr: 'welm' };
 export const welb: NameAcr = { name: 'Welt Yang B', acr: 'welb' };
+export const vont: NameAcr = { name: 'Von Neumann T', acr: 'vont' };
+export const vonb: NameAcr = { name: 'Von Neumann B', acr: 'vonb' };
 export const wilt: NameAcr = { name: 'Willows T', acr: 'wilt' };
 export const wilm: NameAcr = { name: 'Willows M', acr: 'wilm' };
 export const wilb: NameAcr = { name: 'Willows B', acr: 'wilb' };
@@ -223,6 +225,7 @@ export const dosa: NameAcr = { name: 'Domain of Sanction', acr: 'dosa' };
 export const dose: NameAcr = { name: 'Domain of Sentience', acr: 'dose' };
 export const dovo: NameAcr = { name: 'Domain of the Void', acr: 'dovo' };
 export const ecpa: NameAcr = { name: 'Echo of Paradise', acr: 'ecpa' };
+export const elar: NameAcr = { name: 'Electrifying Arc: Azure Sky', acr: 'elar' };
 export const elas: NameAcr = { name: 'Elysian Astra: Heart\'s Color', acr: 'elas' };
 export const eogl: NameAcr = { name: 'Eos Gloria', acr: 'eogl' };
 export const fafl: NameAcr = { name: 'Falcon Flare: FINAL', acr: 'fafl' };
@@ -312,7 +315,9 @@ export const buffs = [
 		'Weapon active vulnerability', //
 		'Abnormal status TDM bonus',
 		'Ele DMG bonus',
-		'Weapon skill TDM bonus'
+		'Weapon skill TDM bonus',
+		'Physical DMG',
+		'Elemental DMG' //
 	],
 	// 15
 	[
@@ -335,7 +340,8 @@ export const buffs = [
 		'Support type DMG bonus',
 		'Ele DMG bonus',
 		'Nexus Ice DMG bonus',
-		'Weapon skill TDM bonus'
+		'Weapon skill TDM bonus',
+		'Weapon skill / Combo TDM bonus' //
 	]
 ];
 // signets

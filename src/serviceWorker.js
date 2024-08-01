@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v21';
+const cacheName = 'herrscher-of-cache-v22';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -54,6 +54,8 @@ const bannerImages = [
 	'Herrscher_of_Truth',
 	'Infinite_Ouroboros',
 	'Jade_Knight',
+	'Jovial_Deception_Shadowdimmer',
+	'Lone_Destruction_Shadowchaser',
 	'Luna_Kindred',
 	'Lunar_Vow_Crimson_Love',
 	'Mad_Pleasure_Shadowbringer',
@@ -166,6 +168,8 @@ const images = [
 	'Siegfried_Kaslana_M',
 	'Thales_M',
 	'Broboli_M',
+	'Von_Neumann_T',
+	'Von_Neumann_B',
 	// weapons
 	'0_high_atk_weap',
 	'3rd_Sacred_Relic',
@@ -183,6 +187,7 @@ const images = [
 	'Domain_of_Sentience',
 	'Domain_of_the_Void',
 	'Echo_of_Paradise',
+	'Electrifying_Arc_Azure_Sky',
 	'Elysian_Astra_Hearts_Color',
 	'Eos_Gloria',
 	'Falcon_Flare_FINAL',
