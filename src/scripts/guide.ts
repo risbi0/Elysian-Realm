@@ -2976,9 +2976,6 @@ const lantern: Guide = {
 				[ [data.vke], [data.bke] ],
 				[ [data.dafl, data.ae], [data.br] ]
 			],
-			gear: [
-				[data.blha, data.fltt, data.fltm, data.fltb]
-			],
 			signetTable: {
 				exclusive: {
 					[data.start]: [
