@@ -67,6 +67,7 @@ const bannerImages = [
 	'Reverist_Calico',
 	'Ritual_Imayoh',
 	'Shadow_Knight',
+	'Schicksal\'s_Imperative',
 	'Silverwing_N-EX',
 	'Sixth_Serenade',
 	'Spina_Astera',

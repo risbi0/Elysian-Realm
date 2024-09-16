@@ -276,7 +276,8 @@ export const buffs = [
 		'Pishacha',
 		'Parvati',
 		'HOMU', //
-		'MHT-3B'
+		'MHT-3B',
+		'Valrahal'
 	],
 	// 5
 	[
@@ -341,7 +342,8 @@ export const buffs = [
 		'Ele DMG bonus',
 		'Nexus Ice DMG bonus',
 		'Weapon skill TDM bonus',
-		'Weapon skill / Combo TDM bonus' //
+		'Weapon skill / Combo TDM bonus', //
+		'Nexus Lightning DMG bonus'
 	]
 ];
 // signets

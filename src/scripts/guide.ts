@@ -3226,6 +3226,191 @@ const lv: Guide = {
 		}
 	]
 };
+// Schicksal's Imperative
+const si: Guide = {
+	name: 'Schicksal\'s Imperative',
+	acr: 'si',
+	version: '7.7',
+	builds: [
+		{
+			name: 'sleepy',
+			buff: [
+				data.buffs[0][12],
+				data.buffs[3][6],
+				data.buffs[3][21]
+			],
+			signet: {
+				main: [
+					[data.mobius, '2']
+				],
+				secondary: [
+					[data.hua, '2'],
+					[data.aponia, '2'],
+					[data.kalpas, '2']
+				],
+				optional: [
+					[data.pardofelis, '1']
+				]
+			},
+			emblem: [
+				[data.forbiddenSeed, data.outOfReach],
+				[data.memory, data.outOfReach],
+				[data.tinFlask, data.outOfReach]
+			],
+			support: [
+				[ [data.ae], [data.fr] ],
+				[ [data.ae], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Saturday'
+					],
+					[data.second]: [
+						'Sunday'
+					],
+					[data.optional]: [
+						'Work\'s End'
+					],
+					[data.no]: [
+						'Annual Leave',
+						'Day Off Work'
+					]
+				},
+				main: {
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.regular.vuln,
+						data.mobius.nexus2.name,
+						data.mobius.nexus2.vuln,
+						data.mobius.nexus2.dmgPhysEle,
+						data.mobius.nexus2.extend
+					]
+				},
+				secondary: {
+					[data.hua.name]: [
+						data.hua.regular.dmgTotal,
+						data.hua.regular.dmgEle,
+						data.hua.regular.breachEle,
+						data.hua.nexus2.name,
+						data.hua.nexus2.stackCap
+					],
+					[data.aponia.name]: [
+						data.aponia.regular.spRestore,
+						data.aponia.regular.dmgPhysEle,
+						data.aponia.regular.vuln,
+						data.aponia.nexus2.name
+					],
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name
+					]
+				},
+				optional: {
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				}
+			},
+			notes: `Can pick Eden's signets <span>${data.eden.regular.dmgTotal}</span>, and <span>${data.eden.regular.dmgPhysEle}</span> as reinforcement.
+					Recommended to swap sigil on 6F. Rotation : Use AE at start to gather then use ultimate followed by supports. Use Kosmos support when the enemies are scattered, or reset for Sunday on 2F to help with gathering.`
+		},
+		{
+			name: 'astral ring',
+			buff: [
+				data.buffs[0][12],
+				data.buffs[3][6],
+				data.buffs[3][21]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.mobius, '1'],
+					[data.su, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.aponia, '2']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.dreamfulGold],
+				[data.forbiddenSeed, data.dreamfulGold],
+				[data.heavyAsAMillionLives, data.dreamfulGold]
+			],
+			support: [
+				[ [data.dafl], [data.rc] ],
+				[ [data.dafl], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Annual Leave'
+					],
+					[data.second]: [
+						'Day Off Work'
+					],
+					[data.optional]: [
+						'Work\'s End'
+					],
+					[data.no]: [
+						'Saturday',
+						'Sunday'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+				},
+				secondary: {
+					[data.mobius.name]: [
+						data.mobius.regular.dmgTotal,
+						data.mobius.regular.dmgEntity,
+						data.mobius.regular.vuln,
+						data.mobius.nexus1.name,
+						data.mobius.nexus1.dmgTotal,
+						data.mobius.nexus1.breachPhysEle
+					],
+					[data.su.name]: [
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.regular.vuln,
+						data.su.regular.dmgTotal,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.aponia.name]: [
+						data.aponia.regular.basicAtk,
+						data.aponia.regular.spRestore,
+						data.aponia.regular.vuln,
+						data.aponia.nexus2.name
+					]
+				}
+			},
+			notes: 'Recommended to resete for Day Off Work on 2F, recommended to swap sigil on 5F. Rotation : Enter Stellar Outburst, use supports and ultimate, hold basic ATK to use combo ATK, then once the bar is past half, use combo ATK again. If the bar is not past half yet, tap basic or weapon to fill the bar.'
+		}
+	]
+};
 // Miracle ☆ Magical Girl
 const sirin: Guide = {
 	name: 'Miracle ☆ Magical Girl',
@@ -5601,8 +5786,8 @@ export const valks: any[] = [
 	aka,	bke,	ce,		cn,		da,		sena,	aponia,	dw,		fr,		fv,
 	mc,		eden,	gm,		villv,	hofi, 	hofs,	hoh,	hoo,	hor,	horb,
 	hos,	hov,	hot,	hotr,	mobius,	sus,	songque, lantern,	lk, 	lv,
-	thelema, raven,	sirin,	elysia,	pe,		fischl,	pardo,	ri,		sk,		sw,
-	ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,		ve,
-	coralie, helia,	vg,		vq,		vkek
+	thelema, raven,	sirin,	elysia,	pe,		fischl,	pardo,	ri,		si,		sk,
+	sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,	ta,
+	ve,		coralie, helia,	vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;
