@@ -56,6 +56,7 @@ const bannerImages = [
 	'Jade_Knight',
 	'Jovial_Deception_Shadowdimmer',
 	'Lone_Destruction_Shadowchaser',
+	'Lone_Planetfarer',
 	'Luna_Kindred',
 	'Lunar_Vow_Crimson_Love',
 	'Mad_Pleasure_Shadowbringer',

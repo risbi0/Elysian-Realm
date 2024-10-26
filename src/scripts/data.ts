@@ -277,7 +277,8 @@ export const buffs = [
 		'Parvati',
 		'HOMU', //
 		'MHT-3B',
-		'Valrahal'
+		'Valrahal',
+		'Andrius'
 	],
 	// 5
 	[
@@ -294,7 +295,7 @@ export const buffs = [
 		'Summons TDM bonus', //
 		'Max HP +200',
 		'Max HP +500',
-		'Different type support bonus'
+		'Support type bonus'
 	],
 	// 10
 	[
@@ -318,7 +319,8 @@ export const buffs = [
 		'Ele DMG bonus',
 		'Weapon skill TDM bonus',
 		'Physical DMG',
-		'Elemental DMG' //
+		'Elemental DMG', //
+		'Ultimate DMG bonus'
 	],
 	// 15
 	[
