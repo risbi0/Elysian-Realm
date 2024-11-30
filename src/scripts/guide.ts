@@ -5567,6 +5567,192 @@ const helia: Guide = {
 		}
 	]
 };
+// Thousand-Faced Maestro: Cameo!
+const sparkle: Guide = {
+	name: 'Thousand-Faced Maestro: Cameo!',
+	acr: 'sparkle',
+	version: '7.9',
+	builds: [
+		{
+			name: 'No ring',
+			buff: [
+				data.buffs[3][6],
+				data.buffs[3][22]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.vv, '2'],
+					[data.su, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.kalpas, '2']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.becauseOfYou],
+				[data.psuedoMiracle, data.fallingInPastLight],
+				[data.heavyAsAMillionLives, data.fallingInPastLight]
+			],
+			support: [
+				[ [data.vke], [data.ma] ],
+				[ [data.dosa], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Radiant Flames'
+					],
+					[data.second]: [
+						'Thousand-Faced',
+						'Opulence'
+					],
+					[data.no]: [
+						'Deceit',
+						'Dream Scales'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name
+					]
+				},
+				secondary: {
+					[data.vv.name]: [
+						data.vv.regular.dmgWeap,
+						data.vv.regular.vuln,
+						data.vv.regular.dmgTotal,
+						data.vv.nexus2.name,
+						data.vv.nexus2.breachPhysEle,
+						data.vv.nexus2.vuln,
+						data.vv.nexus2.gravField
+					],
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.dmgShield
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.dmgPhysEle,
+						data.pardofelis.regular.dmgTotal,
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.nexus2.name
+					]
+				}
+			},
+			notes: `Recommended to start with Because of You, take Thousand-Faced and Opulence on 7F. Rotation: Keep tapping weapon active, after obtaining Thousand-Faced, use ultimate whenever available.
+					Can pick pick Griseo's signet <span>${data.griseo.regular.red}</span> as reinforcement.`
+		},
+		{
+			name: 'Ring',
+			buff: [
+				data.buffs[3][6],
+				data.buffs[3][22]
+			],
+			signet: {
+				main: [
+					[data.eden, '1']
+				],
+				secondary: [
+					[data.griseo, '1'],
+					[data.su, '1'],
+					[data.pardofelis, '1']
+				],
+				optional: [
+					[data.kalpas, '2']
+				]
+			},
+			emblem: [
+				[data.goldGoblet, data.becauseOfYou],
+				[data.rainbowOfAbsence, data.dreamfulGold],
+				[data.heavyAsAMillionLives, data.dreamfulGold]
+			],
+			support: [
+				[ [data.vke], [data.ma] ],
+				[ [data.dosa], [data.br] ]
+			],
+			signetTable: {
+				exclusive: {
+					[data.start]: [
+						'Deceit'
+					],
+					[data.first]: [
+						'Dream Scales'
+					],
+					[data.second]: [
+						'Thousand-Faced'
+					],
+					[data.optional]: [
+						'Opulence'
+					],
+					[data.no]: [
+						'Radiant Flames'
+					]
+				},
+				main: {
+					[data.eden.name]: [
+						data.eden.regular.dmgTotal,
+						data.eden.regular.dmgPhysEle,
+						data.eden.regular.spCapInitial,
+						data.eden.nexus1.name,
+						data.eden.nexus1.vuln,
+						data.eden.nexus1.lightning
+					]
+				},
+				secondary: {
+					[data.griseo.name]: [
+						data.griseo.regular.red,
+						data.griseo.regular.yellow,
+						data.griseo.regular.black,
+						data.griseo.nexus1.name
+					],
+					[data.su.name]: [
+						data.su.regular.dmgTotal,
+						data.su.regular.vuln,
+						data.su.regular.combo25,
+						data.su.regular.combo60,
+						data.su.nexus1.name,
+						data.su.nexus1.vuln,
+						data.su.nexus1.dmgShield
+					],
+					[data.pardofelis.name]: [
+						data.pardofelis.regular.spHpCap,
+						data.pardofelis.nexus1.name
+					]
+				},
+				optional: {
+					[data.kalpas.name]: [
+						data.kalpas.regular.dmgTotal,
+						data.kalpas.regular.dmgPhysEle,
+						data.kalpas.regular.hp,
+						data.kalpas.regular.vuln,
+						data.kalpas.nexus2.name
+					]
+				}
+			},
+			notes: `Recommended to start with Because of You, take Dream Scales and Thousand-Faced on 7F. Rotation: 1) Tap weapon active then activate Stellar Outburst. 2) Tap basic until bar depleted, then use ultimate to exit Stellar Outburst. 3) Use red combo ATK, repeat from beginning. Can also use red combo ATK to gather enemies if needed, once Thousand-Faced is obtained, can use ultimate at the beginning.
+					Can pick pick Kevin's signets <span>${data.kevin.regular.dmgTotal}</span>, <span>${data.kevin.regular.dmgEle}</span>, and <span>${data.kevin.regular.spRestore}</span> or Kosma's signets <span>${data.kosma.regular.atk}</span>, <span>${data.kosma.regular.ult}</span>, and <span>${data.kosma.regular.extend}</span> as reinforcement.`
+		}
+	]
+};
 // Helical Contraption
 const villv: Guide = {
 	name: 'Helical Contraption',
@@ -5872,6 +6058,6 @@ export const valks: any[] = [
 	hos,	hov,	hot,	hotr,	mobius,	sus,	songque, lantern,	lp,	lk,
 	lv,		thelema, raven,	sirin,	elysia,	pe,		fischl,	pardo,	ri,		si,
 	sk,		sw,		ss,		spa,	griseo,	nyx,	sn,		vb,		kira,	carole,
-	ta,		ve,		coralie, helia,	vg,		vq,		vkek
+	ta,		sparkle, ve, coralie, 	helia,	vg,		vq,		vkek
 ];
 export const valksLength: number = valks.length;

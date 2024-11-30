@@ -345,7 +345,8 @@ export const buffs = [
 		'Nexus Ice DMG bonus',
 		'Weapon skill TDM bonus',
 		'Weapon skill / Combo TDM bonus', //
-		'Nexus Lightning DMG bonus'
+		'Nexus Lightning DMG bonus',
+		'Weapon skill / Summon TDM bonus'
 	]
 ];
 // signets

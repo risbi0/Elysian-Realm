@@ -1,4 +1,4 @@
-const cacheName = 'herrscher-of-cache-v22';
+const cacheName = 'herrscher-of-cache-v23';
 
 const cacheAssets = [
 	'./site.webmanifest',
@@ -79,6 +79,7 @@ const bannerImages = [
 	'Sweet_n_Spicy',
 	'Striker_Fulminata',
 	'Terminal_Aide_0017',
+	'Thousand_Faced_Maestro_Cameo',
 	'Twilight_Paladin',
 	'Valkyrie_Blastmetal',
 	'Valkyrie_Boltstorm',
