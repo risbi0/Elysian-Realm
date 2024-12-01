@@ -5599,7 +5599,7 @@ const sparkle: Guide = {
 			],
 			support: [
 				[ [data.vke], [data.ma] ],
-				[ [data.dosa], [data.br] ]
+				[ [data.dafl], [data.br] ]
 			],
 			signetTable: {
 				exclusive: {
@@ -5687,7 +5687,7 @@ const sparkle: Guide = {
 			],
 			support: [
 				[ [data.vke], [data.ma] ],
-				[ [data.dosa], [data.br] ]
+				[ [data.dafl], [data.br] ]
 			],
 			signetTable: {
 				exclusive: {
